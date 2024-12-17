@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+inform", {
       name: "Inform",
       description:
-        "Inform is a programming language and design system for interactive fiction originally created in 1993 by Graham Nelson. It allows authors to create stories that operate through natural language sentences and can compile to platforms that support the Z-code or Glulx virtual machines. Inform's significant redesigns include Inform 6 and Inform 7, which supports natural language-based story writing.",
-      shortDesc: "Inform is a programming language for interactive fiction, supporting natural language sentence story writing.",
+        "Programming language and design system for interactive fiction originally created in 1993 by Graham Nelson. It allows authors to create stories that operate through natural language sentences and can compile to platforms that support the Z-code or Glulx virtual machines. Inform's significant redesigns include Inform 6 and Inform 7, which supports natural language-based story writing.",
+      shortDesc: "Programming language for interactive fiction, supporting natural language sentence story writing.",
       created: "1993",
       extensions: [".inform", ".ni", ".z5", ".z8"],
       extGithubPath: "ganelson/inform",

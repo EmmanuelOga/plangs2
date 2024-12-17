@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+batchfile", {
       name: "Batchfile",
       description:
-        "A scripting language used for executing series of commands in DOS, OS/2, and Microsoft Windows environments. Batch files automate routine tasks through script execution in command-line interpreters like COMMAND.COM or cmd.exe.",
-      shortDesc: "A scripting language for automating tasks in DOS and Windows environments.",
+        "Scripting language used for executing series of commands in DOS, OS/2, and Microsoft Windows environments. Batch files automate routine tasks through script execution in command-line interpreters like COMMAND.COM or cmd.exe.",
+      shortDesc: "Scripting language for automating tasks in DOS and Windows environments.",
       created: "1985",
       extensions: [".bat", ".btm", ".cmd"],
       extRedditPath: "Batch",

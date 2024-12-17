@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+luau", {
       name: "Luau",
       description:
-        "Luau is a high-performance scripting language developed by Roblox as a subset of Lua, optimized for game development on the Roblox platform, featuring gradual typing and safety features.",
-      shortDesc: "Luau is a Lua subset developed by Roblox for game scripting with gradual typing.",
+        "High-performance scripting language developed by Roblox as a subset of Lua, optimized for game development on the Roblox platform, featuring gradual typing and safety features.",
+      shortDesc: "Lua subset developed by Roblox for game scripting with gradual typing.",
       created: "2019",
       extensions: [".luau"],
       extGithubPath: "Roblox/luau",

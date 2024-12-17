@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+asp.net", {
       name: "ASP.NET",
       description:
-        "ASP.NET is a server-side web-application framework designed for web development to generate dynamic web pages. Developed by Microsoft, it allows building web applications and services using the Microsoft .NET runtime. ASP.NET supports multiple .NET languages for coding, leveraging the Common Language Runtime (CLR).",
-      shortDesc: "ASP.NET is a server-side web-application framework by Microsoft for building dynamic websites and services using the .NET runtime.",
+        "Server-side web-application framework designed for web development to generate dynamic web pages. Developed by Microsoft, it allows building web applications and services using the Microsoft .NET runtime. ASP.NET supports multiple .NET languages for coding, leveraging the Common Language Runtime (CLR).",
+      shortDesc: "Server-side web-application framework by Microsoft for building dynamic websites and services using the .NET runtime.",
       created: "2002",
       extensions: [".aspx", ".cshtml", ".vbhtml"],
       extGithubPath: "dotnet/aspnetcore",

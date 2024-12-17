@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+purebasic", {
       name: "PureBasic",
       description:
-        "PureBasic is a modern BASIC programming language designed for both beginners and experts. It compiles to native code for Windows, Linux, macOS, and Raspberry Pi OS, producing optimized 32-bit and 64-bit executables without external dependencies. Developed by Fantaisie Software, PureBasic offers a simple syntax with advanced features like pointers, structures, and inline assembly.",
-      shortDesc: "PureBasic is a modern BASIC programming language that compiles to native code across multiple platforms.",
+        "Modern BASIC programming language designed for both beginners and experts. It compiles to native code for Windows, Linux, macOS, and Raspberry Pi OS, producing optimized 32-bit and 64-bit executables without external dependencies. Developed by Fantaisie Software, PureBasic offers a simple syntax with advanced features like pointers, structures, and inline assembly.",
+      shortDesc: "Modern BASIC programming language that compiles to native code across multiple platforms.",
       created: "1998",
       extensions: [".pb", ".pbf", ".pbi", ".pbp"],
       extGithubPath: "fantaisie-software/purebasic",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+wing", {
       name: "Wing",
       description:
-        "Wing is a high-level programming language tailored for cloud infrastructure management, streamlining development for cloud-native and serverless applications with simplified syntax and robust features, enhancing productivity for cloud services like AWS.",
-      shortDesc: "Wing is designed for managing cloud infrastructure and serverless applications.",
+        "High-level programming language tailored for cloud infrastructure management, streamlining development for cloud-native and serverless applications with simplified syntax and robust features, enhancing productivity for cloud services like AWS.",
+      shortDesc: "Designed for managing cloud infrastructure and serverless applications.",
       created: "2022",
       extensions: [".w", ".wing"],
       extGithubPath: "winglang/wing",

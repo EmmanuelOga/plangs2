@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+reason", {
       name: "Reason",
       description:
-        "Reason, also known as ReasonML, is a general-purpose, high-level, multi-paradigm programming language and syntax extension for OCaml, created by Jordan Walke at Facebook. It focuses on functional and object-oriented programming features and compiles to native code via OCaml's compiler, as well as to JavaScript using a ReScript compiler.",
-      shortDesc: "ReasonML is a multi-paradigm language focusing on functional programming, compiling to OCaml and JavaScript.",
+        "General-purpose, high-level, multi-paradigm programming language and syntax extension for OCaml, created by Jordan Walke at Facebook. It focuses on functional and object-oriented programming features and compiles to native code via OCaml's compiler, as well as to JavaScript using a ReScript compiler.",
+      shortDesc: "Multi-paradigm language focusing on functional programming, compiling to OCaml and JavaScript.",
       created: "2016",
       extensions: [".re", ".rei"],
       extGithubPath: "reasonml/reason",

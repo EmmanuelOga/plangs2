@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+jruby", {
       name: "JRuby",
       description:
-        "JRuby is an implementation of the Ruby programming language atop the Java Virtual Machine, written largely in Java. It is free software released under a three-way EPL/GPL/LGPL license. JRuby is tightly integrated with Java to allow the embedding of the interpreter into any Java application with full two-way access between Java and Ruby code, similar to Jython for Python.",
-      shortDesc: "JRuby is a Java-based implementation of Ruby, integrating closely with Java for two-way access.",
+        "Implementation of the Ruby programming language atop the Java Virtual Machine, written largely in Java. It is free software released under a three-way EPL/GPL/LGPL license. JRuby is tightly integrated with Java to allow the embedding of the interpreter into any Java application with full two-way access between Java and Ruby code, similar to Jython for Python.",
+      shortDesc: "Java-based implementation of Ruby, integrating closely with Java for two-way access.",
       created: "2001",
       extensions: [".jruby", ".rb"],
       extGithubPath: "jruby/jruby",

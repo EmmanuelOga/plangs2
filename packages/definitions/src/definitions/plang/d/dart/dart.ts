@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+dart", {
       name: "Dart",
       description:
-        "Dart is a programming language designed by Lars Bak and Kasper Lund and developed by Google. It is used to develop web and mobile apps as well as server and desktop applications, supporting a broad range of platforms with efficient compilation techniques including JavaScript and WebAssembly.",
-      shortDesc: "Dart is a language by Google for building web, mobile, and server apps, with tools to compile to JavaScript and WebAssembly.",
+        "Designed by Lars Bak and Kasper Lund and developed by Google. It is used to develop web and mobile apps as well as server and desktop applications, supporting a broad range of platforms with efficient compilation techniques including JavaScript and WebAssembly.",
+      shortDesc: "Language for building web, mobile, and server apps, with tools to compile to JavaScript and WebAssembly.",
       created: "2011",
       extensions: [".dart"],
       extGithubPath: "dart-lang/sdk",

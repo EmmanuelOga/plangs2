@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+astro", {
       name: "Astro",
       description:
-        "Astro is a modern framework for building fast, content-focused websites by leveraging static site generation and minimal client-side JavaScript.",
-      shortDesc: "Astro is a modern framework for building fast, content-focused websites using static site generation.",
+        "Modern framework for building fast, content-focused websites by leveraging static site generation and minimal client-side JavaScript.",
+      shortDesc: "Modern framework for building fast, content-focused websites using static site generation.",
       created: "2020",
       extensions: [".astro"],
       extGithubPath: "withastro/astro",

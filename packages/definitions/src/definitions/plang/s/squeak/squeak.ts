@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+squeak", {
       name: "Squeak",
       description:
-        "Squeak is a modern, open-source Smalltalk programming system with fast execution environments across all major platforms including macOS, Windows, and Linux. It is known for its implementation of the Morphic graphical framework, fostering low-effort, interactive application development. Squeak's rich history includes its derivation from Smalltalk-80 and collaboration with entities like Disney, HP Labs, and Y Combinator. It is renowned for educational tools like Scratch and innovative user interface frameworks such as Morphic, Etoys, and Tweak.",
-      shortDesc: "Squeak is a modern, open-source Smalltalk with a fast execution environment and the Morphic framework.",
+        "Modern Smalltalk programming system with fast execution environments across all major platforms including macOS, Windows, and Linux. It is known for its implementation of the Morphic graphical framework, fostering low-effort, interactive application development. Squeak's rich history includes its derivation from Smalltalk-80 and collaboration with entities like Disney, HP Labs, and Y Combinator. It is renowned for educational tools like Scratch and innovative user interface frameworks such as Morphic, Etoys, and Tweak.",
+      shortDesc: "Modern Smalltalk with a fast execution environment and the Morphic framework.",
       created: "1996",
       extensions: [".changes", ".image", ".sources", ".st"],
       extGithubPath: "squeak-smalltalk/squeak-app",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+mono", {
       name: "Mono",
       description:
-        "Mono is a free and open-source .NET Framework-compatible software framework. Originally by Ximian which was acquired by Novell, it was later developed by Xamarin which was acquired by Microsoft. In August 2024, Microsoft transferred ownership of Mono to WineHQ. Mono can be run on many software systems.",
-      shortDesc: "Mono is a free and open-source .NET compatible software framework.",
+        "Free and open-source .NET Framework-compatible software framework. Originally by Ximian which was acquired by Novell, it was later developed by Xamarin which was acquired by Microsoft. In August 2024, Microsoft transferred ownership of Mono to WineHQ. Mono can be run on many software systems.",
+      shortDesc: ".NET compatible software framework.",
       created: "2004",
       extensions: [".cs", ".vb"],
       extGithubPath: "mono/mono",

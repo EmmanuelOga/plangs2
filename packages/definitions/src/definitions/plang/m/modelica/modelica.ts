@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+modelica", {
       name: "Modelica",
       description:
-        "Modelica is a non-proprietary, object-oriented, declarative, multi-domain modeling language for component-oriented modeling of complex systems. It is primarily developed for modeling physical systems and supports acausal modeling with the use of mathematical equations rather than assignment statements. Developed by the Modelica Association, it allows the connection of reusable components to model systems across multiple domains such as electrical, mechanical, and thermal.",
-      shortDesc: "Modelica is a non-proprietary, object-oriented language for modeling complex physical systems across multiple domains.",
+        "Non-proprietary, object-oriented, declarative, multi-domain modeling language for component-oriented modeling of complex systems. It is primarily developed for modeling physical systems and supports acausal modeling with the use of mathematical equations rather than assignment statements. Developed by the Modelica Association, it allows the connection of reusable components to model systems across multiple domains such as electrical, mechanical, and thermal.",
+      shortDesc: "Non-proprietary, object-oriented language for modeling complex physical systems across multiple domains.",
       created: "1997",
       extensions: [".mo"],
       extGithubPath: "modelica/ModelicaStandardLibrary",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+mustache", {
       name: "Mustache",
       description:
-        "Mustache is a logic-less web template system that heavily uses braces `{{}}` for templating, resembling a sideways moustache. Known for strong separation of logic and presentation, Mustache relies on data-driven rendering without explicit flow control.",
-      shortDesc: "Mustache is a logic-less web template system using braces `{{}}` for templating.",
+        "Logic-less web template system that heavily uses braces `{{}}` for templating, resembling a sideways moustache. Known for strong separation of logic and presentation, Mustache relies on data-driven rendering without explicit flow control.",
+      shortDesc: "Logic-less web template system using braces `{{}}` for templating.",
       created: "2009",
       extensions: [".mustache"],
       extGithubPath: "mustache/mustache",

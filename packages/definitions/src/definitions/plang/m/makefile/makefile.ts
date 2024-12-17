@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+makefile", {
       name: "Makefile",
       description:
-        "Make is a command-line tool used for build automation primarily on Unix-like operating systems. It operates by reading makefiles, which define how to derive target files from source files by comparing timestamps to decide what needs to be rebuilt.",
-      shortDesc: "Make is a tool used for build automation, defining build tasks in makefiles based on file timestamps.",
+        "Command-line tool used for build automation primarily on Unix-like operating systems. It operates by reading makefiles, which define how to derive target files from source files by comparing timestamps to decide what needs to be rebuilt.",
+      shortDesc: "Tool used for build automation, defining build tasks in makefiles based on file timestamps.",
       created: "1976",
       extensions: [".mk"],
       extWikipediaPath: "Make_(software)",

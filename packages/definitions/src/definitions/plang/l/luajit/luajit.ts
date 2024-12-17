@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+luajit", {
       name: "LuaJIT",
       description:
-        "LuaJIT is a tracing just-in-time compiler for the Lua programming language, renowned for its execution performance and compatibility with Lua 5.1. It was originally developed by Mike Pall and is known as the fastest Lua runtime, frequently used for numerical computation and dynamic programming language applications.",
-      shortDesc: "LuaJIT is a high-performance tracing JIT compiler for Lua 5.1, known for its speed and compatibility.",
+        "Tracing just-in-time compiler for the Lua programming language, renowned for its execution performance and compatibility with Lua 5.1. It was originally developed by Mike Pall and is known as the fastest Lua runtime, frequently used for numerical computation and dynamic programming language applications.",
+      shortDesc: "High-performance tracing JIT compiler for Lua 5.1, known for its speed and compatibility.",
       created: "2005",
       extensions: [".lua", ".luajit"],
       extGithubPath: "LuaJIT/LuaJIT",

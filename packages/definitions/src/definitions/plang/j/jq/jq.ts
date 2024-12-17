@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+jq", {
       name: "jq",
       description:
-        "jq is a lightweight and flexible command-line JSON processor, allowing for easy manipulation and transformation of JSON data with a functional programming paradigm.",
-      shortDesc: "jq is a lightweight and flexible command-line JSON processor.",
+        "Lightweight and flexible command-line JSON processor, allowing for easy manipulation and transformation of JSON data with a functional programming paradigm.",
+      shortDesc: "Lightweight and flexible command-line JSON processor.",
       created: "2012",
       extensions: [".jq"],
       extGithubPath: "jqlang/jq",

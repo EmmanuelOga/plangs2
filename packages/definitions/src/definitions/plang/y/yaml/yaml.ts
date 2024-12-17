@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+yaml", {
       name: "YAML",
       description:
-        "YAML is a human-readable data serialization language commonly used for configuration files and data exchange, known for its minimal syntax and complex data structure representation. YAML is particularly popular for configuration files, allowing for nesting and structures similar to Python but using indentation-based syntax.",
-      shortDesc: "YAML is a human-readable data serialization language for configuration files and data exchange, featuring minimal syntax.",
+        "Human-readable data serialization language commonly used for configuration files and data exchange, known for its minimal syntax and complex data structure representation. YAML is particularly popular for configuration files, allowing for nesting and structures similar to Python but using indentation-based syntax.",
+      shortDesc: "Human-readable data serialization language for configuration files and data exchange, featuring minimal syntax.",
       created: "2001",
       extensions: [".yaml", ".yml"],
       extHomeURL: "https://yaml.org/",
@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
       stackovTags: ["yaml"],
     })
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+data-exchange", "para+declarative")
+    .relParadigms.add("para+data-exchange", "para+declarative", "para+markup")
     .relPlatforms.add("plat+cross")
     .relTags.add("tag+dataflow", "tag+scripting");
 

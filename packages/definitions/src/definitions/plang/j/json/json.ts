@@ -5,9 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+json", {
       name: "JSON",
       description:
-        "JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate.",
-      shortDesc:
-        "JSON is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate.",
+        "JavaScript Object Notation is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate.",
+      shortDesc: "Lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate.",
       created: "2001",
       extensions: [".json"],
       extHomeURL: "https://json.org",

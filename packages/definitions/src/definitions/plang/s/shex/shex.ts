@@ -4,8 +4,8 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+shex", {
       name: "ShEx",
-      description: "Shape Expressions (ShEx) is a data modeling language used for describing and validating RDF data structures.",
-      shortDesc: "Shape Expressions (ShEx) is used for RDF data validation and description.",
+      description: "Shape Expressions is a data modeling language used for describing and validating RDF data structures.",
+      shortDesc: "Used for RDF data validation and description.",
       created: "2012",
       extensions: [".shex", ".sx"],
       extHomeURL: "http://shex.io",

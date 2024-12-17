@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+rmarkdown", {
       name: "RMarkdown",
       description:
-        "RMarkdown is a document format that combines markdown-like syntax with embedded R code chunks, allowing the material to be 'knit' into a final document where the code is executed and outputs are integrated. It is widely used for creating dynamic reports, documents, and presentations that incorporate direct outputs from R.",
-      shortDesc: "RMarkdown is a document format for creating dynamic reports by integrating R code chunks in markdown-like syntax.",
+        "Document format that combines markdown-like syntax with embedded R code chunks, allowing the material to be 'knit' into a final document where the code is executed and outputs are integrated. It is widely used for creating dynamic reports, documents, and presentations that incorporate direct outputs from R.",
+      shortDesc: "Document format for creating dynamic reports by integrating R code chunks in markdown-like syntax.",
       created: "2014",
       extensions: [".Rmd"],
       extGithubPath: "rstudio/rmarkdown",

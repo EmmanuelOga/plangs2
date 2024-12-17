@@ -5,9 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+janet", {
       name: "Janet",
       description:
-        "Janet is a versatile and lightweight programming language, designed to be embedded or used as a standalone script with a focus on functional and imperative programming paradigms. Ideal for scripting and embedding in C/C++ programs, Janet provides a rich ecosystem for networked applications and real-time data processing with minimal overhead.",
-      shortDesc:
-        "Janet is a versatile, lightweight programming language, ideal for embedded scripting in C/C++ with functional and imperative paradigms.",
+        "Versatile and lightweight programming language, designed to be embedded or used as a standalone script with a focus on functional and imperative programming paradigms. Ideal for scripting and embedding in C/C++ programs, Janet provides a rich ecosystem for networked applications and real-time data processing with minimal overhead.",
+      shortDesc: "Versatile, lightweight programming language, ideal for embedded scripting in C/C++ with functional and imperative paradigms.",
       created: "2017",
       extensions: [".janet"],
       extGithubPath: "janet-lang/janet",

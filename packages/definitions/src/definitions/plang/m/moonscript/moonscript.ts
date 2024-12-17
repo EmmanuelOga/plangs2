@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+moonscript", {
       name: "MoonScript",
       description:
-        "MoonScript is a dynamic, whitespace-sensitive language that compiles to Lua, offering a cleaner syntax inspired by CoffeeScript and compatibility with Lua environments, including LuaJIT.",
-      shortDesc: "MoonScript is a dynamic scripting language compiling to Lua with CoffeeScript-inspired syntax.",
+        "Dynamic, whitespace-sensitive language that compiles to Lua, offering a cleaner syntax inspired by CoffeeScript and compatibility with Lua environments, including LuaJIT.",
+      shortDesc: "Dynamic scripting language compiling to Lua with CoffeeScript-inspired syntax.",
       created: "2011",
       extensions: [".moon"],
       extGithubPath: "leafo/moonscript",

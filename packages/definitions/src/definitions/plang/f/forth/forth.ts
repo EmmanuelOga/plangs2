@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+forth", {
       name: "Forth",
       description:
-        'Forth is a stack-oriented programming language and interactive integrated development environment designed by Charles H. "Chuck" Moore and first introduced in 1970. The language\'s unique feature is its ability to extend itself at runtime, making it quite flexible and powerful. Commonly used in embedded systems, spaceflight applications, and boot loaders, it is known for its efficiency and small memory footprint. Forth combines a compiler with an interactive command shell and relies on Reverse Polish Notation.',
-      shortDesc: "Forth is a stack-oriented programming language known for its flexibility, efficiency, and use in embedded systems.",
+        "Stack-oriented programming language and interactive integrated development environment designed by Charles H. Moore and first introduced in 1970. The language's unique feature is its ability to extend itself at runtime, making it quite flexible and powerful. Commonly used in embedded systems, spaceflight applications, and boot loaders, it is known for its efficiency and small memory footprint. Forth combines a compiler with an interactive command shell and relies on Reverse Polish Notation.",
+      shortDesc: "Stack-oriented programming language known for its flexibility, efficiency, and use in embedded systems.",
       created: "1970",
       extensions: [".4th", ".f", ".forth", ".fs", ".fth"],
       extHomeURL: "https://forth-standard.org/",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+micropython", {
       name: "MicroPython",
       description:
-        "MicroPython is an efficient implementation of Python 3 designed to run on microcontrollers and in constrained environments, offering Python's tools, libraries, and syntax for resource-limited devices.",
-      shortDesc: "MicroPython is a subset of Python 3 tailored for microcontrollers.",
+        "Efficient implementation of Python 3 designed to run on microcontrollers and in constrained environments, offering Python's tools, libraries, and syntax for resource-limited devices.",
+      shortDesc: "Subset of Python 3 tailored for microcontrollers.",
       created: "2013",
       extensions: [".py"],
       extGithubPath: "micropython/micropython",

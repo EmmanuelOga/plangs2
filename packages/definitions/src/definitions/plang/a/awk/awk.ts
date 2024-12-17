@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+awk", {
       name: "AWK",
       description:
-        "AWK is a domain-specific language designed for text processing and is typically used as a data extraction and reporting tool. It operates as a filter and is a standard feature of most Unix-like operating systems. AWK is recognized for its terseness and power in text processing, facilitating one-liner programs.",
-      shortDesc: "AWK is a language for text processing and data extraction, common on Unix-like systems.",
+        "Domain-specific language designed for text processing and is typically used as a data extraction and reporting tool. It operates as a filter and is a standard feature of most Unix-like operating systems. AWK is recognized for its terseness and power in text processing, facilitating one-liner programs.",
+      shortDesc: "Text processing and data extraction, common on Unix-like systems.",
       created: "1977",
       extensions: [".awk", ".gawk", ".mawk", ".nawk"],
       extHomeURL: "https://www.gnu.org/software/gawk/",

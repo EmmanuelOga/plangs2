@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+elvish", {
       name: "Elvish",
       description:
-        "Elvish is a powerful scripting language and versatile interactive shell, offering a rich programming environment with structured data and functional features. It supports cross-platform compatibility with a statically linked binary for Linux, BSDs, macOS, and Windows.",
-      shortDesc: "Elvish is a versatile scripting language and interactive shell with cross-platform binary support.",
+        "Powerful scripting language and versatile interactive shell, offering a rich programming environment with structured data and functional features. It supports cross-platform compatibility with a statically linked binary for Linux, BSDs, macOS, and Windows.",
+      shortDesc: "Versatile scripting language and interactive shell with cross-platform binary support.",
       created: "2016",
       extensions: [".elv"],
       extGithubPath: "elves/elvish",

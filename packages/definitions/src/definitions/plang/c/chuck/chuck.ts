@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+chuck", {
       name: "ChucK",
       description:
-        "ChucK is a concurrent, strongly timed audio programming language for real-time synthesis, composition, and performance. It is used for creating complex audio synthesis programs and interactive controls, supporting real-time coding and deterministic concurrency.",
-      shortDesc: "ChucK is a concurrent, real-time audio programming language for synthesis and performance.",
+        "Concurrent, strongly timed audio programming language for real-time synthesis, composition, and performance. It is used for creating complex audio synthesis programs and interactive controls, supporting real-time coding and deterministic concurrency.",
+      shortDesc: "Concurrent, real-time audio programming language for synthesis and performance.",
       created: "2002",
       extensions: [".ck"],
       extGithubPath: "ccrma/chuck",

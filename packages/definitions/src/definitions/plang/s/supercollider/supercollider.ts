@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+supercollider", {
       name: "SuperCollider",
       description:
-        "SuperCollider is an advanced programming environment used for real-time audio synthesis and algorithmic music composition, originally introduced by James McCartney in 1996. It plays a significant role in sound design and music technology.",
-      shortDesc: "SuperCollider is for real-time audio synthesis and music composition.",
+        "Used for real-time audio synthesis and algorithmic music composition, originally introduced by James McCartney in 1996. It plays a significant role in sound design and music technology.",
+      shortDesc: "Real-time audio synthesis and music composition.",
       created: "1996",
       extensions: [".scd"],
       extGithubPath: "supercollider/supercollider",

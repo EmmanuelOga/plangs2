@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+clang", {
       name: "Clang",
       description:
-        "Clang is a compiler front end for C, C++, Objective-C, and Objective-C++, integrating with LLVM to provide a modular, reusable compiler framework.",
-      shortDesc: "Clang is a compiler front end for C, C++, Objective-C, and Objective-C++, integrating with LLVM.",
+        "Compiler front end for C, C++, Objective-C, and Objective-C++, integrating with LLVM to provide a modular, reusable compiler framework.",
+      shortDesc: "Compiler front end for C, C++, Objective-C, and Objective-C++, integrating with LLVM.",
       created: "2007",
       extensions: [".c", ".cpp", ".cu", ".m", ".mm"],
       extGithubPath: "llvm/llvm-project",

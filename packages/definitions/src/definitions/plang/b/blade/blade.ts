@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+blade", {
       name: "Blade",
       description:
-        "Blade is a simple yet powerful templating engine provided with Laravel, a PHP framework, which allows developers to seamlessly blend PHP logic with HTML. It offers template inheritance, conditional statements, and looping constructs, enhancing code readability and maintainability.",
-      shortDesc: "Blade is a templating engine integrated with Laravel, enabling PHP logic in HTML.",
+        "Simple yet powerful templating engine provided with Laravel, a PHP framework, which allows developers to seamlessly blend PHP logic with HTML. It offers template inheritance, conditional statements, and looping constructs, enhancing code readability and maintainability.",
+      shortDesc: "Templating engine integrated with Laravel, enabling PHP logic in HTML.",
       created: "2011",
       extensions: [".blade.php"],
       extGithubPath: "laravel/laravel",

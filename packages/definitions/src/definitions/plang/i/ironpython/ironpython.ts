@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+ironpython", {
       name: "IronPython",
       description:
-        "IronPython is an open-source implementation of Python, designed to work seamlessly with the .NET and Mono frameworks, allowing for the integration of .NET libraries within Python code. It provides a bridge between Python scripting and the .NET runtime, enabling developers to leverage .NET's extensive libraries.",
-      shortDesc: "IronPython is an open-source implementation of Python for the .NET framework.",
+        "Implementation of Python, designed to work seamlessly with the .NET and Mono frameworks, allowing for the integration of .NET libraries within Python code. It provides a bridge between Python scripting and the .NET runtime, enabling developers to leverage .NET's extensive libraries.",
+      shortDesc: "Implementation of Python for the .NET framework.",
       created: "2006",
       extensions: [".py", ".pyi"],
       extGithubPath: "IronLanguages/ironpython3",

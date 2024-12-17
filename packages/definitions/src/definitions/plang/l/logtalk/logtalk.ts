@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+logtalk", {
       name: "Logtalk",
       description:
-        "Logtalk is an open-source object-oriented logic programming language that facilitates code reuse by extending Prolog, enabling encapsulated logic programs with a distinct separation of interface and implementation.",
-      shortDesc: "Logtalk is an object-oriented logic programming language extending Prolog.",
+        "Object-oriented logic programming language that facilitates code reuse by extending Prolog, enabling encapsulated logic programs with a distinct separation of interface and implementation.",
+      shortDesc: "Object-oriented logic programming language extending Prolog.",
       created: "1998",
       extensions: [".lgt"],
       extGithubPath: "LogtalkDotOrg/logtalk3",

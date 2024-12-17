@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+shen", {
       name: "Shen",
       description:
-        "Shen is a high-level, multi-paradigm language that combines elements of Lisp-like functional programming with pattern-matching and logic programming, targeted primarily for functional programming and symbolic computation.",
-      shortDesc: "Shen is a multi-paradigm language blending functional and logic programming for symbolic computation.",
+        "High-level, multi-paradigm language that combines elements of Lisp-like functional programming with pattern-matching and logic programming, targeted primarily for functional programming and symbolic computation.",
+      shortDesc: "Multi-paradigm language blending functional and logic programming for symbolic computation.",
       created: "2011",
       extensions: [".shen"],
       extGithubPath: "Shen-Language/shen-sources",

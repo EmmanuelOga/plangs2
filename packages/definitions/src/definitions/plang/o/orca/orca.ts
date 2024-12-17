@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+orca", {
       name: "Orca",
       description:
-        "Orca is an esoteric programming language designed to create procedural sequencers, facilitating real-time algorithmic music composition and experimentation. It functions as a livecoding environment capable of interfacing with audio/visual applications via MIDI, OSC, and UDP.",
-      shortDesc: "Orca is an esoteric language for creating procedural sequencers for music and visual applications.",
+        "Esoteric programming language designed to create procedural sequencers, facilitating real-time algorithmic music composition and experimentation. It functions as a livecoding environment capable of interfacing with audio/visual applications via MIDI, OSC, and UDP.",
+      shortDesc: "Esoteric language for creating procedural sequencers for music and visual applications.",
       created: "2019",
       extensions: [".orca"],
       extGithubPath: "hundredrabbits/Orca",

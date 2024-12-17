@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+ciao", {
       name: "Ciao",
       description:
-        "Ciao is a modern Prolog implementation that builds up from a logic-based simple kernel designed to be portable, extensible, and modular. It supports logic, constraint, functional, higher-order, and object-oriented programming styles.",
-      shortDesc: "Ciao is a modern Prolog implementation focused on portability, extensibility, and modularity.",
+        "Modern Prolog implementation that builds up from a logic-based simple kernel designed to be portable, extensible, and modular. It supports logic, constraint, functional, higher-order, and object-oriented programming styles.",
+      shortDesc: "Modern Prolog implementation focused on portability, extensibility, and modularity.",
       created: "1984",
       extensions: [".ciao", ".pl"],
       extHomeURL: "http://www.ciao-lang.org/",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+c-sharp", {
       name: "C#",
       description:
-        "C# is a high-level, general-purpose programming language with multi-paradigm features, supporting static and strong typing, object-oriented, functional, and component-based programming.",
-      shortDesc: "C# is a versatile high-level language supporting multiple programming paradigms.",
+        "General-purpose programming language with multi-paradigm features, supporting static and strong typing, object-oriented, functional, and component-based programming.",
+      shortDesc: "Versatile high-level language supporting multiple programming paradigms.",
       created: "2000",
       extensions: [".cs", ".csx"],
       extGithubPath: "dotnet/csharplang",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+cython", {
       name: "Cython",
       description:
-        "Cython is an optimising static compiler for both the Python programming language and the Cython language extensions, facilitating the writing of C extensions for Python. It allows for Python code to call C functions and includes C libraries, providing near-C performance.",
-      shortDesc: "Cython is an optimising static compiler for Python and Cython extensions improving performance and interoperability with C.",
+        "An optimising static compiler for both the Python programming language and the Cython language extensions, facilitating the writing of C extensions for Python. It allows for Python code to call C functions and includes C libraries, providing near-C performance.",
+      shortDesc: "Is an optimising static compiler for Python and Cython extensions improving performance and interoperability with C.",
       created: "2007",
       extensions: [".pxd", ".pxi", ".pyx"],
       extGithubPath: "cython/cython",

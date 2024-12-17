@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+swift", {
       name: "Swift",
       description:
-        "Swift is a powerful and intuitive programming language developed by Apple Inc. for iOS, macOS, watchOS, and tvOS app development. It was introduced in 2014 as an alternative to Objective-C, designed for safety, performance, and modern software design patterns.",
-      shortDesc: "Swift is a programming language developed by Apple Inc. for its platforms with a focus on safety and performance.",
+        "Powerful and intuitive programming language developed by Apple Inc. for iOS, macOS, watchOS, and tvOS app development. It was introduced in 2014 as an alternative to Objective-C, designed for safety, performance, and modern software design patterns.",
+      shortDesc: "Developed by Apple for its platforms, with a focus on safety and performance.",
       created: "2014",
       extensions: [".swift"],
       extGithubPath: "swiftlang/swift",

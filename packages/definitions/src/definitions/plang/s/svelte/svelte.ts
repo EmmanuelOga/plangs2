@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+svelte", {
       name: "Svelte",
       description:
-        "Svelte is a free and open-source component-based front-end software framework, created by Rich Harris and maintained by the Svelte core team members. It compiles HTML templates to specialized code that manipulates the DOM directly, reducing the size of transferred files and improving client performance.",
-      shortDesc: "Svelte is an open-source front-end framework that compiles HTML templates to optimized JavaScript.",
+        "Component-based front-end software framework, created by Rich Harris and maintained by the Svelte core team members. It compiles HTML templates to specialized code that manipulates the DOM directly, reducing the size of transferred files and improving client performance.",
+      shortDesc: "Front-end framework that compiles HTML templates to optimized JavaScript.",
       created: "2016",
       extensions: [".svelte"],
       extGithubPath: "sveltejs/svelte",

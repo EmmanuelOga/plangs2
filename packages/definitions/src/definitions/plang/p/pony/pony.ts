@@ -4,8 +4,8 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+pony", {
       name: "Pony",
-      description: "Pony is an open-source, object-oriented, actor-model, capabilities-secure, high-performance programming language.",
-      shortDesc: "Pony is an open-source, object-oriented, actor-model, secure programming language.",
+      description: "Object-oriented, actor-model, capabilities-secure, high-performance programming language.",
+      shortDesc: "Object-oriented, actor-model, secure programming language.",
       created: "2015",
       extensions: [".pony"],
       extGithubPath: "ponylang/ponyc",

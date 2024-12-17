@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+sql", {
       name: "SQL",
       description:
-        "Structured Query Language (SQL) is a domain-specific language for managing data in relational database systems, focusing primarily on data query and manipulation.",
-      shortDesc: "SQL is a domain-specific language for managing data in relational databases.",
+        "Structured Query Language is a domain-specific language for managing data in relational database systems, focusing primarily on data query and manipulation.",
+      shortDesc: "Domain-specific language for managing data in relational databases.",
       created: "1974",
       extensions: [".sql"],
       extHomeURL: "https://www.iso.org/standard/76583.html",

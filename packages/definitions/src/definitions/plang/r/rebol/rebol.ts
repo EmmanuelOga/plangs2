@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+rebol", {
       name: "Rebol",
       description:
-        "Rebol is a cross-platform data exchange language and a multi-paradigm dynamic programming language designed for network communications and distributed computing. It introduced the concept of dialects, which are small, optimized domain-specific languages for code and data. Rebol emphasizes simplicity and readability, featuring numerous data types for expressing information in a concise format.",
-      shortDesc: "Rebol is a cross-platform multi-paradigm language known for its dialects and simplicity.",
+        "Cross-platform data exchange language and a multi-paradigm dynamic programming language designed for network communications and distributed computing. It introduced the concept of dialects, which are small, optimized domain-specific languages for code and data. Rebol emphasizes simplicity and readability, featuring numerous data types for expressing information in a concise format.",
+      shortDesc: "Cross-platform multi-paradigm language known for its dialects and simplicity.",
       created: "1997",
       extensions: [".r", ".reb"],
       extGithubPath: "rebol/rebol",

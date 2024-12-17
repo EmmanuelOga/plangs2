@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+hiveql", {
       name: "HiveQL",
       description:
-        "HiveQL is a SQL-like query language designed for Hadoop, developed as part of the Apache Hive project, to facilitate querying and managing large datasets residing in distributed storage.",
-      shortDesc: "HiveQL is a SQL-like query language for Hadoop developed by Apache Hive.",
+        "SQL-like query language designed for Hadoop, developed as part of the Apache Hive project, to facilitate querying and managing large datasets residing in distributed storage.",
+      shortDesc: "SQL-like query language for Hadoop developed by Apache Hive.",
       created: "2010",
       extensions: [".hql"],
       extGithubPath: "apache/hive",

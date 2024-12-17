@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+free-pascal", {
       name: "Free Pascal",
       description:
-        'Free Pascal is an open-source Pascal and Object Pascal compiler designed to support a wide range of processor architectures and operating systems with its feature-rich environment. It adheres to the "write once, compile anywhere" philosophy and includes functionality for inline assembly and compatibility with multiple Pascal dialects.',
-      shortDesc: "Free Pascal is an open-source Pascal compiler supporting multiple architectures and dialects.",
+        'Pascal and Object Pascal compiler designed to support a wide range of processor architectures and operating systems with its feature-rich environment. It adheres to the "write once, compile anywhere" philosophy and includes functionality for inline assembly and compatibility with multiple Pascal dialects.',
+      shortDesc: "Pascal compiler supporting multiple architectures and dialects.",
       created: "1993",
       extensions: [".p", ".pas", ".pp"],
       extHomeURL: "https://www.freepascal.org/",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+wasp", {
       name: "Wasp",
       description:
-        "Wasp is a configuration-driven, declarative programming language for building full-stack web applications, focusing on reducing boilerplate and improving developer productivity by efficiently managing both server and client-side code.",
-      shortDesc: "Wasp simplifies full-stack web development with a declarative approach.",
+        "Configuration-driven, declarative programming language for building full-stack web applications, focusing on reducing boilerplate and improving developer productivity by efficiently managing both server and client-side code.",
+      shortDesc: "Simplifies full-stack web development with a declarative approach.",
       created: "2021",
       extensions: [".wasp"],
       extGithubPath: "wasp-lang/wasp",

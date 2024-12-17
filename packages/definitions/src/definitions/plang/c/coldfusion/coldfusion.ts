@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+coldfusion", {
       name: "ColdFusion",
       description:
-        "Adobe ColdFusion is a commercial rapid web-application development computing platform primarily using the ColdFusion Markup Language (CFML). It facilitates quick development of internet-based applications by simplifying database connectivity, and offers a comprehensive suite of tools including an integrated development environment.",
-      shortDesc: "Adobe ColdFusion is a commercial rapid web-development platform using CFML for quick internet application development.",
+        "Commercial rapid web-application development computing platform primarily using the ColdFusion Markup Language (CFML). It facilitates quick development of internet-based applications by simplifying database connectivity, and offers a comprehensive suite of tools including an integrated development environment.",
+      shortDesc: "Commercial rapid web-development platform using CFML for quick internet application development.",
       created: "1995",
       extensions: [".cfm", ".cfml"],
       extHomeURL: "https://www.adobe.com/products/coldfusion-family.html",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+agda", {
       name: "Agda",
       description:
-        "Agda is a dependently typed functional programming language and proof assistant, originally developed at Chalmers University of Technology. It is used for writing and verifying proofs using a functional style, and it uniquely integrates programming and proving without a separate tactic language. Agda employs rich type systems such as dependent types, supporting inductive families and parameterized modules.",
-      shortDesc: "Agda is a dependently typed functional programming language and proof assistant used for writing and verifying proofs.",
+        "Dependently typed functional programming language and proof assistant, originally developed at Chalmers University of Technology. It is used for writing and verifying proofs using a functional style, and it uniquely integrates programming and proving without a separate tactic language. Agda employs rich type systems such as dependent types, supporting inductive families and parameterized modules.",
+      shortDesc: "Dependently typed functional programming language and proof assistant used for writing and verifying proofs.",
       created: "2007",
       extensions: [".agda", ".lagda", ".lagda.md", ".lagda.rst", ".lagda.tex"],
       extGithubPath: "agda/agda",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+objective-c", {
       name: "Objective-C",
       description:
-        "Objective-C is a high-level object-oriented programming language that extends C with Smalltalk-style message passing, originally developed in the early 1980s and widely associated with Apple's macOS and iOS platforms. It gained prominence through its use in conjunction with Apple's development ecosystem for macOS and iOS until the rise of Swift.",
-      shortDesc: "Objective-C is an object-oriented programming language that extends C with Smalltalk-style message passing.",
+        "High-level object-oriented language that extends C with Smalltalk-style message passing, originally developed in the early 1980s and widely associated with Apple's macOS and iOS platforms. It gained prominence through its use in conjunction with Apple's development ecosystem for macOS and iOS until the rise of Swift.",
+      shortDesc: "Object-oriented language that extends C with Smalltalk-style message passing.",
       created: "1984",
       extensions: [".M", ".h", ".m", ".mm"],
       extHomeURL: "https://developer.apple.com/documentation/objectivec",

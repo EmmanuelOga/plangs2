@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+xojo", {
       name: "Xojo",
       description:
-        "Xojo is a cross-platform development tool that allows users to develop applications for macOS, Windows, Linux, web, iOS, Android, and Raspberry Pi using a proprietary object-oriented language. Developed by Xojo, Inc., it provides an easy-to-use drag-and-drop interface for building native applications across multiple platforms.",
-      shortDesc: "Xojo is a cross-platform development tool and proprietary object-oriented programming language for building native applications.",
+        "Cross-platform development tool that allows users to develop applications for macOS, Windows, Linux, web, iOS, Android, and Raspberry Pi using a proprietary object-oriented language. Developed by Xojo, Inc., it provides an easy-to-use drag-and-drop interface for building native applications across multiple platforms.",
+      shortDesc: "Cross-platform development tool and proprietary object-oriented programming language for building native applications.",
       created: "1996",
       extensions: [".xojo_binary_project", ".xojo_code", ".xojo_xml_project"],
       extHomeURL: "https://www.xojo.com",

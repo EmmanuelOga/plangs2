@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+protocol-buffer", {
       name: "Protocol Buffer",
       description:
-        "Protocol Buffers (Protobuf) is a language-neutral, platform-neutral extensible mechanism for serializing structured data, developed by Google. It is widely used for network communications and storing data efficiently and is known for its compact size and high performance compared to formats like XML.",
-      shortDesc: "Protocol Buffers is a platform-neutral extensible mechanism for serializing structured data developed by Google.",
+        "Language-neutral, platform-neutral extensible mechanism for serializing structured data, developed by Google. It is widely used for network communications and storing data efficiently and is known for its compact size and high performance compared to formats like XML.",
+      shortDesc: "Platform-neutral extensible mechanism for serializing structured data developed by Google.",
       created: "2001",
       extensions: [".proto"],
       extGithubPath: "protocolbuffers/protobuf",

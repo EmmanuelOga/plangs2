@@ -5,9 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+euphoria", {
       name: "Euphoria",
       description:
-        "Euphoria is a powerful yet easy-to-learn programming language that emphasizes simplicity and readability, making it suitable for a wide range of applications across Windows, Linux, macOS, and BSD. It was first released in 1993 as shareware and has evolved over time into an open-source community-driven project. Its design focuses on rapid development and performance, incorporating features like an interpreter, C translator, and simple syntax using English keywords.",
-      shortDesc:
-        "Euphoria is a user-friendly language focusing on simplicity and readability, popular for various applications on multiple OS platforms.",
+        "Powerful yet easy-to-learn programming language that emphasizes simplicity and readability, making it suitable for a wide range of applications across Windows, Linux, macOS, and BSD. It was first released in 1993 as shareware and has evolved over time into an open-source community-driven project. Its design focuses on rapid development and performance, incorporating features like an interpreter, C translator, and simple syntax using English keywords.",
+      shortDesc: "User-friendly language focusing on simplicity and readability, popular for various applications on multiple OS platforms.",
       created: "1993",
       extensions: [".e", ".edb", ".ex", ".exw"],
       extGithubPath: "OpenEuphoria/euphoria",

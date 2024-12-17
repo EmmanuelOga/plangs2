@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+autohotkey", {
       name: "AutoHotkey",
       description:
-        "AutoHotkey (AHK) is a free and open-source scripting language for Microsoft Windows. It is primarily used for creating keyboard shortcuts or hotkeys, automating tasks such as macro creation, and modifying user interfaces. AutoHotkey scripts can launch programs, retrieve variables, manipulate windows, and emulate keystrokes or mouse clicks, and can even interact with the Windows API. The language was created to facilitate task automation for users of varying skill levels.",
-      shortDesc: "AutoHotkey is a scripting language for Windows, used to create keyboard shortcuts and automate tasks.",
+        "A free and open-source scripting language for Microsoft Windows. It is primarily used for creating keyboard shortcuts or hotkeys, automating tasks such as macro creation, and modifying user interfaces. AutoHotkey scripts can launch programs, retrieve variables, manipulate windows, and emulate keystrokes or mouse clicks, and can even interact with the Windows API. The language was created to facilitate task automation for users of varying skill levels.",
+      shortDesc: "a scripting language for Windows, used to create keyboard shortcuts and automate tasks.",
       created: "2003",
       extensions: [".ahk"],
       extHomeURL: "https://www.autohotkey.com/",

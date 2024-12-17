@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+faust", {
       name: "FAUST",
       description:
-        "FAUST (Functional AUdio STream) is a domain-specific programming language focused on designing sound synthesis and audio processing applications. It stands out for its high-performance real-time audio processing capabilities and compiles into various backends, offering flexibility across different platforms. Developed by GRAME-CNCM, it combines functional programming with a block diagram syntax.",
-      shortDesc: "FAUST is designed for sound synthesis and high-performance audio processing, supporting multiple backends.",
+        "Functional AUdio STream is a domain-specific programming language focused on designing sound synthesis and audio processing applications. It stands out for its high-performance real-time audio processing capabilities and compiles into various backends, offering flexibility across different platforms. Developed by GRAME-CNCM, it combines functional programming with a block diagram syntax.",
+      shortDesc: "Designed for sound synthesis and high-performance audio processing, supporting multiple backends.",
       created: "2002",
       extensions: [".dsp"],
       extGithubPath: "grame-cncm/faust",

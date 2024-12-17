@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+ocaml", {
       name: "OCaml",
       description:
-        "OCaml (/oʊˈkæməl/ oh-KAM-əl, formerly Objective Caml) is a general-purpose, high-level, multi-paradigm programming language which extends the Caml dialect of ML with object-oriented features. OCaml was created in 1996 by Xavier Leroy, Jérôme Vouillon, Damien Doligez, Didier Rémy, Ascánder Suárez, and others.",
-      shortDesc: "OCaml is a general-purpose, multi-paradigm language extending Caml with OO features.",
+        "General-purpose, high-level, multi-paradigm programming language which extends the Caml dialect of ML with object-oriented features. OCaml was created in 1996 by Xavier Leroy, Jérôme Vouillon, Damien Doligez, Didier Rémy, Ascánder Suárez, and others.",
+      shortDesc: "General-purpose, multi-paradigm language extending Caml with OO features.",
       created: "1996",
       extensions: [".ml", ".mli"],
       extGithubPath: "ocaml/ocaml",

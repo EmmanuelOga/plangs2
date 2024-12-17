@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+factor", {
       name: "Factor",
       description:
-        "Factor is a stack-oriented programming language created by Slava Pestov. It features dynamic types, extensible syntax, macros, and garbage collection. The language supports a large standard library with cross-platform capabilities, providing a self-hosted optimizing compiler and an interactive development environment.",
-      shortDesc: "Factor is a stack-oriented programming language with dynamic types, extensible syntax, and a self-hosted optimizing compiler.",
+        "Stack-oriented programming language created by Slava Pestov. It features dynamic types, extensible syntax, macros, and garbage collection. The language supports a large standard library with cross-platform capabilities, providing a self-hosted optimizing compiler and an interactive development environment.",
+      shortDesc: "Stack-oriented programming language with dynamic types, extensible syntax, and a self-hosted optimizing compiler.",
       created: "2003",
       extensions: [".factor"],
       extGithubPath: "factor/factor",

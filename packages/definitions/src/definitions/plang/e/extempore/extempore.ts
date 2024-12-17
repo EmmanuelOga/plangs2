@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+extempore", {
       name: "Extempore",
       description:
-        "Extempore is a programming language aimed at providing a high-performance environment for real-time audiovisual computing. It supports live coding and integrates Scheme with unique extensions, intended to help developers construct cyber-physical systems.",
-      shortDesc: "Extempore is a high-performance language for real-time audiovisual computing and live coding.",
+        "Programming language aimed at providing a high-performance environment for real-time audiovisual computing. It supports live coding and integrates Scheme with unique extensions, intended to help developers construct cyber-physical systems.",
+      shortDesc: "High-performance language for real-time audiovisual computing and live coding.",
       created: "2011",
       extensions: [".xtm"],
       extGithubPath: "digego/extempore",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+starlark", {
       name: "Starlark",
       description:
-        "Starlark is an independent, Python-like configuration language designed primarily as a scripting language for application configuration and build automation, commonly used with Bazel for defining build rules.",
-      shortDesc: "Starlark is a Python-like configuration language used for application configuration and build automation with tools like Bazel.",
+        "Python-like configuration language designed primarily as a scripting language for application configuration and build automation, commonly used with Bazel for defining build rules.",
+      shortDesc: "Python-like configuration language used for application configuration and build automation with tools like Bazel.",
       created: "2015",
       extensions: [".bzl", ".star"],
       extGithubPath: "bazelbuild/bazel",

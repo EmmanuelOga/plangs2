@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+roff", {
       name: "Roff",
       description:
-        "Roff is a programming language used for typesetting, generating formatted documents from plain-text mixed with commands. It originated from the UNIX operating system and has several derivatives including 'troff' and 'nroff'. Today, 'groff' is its GNU implementation.",
-      shortDesc: "Roff is a typesetting language originating from UNIX, known for derivatives like 'troff' and 'nroff'.",
+        "Programming language used for typesetting, generating formatted documents from plain-text mixed with commands. It originated from the UNIX operating system and has several derivatives including 'troff' and 'nroff'. Today, 'groff' is its GNU implementation.",
+      shortDesc: "Typesetting language originating from UNIX, known for derivatives like 'troff' and 'nroff'.",
       created: "1990",
       extensions: [".nroff", ".roff", ".troff"],
       extHomeURL: "https://www.gnu.org/software/groff/",

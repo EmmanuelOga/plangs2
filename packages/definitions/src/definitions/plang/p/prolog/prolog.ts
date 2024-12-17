@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+prolog", {
       name: "Prolog",
       description:
-        "Prolog is a logic programming language that has its roots in artificial intelligence, automated theorem proving, and computational linguistics, influenced by first-order logic for declarative programming.",
-      shortDesc: "Prolog is a logic programming language used in AI and theorem proving, influenced by first-order logic for declarative tasks.",
+        "Logic programming language that has its roots in artificial intelligence, automated theorem proving, and computational linguistics, influenced by first-order logic for declarative programming.",
+      shortDesc: "Logic programming language used in AI and theorem proving, influenced by first-order logic for declarative tasks.",
       created: "1972",
       extensions: [".P", ".pl", ".pro"],
       extRedditPath: "prolog",

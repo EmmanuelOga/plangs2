@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+boo", {
       name: "Boo",
       description:
-        "Boo is a statically typed, general-purpose programming language that integrates .NET features such as Unicode and web application support, while using a Python-inspired syntax with language and compiler extensibility.",
-      shortDesc: "Boo is a statically typed language with Python-like syntax and support for .NET framework features.",
+        "Statically typed, general-purpose programming language that integrates .NET features such as Unicode and web application support, while using a Python-inspired syntax with language and compiler extensibility.",
+      shortDesc: "Statically typed language with Python-like syntax and support for .NET framework features.",
       created: "2003",
       extensions: [".boo"],
       extGithubPath: "boo-lang/boo",

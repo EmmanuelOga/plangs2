@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+squirrel", {
       name: "Squirrel",
       description:
-        "Squirrel is a high-level imperative, object-oriented programming language, designed to be a lightweight scripting language that fits in the size, memory bandwidth, and real-time requirements of applications like video games.",
-      shortDesc: "Squirrel is an object-oriented scripting language designed for applications like video games.",
+        "High-level imperative, object-oriented programming language, designed to be a lightweight scripting language that fits in the size, memory bandwidth, and real-time requirements of applications like video games.",
+      shortDesc: "Object-oriented scripting language designed for applications like video games.",
       created: "2003",
       extensions: [".nut"],
       extGithubPath: "albertodemichelis/squirrel",

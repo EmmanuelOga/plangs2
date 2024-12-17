@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+bicep", {
       name: "Bicep",
       description:
-        "Bicep is a domain-specific language designed for deploying Azure resources, offering a more readable syntax and modular structure for managing infrastructure code.",
-      shortDesc: "Bicep is a DSL for deploying Azure resources with a simplified syntax.",
+        "Domain-specific language designed for deploying Azure resources, offering a more readable syntax and modular structure for managing infrastructure code.",
+      shortDesc: "DSL for deploying Azure resources with a simplified syntax.",
       created: "2020",
       extensions: [".bicep"],
       extGithubPath: "Azure/bicep",

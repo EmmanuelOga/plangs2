@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+emacs-lisp", {
       name: "Emacs Lisp",
       description:
-        "Emacs Lisp is a dialect of Lisp used for extending the Emacs editor, providing a powerful scripting environment and enabling extensive customization.",
-      shortDesc: "Emacs Lisp is a Lisp dialect for extending the Emacs editor.",
+        "Dialect of Lisp used for extending the Emacs editor, providing a powerful scripting environment and enabling extensive customization.",
+      shortDesc: "Lisp dialect for extending the Emacs editor.",
       created: "1985",
       extensions: [".el", ".elc", ".eln"],
       extGithubPath: "emacs-mirror/emacs",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+max-msp", {
       name: "Max",
       description:
-        "Max, also known as Max/MSP/Jitter, is a visual programming language primarily used for music and multimedia development. It allows users to create interactive sound, graphics, and media applications through a scalable visual interface.",
-      shortDesc: "Max is a visual language used for multimedia and music creation.",
+        "Also known as Max/MSP/Jitter. A visual programming language primarily used for music and multimedia development. It allows users to create interactive sound, graphics, and media applications through a scalable visual interface.",
+      shortDesc: "Visual language used for multimedia and music creation.",
       created: "1988",
       extensions: [".maxpat", ".mxb", ".mxt"],
       extHomeURL: "https://cycling74.com/products/max",

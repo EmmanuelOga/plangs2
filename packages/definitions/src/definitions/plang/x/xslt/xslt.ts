@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+xslt", {
       name: "XSLT",
       description:
-        "XSLT (Extensible Stylesheet Language Transformations) is a declarative, data transformation language used for transforming XML documents into other XML documents or different output formats, such as HTML or plain text.",
-      shortDesc: "XSLT is a declarative language for transforming XML documents.",
+        "Extensible Stylesheet Language Transformations is a declarative, data transformation language used for transforming XML documents into other XML documents or different output formats, such as HTML or plain text.",
+      shortDesc: "Declarative language for transforming XML documents.",
       created: "1998",
       extensions: [".xslt"],
       extHomeURL: "https://www.w3.org/TR/xslt-30/",

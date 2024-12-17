@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+flix", {
       name: "Flix",
       description:
-        "Flix is a versatile programming language blending functional, imperative, and logic paradigms, developed at Aarhus University with community contributions. It stands out for its type and effect system alongside support for first-class Datalog constraints.",
-      shortDesc: "Flix is a functional, imperative, and logic language focusing on type and effect systems.",
+        "Versatile programming language blending functional, imperative, and logic paradigms, developed at Aarhus University with community contributions. It stands out for its type and effect system alongside support for first-class Datalog constraints.",
+      shortDesc: "Functional, imperative, and logic language focusing on type and effect systems.",
       created: "2015",
       extensions: [".flix"],
       extGithubPath: "flix/flix",

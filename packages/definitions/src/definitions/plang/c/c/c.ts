@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+c", {
       name: "C",
       description:
-        "C is a general-purpose programming language developed at Bell Labs in the early 1970s, known for its low-level capabilities and is foundational in developing operating systems, system software, and various applications.",
-      shortDesc: "C is a general-purpose language foundational in systems and application programming.",
+        "General-purpose programming language developed at Bell Labs in the early 1970s, known for its low-level capabilities and is foundational in developing operating systems, system software, and various applications.",
+      shortDesc: "General-purpose language foundational in systems and application programming.",
       created: "1972",
       extensions: [".c", ".h"],
       extRedditPath: "C_Programming",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+fortran", {
       name: "Fortran",
       description:
-        "Fortran is a high-performance programming language optimized for numerical computation and scientific computing. Originally developed by IBM in the 1950s, Fortran excels in handling computationally intensive tasks and is widely used in areas like scientific research, engineering, and high-performance computing.",
-      shortDesc: "Fortran is optimized for high-performance numerical computation and scientific computing.",
+        "A high-performance programming language optimized for numerical computation and scientific computing. Originally developed by IBM in the 1950s, Fortran excels in handling computationally intensive tasks and is widely used in areas like scientific research, engineering, and high-performance computing.",
+      shortDesc: "Language optimized for high-performance numerical computation and scientific computing.",
       created: "1957",
       extensions: [".f", ".f90", ".for"],
       extHomeURL: "https://fortran-lang.org/",

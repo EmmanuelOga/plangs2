@@ -5,9 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+yabasic", {
       name: "Yabasic",
       description:
-        "Yabasic (Yet Another BASIC) is a free, open-source BASIC interpreter for Microsoft Windows and UNIX platforms. It is designed for simple programming tasks and offers features like basic control structures, subroutines, and the ability to create standalone executables. It supports line graphics, structured programming, and calls to libraries written in C.",
-      shortDesc:
-        "Yabasic is a free, open-source BASIC interpreter for Windows and UNIX, supporting simple programming tasks and basic graphical capabilities.",
+        "Yet Another BASIC is a BASIC interpreter for Microsoft Windows and UNIX platforms. It is designed for simple programming tasks and offers features like basic control structures, subroutines, and the ability to create standalone executables. It supports line graphics, structured programming, and calls to libraries written in C.",
+      shortDesc: "BASIC interpreter with basic graphical capabilities.",
       created: "1995",
       extensions: [".yab"],
       extGithubPath: "marcIhm/yabasic",

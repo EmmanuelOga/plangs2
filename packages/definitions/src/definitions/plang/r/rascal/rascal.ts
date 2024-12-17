@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+rascal", {
       name: "Rascal",
       description:
-        "Rascal is a domain-specific language for metaprogramming and language-oriented programming, which includes tasks like static code analysis, program transformation, program generation, and the implementation of domain-specific languages. It serves as a general meta language without bias towards any specific software language. Rascal incorporates elements from both relational calculus and term rewriting, while its syntax and semantics are a blend of procedural (imperative) and functional programming.",
-      shortDesc: "Rascal is a domain-specific language for metaprogramming and implementing domain-specific languages.",
+        "Domain-specific language for metaprogramming and language-oriented programming, which includes tasks like static code analysis, program transformation, program generation, and the implementation of domain-specific languages. It serves as a general meta language without bias towards any specific software language. Rascal incorporates elements from both relational calculus and term rewriting, while its syntax and semantics are a blend of procedural (imperative) and functional programming.",
+      shortDesc: "Domain-specific language for metaprogramming and implementing domain-specific languages.",
       created: "2009",
       extensions: [".rsc"],
       extGithubPath: "usethesource/rascal",

@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
 
   g.platform.set("plat+arduino", {
     name: "Arduino",
-    description: "Open-source electronics platform based on easy-to-use hardware and software, popular for building embedded systems.",
+    description: "Electronics platform based on easy-to-use hardware and software, popular for building embedded systems.",
     extHomeURL: "https://en.wikipedia.org/wiki/Arduino",
     keywords: ["arduino", "microcontroller"],
   });
@@ -46,7 +46,7 @@ export function define(g: PlangsGraph) {
 
   g.platform.set("plat+bsd", {
     name: "BSD",
-    description: "A family of Unix-like operating systems derived from the Berkeley Software Distribution, including FreeBSD, OpenBSD, and NetBSD.",
+    description: "Family of Unix-like operating systems derived from the Berkeley Software Distribution, including FreeBSD, OpenBSD, and NetBSD.",
     extHomeURL: "https://en.wikipedia.org/wiki/BSD",
     keywords: ["bsd", "dragonflybsd", "freebsd", "netbsd", "openbsd"],
   });
@@ -67,7 +67,7 @@ export function define(g: PlangsGraph) {
 
   g.platform.set("plat+embedded", {
     name: "Embedded",
-    description: "A microprocessor-based hardware system with software designed to perform a specific function, often real-time.",
+    description: "Microprocessor-based hardware system with software designed to perform a specific function, often real-time.",
     extHomeURL: "https://en.wikipedia.org/wiki/Embedded_system",
     keywords: ["embedded", "embedded systems", "microcontroller"],
   });
@@ -96,21 +96,21 @@ export function define(g: PlangsGraph) {
 
   g.platform.set("plat+nodejs", {
     name: "Node.js",
-    description: "An open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside a web browser.",
+    description: "Open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside a web browser.",
     extHomeURL: "https://en.wikipedia.org/wiki/Node.js",
     keywords: ["javascript", "js", "nodejs", "server-side javascript"],
   });
 
   g.platform.set("plat+raspberry", {
     name: "Raspberry Pi",
-    description: "A low-cost, single-board computer designed to promote teaching of computer science in schools and developing countries.",
+    description: "Low-cost, single-board computer designed to promote teaching of computer science in schools and developing countries.",
     extHomeURL: "https://en.wikipedia.org/wiki/Raspberry_Pi",
     keywords: ["pi", "raspberry pi", "single-board computer"],
   });
 
   g.platform.set("plat+riscv", {
     name: "RISC-V",
-    description: "An open standard instruction set architecture (ISA) based on the reduced instruction set computer (RISC) principles.",
+    description: "Open standard instruction set architecture (ISA) based on the reduced instruction set computer (RISC) principles.",
     extHomeURL: "https://en.wikipedia.org/wiki/RISC-V",
     keywords: ["open isa", "risc-v", "riscv"],
   });
@@ -133,7 +133,7 @@ export function define(g: PlangsGraph) {
 
   g.platform.set("plat+windows", {
     name: "Windows",
-    description: "A series of operating systems developed by Microsoft, with versions for both personal computers and servers.",
+    description: "Series of operating systems developed by Microsoft, with versions for both personal computers and servers.",
     extHomeURL: "https://en.wikipedia.org/wiki/Microsoft_Windows",
     keywords: ["win32", "win64", "windows", "windows 10", "windows 11"],
   });

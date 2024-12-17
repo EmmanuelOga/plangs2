@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+nickel", {
       name: "Nickel",
       description:
-        "Nickel is a lightweight configuration language aimed at automating the generation of configuration files. It combines JSON semantics with first-class functions, allowing for modular and reusable configurations. With features like optional static typing and design by contract, Nickel ensures that complex configurations are easy to manage and less prone to errors.",
-      shortDesc: "Nickel is a lightweight configuration language designed for generating modular and reusable configuration files.",
+        "Lightweight configuration language aimed at automating the generation of configuration files. It combines JSON semantics with first-class functions, allowing for modular and reusable configurations. With features like optional static typing and design by contract, Nickel ensures that complex configurations are easy to manage and less prone to errors.",
+      shortDesc: "Lightweight configuration language designed for generating modular and reusable configuration files.",
       created: "2021",
       extensions: [".ncl"],
       extGithubPath: "tweag/nickel",

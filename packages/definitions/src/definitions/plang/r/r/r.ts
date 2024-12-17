@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+r", {
       name: "R",
       description:
-        "R is a language and environment for statistical computing and graphics. It is widely used among statisticians and data miners for data analysis and developing statistical software.",
-      shortDesc: "R is a language and environment for statistical computing and graphics.",
+        "Language and environment for statistical computing and graphics. Widely used among statisticians and data miners for data analysis and developing statistical software.",
+      shortDesc: "Language and environment for statistical computing and graphics.",
       created: "1993",
       extensions: [".r", ".rda", ".rdata", ".rds", ".rhistory"],
       extGithubPath: "wch/r-source",

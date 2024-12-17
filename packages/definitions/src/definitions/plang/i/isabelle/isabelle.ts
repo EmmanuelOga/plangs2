@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+isabelle", {
       name: "Isabelle",
       description:
-        "Isabelle is an automated theorem prover that allows mathematical formulas to be expressed in a formal language and provides tools for proving those formulas in a logical calculus. It is written in Standard ML and Scala, supporting both procedural and declarative proof styles. Isabelle is designed to be a flexible IDE for formal methods and supports a wide variety of formal proofs and methods, notably higher-order logic (HOL).",
-      shortDesc: "Isabelle is an automated theorem prover for formalizing mathematical proofs in higher-order logic.",
+        "Automated theorem prover that allows mathematical formulas to be expressed in a formal language and provides tools for proving those formulas in a logical calculus. It is written in Standard ML and Scala, supporting both procedural and declarative proof styles. Isabelle is designed to be a flexible IDE for formal methods and supports a wide variety of formal proofs and methods, notably higher-order logic (HOL).",
+      shortDesc: "Automated theorem prover for formalizing mathematical proofs in higher-order logic.",
       created: "1986",
       extensions: [".thy"],
       extHomeURL: "https://isabelle.in.tum.de/",

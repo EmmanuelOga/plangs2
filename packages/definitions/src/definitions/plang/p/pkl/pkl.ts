@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+pkl", {
       name: "PKL",
       description:
-        "PKL is a configuration language designed to define data structures and generate multiple output formats such as JSON and YAML. It supports embedded configurations in applications across various languages like Java, Kotlin, Swift, and Go, and provides integrations to enhance usability.",
-      shortDesc: "PKL is a configuration language for defining data structures and generating JSON or YAML outputs.",
+        "Configuration language designed to define data structures and generate multiple output formats such as JSON and YAML. It supports embedded configurations in applications across various languages like Java, Kotlin, Swift, and Go, and provides integrations to enhance usability.",
+      shortDesc: "Configuration language for defining data structures and generating JSON or YAML outputs.",
       created: "2021",
       extensions: [".pkl"],
       extGithubPath: "apple/pkl",

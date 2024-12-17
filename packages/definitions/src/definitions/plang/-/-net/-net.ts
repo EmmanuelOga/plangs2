@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+.net", {
       name: ".NET",
       description:
-        "A free and open-source, managed computer software framework for Windows, Linux, and macOS operating systems. It is developed by Microsoft employees and the open-source community through the .NET Foundation and is released under the MIT License. .NET is known for its cross-platform capabilities and support for multiple programming paradigms, making it suitable for building a wide range of applications from web and mobile to cloud and microservices.",
-      shortDesc: "A cross-platform, open-source framework known for supporting multiple programming paradigms.",
+        "Free and open-source, managed computer software framework for Windows, Linux, and macOS operating systems. It is developed by Microsoft employees and the open-source community through the .NET Foundation and is released under the MIT License. .NET is known for its cross-platform capabilities and support for multiple programming paradigms, making it suitable for building a wide range of applications from web and mobile to cloud and microservices.",
+      shortDesc: "Cross-platform, open-source framework known for supporting multiple programming paradigms.",
       created: "2016",
       extensions: [".csproj", ".fsproj", ".sln", ".vbproj"],
       extGithubPath: "microsoft/dotnet",

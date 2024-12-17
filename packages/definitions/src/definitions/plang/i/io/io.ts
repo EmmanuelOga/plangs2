@@ -5,9 +5,9 @@ export function define(g: PlangsGraph) {
     .set("pl+io", {
       name: "Io",
       description:
-        "Io is a pure object-oriented programming language inspired by Smalltalk, Self, Lua, Lisp, Act1, and NewtonScript. Io has a prototype-based object model similar to those in Self and NewtonScript, eliminating the distinction between instance and class. Like Smalltalk, everything is an object and it uses dynamic typing. Like Lisp, programs are just data trees. Io uses actors for concurrency. It emphasizes simplicity and flexibility with features such as coroutines, actor-based concurrency, and incremental garbage collection.",
+        "A pure object-oriented programming language inspired by Smalltalk, Self, Lua, Lisp, Act1, and NewtonScript. Io has a prototype-based object model similar to those in Self and NewtonScript, eliminating the distinction between instance and class. Like Smalltalk, everything is an object and it uses dynamic typing. Like Lisp, programs are just data trees. Io uses actors for concurrency. It emphasizes simplicity and flexibility with features such as coroutines, actor-based concurrency, and incremental garbage collection.",
       shortDesc:
-        "Io is a pure object-oriented language with a prototype-based model, inspired by Smalltalk, Self, and others, emphasizing simplicity, flexibility, and concurrency.",
+        "A pure object-oriented language with a prototype-based model, inspired by Smalltalk, Self, and others, emphasizing simplicity, flexibility, and concurrency.",
       created: "2002",
       extensions: [".io"],
       extGithubPath: "IoLanguage/io",

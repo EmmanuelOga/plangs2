@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+raku", {
       name: "Raku",
       description:
-        "Raku is a member of the Perl family of programming languages. Formerly named Perl 6, it was renamed in October 2019. Raku introduces elements of many modern and historical languages. Compatibility with Perl was not a goal, though a compatibility mode is part of the specification. The design process for Raku began in 2000. Designed by Larry Wall and developed by the Raku community, it is a multi-paradigm language with a dynamic and gradual typing system.",
+        "A member of the Perl family of programming languages. Formerly named Perl 6, it was renamed in October 2019. Raku introduces elements of many modern and historical languages. Compatibility with Perl was not a goal, though a compatibility mode is part of the specification. The design process for Raku began in 2000. Designed by Larry Wall and developed by the Raku community, it is a multi-paradigm language with a dynamic and gradual typing system.",
       shortDesc: "Raku, formerly Perl 6, is a multi-paradigm language in the Perl family, featuring dynamic and gradual typing.",
       created: "2015",
       extensions: [".raku", ".rakudoc", ".rakumod", ".rakutest", ".t"],

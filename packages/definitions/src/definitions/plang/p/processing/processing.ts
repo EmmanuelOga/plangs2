@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+processing", {
       name: "Processing",
       description:
-        "Processing is a free graphics library and integrated development environment (IDE) built for the electronic arts, new media art, and visual design communities with the purpose of teaching non-programmers the fundamentals of computer programming in a visual context.",
-      shortDesc: "Processing is a language for visual and multimedia programming.",
+        "Free graphics library and integrated development environment (IDE) built for the electronic arts, new media art, and visual design communities with the purpose of teaching non-programmers the fundamentals of computer programming in a visual context.",
+      shortDesc: "Language for visual and multimedia programming.",
       created: "2001",
       extensions: [".pde"],
       extGithubPath: "processing/processing",

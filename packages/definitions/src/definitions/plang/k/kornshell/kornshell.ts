@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+kornshell", {
       name: "KornShell",
       description:
-        "KornShell (ksh) is a Unix-based shell developed by David Korn that combines features from the C shell and Bourne shell. It introduced command line editing, associative arrays, and floating-point arithmetic operations, and conforms to established POSIX standards.",
-      shortDesc: "KornShell is a Unix-based shell that combines features from C and Bourne shells, supporting POSIX standards.",
+        "Unix-based shell developed by David Korn that combines features from the C shell and Bourne shell. It introduced command line editing, associative arrays, and floating-point arithmetic operations, and conforms to established POSIX standards.",
+      shortDesc: "Unix-based shell that combines features from C and Bourne shells, supporting POSIX standards.",
       created: "1983",
       extensions: [".ksh", ".sh"],
       extGithubPath: "att/ast",

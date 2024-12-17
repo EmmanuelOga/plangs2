@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+sass", {
       name: "Sass",
       description:
-        "Sass (short for syntactically awesome style sheets) is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS). SassScript is the scripting language itself.",
-      shortDesc: "Sass is a preprocessor language that compiles to CSS.",
+        "Syntactically awesome style sheets is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS). SassScript is the scripting language itself.",
+      shortDesc: "Preprocessor language that compiles to CSS.",
       created: "2006",
       extensions: [".sass", ".scss"],
       extGithubPath: "sass/sass",

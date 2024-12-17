@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+mlton", {
       name: "MLton",
       description:
-        "MLton is a whole-program optimizing compiler for the Standard ML programming language. It generates efficient executables by leveraging advanced optimizations, unboxed native data types, fast arithmetic operations via GMP, and supports extensive code generation and garbage collection strategies. MLton offers a robust SML environment with full SML97 compatibility and a seamless C foreign function interface.",
-      shortDesc: "MLton is a whole-program optimizing compiler for Standard ML with SML97 compatibility and advanced optimizations.",
+        "Whole-program optimizing compiler for the Standard ML programming language. It generates efficient executables by leveraging advanced optimizations, unboxed native data types, fast arithmetic operations via GMP, and supports extensive code generation and garbage collection strategies. MLton offers a robust SML environment with full SML97 compatibility and a seamless C foreign function interface.",
+      shortDesc: "SML97 compatibile language with advanced optimizations.",
       created: "1997",
       extensions: [".sml"],
       extGithubPath: "MLton/mlton",

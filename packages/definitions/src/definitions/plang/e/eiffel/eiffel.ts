@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+eiffel", {
       name: "Eiffel",
       description:
-        "Eiffel is an object-oriented programming language designed by Bertrand Meyer, which emphasizes software reliability through design by contract. It supports multiple inheritance, genericity, polymorphism, and other advanced software engineering concepts.",
-      shortDesc: "Eiffel is an object-oriented programming language emphasizing design by contract.",
+        "Object-oriented programming language designed by Bertrand Meyer, which emphasizes software reliability through design by contract. It supports multiple inheritance, genericity, polymorphism, and other advanced software engineering concepts.",
+      shortDesc: "Object-oriented programming language emphasizing design by contract.",
       created: "1986",
       extensions: [".e"],
       extHomeURL: "http://eiffel.org/",

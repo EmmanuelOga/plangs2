@@ -5,7 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+curry", {
       name: "Curry",
       description:
-        "Curry is a declarative programming language that uniquely integrates features of functional and logic programming paradigms. It supports non-deterministic computations, constraint programming, and combines features such as lazy evaluation and strong typing. Curry is based on Haskell but extends it with logic programming features.",
+        "A declarative programming language that uniquely integrates features of functional and logic programming paradigms. It supports non-deterministic computations, constraint programming, and combines features such as lazy evaluation and strong typing. Curry is based on Haskell but extends it with logic programming features.",
+      shortDesc: "Declarative language that integrates features of functional and logic programming paradigms",
       created: "1995",
       extensions: [".curry"],
       extHomeURL: "curry-lang.org",

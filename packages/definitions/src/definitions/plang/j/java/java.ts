@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+java", {
       name: "Java",
       description:
-        "Java is a high-level programming language originally developed by Sun Microsystems and now owned by Oracle, known for its portability, strong memory management, and extensive ecosystem.",
-      shortDesc: "Java is a high-level language known for its portability and extensive ecosystem.",
+        "High-level programming language originally developed by Sun Microsystems and now owned by Oracle, known for its portability, strong memory management, and extensive ecosystem.",
+      shortDesc: "High-level language known for its portability and extensive ecosystem.",
       created: "1995",
       extensions: [".class", ".jar", ".java", ".jmod", ".war"],
       extHomeURL: "https://openjdk.java.net/",

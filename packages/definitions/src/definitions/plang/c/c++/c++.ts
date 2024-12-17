@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+c++", {
       name: "C++",
       description:
-        "C++ is a high-level, general-purpose language created by Bjarne Stroustrup as an extension of C. It supports object-oriented, generic, and functional programming with low-level memory manipulation capabilities. Used broadly for its performance, C++ is implemented in systems programming and resource-constrained applications like operating systems and game development.",
-      shortDesc: "C++ is a high-level, general-purpose language designed by Bjarne Stroustrup, supporting multiple programming paradigms.",
+        "General-purpose language created by Bjarne Stroustrup as an extension of C. It supports object-oriented, generic, and functional programming with low-level memory manipulation capabilities. Used broadly for its performance, C++ is implemented in systems programming and resource-constrained applications like operating systems and game development.",
+      shortDesc: "General-purpose language designed by Bjarne Stroustrup, supporting multiple programming paradigms.",
       created: "1985",
       extensions: [".C", ".H", ".c++", ".cc", ".cpp", ".cppm", ".cxx", ".h", ".h++", ".hh", ".hpp", ".hxx", ".ixx"],
       extHomeURL: "https://isocpp.org/",

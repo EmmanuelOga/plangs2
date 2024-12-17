@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+f-sharp", {
       name: "F#",
       description:
-        "F# is a strongly typed, functional-first language that supports both functional and object-oriented programming paradigms, and is commonly used as a cross-platform language on the .NET platform. It offers efficient solutions for statistical and analytical programming challenges.",
-      shortDesc: "F# is a functional-first language on the .NET platform, known for its strong typing and multi-paradigm capabilities.",
+        "Strongly typed, functional-first language that supports both functional and object-oriented programming paradigms, and is commonly used as a cross-platform language on the .NET platform. It offers efficient solutions for statistical and analytical programming challenges.",
+      shortDesc: "Functional-first language on the .NET platform, known for its strong typing and multi-paradigm capabilities.",
       created: "2005",
       extensions: [".fs", ".fsi", ".fsscript", ".fsx"],
       extGithubPath: "dotnet/fsharp",

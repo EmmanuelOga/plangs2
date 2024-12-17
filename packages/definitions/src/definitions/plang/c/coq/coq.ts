@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+coq", {
       name: "Coq",
       description:
-        "Coq is an interactive theorem prover that allows users to write formal mathematical definitions, executable algorithms, and theorems, mechanically check proofs of those properties, and extract a certified program from proofs. It leverages the calculus of inductive constructions for these purposes. Coq is widely utilized in formal verification projects and mathematical proof checking.",
-      shortDesc: "Coq is an interactive theorem prover focused on formal verification and proof checking.",
+        "Interactive theorem prover that allows users to write formal mathematical definitions, executable algorithms, and theorems, mechanically check proofs of those properties, and extract a certified program from proofs. It leverages the calculus of inductive constructions for these purposes. Coq is widely utilized in formal verification projects and mathematical proof checking.",
+      shortDesc: "Interactive theorem prover focused on formal verification and proof checking.",
       created: "1989",
       extGithubPath: "coq/coq",
       extHomeURL: "https://coq.inria.fr/",

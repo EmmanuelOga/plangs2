@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+minizinc", {
       name: "MiniZinc",
       description:
-        "MiniZinc is a constraint modelling language (or algebraic modeling language) to describe and solve high-complexity problems using a variety of well-known solving paradigms for combinatorial problems, including constraint programming, integer programming, lazy clause generation, SAT, and SMT.",
-      shortDesc: "MiniZinc is a language for constraint modelling and solving complex combinatorial problems.",
+        "Constraint modelling language (or algebraic modeling language) to describe and solve high-complexity problems using a variety of well-known solving paradigms for combinatorial problems, including constraint programming, integer programming, lazy clause generation, SAT, and SMT.",
+      shortDesc: "Language for constraint modelling and solving complex combinatorial problems.",
       created: "2009",
       extensions: [".dzn", ".fzn", ".mzn"],
       extGithubPath: "MiniZinc/libminizinc",

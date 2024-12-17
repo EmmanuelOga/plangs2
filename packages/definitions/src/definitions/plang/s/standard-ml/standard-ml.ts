@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+standard-ml", {
       name: "Standard ML",
       description:
-        "Standard ML (SML) is a general-purpose, high-level, modular, functional programming language with compile-time type checking and type inference. It is popular for writing compilers, for programming language research, and for developing theorem provers.",
-      shortDesc: "Standard ML is a functional programming language known for its type inference and usage in compiler writing.",
+        "Standard ML is a general-purpose, high-level, modular, functional programming language with compile-time type checking and type inference. It is popular for writing compilers, for programming language research, and for developing theorem provers.",
+      shortDesc: "Functional programming language known for its type inference and usage in compiler writing.",
       created: "1983",
       extensions: [".sig", ".sml"],
       extRedditPath: "sml",

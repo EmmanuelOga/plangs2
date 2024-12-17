@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+labview", {
       name: "LabVIEW",
       description:
-        "LabVIEW is a graphical programming environment developed by National Instruments primarily used for data acquisition, instrument control, and industrial automation. It supports a visual programming language for rapid development of complex systems.",
-      shortDesc: "LabVIEW is a graphical environment for data acquisition and industrial automation.",
+        "Graphical programming environment developed by National Instruments primarily used for data acquisition, instrument control, and industrial automation. It supports a visual programming language for rapid development of complex systems.",
+      shortDesc: "Graphical environment for data acquisition and industrial automation.",
       created: "1986",
       extensions: [".lvproj", ".vi"],
       extHomeURL: "https://www.ni.com/labview",

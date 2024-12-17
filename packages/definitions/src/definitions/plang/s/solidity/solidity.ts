@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+solidity", {
       name: "Solidity",
       description:
-        "Solidity is a statically typed programming language designed for developing smart contracts that run on the Ethereum Virtual Machine (EVM) or compatible virtual machines, influenced by languages such as JavaScript, C++, and Python.",
-      shortDesc: "Solidity is a statically typed language for smart contracts on the EVM.",
+        "Statically typed programming language designed for developing smart contracts that run on the Ethereum Virtual Machine (EVM) or compatible virtual machines, influenced by languages such as JavaScript, C++, and Python.",
+      shortDesc: "Statically typed language for smart contracts on the EVM.",
       created: "2014",
       extensions: [".sol"],
       extGithubPath: "ethereum/solidity",

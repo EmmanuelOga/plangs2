@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+xquery", {
       name: "XQuery",
       description:
-        "XQuery (XML Query) is a query and functional programming language designed to query and transform XML data, developed by the W3C XML Query working group. It shares its foundation with XSLT, and makes extensive use of XPath.",
-      shortDesc: "XQuery is a W3C language for querying and transforming XML data using XPath.",
+        "XML Query is a query and functional programming language designed to query and transform XML data, developed by the W3C XML Query working group. It shares its foundation with XSLT, and makes extensive use of XPath.",
+      shortDesc: "W3C language for querying and transforming XML data using XPath.",
       created: "1998",
       extensions: [".xq", ".xql", ".xqm", ".xquery", ".xqy"],
       extRedditPath: "xquery",

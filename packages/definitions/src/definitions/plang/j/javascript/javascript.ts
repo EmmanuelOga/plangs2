@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+javascript", {
       name: "JavaScript",
       description:
-        "JavaScript, often abbreviated as JS, is a versatile scripting language and a core technology of the World Wide Web, alongside HTML and CSS. It is widely used for web page interactivity, animation, and asynchronous server requests.",
-      shortDesc: "JavaScript is a scripting language essential for web interactivity and development.",
+        "Versatile Scripting language and a core technology of the World Wide Web, alongside HTML and CSS. It is widely used for web page interactivity, animation, and asynchronous server requests.",
+      shortDesc: "Scripting language essential for web interactivity and development.",
       created: "1995",
       extensions: [".cjs", ".js", ".mjs"],
       extHomeURL: "https://ecma-international.org/publications-and-standards/standards/ecma-262/",

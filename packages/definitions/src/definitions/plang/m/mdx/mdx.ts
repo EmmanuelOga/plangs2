@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+mdx", {
       name: "MDX",
       description:
-        "MDX is a syntax that allows you to write JSX content with Markdown, and it is commonly used with React-based frameworks. It allows developers to seamlessly integrate JavaScript components with Markdown content, making it easier to create rich and interactive documentation or blog content.",
-      shortDesc: "MDX is a syntax integrating JSX with Markdown for interactive content.",
+        "A syntax that allows you to write JSX content with Markdown, and it is commonly used with React-based frameworks. It allows developers to seamlessly integrate JavaScript components with Markdown content, making it easier to create rich and interactive documentation or blog content.",
+      shortDesc: "Syntax integrating JSX with Markdown for interactive content.",
       created: "2018",
       extensions: [".mdx"],
       extGithubPath: "mdx-js/mdx/",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+erlang", {
       name: "Erlang",
       description:
-        "Erlang is a general-purpose, concurrent, functional high-level programming language, and a garbage-collected runtime system. It is used to build massively scalable soft real-time systems, particularly in telecoms, banking, e-commerce, computer telephony and instant messaging. Erlang/OTP includes the runtime system, several ready-to-use components, and design principles for Erlang programs, emphasizing concurrency, distribution, fault-tolerance, and high availability.",
-      shortDesc: "Erlang is a concurrent functional language for scalable real-time systems.",
+        "General-purpose, concurrent, functional high-level programming language, and a garbage-collected runtime system. It is used to build massively scalable soft real-time systems, particularly in telecoms, banking, e-commerce, computer telephony and instant messaging. Erlang/OTP includes the runtime system, several ready-to-use components, and design principles for Erlang programs, emphasizing concurrency, distribution, fault-tolerance, and high availability.",
+      shortDesc: "Concurrent functional language for scalable real-time systems.",
       created: "1986",
       extensions: [".erl", ".hrl"],
       extGithubPath: "erlang/otp",

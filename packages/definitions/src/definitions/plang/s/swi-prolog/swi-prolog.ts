@@ -5,9 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+swi-prolog", {
       name: "SWI-Prolog",
       description:
-        "SWI-Prolog is a versatile and open-source implementation of the Prolog programming language, designed with a rich set of libraries and features for teaching, semantic web applications, and more. It supports constraint logic programming, multithreading, unit testing, and has various interfaces for Java, ODBC, GUI development, web services, and more. It includes tools like an IDE with a GUI debugger and profiler.",
-      shortDesc:
-        "SWI-Prolog is an open-source implementation of Prolog, focused on versatility and rich libraries for applications like the semantic web.",
+        "A versatile implementation of the Prolog programming language, designed with a rich set of libraries and features for teaching, semantic web applications, and more. It supports constraint logic programming, multithreading, unit testing, and has various interfaces for Java, ODBC, GUI development, web services, and more. It includes tools like an IDE with a GUI debugger and profiler.",
+      shortDesc: "Implementation of Prolog focused on versatility and rich libraries.",
       created: "1987",
       extensions: [".pl", ".pro"],
       extGithubPath: "SWI-Prolog/swipl-devel",

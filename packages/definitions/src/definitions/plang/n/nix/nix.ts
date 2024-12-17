@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+nix", {
       name: "Nix",
       description:
-        "Nix is a cross-platform, purely functional package manager and language, known for its ability to manage packages with immutable directories and unique content-addressed dependency models.",
-      shortDesc: "Nix is a cross-platform, functional package manager and language with immutable directory management.",
+        "Cross-platform, purely functional package manager and language, known for its ability to manage packages with immutable directories and unique content-addressed dependency models.",
+      shortDesc: "Cross-platform, functional package manager and language with immutable directory management.",
       created: "2003",
       extensions: [".nix"],
       extGithubPath: "NixOS/nix",

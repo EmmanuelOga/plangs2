@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+ruby", {
       name: "Ruby",
       description:
-        'Ruby is an interpreted, high-level, general-purpose programming language. It was designed with an emphasis on programming productivity and simplicity. In Ruby, everything is an object, including primitive data types. It was developed in the mid-1990s by Yukihiro "Matz" Matsumoto in Japan.',
-      shortDesc: "Ruby is an interpreted, high-level language focused on productivity and simplicity.",
+        'An interpreted, high-level, general-purpose programming language. It was designed with an emphasis on programming productivity and simplicity. In Ruby, everything is an object, including primitive data types. It was developed in the mid-1990s by Yukihiro "Matz" Matsumoto in Japan.',
+      shortDesc: "Interpreted, high-level language focused on productivity and simplicity.",
       created: "1995",
       extensions: [".rb", ".ru"],
       extGithubPath: "ruby/ruby",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+red", {
       name: "Red",
       description:
-        "Red is a multifunctional programming language designed to address the limitations of Rebol, with features supporting both imperative and functional programming. Introduced in 2011 by Nenad Rakočević, Red caters to symbolic computations and system-level programming through its high-level and low-level syntactical elements.",
-      shortDesc: "Red is a programming language supporting imperative and functional paradigms, developed to overcome Rebol's limitations.",
+        "Multifunctional programming language designed to address the limitations of Rebol, with features supporting both imperative and functional programming. Introduced in 2011 by Nenad Rakočević, Red caters to symbolic computations and system-level programming through its high-level and low-level syntactical elements.",
+      shortDesc: "Programming language supporting imperative and functional paradigms, developed to overcome Rebol's limitations.",
       created: "2011",
       extensions: [".red", ".reds"],
       extGithubPath: "red/red",

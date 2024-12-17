@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+ballerina", {
       name: "Ballerina",
       description:
-        "Ballerina is an open source general-purpose programming language designed by WSO2 for cloud-era application programmers. It is designed to simplify the creation of integration solutions with built-in features for concurrency, making it ideal for cloud-native development.",
-      shortDesc: "Ballerina is an open source general-purpose programming language designed for cloud-native and concurrent applications.",
+        "Open source general-purpose programming language designed by WSO2 for cloud-era application programmers. It is designed to simplify the creation of integration solutions with built-in features for concurrency, making it ideal for cloud-native development.",
+      shortDesc: "Open source general-purpose programming language designed for cloud-native and concurrent applications.",
       created: "2017",
       extensions: [".bal"],
       extGithubPath: "ballerina-platform/ballerina-lang",

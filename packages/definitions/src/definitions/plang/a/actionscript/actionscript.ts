@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+actionscript", {
       name: "ActionScript",
       description:
-        "ActionScript is an object-oriented language mainly used for Adobe Flash applications and games. It traces its origins to Macromedia Flash, evolving alongside Adobe's suite of tools, and heavily influenced by ECMAScript, making it similar to JavaScript in syntax and semantics.",
-      shortDesc: "ActionScript is an object-oriented language used for Flash, influenced by ECMAScript and similar to JavaScript.",
+        "Object-oriented language mainly used for Adobe Flash applications and games. It traces its origins to Macromedia Flash, evolving alongside Adobe's suite of tools, and heavily influenced by ECMAScript, making it similar to JavaScript in syntax and semantics.",
+      shortDesc: "Object-oriented language used for Flash, influenced by ECMAScript and similar to JavaScript.",
       created: "1998",
       extensions: [".as", ".swf"],
       extHomeURL: "https://www.adobe.com/devnet/actionscript.html",

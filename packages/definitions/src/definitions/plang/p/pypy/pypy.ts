@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+pypy", {
       name: "PyPy",
       description:
-        "PyPy is a high-performance, compliant alternative implementation of the Python language. It is notable for its Just-in-Time (JIT) compiler, often achieving faster execution than standard CPython by optimizing Python code dynamically. PyPy prioritizes speed and flexibility while maintaining code compatibility.",
-      shortDesc: "PyPy is a high-performance alternative implementation of Python featuring a JIT compiler for speed.",
+        "High-performance, compliant alternative implementation of the Python language. It is notable for its Just-in-Time (JIT) compiler, often achieving faster execution than standard CPython by optimizing Python code dynamically. PyPy prioritizes speed and flexibility while maintaining code compatibility.",
+      shortDesc: "High-performance alternative implementation of Python featuring a JIT compiler for speed.",
       created: "2007",
       extensions: [".py"],
       extGithubPath: "pypy/pypy",

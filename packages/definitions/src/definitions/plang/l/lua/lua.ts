@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+lua", {
       name: "Lua",
       description:
-        "Lua is a lightweight, high-level, multi-paradigm programming language designed mainly for embedded use in applications. It is cross-platform as it's implemented in ANSI C, enabling integration with various systems through its simple API.",
-      shortDesc: "Lua is a lightweight, high-level language designed for embedding in applications.",
+        "Lightweight, high-level, multi-paradigm programming language designed mainly for embedded use in applications. It is cross-platform as it's implemented in ANSI C, enabling integration with various systems through its simple API.",
+      shortDesc: "Lightweight, high-level language designed for embedding in applications.",
       created: "1993",
       extensions: [".lua"],
       extGithubPath: "lua/lua",

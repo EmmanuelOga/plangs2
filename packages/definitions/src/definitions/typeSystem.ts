@@ -3,28 +3,28 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 export function define(g: PlangsGraph) {
   g.typeSystem.set("tsys+affine", {
     name: "Affine",
-    description: "An affine type system enforces that variables are used at most once, allowing for optimizations such as memory reuse.",
+    description: "Enforces that variables are used at most once, allowing for optimizations such as memory reuse.",
     extHomeURL: "https://en.wikipedia.org/wiki/Affine_type_system",
     keywords: ["affine"],
   });
 
   g.typeSystem.set("tsys+algebraic", {
     name: "Algebraic Data Types",
-    description: "A kind of composite type, i.e., a type formed by combining other types.",
+    description: "Kind of composite type, i.e., a type formed by combining other types.",
     extHomeURL: "https://en.wikipedia.org/wiki/Algebraic_data_type",
     keywords: ["adt", "algebraic", "product types", "sum types", "unions", "variant"],
   });
 
   g.typeSystem.set("tsys+dependent", {
     name: "Dependent",
-    description: "A type system where types depend on terms, allowing for more expressive type constraints.",
+    description: "Type system where types depend on terms, allowing for more expressive type constraints.",
     extHomeURL: "https://en.wikipedia.org/wiki/Dependent_typing",
     keywords: ["dependent"],
   });
 
   g.typeSystem.set("tsys+duck", {
     name: "Duck",
-    description: "A style of dynamic typing where an object's behavior determines its type rather than its inheritance.",
+    description: "Style of dynamic typing where an object's behavior determines its type rather than its inheritance.",
     extHomeURL: "https://en.wikipedia.org/wiki/Duck_typing",
     keywords: ["duck"],
   });
@@ -38,7 +38,7 @@ export function define(g: PlangsGraph) {
 
   g.typeSystem.set("tsys+flow", {
     name: "Flow-Sensitive",
-    description: "A type system where the types of variables can change based on control flow in the program.",
+    description: "The types of variables can change based on control flow in the program.",
     extHomeURL: "https://en.wikipedia.org/wiki/Flow-sensitive_typing",
     keywords: ["flow"],
   });
@@ -59,28 +59,28 @@ export function define(g: PlangsGraph) {
 
   g.typeSystem.set("tsys+inferred", {
     name: "Inferred",
-    description: "A type inference system where types are automatically deduced without requiring explicit type annotations.",
+    description: "Types are automatically deduced without requiring explicit type annotations.",
     extHomeURL: "https://en.wikipedia.org/wiki/Type_inference",
     keywords: ["hindley", "implicit", "inferred", "milner"],
   });
 
   g.typeSystem.set("tsys+latent", {
     name: "Latent",
-    description: "A dynamic typing model where type constraints are deferred until runtime, similar to duck typing.",
+    description: "Dynamic typing model where type constraints are deferred until runtime, similar to duck typing.",
     extHomeURL: "https://en.wikipedia.org/wiki/Latent_typing",
     keywords: ["latent"],
   });
 
   g.typeSystem.set("tsys+manifest", {
     name: "Manifest",
-    description: "Manifest typing is a type system in which all variables are explicitly typed in the code, usually associated with static typing.",
+    description: "All variables are explicitly typed in the code, usually associated with static typing.",
     extHomeURL: "https://en.wikipedia.org/wiki/Manifest_typing",
     keywords: ["manifest"],
   });
 
   g.typeSystem.set("tsys+nominal", {
     name: "Nominal",
-    description: "A type system where compatibility between types is determined by explicit declarations or names, rather than structure.",
+    description: "Compatibility between types is determined by explicit declarations or names, rather than structure.",
     extHomeURL: "https://en.wikipedia.org/wiki/Nominal_type_system",
     keywords: ["nominal", "nominative"],
   });

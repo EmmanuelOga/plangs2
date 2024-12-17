@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+intel-fortran", {
       name: "Intel Fortran",
       description:
-        "Intel Fortran Compiler is a suite of Fortran compilers from Intel, designed for high-performance computing on Windows, macOS, and Linux platforms. It is part of the Intel OneAPI HPC toolkit, supporting features like optimized CPU and GPU code generation.",
-      shortDesc: "Intel Fortran Compiler is a high-performance computing compiler suite from Intel, supporting multiple platforms.",
+        "Suite of Fortran compilers from Intel, designed for high-performance computing on Windows, macOS, and Linux platforms. It is part of the Intel OneAPI HPC toolkit, supporting features like optimized CPU and GPU code generation.",
+      shortDesc: "High-performance computing compiler suite from Intel, supporting multiple platforms.",
       created: "2003",
       extensions: [".f", ".f90", ".f95", ".for"],
       extHomeURL: "https://www.intel.com/content/www/us/en/developer/tools/oneapi/fortran-compiler.html",

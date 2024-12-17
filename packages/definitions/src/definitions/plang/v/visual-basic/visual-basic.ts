@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+visual-basic", {
       name: "Visual Basic",
       description:
-        "Visual Basic is a multi-paradigm, object-oriented programming language developed by Microsoft, implemented on the .NET Framework and Mono. It was launched as the successor to the original Visual Basic language for developing Windows applications with a graphical user interface.",
-      shortDesc: "Visual Basic is a multi-paradigm language developed by Microsoft for Windows applications.",
+        "Multi-paradigm, object-oriented programming language developed by Microsoft, implemented on the .NET Framework and Mono. It was launched as the successor to the original Visual Basic language for developing Windows applications with a graphical user interface.",
+      shortDesc: "Multi-paradigm language developed by Microsoft for Windows applications.",
       created: "2002",
       extensions: [".vb"],
       extGithubPath: "dotnet/roslyn",

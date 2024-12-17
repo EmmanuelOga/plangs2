@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+llvm", {
       name: "LLVM",
       description:
-        "LLVM is a set of compiler and toolchain technologies that can be used to develop a frontend for any programming language and a backend for any instruction set architecture. LLVM is designed around a language-independent intermediate representation (IR) that serves as a portable, high-level assembly language that can be optimized with a variety of transformations over multiple passes. The name LLVM originally stood for Low Level Virtual Machine, though the project has expanded and the name is no longer officially an initialism.",
-      shortDesc: "LLVM is a set of compiler technologies for developing language frontends and architecture backends.",
+        "Set of compiler and toolchain technologies that can be used to develop a frontend for any programming language and a backend for any instruction set architecture. LLVM is designed around a language-independent intermediate representation (IR) that serves as a portable, high-level assembly language that can be optimized with a variety of transformations over multiple passes. The name LLVM originally stood for Low Level Virtual Machine, though the project has expanded and the name is no longer officially an initialism.",
+      shortDesc: "Set of compiler technologies for developing language frontends and architecture backends.",
       created: "2003",
       extGithubPath: "llvm/llvm-project",
       extHomeURL: "https://llvm.org/",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+csound", {
       name: "Csound",
       description:
-        "Csound is a domain-specific computer programming language designed for sound and music computing. It was originally written in C and is known for its flexibility and high-quality audio synthesis capabilities. Csound is widely used in computer music and audio processing, offering extensive support for audio synthesis through its modular architecture.",
-      shortDesc: "Csound is a flexible, high-quality, domain-specific programming language for sound and music computing.",
+        "Domain-specific computer programming language designed for sound and music computing. It was originally written in C and is known for its flexibility and high-quality audio synthesis capabilities. Csound is widely used in computer music and audio processing, offering extensive support for audio synthesis through its modular architecture.",
+      shortDesc: "Flexible, high-quality, domain-specific programming language for sound and music computing.",
       created: "1986",
       extensions: [".csd", ".orc", ".sco"],
       extGithubPath: "csound/csound",

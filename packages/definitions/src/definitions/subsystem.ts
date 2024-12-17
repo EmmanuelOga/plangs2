@@ -5,8 +5,7 @@ export function define(g: PlangsGraph) {
     .set("sys+pgsql", {
       name: "PostgreSQL",
       keywords: ["database", "sql", "pgsql", "postgres", "postgresql"],
-      description:
-        "A powerful, open-source object-relational database system with a strong reputation for reliability, feature robustness, and performance.",
+      description: "A powerful relational database system with a strong reputation for reliability, feature robustness, and performance.",
       extHomeURL: "https://www.postgresql.org/",
     })
     .relWrittenWith.add("pl+c");

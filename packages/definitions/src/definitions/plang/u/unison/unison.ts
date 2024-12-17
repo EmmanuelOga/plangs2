@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+unison", {
       name: "Unison",
       description:
-        "Unison is a modern, statically-typed, purely functional programming language that simplifies distributed programming by treating code as data. It eliminates encoders and decoders at network boundaries, refactoring complexities, and dependency conflicts by using a content-addressed approach where code is identified by its hash. Unison allows storing code directly in a database, making distributed systems and refactoring workflows more efficient and reliable.",
-      shortDesc: "Unison is a statically-typed, functional language treating code as data for efficient distributed programming.",
+        "Modern, statically-typed, purely functional programming language that simplifies distributed programming by treating code as data. It eliminates encoders and decoders at network boundaries, refactoring complexities, and dependency conflicts by using a content-addressed approach where code is identified by its hash. Unison allows storing code directly in a database, making distributed systems and refactoring workflows more efficient and reliable.",
+      shortDesc: "Statically-typed, functional language treating code as data for efficient distributed programming.",
       created: "2023",
       extensions: [".u"],
       extGithubPath: "unisonweb/unison",

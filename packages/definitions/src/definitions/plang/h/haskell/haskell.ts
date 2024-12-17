@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+haskell", {
       name: "Haskell",
       description:
-        "Haskell is a general-purpose, statically-typed, purely functional programming language with type inference and lazy evaluation. Designed for teaching, research, and industrial applications, Haskell has pioneered several programming language features such as type classes and monadic input/output (IO). It is named after logician Haskell Curry. Haskell's main implementation is the Glasgow Haskell Compiler (GHC).",
-      shortDesc: "Haskell is a statically-typed, purely functional language known for type inference and lazy evaluation.",
+        "General-purpose, statically-typed, purely functional programming language with type inference and lazy evaluation. Designed for teaching, research, and industrial applications, Haskell has pioneered several programming language features such as type classes and monadic input/output (IO). It is named after logician Haskell Curry. Haskell's main implementation is the Glasgow Haskell Compiler (GHC).",
+      shortDesc: "Statically-typed, purely functional language known for type inference and lazy evaluation.",
       created: "1990",
       extensions: [".hs", ".lhs"],
       extGithubPath: "ghc/ghc",

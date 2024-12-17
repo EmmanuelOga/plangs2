@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+inko", {
       name: "Inko",
       description:
-        "Inko is a programming language designed for building concurrent software efficiently and safely. It features deterministic automatic memory management, move semantics, static typing, and type-safe concurrency. It is particularly known for avoiding runtime errors, race conditions, and unpredictable performance.",
-      shortDesc: "Inko is a language for efficient, safe concurrent software, with features like static typing and type-safe concurrency.",
+        "Programming language designed for building concurrent software efficiently and safely. It features deterministic automatic memory management, move semantics, static typing, and type-safe concurrency. It is particularly known for avoiding runtime errors, race conditions, and unpredictable performance.",
+      shortDesc: "Language for efficient, safe concurrent software, with features like static typing and type-safe concurrency.",
       created: "2016",
       extensions: [".inko"],
       extGithubPath: "inko-lang/inko",

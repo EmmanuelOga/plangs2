@@ -87,7 +87,7 @@ export function define(g: PlangsGraph) {
 
   g.tag.set("tag+dataflow", {
     name: "Dataflow",
-    description: "A programming paradigm where the flow of data determines the execution of operations.",
+    description: "Programming paradigm where the flow of data determines the execution of operations.",
     extHomeURL: "https://en.wikipedia.org/wiki/Dataflow_programming",
     keywords: ["data-driven", "dataflow", "dataflow architecture"],
   });
@@ -136,7 +136,7 @@ export function define(g: PlangsGraph) {
 
   g.tag.set("tag+embedded", {
     name: "Embedded System",
-    description: "A combination of hardware and software designed to perform a dedicated function.",
+    description: "Combination of hardware and software designed to perform a dedicated function.",
     extHomeURL: "https://en.wikipedia.org/wiki/Embedded_system",
     keywords: ["embedded system", "firmware", "real-time systems"],
   });
@@ -151,7 +151,7 @@ export function define(g: PlangsGraph) {
 
   g.tag.set("tag+framework", {
     name: "Application Framework",
-    description: "A software framework that provides a structure for developing software applications.",
+    description: "Software framework that provides a structure for developing software applications.",
     extHomeURL: "https://en.wikipedia.org/wiki/Application_framework",
     keywords: ["framework"],
   });
@@ -307,7 +307,7 @@ export function define(g: PlangsGraph) {
 
   g.tag.set("tag+scripting", {
     name: "Scripting",
-    description: "A language used to write commands for controlling a system or application.",
+    description: "Language used to write commands for controlling a system or application.",
     extHomeURL: "https://en.wikipedia.org/wiki/Scripting_language",
     keywords: ["command language", "command-based language", "scripting", "scripting language"],
   });
@@ -321,7 +321,7 @@ export function define(g: PlangsGraph) {
 
   g.tag.set("tag+shell", {
     name: "Shell",
-    description: "A command-line interface that interprets text commands to control the operating system.",
+    description: "Command-line interface that interprets text commands to control the operating system.",
     extHomeURL: "https://en.wikipedia.org/wiki/Shell_(computing)",
     keywords: ["CLI", "command-line interface", "shell"],
   });
@@ -349,7 +349,7 @@ export function define(g: PlangsGraph) {
 
   g.tag.set("tag+uml", {
     name: "Unified Modeling Language (UML)",
-    description: "A standardized modeling language used in software engineering to visualize system architecture and design.",
+    description: "Standardized modeling language used in software engineering to visualize system architecture and design.",
     extHomeURL: "https://en.wikipedia.org/wiki/Unified_Modeling_Language",
     keywords: ["UML", "software design", "system modeling"],
   });
@@ -370,7 +370,7 @@ export function define(g: PlangsGraph) {
 
   g.tag.set("tag+wavelet", {
     name: "Wavelet",
-    description: "A mathematical technique used for analyzing waveforms and signals, often in signal processing.",
+    description: "Mathematical technique used for analyzing waveforms and signals, often in signal processing.",
     extHomeURL: "https://en.wikipedia.org/wiki/Wavelet",
     keywords: ["mathematics", "signal processing", "wavelet analysis"],
   });

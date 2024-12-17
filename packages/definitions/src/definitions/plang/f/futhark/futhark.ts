@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+futhark", {
       name: "Futhark",
       description:
-        "Futhark is a data-parallel programming language designed for high-performance computing, particularly on GPUs, utilizing a functional programming paradigm influenced by languages such as APL and Haskell. It supports automatic differentiation and emphasizes efficient data parallelism in array computations through a Hindley-Milner type system with uniqueness types.",
-      shortDesc: "Futhark is a functional, parallel programming language optimized for high-performance GPU and CPU execution.",
+        "Data-parallel programming language designed for high-performance computing, particularly on GPUs, utilizing a functional programming paradigm influenced by languages such as APL and Haskell. It supports automatic differentiation and emphasizes efficient data parallelism in array computations through a Hindley-Milner type system with uniqueness types.",
+      shortDesc: "Functional, parallel programming language optimized for high-performance GPU and CPU execution.",
       created: "2014",
       extensions: [".fut"],
       extGithubPath: "diku-dk/futhark",

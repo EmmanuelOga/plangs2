@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+ejs", {
       name: "EJS",
       description:
-        "EJS (Embedded JavaScript) is a simple templating language that lets you generate HTML markup with plain JavaScript. It is often used in web applications to embed dynamic content in HTML pages.",
-      shortDesc: "EJS is a simple templating language for embedding JavaScript in HTML.",
+        "Simple templating language that lets you generate HTML markup with plain JavaScript. It is often used in web applications to embed dynamic content in HTML pages.",
+      shortDesc: "Simple templating language for embedding JavaScript in HTML.",
       created: "2010",
       extensions: [".ejs"],
       extGithubPath: "mde/ejs",

@@ -4,9 +4,8 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+assembly", {
       name: "Assembly",
-      description:
-        "Assembly language, often simply referred to as assembly and abbreviated as ASM or asm, is a low-level programming language with a strong correspondence between its instructions and the machine code of the architecture it's designed for. Assembly language usually has a 1:1 mapping with machine instructions but also supports constants, comments, assembler directives, symbolic labels, and macros.",
-      shortDesc: "Assembly is a low-level programming language closely aligned with machine code instructions.",
+      description: "Low-level language with a strong correspondence between instructions and machine code: usually a 1:1 mapping between them.",
+      shortDesc: "Low-level programming language closely aligned with machine code instructions.",
       created: "1947",
       extensions: [".S", ".SRC", ".a51", ".asm", ".inc", ".s", ".src", ".wla"],
       extRedditPath: "asm",

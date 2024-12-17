@@ -5,9 +5,9 @@ export function define(g: PlangsGraph) {
     .set("pl+gleam", {
       name: "Gleam",
       description:
-        "Gleam is a general-purpose, functional programming language designed for reliability and scale, running on the Erlang VM BEAM, and compiles to both Erlang and JavaScript. It employs a type-safe, static, and inferred typing system which enhances its concurrent programming capabilities.",
+        "A general-purpose, functional programming language designed for reliability and scale, running on the Erlang VM BEAM, and compiles to both Erlang and JavaScript. It employs a type-safe, static, and inferred typing system which enhances its concurrent programming capabilities.",
       shortDesc:
-        "Gleam is a general-purpose, functional language that compiles to Erlang and JavaScript, featuring static, inferred typing for concurrent programming.",
+        "A general-purpose, functional language that compiles to Erlang and JavaScript, featuring static, inferred typing for concurrent programming.",
       created: "2016",
       extensions: [".gleam"],
       extGithubPath: "gleam-lang/gleam",

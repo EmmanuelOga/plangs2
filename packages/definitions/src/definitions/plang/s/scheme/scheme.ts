@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+scheme", {
       name: "Scheme",
       description:
-        "Scheme is a minimalistic and flexible dialect of the Lisp programming language, prioritizing functional programming and metaprogramming. Developed in the 1970s by Guy L. Steele and Gerald Jay Sussman at MIT, it pioneered concepts like lexical scoping and first-class continuations.",
-      shortDesc: "Scheme is a minimalistic Lisp dialect known for its functional programming capabilities.",
+        "Minimalistic and flexible dialect of the Lisp programming language, prioritizing functional programming and metaprogramming. Developed in the 1970s by Guy L. Steele and Gerald Jay Sussman at MIT, it pioneered concepts like lexical scoping and first-class continuations.",
+      shortDesc: "Minimalistic Lisp dialect known for its functional programming capabilities.",
       created: "1975",
       extensions: [".scm", ".ss"],
       extHomeURL: "https://www.scheme.org/",

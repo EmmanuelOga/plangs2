@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+css", {
       name: "CSS",
       description:
-        "Cascading Style Sheets (CSS) is a style sheet language used for specifying the presentation and styling of a document written in a markup language such as HTML or XML (including XML dialects such as SVG, MathML, or XHTML).",
-      shortDesc: "CSS is a style sheet language for styling documents written in HTML or XML.",
+        "Style sheet language used for specifying the presentation and styling of a document written in a markup language such as HTML or XML (including XML dialects such as SVG, MathML, or XHTML).",
+      shortDesc: "Style sheet language for styling documents written in HTML or XML.",
       created: "1996",
       extensions: [".css"],
       extHomeURL: "https://www.w3.org/Style/CSS/",

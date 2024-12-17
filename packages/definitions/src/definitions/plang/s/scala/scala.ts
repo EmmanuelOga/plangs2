@@ -5,9 +5,9 @@ export function define(g: PlangsGraph) {
     .set("pl+scala", {
       name: "Scala",
       description:
-        "Scala is a strong statically typed high-level general-purpose programming language that supports both object-oriented programming and functional programming. Designed to be concise, many of Scala's design decisions are intended to address criticisms of Java. It is well-suited to building fast, concurrent, and distributed systems with its JVM, JavaScript, and Native runtimes.",
+        "A strong statically typed high-level general-purpose programming language that supports both object-oriented programming and functional programming. Designed to be concise, many of Scala's design decisions are intended to address criticisms of Java. It is well-suited to building fast, concurrent, and distributed systems with its JVM, JavaScript, and Native runtimes.",
       shortDesc:
-        "Scala is a statically typed language supporting both object-oriented and functional programming, known for addressing Java's criticisms and supporting concurrent, distributed systems.",
+        "Statically typed language supporting both object-oriented and functional programming, known for addressing Java's criticisms and supporting concurrent, distributed systems.",
       created: "2004",
       extensions: [".sc", ".scala"],
       extGithubPath: "scala/scala3",

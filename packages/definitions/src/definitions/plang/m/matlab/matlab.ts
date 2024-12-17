@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+matlab", {
       name: "MATLAB",
       description:
-        "MATLAB is a proprietary multi-paradigm programming language and numerical computing environment developed by MathWorks, designed primarily for numerical computing. It supports matrix manipulations, data plotting, algorithm implementation, and the creation of user interfaces, among other features.",
-      shortDesc: "MATLAB is a proprietary multi-paradigm programming language and numerical computing environment.",
+        "Proprietary multi-paradigm programming language and numerical computing environment developed by MathWorks, designed primarily for numerical computing. It supports matrix manipulations, data plotting, algorithm implementation, and the creation of user interfaces, among other features.",
+      shortDesc: "Proprietary multi-paradigm programming language and numerical computing environment.",
       created: "1979",
       extensions: [".fig", ".m", ".mat", ".mex", ".mlapp", ".mlappinstall", ".mlpkginstall", ".mltbx", ".mlx", ".p"],
       extRedditPath: "matlab",

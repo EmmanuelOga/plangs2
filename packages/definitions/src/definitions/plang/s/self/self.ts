@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+self", {
       name: "Self",
       description:
-        "Self is a prototype-based dynamic object-oriented programming language, environment, and virtual machine focused on principles like simplicity and uniformity. It allows direct and physical interaction with objects and integrates a programming environment for modifying objects. Influenced by Smalltalk and APL, it influenced languages like JavaScript and NewtonScript.",
-      shortDesc: "Self is a prototype-based dynamic OOP language, influenced by Smalltalk and APL, impacting JavaScript.",
+        "Prototype-based dynamic object-oriented programming language, environment, and virtual machine focused on principles like simplicity and uniformity. It allows direct and physical interaction with objects and integrates a programming environment for modifying objects. Influenced by Smalltalk and APL, it influenced languages like JavaScript and NewtonScript.",
+      shortDesc: "Prototype-based dynamic OOP language, influenced by Smalltalk and APL, impacting JavaScript.",
       created: "1987",
       extensions: [".self"],
       extGithubPath: "russellallen/self",

@@ -5,9 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+zig", {
       name: "Zig",
       description:
-        "Zig is an imperative, general-purpose, statically typed system programming language designed to improve upon C/C++'s features, focusing on robust error handling and performance without hidden control flows or a preprocessor.",
-      shortDesc:
-        "Zig is a robust system programming language designed as an improvement over C/C++ with native error handling and performance enhancements.",
+        "Imperative, general-purpose, statically typed system programming language designed to improve upon C/C++'s features, focusing on robust error handling and performance without hidden control flows or a preprocessor.",
+      shortDesc: "System programming language designed as an improvement over C/C++ with native error handling and performance enhancements.",
       created: "2015",
       extensions: [".zig", ".zigr", ".zir", ".zon"],
       extGithubPath: "ziglang/zig",

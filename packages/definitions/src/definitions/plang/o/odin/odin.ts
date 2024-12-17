@@ -5,9 +5,9 @@ export function define(g: PlangsGraph) {
     .set("pl+odin", {
       name: "Odin",
       description:
-        "Odin is a high-performance, systems programming language designed for simplicity and data-oriented development, serving as a modern alternative to C with a focus on clarity and ease of use, particularly in gaming and multimedia applications.",
+        "A high-performance, systems programming language designed for simplicity and data-oriented development, serving as a modern alternative to C with a focus on clarity and ease of use, particularly in gaming and multimedia applications.",
       shortDesc:
-        "Odin, a high-performance language, offers an alternative to C for systems programming with a focus on simplicity and data-oriented development.",
+        "A high-performance language, offers an alternative to C for systems programming with a focus on simplicity and data-oriented development.",
       created: "2016",
       extensions: [".odin"],
       extGithubPath: "odin-lang/Odin",

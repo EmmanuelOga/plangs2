@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+kotlin", {
       name: "Kotlin",
       description:
-        "Kotlin is a cross-platform, statically typed language designed to interoperate with Java, featuring concise syntax due to its type inference. It targets the JVM and compiles to JavaScript and native code via LLVM for various platforms, under the guidance of JetBrains and the Kotlin Foundation.",
-      shortDesc: "Kotlin is a concise, statically typed language interoperative with Java, targeting JVM and other platforms.",
+        "Cross-platform, statically typed language designed to interoperate with Java, featuring concise syntax due to its type inference. It targets the JVM and compiles to JavaScript and native code via LLVM for various platforms, under the guidance of JetBrains and the Kotlin Foundation.",
+      shortDesc: "Concise, statically typed language interoperative with Java, targeting JVM and other platforms.",
       created: "2011",
       extensions: [".kexe", ".klib", ".kt", ".kts"],
       extGithubPath: "JetBrains/kotlin",

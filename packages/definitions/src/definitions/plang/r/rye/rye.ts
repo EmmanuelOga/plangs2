@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+rye", {
       name: "Rye",
       description:
-        "Rye is a high-level, interpreted programming language focused on simplicity, expressiveness, and modern coding paradigms. It is designed to make programming more intuitive and accessible, with features that emphasize functional programming and ease of use.",
-      shortDesc: "Rye is a high-level, interpreted programming language focused on simplicity and expressiveness.",
+        "A high-level, interpreted programming language focused on simplicity, expressiveness, and modern coding paradigms. It is designed to make programming more intuitive and accessible, with features that emphasize functional programming and ease of use.",
+      shortDesc: "High-level, interpreted programming language focused on simplicity and expressiveness.",
       created: "2022",
       extensions: [".ry"],
       extGithubPath: "refaktor/rye",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+cmake", {
       name: "CMake",
       description:
-        "CMake is a cross-platform build system that automates the configuration and generation of build files for software projects, abstracting platform-specific details by using a compiler-independent approach. Initially developed for the ITK toolkit, CMake has become the standard build tool for many open-source projects.",
-      shortDesc: "CMake is a cross-platform build system that generates build files for software projects.",
+        "Cross-platform build system that automates the configuration and generation of build files for software projects, abstracting platform-specific details by using a compiler-independent approach. Initially developed for the ITK toolkit, CMake has become the standard build tool for many open-source projects.",
+      shortDesc: "Cross-platform build system that generates build files for software projects.",
       created: "2000",
       extensions: [".cmake"],
       extGithubPath: "Kitware/CMake",

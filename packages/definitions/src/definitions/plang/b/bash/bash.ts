@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+bash", {
       name: "Bash",
       description:
-        "Bash, short for Bourne-Again SHell, is a shell and command language supported by the Free Software Foundation. It was first developed for the GNU Project by Brian Fox in 1989 as a free alternative to the Bourne Shell. Bash has become widely adopted as the default shell for many Linux distributions and is available on most modern operating systems. It incorporates features from the Korn shell (ksh) and the C shell (csh) and is POSIX-compliant, making it compatible with many Bourne shell scripts.",
-      shortDesc: "Bash, short for Bourne-Again SHell, is a shell and command language supported by the Free Software Foundation.",
+        "Short for Bourne-Again SHell. A shell and command language supported by the Free Software Foundation. It was first developed for the GNU Project by Brian Fox in 1989 as a free alternative to the Bourne Shell. Bash has become widely adopted as the default shell for many Linux distributions and is available on most modern operating systems. It incorporates features from the Korn shell (ksh) and the C shell (csh) and is POSIX-compliant, making it compatible with many Bourne shell scripts.",
+      shortDesc: "Shell and command language supported by the Free Software Foundation.",
       created: "1989",
       extensions: [".bash", ".sh"],
       extHomeURL: "https://www.gnu.org/software/bash/",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+casette", {
       name: "Cassette",
       description:
-        "Cassette is a simple, DIY language for personal programming, focusing on fun rather than built-in features, and characterized by a lack of batteries included.",
-      shortDesc: "Cassette is a simple, DIY personal programming language focusing on fun.",
+        "Simple, DIY language for personal programming, focusing on fun rather than built-in features, and characterized by a lack of batteries included.",
+      shortDesc: "Simple, DIY personal programming language focusing on fun.",
       created: "2021",
       extensions: [".cassette"],
       extGithubPath: "protestContest/Cassette",

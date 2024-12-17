@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+freebasic", {
       name: "FreeBASIC",
       description:
-        "FreeBASIC is a free and open-source BASIC compiler that runs on multiple platforms including Windows, Linux, and DOS. It is designed to be syntax-compatible with QuickBASIC while expanding the capabilities with modern features such as object-oriented and metaprogramming capabilities.",
-      shortDesc: "FreeBASIC is an open-source BASIC compiler inspired by QuickBASIC, supporting object-oriented programming.",
+        "BASIC compiler that runs on multiple platforms including Windows, Linux, and DOS. It is designed to be syntax-compatible with QuickBASIC while expanding the capabilities with modern features such as object-oriented and metaprogramming capabilities.",
+      shortDesc: "BASIC compiler inspired by QuickBASIC, supporting object-oriented programming.",
       created: "2004",
       extensions: [".bas", ".bi"],
       extGithubPath: "freebasic/fbc",

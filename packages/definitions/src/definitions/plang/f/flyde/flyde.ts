@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+flyde", {
       name: "Flyde",
       description:
-        "Flyde is an open-source visual programming language that integrates seamlessly with TypeScript code and is designed for developers. It allows users to visualize data flows and understand complex logic intuitively, providing a functional-reactive foundation for workflows and programming tasks.",
-      shortDesc: "Flyde is an open-source visual language for intuitive data flow and TypeScript integration.",
+        "Visual programming language that integrates seamlessly with TypeScript code and is designed for developers. It allows users to visualize data flows and understand complex logic intuitively, providing a functional-reactive foundation for workflows and programming tasks.",
+      shortDesc: "Visual language for intuitive data flow and TypeScript integration.",
       created: "2023",
       extensions: [".flyde"],
       extGithubPath: "flydelabs/flyde",

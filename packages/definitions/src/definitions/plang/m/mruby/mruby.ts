@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+mruby", {
       name: "mruby",
       description:
-        "mruby is an interpreter for the Ruby programming language that aims to be lightweight and easily embeddable. It is developed under the leadership of Yukihiro Matsumoto and features contributions from over 100 developers.",
-      shortDesc: "mruby is a lightweight Ruby interpreter designed for embeddability.",
+        "Interpreter for the Ruby programming language that aims to be lightweight and easily embeddable. It is developed under the leadership of Yukihiro Matsumoto and features contributions from over 100 developers.",
+      shortDesc: "Lightweight Ruby interpreter designed for embeddability.",
       created: "2012",
       extensions: [".rb"],
       extGithubPath: "mruby/mruby",

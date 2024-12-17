@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+haxe", {
       name: "Haxe",
       description:
-        "Haxe is a high-level cross-platform programming language and compiler that can produce applications and source code for many different computing platforms from one code-base. It is free and open-source software, released under an MIT License. The compiler is written in OCaml and is released under the GNU General Public License (GPL) version 2.",
-      shortDesc: "Haxe is a high-level cross-platform language and compiler for multiple platforms.",
+        "High-level cross-platform programming language and compiler that can produce applications and source code for many different computing platforms from one code-base. It is free and open-source software, released under an MIT License. The compiler is written in OCaml and is released under the GNU General Public License (GPL) version 2.",
+      shortDesc: "High-level cross-platform language and compiler for multiple platforms.",
       created: "2005",
       extensions: [".hx", ".hxml"],
       extGithubPath: "HaxeFoundation/haxe",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+graalvm", {
       name: "GraalVM",
       description:
-        "GraalVM is a high-performance runtime that provides significant performance enhancements for Java and other applications, enabling multiple languages to run together in a single virtual machine. With its polyglot capabilities, it supports Java, JavaScript, Python, Ruby, and LLVM-based projects, as well as web-based applications in WebAssembly.",
-      shortDesc: "GraalVM is a high-performance runtime for multiple languages including Java, Python, and WebAssembly, with polyglot capabilities.",
+        "High-performance runtime that provides significant performance enhancements for Java and other applications, enabling multiple languages to run together in a single virtual machine. With its polyglot capabilities, it supports Java, JavaScript, Python, Ruby, and LLVM-based projects, as well as web-based applications in WebAssembly.",
+      shortDesc: "High-performance runtime for multiple languages including Java, Python, and WebAssembly, with polyglot capabilities.",
       created: "2019",
       extGithubPath: "oracle/graal",
       extHomeURL: "https://www.graalvm.org/",

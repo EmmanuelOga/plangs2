@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+amber", {
       name: "Amber",
       description:
-        "Amber is a programming language compiled into Bash. It was designed with a modern syntax, safety features, type safety and practical functionalities that Bash could not offer, allowing enhanced runtime and type safety for writing scripts.",
-      shortDesc: "Amber is a language compiling into Bash with modern syntax and safety features.",
+        "Programming language compiled into Bash. It was designed with a modern syntax, safety features, type safety and practical functionalities that Bash could not offer, allowing enhanced runtime and type safety for writing scripts.",
+      shortDesc: "Language compiling into Bash with modern syntax and safety features.",
       created: "2015",
       extensions: [".amber"],
       extGithubPath: "amber-lang/amber",

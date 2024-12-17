@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+typescript", {
       name: "TypeScript",
       description:
-        "TypeScript is a strongly typed superset of JavaScript that compiles to plain JavaScript and aims to improve the development of large-scale applications.",
-      shortDesc: "TypeScript is a strongly typed superset of JavaScript that compiles to plain JavaScript.",
+        "Strongly typed superset of JavaScript that compiles to plain JavaScript and aims to improve the development of large-scale applications.",
+      shortDesc: "Strongly typed superset of JavaScript that compiles to plain JavaScript.",
       created: "2012",
       extensions: [".cts", ".mts", ".ts", ".tsx"],
       extGithubPath: "microsoft/TypeScript",

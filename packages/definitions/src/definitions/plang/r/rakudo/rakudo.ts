@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+rakudo", {
       name: "Rakudo",
       description:
-        "Rakudo is a compiler for the Raku programming language, targeting MoarVM and JVM, and aligning with the Raku specification as its standard bearer.",
-      shortDesc: "Rakudo is the main compiler for the Raku language, targeting MoarVM and JVM.",
+        "A compiler for the Raku programming language, targeting MoarVM and JVM, and aligning with the Raku specification as its standard bearer.",
+      shortDesc: "The main compiler for the Raku language, targeting MoarVM and JVM.",
       created: "2008",
       extensions: [".raku", ".rakudoc", ".rakumod"],
       extGithubPath: "rakudo/rakudo",

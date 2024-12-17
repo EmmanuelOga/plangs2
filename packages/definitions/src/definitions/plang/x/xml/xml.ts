@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "XML",
       description:
         "Extensible Markup Language (XML) is a markup language and file format for storing, transmitting, and reconstructing arbitrary data in a way that is both human-readable and machine-readable. It is widely used for data interchange over the Internet.",
-      shortDesc: "XML is a markup language used for storing and sharing data.",
+      shortDesc: "Markup language used for storing and sharing data.",
       created: "1996",
       extensions: [".xml"],
       extHomeURL: "https://www.w3.org/XML/",
@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       ],
       stackovTags: ["xml"],
     })
-    .relParadigms.add("para+data-exchange")
+    .relParadigms.add("para+data-exchange", "para+markup")
     .relPlatforms.add("plat+cross")
     .relTags.add("tag+dataq", "tag+workflow")
     .relTypeSystems.add("tsys+untyped");

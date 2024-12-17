@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+whiley", {
       name: "Whiley",
       description:
-        "Whiley is an experimental programming language that combines features from the functional and imperative paradigms, and supports formal specification through function preconditions, postconditions, and loop invariants.",
-      shortDesc: "Whiley supports functional and imperative paradigms and facilitates formal specification through contracts.",
+        "Combines features from the functional and imperative paradigms, and supports formal specification through function preconditions, postconditions, and loop invariants.",
+      shortDesc: "Functional and imperative language with contracts and formal specification features.",
       created: "2010",
       extensions: [".whiley"],
       extGithubPath: "Whiley/WhileyCompiler",

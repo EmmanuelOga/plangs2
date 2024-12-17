@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+mojo", {
       name: "Mojo",
       description:
-        "Mojo is a modular programming language designed for high-performance and AI-specific applications. It builds on Python's ease of use, aiming to provide the expressiveness of Python with the efficiency of C, targeting diverse hardware environments.",
-      shortDesc: "Mojo is a modular language blending Python's syntax with C-like performance.",
+        "Modular programming language designed for high-performance and AI-specific applications. It builds on Python's ease of use, aiming to provide the expressiveness of Python with the efficiency of C, targeting diverse hardware environments.",
+      shortDesc: "Modular language blending Python's syntax with C-like performance.",
       created: "2023",
       extensions: [".mojo", ".🔥"],
       extGithubPath: "modularml/mojo",

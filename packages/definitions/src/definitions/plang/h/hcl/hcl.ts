@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+hcl", {
       name: "HCL",
       description:
-        "HCL (HashiCorp Configuration Language) is a declarative configuration language developed by HashiCorp, often used in Terraform to describe cloud infrastructure resources.",
-      shortDesc: "HCL is a declarative configuration language used in Terraform to define cloud infrastructure resources.",
+        "HashiCorp Configuration Language is a declarative configuration language developed by HashiCorp, often used in Terraform to describe cloud infrastructure resources.",
+      shortDesc: "Declarative configuration language used in Terraform to define cloud infrastructure resources.",
       created: "2014",
       extensions: [".hcl"],
       extGithubPath: "hashicorp/hcl",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+smarty", {
       name: "Smarty",
       description:
-        "Smarty is a PHP-based web template engine designed to separate the presentation layer from the application logic, facilitating easier management of web page layout and design.",
-      shortDesc: "Smarty is a PHP template engine for separating presentation and application logic.",
+        "PHP-based web template engine designed to separate the presentation layer from the application logic, facilitating easier management of web page layout and design.",
+      shortDesc: "PHP template engine for separating presentation and application logic.",
       created: "2001",
       extensions: [".tpl"],
       extGithubPath: "smarty-php/smarty",

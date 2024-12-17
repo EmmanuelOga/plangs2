@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+clozure", {
       name: "Clozure CL",
       description:
-        "Clozure CL (often abbreviated as CCL) is a free implementation of Common Lisp, providing a complete ANSI Common Lisp standard with various extensions such as CLOS MOP, threads, and streams. It includes a command-line development environment and an IDE for macOS using the Hemlock editor, delivering fast compilation, native threads, and a garbage collector. It is open-source, maintained by Clozure Associates.",
-      shortDesc: "Clozure CL is a free Common Lisp implementation offering full ANSI compliance and several extensions.",
+        "Free implementation of Common Lisp, providing a complete ANSI Common Lisp standard with various extensions such as CLOS MOP, threads, and streams. It includes a command-line development environment and an IDE for macOS using the Hemlock editor, delivering fast compilation, native threads, and a garbage collector. It is open-source, maintained by Clozure Associates.",
+      shortDesc: "Free Common Lisp implementation offering full ANSI compliance and several extensions.",
       created: "2000",
       extensions: [".cl", ".lisp"],
       extGithubPath: "Clozure/ccl",

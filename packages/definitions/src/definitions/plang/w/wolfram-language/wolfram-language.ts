@@ -5,9 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+wolfram-language", {
       name: "Wolfram Language",
       description:
-        "The Wolfram Language is a proprietary, general-purpose, high-level multi-paradigm programming language developed by Wolfram Research. It is known for its symbolic computation capabilities, and emphasizes functional programming and rule-based programming. It serves as the programming language of Mathematica.",
-      shortDesc:
-        "The Wolfram Language is a high-level, multi-paradigm language used in Mathematica, known for symbolic computation and functional programming.",
+        "Proprietary, general-purpose, high-level multi-paradigm programming language developed by Wolfram Research. It is known for its symbolic computation capabilities, and emphasizes functional programming and rule-based programming. It serves as the programming language of Mathematica.",
+      shortDesc: "High-level language used in Mathematica, known for symbolic computation and functional programming.",
       created: "1988",
       extensions: [".m", ".nb", ".wl"],
       extHomeURL: "https://www.wolfram.com/language/",

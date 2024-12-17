@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+cuda", {
       name: "CUDA",
       description:
-        "CUDA (Compute Unified Device Architecture) is a parallel computing platform and application programming interface (API) model developed by Nvidia. It facilitates dramatic increases in computing performance by harnessing the power of the graphics processing unit (GPU).",
-      shortDesc: "CUDA is a parallel computing platform and API model by Nvidia for GPU acceleration.",
+        "Compute Unified Device Architecture is a parallel computing platform and application programming interface (API) model developed by Nvidia. It facilitates dramatic increases in computing performance by harnessing the power of the graphics processing unit (GPU).",
+      shortDesc: "parallel computing platform and API model by Nvidia for GPU acceleration.",
       created: "2006",
       extensions: [".cu"],
       extGithubPath: "NVIDIA/cuda-samples",

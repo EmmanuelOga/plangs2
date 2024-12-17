@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+groovy", {
       name: "Groovy",
       description:
-        "Apache Groovy is a optionally typed and dynamic language for the Java platform, offering seamless integration with Java, concise syntax, and meta-programming features.",
-      shortDesc: "Groovy is a flexible and dynamic language for the Java platform with strong integration capabilities.",
+        "Optionally typed and dynamic language for the Java platform, offering seamless integration with Java, concise syntax, and meta-programming features.",
+      shortDesc: "Flexible and dynamic language for the Java platform with strong integration capabilities.",
       created: "2003",
       extensions: [".groovy", ".gsh", ".gvy", ".gy"],
       extGithubPath: "apache/groovy",

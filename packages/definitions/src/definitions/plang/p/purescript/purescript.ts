@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+purescript", {
       name: "PureScript",
       description:
-        "PureScript is a strongly-typed, purely-functional programming language that compiles to JavaScript and other languages. It is used for developing web applications, server-side apps, and desktop applications. PureScript's syntax is similar to Haskell and includes features like row polymorphism, extensible records, and strict evaluation.",
-      shortDesc: "PureScript is a strongly-typed, purely-functional language similar to Haskell, compiling to JavaScript.",
+        "Strongly-typed, purely-functional programming language that compiles to JavaScript and other languages. It is used for developing web applications, server-side apps, and desktop applications. PureScript's syntax is similar to Haskell and includes features like row polymorphism, extensible records, and strict evaluation.",
+      shortDesc: "Strongly-typed, purely-functional language similar to Haskell, compiling to JavaScript.",
       created: "2013",
       extensions: [".purs"],
       extGithubPath: "purescript/purescript",

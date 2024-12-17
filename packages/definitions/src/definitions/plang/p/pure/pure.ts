@@ -5,9 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+pure", {
       name: "Pure",
       description:
-        "Pure, successor to the equational language Q, is a dynamically typed, functional programming language based on term rewriting. It integrates symbolic computation, pattern matching, and an easy-to-use C interface with the ability to JIT compile to native code via LLVM.",
-      shortDesc:
-        "Pure is a dynamically typed, functional programming language based on term rewriting, integrating symbolic computation and JIT compilation via LLVM.",
+        "Successor to the equational language Q, Pure is a dynamically typed, functional programming language based on term rewriting. It integrates symbolic computation, pattern matching, and an easy-to-use C interface with the ability to JIT compile to native code via LLVM.",
+      shortDesc: "Based on term rewriting, integrating symbolic computation and JIT compilation via LLVM.",
       created: "2008",
       extensions: [".pure"],
       extGithubPath: "agraef/pure-lang",

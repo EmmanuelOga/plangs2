@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+jinja", {
       name: "Jinja",
       description:
-        "Jinja is a web template engine widely used in Python applications for rendering templates. It was developed by Armin Ronacher and offers a familiar syntax borrowed from Python, enabling flexible and sandboxed template design.",
-      shortDesc: "Jinja is a web template engine for Python, known for its flexible syntax and functionality.",
+        "Web template engine widely used in Python applications for rendering templates. It was developed by Armin Ronacher and offers a familiar syntax borrowed from Python, enabling flexible and sandboxed template design.",
+      shortDesc: "Web template engine for Python, known for its flexible syntax and functionality.",
       created: "2008",
       extensions: [".jinja", ".jinja2"],
       extGithubPath: "pallets/jinja",

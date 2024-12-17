@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+hy", {
       name: "Hy",
       description:
-        "Hy is a Lisp dialect embedded in Python, offering a multi-paradigm programming environment. Designed by Paul Tagliamonte and introduced at PyCon 2013, Hy acts as a transparent Lisp front-end for Python, translating s-expressions to Python's AST and incorporating Python libraries. This language allows the integration of imperative, functional, and object-oriented programming styles.",
-      shortDesc: "Hy is a Lisp dialect embedded in Python, facilitating seamless integration with Python libraries and syntax.",
+        "Lisp dialect embedded in Python, offering a multi-paradigm programming environment. Designed by Paul Tagliamonte and introduced at PyCon 2013, Hy acts as a transparent Lisp front-end for Python, translating s-expressions to Python's AST and incorporating Python libraries. This language allows the integration of imperative, functional, and object-oriented programming styles.",
+      shortDesc: "Lisp dialect embedded in Python, facilitating seamless integration with Python libraries and syntax.",
       created: "2013",
       extensions: [".hy"],
       extGithubPath: "hylang/hy",

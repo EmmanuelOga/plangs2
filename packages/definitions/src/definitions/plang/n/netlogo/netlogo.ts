@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+netlogo", {
       name: "NetLogo",
       description:
-        "NetLogo is a multi-agent programmable modeling environment, particularly suited for modeling complex systems over time. It is designed by Uri Wilensky and used extensively in educational contexts and research.",
-      shortDesc: "NetLogo is a multi-agent environment for modeling complex systems.",
+        "Multi-agent programmable modeling environment, particularly suited for modeling complex systems over time. It is designed by Uri Wilensky and used extensively in educational contexts and research.",
+      shortDesc: "Multi-agent environment for modeling complex systems.",
       created: "1999",
       extensions: [".nlogo", ".nlogo3d", ".nls"],
       extGithubPath: "NetLogo/NetLogo",

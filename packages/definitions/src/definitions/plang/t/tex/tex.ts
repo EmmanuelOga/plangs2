@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+tex", {
       name: "TeX",
       description:
-        "TeX is a typesetting system designed by Donald Knuth in 1978, primarily used for crafting complex mathematical and scientific documents. Known for its precision and professional presentation quality, TeX has become foundational for most academic publishing workflows, particularly through its derivative, LaTeX.",
-      shortDesc: "TeX is a typesetting system for scientific and academic documents, designed by Donald Knuth.",
+        "Typesetting system designed by Donald Knuth in 1978, primarily used for crafting complex mathematical and scientific documents. Known for its precision and professional presentation quality, TeX has become foundational for most academic publishing workflows, particularly through its derivative, LaTeX.",
+      shortDesc: "Typesetting system for scientific and academic documents, designed by Donald Knuth.",
       created: "1978",
       extensions: [".tex"],
       extHomeURL: "https://www.tug.org/tex/",

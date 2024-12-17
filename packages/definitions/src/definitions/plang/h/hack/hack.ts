@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+hack", {
       name: "Hack",
       description:
-        "Hack is a programming language developed by Meta (formerly Facebook) for HHVM, designed to enhance PHP with features like static type checking, gradual typing, and asynchronous programming. It supports various programming paradigms and aims to provide a balance between development speed and safety.",
-      shortDesc: "Hack is a PHP-influenced language with static and gradual typing, used on the HHVM platform.",
+        "Programming language developed by Meta (formerly Facebook) for HHVM, designed to enhance PHP with features like static type checking, gradual typing, and asynchronous programming. It supports various programming paradigms and aims to provide a balance between development speed and safety.",
+      shortDesc: "PHP-influenced language with static and gradual typing, used on the HHVM platform.",
       created: "2014",
       extensions: [".hack", ".hck", ".hh"],
       extGithubPath: "facebook/hhvm",

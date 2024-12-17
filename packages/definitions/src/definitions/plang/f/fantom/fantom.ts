@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+fantom", {
       name: "Fantom",
       description:
-        'Fantom is a general-purpose object-oriented programming language, created by Brian Frank and Andy Frank. It runs on the Java Runtime Environment (JRE), JavaScript, and the .NET Common Language Runtime (CLR) (.NET support is considered "prototype" status). Its stated goal is to provide a standard library API. Fantom uses a curly brace syntax, supports functional programming through closures and concurrency through the Actor model, and blends aspects of both static and dynamic typing.',
-      shortDesc: "Fantom is a general-purpose object-oriented language, designed for cross-platform use and supporting static and dynamic typing.",
+        "General-purpose object-oriented programming language, created by Brian Frank and Andy Frank. It runs on the Java Runtime Environment (JRE), JavaScript, and the .NET Common Language Runtime (CLR). Its stated goal is to provide a standard library API. Fantom uses a curly brace syntax, supports functional programming through closures and concurrency through the Actor model, and blends aspects of both static and dynamic typing.",
+      shortDesc: "General-purpose object-oriented language, designed for cross-platform use and supporting static and dynamic typing.",
       created: "2005",
       extensions: [".fan", ".fwt", ".pod"],
       extGithubPath: "fantom-lang/fantom",

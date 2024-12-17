@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+gdb", {
       name: "GDB",
       description:
-        "The GNU Debugger (GDB) is a portable debugger that runs on many Unix-like systems and works for various programming languages. It provides facilities for tracing and altering program execution.",
-      shortDesc: "The GNU Debugger (GDB) is a portable debugger for Unix-like systems supporting various languages.",
+        "The GNU Debugger is a portable debugger that runs on many Unix-like systems and works for various programming languages. It provides facilities for tracing and altering program execution.",
+      shortDesc: "Portable debugger for Unix-like systems supporting various languages.",
       created: "1986",
       extensions: [".gdb"],
       extHomeURL: "https://www.gnu.org/software/gdb",

@@ -4,9 +4,8 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+vue", {
       name: "Vue",
-      description:
-        "Vue.js is an open-source model–view–viewmodel front end JavaScript framework for building user interfaces and single-page applications.",
-      shortDesc: "Vue.js is an open-source JavaScript framework for front end development.",
+      description: "model-view-viewmodel front end JavaScript framework for building user interfaces and single-page applications.",
+      shortDesc: "JavaScript framework for front end development.",
       created: "2014",
       extensions: [".vue"],
       extGithubPath: "vuejs/core",

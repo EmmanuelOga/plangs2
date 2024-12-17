@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+arduino", {
       name: "Arduino",
       description:
-        "Arduino is an open-source electronics platform based on easy-to-use hardware and software, designed for creating interactive projects. The Arduino programming language is based on C/C++, allowing users to control hardware like motors and LEDs.",
-      shortDesc: "Arduino is an open-source platform for creating interactive electronics projects, using a C/C++-based language.",
+        "Electronics platform based on easy-to-use hardware and software, designed for creating interactive projects. The Arduino programming language is based on C/C++, allowing users to control hardware like motors and LEDs.",
+      shortDesc: "platform for creating interactive electronics projects, using a C/C++-based language.",
       created: "2005",
       extensions: [".ino", ".pde"],
       extGithubPath: "arduino/Arduino",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+hackety-hack", {
       name: "Hackety Hack",
       description:
-        "Hackety Hack is an open-source application that teaches beginners how to program using the Ruby language, incorporating the Shoes toolkit for creating simple and intuitive GUI applications.",
-      shortDesc: "Hackety Hack is an educational platform for learning Ruby programming, using the Shoes toolkit for GUI development.",
+        "Application that teaches beginners how to program using the Ruby language, incorporating the Shoes toolkit for creating simple and intuitive GUI applications.",
+      shortDesc: "Educational platform for learning Ruby programming, using the Shoes toolkit for GUI development.",
       created: "2009",
       extensions: [".rb"],
       extGithubPath: "hacketyhack/hacketyhack",

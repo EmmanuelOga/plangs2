@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+gravity", {
       name: "Gravity",
       description:
-        "Gravity is a lightweight, dynamically typed, embeddable programming language designed for the Creo project. It supports multiple paradigms such as procedural, object-oriented, and functional programming, and takes influence from languages like Lua and Swift.",
-      shortDesc: "Gravity is a lightweight, embeddable programming language supporting multiple paradigms.",
+        "Lightweight, dynamically typed, embeddable programming language designed for the Creo project. It supports multiple paradigms such as procedural, object-oriented, and functional programming, and takes influence from languages like Lua and Swift.",
+      shortDesc: "Lightweight, embeddable programming language supporting multiple paradigms.",
       created: "2015",
       extensions: [".gravity"],
       extGithubPath: "marcobambini/gravity",

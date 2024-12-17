@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+nim", {
       name: "Nim",
       description:
-        "Nim is a general-purpose, statically typed, compiled programming language designed for performance and elegant syntax. It supports multiple paradigms including imperative, functional, and metaprogramming. Nim can compile to C, C++, and JavaScript, making it suitable for system programming, web, and embedded applications.",
-      shortDesc: "Nim is a statically typed, compiled language focusing on performance and elegant syntax, compilable to C, C++, and JavaScript.",
+        "General-purpose, statically typed, compiled programming language designed for performance and elegant syntax. It supports multiple paradigms including imperative, functional, and metaprogramming. Nim can compile to C, C++, and JavaScript, making it suitable for system programming, web, and embedded applications.",
+      shortDesc: "Statically typed, compiled language focusing on performance and elegant syntax, compilable to C, C++, and JavaScript.",
       created: "2008",
       extensions: [".nim", ".nimble", ".nims"],
       extGithubPath: "nim-lang/Nim",

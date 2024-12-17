@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+idris", {
       name: "Idris",
       description:
-        "Idris is a purely-functional programming language, designed for Type-Driven Development with dependent types, optional lazy evaluation, and features such as a totality checker. It serves as both a general-purpose language and a proof assistant.",
-      shortDesc: "Idris is a purely-functional language for Type-Driven Development with dependent types and optional lazy evaluation.",
+        "Purely-functional programming language, designed for Type-Driven Development with dependent types, optional lazy evaluation, and features such as a totality checker. It serves as both a general-purpose language and a proof assistant.",
+      shortDesc: "Purely-functional language for Type-Driven Development with dependent types and optional lazy evaluation.",
       created: "2007",
       extensions: [".idr", ".lidr"],
       extGithubPath: "idris-lang/Idris2",

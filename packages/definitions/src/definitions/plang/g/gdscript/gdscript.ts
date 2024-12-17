@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+gdscript", {
       name: "GDScript",
       description:
-        "GDScript is a high-level, dynamically typed programming language tailored for the Godot Engine, influenced by Python, facilitating gameplay scripting and rapid prototyping.",
-      shortDesc: "GDScript is a high-level, dynamically typed language for the Godot Engine.",
+        "High-level, dynamically typed programming language tailored for the Godot Engine, influenced by Python, facilitating gameplay scripting and rapid prototyping.",
+      shortDesc: "High-level, dynamically typed language for the Godot Engine.",
       created: "2014",
       extensions: [".gd"],
       extGithubPath: "godotengine/godot",

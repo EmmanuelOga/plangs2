@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+perl", {
       name: "Perl",
       description:
-        'Perl is a high-level, general-purpose, interpreted, dynamic programming language. Though Perl is not officially an acronym, there are various backronyms in use, including "Practical Extraction and Reporting Language".',
-      shortDesc: "Perl is a dynamic, general-purpose language known for its text-processing capabilities.",
+        'High-level, general-purpose, interpreted, dynamic programming language. Though Perl is not officially an acronym, there are various backronyms in use, including "Practical Extraction and Reporting Language".',
+      shortDesc: "Dynamic language known for its text-processing capabilities.",
       created: "1987",
       extensions: [".cgi", ".pl", ".pls", ".plx", ".pm", ".pod", ".psgi", ".t", ".xs"],
       extGithubPath: "Perl/perl5",

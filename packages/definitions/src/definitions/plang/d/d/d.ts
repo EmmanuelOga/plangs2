@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+d", {
       name: "D",
       description:
-        "D is a system programming language created by Walter Bright at Digital Mars and later joined by Andrei Alexandrescu, offering a unique blend of efficiency and expressiveness inspired by C++ but standing distinct from it. It incorporates multiple programming paradigms and features an innovative type system, appealing to programmers looking for modernized C++ alternatives. D is influenced by languages such as Java, Python, and C#, and it has, in turn, influenced newer languages like Rust and Go.",
-      shortDesc: "D is a modern system programming language influenced by C++ with multiple paradigms and expressive features.",
+        "System programming language created by Walter Bright at Digital Mars and later joined by Andrei Alexandrescu, offering a unique blend of efficiency and expressiveness inspired by C++ but standing distinct from it. It incorporates multiple programming paradigms and features an innovative type system, appealing to programmers looking for modernized C++ alternatives. D is influenced by languages such as Java, Python, and C#, and it has, in turn, influenced newer languages like Rust and Go.",
+      shortDesc: "Modern system programming language influenced by C++ with multiple paradigms and expressive features.",
       created: "2001",
       extensions: [".d"],
       extGithubPath: "dlang/dmd",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+clean", {
       name: "Clean",
       description:
-        "Clean is a general-purpose purely functional programming language designed for real-world applications. It is known for its uniqueness typing, dynamic typing, generic functions, and lazy evaluation. Developed since 1987 by the Software Technology Research Group of Radboud University Nijmegen, Clean shares many properties with Haskell, offering an efficient compilation to machine code with its unique type system.",
-      shortDesc: "Clean is a functional programming language known for uniqueness typing and lazy evaluation.",
+        "General-purpose purely functional programming language designed for real-world applications. It is known for its uniqueness typing, dynamic typing, generic functions, and lazy evaluation. Developed since 1987 by the Software Technology Research Group of Radboud University Nijmegen, Clean shares many properties with Haskell, offering an efficient compilation to machine code with its unique type system.",
+      shortDesc: "Functional programming language known for uniqueness typing and lazy evaluation.",
       created: "1987",
       extensions: [".abc", ".dcl", ".icl"],
       extHomeURL: "http://clean.cs.ru.nl/",

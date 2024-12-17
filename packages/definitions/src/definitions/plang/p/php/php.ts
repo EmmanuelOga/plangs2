@@ -4,8 +4,8 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+php", {
       name: "PHP",
-      description: "PHP is a widely-used open source general-purpose scripting language especially suited for web development and embedded in HTML.",
-      shortDesc: "PHP is a scripting language primarily used for web development.",
+      description: "Widely-used open source general-purpose scripting language especially suited for web development and embedded in HTML.",
+      shortDesc: "Scripting language primarily used for web development.",
       created: "1995",
       extensions: [".phar", ".php", ".php3", ".php4", ".php5", ".phps", ".pht", ".phtml"],
       extGithubPath: "php/php-src",

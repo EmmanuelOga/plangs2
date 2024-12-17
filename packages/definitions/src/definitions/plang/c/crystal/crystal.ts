@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+crystal", {
       name: "Crystal",
       description:
-        "Crystal is a statically-typed, object-oriented programming language with syntax inspired by Ruby, aimed at providing high performance through compilation to native code. It features type inference and compiles to fast executable binaries, primarily for system and web backend applications.",
-      shortDesc: "Crystal is a compiled, statically-typed language with Ruby-like syntax and type inference.",
+        "Statically-typed, object-oriented programming language with syntax inspired by Ruby, aimed at providing high performance through compilation to native code. It features type inference and compiles to fast executable binaries, primarily for system and web backend applications.",
+      shortDesc: "Compiled, statically-typed language with Ruby-like syntax and type inference.",
       created: "2014",
       extensions: [".cr"],
       extGithubPath: "crystal-lang/crystal",

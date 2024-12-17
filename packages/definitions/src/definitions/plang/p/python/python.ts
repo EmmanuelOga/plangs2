@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+python", {
       name: "Python",
       description:
-        "Dynamic, high-level programming language known for its easy-to-read syntax and flexibility. It is a multi-paradigm language supporting procedural, object-oriented, and functional programming models, widely used in web development, data analysis, artificial intelligence, and more.",
+        "Dynamic, high-level programming language known for its easy-to-read syntax and flexibility. A multi-paradigm language supporting procedural, object-oriented, and functional programming models, widely used in web development, data analysis, artificial intelligence, and more.",
       shortDesc: "Dynamic, high-level programming language known for its easy-to-read syntax.",
       created: "1991",
       extensions: [".py", ".pyc", ".pyd", ".pyi", ".pyo", ".pyw", ".pyz"],
@@ -74,7 +74,7 @@ export function define(g: PlangsGraph) {
     .set("tool+pixi", {
       name: "Pixi",
       description:
-        "Pixi is a package management tool for developers. It allows the developer to install libraries and applications in a reproducible way. Use pixi cross-platform, on Windows, Mac and Linux.",
+        "A package management tool for developers. It allows the developer to install libraries and applications in a reproducible way. Use pixi cross-platform, on Windows, Mac and Linux.",
       extHomeURL: "https://pixi.sh/",
       keywords: ["dependency manager", "package management", "package manager"],
     })
@@ -85,7 +85,7 @@ export function define(g: PlangsGraph) {
     .set("tool+pyright", {
       name: "Pyright",
       description:
-        "Pyright is a full-featured, standards-compliant static type checker for Python. It is designed for high performance and can be used with large Python source bases.",
+        "A full-featured, standards-compliant static type checker for Python. It is designed for high performance and can be used with large Python source bases.",
       extHomeURL: "https://microsoft.github.io/pyright/",
       keywords: ["static analysis", "type checker", "type inference"],
     })
@@ -94,7 +94,7 @@ export function define(g: PlangsGraph) {
   g.tool
     .set("tool+ruff", {
       name: "Ruff",
-      description: "An extremely fast Python linter and code formatter, written in Rust.",
+      description: "Extremely fast Python linter and code formatter, written in Rust.",
       extHomeURL: "https://docs.astral.sh/ruff/",
       keywords: ["code quality", "formatter", "linter"],
     })
@@ -126,7 +126,7 @@ export function define(g: PlangsGraph) {
   g.library
     .set("lib+flask", {
       name: "Flask",
-      description: "Flask is a lightweight WSGI web application framework.",
+      description: "Lightweight WSGI web application framework.",
       extHomeURL: "https://flask.palletsprojects.com/",
       keywords: ["framework", "web", "wsgi"],
     })
@@ -135,7 +135,7 @@ export function define(g: PlangsGraph) {
   g.library
     .set("lib+msgspec", {
       name: "msgspec",
-      description: "msgspec is a fast serialization and validation library, with builtin support for JSON, MessagePack, YAML, and TOML.",
+      description: "Fast serialization and validation library, with builtin support for JSON, MessagePack, YAML, and TOML.",
       extHomeURL: "https://jcristharif.com/msgspec/",
       keywords: ["json", "messagepack", "serialization", "toml", "validation", "yaml"],
     })
@@ -157,7 +157,7 @@ export function define(g: PlangsGraph) {
   g.app
     .set("app+glances", {
       name: "Glances",
-      description: "Glances is a cross-platform system monitoring tool written in Python.",
+      description: "Cross-platform system monitoring tool written in Python.",
       extHomeURL: "https://nicolargo.github.io/glances/",
       keywords: ["monitoring", "system", "terminal"],
     })
@@ -166,7 +166,7 @@ export function define(g: PlangsGraph) {
   g.app
     .set("app+harlequin", {
       name: "Harlequin",
-      description: "An easy, fast, and beautiful database client for the terminal.",
+      description: "Easy, fast, and beautiful database client for the terminal.",
       extHomeURL: "https://harlequin.sh/",
       keywords: ["client", "database", "terminal"],
     })
@@ -175,7 +175,7 @@ export function define(g: PlangsGraph) {
   g.app
     .set("app+zulip", {
       name: "Zulip",
-      description: "Zulip is a powerful, open source group chat application.",
+      description: "Powerful, open source group chat application.",
       extHomeURL: "https://github.com/zulip/zulip",
       keywords: ["chat", "communication", "group"],
     })

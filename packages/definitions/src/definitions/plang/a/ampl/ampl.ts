@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+ampl", {
       name: "AMPL",
       description:
-        "AMPL (A Mathematical Programming Language) is an algebraic modeling language designed to describe and solve complex optimization problems for large-scale mathematical computing. Developed by Robert Fourer, David Gay, and Brian Kernighan at Bell Laboratories, it is widely used in industrial, academic, and governmental settings. AMPL features a mix of declarative and imperative paradigms, making it effective for formulating optimization models and constructing hybrid algorithms. With open-source and commercial solver support, AMPL allows seamless integration into existing systems across multiple platforms.",
-      shortDesc: "AMPL is an algebraic modeling language for complex optimization problems in large-scale computing.",
+        "A Mathematical Programming Language is an algebraic modeling language designed to describe and solve complex optimization problems for large-scale mathematical computing. Developed by Robert Fourer, David Gay, and Brian Kernighan at Bell Laboratories, it is widely used in industrial, academic, and governmental settings. AMPL features a mix of declarative and imperative paradigms, making it effective for formulating optimization models and constructing hybrid algorithms. With open-source and commercial solver support, AMPL allows seamless integration into existing systems across multiple platforms.",
+      shortDesc: "Algebraic modeling language for complex optimization problems in large-scale computing.",
       created: "1985",
       extensions: [".dat", ".mod", ".run"],
       extGithubPath: "ampl/amplpy",

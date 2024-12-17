@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+jupyter-notebook", {
       name: "Jupyter Notebook",
       description:
-        "Jupyter Notebook is a web-based interactive computational environment for creating notebook documents, supporting execution environments (kernels) for languages like Python, Julia, and R. It is extensively used for data science, scientific computing, and educational purposes.",
-      shortDesc: "Jupyter Notebook is a web-based interactive computational environment for creating notebook documents.",
+        "A web-based interactive computational environment for creating notebook documents, supporting execution environments (kernels) for languages like Python, Julia, and R. It is extensively used for data science, scientific computing, and educational purposes.",
+      shortDesc: "Web-based interactive computational environment for creating notebook documents.",
       created: "2014",
       extensions: [".ipynb"],
       extGithubPath: "jupyter/jupyter",

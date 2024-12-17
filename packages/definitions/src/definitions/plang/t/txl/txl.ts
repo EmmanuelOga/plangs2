@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+txl", {
       name: "TXL",
       description:
-        "TXL is a domain-specific language designed for creating, manipulating, and prototyping programming languages. Developed in 1985 by Charles Halpern-Hamu and James Cordy, it utilizes term-rewriting and pattern-matching techniques.",
-      shortDesc: "TXL is a language for creating and manipulating programming languages with pattern-matching.",
+        "Domain-specific language designed for creating, manipulating, and prototyping programming languages. Developed in 1985 by Charles Halpern-Hamu and James Cordy, it utilizes term-rewriting and pattern-matching techniques.",
+      shortDesc: "Language for creating and manipulating programming languages with pattern-matching.",
       created: "1985",
       extensions: [".txl"],
       extHomeURL: "https://www.txl.ca/",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+powershell", {
       name: "PowerShell",
       description:
-        "PowerShell is a task automation and configuration management framework from Microsoft, providing a command-line shell and scripting language for automating administrative tasks.",
-      shortDesc: "PowerShell is a shell and scripting language from Microsoft.",
+        "Task automation and configuration management framework from Microsoft, providing a command-line shell and scripting language for automating administrative tasks.",
+      shortDesc: "Shell and scripting language from Microsoft.",
       created: "2006",
       extensions: [".cdxml", ".ps1", ".ps1xml", ".psc1", ".psd1", ".psm1", ".psrc", ".pssc"],
       extGithubPath: "PowerShell/PowerShell",

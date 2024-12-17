@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+v8", {
       name: "V8",
       description:
-        "V8 is Google's open-source high-performance JavaScript and WebAssembly engine, primarily used in Chrome and Node.js, among others. It implements ECMAScript and WebAssembly and can be embedded in any C++ application. It runs on Windows, macOS, Linux, and various processors including x86-64 and ARM.",
-      shortDesc: "V8 is Google's open-source high-performance JavaScript engine used in Chrome and Node.js.",
+        "V8 is Google's high-performance JavaScript and WebAssembly engine, primarily used in Chrome and Node.js, among others. It implements ECMAScript and WebAssembly and can be embedded in any C++ application. It runs on Windows, macOS, Linux, and various processors including x86-64 and ARM.",
+      shortDesc: "V8 is a high-performance JavaScript engine used in Chrome and Node.js.",
       created: "2008",
       extensions: [".cjs", ".js", ".mjs"],
       extGithubPath: "v8/v8",

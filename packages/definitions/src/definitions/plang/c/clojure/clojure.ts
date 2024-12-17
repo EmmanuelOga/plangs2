@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+clojure", {
       name: "Clojure",
       description:
-        "Clojure is a dynamic, general-purpose programming language that combines the features of a scripting language with an efficient infrastructure for multithreaded programming, known for its expressiveness, immutability, and support for concurrency.",
-      shortDesc: "Clojure is a dynamic language known for its expressiveness and concurrent processing capabilities.",
+        "Dynamic, general-purpose programming language that combines the features of a scripting language with an efficient infrastructure for multithreaded programming, known for its expressiveness, immutability, and support for concurrency.",
+      shortDesc: "Dynamic language known for its expressiveness and concurrent processing capabilities.",
       created: "2007",
       extensions: [".clj", ".cljc", ".cljd", ".cljr", ".cljs", ".edn"],
       extGithubPath: "clojure/clojure",

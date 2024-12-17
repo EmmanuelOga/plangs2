@@ -4,8 +4,8 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+vala", {
       name: "Vala",
-      description: "Vala is an object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject system.",
-      shortDesc: "Vala is an object-oriented language that generates C code using the GObject system.",
+      description: "Object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject system.",
+      shortDesc: "Object-oriented language that generates C code using the GObject system.",
       created: "2006",
       extensions: [".vala", ".vapi"],
       extGithubPath: "GNOME/vala",

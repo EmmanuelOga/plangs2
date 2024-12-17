@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+datomic", {
       name: "Datomic",
       description:
-        "Datomic is a distributed database and implementation of Datalog. It supports ACID transactions, joins, and a logical query language, Datalog. A distinguishing feature of Datomic is its immutable data model where time is a basic feature of data entities, allowing for temporal queries.",
-      shortDesc: "Datomic is a distributed database with an immutable data model and Datalog implementation.",
+        "Distributed database and implementation of Datalog. It supports ACID transactions, joins, and a logical query language, Datalog. A distinguishing feature of Datomic is its immutable data model where time is a basic feature of data entities, allowing for temporal queries.",
+      shortDesc: "Distributed database with an immutable data model and Datalog implementation.",
       created: "2012",
       extHomeURL: "http://datomic.com/",
       extWikipediaPath: "Datomic",

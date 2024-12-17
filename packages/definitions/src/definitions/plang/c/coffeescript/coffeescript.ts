@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+coffeescript", {
       name: "CoffeeScript",
       description:
-        "CoffeeScript is a little language that compiles into JavaScript. It adds syntactic sugar inspired by Haskell, Ruby, and Python to enhance JavaScript's brevity and readability. CoffeeScript was designed to expose the good parts of JavaScript in a simple way, compiling into equivalent JavaScript. Many unnecessary parentheses and braces can be omitted.",
-      shortDesc: "CoffeeScript compiles into JavaScript, enhancing its brevity with syntactic sugar inspired by Haskell, Ruby, and Python.",
+        "A little language that compiles into JavaScript. It adds syntactic sugar inspired by Haskell, Ruby, and Python to enhance JavaScript's brevity and readability. CoffeeScript was designed to expose the good parts of JavaScript in a simple way, compiling into equivalent JavaScript. Many unnecessary parentheses and braces can be omitted.",
+      shortDesc: "Compiles into JavaScript, enhancing its brevity with syntactic sugar inspired by Haskell, Ruby, and Python.",
       created: "2009",
       extensions: [".coffee", ".litcoffee"],
       extGithubPath: "jashkenas/coffeescript",

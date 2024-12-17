@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+lisp", {
       name: "Lisp",
       description:
-        "Lisp is a family of programming languages known for their fully parenthesized prefix notation and rich macro systems, initially developed for AI research. It is one of the oldest high-level programming languages still in use, with widespread influence on subsequent languages.",
-      shortDesc: "Lisp is a family of programming languages known for its fully parenthesized prefix notation and influence on AI research.",
+        "Family of programming languages known for their fully parenthesized prefix notation and rich macro systems, initially developed for AI research. It is one of the oldest high-level programming languages still in use, with widespread influence on subsequent languages.",
+      shortDesc: "Family of programming languages known for its fully parenthesized prefix notation and influence on AI research.",
       created: "1960",
       extensions: [".cl", ".fasl", ".lisp", ".lsp"],
       extRedditPath: "Common_Lisp",

@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+go", {
       name: "Go",
       description:
-        "Go is a statically typed, compiled high-level programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson. It is syntactically similar to C, but offers memory safety, garbage collection, structural typing, and CSP-style concurrency. Sometimes referred to as Golang due to its former domain name golang.org, its proper name is Go. It is suitable for building scalable, simple, and secure systems.",
-      shortDesc: "Go is a statically typed, compiled language with memory safety and CSP-style concurrency, designed at Google.",
+        "Statically typed, compiled high-level programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson. It is syntactically similar to C, but offers memory safety, garbage collection, structural typing, and CSP-style concurrency. Sometimes referred to as Golang due to its former domain name golang.org, its proper name is Go. It is suitable for building scalable, simple, and secure systems.",
+      shortDesc: "Statically typed, compiled language with memory safety and CSP-style concurrency, designed at Google.",
       created: "2009",
       extensions: [".go"],
       extGithubPath: "golang/go",

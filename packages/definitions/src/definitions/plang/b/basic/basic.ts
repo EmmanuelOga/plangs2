@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "BASIC",
       description:
         "BASIC (Beginners' All-purpose Symbolic Instruction Code) is a family of general-purpose, high-level programming languages designed for ease of use. The original version was created by John G. Kemeny and Thomas E. Kurtz at Dartmouth College in 1964. They aimed to enable students in non-scientific fields to use computers, making programming more accessible.",
-      shortDesc: "BASIC is a family of high-level programming languages created in 1964 to make programming more accessible.",
+      shortDesc: "Family of high-level programming languages created in 1964 to make programming more accessible.",
       created: "1964",
       extensions: [".bas", ".bb", ".bi", ".fb", ".pb"],
       extRedditPath: "Basic",

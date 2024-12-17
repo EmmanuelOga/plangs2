@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+elixir", {
       name: "Elixir",
       description:
-        "Elixir is a dynamic, functional language designed for building scalable and maintainable applications. It builds on the Erlang VM, known for creating low-latency, distributed, and fault-tolerant systems. Elixir provides metaprogramming capabilities, allowing developers to extend the language comprehensively, leveraging macros and protocols for polymorphism, enhancing its ability to handle large and complex systems.",
-      shortDesc: "Elixir is a dynamic, functional language for scalable applications built on Erlang VM.",
+        "Dynamic, functional language designed for building scalable and maintainable applications. It builds on the Erlang VM, known for creating low-latency, distributed, and fault-tolerant systems. Elixir provides metaprogramming capabilities, allowing developers to extend the language comprehensively, leveraging macros and protocols for polymorphism, enhancing its ability to handle large and complex systems.",
+      shortDesc: "Dynamic, functional language for scalable applications built on Erlang VM.",
       created: "2012",
       extensions: [".ex", ".exs"],
       extGithubPath: "elixir-lang/elixir",

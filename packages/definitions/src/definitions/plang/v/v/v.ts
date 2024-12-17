@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "V",
       description:
         "V, also known as vlang, is a statically typed, compiled programming language created by Alexander Medvednikov in early 2019. It was inspired by the language Go, along with other influences like Oberon, Swift, and Rust. V aims for simplicity, readability, maintainability, and performance. It is free and open-source, with a model that emphasizes speed, safety, and reliability, under the MIT License.",
-      shortDesc: "V is a statically typed, compiled language emphasizing simplicity and performance.",
+      shortDesc: "Statically typed, compiled language emphasizing simplicity and performance.",
       created: "2019",
       extensions: [".v", ".vsh"],
       extGithubPath: "vlang/v",
