@@ -5,7 +5,7 @@ export function define(g: PlangsGraph) {
     .set("pl+.net", {
       name: ".NET",
       description:
-        'The .NET platform (pronounced as "dot net") is a free and open-source, managed computer software framework for Windows, Linux, and macOS operating systems. It is developed by Microsoft employees and the open-source community through the .NET Foundation and is released under the MIT License. .NET is known for its cross-platform capabilities and support for multiple programming paradigms, making it suitable for building a wide range of applications from web and mobile to cloud and microservices.',
+        "A free and open-source, managed computer software framework for Windows, Linux, and macOS operating systems. It is developed by Microsoft employees and the open-source community through the .NET Foundation and is released under the MIT License. .NET is known for its cross-platform capabilities and support for multiple programming paradigms, making it suitable for building a wide range of applications from web and mobile to cloud and microservices.",
       keywords: [".net", "dotnet"],
       extensions: [".csproj", ".fsproj", ".sln", ".vbproj"],
       releases: [
@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "http://dotnet.microsoft.com/",
       created: "2016",
       isTranspiler: false,
-      shortDesc: "The .NET platform is a cross-platform, open-source framework known for supporting multiple programming paradigms.",
+      shortDesc: "A cross-platform, open-source framework known for supporting multiple programming paradigms.",
       githubStars: 14500,
       extGithubPath: "microsoft/dotnet",
       githubPopular: true,

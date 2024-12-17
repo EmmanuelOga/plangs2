@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
   g.community
     .set("comm+contextfree", {
       name: "Context Free",
-      description: "Context Free is about programming languages, including design, usage, implementation, and history.",
+      description: "Programming languages, including design, usage, implementation, and history.",
       extHomeURL: "https://contextfree.info/",
       links: [
         { title: "Bluesky", url: "https://contextfree.bsky.social/" },
