@@ -5,8 +5,8 @@ export function define(g: PlangsGraph) {
     .set("pl+python", {
       name: "Python",
       description:
-        "Python is a dynamic, high-level programming language known for its easy-to-read syntax and flexibility. It is a multi-paradigm language supporting procedural, object-oriented, and functional programming models, widely used in web development, data analysis, artificial intelligence, and more.",
-      shortDesc: "Python is a dynamic, high-level programming language known for its easy-to-read syntax.",
+        "Dynamic, high-level programming language known for its easy-to-read syntax and flexibility. It is a multi-paradigm language supporting procedural, object-oriented, and functional programming models, widely used in web development, data analysis, artificial intelligence, and more.",
+      shortDesc: "Dynamic, high-level programming language known for its easy-to-read syntax.",
       extensions: [".py", ".pyc", ".pyd", ".pyi", ".pyo", ".pyw", ".pyz"],
       releases: [
         { version: "2.7.18", name: "Final Release of Python 2", date: "2020-04-19" },
