@@ -1,7 +1,7 @@
 import { expect, test } from "bun:test";
 
 import { Filter } from "@plangs/auxiliar/filters";
-import { type AnyValue, ValString } from "@plangs/auxiliar/value";
+import { type AnyValue, ValBool, ValString } from "@plangs/auxiliar/value";
 import { PlangsGraph } from "@plangs/plangs/graph";
 import type { VPlangKey } from "@plangs/plangs/graph/generated";
 
@@ -12,26 +12,38 @@ test("matchVertex", () => {
   const pg = new PlangsGraph();
   const preds = PLANG_FACET_PREDICATES as Predicates<PlangFacetKey>;
 
-  const plang = pg.plang.set("pl+plang", { name: "MyPlang" }).relWrittenWith.add("pl+one", "pl+two");
-  const other = pg.plang.set("pl+other", { name: "MyOtherPlang" }).relWrittenWith.add("pl+two");
+  const plang = pg.plang.set("pl+plang", { name: "MyPlang", isTranspiler: true });
+  const other = pg.plang.set("pl+other", { name: "MyOtherPlang" });
 
-  const writtenWith = new Filter<VPlangKey>("any").add("pl+one", "pl+two");
+  // We start with empty filters.
+  const filters = new Map<PlangFacetKey, AnyValue>();
 
-  const filters = new Map(Object.entries({ writtenWith }) as [PlangFacetKey, AnyValue][]);
+  // No filters, so we should always match.
+  expect(matchVertex(plang, preds, filters, "all")).toBeTrue();
+  expect(matchVertex(plang, preds, filters, "any")).toBeTrue();
+  expect(matchVertex(other, preds, filters, "all")).toBeTrue();
+  expect(matchVertex(other, preds, filters, "any")).toBeTrue();
 
-  expect(matchVertex(plang, preds, filters)).toBeTrue();
-  expect(matchVertex(other, preds, filters)).toBeTrue();
+  // Add a filter matching one of the plangs.
+  filters.set("plangName", new ValString("other")); // only lowecase matches.
+  expect(matchVertex(plang, preds, filters, "all")).toBeFalse();
+  expect(matchVertex(plang, preds, filters, "any")).toBeFalse();
+  expect(matchVertex(other, preds, filters, "all")).toBeTrue();
+  expect(matchVertex(other, preds, filters, "any")).toBeTrue();
 
-  writtenWith.mode = "all";
+  // Change the filter, matching both of the plangs.
+  filters.set("plangName", new ValString("my")); // only lowecase matches.
+  expect(matchVertex(plang, preds, filters, "all")).toBeTrue();
+  expect(matchVertex(plang, preds, filters, "any")).toBeTrue();
+  expect(matchVertex(other, preds, filters, "all")).toBeTrue();
+  expect(matchVertex(other, preds, filters, "any")).toBeTrue();
 
-  expect(matchVertex(plang, preds, filters)).toBeTrue();
-  expect(matchVertex(other, preds, filters)).toBeFalse();
-
-  writtenWith.mode = "any";
-  filters.set("plangName", new ValString("myplang"));
-
-  expect(matchVertex(plang, preds, filters)).toBeTrue();
-  expect(matchVertex(other, preds, filters)).toBeFalse();
+  // Both match, but we add an *additional* filter that only matches one.
+  filters.set("isTranspiler", new ValBool(true));
+  expect(matchVertex(plang, preds, filters, "all")).toBeTrue();
+  expect(matchVertex(plang, preds, filters, "any")).toBeTrue();
+  expect(matchVertex(other, preds, filters, "all")).toBeFalse();
+  expect(matchVertex(other, preds, filters, "any")).toBeTrue();
 });
 
 test("matchVertices", () => {
@@ -43,6 +55,6 @@ test("matchVertices", () => {
   const filters = new Map(Object.entries({ writtenWith }) as [PlangFacetKey, AnyValue][]);
 
   expect(matchVertices(pg.plang, filters)).toEqual(new Set([plang.key, other.key]));
-  expect(matchVertices(pg.plang, filters, 1)).toEqual(new Set([plang.key]));
-  expect(matchVertices(pg.plang, filters, 1000)).toEqual(new Set([plang.key, other.key]));
+  expect(matchVertices(pg.plang, filters, "all", 1)).toEqual(new Set([plang.key]));
+  expect(matchVertices(pg.plang, filters, "all", 1000)).toEqual(new Set([plang.key, other.key]));
 });

@@ -88,6 +88,10 @@ export class Filter<T> implements Value<Filter<T>> {
       !!val && typeof val === "object" && "mode" in val && (val.mode === "all" || val.mode === "any") && "values" in val && Array.isArray(val.values)
     );
   }
+
+  toString() {
+    return `Filter(${this.mode}: ${JSON.stringify([...this.values]).slice(1, -1)})`;
+  }
 }
 
 // biome-ignore lint/suspicious/noExplicitAny: there's no _precise_ way to know the type of the values here.
