@@ -63,6 +63,7 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 
 ### Site
 
+- [ ] Rethink Languish link.
 - [ ] Add schema.org metadata.
 - [ ] Add fb opengraph metadata.
 - [ ] Add missing aria attributes.

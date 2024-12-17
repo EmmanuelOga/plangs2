@@ -29,7 +29,7 @@ export function Vertex({ page, vertex }: { pg: PlangsGraph; page: PlangsPage; ve
       mainClasses={tw("overflow-y-scroll")}>
       <article class={tw("p-4", PROSE)}>
         <div class={tw(cssClass("vertexInfo"))} data-page={page} data-open={false}>
-          <VertexInfo vertex={vertex} page={page} open={false} />
+          <VertexInfo detail={vertex.detail} page={page} open={false} />
         </div>
 
         {RELATIONS.map(([rel, title]) => (

@@ -30,6 +30,11 @@ export class ReleaseWrapper {
     return parseMonth(this.release.date);
   }
 
+  get yearMonth() {
+    const { year, month } = this;
+    return year && month ? `${year}-${month.toString().padStart(2, "0")}` : year;
+  }
+
   isRecent(referenceDate: StrDate): boolean {
     return isRecent(this.date, referenceDate);
   }

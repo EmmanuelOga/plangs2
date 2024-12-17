@@ -1,28 +1,42 @@
+import type { ComponentChildren, JSX } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
 import { ret } from "@plangs/auxiliar/misc";
 import { EXTERN, GITHUB, REDDIT, STACKOV, WIKIPEDIA } from "@plangs/frontend/auxiliar/icons";
 import { BORDER, PROSE_BASIC, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
-import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
+import type { VertexDetail } from "@plangs/plangs/graph/vertex_base";
 import { GRID_PAGES, type PlangsPage } from "@plangs/server/components/layout";
 import { VertexThumbn } from "@plangs/server/components/vertex-thumbn";
-import type { ComponentChildren, JSX } from "preact";
+import { cssClass } from "@plangs/server/elements";
 
 export type VertexInfoProps = {
   page: PlangsPage;
   open?: boolean;
-  vertex?: TPlangsVertex;
+  detail?: VertexDetail;
 };
 
 /** Display Vertex. */
-export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
-  const h1Ref = useRef<HTMLHeadingElement>(null);
-  useEffect(() => h1Ref.current?.scrollIntoView({ behavior: "smooth", block: "end" }));
+export function VertexInfo({ detail, open, page }: VertexInfoProps) {
+  const self = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!self.current) return;
+
+    // Make sure the title is visible.
+    self.current.querySelector("h2")?.scrollIntoView({ behavior: "smooth", block: "end" });
+
+    const links = self.current.querySelectorAll(`.${cssClass("externalLink")}`);
+    if (links.length === 0) return;
+    for (const [i, el] of links.entries()) {
+      el.classList.add("scale-0");
+      setTimeout(() => el.classList.remove("scale-0"), 50 + (links.length - i) * 50);
+    }
+  });
+
   const forGrid = GRID_PAGES.has(page);
-  const rels = relations(vertex);
   return (
-    <div class={tw(VSCROLL, forGrid && "p-4", !forGrid && "sm:mb-16", PROSE_BASIC, "max-w-[unset]")}>
-      {!vertex && (
+    <div ref={self} class={tw(VSCROLL, forGrid && "p-4", !forGrid && "sm:mb-16", PROSE_BASIC, "max-w-[unset]")}>
+      {!detail && (
         <div>
           <h2 class={tw("mt-0!")}>Information</h2>
           <p>
@@ -30,49 +44,50 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
           </p>
         </div>
       )}
-      {vertex && (
+      {detail && (
         <div>
           <div class="flex flex-row gap-5 align-middle">
-            <h2 ref={h1Ref} class={tw("m-0!", forGrid && "inline sm:block")}>
-              <a class="text-primary" href={vertex.href}>
-                {vertex.name}
+            <h2 class={tw("m-0!", forGrid && "inline sm:block")}>
+              <a class="text-primary" href={detail.href}>
+                {detail.name}
               </a>
             </h2>
             <div class="flex-1" />
-            {ret(vertex.urlHome, url => url && <ExternalLink href={url} icon={EXTERN} />)}
-            {ret(vertex.urlGithub, url => url && <ExternalLink href={url} icon={GITHUB} />)}
-            {ret(vertex.urlStackov, url => url && <ExternalLink href={url} icon={STACKOV} />)}
-            {ret(vertex.urlReddit, url => url && <ExternalLink href={url} icon={REDDIT} />)}
-            {ret(vertex.urlWikipedia, url => url && <ExternalLink href={url} icon={WIKIPEDIA} />)}
+            {ret(detail.urlHome, url => url && <ExternalLink href={url} icon={EXTERN} />)}
+            {ret(detail.urlGithub, url => url && <ExternalLink href={url} icon={GITHUB} />)}
+            {ret(detail.urlStackov, url => url && <ExternalLink href={url} icon={STACKOV} />)}
+            {ret(detail.urlReddit, url => url && <ExternalLink href={url} icon={REDDIT} />)}
+            {ret(detail.urlWikipedia, url => url && <ExternalLink href={url} icon={WIKIPEDIA} />)}
           </div>
           <p class={tw(forGrid && "inline sm:block", "hyphens-auto")}>
             {!forGrid && (
               <div class={tw("float-right ml-2 p-4", tw(BORDER, "border-1"))}>
-                <VertexThumbn vertex={vertex} onlyImg={true} class="h-[6.5rem] w-[6.5rem]" />
+                <VertexThumbn detail={detail} onlyImg={true} class="h-[6.5rem] w-[6.5rem]" />
               </div>
             )}
-            {forGrid ? vertex.shortDesc : vertex.description}
+            {forGrid ? detail.shortDesc : detail.description}
           </p>
         </div>
       )}
-      {vertex && rels.length > 0 && (
+      {detail && detail.relations.length > 0 && (
         <details class={tw(forGrid && "hidden sm:block", "overflow-hidden", !forGrid && tw("p-4"))} open={open}>
           <summary class="cursor-pointer text-primary">Details</summary>
           <div class={tw(forGrid ? "flex flex-col" : "grid grid-cols-[auto_1fr]", "sm:gap-4", "sm:p-4")}>
-            <DetailCell title="General">
-              {vertex.created.value && <Pill children={`Appeared ${vertex.created.year}`} />}
-              {"releases" in vertex && ret(vertex.releases.last, rel => rel && <Pill children={`Released ${rel.date ?? rel.version}`} />)}
-              {"isTranspiler" in vertex && vertex.isTranspiler && <Pill children="Transpiler" />}
-              {"isPopular" in vertex && vertex.isPopular && <Pill children="Popular" />}
-            </DetailCell>
-            {relations(vertex).map(([title, vertices]) => (
-              <DetailCell key={title} title={title}>
+            {detail.general.length > 0 && (
+              <RelationCell title="General">
+                {detail.general.map(value => (
+                  <Pill key={value}>{value}</Pill>
+                ))}
+              </RelationCell>
+            )}
+            {detail.relations.map(([title, vertices]) => (
+              <RelationCell key={title} title={title}>
                 {vertices.map(vertex => (
-                  <Pill key={vertex.key}>
+                  <Pill key={vertex.name}>
                     <a href={vertex.href}>{vertex.name}</a>
                   </Pill>
                 ))}
-              </DetailCell>
+              </RelationCell>
             ))}
           </div>
         </details>
@@ -83,13 +98,13 @@ export function VertexInfo({ vertex, open, page }: VertexInfoProps) {
 
 function ExternalLink({ href, icon }: { href: string; icon: JSX.Element }) {
   return (
-    <a href={href} class={tw("text-primary hover:text-hiliteb")}>
+    <a href={href} class={tw(cssClass("externalLink"), "transition-transform", "text-primary hover:text-hiliteb")}>
       {icon}
     </a>
   );
 }
 
-function DetailCell({ title, children }: { title: string; children: ComponentChildren }) {
+function RelationCell({ title, children }: { title: string; children: ComponentChildren }) {
   return (
     <div
       class={tw("col-span-2 grid grid-cols-subgrid", tw("border-foreground/25 border-dotted sm:border-t-1", "pt-4"), tw("hover:bg-hiliteb/10"))}
@@ -116,15 +131,3 @@ function Pill({ children }: { children: ComponentChildren }) {
     </div>
   );
 }
-
-function relations(vertex?: TPlangsVertex): [string, TPlangsVertex[]][] {
-  const result: [string, TPlangsVertex[]][] = [];
-  if (!vertex) return result;
-  for (const rel of vertex.relations.values()) {
-    const relValues = rel.values.filter(related => related.key !== vertex.key);
-    if (relValues.length > 0) result.push([rel.desc, relValues]);
-  }
-  return result;
-}
-
-export const EVENTS = {} as const;

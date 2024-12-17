@@ -1,16 +1,16 @@
 import type { JSX } from "preact/jsx-runtime";
 
 import { HOVER, tw } from "@plangs/frontend/auxiliar/styles";
-import type { PlangsVertex } from "@plangs/plangs/graph/vertex_base";
+import type { VertexDetail } from "@plangs/plangs/graph/vertex_base";
 import { cssClass } from "@plangs/server/elements";
 import { dataset } from "@plangs/server/utils/html";
 
 const PLACEHOLDER = "/images/placeholder.png";
 
-export function VertexThumbn({ vertex, onlyImg, class: klass }: { class?: string; onlyImg?: boolean; vertex: PlangsVertex<any, any> }): JSX.Element {
+export function VertexThumbn({ detail, onlyImg, class: klass }: { class?: string; onlyImg?: boolean; detail: VertexDetail }): JSX.Element {
   return (
     <div
-      {...dataset({ "vertex-key": vertex.key, "vertex-name": vertex.vertexName, "vertex-ranking": vertex.ranking })}
+      {...dataset({ "vertex-key": detail.key, "vertex-name": detail.vertexName, "vertex-ranking": detail.ranking })}
       class={tw(
         cssClass("vertexThumbn"),
         "group",
@@ -21,8 +21,8 @@ export function VertexThumbn({ vertex, onlyImg, class: klass }: { class?: string
       )}>
       {!onlyImg && (
         <div class="truncate text-center">
-          <a class="text-foreground group-hover:text-primary" href={vertex.href}>
-            {vertex.name}
+          <a class="text-foreground group-hover:text-primary" href={detail.href}>
+            {detail.name}
           </a>
         </div>
       )}
@@ -38,15 +38,15 @@ export function VertexThumbn({ vertex, onlyImg, class: klass }: { class?: string
         )}>
         <img
           loading="lazy"
-          src={onlyImg ? (vertex.thumbUrl ?? PLACEHOLDER) : PLACEHOLDER}
-          alt={vertex.name}
-          data-src={vertex.thumbUrl ?? ""}
+          src={onlyImg ? (detail.thumbUrl ?? PLACEHOLDER) : PLACEHOLDER}
+          alt={detail.name}
+          data-src={detail.thumbUrl ?? ""}
           class={tw(cssClass("vertexThumbnImg"), "max-h-full max-w-full object-contain")}
         />
-        {"ranking" in vertex && vertex.ranking && (
+        {"ranking" in detail && detail.ranking && (
           <a
-            href={`https://tjpalmer.github.io/languish/#names=${encodeURIComponent(vertex.name.toLowerCase())}`}
-            title={`Languish Ranking: ${vertex.ranking}`}
+            href={`https://tjpalmer.github.io/languish/#names=${encodeURIComponent(detail.name.toLowerCase())}`}
+            title={`Languish Ranking: ${detail.ranking}`}
             class={tw(
               "block",
               // ALlow hiding the ranking using a data attribute on the wrapper.
@@ -57,7 +57,7 @@ export function VertexThumbn({ vertex, onlyImg, class: klass }: { class?: string
               HOVER,
               "hover:border-1 hover:border-primary hover:opacity-100",
             )}>
-            {vertex.ranking}
+            {detail.ranking}
           </a>
         )}
       </div>

@@ -27,7 +27,7 @@ export function VertexGrid({ pg, page, vertexName }: { pg: PlangsGraph; page: Pl
       )}
       id={cssID("vertexGrid")}>
       {[...pg.vertices[vertexName].values].map(vertex => (
-        <VertexThumbn key={vertex.key} vertex={vertex} />
+        <VertexThumbn key={vertex.key} detail={vertex.detail} />
       ))}
     </div>
   );
@@ -35,6 +35,7 @@ export function VertexGrid({ pg, page, vertexName }: { pg: PlangsGraph; page: Pl
   const info = (
     <div class={tw("grid-info", VSCROLL, cssClass("vertexInfo"), "bg-linear-to-b to-secondary/50")} data-page={page} data-open={true}>
       <VertexInfo page={page} open={true} />
+      {script("window.restoreVertexInfo()")}
     </div>
   );
 

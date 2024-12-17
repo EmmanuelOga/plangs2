@@ -20,6 +20,7 @@ export const CL_KEYS = [
   "vertexThumbn", // Thumbnail for a vertex.
   "vertexThumbnImg", // We'll use the placeholder images until after DOM ready.
   "vertexInfo", // Information about a vertex.
+  "externalLink", // External link to another site.
 ] as const;
 
 export const DATA_KEYS = [

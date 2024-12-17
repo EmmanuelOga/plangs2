@@ -1,10 +1,40 @@
 import { arrayMerge } from "@plangs/auxiliar/array";
 import { IterTap } from "@plangs/auxiliar/iter_tap";
+import { tap } from "@plangs/auxiliar/misc";
 import { Vertex } from "@plangs/graphgen/library";
 
-import type { PlangsGraphBase, TPlangsVertexName } from "./generated";
+import { VPlang } from ".";
+import type { PlangsGraphBase, TPlangsVertex, TPlangsVertexName } from "./generated";
 import { type FieldGithub, FieldStrDate } from "./vertex_data_fields";
 import type { Image, Link, VertexBaseData } from "./vertex_data_schemas";
+
+/**
+ * Vertex detail to display in an information box.
+ * Having a stand-alone structure is useful for storing the info on localStorage.
+ */
+export type VertexDetail = {
+  description: string;
+  href: string;
+  key: string;
+  name: string;
+  ranking?: number;
+  shortDesc: string;
+  thumbUrl?: string;
+  urlGithub?: string;
+  urlHome?: string;
+  urlReddit?: string;
+  urlStackov?: string;
+  urlWikipedia?: string;
+  vertexDesc: string;
+  vertexKind: string;
+  vertexName: string;
+
+  /** Arbitrary "pill" data. */
+  general: string[];
+
+  /** Related vertex by relationship name. */
+  relations: [string, { name: string; href: string }[]][];
+};
 
 export abstract class PlangsVertex<KeyPrefix extends string, Data extends VertexBaseData> extends Vertex<KeyPrefix, Data> {
   constructor(
@@ -22,6 +52,48 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
 
   /** General description of Vertices of this kind. */
   abstract readonly vertexName: TPlangsVertexName;
+
+  /** Generate a detail of the vertex, used to render thumbnails and info boxes. */
+  get detail(): VertexDetail {
+    const relations: [string, { name: string; href: string }[]][] = [];
+    const vertex = this as unknown as TPlangsVertex;
+
+    for (const rel of vertex.relations.values()) {
+      const relValues = rel.values.filter(related => related.key !== vertex.key);
+      if (relValues.length === 0) continue;
+      relations.push([rel.desc, relValues.map(({ name, href }) => ({ name, href }))]);
+    }
+
+    const general: string[] = [];
+
+    if (vertex instanceof VPlang) {
+      tap(vertex.created.year, year => year && general.push(`Appeared ${vertex.created.year}`));
+      tap(vertex.isPopular, pop => pop && general.push("Popular"));
+      tap(vertex.isTranspiler, tsp => tsp && general.push("Transpiler"));
+      tap(vertex.releases.last, rel => rel && general.push(`Released ${rel.yearMonth ?? rel.version}`));
+    }
+
+    return {
+      description: vertex.description,
+      href: vertex.href,
+      key: vertex.key,
+      name: vertex.name,
+      ranking: vertex.ranking,
+      shortDesc: vertex.shortDesc,
+      thumbUrl: vertex.thumbUrl,
+      urlGithub: vertex.urlGithub,
+      urlHome: vertex.urlHome,
+      urlReddit: vertex.urlReddit,
+      urlStackov: vertex.urlStackov,
+      urlWikipedia: vertex.urlWikipedia,
+      vertexDesc: vertex.vertexDesc,
+      vertexKind: vertex.vertexKind,
+      vertexName: vertex.vertexName,
+
+      general,
+      relations,
+    };
+  }
 
   /** Internal path name for rendering the vertex in the web UI.  */
   get href(): string {
