@@ -1,17 +1,15 @@
 import type { FunctionComponent } from "preact";
 
+import { debounce } from "@plangs/auxiliar/debounce";
 import { Map2 } from "@plangs/auxiliar/map2";
 import { type AnyValue, deserializeValue } from "@plangs/auxiliar/value";
 import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
-import { $ } from "@plangs/frontend/auxiliar/dom";
+import { $, elems } from "@plangs/frontend/auxiliar/dom";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { storeKey, storeUpdate } from "@plangs/frontend/auxiliar/storage";
 import type { ToggleClearFacets } from "@plangs/frontend/components/icon-button/state";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { PlangsPage } from "@plangs/server/components/layout";
-
-import { debounce } from "@plangs/auxiliar/debounce";
-import { updateThumbns } from "./grid_util";
 
 export type SerializedFacets<FacetKey extends string> = Partial<Record<FacetKey, ReturnType<AnyValue["serializable"]>>>;
 
@@ -122,6 +120,19 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
 
   /** Helpers */
 
+  /** A static thumbnail grid will be render server side, we just need to show or hide each element.  */
+  _updateThumbs() {
+    const vertexKeys = this.results;
+    for (const div of elems("vertexThumbn")) {
+      const vkey = div.dataset.vertexKey;
+      if (!vkey) continue;
+      const visible = vertexKeys.has(vkey);
+      div.classList.toggle("hidden", !visible);
+    }
+  }
+
+  updateThumbns = debounce(this._updateThumbs.bind(this), 30);
+
   /**
    * Run any side effects without dispatching.
    * Useful for instance on start, for instance: where we don't want to dispatch
@@ -133,7 +144,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
       this.pushState(data);
       storeUpdate(storeKey(this.page, "facet-value"), data);
     }
-    updateThumbns(this.results);
+    this.updateThumbns();
     this.updateClearFacets();
     return this;
   }

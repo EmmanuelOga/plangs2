@@ -20,7 +20,8 @@ export function matchVertex<PredKey extends string>(
   facetValues: Map<PredKey, AnyValue>,
   mode: "all" | "any" = "any",
 ): boolean {
-  if (facetValues.size === 0) return true; // No predicates to match, so we return true.
+  // If no filter is present, we always return true.
+  if (![...facetValues.values()].some(v => v.isPresent)) return true;
 
   for (const [key, value] of facetValues) {
     if (!value.isPresent) continue; // This facet is not set, so we skip it.
@@ -54,9 +55,12 @@ export function matchVertices<T extends TPlangsVertex, PredKey extends string>(
     predicates = {};
   }
 
+  // If no filter is present, we always return true.
+  const emptyFilters: boolean = ![...facetValues.values()].some(v => v.isPresent);
+
   for (const vertex of vertices.values) {
     if (limit >= 0 && result.size >= limit) break;
-    if (matchVertex(vertex, predicates, facetValues, mode)) result.add(vertex.key);
+    if (emptyFilters || matchVertex(vertex, predicates, facetValues, mode)) result.add(vertex.key);
   }
   return result;
 }
