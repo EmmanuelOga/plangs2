@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://contextfree.info/",
       links: [
         { title: "Bluesky", url: "https://contextfree.bsky.social/" },
-        { title: "Taca App Runtime", url: "htps://github.com/contextfreeinfo/taca" },
+        { title: "Taca App Runtime", url: "https://github.com/contextfreeinfo/taca" },
         { title: "Languish Trends", url: "https://tjpalmer.github.io/languish/" },
         { title: "Discord", url: "https://discord.gg/4yJM5MbcAp" },
         { title: "Mastodon", url: "https://hachyderm.io/@contextfree" },
