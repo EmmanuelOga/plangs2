@@ -55,6 +55,4 @@ test("matchVertices", () => {
   const filters = new Map(Object.entries({ writtenWith }) as [PlangFacetKey, AnyValue][]);
 
   expect(matchVertices(pg.plang, filters)).toEqual(new Set([plang.key, other.key]));
-  expect(matchVertices(pg.plang, filters, "all", 1)).toEqual(new Set([plang.key]));
-  expect(matchVertices(pg.plang, filters, "all", 1000)).toEqual(new Set([plang.key, other.key]));
 });

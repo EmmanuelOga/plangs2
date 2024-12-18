@@ -3,10 +3,8 @@ import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { getStore } from "@plangs/frontend/auxiliar/storage";
 import { FacetsMainState } from "@plangs/frontend/facets/main/state";
 import { bool, defineFacetGroups, table, text } from "@plangs/frontend/facets/main/types";
-import { matchVertices } from "@plangs/plangs/facets";
 import type { LibraryFacetKey } from "@plangs/plangs/facets/libraries";
 import { type PlangsGraph, prop, rel } from "@plangs/plangs/graph";
-import type { VLibraryKey } from "@plangs/plangs/graph/generated";
 import type { PlangsPage } from "@plangs/server/components/layout";
 
 // biome-ignore format: Keep it in one line.
@@ -49,6 +47,7 @@ const NAV: { groupKeys: GK[][]; default: GK } = {
 export class LibrariesFacetsState extends FacetsMainState<GK, LibraryFacetKey> {
   override readonly nav = NAV;
   override readonly page = PAGE;
+  override readonly vertexName = "library";
   override readonly gkByFk = GK_BY_FK;
   override readonly groupsConfig = GROUPS;
   override readonly groupsComponent = COMPONENT;
@@ -58,10 +57,5 @@ export class LibrariesFacetsState extends FacetsMainState<GK, LibraryFacetKey> {
     const currentGroupKey = store.load("facets-last-group") ?? NAV.default;
     const values = FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? store.load("facet-value"));
     return new LibrariesFacetsState({ pg, currentGroupKey, values });
-  }
-
-  override get results(): Set<VLibraryKey> {
-    if (!this.pg) return new Set();
-    return matchVertices(this.pg.library, this.values.getMap2());
   }
 }

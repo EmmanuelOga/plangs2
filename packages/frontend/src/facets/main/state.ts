@@ -8,7 +8,10 @@ import { $, elems } from "@plangs/frontend/auxiliar/dom";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { getStore } from "@plangs/frontend/auxiliar/storage";
 import type { ToggleClearFacets } from "@plangs/frontend/components/icon-button/state";
+import type { Vertices } from "@plangs/graphgen/library";
+import { matchVerticesFromGroups } from "@plangs/plangs/facets";
 import type { PlangsGraph } from "@plangs/plangs/graph";
+import type { TPlangsClasses, TPlangsVertex, TPlangsVertexName } from "@plangs/plangs/graph/generated";
 import type { PlangsPage } from "@plangs/server/components/layout";
 
 export type SerializedFacets<FacetKey extends string> = Partial<Record<FacetKey, ReturnType<AnyValue["serializable"]>>>;
@@ -68,7 +71,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
     const { values } = this.data;
     let result: "changed" | "unchanged";
     if (value.isPresent) {
-      if (!value.equalTo(values.get(groupKey, facetKey))) {
+      if (!values.has(groupKey, facetKey) || !value.equalTo(values.get(groupKey, facetKey))) {
         values.set(groupKey, facetKey, value);
         result = "changed";
       } else {
@@ -122,11 +125,18 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
 
   /** A static thumbnail grid will be render server side, we just need to show or hide each element.  */
   _updateThumbs() {
-    const vertexKeys = this.results;
+    const selection = this.values.filter((g, f, v) => v.isPresent);
+
+    // Don't bother filtering if there are no values.
+    const vertexKeys = selection.isEmpty
+      ? undefined
+      : // biome-ignore lint/suspicious/noExplicitAny: the loop up next can handle any kind of key returned.
+        matchVerticesFromGroups(this.pg[this.vertexName] as Vertices<any>, selection);
+
     for (const div of elems("vertexThumbn")) {
       const vkey = div.dataset.vertexKey;
       if (!vkey) continue;
-      const visible = vertexKeys.has(vkey);
+      const visible = vertexKeys === undefined || vertexKeys.has(vkey);
       div.classList.toggle("hidden", !visible);
     }
   }
@@ -192,6 +202,5 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   /** The component that defines the content of a facet group. */
   abstract readonly groupsComponent: FunctionComponent<{ currentFacetGroup: string }>;
 
-  /** A set of vertex keys that are the result of applying the filters. */
-  abstract get results(): Set<string>;
+  abstract readonly vertexName: TPlangsVertexName;
 }

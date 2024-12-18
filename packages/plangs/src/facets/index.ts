@@ -1,3 +1,4 @@
+import type { Map2 } from "@plangs/auxiliar/map2";
 import type { AnyValue } from "@plangs/auxiliar/value";
 import type { Vertices } from "@plangs/graphgen/library";
 import type { TPlangsVertex, TPlangsVertexName } from "@plangs/plangs/graph/generated";
@@ -20,49 +21,79 @@ export function matchVertex<PredKey extends string>(
   facetValues: Map<PredKey, AnyValue>,
   mode: "all" | "any" = "any",
 ): boolean {
-  // If no filter is present, we always return true.
-  if (![...facetValues.values()].some(v => v.isPresent)) return true;
+  let someFilter = false;
 
   for (const [key, value] of facetValues) {
     if (!value.isPresent) continue; // This facet is not set, so we skip it.
+    someFilter = true;
 
     const pred = predicates[key];
-    if (!pred) console.error(`No predicate found for key: ${key}`);
-    if (!pred) continue;
+    if (!pred) {
+      console.error(`No predicate found for key: ${key}`);
+      continue;
+    }
 
     const predResult = pred(vertex, value);
     if (mode === "all" && !predResult) return false;
     if (mode === "any" && predResult) return true;
   }
 
+  if (!someFilter) return true; // No filters set, so we can't filter the vertex out.
+
   // If we get here in mode "all", all predicates matched.
   // If we get here in mode "any", no predicates matched.
   return mode === "all";
 }
 
-/** Match all vertices of a container against several predicates. */
+/**
+ * Match all vertices of a container against several predicates.
+ * We can match a vertex if it complies with all predicates or any of them.
+ */
 export function matchVertices<T extends TPlangsVertex, PredKey extends string>(
   vertices: Vertices<T>,
   facetValues: Map<PredKey, AnyValue>,
-  mode: "all" | "any" = "any",
-  limit = -1,
+  mode: "all" | "any" = "all",
 ): Set<T["key"]> {
-  let predicates = vertexPredicates(vertices.name as TPlangsVertexName) as Predicates<string> | undefined;
-  const result = new Set<T["key"]>();
+  const predicates = vertexPredicates(vertices.name as TPlangsVertexName) as Predicates<string> | undefined;
 
+  // If we don't have predicates, we can't filter anything out.
   if (!predicates) {
     console.warn(`No predicates found for vertex name: ${vertices.name}`);
-    predicates = {};
+    return new Set(vertices.keys);
   }
 
-  // If no filter is present, we always return true.
-  const emptyFilters: boolean = ![...facetValues.values()].some(v => v.isPresent);
+  return new Set([...vertices.values].filter(v => matchVertex(v, predicates, facetValues, mode)).map(v => v.key));
+}
 
-  for (const vertex of vertices.values) {
-    if (limit >= 0 && result.size >= limit) break;
-    if (emptyFilters || matchVertex(vertex, predicates, facetValues, mode)) result.add(vertex.key);
+/**
+ * Match all vertices of a container against several predicates.
+ * This function is used to match against filters from different groups.
+ * We can unite or intersect the results from the filters of different groups.
+ *
+ * NOTE: if the facetValues is empty, it will return all vertices, but in a roundabout way.
+ * Is more efficient to don't even call this function in that case.
+ */
+export function matchVerticesFromGroups<T extends TPlangsVertex, PredKey extends string>(
+  vertices: Vertices<T>,
+  facetValues: Map2<string, PredKey, AnyValue>,
+  mode: "all" | "any" = "any",
+): Set<T["key"]> {
+  let results = new Set<T["key"]>();
+  for (const [_, fkValueMap] of facetValues.entries()) {
+    const groupResult = matchVertices(vertices, fkValueMap, "all"); // Per group match all set filters.
+
+    // To match all, we can exit early as soon as one group has no results.
+    if (mode === "all") {
+      if (groupResult.size === 0) return new Set(); // Intersection will be empty.
+      results = results.intersection(groupResult);
+      if (results.size === 0) return results; // No vertex matched
+    } else {
+      // For "any", we need to test all groups and union the results.
+      results = results.union(groupResult);
+    }
   }
-  return result;
+
+  return results;
 }
 
 /** Return the available facet predicates for the given Vertex name. */

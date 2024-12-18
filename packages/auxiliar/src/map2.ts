@@ -98,6 +98,15 @@ export class Map2<K1, K2, V> {
     return results;
   }
 
+  /** Return a new Map with filtered entries. */
+  filter(predicate: (k1: K1, k2: K2, v: V) => boolean): Map2<K1, K2, V> {
+    const m = new Map2<K1, K2, V>();
+    for (const [k1, map2] of this.#map) {
+      for (const [k2, v] of map2) if (predicate(k1, k2, v)) m.set(k1, k2, v);
+    }
+    return m;
+  }
+
   values(): V[] {
     return [...this.#map.values()].flatMap(map => [...map.values()]);
   }
@@ -105,13 +114,6 @@ export class Map2<K1, K2, V> {
   values2(k1: K1): V[] {
     const m = this.#map.get(k1);
     return m ? [...m.values()] : [];
-  }
-
-  /** Get all values going from first dimension, them map them and return the non-falsey values. */
-  values2Mapped<T>(k1: K1, mapper: (val: V) => T): T[] {
-    return this.values2(k1)
-      .map(mapper)
-      .filter(v => v);
   }
 
   toString(): string {

@@ -3,10 +3,8 @@ import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { getStore } from "@plangs/frontend/auxiliar/storage";
 import { FacetsMainState } from "@plangs/frontend/facets/main/state";
 import { bool, defineFacetGroups, table, text } from "@plangs/frontend/facets/main/types";
-import { matchVertices } from "@plangs/plangs/facets";
 import type { AppFacetKey } from "@plangs/plangs/facets/apps";
 import { type PlangsGraph, prop, rel } from "@plangs/plangs/graph";
-import type { VAppKey } from "@plangs/plangs/graph/generated";
 import type { PlangsPage } from "@plangs/server/components/layout";
 
 // biome-ignore format: Keep it in one line.
@@ -39,6 +37,7 @@ const NAV: { groupKeys: GK[][]; default: GK } = {
 export class AppsFacetsState extends FacetsMainState<GK, AppFacetKey> {
   override readonly nav = NAV;
   override readonly page = PAGE;
+  override readonly vertexName = "app";
   override readonly gkByFk = GK_BY_FK;
   override readonly groupsConfig = GROUPS;
   override readonly groupsComponent = COMPONENT;
@@ -48,10 +47,5 @@ export class AppsFacetsState extends FacetsMainState<GK, AppFacetKey> {
     const currentGroupKey = store.load("facets-last-group") ?? NAV.default;
     const values = FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? store.load("facet-value"));
     return new AppsFacetsState({ pg, currentGroupKey, values });
-  }
-
-  override get results(): Set<VAppKey> {
-    if (!this.pg) return new Set();
-    return matchVertices(this.pg.app, this.values.getMap2());
   }
 }
