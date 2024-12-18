@@ -59,11 +59,8 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 
 ## WIP
 
-* BUG: Fix "restore" functions (save state of info, filters, etc). Seems broken right now.
-
 ### Site
 
-- [ ] Rethink Languish link.
 - [ ] Add schema.org metadata.
 - [ ] Add fb opengraph metadata.
 - [ ] Add missing aria attributes.
@@ -72,6 +69,7 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 ### UX
 
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
+- [ ] All or any of facet groups.
 - [ ] Drag handles for Grid elems.
 - [ ] Add support for drag/drop resize of elements (node-info and facets-main).
 - [ ] Prefetch some URLS on hover.

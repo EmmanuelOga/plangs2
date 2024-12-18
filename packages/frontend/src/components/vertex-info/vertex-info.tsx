@@ -3,7 +3,7 @@ import { useEffect, useRef } from "preact/hooks";
 
 import { ret } from "@plangs/auxiliar/misc";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
-import { EXTERN, GITHUB, REDDIT, STACKOV, WIKIPEDIA } from "@plangs/frontend/auxiliar/icons";
+import { EXTERN, GITHUB, LANGUISH, REDDIT, STACKOV, WIKIPEDIA } from "@plangs/frontend/auxiliar/icons";
 import { getCurrentPageStore } from "@plangs/frontend/auxiliar/storage";
 import { BORDER, PROSE_BASIC, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import type { VertexDetail } from "@plangs/plangs/graph/vertex_base";
@@ -64,10 +64,11 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
             </h2>
             <div class="flex-1" />
             {ret(detail.urlHome, url => url && <ExternalLink href={url} icon={EXTERN} />)}
+            {ret(detail.urlLanguish, url => url && <ExternalLink href={url} icon={LANGUISH} title={`Ranked #${detail.ranking} on Languish`} />)}
             {ret(detail.urlGithub, url => url && <ExternalLink href={url} icon={GITHUB} />)}
+            {ret(detail.urlWikipedia, url => url && <ExternalLink href={url} icon={WIKIPEDIA} />)}
             {ret(detail.urlStackov, url => url && <ExternalLink href={url} icon={STACKOV} />)}
             {ret(detail.urlReddit, url => url && <ExternalLink href={url} icon={REDDIT} />)}
-            {ret(detail.urlWikipedia, url => url && <ExternalLink href={url} icon={WIKIPEDIA} />)}
           </div>
           <p class={tw(forGrid && "inline sm:block", "hyphens-auto")}>
             {!forGrid && (
@@ -87,8 +88,10 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
           <div class={tw(forGrid ? "flex flex-col" : "grid grid-cols-[auto_1fr]", "sm:gap-4", "sm:p-4")}>
             {detail.general.length > 0 && (
               <RelationCell title="General">
-                {detail.general.map(value => (
-                  <Pill key={value}>{value}</Pill>
+                {detail.general.map(item => (
+                  <Pill title={item.title} key={item}>
+                    {item.kind === "text" ? item.value : <a href={item.href}>{item.value}</a>}
+                  </Pill>
                 ))}
               </RelationCell>
             )}
@@ -108,9 +111,9 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
   );
 }
 
-function ExternalLink({ href, icon }: { href: string; icon: JSX.Element }) {
+function ExternalLink({ href, icon, title }: { href: string; icon: JSX.Element; title?: string }) {
   return (
-    <a href={href} class={tw(cssClass("externalLink"), "transition-transform", "text-primary hover:text-hiliteb")}>
+    <a {...(title ? { title } : {})} href={href} class={tw(cssClass("externalLink"), "transition-transform", "text-primary hover:text-hiliteb")}>
       {icon}
     </a>
   );
@@ -127,10 +130,11 @@ function RelationCell({ title, children }: { title: string; children: ComponentC
   );
 }
 
-function Pill({ children }: { children: ComponentChildren }) {
+function Pill({ children, title }: { title?: string; children: ComponentChildren }) {
   return (
     // shadow-md inset-shadow-sm inset-shadow-white/20 ring ring-blue-600 inset-ring inset-ring-white/15
     <div
+      {...(title ? { title } : {})}
       class={tw(
         "inline-flex items-center",
         "m-2 px-2",

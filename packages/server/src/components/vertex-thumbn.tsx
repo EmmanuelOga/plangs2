@@ -44,21 +44,20 @@ export function VertexThumbn({ detail, onlyImg, class: klass }: { class?: string
           class={tw(cssClass("vertexThumbnImg"), "max-h-full max-w-full object-contain")}
         />
         {"ranking" in detail && detail.ranking && (
-          <a
-            href={`https://tjpalmer.github.io/languish/#names=${encodeURIComponent(detail.name.toLowerCase())}`}
+          <div
             title={`Languish Ranking: ${detail.ranking}`}
             class={tw(
               "block",
               // ALlow hiding the ranking using a data attribute on the wrapper.
               "group-[[data-hide-ranking='1']]:hidden",
-              "absolute right-0 bottom-0",
-              "m-0.5 px-2 py-1 text-primary text-xs",
+              "-bottom-1 absolute right-0",
+              "p-1 text-primary text-xs",
               "rounded opacity-50",
               HOVER,
               "hover:border-1 hover:border-primary hover:opacity-100",
             )}>
             {detail.ranking}
-          </a>
+          </div>
         )}
       </div>
     </div>

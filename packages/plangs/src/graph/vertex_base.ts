@@ -25,12 +25,13 @@ export type VertexDetail = {
   urlReddit?: string;
   urlStackov?: string;
   urlWikipedia?: string;
+  urlLanguish?: string;
   vertexDesc: string;
   vertexKind: string;
   vertexName: string;
 
   /** Arbitrary "pill" data. */
-  general: string[];
+  general: ({ kind: "text"; value: string; title?: string } | { kind: "link"; value: string; href: string; title?: string })[];
 
   /** Related vertex by relationship name. */
   relations: [string, { name: string; href: string }[]][];
@@ -64,13 +65,19 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
       relations.push([rel.desc, relValues.map(({ name, href }) => ({ name, href }))]);
     }
 
-    const general: string[] = [];
-
+    const general: VertexDetail["general"] = [];
     if (vertex instanceof VPlang) {
-      tap(vertex.created.year, year => year && general.push(`Appeared ${vertex.created.year}`));
-      tap(vertex.isPopular, pop => pop && general.push("Popular"));
-      tap(vertex.isTranspiler, tsp => tsp && general.push("Transpiler"));
-      tap(vertex.releases.last, rel => rel && general.push(`Released ${rel.yearMonth ?? rel.version}`));
+      tap(vertex.created.year, year => year && general.push({ kind: "text", value: `Appeared ${vertex.created.year}` }));
+      tap(vertex.isPopular, pop => pop && general.push({ kind: "text", value: "Popular", title: "Languish's Rank <= #25 or popular on Github." }));
+      tap(
+        [vertex.urlLanguish, vertex.ranking && `Languish's #${vertex.ranking}`],
+        ([href, value]) => href && value && general.push({ kind: "link", href, value, title: value }),
+      );
+      tap(vertex.isTranspiler, tsp => tsp && general.push({ kind: "text", value: "Transpiler", title: "a.k.a. Source-to-Source Compiler." }));
+      tap(
+        vertex.releases.last,
+        rel => rel && general.push({ kind: "text", value: `Released ${rel.yearMonth ?? rel.version}`, title: "Last Release we know about." }),
+      );
     }
 
     return {
@@ -86,6 +93,7 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
       urlReddit: vertex.urlReddit,
       urlStackov: vertex.urlStackov,
       urlWikipedia: vertex.urlWikipedia,
+      urlLanguish: vertex.urlLanguish,
       vertexDesc: vertex.vertexDesc,
       vertexKind: vertex.vertexKind,
       vertexName: vertex.vertexName,
@@ -151,6 +159,11 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
 
   get urlWikipedia(): string | undefined {
     return this.data.extWikipediaPath ? `https://en.wikipedia.org/wiki/${this.data.extWikipediaPath}` : undefined;
+  }
+
+  get urlLanguish(): string | undefined {
+    if (!(this instanceof VPlang) || !this.data.languishRanking) return undefined;
+    return `https://tjpalmer.github.io/languish/#names=${encodeURIComponent(this.name.toLowerCase())}`;
   }
 
   get links(): IterTap<Link> {
