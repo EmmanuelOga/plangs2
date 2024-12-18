@@ -41,6 +41,10 @@ abstract class IconButtonBaseState<T> extends Dispatchable<T & { disabled: boole
     const { disabled, ...data } = this.data;
     return data;
   }
+
+  get hilight(): boolean {
+    return false;
+  }
 }
 
 const STORE = getStore("_any_page_");
@@ -102,23 +106,16 @@ export class ToggleFacetsMenu extends IconButtonBaseState<{ mode: "show" | "hide
     return new ToggleFacetsMenu({ mode: mode === "show" ? "show" : "hide", disabled });
   }
 
+  override get hilight(): boolean {
+    return this.show;
+  }
+
   get show(): boolean {
     return this.data.mode === "show";
   }
 
   override get icon() {
-    return (
-      <span
-        class={tw(
-          "inline-block",
-          "mt-[6px] scale-85",
-          this.show && "stroke-[1px] stroke-foreground/50",
-          this.show ? "text-hiliteb" : "text-primary",
-          // fmt.
-        )}>
-        {FILTER_EDIT}
-      </span>
-    );
+    return FILTER_EDIT;
   }
 
   override doAction() {

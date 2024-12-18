@@ -1,5 +1,5 @@
 import { EXTERNAL } from "@plangs/frontend/auxiliar/icons";
-import { HOVER, HOVER_SVG, tw } from "@plangs/frontend/auxiliar/styles";
+import { HOVER, tw } from "@plangs/frontend/auxiliar/styles";
 import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
 
 export function VertexLink({ vertex, external, title }: { vertex: TPlangsVertex; external?: boolean; title?: string }) {
@@ -11,7 +11,7 @@ export function VertexLink({ vertex, external, title }: { vertex: TPlangsVertex;
         {label}
       </a>
       {external && vertex.urlHome && (
-        <a href={vertex.urlHome} class={tw("inline-block", "p-2", "scale-66 rounded opacity-50", "hover:opacity-100", HOVER_SVG, HOVER)}>
+        <a href={vertex.urlHome} class={tw("inline-block", "p-2", "scale-66 rounded opacity-50", "hover:opacity-100", HOVER)}>
           {EXTERNAL}
         </a>
       )}

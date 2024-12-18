@@ -1,11 +1,11 @@
 import type { Ref } from "preact";
-import { useEffect, useRef } from "preact/hooks";
-
-import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
-import { customEvent, send } from "@plangs/frontend/auxiliar/events";
-import { HOVER_SVG, tw } from "@plangs/frontend/auxiliar/styles";
+import { useEffect } from "preact/hooks";
 
 import { useRootState } from "@plangs/frontend/auxiliar/dispatchable";
+import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
+import { customEvent, send } from "@plangs/frontend/auxiliar/events";
+import { HOVER_ICON, tw } from "@plangs/frontend/auxiliar/styles";
+
 import { useIconButtonState } from "./state";
 
 export type IconButtonProps = {
@@ -45,7 +45,7 @@ export function IconButton({ action, disabled, initial, class: cssClass }: IconB
       ref={self as Ref<HTMLDivElement>}
       tabIndex={disabled ? undefined : 0}
       {...onClickOnEnter(toggle)}
-      class={tw("group", "cursor-pointer", !disabled && HOVER_SVG, cssClass)}>
+      class={tw("group", "cursor-pointer", !disabled && "cursor-pointer", HOVER_ICON, state?.hilight && "ring-1 ring-primary", cssClass)}>
       {state?.icon}
     </div>
   );

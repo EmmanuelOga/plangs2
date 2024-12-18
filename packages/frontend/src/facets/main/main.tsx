@@ -3,7 +3,7 @@ import { useEffect } from "preact/hooks";
 
 import { useRootState } from "@plangs/frontend/auxiliar/dispatchable";
 import { DESELECT } from "@plangs/frontend/auxiliar/icons";
-import { BORDER, HOVER_SVG, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
+import { BORDER, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { PlangsPage } from "@plangs/server/components/layout";
 
@@ -58,9 +58,7 @@ export function FacetsMain({ page, pg }: { page: PlangsPage; pg: PlangsGraph }) 
                     )}>
                     {state.groupTitle(groupKey)}
                   </button>
-                  <div
-                    {...onClickOnEnter(() => state.doResetGroup(groupKey))}
-                    class={tw(iconStyle, !state.groupHasValues(groupKey) && "hidden", HOVER_SVG)}>
+                  <div {...onClickOnEnter(() => state.doResetGroup(groupKey))} class={tw(iconStyle, !state.groupHasValues(groupKey) && "hidden", "")}>
                     {DESELECT}
                   </div>
                 </div>

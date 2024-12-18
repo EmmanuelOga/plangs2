@@ -9,10 +9,8 @@ export const BORDER = "border-primary/85 border-dotted";
 
 export const INPUT = "bg-background text-foreground placeholder:text-foreground/50";
 
-export const HOVER = "hover:bg-hiliteb hover:text-hilitef cursor-pointer";
-export const HOVER_LIST = ["bg-hiliteb", "text-hilitef"]; // for classList add/remove
-export const HOVER_SVG = "hover:stroke-1 hover:stroke-hiliteb cursor-pointer";
-export const HOVER_SVG_GROUP = "group-hover:stroke-1 group-hover:stroke-hiliteb";
+export const HOVER = "hover:bg-hiliteb/75 hover:text-hilitef cursor-pointer";
+export const HOVER_ICON = "rounded p-1 hover:bg-primary/20 hover:text-hiliteb hover:ring-2 hover:ring-primary";
 
 export const PROSE_BASIC = "prose dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl"; // 2xl:prose-2xl; // prose-green
 export const PROSE = `${PROSE_BASIC} max-w-[80ch] mx-auto`;

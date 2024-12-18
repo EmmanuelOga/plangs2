@@ -5,7 +5,7 @@ import { ret } from "@plangs/auxiliar/misc";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { EXTERN, GITHUB, LANGUISH, REDDIT, STACKOV, WIKIPEDIA } from "@plangs/frontend/auxiliar/icons";
 import { getCurrentPageStore } from "@plangs/frontend/auxiliar/storage";
-import { BORDER, PROSE_BASIC, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
+import { BORDER, HOVER_ICON, PROSE_BASIC, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import { Pill } from "@plangs/frontend/components/misc/pill";
 import type { VertexDetail } from "@plangs/plangs/graph/vertex_base";
 import { GRID_PAGES, type PlangsPage } from "@plangs/server/components/layout";
@@ -114,7 +114,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
 
 function IconLink({ href, icon, title }: { href: string; icon: JSX.Element; title?: string }) {
   return (
-    <a {...(title ? { title } : {})} href={href} class={tw(cssClass("externalLink"), "transition-transform", "text-primary hover:text-hiliteb")}>
+    <a {...(title ? { title } : {})} href={href} class={tw(cssClass("externalLink"), "transition-transform", "text-primary", HOVER_ICON)}>
       {icon}
     </a>
   );
