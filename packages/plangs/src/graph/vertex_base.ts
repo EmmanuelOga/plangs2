@@ -80,6 +80,10 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
       );
     }
 
+    for (const link of vertex.links ?? []) {
+      general.push({ kind: "link", href: link.url, value: link.title ?? "Link" });
+    }
+
     return {
       description: vertex.description,
       href: vertex.href,
