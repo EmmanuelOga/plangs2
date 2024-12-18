@@ -29,7 +29,7 @@ async function start() {
       // On click display the vertex info.
       on(grid, "pointerdown", ({ target }: MouseEvent) => {
         const vertex = getClosestVertex(pg, target);
-        if (vertex) renderVertexInfo({ vertex });
+        renderVertexInfo(vertex);
       });
 
       // Replace placeholders with the actual images, if any.
@@ -74,9 +74,8 @@ declare global {
 }
 
 window.fragment = new FragmentTracker().bind();
+
 window.restoreFilters = () => ToggleFacetsMenu.initial().runEffects();
 window.restoreHamburguer = () => ToggleHamburguer.initial().runEffects();
 window.restoreLightMode = () => ToggleLights.initial().runEffects();
-window.restoreVertexInfo = () => {
-  console.log("TODO!");
-};
+window.restoreVertexInfo = () => renderVertexInfo();

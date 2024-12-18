@@ -2,7 +2,9 @@ import type { ComponentChildren, JSX } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
 import { ret } from "@plangs/auxiliar/misc";
+import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { EXTERN, GITHUB, REDDIT, STACKOV, WIKIPEDIA } from "@plangs/frontend/auxiliar/icons";
+import { getCurrentPageStore } from "@plangs/frontend/auxiliar/storage";
 import { BORDER, PROSE_BASIC, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import type { VertexDetail } from "@plangs/plangs/graph/vertex_base";
 import { GRID_PAGES, type PlangsPage } from "@plangs/server/components/layout";
@@ -18,6 +20,14 @@ export type VertexInfoProps = {
 /** Display Vertex. */
 export function VertexInfo({ detail, open, page }: VertexInfoProps) {
   const self = useRef<HTMLDivElement>(null);
+
+  // Remember the open state.
+  const store = getCurrentPageStore();
+  const updateOpen = () => {
+    const elem = self.current?.querySelector<HTMLDetailsElement>("details");
+    // The event happens before the default action of the element, so we need to invert the value.
+    if (elem) store.update("vertex-detail-open", !elem.open);
+  };
 
   useEffect(() => {
     if (!self.current) return;
@@ -71,7 +81,9 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
       )}
       {detail && detail.relations.length > 0 && (
         <details class={tw(forGrid && "hidden sm:block", "overflow-hidden", !forGrid && tw("p-4"))} open={open}>
-          <summary class="cursor-pointer text-primary">Details</summary>
+          <summary class="cursor-pointer text-primary" {...onClickOnEnter(updateOpen)}>
+            Details
+          </summary>
           <div class={tw(forGrid ? "flex flex-col" : "grid grid-cols-[auto_1fr]", "sm:gap-4", "sm:p-4")}>
             {detail.general.length > 0 && (
               <RelationCell title="General">

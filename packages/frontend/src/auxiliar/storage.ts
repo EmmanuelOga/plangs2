@@ -11,15 +11,17 @@ export type StorageKey =
   | "facet-value"
   /** Name of the last open group on the facets browser. */
   | "facets-last-group"
-  /** Last Vertex displayed on a {@link vertexInfo} component. */
-  | "vertex-info";
+  /** Last Vertex displayed on a {@link VertexInfo} component. */
+  | "vertex-detail"
+  /** Whether the VertexInfo component is open. */
+  | "vertex-detail-open";
 
 // Alias to avoid errors if server side rendering is used.
 const stapi = (typeof localStorage === "undefined" ? undefined : localStorage) as Storage | undefined;
 const doc = (typeof document === "undefined" ? undefined : document) as Document;
 
 export const getStore = (page: PlangsPage) => new Store(page);
-export const getCurrentPage = () => (doc ? doc.body.dataset.page : "_any_page_") as PlangsPage;
+export const getCurrentPage = () => ((doc ? doc.body.dataset.page : undefined) ?? "_any_page_") as PlangsPage;
 export const getCurrentPageStore = () => getStore(getCurrentPage());
 
 /**
