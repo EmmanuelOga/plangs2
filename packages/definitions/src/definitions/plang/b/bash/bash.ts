@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["bash", "bourne-again"],
-      links: [{ url: "https://www.gnu.org/software/bash/manual/", title: "GNU Bash Manual" }],
+      links: [{ url: "https://www.gnu.org/software/bash/manual/", title: "Manual" }],
       releases: [{ version: "5.2.37", name: "Bash 5.2.37", date: "2024-09-23" }],
       stackovTags: ["bash"],
     })

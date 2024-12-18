@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["awk", "text processing", "unix utilities"],
-      links: [{ url: "https://www.gnu.org/software/gawk/manual/gawk.html", title: "Gawk: Effective AWK Programming" }],
+      links: [{ url: "https://www.gnu.org/software/gawk/manual/gawk.html", title: "Effective AWK Programming" }],
       stackovTags: ["awk"],
     })
     .relInfluencedBy.add("pl+c", "pl+sed")

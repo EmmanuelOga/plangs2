@@ -20,10 +20,6 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       keywords: ["actionscript", "flash"],
       languishRanking: 134,
-      links: [
-        { url: "https://www.adobe.com/devnet/actionscript.html", title: "Adobe ActionScript Home" },
-        { url: "https://en.wikipedia.org/wiki/ActionScript", title: "ActionScript on Wikipedia" },
-      ],
       releases: [
         { version: "1.0", name: "ActionScript 1.0", date: "2000-01-01" },
         { version: "2.0", name: "ActionScript 2.0", date: "2003-01-01" },

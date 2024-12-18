@@ -24,7 +24,6 @@ export function define(g: PlangsGraph) {
       links: [{ url: "https://github.com/WebAssembly", title: "GitHub Org" }],
       releases: [
         { version: "1.0", name: "Initial Release", date: "2017-03" },
-        { version: "Core Specification Release", name: "Publication", date: "2018-02" },
         { version: "2.0 Draft", name: "Draft Status", date: "2022-04" },
       ],
       stackovTags: ["webassembly"],

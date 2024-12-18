@@ -15,10 +15,6 @@ export function define(g: PlangsGraph) {
       githubStars: 14000,
       isTranspiler: true,
       keywords: ["configuration-driven", "declarative language", "full-stack", "wasp", "web development"],
-      links: [
-        { url: "https://github.com/wasp-lang/wasp", title: "Wasp on GitHub" },
-        { url: "https://wasp-lang.dev/docs", title: "Wasp Documentation" },
-      ],
       releases: [{ version: "0.2.0", name: "Beta Release", date: "2023-08-15" }],
     })
     .relCompilesTo.add("pl+javascript")

@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       keywords: ["javascript", "js"],
       languishRanking: 3,
-      links: [{ url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", title: "Mozilla Developer Network - JavaScript" }],
+      links: [{ url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", title: "MDN JavaScript" }],
       stackovTags: ["javascript"],
     })
     .relInfluencedBy.add("pl+awk", "pl+c", "pl+java", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme", "pl+self")
