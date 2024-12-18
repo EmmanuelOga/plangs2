@@ -59,6 +59,8 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 
 ## WIP
 
+- [ ] Ensure external links have external icon.
+- [ ] Make external icon thinner.
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
 - [ ] All or any of facet groups.
 - [ ] Gray out facets that won't add to the selection.

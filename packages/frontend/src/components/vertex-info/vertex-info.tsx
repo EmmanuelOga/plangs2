@@ -57,15 +57,14 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
       )}
       {detail && (
         <div>
-          <div class="flex flex-row gap-5 align-middle">
-            <h2 class={tw("m-0!", forGrid && "inline sm:block")}>
-              <a class="text-primary" href={detail.href}>
-                {detail.name}
-              </a>
-            </h2>
-            <div class="flex-1" />
+          <h2 class={tw("mt-0!", forGrid && "inline sm:block")}>
+            <a class="text-primary" href={detail.href}>
+              {detail.name}
+            </a>
+          </h2>
+          <div class="-mx-1 flex flex-row gap-1 align-middle">
             {ret(detail.urlHome, url => url && <IconLink href={url} icon={EXTERN} />)}
-            {ret(detail.urlLanguish, url => url && <IconLink href={url} icon={LANGUISH} title={`Ranked #${detail.ranking} on Languish`} />)}
+            {ret(detail.urlLanguish, url => url && <IconLink href={url} icon={LANGUISH} title={`#${detail.ranking} on Languish`} />)}
             {ret(detail.urlGithub, url => url && <IconLink href={url} icon={GITHUB} />)}
             {ret(detail.urlWikipedia, url => url && <IconLink href={url} icon={WIKIPEDIA} />)}
             {ret(detail.urlStackov, url => url && <IconLink href={url} icon={STACKOV} />)}
@@ -114,8 +113,11 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
 
 function IconLink({ href, icon, title }: { href: string; icon: JSX.Element; title?: string }) {
   return (
-    <a {...(title ? { title } : {})} href={href} class={tw(cssClass("externalLink"), "transition-transform", "text-primary", HOVER_ICON)}>
-      {icon}
+    <a
+      {...(title ? { title } : {})}
+      href={href}
+      class={tw(cssClass("externalLink"), "inline-block aspect-square", "transition-transform", "text-primary")}>
+      <div class={tw("inline-block scale-75", HOVER_ICON)}>{icon}</div>
     </a>
   );
 }

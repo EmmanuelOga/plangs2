@@ -69,14 +69,14 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
     if (vertex instanceof VPlang) {
       tap(vertex.created.year, year => year && general.push({ kind: "text", value: `Appeared ${vertex.created.year}` }));
       tap(vertex.isPopular, pop => pop && general.push({ kind: "text", value: "Popular", title: "Languish's Rank <= #25 or popular on Github." }));
-      tap(
-        [vertex.urlLanguish, vertex.ranking && `#${vertex.ranking} on Languish`],
-        ([href, value]) => href && value && general.push({ kind: "link", href, value, title: value }),
-      );
       tap(vertex.isTranspiler, tsp => tsp && general.push({ kind: "text", value: "Transpiler", title: "a.k.a. Source-to-Source Compiler." }));
       tap(
         vertex.releases.last,
         rel => rel && general.push({ kind: "text", value: `Released ${rel.yearMonth ?? rel.version}`, title: "Last Release we know about." }),
+      );
+      tap(
+        [vertex.urlLanguish, vertex.ranking && `#${vertex.ranking} on Languish`],
+        ([href, value]) => href && value && general.push({ kind: "link", href, value, title: value }),
       );
     }
 
