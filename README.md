@@ -59,23 +59,20 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 
 ## WIP
 
-- [ ] HOVER of SVGs doesn't really look nice. Use a BG like for languish rankings.
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
-
-### Site
-
-- [ ] Add schema.org metadata.
-- [ ] Add fb opengraph metadata.
-- [ ] Add missing aria attributes.
-
-### Facets
-
 - [ ] All or any of facet groups.
 - [ ] Gray out facets that won't add to the selection.
 - [ ] Drag handles for Grid elems.
 
 - [ ] Prefetch some URLS on hover.
 - [ ] Maybe: only allow sidebar OR filters to be on.
+
+
+### Site
+
+- [ ] Add schema.org metadata.
+- [ ] Add fb opengraph metadata.
+- [ ] Add missing aria attributes.
 
 ## MISC
 
