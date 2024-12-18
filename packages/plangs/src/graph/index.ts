@@ -42,6 +42,8 @@ export class VApp extends Gen.VAppBase {
   }
 }
 
+export class VAuthor extends Gen.VBundleBase {}
+
 export class VBundle extends Gen.VBundleBase {}
 
 export class VCommunity extends Gen.VCommunityBase {}
