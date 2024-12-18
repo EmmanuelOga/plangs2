@@ -24,12 +24,11 @@ export function MainNav({ page, class: cssClass }: { page: PlangsPage; class?: s
         ]}
       />
 
-      <NavSection page={page} title="Blog" links={[{ title: "Blog Posts", href: "/blog", forPages: ["blog"] }]} />
-
       <NavSection
         page={page}
         title="Website"
         links={[
+          { title: "News!️", href: "/blog", forPages: ["blog"] },
           { title: "About", href: "/about", forPages: ["about"] },
           { title: "Source Code", href: "https://github.com/EmmanuelOga/plangs2", forPages: ["NA"] },
         ]}
@@ -39,10 +38,10 @@ export function MainNav({ page, class: cssClass }: { page: PlangsPage; class?: s
         page={page}
         title="Reference"
         links={[
-          { title: "Type Systems", href: "/typesystems", forPages: ["typesystems", "typeSystem"] },
-          { title: "Paradigms", href: "/paradigms", forPages: ["paradigms", "paradigm"] },
-          { title: "Platforms", href: "/platforms", forPages: ["platforms", "platform"] },
           { title: "Tags", href: "/tags", forPages: ["tags", "tag"] },
+          { title: "Platforms", href: "/platforms", forPages: ["platforms", "platform"] },
+          { title: "Paradigms", href: "/paradigms", forPages: ["paradigms", "paradigm"] },
+          { title: "Type Systems", href: "/typesystems", forPages: ["typesystems", "typeSystem"] },
           { title: "Licenses", href: "/licenses", forPages: ["licenses", "license"] },
         ]}
       />

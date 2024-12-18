@@ -2,7 +2,7 @@
   "name": "@plangs/server",
   "description": "Site server, for development and static site generation.",
   "version": "0.1.0",
-  "dependencies": {
+  "devDependencies": {
     "@plangs/definitions": "workspace:*",
     "@plangs/frontend": "workspace:*",
     "@plangs/plangs": "workspace:*",
