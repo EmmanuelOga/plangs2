@@ -1,4 +1,9 @@
-/** Common data shared across all Entities. */
+/**
+ * Fields that *more or less* shared across vertices.
+ *
+ * Some vertices will likely miss some fields, adding things here is a tradeoff.
+ * For instance, Authors will likely not have a reddit or wikipedia path.
+ */
 export type VertexBaseData = {
   /* Name of the vertex. */
   name: string;
@@ -12,15 +17,15 @@ export type VertexBaseData = {
   keywords: string[];
   /** Homepage URL of the vertex, if any. */
   extHomeURL?: string;
-  /** Logos, screenshots or other images relevant to the language. */
+  /** Logos, screenshots, profile pics, or other images. */
   images: Image[];
-  /** Links to external resources. */
+  /** External Links. */
   links: Link[];
-  /** Reddit Path: this should be reddit page path, such that we can access it at `https://reddit.com/r/${path}` */
+  /** Reddit Path: we can access it at `https://reddit.com/r/${path}` */
   extRedditPath?: string;
-  /** Wikipedia Path: this should be wikipedia page path, such that we can access it at `https://en.wikipedia.org/wiki/${path}` */
+  /** Wikipedia Path: we can access it at `https://en.wikipedia.org/wiki/${path}` */
   extWikipediaPath?: string;
-  /** A list of stackoverflow tags used when asking questions about this plang. */
+  /** Stack Overflow tags, if applicable. */
   stackovTags: string[];
 };
 
