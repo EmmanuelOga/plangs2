@@ -56,7 +56,7 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
 
   /** Generate a detail of the vertex, used to render thumbnails and info boxes. */
   get detail(): VertexDetail {
-    const relations: [string, { name: string; href: string }[]][] = [];
+    const relations: VertexDetail["relations"] = [];
     const vertex = this as unknown as TPlangsVertex;
 
     for (const rel of vertex.relations.values()) {
