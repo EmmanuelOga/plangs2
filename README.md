@@ -59,36 +59,36 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 
 ## WIP
 
+- [ ] HOVER of SVGs doesn't really look nice. Use a BG like for languish rankings.
+- [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
+
 ### Site
 
 - [ ] Add schema.org metadata.
 - [ ] Add fb opengraph metadata.
 - [ ] Add missing aria attributes.
-- [ ] Add an "authors" Vertex to link to Blog post authors.
 
-### UX
+### Facets
 
-- [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
 - [ ] All or any of facet groups.
-- [ ] Drag handles for Grid elems.
-- [ ] Add support for drag/drop resize of elements (node-info and facets-main).
-- [ ] Prefetch some URLS on hover.
-- [ ] HOVER of SVGs doesn't really look nice. Use a BG like for languish rankings.
-- [ ] Maybe: only allow sidebar OR filters to be on.
 - [ ] Gray out facets that won't add to the selection.
+- [ ] Drag handles for Grid elems.
+
+- [ ] Prefetch some URLS on hover.
+- [ ] Maybe: only allow sidebar OR filters to be on.
 
 ## MISC
 
-- [ ] Investigate TW css config: breakpoints may be wonky right now.
 - [ ] Add tests for frontend code.
 - [ ] Tweak backdrop-filter in Safari/Firefox.
+- [ ] Investigate TW css config: breakpoints may be wonky right now.
 
-## DESIGN
+## Icons
 
-- [ ] Table display mode: some things don't display good on a Grid, like Libraries.
-- [ ] Resize all Thumbn to 128x128.
-- [ ] Replace Thumbn SVGs embedding data with PNGs.
-- [ ] Identicons instead of P placeholder.
+- [ ] Table display mode? some things don't display good on a Grid, like Libraries.
+
+- [ ] Resize all Thumbn to 128x128. Replace Thumbn SVGs embedding data with PNGs.
+- [ ] Identicons instead of P placeholder?
 
 ## "ADMIN"
 
