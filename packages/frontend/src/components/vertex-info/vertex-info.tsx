@@ -40,7 +40,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
     if (links.length === 0) return;
     for (const [i, el] of links.entries()) {
       el.classList.add("scale-0");
-      setTimeout(() => el.classList.remove("scale-0"), 50 + (links.length - i) * 50);
+      setTimeout(() => el.classList.remove("scale-0"), 50 + (i + 1) * 50);
     }
   });
 
@@ -58,6 +58,11 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
       {detail && (
         <div>
           <h2 class={tw("mt-0!", forGrid && "inline sm:block")}>
+            {!forGrid && (
+              <div class={tw("float-right ml-2 p-4", tw(BORDER, "border-1"))}>
+                <VertexThumbn detail={detail} onlyImg={true} class="size-24" />
+              </div>
+            )}
             <a class="text-primary" href={detail.href}>
               {detail.name}
             </a>
@@ -70,14 +75,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
             {ret(detail.urlStackov, url => url && <IconLink href={url} icon={STACKOV} />)}
             {ret(detail.urlReddit, url => url && <IconLink href={url} icon={REDDIT} />)}
           </div>
-          <p class={tw(forGrid && "inline sm:block", "hyphens-auto")}>
-            {!forGrid && (
-              <div class={tw("float-right ml-2 p-4", tw(BORDER, "border-1"))}>
-                <VertexThumbn detail={detail} onlyImg={true} class="h-[6.5rem] w-[6.5rem]" />
-              </div>
-            )}
-            {forGrid ? detail.shortDesc : detail.description}
-          </p>
+          <p class={tw(forGrid && "inline sm:block", "hyphens-auto")}>{forGrid ? detail.shortDesc : detail.description}</p>
         </div>
       )}
       {detail && detail.relations.length > 0 && (
