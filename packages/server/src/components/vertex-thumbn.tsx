@@ -11,14 +11,7 @@ export function VertexThumbn({ detail, onlyImg, class: klass }: { class?: string
   return (
     <div
       {...dataset({ "vertex-key": detail.key, "vertex-name": detail.vertexName, "vertex-ranking": detail.ranking })}
-      class={tw(
-        cssClass("vertexThumbn"),
-        "group",
-        !onlyImg && "cursor-pointer",
-        "max-w-[7rem] sm:max-w-[15rem]",
-        "max-h-[7rem] sm:max-h-[15rem]",
-        klass,
-      )}>
+      class={tw(cssClass("vertexThumbn"), "group", !onlyImg && "cursor-pointer", klass)}>
       {!onlyImg && (
         <div class="truncate text-center">
           <a class="text-foreground group-hover:text-primary" href={detail.href}>

@@ -11,7 +11,7 @@ import type { ToggleClearFacets } from "@plangs/frontend/components/icon-button/
 import type { Vertices } from "@plangs/graphgen/library";
 import { matchVerticesFromGroups } from "@plangs/plangs/facets";
 import type { PlangsGraph } from "@plangs/plangs/graph";
-import type { TPlangsClasses, TPlangsVertex, TPlangsVertexName } from "@plangs/plangs/graph/generated";
+import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
 import type { PlangsPage } from "@plangs/server/components/layout";
 
 export type SerializedFacets<FacetKey extends string> = Partial<Record<FacetKey, ReturnType<AnyValue["serializable"]>>>;
