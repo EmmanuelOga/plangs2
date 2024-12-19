@@ -9,10 +9,9 @@ export function define(g: PlangsGraph) {
       shortDesc: "A logic programming language for specifying complex rules over large datasets efficiently.",
       created: "2021-06",
       extGithubPath: "luc-tielen/eclair-lang",
-      extHomeURL: "https://github.com/luc-tielen/eclair-lang",
+      extHomeURL: "https://eclair-lang.org",
       isTranspiler: false,
       keywords: ["data analysis", "dependency analysis", "logic programming"],
-      links: [{ url: "https://github.com/luc-tielen/eclair-lang", title: "Eclair on GitHub" }],
     })
     .relInfluencedBy.add("pl+souffle")
     .relLicenses.add("lic+mit")
