@@ -8,10 +8,11 @@ import type { VPlangKey } from "@plangs/plangs/graph/generated";
 import type { AIVPlang } from "@plangs/plangs/graph/vertex_data_schemas";
 import AIVPlangSchema from "@plangs/plangs/schema/AIVPlang.json";
 
+import { bulkImport } from "./bulk";
 import { plangFromAI } from "./fromAI";
 import { plangPrompt } from "./plangPrompt";
 
-export async function aiCompletion(pg: PlangsGraph, pl: VPlang): Promise<{ result: "success" } | { result: "error"; message: string }> {
+export async function aiRegenPlang(pg: PlangsGraph, pl: VPlang): Promise<{ result: "success" } | { result: "error"; message: string }> {
   try {
     const openai = new OpenAI();
     const prompt = await plangPrompt(pg, pl);
@@ -51,15 +52,17 @@ export async function aiCompletion(pg: PlangsGraph, pl: VPlang): Promise<{ resul
   return { result: "success" };
 }
 
-/** Attempt to enrich the data for the language with given key. */
-async function enrichOne(key: VPlangKey) {
+export async function loadPG(): Promise<PlangsGraph> {
   const pg = new PlangsGraph();
   await loadDefinitions(pg, { scanImages: false });
-  pg.materialize();
+  return pg.materialize();
+}
 
+/** Attempt to enrich the data for the language with given key. */
+async function enrichOne(pg: PlangsGraph, key: VPlangKey) {
   const pl = pg.plang.get(process.argv[2] as VPlangKey);
   if (pl) {
-    const result = await aiCompletion(pg, pl);
+    const result = await aiRegenPlang(pg, pl);
     if (result.result === "error") {
       console.error(result.message);
     }
@@ -69,23 +72,22 @@ async function enrichOne(key: VPlangKey) {
 }
 
 /** Attempt to enrich the data for all existing programming languages. */
-async function enrichAll() {
-  const pg = new PlangsGraph();
-  await loadDefinitions(pg, { scanImages: false });
-  pg.materialize();
-
+async function enrichAll(pg: PlangsGraph) {
   for (const pl of pg.plang.values) {
-    await aiCompletion(pg, pl);
+    await aiRegenPlang(pg, pl);
   }
 }
 
 const argv = process.argv[2] ?? "";
 if (argv.startsWith("pl+")) {
   console.log("Enriching data for", argv);
-  enrichOne(argv as VPlangKey);
+  enrichOne(await loadPG(), argv as VPlangKey);
 } else if (argv === "all") {
   console.log("Enriching data for all programming languages.");
-  enrichAll();
+  enrichAll(await loadPG());
+} else if (argv === "bulk") {
+  console.log("Bulk loading from bulk.ts script");
+  await bulkImport(await loadPG());
 } else {
   console.info('Usage: Provide the string "all" or a plang key (`pl+${key}`) as argument.\n');
   console.info(`Example: bun ${__filename} pl+python`);
