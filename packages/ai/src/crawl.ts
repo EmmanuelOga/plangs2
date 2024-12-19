@@ -16,20 +16,21 @@ const REMOVE_SEL =
   "img, script, style, iframe, noscript, svg, canvas, video, audio, object, embed, applet, map, area, base, link, meta, param, source, track";
 
 /** Extract readable content from a web URL. */
-export async function getDomContent(url: string): Promise<ReadabilityResult | undefined> {
+export async function getDomContent(stringUrl: string): Promise<{ title: string; content: string } | undefined> {
   // JSDOM attempts to call console.error, which produces a lot of errors in the console.
   // We don't care about them, so we'll silence them.
   const consoleError = console.error;
   console.error = () => {};
 
   try {
-    const dom = await JSDOM.fromURL(url);
+    const dom = await JSDOM.fromURL(stringUrl);
+    const url = new URL(stringUrl);
 
     // Simplify the DOM even before the Readability process.
     for (const elem of dom.window.document.querySelectorAll(REMOVE_SEL)) elem.remove();
 
     // In wikipedia pages, remove the long references at the end of the page.
-    if (url.includes("wikipedia")) for (const ref of dom.window.document.querySelectorAll(".reflist")) ref.remove();
+    if (/wikipedia/i.test(url.hostname)) for (const ref of dom.window.document.querySelectorAll(".reflist")) ref.remove();
 
     // Replace links with their text content for brevity.
     for (const link of dom.window.document.querySelectorAll("a")) {
@@ -38,14 +39,20 @@ export async function getDomContent(url: string): Promise<ReadabilityResult | un
       else link.remove();
     }
 
-    return new Readability(dom.window.document).parse();
+    // Readability doesn't work well with GitHub README file, so we try to handle that separately.
+    if (/github/i.test(url.hostname)) {
+      const title = dom.window.document.querySelector("title")?.textContent ?? "";
+      const content = document.querySelector(".markdown-body")?.innerHTML;
+      if (content) return { title, content };
+    }
+
+    const r = new Readability(dom.window.document).parse();
+    return r ? { title: r.title, content: r.content } : undefined;
   } catch (err) {
     console.warn(err);
   } finally {
     console.error = consoleError;
   }
-
-  return;
 }
 
 // OpenAI has a limit of 30,000 tokens for gpt-4o.
