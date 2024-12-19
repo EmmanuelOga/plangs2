@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubStars: 824,
       githubType: "programming",
-      isTranspiler: false,
+      isTranspiler: true,
       keywords: ["cross-platform", "gobject", "object-oriented", "vala"],
       languishRanking: 121,
       releases: [{ version: "0.56.17", name: "Vala 0.56.17", date: "2024-04-19" }],

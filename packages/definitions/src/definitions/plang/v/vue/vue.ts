@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubStars: 48000,
       githubType: "markup",
-      isTranspiler: false,
+      isTranspiler: true,
       keywords: ["vue.js"],
       languishRanking: 20,
       releases: [{ version: "3.5.12", name: "Tengen Toppa Gurren Lagann", date: "2024-10-11" }],

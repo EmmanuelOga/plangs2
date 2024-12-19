@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubStars: 35600,
       githubType: "programming",
-      isTranspiler: false,
+      isTranspiler: true,
       keywords: ["asp.net", "dynamic web pages", "microsoft", "server-side", "web framework"],
       languishRanking: 23,
       links: [{ url: "https://docs.microsoft.com/en-us/aspnet/core/", title: "ASP.NET Core Documentation" }],

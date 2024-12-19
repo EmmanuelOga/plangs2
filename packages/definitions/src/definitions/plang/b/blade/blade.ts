@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubStars: 79000,
       githubType: "markup",
-      isTranspiler: false,
+      isTranspiler: true,
       keywords: ["blade", "laravel", "php", "template inheritance", "templating"],
       languishRanking: 69,
       stackovTags: ["laravel-blade"],

@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
       githubName: "ColdFusion",
       githubPopular: false,
       githubType: "programming",
-      isTranspiler: false,
+      isTranspiler: true,
       keywords: ["adobe", "cfml", "coldfusion", "rapid development"],
       languishRanking: 125,
       releases: [{ version: "2023 Update 6", date: "2023" }],

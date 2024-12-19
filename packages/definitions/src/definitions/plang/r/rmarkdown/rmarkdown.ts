@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubStars: 2900,
       githubType: "prose",
-      isTranspiler: false,
+      isTranspiler: true,
       keywords: ["markdown", "r", "reports", "reproducible-research", "rmarkdown"],
       languishRanking: 79,
       releases: [{ version: "1.0", name: "Initial Release", date: "2014-01-21" }],

@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubStars: 10400,
       githubType: "markup",
-      isTranspiler: false,
+      isTranspiler: true,
       keywords: ["jinja", "python"],
       languishRanking: 57,
       releases: [{ version: "3.1.4", name: "Stable Release", date: "2024-05-05" }],

@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubStars: 2400,
       githubType: "programming",
-      isTranspiler: false,
+      isTranspiler: true,
       keywords: ["futhark"],
       languishRanking: 399,
       releases: [

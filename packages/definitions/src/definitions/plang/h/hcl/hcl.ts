@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubStars: 5300,
       githubType: "programming",
-      isTranspiler: false,
+      isTranspiler: true,
       keywords: ["configuration language", "hashicorp", "hcl", "terraform"],
       languishRanking: 53,
       releases: [
