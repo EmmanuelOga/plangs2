@@ -88,7 +88,14 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
               <RelationCell title="General">
                 {detail.general.map(item => (
                   <Pill title={item.title} key={item}>
-                    {item.kind === "text" ? item.value : <a href={item.href}>{item.value}</a>}
+                    {item.kind === "text" ? (
+                      item.value
+                    ) : (
+                      <a href={item.href} class={tw("inline-flex flex-row items-center align-middle")}>
+                        <span>{item.value}</span>
+                        <span class={tw("inline-block scale-50", "rounded")}>{EXTERN}</span>
+                      </a>
+                    )}
                   </Pill>
                 ))}
               </RelationCell>

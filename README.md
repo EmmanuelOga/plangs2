@@ -59,8 +59,6 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 
 ## WIP
 
-- [ ] Ensure external links have external icon.
-- [ ] Make external icon thinner.
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
 - [ ] All or any of facet groups.
 - [ ] Gray out facets that won't add to the selection.
@@ -68,7 +66,6 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 
 - [ ] Prefetch some URLS on hover.
 - [ ] Maybe: only allow sidebar OR filters to be on.
-
 
 ### Site
 
@@ -82,10 +79,11 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 - [ ] Tweak backdrop-filter in Safari/Firefox.
 - [ ] Investigate TW css config: breakpoints may be wonky right now.
 
-## Icons
+## Icons and Thumbnails
 
+- [ ] Make external icon thinner.
 - [ ] Table display mode? some things don't display good on a Grid, like Libraries.
-
+- [ ] Add more missing logos.
 - [ ] Resize all Thumbn to 128x128. Replace Thumbn SVGs embedding data with PNGs.
 - [ ] Identicons instead of P placeholder?
 
