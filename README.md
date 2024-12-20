@@ -63,7 +63,6 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 - [ ] All or any of facet groups.
 - [ ] Gray out facets that won't add to the selection.
 - [ ] Drag handles for Grid elems.
-- [ ] Filter facets.
 - [ ] Prefetch some URLS on hover.
 - [ ] Maybe: only allow sidebar OR filters to be on.
 
@@ -96,6 +95,7 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 
 # RELEASE
 
+- [ ] Build process: replace preact/debug with preact. This will require a TS build instead of just using esbuild's CLI.
 - [ ] Publish to **somewhere** and add some CDN.
 - [ ] Simple analytics.
 - [ ] Create better guidelines, code of conduct, enable discussions, etc.
