@@ -129,9 +129,7 @@ function IconLink({ href, icon, title }: { href: string; icon: JSX.Element; titl
 
 function RelationCell({ title, children }: { title: string; children: ComponentChildren }) {
   return (
-    <div
-      class={tw("col-span-2 grid grid-cols-subgrid", tw("border-foreground/25 border-dotted sm:border-t-1", "pt-4"), tw("hover:bg-hiliteb/10"))}
-      key={title}>
+    <div class={tw("col-span-2 grid grid-cols-subgrid", tw("border-foreground/25 border-dotted", "pt-4"), tw("hover:bg-hiliteb/10"))} key={title}>
       <header class="p-1 text-foreground/75">{title}</header>
       <div>{children}</div>
     </div>
