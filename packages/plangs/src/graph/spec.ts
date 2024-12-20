@@ -126,7 +126,7 @@ export const PLANGS_GRAPH_SPEC: GenGraphSpec<PlangVertexNames> = {
     { src: ["library", "relPlatforms", "Platforms"], dst: ["platform", "relLibraries", "Libraries"], pref: "src" },
     { src: ["subsystem", "relPlatforms", "Platforms"], dst: ["platform", "relSubsystems", "Subsystems"], pref: "src" },
     { src: ["tool", "relPlatforms", "Platforms"], dst: ["platform", "relTools", "Tools"], pref: "src" },
-    { src: ["post", "relAuthors", "Authors"], dst: ["author", "relPost", "Posts"], pref: "none" },
+    { src: ["post", "relAuthors", "Authors"], dst: ["author", "relPosts", "Posts"], pref: "none" },
     { src: ["author", "relCommunites", "Communites"], dst: ["community", "relMembers", "Members"], pref: "src" },
   ],
 };
