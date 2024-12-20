@@ -63,7 +63,7 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 - [ ] All or any of facet groups.
 - [ ] Gray out facets that won't add to the selection.
 - [ ] Drag handles for Grid elems.
-
+- [ ] Filter facets.
 - [ ] Prefetch some URLS on hover.
 - [ ] Maybe: only allow sidebar OR filters to be on.
 

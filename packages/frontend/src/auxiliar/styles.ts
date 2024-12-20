@@ -36,8 +36,3 @@ export function toggleClasses(element: HTMLElement | null | undefined, classes: 
   const all = Array.isArray(classes) ? classes : classes.split(" ");
   for (const c of all) element.classList.toggle(c, check);
 }
-
-/** Collect the classes from the classList of the element, and remove the given cssClasses. */
-export function classesExcept(elem: Element, ...cssClasses: string[]): string {
-  return [...new Set(elem.classList).difference(new Set(cssClasses))].join(" ");
-}

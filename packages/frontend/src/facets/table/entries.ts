@@ -37,10 +37,11 @@ export function generateEntries(pg: PlangsGraph, config: FacetTableConfig): Entr
   if (config.kind === "prop") {
     // TODO: actually use the property. The code below assumes the property is 'created'.
 
-    const years: Map<StrDate, number> = new Map(); // year -> count
-    for (const { created } of pg.plang.values) {
-      if (!created.value) continue;
-      years.set(created.value, (years.get(created.value) ?? 0) + 1);
+    const years: Map<string, number> = new Map(); // year -> count
+    for (const { created } of pg[config.vertexName].values) {
+      if (!created.year) continue;
+      const key = `${created.year}`;
+      years.set(key, (years.get(key) ?? 0) + 1);
     }
     return [...years.entries()].map(([year, count]) => {
       const strYear = `${year}`;

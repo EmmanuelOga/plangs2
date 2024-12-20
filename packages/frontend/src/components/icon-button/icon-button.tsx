@@ -10,12 +10,11 @@ import { useIconButtonState } from "./state";
 
 export type IconButtonProps = {
   action: "facets" | "clearFacets" | "hamburger" | "lights" | "allAny" | "gridOrder";
-  class?: string;
   disabled?: boolean;
   initial?: string;
 };
 
-export function IconButton({ action, disabled, initial, class: cssClass }: IconButtonProps) {
+export function IconButton({ action, disabled, initial }: IconButtonProps) {
   const state = useIconButtonState({ action, disabled, initial });
   const self = useRootState(state);
 
@@ -45,7 +44,7 @@ export function IconButton({ action, disabled, initial, class: cssClass }: IconB
       ref={self as Ref<HTMLDivElement>}
       tabIndex={disabled ? undefined : 0}
       {...onClickOnEnter(toggle)}
-      class={tw("group", "scale-75 cursor-pointer", !disabled && "cursor-pointer", HOVER_ICON, state?.hilight && "ring-1 ring-primary", cssClass)}>
+      class={tw("group", disabled ? "opacity-50" : "cursor-pointer text-primary", state?.hilight && "ring-1 ring-primary", HOVER_ICON)}>
       {state?.icon}
     </div>
   );
