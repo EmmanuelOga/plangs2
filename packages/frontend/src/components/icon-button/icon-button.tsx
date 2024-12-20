@@ -44,7 +44,7 @@ export function IconButton({ action, disabled, initial }: IconButtonProps) {
       ref={self as Ref<HTMLDivElement>}
       tabIndex={disabled ? undefined : 0}
       {...onClickOnEnter(toggle)}
-      class={tw("group", disabled ? "opacity-50" : "cursor-pointer text-primary", state?.hilight && "ring-1 ring-primary", HOVER_ICON)}>
+      class={tw("group", disabled ? "opacity-50" : "cursor-pointer", state?.hilight && "ring-1 ring-primary", action !== "allAny" && HOVER_ICON)}>
       {state?.icon}
     </div>
   );

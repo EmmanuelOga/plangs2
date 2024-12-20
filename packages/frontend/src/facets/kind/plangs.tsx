@@ -40,7 +40,7 @@ const [GROUPS, GK_BY_FK, COMPONENT] = defineFacetGroups<GK, FK>({
   tags: { title: "Tags", facets: [table("tags", "Tags", rel("plang", "relTags"))] },
   transpiler: {
     title: "Transpiler",
-    facets: [bool("isTranspiler", "Is Transpiler"), table("compilesTo", "Compiles To", rel("plang", "relCompilesTo"))],
+    facets: [bool("isTranspiler", "Transpiler to Anything"), table("compilesTo", "Compiles To", rel("plang", "relCompilesTo"))],
   },
   typeSystems: { title: "Type Systems", facets: [table("typeSystems", "Type Systems", rel("plang", "relTypeSystems"))] },
   writtenWith: { title: "Written With", facets: [table("writtenWith", "Written With", rel("plang", "relWrittenWith"))] },

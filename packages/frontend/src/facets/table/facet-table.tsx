@@ -32,7 +32,7 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
   const state = useDispatchable(() => {
     const order = config.kind === "prop" ? "facet-desc" : "facet-asc";
     const entries = sortEntries(generateEntries(main.pg, config), order);
-    return new FacetTableState({ config, entries, facetKey, groupKey, main, order });
+    return new FacetTableState({ config, entries, facetKey, groupKey, main, order, filter: "" });
   });
 
   useEffect(() =>
@@ -42,24 +42,32 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
     }),
   );
 
-  const SUBGRID = tw("col-span-3", "grid grid-cols-subgrid", "items-center");
+  const SUBGRID = tw("col-span-3", "grid grid-cols-subgrid");
   const ROW = tw(SUBGRID, tw("border-b-1", BORDER));
 
   const body = () => (
     <div class={tw("grid grid-cols-[1fr_auto_auto]", VSCROLL, "relative")}>
-      <div class={tw(ROW, "cursor-pointer", tw(BORDER, "border-b-1", "sticky top-0"))}>
-        <div class={tw("col-span-3", "p-1", "bg-background")}>
+      <div class={tw(ROW, "sticky top-0", "bg-primary text-background/80", "cursor-pointer", tw(BORDER, "border-b-1"))}>
+        <div class={tw("col-span-3", "flex flex-row items-center gap-2", "px-1", "border-secondary border-b-1 border-dotted")}>
+          <label for="filter-facets" class="inline-block">
+            Filter:
+          </label>
+          <input
+            id="filter-facets"
+            class="m-2 inline-block flex-1 p-1"
+            value={state.filter}
+            onInput={ev => state.doSetFilter(ev.currentTarget.value)}
+          />
           <IconButton action="allAny" initial={state.value.mode} disabled={state.value.size < 2} />
         </div>
 
-        <div class={tw(ROW, "col-span-3", "bg-primary text-background/80")}>
+        <div class={tw(ROW, "col-span-3")}>
           <Header class={"text-left"} action={() => state.doToggleOrder("facet")} col="facet" config={config} order={state.order} />
           <Header class={"text-center"} action={() => state.doToggleOrder("count")} col="count" config={config} order={state.order} />
           <Header class={"text-right"} action={() => state.doToggleOrder("sel")} col="sel" config={config} order={state.order} />
         </div>
       </div>
-
-      {state.entries.map(entry =>
+      {state.filteredEntries.map(entry =>
         ret(
           onClickOnEnter(() => state.doToggle(entry.value)),
           clickOrEnter => (

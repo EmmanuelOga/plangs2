@@ -69,7 +69,7 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
 
         <header class={tw("pt-4 pb-2", "flex flex-col", "bg-linear-to-b from-secondary to-background")} style={stripes(false)}>
           <PlangsLogo class={tw("sm:mt-4", "h-12 sm:h-16 lg:h-20 xl:h-24", "short:hidden")} />
-          <div class={tw("px-2 sm:px-4", "flex flex-row", "gap-4", "items-center justify-between")}>
+          <div class={tw("px-2 sm:px-4", "flex flex-row", "gap-4", "items-center justify-between", "text-primary")}>
             {iconButton("hamburger")}
             {pageType === "grid" && iconButton("facets")}
             {page === "plangs" && iconButton("gridOrder")}

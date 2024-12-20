@@ -9,6 +9,7 @@ type StateData<GroupKey extends string, FacetKey extends string> = Pick<FacetTab
   main: AnyFacetsMainState;
   entries: Entry[];
   order: Order;
+  filter: string;
 };
 
 export class FacetTableState<GroupKey extends string, FacetKey extends string> extends Dispatchable<StateData<GroupKey, FacetKey>> {
@@ -45,10 +46,19 @@ export class FacetTableState<GroupKey extends string, FacetKey extends string> e
     this.doSetValue(this.value);
   }
 
+  doSetFilter(value: string): void {
+    this.data.filter = value;
+    this.dispatch();
+  }
+
   /** Queries */
 
   get main() {
     return this.data.main;
+  }
+
+  get filter() {
+    return this.data.filter;
   }
 
   /** Selected values. */
@@ -58,8 +68,10 @@ export class FacetTableState<GroupKey extends string, FacetKey extends string> e
   }
 
   /** All entries. */
-  get entries() {
-    return this.data.entries;
+  get filteredEntries() {
+    if (this.filter === "") return this.data.entries;
+    const pattern = this.filter.toLowerCase();
+    return this.data.entries.filter(entry => entry.label.toLowerCase().includes(pattern));
   }
 
   get order() {

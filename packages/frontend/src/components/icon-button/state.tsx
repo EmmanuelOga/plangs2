@@ -146,10 +146,19 @@ export class ToggleAllAny extends IconButtonBaseState<{ mode: "all" | "any" }> {
     const shadeAny = disabled || this.mode === "all";
 
     return (
-      <span class={tw("flex flex-row gap-1", "items-center")}>
-        <span class={tw(shadeAll && "opacity-50", !disabled && "group-hover:text-hiliteb")}>All of</span>
-        <span class={tw("inline-block", "mt-[1px]", "scale-85", this.mode === "all" && "rotate-180")}>{BOOLEAN}</span>
-        <span class={tw(shadeAny && "opacity-50", !disabled && "group-hover:text-hiliteb")}>Any of</span>
+      <span class={tw("px-1", "flex flex-row gap-1", "items-center", "align-middle")}>
+        <span class={tw(shadeAll && "opacity-50", "whitespace-nowrap")}>All</span>
+        <span
+          class={tw(
+            "inline-block",
+            "mt-[1px]",
+            "scale-85",
+            this.mode === "all" && "rotate-180",
+            tw("rounded-2xl px-1 hover:bg-background/20 hover:text-hiliteb"),
+          )}>
+          {BOOLEAN}
+        </span>
+        <span class={tw(shadeAny && "opacity-50", "whitespace-nowrap")}>Any</span>
       </span>
     );
   }
