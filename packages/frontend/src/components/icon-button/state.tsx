@@ -154,7 +154,7 @@ export class ToggleAllAny extends IconButtonBaseState<{ mode: "all" | "any" }> {
             "mt-[1px]",
             "scale-85",
             this.mode === "all" && "rotate-180",
-            tw("rounded-2xl px-1 hover:bg-background/20 hover:text-hiliteb"),
+            !disabled && tw("rounded-2xl px-1 hover:bg-background/20 hover:text-hiliteb"),
           )}>
           {BOOLEAN}
         </span>
