@@ -3,7 +3,7 @@ import { useEffect } from "preact/hooks";
 
 import { useRootState } from "@plangs/frontend/auxiliar/dispatchable";
 import { DESELECT } from "@plangs/frontend/auxiliar/icons";
-import { BORDER, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
+import { BORDER, HOVER_ICON_BG, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { PlangsPage } from "@plangs/server/components/layout";
 
@@ -21,8 +21,6 @@ export function FacetsMain({ page, pg }: { page: PlangsPage; pg: PlangsGraph }) 
 
   const mapGroups = (state: AnyFacetsMainState, group: string[], callback: (key: string, isCurrent: boolean, hasValues: boolean) => JSX.Element) =>
     group.map(groupKey => callback(groupKey, state.currentGroupKey === groupKey, state.groupHasValues(groupKey)));
-
-  const iconStyle = tw("scale-66", "mr-1");
 
   const body = (state: AnyFacetsMainState) => (
     <FacetsMainContext.Provider value={state}>
@@ -58,7 +56,14 @@ export function FacetsMain({ page, pg }: { page: PlangsPage; pg: PlangsGraph }) 
                     )}>
                     {state.groupTitle(groupKey)}
                   </button>
-                  <div {...onClickOnEnter(() => state.doResetGroup(groupKey))} class={tw(iconStyle, !state.groupHasValues(groupKey) && "hidden", "")}>
+                  <div
+                    {...onClickOnEnter(() => state.doResetGroup(groupKey))}
+                    class={tw(
+                      "mr-1 p-1",
+                      "scale-75",
+                      "cursor-pointer",
+                      state.groupHasValues(groupKey) ? tw("hover:text-hiliteb", HOVER_ICON_BG) : "hidden",
+                    )}>
                     {DESELECT}
                   </div>
                 </div>

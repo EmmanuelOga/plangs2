@@ -5,10 +5,11 @@ import { ret } from "@plangs/auxiliar/misc";
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { on } from "@plangs/frontend/auxiliar/events";
-import { BORDER, HOVER, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
+import { BORDER, HOVER, HOVER_ICON, HOVER_ICON_BG, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
 import { type AnyFacetsMainState, FacetsMainContext } from "@plangs/frontend/facets/main/use_state";
 
+import { DESELECT } from "@plangs/frontend/auxiliar/icons";
 import { type FacetTableConfig, generateEntries, sortEntries } from "./entries";
 import { Header } from "./header";
 import { FacetTableState } from "./state";
@@ -59,6 +60,12 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
             onInput={ev => state.doSetFilter(ev.currentTarget.value)}
           />
           <IconButton action="allAny" initial={state.value.mode} disabled={state.value.size < 2} />
+
+          <div
+            {...onClickOnEnter(() => state.doResetSelection())}
+            class={tw("scale-75 p-1", state.hasSelection ? tw("hover:text-hiliteb", HOVER_ICON_BG) : "opacity-25")}>
+            {DESELECT}
+          </div>
         </div>
 
         <div class={tw(ROW, "col-span-3")}>

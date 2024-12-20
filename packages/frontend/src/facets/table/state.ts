@@ -77,4 +77,8 @@ export class FacetTableState<GroupKey extends string, FacetKey extends string> e
   get order() {
     return this.data.order;
   }
+
+  get hasSelection() {
+    return this.value.size > 0;
+  }
 }

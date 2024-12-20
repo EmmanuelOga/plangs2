@@ -60,14 +60,13 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 ## WIP
 
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
-- [ ] All or any of facet groups.
-- [ ] Gray out facets that won't add to the selection.
+- [ ] All or any of facet groups, and gray out facets that won't add to the selection.
 - [ ] Drag handles for Grid elems.
-- [ ] Prefetch some URLS on hover.
 - [ ] Maybe: only allow sidebar OR filters to be on.
 
 ### Site
 
+- [ ] Prefetch some URLS on hover.
 - [ ] Add schema.org metadata.
 - [ ] Add fb opengraph metadata.
 - [ ] Add missing aria attributes.

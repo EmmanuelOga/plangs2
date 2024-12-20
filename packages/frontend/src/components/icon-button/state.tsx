@@ -3,7 +3,7 @@ import type { ComponentChild } from "preact";
 import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { data, elem, elems } from "@plangs/frontend/auxiliar/dom";
 import { ABC, BOOLEAN, CLOSE, DESELECT, FILTER_EDIT, MENU, MOON, RANKING, SUN } from "@plangs/frontend/auxiliar/icons";
-import { tw } from "@plangs/frontend/auxiliar/styles";
+import { HOVER_ICON_BG, tw } from "@plangs/frontend/auxiliar/styles";
 import type { FacetsMainElement } from "@plangs/frontend/facets/main";
 
 import { getCurrentPageStore, getStore } from "@plangs/frontend/auxiliar/storage";
@@ -148,14 +148,7 @@ export class ToggleAllAny extends IconButtonBaseState<{ mode: "all" | "any" }> {
     return (
       <span class={tw("px-1", "flex flex-row gap-1", "items-center", "align-middle")}>
         <span class={tw(shadeAll && "opacity-50", "whitespace-nowrap")}>All</span>
-        <span
-          class={tw(
-            "inline-block",
-            "mt-[1px]",
-            "scale-85",
-            this.mode === "all" && "rotate-180",
-            !disabled && tw("rounded-2xl px-1 hover:bg-background/20 hover:text-hiliteb"),
-          )}>
+        <span class={tw("inline-block", "mt-[1px] px-1", "scale-85", this.mode === "all" && "rotate-180", !disabled && HOVER_ICON_BG)}>
           {BOOLEAN}
         </span>
         <span class={tw(shadeAny && "opacity-50", "whitespace-nowrap")}>Any</span>

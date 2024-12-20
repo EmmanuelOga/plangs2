@@ -11,6 +11,7 @@ export const INPUT = "bg-background text-foreground placeholder:text-foreground/
 
 export const HOVER = "hover:bg-hiliteb/75 hover:text-hilitef cursor-pointer";
 export const HOVER_ICON = "rounded p-1 hover:bg-primary/20 hover:text-hiliteb hover:ring-2 hover:ring-primary";
+export const HOVER_ICON_BG = "rounded-2xl hover:bg-background/20 hover:text-hiliteb";
 
 export const PROSE_BASIC = "prose dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl"; // 2xl:prose-2xl; // prose-green
 export const PROSE = `${PROSE_BASIC} max-w-[80ch] mx-auto`;
