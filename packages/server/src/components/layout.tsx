@@ -67,17 +67,15 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
           This site requires JavaScript for the best experience. In particular, the search feature will not work without JavaScript.
         </noscript>
 
-        <header class={tw("pt-4 pb-2", "flex flex-col", "bg-linear-to-b from-secondary to-background")} style={stripes(false)}>
-          <PlangsLogo class={tw("sm:mt-4", "h-12 sm:h-16 lg:h-20 xl:h-24", "short:hidden")} />
-          <div class={tw("px-2 sm:px-4", "flex flex-row", "gap-4", "items-center justify-between", "text-primary")}>
-            {iconButton("hamburger")}
-            {pageType === "grid" && iconButton("facets")}
-            {page === "plangs" && iconButton("gridOrder")}
-            {pageType === "grid" && iconButton("clearFacets")}
-            <div class="short:hidden flex-1" />
-            <PlangsLogo class={tw("short:block hidden", "h-10 flex-1")} />
-            {iconButton("lights")}
-          </div>
+        <header
+          style={stripes(false)}
+          class={tw("p-4", "flex flex-row gap-4", "items-center", "text-primary", "bg-linear-to-b from-secondary to-background")}>
+          {iconButton("hamburger")}
+          {pageType === "grid" && iconButton("facets")}
+          {page === "plangs" && iconButton("gridOrder")}
+          {pageType === "grid" && iconButton("clearFacets")}
+          <PlangsLogo class="flex-1" />
+          {iconButton("lights")}
         </header>
 
         <div class={tw("flex-1", "flex flex-row", "overflow-y-auto")}>

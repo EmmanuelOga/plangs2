@@ -1,4 +1,4 @@
-import { tw } from "@plangs/frontend/auxiliar/styles";
+import { BORDER, tw } from "@plangs/frontend/auxiliar/styles";
 import { cssID } from "@plangs/server/elements";
 import { script } from "@plangs/server/utils/html";
 
@@ -7,7 +7,7 @@ import type { PlangsPage } from "./layout";
 
 export function MainNav({ page, class: cssClass }: { page: PlangsPage; class?: string }) {
   return (
-    <aside id={cssID("mainNav")} class={tw("bg-linear-to-t from-secondary to-background", cssClass)}>
+    <aside id={cssID("mainNav")} class={tw("bg-linear-to-t from-secondary to-background", cssClass, BORDER, "border-r-1")}>
       {script("window.restoreHamburguer();")}
 
       <NavSection
