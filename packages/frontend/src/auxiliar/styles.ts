@@ -7,7 +7,7 @@ export const VSCROLL = "overflow-hidden overflow-y-auto";
 export const BAR = "bg-linear-to-b from-secondary to-background";
 export const BORDER = "border-primary/85 border-dotted";
 
-export const INPUT = "bg-background text-foreground placeholder:text-foreground/50";
+export const INPUT = "bg-background text-foreground placeholder:text-foreground/50 mx-2";
 
 export const HOVER = "hover:bg-hiliteb/75 hover:text-hilitef cursor-pointer";
 export const HOVER_ICON = "rounded p-1 hover:bg-primary/20 hover:text-hiliteb hover:ring-2 hover:ring-primary";

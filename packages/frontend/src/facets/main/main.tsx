@@ -75,7 +75,7 @@ export function FacetsMain({ page, pg }: { page: PlangsPage; pg: PlangsGraph }) 
   );
 
   return (
-    <aside ref={self as Ref<HTMLElement>} class={tw("flex flex-row items-stretch", "h-full overflow-hidden")}>
+    <aside ref={self as Ref<HTMLElement>} class={tw("flex flex-row items-stretch", "size-full overflow-hidden")}>
       {state && body(state)}
     </aside>
   );

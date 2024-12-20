@@ -73,14 +73,7 @@ export function FacetMulti<GroupKey extends string, FacetKey extends string>({
 
   const body = () => (
     <>
-      <input
-        type="search"
-        name={facetKey as string}
-        ref={input as Ref<HTMLInputElement>}
-        placeholder={label}
-        class={tw(INPUT, "w-full")}
-        onKeyDown={add}
-      />
+      <input type="search" name={facetKey as string} ref={input as Ref<HTMLInputElement>} placeholder={label} class={tw(INPUT)} onKeyDown={add} />
 
       <span class={tw(state.value.size === 0 && "hidden", state.value.size < 2 ? "text-foreground/50" : "text-foreground", "pl-2")}>
         <IconButton action="allAny" disabled={state.value.size < 2} initial={"any"} />

@@ -52,9 +52,8 @@ export function FacetGroup<GroupKey extends string>({
 
         // Self.
         "flex-1",
-        "overflow-y-scroll",
         "self-center",
-        "w-[calc(100%_-_1rem)]",
+        "size-full overflow-hidden overflow-y-auto",
 
         // Children.
         "flex flex-col gap-4",

@@ -5,7 +5,7 @@ import { ret } from "@plangs/auxiliar/misc";
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { on } from "@plangs/frontend/auxiliar/events";
-import { BORDER, HOVER, tw } from "@plangs/frontend/auxiliar/styles";
+import { BORDER, HOVER, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
 import { type AnyFacetsMainState, FacetsMainContext } from "@plangs/frontend/facets/main/use_state";
 
@@ -46,9 +46,9 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
   const ROW = tw(SUBGRID, tw("border-b-1", BORDER));
 
   const body = () => (
-    <div class={tw("grid grid-cols-[1fr_auto_auto]", "overflow-y-auto", "relative")}>
-      <div class={tw(ROW, "cursor-pointer", tw(BORDER, "border-b-1"))}>
-        <div class={tw("col-span-3", "flex shrink-0 flex-row", "bg-background")}>
+    <div class={tw("grid grid-cols-[1fr_auto_auto]", VSCROLL, "relative")}>
+      <div class={tw(ROW, "cursor-pointer", tw(BORDER, "border-b-1", "sticky top-0"))}>
+        <div class={tw("col-span-3", "p-1", "bg-background")}>
           <IconButton action="allAny" initial={state.value.mode} disabled={state.value.size < 2} />
         </div>
 
@@ -77,7 +77,7 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
   );
 
   return (
-    <div ref={self as Ref<HTMLDivElement>} class={tw("flex flex-col")}>
+    <div ref={self as Ref<HTMLDivElement>} class={tw("flex flex-col", "size-full overflow-hidden")}>
       {active ? body() : null}
     </div>
   );
