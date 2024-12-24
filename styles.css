@@ -64,6 +64,34 @@
   .quick-pulse { animation: pulse .2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
 }
 
+/**
+ * Display Facets Bar or Select for Groups navigation, according to the container width.
+ * TODO: remove the "@container" warning. It seems to be coming from VSCode's CSS server which TW uses.
+ */
+@layer components {
+  /** Use the preact component wrapper to measure container size. */
+  .cl-facetsMain {
+    container-type: inline-size;
+    container-name: facets;
+  }
+
+  @container facets (max-width: 480px) {
+    .cl-facetsWrapper { @apply flex-col; }
+    .cl-facetsBar { @apply hidden; }
+    .cl-facetsSelect { @apply flex; }
+  }
+
+  /** If there's enough width, display the sidebar. */
+  @container facets (min-width: 480px) {
+    .cl-facetsWrapper { @apply flex-row; }
+    .cl-facetsBar { @apply block; }
+    .cl-facetsSelect { @apply hidden; }
+  }
+}
+
+/**
+ * Responsive grid layout configuration.
+ */
 @layer components {
   /* 3x3 grid. */
   .grid-wrapper {
@@ -77,52 +105,57 @@
   .grid-info { grid-area: I; overflow: hidden; overflow-y: auto; }
 
   /* portrait-narrow */
-  @media (orientation: portrait) and (max-width: 960px) {
+  @media (orientation: portrait) and (max-width: 639px) {
+    #debug::after { content: 'portrait-narrow'; }
     .grid-wrapper {
       grid-template-areas: 'F F F'
                            'G G G'
                            'I I I';
       grid-template-rows: auto 1fr auto;
       .grid-facets { max-height: 35dvh; }
-      .grid-info { max-height: 15dvh; }
+      .grid-info { max-height: 18dvh; }
     }
   }
 
   /* portrait-wide */
-  @media (orientation: portrait) and (min-width: 960px)  {
+  @media (orientation: portrait) and (min-width: 640px)  {
+    #debug::after { content: 'portrait-wide'; }
     .grid-wrapper {
       grid-template-areas: 'F F I'
                            'G G G'
                            'G G G';
       grid-template-rows: auto auto 1fr; /* Grow middle row. */
       grid-template-columns: auto auto 1fr; /* Grow middle column. */
-      .grid-facets { width: 38rem; max-height: 40dvh; }
-      .grid-info { max-height: 40dvh; }
+      .grid-facets { min-width: max(20rem,35dvw); }
+      .grid-main { min-height: 60dvh; }
     }
   }
 
-  /* landscape */
-  @media (orientation: landscape) and (min-height: 640px) {
-    .grid-wrapper {
-      grid-template-areas: 'F G I'
-                           'F G I'
-                           'F G I';
-      grid-template-columns: auto 1fr auto; /* Grow middle column. */
-      .grid-facets { min-width: 32rem; max-width: 38rem; }
-      .grid-info { width: 25dvw; }
-    }
-  }
-
-  /* landscape-short */
-  @media (orientation: landscape) and (max-height: 640px) {
+  /* landscape-narrow */
+  @media (orientation: landscape) and (max-width: 1719px) {
+    #debug::after { content: 'landscape-narrow'; }
     .grid-wrapper {
       grid-template-areas: 'F G G'
                            'F G G'
                            'F I I';
       grid-template-columns: auto 1fr auto; /* Grow middle column. */
       grid-template-rows: auto 1fr auto; /* Grow middle row. */
-      .grid-facets { min-width: 25rem; max-width: 30rem; }
+      .grid-facets { min-width: min(20rem,35dvw); }
       .grid-info { max-height: 30dvh; }
+    }
+  }
+
+  /* landscape-wide */
+  @media (orientation: landscape) and (min-width: 1720px) {
+    #debug::after { content: 'landscape-wide'; }
+    .grid-wrapper {
+      grid-template-areas: 'F G I'
+                           'F G I'
+                           'F G I';
+      grid-template-columns: auto 1fr auto; /* Grow middle column. */
+      grid-template-rows: auto 1fr auto; /* Grow middle row. */
+      .grid-facets { min-width: 32rem; }
+      .grid-info { width: 20dvw; }
     }
   }
 }

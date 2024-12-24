@@ -6,9 +6,10 @@ module.exports = {
     extend: {
       screens: {
         short: { raw: "(max-height: 640px)" }, // Hide the logo if the screen is not tall enough.
-        "portrait-narrow": { raw: "(orientation: portrait) and (max-aspect-ratio: 2/3)" },
-        "portrait-wide": { raw: "(orientation: portrait) and (min-aspect-ratio: 2/3)" },
-        "landscape-short": { raw: "(orientation: landscape) and (max-height: 400px)" },
+        "portrait-narrow": { raw: "(orientation: portrait) and (max-width: 639px)" },
+        "portrait-wide": { raw: "(orientation: portrait) and (min-width: 640px)" },
+        "landscape-narrow": { raw: "(orientation: landscape) and (max-width: 1719px)" },
+        "landscape-wide": { raw: "(orientation: landscape) and (min-width: 1720px)" },
       },
       colors: {
         primary: "var(--color-primary)",
