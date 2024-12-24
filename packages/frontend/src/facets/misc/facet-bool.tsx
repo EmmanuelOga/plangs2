@@ -30,18 +30,17 @@ export function FacetBool<GroupKey extends string, FacetKey extends string>({
   });
 
   return (
-    <label for={facetKey} class={tw("block", "px-2")}>
+    <label for={facetKey} class={tw("inline-flex items-center gap-2", "mx-2")}>
       <input
         id={facetKey}
         name={facetKey}
         type="checkbox"
-        class={tw("-mt-1")}
         placeholder={label}
         {...onClickOnEnter(toggle)}
         checked={!!main.values.get(groupKey, facetKey)?.isPresent}
         ref={input as Ref<HTMLInputElement>}
       />
-      <span class="ml-2">{label}</span>
+      {label}
     </label>
   );
 }

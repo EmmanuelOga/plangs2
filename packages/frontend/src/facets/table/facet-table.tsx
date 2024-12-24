@@ -5,7 +5,7 @@ import { ret } from "@plangs/auxiliar/misc";
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { on } from "@plangs/frontend/auxiliar/events";
-import { BORDER, HOVER, HOVER_ICON, HOVER_ICON_BG, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
+import { HOVER, HOVER_ICON_BG, INPUT, tw } from "@plangs/frontend/auxiliar/styles";
 import { IconButton } from "@plangs/frontend/components/icon-button/icon-button";
 import { type AnyFacetsMainState, FacetsMainContext } from "@plangs/frontend/facets/main/use_state";
 
@@ -44,50 +44,47 @@ export function FacetTable<GroupKey extends string, FacetKey extends string>({
   );
 
   const SUBGRID = tw("col-span-3", "grid grid-cols-subgrid");
-  const ROW = tw(SUBGRID, tw("border-b-1", BORDER));
+  const ROW = tw(SUBGRID, tw("border-b-1", "border-foreground/25 border-dotted"));
 
   const body = () => (
-    <div class={tw("grid grid-cols-[1fr_auto_auto]", VSCROLL, "relative")}>
-      <div class={tw(ROW, "sticky top-0", "bg-primary text-background/80", "cursor-pointer", tw(BORDER, "border-b-1"))}>
-        <div class={tw("col-span-3", "flex flex-row items-center gap-2", "px-1", "border-secondary border-b-1 border-dotted")}>
-          <label for="filter-facets" class="inline-block">
-            Filter:
-          </label>
+    <div class={tw("grid grid-cols-[1fr_auto_auto]", "overflow-hidden")}>
+      <div class={tw(ROW, "bg-secondary text-foreground")}>
+        <div class={tw("col-span-3", "flex flex-row", "items-center justify-between")}>
           <input
-            id="filter-facets"
-            class="m-2 inline-block flex-1 p-1"
+            class={tw(INPUT, "m-1 block h-8 w-[100%]")}
+            placeholder="Filter..."
             value={state.filter}
             onInput={ev => state.doSetFilter(ev.currentTarget.value)}
           />
           <IconButton action="allAny" initial={state.value.mode} disabled={state.value.size < 2} />
-
           <div
-            {...onClickOnEnter(() => state.doResetSelection())}
-            class={tw("scale-75 p-1", state.hasSelection ? tw("hover:text-hiliteb", HOVER_ICON_BG) : "opacity-25")}>
+            class={tw("scale-75 p-1", state.hasSelection ? tw("hover:text-hiliteb", HOVER_ICON_BG) : "opacity-25")}
+            {...onClickOnEnter(() => state.doResetSelection())}>
             {DESELECT}
           </div>
         </div>
 
-        <div class={tw(ROW, "col-span-3")}>
-          <Header class={"text-left"} action={() => state.doToggleOrder("facet")} col="facet" config={config} order={state.order} />
-          <Header class={"text-center"} action={() => state.doToggleOrder("count")} col="count" config={config} order={state.order} />
-          <Header class={"text-right"} action={() => state.doToggleOrder("sel")} col="sel" config={config} order={state.order} />
-        </div>
+        <Header class={"text-left"} action={() => state.doToggleOrder("facet")} col="facet" config={config} order={state.order} />
+        <Header class={"text-center"} action={() => state.doToggleOrder("count")} col="count" config={config} order={state.order} />
+        <Header class={"text-right"} action={() => state.doToggleOrder("sel")} col="sel" config={config} order={state.order} />
       </div>
-      {state.filteredEntries.map(entry =>
-        ret(
-          onClickOnEnter(() => state.doToggle(entry.value)),
-          clickOrEnter => (
-            <div key={entry.value} class={tw(ROW, HOVER, state.value.has(entry.value) && "bg-primary/20")} {...clickOrEnter}>
-              <div class={tw("p-2", "text-left", "overflow-hidden text-ellipsis", "line-clamp-3")}>{entry.label}</div>
-              <div class={tw("p-2", "text-center")}>{entry.count}</div>
-              <div class={tw("p-2", "text-right")}>
-                <input type="checkbox" checked={state.value.has(entry.value)} {...clickOrEnter} />
+
+      <div class={tw(ROW, "overflow-hidden", "overflow-y-scroll")}>
+        {state.filteredEntries.map(entry =>
+          ret(
+            onClickOnEnter(() => state.doToggle(entry.value)),
+            clickOrEnter => (
+              <div key={entry.value} class={tw(ROW, HOVER, state.value.has(entry.value) && "bg-secondary/20")} {...clickOrEnter}>
+                <div class={tw("p-2", "text-left", "overflow-hidden text-ellipsis", "line-clamp-3")}>{entry.label}</div>
+                <div class={tw("p-2", "text-center")}>{entry.count}</div>
+                <div class={tw("p-2", "text-right")}>
+                  <input type="checkbox" checked={state.value.has(entry.value)} {...clickOrEnter} />
+                </div>
               </div>
-            </div>
+            ),
           ),
-        ),
-      )}
+        )}
+      </div>
     </div>
   );
 

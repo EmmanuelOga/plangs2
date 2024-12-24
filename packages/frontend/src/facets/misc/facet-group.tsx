@@ -51,12 +51,12 @@ export function FacetGroup<GroupKey extends string>({
         !active && "hidden",
 
         // Self.
-        "flex-1",
+        "flex-1 pt-1",
         "self-center",
         "size-full overflow-hidden overflow-y-auto",
 
         // Children.
-        "flex flex-col gap-4",
+        "flex flex-col gap-2",
       )}>
       {children}
     </div>
