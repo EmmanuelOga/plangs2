@@ -9,6 +9,7 @@ import { ToggleFacetsMenu, ToggleHamburguer, ToggleLights } from "@plangs/fronte
 import { renderVertexInfo } from "@plangs/frontend/components/vertex-info";
 import { activateFacetsMain } from "@plangs/frontend/facets/main";
 import { PlangsGraph } from "@plangs/plangs/graph";
+import { debugAspectRatio } from "../auxiliar/aspect";
 import { getClosestVertex } from "./vertices";
 
 async function start() {
@@ -49,6 +50,7 @@ if (PLANGS_ENV === "dev") {
   } catch (err) {
     console.error(err);
   }
+  debugAspectRatio();
 }
 
 try {
