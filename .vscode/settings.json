@@ -15,6 +15,9 @@
     "editor.quickSuggestions": {
         "strings": "on"
     },
+    "css.customData": [
+        "css.json"
+    ],
     // ---------------------------------------------------------------------------- 
     // Biome.
     //
