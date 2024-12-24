@@ -58,19 +58,17 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
 
   const header = (
     <header class="flex flex-wrap">
-      <h2 class={tw("m-0!", "truncate", "w-full sm:w-auto")}>
-        {detail ? <a class="pr-2" href={detail.href} children={detail.name} /> : "Information"}
-      </h2>
+      <h2 class={tw("m-0!", "truncate")}>{detail ? <a class="pr-2" href={detail.href} children={detail.name} /> : "Information"}</h2>
       <div class="flex-1" />
       {iconLinks}
     </header>
   );
 
   const info = detail ? (
-    <p class={tw("hidden sm:block landscape-short:hidden")}>
+    <div class={tw("hidden py-4 sm:block landscape-short:hidden")}>
       {!forGrid && detail.thumbUrl && <VertexThumbn detail={detail} onlyImg={true} class="float-right my-2 mr-1 ml-4 size-24" />}
       <div class="hyphens-auto text-justify">{forGrid ? detail.shortDesc : detail.description}</div>
-    </p>
+    </div>
   ) : (
     <p>
       <strong class="text-primary">Click</strong> a thumbnail for more info.
@@ -118,7 +116,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
       class={tw(
         VSCROLL,
         tw(PROSE_BASIC, "max-w-[unset]"),
-        forGrid && "px-2 py-1 sm:p-4",
+        forGrid && "px-2 pt-1 sm:p-4",
         forGrid && "border-primary/50 landscape-narrow:border-t-1",
       )}>
       {header}
