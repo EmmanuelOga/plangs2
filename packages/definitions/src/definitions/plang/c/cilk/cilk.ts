@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "Cilk",
       description:
         "Cilk++, Cilk Plus, and OpenCilk are general-purpose programming languages designed for multithreaded parallel computing. They are based on the C and C++ languages and extend them with constructs for parallel loops and the fork-join idiom.",
-      shortDesc: "family of languages designed for parallel computing extending C and C++.",
+      shortDesc: "Family of languages designed for parallel computing extending C and C++.",
       created: "1994",
       extensions: [".cilk"],
       extGithubPath: "OpenCilk/opencilk-project",
