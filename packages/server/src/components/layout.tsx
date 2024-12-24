@@ -1,6 +1,6 @@
 import type { ComponentChildren } from "preact";
 
-import { background, tw } from "@plangs/frontend/auxiliar/styles";
+import { background, gradLinear, tw } from "@plangs/frontend/auxiliar/styles";
 import { iconButton } from "@plangs/frontend/components/icon-button";
 import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
 import { cssID } from "@plangs/server/elements";
@@ -66,7 +66,9 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
           This site requires JavaScript for the best experience. In particular, the search feature will not work without JavaScript.
         </noscript>
 
-        <header class={tw("short:hidden", "pb-2 sm:pt-4 sm:pb-8", "text-center text-primary", "bg-linear-to-b from-secondary to-transparent")}>
+        <header
+          style={background({ bgs: [gradLinear()], backdrop: "" })}
+          class={tw("short:hidden", "pb-2 sm:pt-4 sm:pb-8", "text-center text-primary")}>
           <a class="inline-block pt-4" href="/" title="Plangs!">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -86,8 +88,9 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
             class={tw(
               "flex gap-4 p-1 portrait:flex-row landscape:flex-col",
               "overflow-hidden",
-              "bg-secondary/50 text-primary",
-              "border-primary/25 border-b-1",
+              "bg-secondary/25 text-primary",
+              "border-secondary border-b-1",
+              "shadow-secondary/25 shadow-sm",
             )}>
             {iconButton("hamburger")}
             {pageType === "grid" && iconButton("facets")}
