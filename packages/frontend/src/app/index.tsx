@@ -1,5 +1,6 @@
 import "preact/debug";
 
+import { debugAspectRatio } from "@plangs/frontend/auxiliar/aspect";
 import { elem, elems } from "@plangs/frontend/auxiliar/dom";
 import { on } from "@plangs/frontend/auxiliar/events";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
@@ -9,7 +10,7 @@ import { ToggleFacetsMenu, ToggleHamburguer, ToggleLights } from "@plangs/fronte
 import { renderVertexInfo } from "@plangs/frontend/components/vertex-info";
 import { activateFacetsMain } from "@plangs/frontend/facets/main";
 import { PlangsGraph } from "@plangs/plangs/graph";
-import { debugAspectRatio } from "../auxiliar/aspect";
+
 import { getClosestVertex } from "./vertices";
 
 async function start() {

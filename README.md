@@ -63,9 +63,7 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 - [ ] Implement all/any button for filter *categories*.
 - [ ] All or any of facet groups, and gray out facets that won't add to the selection.
 
-- [ ] Drag handles for Grid elems.
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
-- [ ] Maybe: only allow sidebar OR filters to be on.
 
 ### Site
 
@@ -78,7 +76,6 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 
 - [ ] Add tests for frontend code.
 - [ ] Tweak backdrop-filter in Safari/Firefox.
-- [ ] Investigate TW css config: breakpoints may be wonky right now.
 
 ## Icons and Thumbnails
 
