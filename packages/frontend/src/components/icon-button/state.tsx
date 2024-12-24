@@ -82,7 +82,7 @@ export class ToggleLights extends IconButtonBaseState<{ mode: "dark" | "light" }
 export class ToggleHamburguer extends IconButtonBaseState<{ mode: "show" | "hide" }> {
   static initial(disabled = false) {
     const mode = STORE.load("hamburger-menu");
-    return new ToggleHamburguer({ mode: mode === "show" ? "show" : "hide", disabled });
+    return new ToggleHamburguer({ mode: mode === "hide" ? "hide" : "show", disabled });
   }
 
   override get hilight(): boolean {

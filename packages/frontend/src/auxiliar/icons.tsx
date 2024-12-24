@@ -1,6 +1,6 @@
 // From https://spectrum.adobe.com/page/icons/
 
-const CSS = "fill-current size-[1.75rem]";
+const CSS = "fill-current size-[1.5rem]";
 
 export const ABC = (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" class={CSS}>

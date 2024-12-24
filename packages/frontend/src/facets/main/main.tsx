@@ -69,7 +69,7 @@ function FacetsAsideMenu({ state, page, class: klass }: { state: AnyFacetsMainSt
     group.map(groupKey => callback(groupKey, state.currentGroupKey === groupKey, state.groupHasValues(groupKey)));
 
   return (
-    <aside class={tw("h-full min-w-[12rem]", VSCROLL, "bg-linear-to-r from-secondary/50 to-transparent", klass)}>
+    <aside class={tw("h-full min-w-[12rem] sm:pt-2", VSCROLL, "bg-linear-to-r from-secondary/50 to-transparent", klass)}>
       <div class={tw("grid grid-cols-[1fr_auto]", "ml-2")}>
         <header class={tw("text-primary uppercase", "col-span-2 py-2")}>Filter {page}</header>
         {state.nav.groupKeys.map(group => (

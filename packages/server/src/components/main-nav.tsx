@@ -7,7 +7,7 @@ import type { PlangsPage } from "./layout";
 
 export function MainNav({ page, class: cssClass }: { page: PlangsPage; class?: string }) {
   return (
-    <aside id={cssID("mainNav")} class={tw(VSCROLL, cssClass)}>
+    <aside id={cssID("mainNav")} class={tw(VSCROLL, "sm:pt-2", cssClass)}>
       {script("window.restoreHamburguer();")}
 
       <NavSection
@@ -53,12 +53,12 @@ type NavLink = { title: string; href: string; forPages: PlangsPage[] };
 
 function NavSection({ title, links, page }: { title: string; links: NavLink[]; page: PlangsPage }) {
   return (
-    <nav class={tw("")}>
+    <nav class={tw("mb-2 sm:mb-4")}>
       <header class={tw("p-2", "uppercase", "text-primary")}>{title}</header>
       <ul>
         {links.map(({ title, href, forPages }) =>
           ret(forPages.includes(page), isCurrent => (
-            <li key={href} class={tw("px-4 py-1.5", isCurrent ? "bg-primary/85 text-background" : "hover:bg-primary/25")}>
+            <li key={href} class={tw("px-4 py-1.5 sm:px-8 sm:py-2", isCurrent ? "bg-primary/85 text-background" : "hover:bg-primary/25")}>
               <a href={href} class={tw("block cursor-pointer", "truncate")}>
                 {title}
               </a>

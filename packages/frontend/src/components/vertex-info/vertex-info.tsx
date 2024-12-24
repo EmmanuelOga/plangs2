@@ -45,10 +45,8 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
     }
   });
 
-  const header = <h2 class={tw("m-0!", "truncate")}>{detail ? <a class="pr-2" href={detail.href} children={detail.name} /> : "Information"}</h2>;
-
   const iconLinks = detail && (
-    <div class="flex flex-row items-center gap-2 align-middle">
+    <div class="flex flex-row flex-nowrap items-center gap-2 align-middle">
       {ret(detail.urlHome, url => url && <IconLink href={url} icon={EXTERN} />)}
       {ret(detail.urlLanguish, url => url && <IconLink href={url} icon={LANGUISH} title={`#${detail.ranking} on Languish`} />)}
       {ret(detail.urlGithub, url => url && <IconLink href={url} icon={GITHUB} />)}
@@ -56,6 +54,16 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
       {ret(detail.urlStackov, url => url && <IconLink href={url} icon={STACKOV} />)}
       {ret(detail.urlReddit, url => url && <IconLink href={url} icon={REDDIT} />)}
     </div>
+  );
+
+  const header = (
+    <header class="flex flex-wrap">
+      <h2 class={tw("m-0!", "truncate", "w-full sm:w-auto")}>
+        {detail ? <a class="pr-2" href={detail.href} children={detail.name} /> : "Information"}
+      </h2>
+      <div class="flex-1" />
+      {iconLinks}
+    </header>
   );
 
   const info = detail ? (
@@ -71,7 +79,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
 
   const relations = detail && detail.relations.length > 0 && (
     <details class={tw(forGrid && "hidden sm:block landscape-short:hidden", "overflow-hidden")} open={open}>
-      <summary class="cursor-pointer text-primary" {...onClickOnEnter(updateOpen)}>
+      <summary class="cursor-pointer pb-4 text-primary" {...onClickOnEnter(updateOpen)}>
         Details
       </summary>
       <div class={tw("flex flex-col")}>
@@ -107,9 +115,13 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
   return (
     <div
       ref={self}
-      class={tw(VSCROLL, tw(PROSE_BASIC, "max-w-[unset]"), forGrid && "px-2 py-1", forGrid && "border-primary/50 landscape-narrow:border-t-1")}>
+      class={tw(
+        VSCROLL,
+        tw(PROSE_BASIC, "max-w-[unset]"),
+        forGrid && "px-2 py-1 sm:p-4",
+        forGrid && "border-primary/50 landscape-narrow:border-t-1",
+      )}>
       {header}
-      {detail && iconLinks}
       {info}
       {relations}
     </div>
@@ -127,8 +139,8 @@ function IconLink({ href, icon, title }: { href: string; icon: JSX.Element; titl
 function RelationCell({ title, children }: { title: string; children: ComponentChildren }) {
   return (
     <div class={tw("hover:bg-hiliteb/10")} key={title}>
-      <header class="mb-2 py-1 text-foreground/75">{title}</header>
-      <div class="ml-1 flex flex-row flex-wrap">{children}</div>
+      <header class="mb-2 p-2 text-foreground text-sm uppercase">{title}</header>
+      <div class="ml-2 flex flex-row flex-wrap">{children}</div>
     </div>
   );
 }
