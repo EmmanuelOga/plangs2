@@ -42,6 +42,10 @@ abstract class IconButtonBaseState<T> extends Dispatchable<T & { disabled: boole
     return data;
   }
 
+  get hidden(): boolean {
+    return false;
+  }
+
   get hilight(): boolean {
     return false;
   }
@@ -81,12 +85,16 @@ export class ToggleHamburguer extends IconButtonBaseState<{ mode: "show" | "hide
     return new ToggleHamburguer({ mode: mode === "show" ? "show" : "hide", disabled });
   }
 
+  override get hilight(): boolean {
+    return !this.hide;
+  }
+
   get hide(): boolean {
     return this.data.mode === "hide";
   }
 
   override get icon() {
-    return this.hide ? MENU : CLOSE;
+    return MENU;
   }
 
   override doAction() {
@@ -171,10 +179,6 @@ export class ToggleClearFacets extends IconButtonBaseState<{ mode: "clearFacets"
     return new ToggleClearFacets({ disabled, mode: "" });
   }
 
-  override get icon() {
-    return this.data.mode === "clearFacets" ? DESELECT : null;
-  }
-
   override doAction() {
     this.data.mode = "";
   }
@@ -182,6 +186,14 @@ export class ToggleClearFacets extends IconButtonBaseState<{ mode: "clearFacets"
   doToggleMode(mode: "clearFacets" | "") {
     this.data.mode = mode;
     this.dispatch();
+  }
+
+  override get icon() {
+    return DESELECT;
+  }
+
+  get hidden(): boolean {
+    return this.data.mode === "";
   }
 
   override runEffects() {

@@ -31,7 +31,7 @@ export function IconButton({ action, disabled, initial }: IconButtonProps) {
   }, [disabled]);
 
   const toggle = () => {
-    if (!state) return;
+    if (!state || state.disabled) return;
 
     state.doAction();
     state.runEffects();
@@ -48,8 +48,10 @@ export function IconButton({ action, disabled, initial }: IconButtonProps) {
       class={tw(
         "group",
         disabled ? "cursor-auto opacity-50" : "cursor-pointer",
-        state?.hilight && "ring-1 ring-primary",
+        "border-1 border-dotted",
+        state?.hilight ? "border-primary" : "border-transparent",
         action !== "allAny" && HOVER_ICON,
+        state?.hidden && "invisible",
       )}>
       {state?.icon}
     </div>
