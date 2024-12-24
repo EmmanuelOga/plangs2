@@ -73,8 +73,8 @@ export async function loadContent(path: string, pg: PlangsGraph): Promise<Conten
       }
     }
   }
-
-  const dateAndLinks = `<div class="my-4 ${hideMeta ? "hidden" : ""}">${metadata.join("")}</div>`;
+  const klass = `flex flex-row flex-wrap${hideMeta ? " hidden" : ""}`;
+  const dateAndLinks = `<div class="${klass}">${metadata.join("")}</div>`;
   const md = `${dateAndLinks}\n\n# ${title}\n\n${mdBody.replace(ZERO_WIDTH, "")}`;
   const html = await marked.use(customHeadingId()).parse(md);
 
