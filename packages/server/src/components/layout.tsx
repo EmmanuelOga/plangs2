@@ -84,17 +84,15 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
         <div class={tw("flex-1", "flex portrait:flex-col landscape:flex-row", "overflow-hidden")}>
           <div
             class={tw(
-              //
               "flex gap-4 p-1 portrait:flex-row landscape:flex-col",
               "overflow-hidden",
-              "text-primary",
+              "bg-secondary/50 text-primary",
               "border-primary/25 border-b-1",
-              "bg-secondary/50",
             )}>
             {iconButton("hamburger")}
-            {iconButton("facets")}
-            {iconButton("gridOrder")}
-            {iconButton("clearFacets")}
+            {pageType === "grid" && iconButton("facets")}
+            {page === "plangs" && iconButton("gridOrder")}
+            {pageType === "grid" && iconButton("clearFacets")}
             <div class="flex-1" />
             {iconButton("lights")}
           </div>

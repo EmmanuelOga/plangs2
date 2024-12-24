@@ -62,10 +62,6 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 - [ ] Bug: clear all doesn't show up when loading filters from localStorage.
 - [ ] Implement all/any button for filter *categories*.
 - [ ] All or any of facet groups, and gray out facets that won't add to the selection.
-- [ ] Revise desktop layout: there should be room for more paddings
-
-- [ ] Toolbar: hide/show icons as needed in different pages.
-- [ ] Maybe align icons on a line or two lines according to availble space.
 
 - [ ] Drag handles for Grid elems.
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
