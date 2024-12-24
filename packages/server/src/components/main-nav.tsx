@@ -1,4 +1,4 @@
-import { BORDER, tw } from "@plangs/frontend/auxiliar/styles";
+import { VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import { cssID } from "@plangs/server/elements";
 import { script } from "@plangs/server/utils/html";
 
@@ -7,7 +7,7 @@ import type { PlangsPage } from "./layout";
 
 export function MainNav({ page, class: cssClass }: { page: PlangsPage; class?: string }) {
   return (
-    <aside id={cssID("mainNav")} class={tw("bg-linear-to-t from-secondary to-background", cssClass, BORDER, "border-r-1")}>
+    <aside id={cssID("mainNav")} class={tw(VSCROLL, cssClass)}>
       {script("window.restoreHamburguer();")}
 
       <NavSection
@@ -49,17 +49,17 @@ export function MainNav({ page, class: cssClass }: { page: PlangsPage; class?: s
   );
 }
 
-type NavLink = { title: string; href: string; nested?: boolean; forPages: PlangsPage[] };
+type NavLink = { title: string; href: string; forPages: PlangsPage[] };
 
 function NavSection({ title, links, page }: { title: string; links: NavLink[]; page: PlangsPage }) {
   return (
-    <nav class={tw("mb-1 sm:mb-8")}>
-      <header class={tw("ml-4 sm:mb-4", "uppercase", "text-primary")}>{title}</header>
+    <nav class={tw("")}>
+      <header class={tw("p-2", "uppercase", "text-primary")}>{title}</header>
       <ul>
-        {links.map(({ title, href, nested, forPages }) =>
+        {links.map(({ title, href, forPages }) =>
           ret(forPages.includes(page), isCurrent => (
-            <li key={href} class={tw("mb-1 px-4 py-2", isCurrent ? "bg-primary/85 text-background" : "hover:bg-primary/25")}>
-              <a href={href} class={tw("block cursor-pointer", "truncate", nested ? "pl-10" : "pl-4")}>
+            <li key={href} class={tw("px-4 py-1.5", isCurrent ? "bg-primary/85 text-background" : "hover:bg-primary/25")}>
+              <a href={href} class={tw("block cursor-pointer", "truncate")}>
                 {title}
               </a>
             </li>

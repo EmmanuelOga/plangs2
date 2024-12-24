@@ -27,8 +27,8 @@ export function Vertex({ page, vertex }: { pg: PlangsGraph; page: PlangsPage; ve
       title={`${vertex.name} at Plangs!`}
       desc={`${vertex.name} at Plangs!: A Programming Language is much more than just a syntax and semantics. It's an Ecosystem of Tools, Libraries, Applications, Learning Resources, and more!`}
       mainClasses={tw("overflow-y-scroll")}>
-      <article class={tw("p-4", PROSE)}>
-        <div class={tw(cssClass("vertexInfo"))} data-open={false}>
+      <article class={tw("p-2 pt-4", PROSE)}>
+        <div class={tw(cssClass("vertexInfo"), "mb-8")} data-open={false}>
           <VertexInfo detail={vertex.detail} page={page} open={false} />
         </div>
 
@@ -50,20 +50,18 @@ function VertexRelation({ vertex, rel, title, desc }: { vertex: TPlangsVertex; r
   if (relVertices.length === 0) return null;
 
   const isNews = rel === "relPosts";
+  const link = (v: TPlangsVertex) => <a href={v.href} title={v.name} children={v.name} />;
 
   return (
-    <div class="mt-4 mb-16">
+    <div class="mb-8">
       <h2 class="mt-0!">{title}</h2>
       {desc && <p>{desc}</p>}
       {
         <Table headers={isNews ? ["Date", "Post"] : ["Name", "Description"]}>
-          {relVertices.map(vertex => (
-            <tr key={vertex.key} class={tw("hover:bg-hiliteb/10")}>
-              {isNews && <td>{(vertex as VPost).date}</td>}
-              <td>
-                <a href={vertex.href} title={vertex.name} children={vertex.name} />
-              </td>
-              {!isNews && <td>{vertex.shortDesc}</td>}
+          {relVertices.map(v => (
+            <tr key={v.key} class={tw("hover:bg-hiliteb/10")}>
+              <th class={tw("truncate", "min-w-[20%] max-w-[25%]")}>{isNews ? (v as VPost).date : link(v)}</th>
+              <td>{isNews ? link(v) : v.shortDesc}</td>
             </tr>
           ))}
         </Table>

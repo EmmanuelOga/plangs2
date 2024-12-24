@@ -15,7 +15,11 @@ export const ID_KEYS = [
 export const CL_KEYS = [
   "todo",
 
-  "facetsMain", // A Div wrapper for FacetsMain component.
+  "facetsMain", // The element inside which the facets are rendered.
+  "facetsWrapper", // The div wrapper for the facets, which we use to measure its size.
+  "facetsBar", // The aside menu for facets.
+  "facetsSelect", // The select box for facets.
+
   "iconButton", // A Div wrapper for IconButton component.
   "vertexThumbn", // Thumbnail for a vertex.
   "vertexThumbnImg", // We'll use the placeholder images until after DOM ready.

@@ -17,15 +17,13 @@ export function VertexGrid({ pg, page, vertexName }: { pg: PlangsGraph; page: Pl
 
   const grid = (
     <div
+      id={cssID("vertexGrid")}
       class={tw(
+        "p-2 sm:p-4 sm:pt-2",
         "grid-main",
-        "grid gap-4 gap-y-6",
-        "auto-rows-max",
-        "grid-cols-[repeat(auto-fill,minmax(5rem,1fr))]",
-        "sm:grid-cols-[repeat(auto-fill,minmax(7rem,1fr))] sm:p-4",
-        "ring-2 ring-primary",
-      )}
-      id={cssID("vertexGrid")}>
+        "grid auto-rows-max gap-4",
+        "grid-cols-[repeat(auto-fill,minmax(clamp(3.5rem,min(10dvh,10dvw),6rem),1fr))]",
+      )}>
       {[...pg.vertices[vertexName].values].map(vertex => (
         <VertexThumbn key={vertex.key} detail={vertex.detail} />
       ))}
