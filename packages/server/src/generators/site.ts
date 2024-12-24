@@ -31,6 +31,7 @@ async function generatePages(dstRoot: string) {
 
   // Copy all static files.
   for await (const path of new Glob("**/*").scan({ cwd: STATIC_BASE, onlyFiles: true })) {
+    if (path.startsWith("bundle/")) continue;
     const srcPath = join(STATIC_BASE, path);
     const dstPath = join(dstRoot, path);
     await ensureDir(dstPath);
