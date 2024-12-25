@@ -22,8 +22,8 @@ export async function loadDefinitions(g: PlangsGraph, options: { scanImages: boo
   // Add any images to the vertices.
 
   if (options.scanImages) {
-    for (const path of await getPaths(new Glob("**/*.{png,jpg,svg}"), join(import.meta.dir, "../assets/plang"))) {
-      const pk = basename(path).replace(/\.png$/, "") as VPlangKey;
+    for (const path of await getPaths(new Glob("**/*.{webp}"), join(import.meta.dir, "../assets/plang"))) {
+      const pk = basename(path).replace(/\.webp$/, "") as VPlangKey;
       const pl = g.plang.get(pk);
 
       if (pl) {
