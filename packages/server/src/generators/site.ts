@@ -39,7 +39,7 @@ async function generatePages(dstRoot: string) {
   }
 
   // Copy all images on definitions.
-  for await (const path of new Glob("**/*.{svg,png,jpg}").scan({ cwd: join(DEFINTIONS_BASE, "assets/plang"), onlyFiles: true })) {
+  for await (const path of new Glob("**/*.{svg,png,jpg,webp}").scan({ cwd: join(DEFINTIONS_BASE, "assets/plang"), onlyFiles: true })) {
     const srcPath = join(DEFINTIONS_BASE, "assets/plang", path);
     const dstPath = join(dstRoot, "images", path);
     await ensureDir(dstPath);
