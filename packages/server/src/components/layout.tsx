@@ -92,7 +92,7 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
         <div class={tw("flex-1", "flex portrait:flex-col landscape:flex-row", "overflow-hidden")}>
           <div
             class={tw(
-              "flex gap-4 p-1 portrait:flex-row landscape:flex-col",
+              "flex gap-4 p-2 portrait:flex-row landscape:flex-col",
               "overflow-hidden",
               "bg-secondary/25 text-primary",
               "border-secondary border-b-1",

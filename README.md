@@ -57,10 +57,6 @@ The process of adding a relationship to the data that could be inferred is calle
 
 Both *materializing relationships* and *inferring them on the fly* give possible rooe for more comprenhensive searches. Options for exploring these features include using existing graph databases, RDF based systems of writing our own inference and materialization code.
 
-## Site
-
-- [ ] Prefetch some URLS on hover.
-
 ## "ADMIN"
 
 - [ ] Local: make it easy to edit languages: CLI or /admin on the server.

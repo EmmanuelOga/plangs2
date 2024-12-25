@@ -59,7 +59,7 @@ function NavSection({ title, links, page }: { title: string; links: NavLink[]; p
         {links.map(({ title, href, forPages }) =>
           ret(forPages.includes(page), isCurrent => (
             <li key={href} class={tw("px-4 py-1.5 sm:px-8 sm:py-2", isCurrent ? "bg-primary/85 text-background" : "hover:bg-primary/25")}>
-              <a href={href} class={tw("block cursor-pointer", "truncate")}>
+              <a href={href} class={tw("block cursor-pointer", "truncate", "prefetch")}>
                 {title}
               </a>
             </li>

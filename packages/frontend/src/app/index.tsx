@@ -40,6 +40,20 @@ async function start() {
         if (src) img.setAttribute("src", src);
       }
     });
+
+    // Setup prefetching of links on hover.
+    document.body.addEventListener("mouseover", event => {
+      const link = event.target as HTMLElement;
+      const url = link.getAttribute("href");
+      if (!url || link?.tagName !== "A" || !link.classList.contains("prefetch")) return;
+
+      link.classList.remove("prefetch");
+
+      const linkElement = document.createElement("link");
+      linkElement.rel = "prefetch";
+      linkElement.href = url;
+      document.head.appendChild(linkElement);
+    });
   });
 }
 
