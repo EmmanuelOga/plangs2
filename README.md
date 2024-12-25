@@ -59,10 +59,8 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 
 ## WIP
 
-- [ ] Bug: clear all doesn't show up when loading filters from localStorage.
 - [ ] Implement all/any button for filter *categories*.
 - [ ] All or any of facet groups, and gray out facets that won't add to the selection.
-
 - [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
 
 ### Site
@@ -82,7 +80,6 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 - [ ] Make external icon thinner.
 - [ ] Table display mode? some things don't display good on a Grid, like Libraries.
 - [ ] Add more missing logos.
-- [ ] Resize all Thumbn to 128x128. Replace Thumbn SVGs embedding data with PNGs.
 - [ ] Identicons instead of P placeholder?
 
 ## "ADMIN"

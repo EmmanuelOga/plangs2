@@ -6,7 +6,6 @@ import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
 import { customEvent, send } from "@plangs/frontend/auxiliar/events";
 import { HOVER_ICON, tw } from "@plangs/frontend/auxiliar/styles";
 
-import { cssClass } from "@plangs/server/elements";
 import { useIconButtonState } from "./state";
 
 export type IconButtonProps = {

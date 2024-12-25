@@ -10,7 +10,7 @@ import { GRID_PATHS, REFERENCE_PATHS, resolvePage } from "@plangs/server/resolve
 import { vdomToHTML } from "@plangs/server/utils/server";
 
 const STATIC_BASE = join(import.meta.dir, "../../static/");
-const DEFINTIONS_BASE = join(import.meta.dir, "../../../definitions/src/definitions");
+const DEFINTIONS_BASE = join(import.meta.dir, "../../../definitions");
 
 /**
  * The "dual" of resolvePage. We call resolvePage for each possible URL,
@@ -39,8 +39,8 @@ async function generatePages(dstRoot: string) {
   }
 
   // Copy all images on definitions.
-  for await (const path of new Glob("**/*.{svg,png,jpg}").scan({ cwd: join(DEFINTIONS_BASE, "plang"), onlyFiles: true })) {
-    const srcPath = join(DEFINTIONS_BASE, "plang", path);
+  for await (const path of new Glob("**/*.{svg,png,jpg}").scan({ cwd: join(DEFINTIONS_BASE, "assets/plang"), onlyFiles: true })) {
+    const srcPath = join(DEFINTIONS_BASE, "assets/plang", path);
     const dstPath = join(dstRoot, "images", path);
     await ensureDir(dstPath);
     await copyFile(srcPath, dstPath);
