@@ -34,6 +34,8 @@ export function VertexThumbn({ detail, onlyImg, class: klass }: { class?: string
           data-src={detail.thumbUrl ?? ""}
           src={onlyImg ? (detail.thumbUrl ?? PLACEHOLDER) : PLACEHOLDER}
           class={tw(cssClass("vertexThumbnImg"), "max-h-full max-w-full p-1")}
+          width={128}
+          height={128}
         />
         {"ranking" in detail && detail.ranking && (
           <div

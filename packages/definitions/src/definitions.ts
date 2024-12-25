@@ -27,7 +27,7 @@ export async function loadDefinitions(g: PlangsGraph, options: { scanImages: boo
       const pl = g.plang.get(pk);
 
       if (pl) {
-        pl.addImages([{ kind: "logo", title: pl.name, url: `/images/${path}` }]);
+        pl.addImages([{ kind: "logo", title: pl.name, url: `/images/${path}`, width: 128, height: 128 }]);
       } else {
         console.warn("Can't find plang", pk, "for image", path);
       }
