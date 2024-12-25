@@ -78,7 +78,10 @@ export function matchVerticesFromGroups<T extends TPlangsVertex, PredKey extends
   facetValues: Map2<string, PredKey, AnyValue>,
   mode: "all" | "any" = "any",
 ): Set<T["key"]> {
-  let results = new Set<T["key"]>();
+  // In "all" mode, we start with all vertices and remove (intersect) results.
+  // In "any" mode we start with an empty set and add (union) results.
+  let results = mode === "all" ? new Set(vertices.keys) : new Set<T["key"]>();
+
   for (const [_, fkValueMap] of facetValues.entries()) {
     const groupResult = matchVertices(vertices, fkValueMap, "all"); // Per group match all set filters.
 

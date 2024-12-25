@@ -23,12 +23,12 @@ export function FacetMulti<GroupKey extends string, FacetKey extends string>({
   const main = useContext(FacetsMainContext) as AnyFacetsMainState; // It exists, since it spawned this component.
   const state = useDispatchable(() => new FacetMultiState<GroupKey, FacetKey>({ main, groupKey, facetKey }));
 
-  useEffect(() => {
-    return on(self?.current, "icon-button", (ev: CustomEvent) => {
+  useEffect(() =>
+    on(self?.current, "icon-button", (ev: CustomEvent) => {
       ev.stopPropagation();
       state.doSetMode(ev.detail.mode);
-    });
-  });
+    }),
+  );
 
   /** Scroll the selection so we can see what's been added. */
   const maybeScroll = (value: string) =>

@@ -44,7 +44,7 @@ export class CommunitiesFacetsState extends FacetsMainState<GK, CommunityFacetKe
   static initial(pg: PlangsGraph): CommunitiesFacetsState {
     const store = getStore(PAGE);
     const currentGroupKey = store.load("facets-last-group") ?? NAV.default;
-    const values = FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? store.load("facet-value"));
-    return new CommunitiesFacetsState({ pg, currentGroupKey, values });
+    const [{ mode }, values] = FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? store.load("facet-value"));
+    return new CommunitiesFacetsState({ pg, currentGroupKey, values, mode });
   }
 }

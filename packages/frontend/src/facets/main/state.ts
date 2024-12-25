@@ -14,20 +14,26 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
 import type { PlangsPage } from "@plangs/server/components/layout";
 
-export type SerializedFacets<FacetKey extends string> = Partial<Record<FacetKey, ReturnType<AnyValue["serializable"]>>>;
-
 /** State for the facets browser, extended by each specific Facet Browser for each Vertex. */
 export abstract class FacetsMainState<GroupKey extends string, FacetKey extends string> extends Dispatchable<{
   pg: PlangsGraph;
   currentGroupKey: GroupKey;
   values: Map2<GroupKey, FacetKey, AnyValue>;
+  mode: "all" | "any";
 }> {
   /** Attempt to reconstruct the state from a serialized value (ex: a value coming from the URL fragment). */
-  // biome-ignore lint/suspicious/noExplicitAny: this data is the result of a de/serialization process and is not typed.
-  static deserialize<GK extends string, FK extends string>(groupsByFacetKey: Map<FK, GK>, genericData: any): Map2<GK, FK, AnyValue> {
-    const result = new Map2<GK, FK, AnyValue>();
-    if (!genericData) return result;
+  static deserialize<GK extends string, FK extends string>(
+    groupsByFacetKey: Map<FK, GK>,
+    genericData: any,
+  ): [{ mode: "all" | "any" }, Map2<GK, FK, AnyValue>] {
+    const map2 = new Map2<GK, FK, AnyValue>();
+    const mode: { mode: "all" | "any" } = { mode: "any" };
+    if (!genericData) return [mode, map2];
     for (const [facetKey, rawValue] of Object.entries(genericData)) {
+      if (facetKey === "mode" && (rawValue === "all" || rawValue === "any")) {
+        mode.mode = rawValue;
+        continue;
+      }
       const groupKey = groupsByFacetKey.get(facetKey as FK);
       if (!groupKey) {
         console.error("missing group for facet", facetKey);
@@ -35,12 +41,12 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
       }
       const value = deserializeValue(rawValue);
       if (value?.isPresent) {
-        result.set(groupKey, facetKey as FK, value);
+        map2.set(groupKey, facetKey as FK, value);
       } else {
         console.error("failed to deserialize value", facetKey, rawValue);
       }
     }
-    return result;
+    return [mode, map2];
   }
 
   doSetCurrentGroup(groupKey: GroupKey): void {
@@ -59,7 +65,9 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   // biome-ignore lint/suspicious/noExplicitAny: coming from deserialize we'll have to deal with it.
   doResetAll(values?: any): void {
     if (values) {
-      this.data.values = FacetsMainState.deserialize<GroupKey, FacetKey>(this.gkByFk, values);
+      const [{ mode }, map2] = FacetsMainState.deserialize<GroupKey, FacetKey>(this.gkByFk, values);
+      this.data.values = map2;
+      this.data.mode = mode;
     } else {
       this.values.clear();
     }
@@ -84,6 +92,11 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
     return result;
   }
 
+  doSetMode(mode: "all" | "any"): void {
+    this.data.mode = mode;
+    this.dispatch();
+  }
+
   /** Queries */
 
   get pg(): PlangsGraph {
@@ -94,8 +107,12 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
     return this.data.values;
   }
 
-  get serialized(): SerializedFacets<FacetKey> {
-    const data: SerializedFacets<FacetKey> = {};
+  get mode() {
+    return this.data.mode;
+  }
+
+  get serialized(): Record<string, any> {
+    const data: Record<string, any> = { mode: this.data.mode };
     for (const [_, facetKey, value] of this.values.flatEntries()) {
       if (value.isPresent) data[facetKey] = value.serializable();
     }
@@ -131,7 +148,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
     const vertexKeys = selection.isEmpty
       ? undefined
       : // biome-ignore lint/suspicious/noExplicitAny: the loop up next can handle any kind of key returned.
-        matchVerticesFromGroups(this.pg[this.vertexName] as Vertices<any>, selection);
+        matchVerticesFromGroups(this.pg[this.vertexName] as Vertices<any>, selection, this.data.mode);
 
     for (const div of elems("vertexThumbn")) {
       const vkey = div.dataset.vertexKey;

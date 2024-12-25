@@ -44,7 +44,7 @@ export class LearningFacetsState extends FacetsMainState<GK, LearningFacetKey> {
   static initial(pg: PlangsGraph): LearningFacetsState {
     const store = getStore(PAGE);
     const currentGroupKey = store.load("facets-last-group") ?? NAV.default;
-    const values = FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? store.load("facet-value"));
-    return new LearningFacetsState({ pg, currentGroupKey, values });
+    const [{ mode }, values] = FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? store.load("facet-value"));
+    return new LearningFacetsState({ pg, currentGroupKey, values, mode });
   }
 }

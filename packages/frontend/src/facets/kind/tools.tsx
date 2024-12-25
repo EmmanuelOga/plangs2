@@ -46,7 +46,7 @@ export class ToolsFacetsState extends FacetsMainState<GK, ToolFacetKey> {
   static initial(pg: PlangsGraph): ToolsFacetsState {
     const store = getStore(PAGE);
     const currentGroupKey = store.load("facets-last-group") ?? NAV.default;
-    const values = FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? store.load("facet-value"));
-    return new ToolsFacetsState({ pg, currentGroupKey, values });
+    const [{ mode }, values] = FacetsMainState.deserialize(GK_BY_FK, FragmentTracker.deserialize() ?? store.load("facet-value"));
+    return new ToolsFacetsState({ pg, currentGroupKey, values, mode });
   }
 }
