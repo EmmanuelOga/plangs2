@@ -64,18 +64,6 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 - [ ] Add fb opengraph metadata.
 - [ ] Add missing aria attributes.
 
-## MISC
-
-- [ ] Add tests for frontend code.
-- [ ] Tweak backdrop-filter in Safari/Firefox.
-
-## Icons and Thumbnails
-
-- [ ] Make external icon thinner.
-- [ ] Table display mode? some things don't display good on a Grid, like Libraries.
-- [ ] Add more missing logos.
-- [ ] Identicons instead of P placeholder?
-
 ## "ADMIN"
 
 - [ ] Local: make it easy to edit languages: CLI or /admin on the server.
