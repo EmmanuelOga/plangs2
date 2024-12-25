@@ -57,13 +57,7 @@ The process of adding a relationship to the data that could be inferred is calle
 
 Both *materializing relationships* and *inferring them on the fly* give possible rooe for more comprenhensive searches. Options for exploring these features include using existing graph databases, RDF based systems of writing our own inference and materialization code.
 
-## WIP
-
-- [ ] Implement all/any button for filter *categories*.
-- [ ] All or any of facet groups, and gray out facets that won't add to the selection.
-- [ ] Add a drop-down for the "recent" fields: "Recently: past 3,6 months ago, 1 to 5 years ago"
-
-### Site
+## Site
 
 - [ ] Prefetch some URLS on hover.
 - [ ] Add schema.org metadata.
@@ -89,7 +83,7 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 - [ ] Allow AI to crawl things other than Plangs.
 - [ ] Revise data: tags: better-c, educational.
 
-# RELEASE
+## RELEASE
 
 - [ ] Build process: replace preact/debug with preact. This will require a TS build instead of just using esbuild's CLI.
 - [ ] Publish to **somewhere** and add some CDN.
@@ -97,7 +91,7 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 - [ ] Create better guidelines, code of conduct, enable discussions, etc.
 - [ ] Link asking for help.
 
-# Other
+## Other
 
 - [ ] Kuzu export.
 - [ ] Client side full text search.

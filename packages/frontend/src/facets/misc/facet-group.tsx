@@ -4,10 +4,12 @@ import { useContext } from "preact/hooks";
 import { tw } from "@plangs/frontend/auxiliar/styles";
 import type { FacetConfig } from "@plangs/frontend/facets/main/types";
 import { type AnyFacetsMainState, FacetsMainContext } from "@plangs/frontend/facets/main/use_state";
-import { FacetBool } from "@plangs/frontend/facets/misc/facet-bool";
-import { FacetText } from "@plangs/frontend/facets/misc/facet-text";
 import { FacetMulti } from "@plangs/frontend/facets/multisel/facet-multi";
 import { FacetTable } from "@plangs/frontend/facets/table/facet-table";
+
+import { FacetBool } from "./facet-bool";
+import { FacetSelect } from "./facet-select";
+import { FacetText } from "./facet-text";
 
 /** Higher order component: Return a component wrapping several FacetGroup components. */
 export function createFacetGroupsComponent<GK extends string, FK extends string>(
@@ -29,6 +31,8 @@ export function createFacetGroupsComponent<GK extends string, FK extends string>
                 return <FacetTable {...props} config={facet.config} />;
               case "text":
                 return <FacetText {...props} />;
+              case "select":
+                return <FacetSelect {...props} options={facet.options} />;
               default:
                 console.error("Facet not found", facetKey);
             }

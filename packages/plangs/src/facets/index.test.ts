@@ -25,14 +25,14 @@ test("matchVertex", () => {
   expect(matchVertex(other, preds, filters, "any")).toBeTrue();
 
   // Add a filter matching one of the plangs.
-  filters.set("plangName", new ValString("other")); // only lowecase matches.
+  filters.set("name", new ValString("other")); // only lowecase matches.
   expect(matchVertex(plang, preds, filters, "all")).toBeFalse();
   expect(matchVertex(plang, preds, filters, "any")).toBeFalse();
   expect(matchVertex(other, preds, filters, "all")).toBeTrue();
   expect(matchVertex(other, preds, filters, "any")).toBeTrue();
 
   // Change the filter, matching both of the plangs.
-  filters.set("plangName", new ValString("my")); // only lowecase matches.
+  filters.set("name", new ValString("my")); // only lowecase matches.
   expect(matchVertex(plang, preds, filters, "all")).toBeTrue();
   expect(matchVertex(plang, preds, filters, "any")).toBeTrue();
   expect(matchVertex(other, preds, filters, "all")).toBeTrue();

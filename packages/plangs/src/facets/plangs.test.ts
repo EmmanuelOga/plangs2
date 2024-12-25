@@ -28,7 +28,7 @@ test("compilesTo", () => {
 test("createdRecently", () => {
   const pg = new PlangsGraph();
   const pl = pg.plang.set("pl+myplang", { created: "2020" });
-  const { createdRecently: check } = PLANG_FACET_PREDICATES;
+  const { created: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new ValString("2019"))).toBeTrue();
   expect(check(pl, new ValString("2020"))).toBeTrue();
@@ -230,11 +230,11 @@ test("paradigms", () => {
   expect(check(pl, new Filter<VParadigmKey>("any").add("para+two").add("para+three"))).toBeTrue();
 });
 
-test("plangName", () => {
+test("name", () => {
   const pg = new PlangsGraph();
   const typescript = pg.plang.set("pl+typescript", { name: "TypeScript" });
   const rascal = pg.plang.set("pl+rascal", { name: "Rascal" });
-  const { plangName: check } = PLANG_FACET_PREDICATES;
+  const { name: check } = PLANG_FACET_PREDICATES;
 
   expect(check(rascal, new ValString("rascal"))).toBeTrue();
   expect(check(rascal, new ValString("typescript"))).toBeFalse();
@@ -270,7 +270,7 @@ test("platforms", () => {
 test("releasedRecently", () => {
   const pg = new PlangsGraph();
   const pl = pg.plang.set("pl+myplang").addReleases([{ date: "2020-01-01", version: "1.0" }]);
-  const { releasedRecently: check } = PLANG_FACET_PREDICATES;
+  const { released: check } = PLANG_FACET_PREDICATES;
 
   expect(check(pl, new ValString("2019"))).toBeTrue();
   expect(check(pl, new ValString("2020"))).toBeTrue();

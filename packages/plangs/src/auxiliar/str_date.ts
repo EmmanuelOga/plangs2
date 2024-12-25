@@ -44,3 +44,11 @@ export function isRecent(date: StrDate | undefined, referenceDate: StrDate): boo
   if (!date) return false;
   return date >= referenceDate; // StrDate is a string, so this comparison works.
 }
+
+/** Return the date value units ago (for instance, 3 years ago). */
+export function dateAgo(value: number, unit: "y" | "m"): StrDate {
+  const date = new Date();
+  if (unit === "y") date.setFullYear(date.getFullYear() - value);
+  else date.setMonth(date.getMonth() - value);
+  return `${date.getFullYear()}-${`${date.getMonth() + 1}`.padStart(2, "0")}`;
+}

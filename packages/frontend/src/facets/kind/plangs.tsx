@@ -1,8 +1,7 @@
-import { ValNil, ValNumber } from "@plangs/auxiliar/value";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { getStore } from "@plangs/frontend/auxiliar/storage";
 import { FacetsMainState } from "@plangs/frontend/facets/main/state";
-import { bool, defineFacetGroups, multi, table, text } from "@plangs/frontend/facets/main/types";
+import { bool, defineFacetGroups, multi, select, table, text } from "@plangs/frontend/facets/main/types";
 import type { PlangFacetKey } from "@plangs/plangs/facets/plangs";
 import { type PlangsGraph, prop, rel } from "@plangs/plangs/graph";
 import type { PlangsPage } from "@plangs/server/components/layout";
@@ -17,13 +16,13 @@ const [GROUPS, GK_BY_FK, COMPONENT] = defineFacetGroups<GK, FK>({
   general: {
     title: "General",
     facets: [
-      text("plangName", "Plang Name"),
-      bool("createdRecently", "Created Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 5) : new ValNil())),
-      bool("releasedRecently", "Released Recently", (checked: boolean) => (checked ? new ValNumber(new Date().getFullYear() - 1) : new ValNil())),
+      text("name", "Plang Name"),
+      multi("extensions", "Extensions"),
+      select("created", "Created"),
+      select("released", "Released"),
       bool("isPopular", "Is Popular"),
       bool("hasLogo", "Has Logo"),
       bool("hasWikipedia", "Has Wikipedia"),
-      multi("extensions", "Extensions"),
     ],
   },
   implements: {

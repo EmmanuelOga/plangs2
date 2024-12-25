@@ -10,7 +10,7 @@ type Pred<T extends Value<AnyValue>> = (pl: VPlang, value: T) => boolean;
 /** Predicates to filter Plangs. */
 export const PLANG_FACET_PREDICATES = {
   compilesTo: ((pl, flt) => flt.matches(key => pl.relCompilesTo.has(key))) as Pred<Filter<VPlangKey>>,
-  createdRecently: ((pl, date) => pl.created.isRecent(date.value as StrDate)) as Pred<ValString>,
+  created: ((pl, date) => pl.created.isRecent(date.value as StrDate)) as Pred<ValString>,
   creationYear: ((pl, flt) => ret(pl.created.strYear, plYear => flt.matches(year => plYear === year))) as Pred<Filter<string>>,
   dialectOf: ((pl, flt) => flt.matches(key => pl.key === key || pl.relDialectOf.has(key))) as Pred<Filter<VPlangKey>>,
   extensions: ((pl, flt) => flt.matches(key => pl.extensions.includes(key))) as Pred<Filter<string>>,
@@ -22,10 +22,10 @@ export const PLANG_FACET_PREDICATES = {
   isPopular: ((pl, val) => val.value === pl.isPopular) as Pred<ValBool>,
   isTranspiler: ((pl, val) => val.value === pl.isTranspiler) as Pred<ValBool>,
   licenses: ((pl, flt) => flt.matches(key => pl.relLicenses.has(key))) as Pred<Filter<VLicenseKey>>,
+  name: ((pl, str) => pl.lcName.includes(str.value)) as Pred<ValString>,
   paradigms: ((pl, flt) => flt.matches(key => pl.relParadigms.has(key))) as Pred<Filter<VParadigmKey>>,
-  plangName: ((pl, str) => pl.lcName.includes(str.value)) as Pred<ValString>,
   platforms: ((pl, flt) => flt.matches(key => pl.relPlatforms.has(key))) as Pred<Filter<VPlatformKey>>,
-  releasedRecently: ((pl, date) => ret(pl.releases.last, lastRel => lastRel?.isRecent(date.value as StrDate))) as Pred<ValString>,
+  released: ((pl, date) => ret(pl.releases.last, lastRel => lastRel?.isRecent(date.value as StrDate))) as Pred<ValString>,
   tags: ((pl, flt) => flt.matches(key => pl.relTags.has(key))) as Pred<Filter<VTagKey>>,
   typeSystems: ((pl, flt) => flt.matches(key => pl.relTypeSystems.has(key))) as Pred<Filter<VTypeSystemKey>>,
   writtenWith: ((pl, flt) => flt.matches(key => pl.relWrittenWith.has(key))) as Pred<Filter<VPlangKey>>,

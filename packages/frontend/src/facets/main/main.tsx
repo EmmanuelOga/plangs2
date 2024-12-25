@@ -79,9 +79,9 @@ function FacetsAsideMenu({ state, page, class: klass }: { state: AnyFacetsMainSt
   return (
     <aside class={tw("h-full min-w-[12rem] sm:pt-2", VSCROLL, "bg-linear-to-r from-secondary/50 to-transparent", klass)}>
       <div class={tw("grid grid-cols-[1fr_auto]", "ml-2")}>
-        <header class={tw("text-primary uppercase", "col-span-2 py-2")}>Filter {page}</header>
+        <header class={tw("text-primary uppercase", "col-span-2 pt-2")}>Filter {page}</header>
 
-        <div class="flex flex-row p-3" title="Match either All or Any of the categories.">
+        <div class="flex flex-row px-3 pt-1 pb-4" title="Match either All or Any of the categories.">
           <IconButton key={state.mode} action="allAny" initial={state.mode} />
         </div>
 
