@@ -60,7 +60,9 @@ function VertexRelation({ vertex, rel, title, desc }: { vertex: TPlangsVertex; r
         <Table headers={isNews ? ["Date", "Post"] : ["Name", "Description"]}>
           {relVertices.map(v => (
             <tr key={v.key} class={tw("hover:bg-hiliteb/10")}>
-              <th class={tw("truncate", "min-w-[20%] max-w-[25%]")}>{isNews ? (v as VPost).date : link(v)}</th>
+              <th class={tw("truncate", "min-w-[20%] max-w-[25%]")}>
+                {isNews ? <time datetime={(v as VPost).date}>{(v as VPost).date}</time> : link(v)}
+              </th>
               <td>{isNews ? link(v) : v.shortDesc}</td>
             </tr>
           ))}

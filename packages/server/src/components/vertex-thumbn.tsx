@@ -10,11 +10,14 @@ const PLACEHOLDER = "/images/placeholder.png";
 export function VertexThumbn({ detail, onlyImg, class: klass }: { class?: string; onlyImg?: boolean; detail: VertexDetail }): JSX.Element {
   return (
     <div
+      vocab="https://schema.org/"
+      typeof={detail.schemaType}
       {...dataset({ "vertex-key": detail.key, "vertex-name": detail.vertexName, "vertex-ranking": detail.ranking })}
       class={tw(cssClass("vertexThumbn"), "group", !onlyImg && "cursor-pointer", klass)}>
+      <meta property="identifier" content={detail.key} />
       {!onlyImg && (
         <div class="truncate pb-0.5 text-center">
-          <a class="text-foreground underline group-hover:text-primary" href={detail.href}>
+          <a property="name" class="text-foreground underline group-hover:text-primary" href={detail.href}>
             {detail.name}
           </a>
         </div>

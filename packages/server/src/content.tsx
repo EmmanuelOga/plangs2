@@ -45,7 +45,13 @@ export async function loadContent(path: string, pg: PlangsGraph): Promise<Conten
 
   if (!title) throw new Error(`Post ${path} is missing a title in the YAML header.`);
 
-  const metadata = [render(<Pill>{date}</Pill>)];
+  const metadata = [
+    render(
+      <Pill>
+        <time datetime={date}>{date}</time>
+      </Pill>,
+    ),
+  ];
 
   if (rels !== undefined) {
     if (!Array.isArray(rels)) throw new Error(`Post ${path} has an invalid rels field in the YAML header.`);

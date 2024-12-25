@@ -54,6 +54,12 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
         <link type="image/png" rel="icon" sizes="192x192" href="/icons/icon-192x192.png" />
         <link type="image/png" rel="icon" sizes="72x72" href="/icons/icon-72x72.png" />
         <link rel="manifest" href="/manifest.json" />
+
+        <meta property="og:title" content="Plangs!" />
+        <meta property="og:description" content={desc} />
+        <meta property="og:image" content="https://plangs.page/images/plangs-light.svg" />
+        <meta property="og:url" content="https://plangs.page" />
+        <meta property="og:type" content="website" />
       </head>
       <body
         data-page={page}

@@ -30,11 +30,33 @@ export type VertexDetail = {
   vertexKind: string;
   vertexName: string;
 
+  /** Schema.org type */
+  schemaType: string;
+
   /** Arbitrary "pill" data. */
   general: ({ kind: "text"; value: string; title?: string } | { kind: "link"; value: string; href: string; title?: string })[];
 
   /** Related vertex by relationship name. */
   relations: [string, { name: string; href: string }[]][];
+};
+
+// https://schema.org/Thing
+const SCHEMA_TYPES: Record<TPlangsVertexName, string> = {
+  app: "SoftwareApplication",
+  author: "Person",
+  bundle: "Collection",
+  community: "Organization",
+  learning: "CreativeWork",
+  library: "SoftwareLibrary",
+  license: "CreativeWork",
+  paradigm: "CreativeWork",
+  plang: "ComputerLanguage",
+  platform: "CreativeWork",
+  post: "BlogPosting",
+  subsystem: "SoftwareApplication",
+  tag: "DefinedTerm",
+  tool: "SoftwareApplication",
+  typeSystem: "CreativeWork",
 };
 
 export abstract class PlangsVertex<KeyPrefix extends string, Data extends VertexBaseData> extends Vertex<KeyPrefix, Data> {
@@ -53,6 +75,10 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
 
   /** General description of Vertices of this kind. */
   abstract readonly vertexName: TPlangsVertexName;
+
+  get schemaType(): string {
+    return SCHEMA_TYPES[this.vertexName];
+  }
 
   /** Generate a detail of the vertex, used to render thumbnails and info boxes. */
   get detail(): VertexDetail {
@@ -101,6 +127,7 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
       vertexDesc: vertex.vertexDesc,
       vertexKind: vertex.vertexKind,
       vertexName: vertex.vertexName,
+      schemaType: vertex.schemaType,
 
       general,
       relations,

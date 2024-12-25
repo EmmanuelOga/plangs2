@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 import { Layout } from "@plangs/server/components/layout";
 import type { Content } from "@plangs/server/content";
 
-export function BlogPost({ post, pg }: { post: Content; pg: PlangsGraph }) {
+export function BlogPost({ post }: { post: Content; pg: PlangsGraph }) {
   return (
     <Layout page="blog" title={post.title} desc={`Read about "${post.title}" on Plangs!`} mainClasses="overflow-y-auto">
       <article

@@ -60,9 +60,6 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 ## Site
 
 - [ ] Prefetch some URLS on hover.
-- [ ] Add schema.org metadata.
-- [ ] Add fb opengraph metadata.
-- [ ] Add missing aria attributes.
 
 ## "ADMIN"
 

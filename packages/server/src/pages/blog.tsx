@@ -5,7 +5,9 @@ import { Layout } from "@plangs/server/components/layout";
 export function Blog({ pg }: { pg: PlangsGraph }) {
   const postLinks = [...pg.post.values].reverse().map(post => (
     <div key={`${post.path}`} class="mb-8">
-      <div>{post.date}</div>
+      <div>
+        <time datetime={post.date}>{post.date}</time>
+      </div>
       {/* This looks like some sort of prose issue: setting margin to 0 thorugh m-0 or mt-0 doesn't work. */}
       <h2 style="margin: 0">
         <a href={post.href} title={post.title}>
