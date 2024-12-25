@@ -22,22 +22,14 @@ export async function loadDefinitions(g: PlangsGraph, options: { scanImages: boo
   // Add any images to the vertices.
 
   if (options.scanImages) {
-    for (const path of await getPaths(new Glob("**/*.{png,jpg,svg}"), join(import.meta.dir, "definitions/plang"))) {
-      const [pk, k] = basename(path).split(".");
-      const kind = k === "screenshot" || k === "logo" ? k : "other";
-
-      // This makes a lot of assumptions about the names of the plang, which work for the current plangs.
-      // We may need to revisit if it breaks (for instance, having stronger conventions for the plang and image names).
-      let plainKey = (pk.startsWith(NON_AZ) ? `.${pk.slice(1)}` : pk).replaceAll("_", ".");
-      if (plainKey === "asp-net") plainKey = "asp.net";
-
-      const plKey: VPlangKey = `pl+${plainKey}`;
-      const pl = g.plang.get(plKey);
+    for (const path of await getPaths(new Glob("**/*.{png,jpg,svg}"), join(import.meta.dir, "../assets/plang"))) {
+      const pk = basename(path).replace(/\.png$/, "") as VPlangKey;
+      const pl = g.plang.get(pk);
 
       if (pl) {
-        pl.addImages([{ kind, title: pl.name, url: `/images/${path}` }]);
+        pl.addImages([{ kind: "logo", title: pl.name, url: `/images/${path}` }]);
       } else {
-        console.warn("Can't find plang", plKey, "for image", path);
+        console.warn("Can't find plang", pk, "for image", path);
       }
     }
   }
