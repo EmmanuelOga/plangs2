@@ -13,6 +13,29 @@ import { PlangsGraph } from "@plangs/plangs/graph";
 
 import { getClosestVertex } from "./vertices";
 
+// Declare some globals that are called as the page is being loaded
+// to avoid flashing the wrong content.
+//
+// This causes some layout shift during the page load, which may
+// add a few ms to the page load time, but it's worth it to avoid
+// the flicker.
+declare global {
+  interface Window {
+    fragment: FragmentTracker;
+    restoreFilters: () => void;
+    restoreHamburguer: () => void;
+    restoreLightMode: () => void;
+    restoreVertexInfo: () => void;
+  }
+}
+
+window.fragment = new FragmentTracker().bind();
+
+window.restoreFilters = () => ToggleFacetsMenu.initial().runEffects();
+window.restoreHamburguer = () => ToggleHamburguer.initial().runEffects();
+window.restoreLightMode = () => ToggleLights.initial().runEffects();
+window.restoreVertexInfo = () => renderVertexInfo();
+
 async function start() {
   const pg = new PlangsGraph();
   const loadData = fetch("/plangs.json")
@@ -73,26 +96,3 @@ try {
 } catch (err) {
   console.error(err);
 }
-
-// Declare some globals that are called as the page is being loaded
-// to avoid flashing the wrong content.
-//
-// This causes some layout shift during the page load, which may
-// add a few ms to the page load time, but it's worth it to avoid
-// the flicker.
-declare global {
-  interface Window {
-    fragment: FragmentTracker;
-    restoreFilters: () => void;
-    restoreHamburguer: () => void;
-    restoreLightMode: () => void;
-    restoreVertexInfo: () => void;
-  }
-}
-
-window.fragment = new FragmentTracker().bind();
-
-window.restoreFilters = () => ToggleFacetsMenu.initial().runEffects();
-window.restoreHamburguer = () => ToggleHamburguer.initial().runEffects();
-window.restoreLightMode = () => ToggleLights.initial().runEffects();
-window.restoreVertexInfo = () => renderVertexInfo();
