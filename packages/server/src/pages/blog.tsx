@@ -10,7 +10,7 @@ export function Blog({ pg }: { pg: PlangsGraph }) {
       </div>
       {/* This looks like some sort of prose issue: setting margin to 0 thorugh m-0 or mt-0 doesn't work. */}
       <h2 style="margin: 0">
-        <a href={post.href} title={post.title}>
+        <a href={post.href} title={post.title} class="prefetch">
           {post.title}
         </a>
       </h2>

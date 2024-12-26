@@ -17,7 +17,7 @@ export function VertexThumbn({ detail, onlyImg, class: klass }: { class?: string
       <meta property="identifier" content={detail.key} />
       {!onlyImg && (
         <div class="truncate pb-0.5 text-center">
-          <a property="name" class="text-foreground underline group-hover:text-primary" href={detail.href}>
+          <a property="name" class="prefetch text-foreground underline group-hover:text-primary" href={detail.href}>
             {detail.name}
           </a>
         </div>

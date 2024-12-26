@@ -58,7 +58,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
 
   const header = (
     <header class="flex flex-wrap">
-      <h2 class={tw("m-0!", "truncate")}>{detail ? <a class="pr-2" href={detail.href} children={detail.name} /> : "Information"}</h2>
+      <h2 class={tw("m-0!", "truncate")}>{detail ? <a class="prefetch pr-2" href={detail.href} children={detail.name} /> : "Information"}</h2>
       <div class="flex-1" />
       {iconLinks}
     </header>
