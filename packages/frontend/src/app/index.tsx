@@ -11,6 +11,7 @@ import { renderVertexInfo } from "@plangs/frontend/components/vertex-info";
 import { activateFacetsMain } from "@plangs/frontend/facets/main";
 import { PlangsGraph } from "@plangs/plangs/graph";
 
+import { activatePlangsEditor } from "../editor";
 import { getClosestVertex } from "./vertices";
 
 // Declare some globals that are called as the page is being loaded
@@ -36,6 +37,20 @@ window.restoreHamburguer = () => ToggleHamburguer.initial().runEffects();
 window.restoreLightMode = () => ToggleLights.initial().runEffects();
 window.restoreVertexInfo = () => renderVertexInfo();
 
+// Setup prefetching of links on hover.
+document.addEventListener("mouseover", event => {
+  const link = event.target as HTMLElement;
+  const url = link.getAttribute("href");
+  if (!url || link?.tagName !== "A" || !link.classList.contains("prefetch")) return;
+
+  link.classList.remove("prefetch");
+
+  const linkElement = document.createElement("link");
+  linkElement.rel = "prefetch";
+  linkElement.href = url;
+  document.head.appendChild(linkElement);
+});
+
 async function start() {
   const pg = new PlangsGraph();
   const loadData = fetch("/plangs.json")
@@ -44,6 +59,7 @@ async function start() {
 
   document.addEventListener("DOMContentLoaded", () => {
     activateIconButtons();
+    activatePlangsEditor(pg);
 
     loadData.then(() => {
       activateFacetsMain(pg);
@@ -63,21 +79,13 @@ async function start() {
         if (src) img.setAttribute("src", src);
       }
     });
-
-    // Setup prefetching of links on hover.
-    document.body.addEventListener("mouseover", event => {
-      const link = event.target as HTMLElement;
-      const url = link.getAttribute("href");
-      if (!url || link?.tagName !== "A" || !link.classList.contains("prefetch")) return;
-
-      link.classList.remove("prefetch");
-
-      const linkElement = document.createElement("link");
-      linkElement.rel = "prefetch";
-      linkElement.href = url;
-      document.head.appendChild(linkElement);
-    });
   });
+}
+
+try {
+  start();
+} catch (err) {
+  console.error(err);
 }
 
 // This is a global variable that is set by the build system.
@@ -89,10 +97,4 @@ if (PLANGS_ENV === "dev") {
     console.error(err);
   }
   debugAspectRatio();
-}
-
-try {
-  start();
-} catch (err) {
-  console.error(err);
 }

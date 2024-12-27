@@ -9,12 +9,15 @@ export const ID_KEYS = [
   "mainContent", // Main content area in the layout.
   "mainNav", // Main navigation bar, toggled by the hamburger icon.
   "vertexGrid", // Main grid for vertices.
+
+  "plangsEditor", // The editor for plangs.
 ] as const;
 
 // Elements for which we may have multiple instances.
 export const CL_KEYS = [
   "todo",
 
+  // TODO: these should be IDs since they are unique.
   "facetsMain", // The element inside which the facets are rendered.
   "facetsWrapper", // The div wrapper for the facets, which we use to measure its size.
   "facetsBar", // The aside menu for facets.

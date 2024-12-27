@@ -16,6 +16,7 @@ export type PlangsPage =
   | "apps"
   | "blog"
   | "communities"
+  | "edit"
   | "libraries"
   | "licenses"
   | "paradigms"
@@ -46,6 +47,9 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
         <meta charset="utf-8" />
         <title>{title ? `Plangs! - ${title}` : "Plangs!"}</title>
         <meta name="description" content={desc ?? title} />
+
+        <link rel="preload" href="/plangs.json" as="fetch" />
+
         <script src="/bundle/app.js" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />

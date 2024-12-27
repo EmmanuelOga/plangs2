@@ -5,6 +5,7 @@ import type { PlangsPage } from "./components/layout";
 import { loadBlogPost, loadContent } from "./content";
 import { Blog } from "./pages/blog";
 import { ContentPage } from "./pages/content-page";
+import { Edit } from "./pages/edit";
 import { Vertex } from "./pages/vertex";
 import { VertexGrid } from "./pages/vertex-grid";
 import { VertexReference } from "./pages/vertex-reference";
@@ -32,6 +33,7 @@ export const REFERENCE_PATHS = new Map<string, { vertexName: TPlangsVertexName; 
 export async function resolvePage(path: string, pg: PlangsGraph) {
   if (path.length > 128) return;
 
+  if (path === "/edit") return <Edit pg={pg} />;
   if (path === "/about") return <ContentPage page="about" content={await loadContent("2024_09_20_about.md", pg)} />;
 
   if (path === "/blog") return <Blog pg={pg} />;
