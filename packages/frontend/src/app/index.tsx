@@ -59,10 +59,10 @@ async function start() {
 
   document.addEventListener("DOMContentLoaded", () => {
     activateIconButtons();
-    activatePlangsEditor(pg);
 
     loadData.then(() => {
       activateFacetsMain(pg);
+      activatePlangsEditor(pg);
 
       const grid = elem("vertexGrid");
       if (!grid) return;
