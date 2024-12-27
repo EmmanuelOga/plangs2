@@ -107,6 +107,10 @@ export class VPlang extends Gen.VPlangBase {
     return new IterTap(this.data.extensions);
   }
 
+  get filenames(): IterTap<string> {
+    return new IterTap(this.data.filenames);
+  }
+
   get github(): FieldGithub {
     return new FieldGithub(this);
   }

@@ -67,7 +67,7 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 
 ## "ADMIN"
 
-- [ ] Local: make it easy to edit languages: CLI or /admin on the server.
+- [ ] Editor: allow editing and generating either a JSON (ok) or TypeScript (better) for pull requests.
 - [ ] Remote: explore using the Github API to generate a PR or comment with changes.
 - [ ] Allow AI to crawl things other than Plangs.
 - [ ] Revise data: tags: better-c, educational.
