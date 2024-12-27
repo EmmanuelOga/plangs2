@@ -66,7 +66,7 @@ export const PLANGS_GRAPH_SPEC: GenGraphSpec<PlangVertexNames> = {
     { src: ["plang", "relTypeSystems", "Type Systems"], dst: ["typeSystem", "relPlangs", "Plangs"], pref: "src" },
 
     // Plang to Plang
-    { src: ["plang", "relCompilesTo", "Transpiling Targets"], dst: ["plang", "relTargetOf", "Source Plangs"], pref: "src" },
+    { src: ["plang", "relCompilesTo", "Compiles To"], dst: ["plang", "relTargetOf", "Target Of"], pref: "src" },
     { src: ["plang", "relDialectOf", "Dialect of"], dst: ["plang", "relDialects", "Dialects"], pref: "src" },
     { src: ["plang", "relImplements", "Implements"], dst: ["plang", "relImplementedBy", "Implemented By"], pref: "src" },
     { src: ["plang", "relInfluencedBy", "Influenced By"], dst: ["plang", "relInfluenced", "Influenced"], pref: "src" },

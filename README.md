@@ -57,6 +57,14 @@ The process of adding a relationship to the data that could be inferred is calle
 
 Both *materializing relationships* and *inferring them on the fly* give possible rooe for more comprenhensive searches. Options for exploring these features include using existing graph databases, RDF based systems of writing our own inference and materialization code.
 
+## WIP
+
+- [] Allow assets for all vertices.
+
+## UI
+
+- [ ] Zebra stripe vertex info a renference pages.
+
 ## "ADMIN"
 
 - [ ] Local: make it easy to edit languages: CLI or /admin on the server.
@@ -66,8 +74,10 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 
 ## RELEASE
 
-- [ ] Build process: replace preact/debug with preact. This will require a TS build instead of just using esbuild's CLI.
-- [ ] Publish to **somewhere** and add some CDN.
+- [ ] Create an ESBuild script instead of using the command line.
+    - [ ] Replace preact/debug with preact.
+    - [ ] Add SHA to built assets (css/JS)
+- [ ] Publish to Clouflare Pages.
 - [ ] Simple analytics.
 - [ ] Create better guidelines, code of conduct, enable discussions, etc.
 - [ ] Link asking for help.

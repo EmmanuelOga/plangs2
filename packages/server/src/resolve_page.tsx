@@ -1,12 +1,10 @@
 import { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
 
-import { loadBlogPost, loadContent } from "./content";
-
 import type { PlangsPage } from "./components/layout";
-import { About } from "./pages/about";
+import { loadBlogPost, loadContent } from "./content";
 import { Blog } from "./pages/blog";
-import { BlogPost } from "./pages/blog-post";
+import { ContentPage } from "./pages/content-page";
 import { Vertex } from "./pages/vertex";
 import { VertexGrid } from "./pages/vertex-grid";
 import { VertexReference } from "./pages/vertex-reference";
@@ -34,12 +32,12 @@ export const REFERENCE_PATHS = new Map<string, { vertexName: TPlangsVertexName; 
 export async function resolvePage(path: string, pg: PlangsGraph) {
   if (path.length > 128) return;
 
-  if (path === "/about") return <About pg={pg} content={await loadContent("2024_09_20_about.md", pg)} />;
+  if (path === "/about") return <ContentPage page="about" content={await loadContent("2024_09_20_about.md", pg)} />;
 
   if (path === "/blog") return <Blog pg={pg} />;
   if (path.startsWith("/blog/") && path.length < 128) {
     const post = await loadBlogPost(pg, `post+${path.slice(6)}`);
-    if (post) return <BlogPost pg={pg} post={post} />;
+    if (post) return <ContentPage page="blog" content={post} />;
     console.warn(`Blog post not found: ${path}`);
     return;
   }
