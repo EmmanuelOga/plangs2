@@ -224,8 +224,12 @@ export class RelFrom<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
     readonly edges: Edges<FromVertex, ToVertex>,
   ) {}
 
-  get desc(): string {
+  get edgeDesc(): string {
     return this.edges.descDirect;
+  }
+
+  get targetDesc(): string {
+    return this.edges.toSource.name;
   }
 
   add(...toKeys: ToVertex["key"][]): FromVertex {
@@ -261,7 +265,7 @@ export class RelFrom<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
   }
 
   toString() {
-    return `RelFrom(${this.from}, ${this.desc})`;
+    return `RelFrom(${this.from}, ${this.edgeDesc})`;
   }
 }
 
@@ -272,8 +276,12 @@ export class RelTo<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
     readonly edges: Edges<FromVertex, ToVertex>,
   ) {}
 
-  get desc(): string {
+  get edgeDesc(): string {
     return this.edges.descInverse;
+  }
+
+  get targetDesc(): string {
+    return this.edges.fromSource.name;
   }
 
   add(...fromKeys: FromVertex["key"][]): ToVertex {
@@ -309,6 +317,6 @@ export class RelTo<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
   }
 
   toString() {
-    return `RelTo(${this.to}, ${this.desc})`;
+    return `RelTo(${this.to}, ${this.edgeDesc})`;
   }
 }

@@ -88,7 +88,7 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
     for (const rel of vertex.relations.values()) {
       const relValues = rel.values.filter(related => related.key !== vertex.key);
       if (relValues.length === 0) continue;
-      relations.push([rel.desc, relValues.map(({ name, href }) => ({ name, href }))]);
+      relations.push([rel.edgeDesc, relValues.map(({ name, href }) => ({ name, href }))]);
     }
 
     const general: VertexDetail["general"] = [];
