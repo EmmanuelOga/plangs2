@@ -72,11 +72,11 @@ export function PlangsEditor({ pg }: { pg: PlangsGraph }) {
   });
 
   return (
-    <div ref={self} class="flex flex-row gap-4">
+    <div ref={self} class="flex flex-1 flex-row gap-4 overflow-hidden p-4">
       <div>
         {state.vertexName.map(vn => button({ label: vn, isCurrent: () => state.currentKind === vn, onClick: () => state.doSetCurrentKind(vn) }))}
       </div>
-      <div>
+      <div class="flex max-h-full flex-col overflow-hidden">
         <input
           aria-label="Filter Key"
           placeholder="Filter"
@@ -84,7 +84,7 @@ export function PlangsEditor({ pg }: { pg: PlangsGraph }) {
           onInput={ev => state.doSetFilter((ev.target as HTMLInputElement).value)}
           class={tw(INPUT, "mb-4 px-2 py-1")}
         />
-        <div class="max-h-[80dvh] overflow-y-auto">
+        <div class="flex-1 overflow-y-scroll pr-4">
           {state.currentVertices.map(v =>
             button({ label: v.key, isCurrent: () => state.currentVertex?.key === v.key, onClick: () => state.doSetCurrentVertex(v) }),
           )}
@@ -101,7 +101,7 @@ function button({ label, isCurrent, onClick }: { label: string; isCurrent: () =>
       type="button"
       class={tw(
         "block",
-        "mb-4 w-full px-2 py-1",
+        "mb-4 w-full px-4 py-1",
         "border-1 border-primary",
         "cursor-pointer",
         "hover:bg-hiliteb hover:text-hilitef",
