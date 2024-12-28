@@ -1,7 +1,7 @@
 import { tw } from "@plangs/frontend/auxiliar/styles";
 import type { ComponentChildren } from "preact";
 
-export function Pill({ children, title }: { title?: string; children: ComponentChildren }) {
+export function Pill({ children, title, class: klass }: { title?: string; children: ComponentChildren; class?: string }) {
   return (
     <div
       {...(title ? { title } : {})}
@@ -12,6 +12,7 @@ export function Pill({ children, title }: { title?: string; children: ComponentC
         "rounded-tl-lg rounded-br-lg",
         "bg-secondary/75 text-foreground/85",
         "truncate",
+        klass,
       )}>
       {children}
     </div>

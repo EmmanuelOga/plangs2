@@ -228,8 +228,8 @@ export class RelFrom<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
     return this.edges.descDirect;
   }
 
-  get targetDesc(): string {
-    return this.edges.toSource.name;
+  get targetVertices() {
+    return this.edges.toSource;
   }
 
   add(...toKeys: ToVertex["key"][]): FromVertex {
@@ -280,8 +280,8 @@ export class RelTo<FromVertex extends AnyVertex, ToVertex extends AnyVertex> {
     return this.edges.descInverse;
   }
 
-  get targetDesc(): string {
-    return this.edges.fromSource.name;
+  get targetVertices() {
+    return this.edges.fromSource;
   }
 
   add(...fromKeys: FromVertex["key"][]): ToVertex {
