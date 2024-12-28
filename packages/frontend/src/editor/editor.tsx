@@ -94,40 +94,53 @@ export function PlangsEditor({ pg }: { pg: PlangsGraph }) {
   });
 
   return (
-    <div ref={self} class="flex flex-1 flex-row gap-8 overflow-hidden p-4">
-      <div class="flex flex-col gap-4">
-        {state.vertexName.map(vn => button({ label: vn, isCurrent: () => state.currentKind === vn, onClick: () => state.doSetCurrentKind(vn) }))}
-      </div>
-      <div class="flex max-h-full flex-col overflow-hidden">
-        <input
-          aria-label="Filter Key"
-          placeholder="Filter"
-          value={state.filter}
-          onInput={ev => state.doSetFilter((ev.target as HTMLInputElement).value)}
-          class={tw(INPUT, "mb-4 px-2 py-1")}
-        />
-        <div class="flex flex-1 flex-col gap-4 overflow-y-scroll pr-4">
-          {state.currentVertices.map(v =>
-            button({ label: v.key, isCurrent: () => state.currentVertex?.key === v.key, onClick: () => state.doSetCurrentVertex(v) }),
-          )}
+    <div ref={self} class="flex w-full flex-col gap-2">
+      <header
+        class={tw(
+          "bg-secondary/25 text-primary",
+          "border-secondary border-b-1",
+          "flex flex-row justify-end",
+          "shadow-secondary/25 shadow-sm",
+          "p-2",
+        )}>
+        {button({ label: "SAVE", onClick: () => console.log("OK.") })}
+      </header>
+      <div class="flex flex-1 flex-row gap-8 overflow-hidden p-4">
+        <div class="flex flex-col gap-4">
+          {state.vertexName.map(vn => button({ label: vn, isCurrent: () => state.currentKind === vn, onClick: () => state.doSetCurrentKind(vn) }))}
         </div>
+        <div class="flex max-h-full flex-col overflow-hidden">
+          <input
+            aria-label="Filter Key"
+            placeholder="Filter"
+            value={state.filter}
+            onInput={ev => state.doSetFilter((ev.target as HTMLInputElement).value)}
+            class={tw(INPUT, "mb-4 px-2 py-1")}
+          />
+          <div class="flex flex-1 flex-col gap-4 overflow-y-scroll pr-4">
+            {state.currentVertices.map(v =>
+              button({ label: v.key, isCurrent: () => state.currentVertex?.key === v.key, onClick: () => state.doSetCurrentVertex(v) }),
+            )}
+          </div>
+        </div>
+        {state.currentVertex ? tabs(state, state.currentVertex) : <div class="flex-1 bg-secondary/25 p-2 text-2xl">Select a vertex to edit.</div>}
       </div>
-      {state.currentVertex ? tabs(state, state.currentVertex) : <div class="flex-1 bg-secondary/25 p-2 text-2xl">Select a vertex to edit.</div>}
+      <footer class="border-primary border-t-1 bg-secondary/25 p-4">Ready.</footer>
     </div>
   );
 }
 
-function button({ label, isCurrent, onClick }: { label: string; isCurrent: () => boolean; onClick: () => void }) {
+function button({ label, isCurrent, onClick }: { label: string; isCurrent?: () => boolean; onClick: () => void }) {
   return (
     <button
       type="button"
       class={tw(
         "block",
-        "w-full px-4 py-1",
+        "px-4 py-1",
         "border-1 border-primary",
         "cursor-pointer",
         "hover:bg-hiliteb hover:text-hilitef",
-        isCurrent() && "current bg-secondary",
+        isCurrent?.() && "current bg-secondary",
       )}
       onClick={onClick}>
       {label}
