@@ -250,7 +250,7 @@ function textArea(label: string, value?: string, rows = 8) {
   return (
     <>
       <label for={cssid}>{label}</label>
-      <textarea id={cssid} value={value ?? ""} class={tw(INPUT)} style={`min-height: ${rows}rem; font-family: monospace;`} />
+      <textarea id={cssid} value={value ?? ""} class={tw(INPUT, "text-xl")} style={`min-height: ${rows}rem; font-family: monospace;`} />
     </>
   );
 }
