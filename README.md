@@ -55,11 +55,11 @@ There are some relationships that are simpler to infer.
 
 The process of adding a relationship to the data that could be inferred is called "materializing". Right now, we don't materialize many relationships, and the search code usually doesn't try to infer the relationships on the fly.
 
-Both *materializing relationships* and *inferring them on the fly* give possible rooe for more comprenhensive searches. Options for exploring these features include using existing graph databases, RDF based systems of writing our own inference and materialization code.
+Both *materializing relationships* and *inferring them on the fly* give room for richer searches. Options for enriching the data this way include using existing graph databases, RDF based systems or writing our own inference/materialization code.
 
 ## WIP
 
-- [] Allow assets for all vertices.
+- [] Allow images for all vertices.
 
 ## UI
 
@@ -67,9 +67,7 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 
 ## "ADMIN"
 
-- [ ] Editor: allow editing and generating either a JSON (ok) or TypeScript (better) for pull requests.
-- [ ] Remote: explore using the Github API to generate a PR or comment with changes.
-- [ ] Allow AI to crawl things other than Plangs.
+- [ ] Editor: finalize exporting JSON and tidy up regenarating the code.
 - [ ] Revise data: tags: better-c, educational.
 
 ## RELEASE
@@ -86,3 +84,9 @@ Both *materializing relationships* and *inferring them on the fly* give possible
 
 - [ ] Kuzu export.
 - [ ] Client side full text search.
+
+## Future
+
+- [ ] Explore using the Github API to generate a PR or comment with changes.
+- [ ] Allow adding things in the editor and calling OpenAI's APIs.
+- [ ] Allow AI to crawl things other than Plangs.

@@ -49,7 +49,7 @@ async function generatePages(dstRoot: string) {
   // Generate plangs.json
   Bun.write(join(dstRoot, "plangs.json"), JSON.stringify(pg));
 
-  const allPaths = [...GRID_PATHS.keys(), ...REFERENCE_PATHS.keys(), "/about", "/blog"];
+  const allPaths = [...GRID_PATHS.keys(), ...REFERENCE_PATHS.keys(), "/about", "/blog", "/edit"];
 
   for (const vertices of Object.values(pg.vertices)) {
     for (const vertex of vertices.values) allPaths.push(vertex.href);

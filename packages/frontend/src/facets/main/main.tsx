@@ -51,7 +51,7 @@ export function FacetsMain({ page, pg }: { page: PlangsPage; pg: PlangsGraph }) 
         </span>
       </div>
 
-      <div class={tw("w-full ", "flex flex-col", "overflow-hidden", "bg-linear-to-b to-secondary/50", "relative")}>
+      <div class={tw("w-full ", "flex flex-col", "overflow-hidden", "bg-linear-to-b to-primary/25", "relative")}>
         <state.groupsComponent currentFacetGroup={state.currentGroupKey} />
       </div>
     </FacetsMainContext.Provider>
@@ -77,7 +77,7 @@ function FacetsAsideMenu({ state, page, class: klass }: { state: AnyFacetsMainSt
     group.map(groupKey => callback(groupKey, state.currentGroupKey === groupKey, state.groupHasValues(groupKey)));
 
   return (
-    <aside class={tw("h-full min-w-[12rem] sm:pt-2", VSCROLL, "bg-linear-to-r from-secondary/50 to-transparent", klass)}>
+    <aside class={tw("h-full min-w-[12rem] sm:pt-2", VSCROLL, "bg-linear-to-r from-primary/25 to-transparent", klass)}>
       <div class={tw("grid grid-cols-[1fr_auto]", "ml-2")}>
         <header class={tw("text-primary uppercase", "col-span-2 pt-2")}>Filter {page}</header>
 

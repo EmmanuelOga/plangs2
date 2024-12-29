@@ -39,20 +39,20 @@ function Status({ pg }: { pg: PlangsGraph }) {
       <p>
         To contribute your edits back to the project, you will need to generate a pull request. We may automate this at some point, but for now this
         process involves a few steps:
-        <ol>
-          <li>{EditorButton({ label: "Export Local Data", onClick: () => console.log("TODO") })}</li>
-          <li>
-            Fork <a href="https://github.com/emmanueloga/plangs2">Plangs! source repository</a>.
-          </li>
-          <li>
-            Regenerate the TypeScript definitions through the command:
-            <br />
-            <code>$ bun regenerate path/to/plangs.json</code>
-            <br />
-            Now you should be ready to send a pull request (thanks in advance!).
-          </li>
-        </ol>
       </p>
+      <ol>
+        <li>{EditorButton({ label: "Export Local Data", onClick: () => console.log("TODO") })}</li>
+        <li>
+          Fork <a href="https://github.com/emmanueloga/plangs2">Plangs! source repository</a>.
+        </li>
+        <li>
+          Regenerate the TypeScript definitions through the command:
+          <br />
+          <code>$ bun regenerate path/to/plangs.json</code>
+          <br />
+          Now you should be ready to send a pull request (thanks in advance!).
+        </li>
+      </ol>
     </div>
   );
 }
