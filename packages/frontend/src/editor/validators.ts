@@ -27,10 +27,12 @@ export function isURL(val: string | undefined): string | undefined {
 }
 
 export function matchesRegex(val: string | undefined, rx: RegExp): string | undefined {
+  if (!val) return;
   if (!rx.test(val ? val : "")) return `Invalid format. Should match RegExp: ${rx.source}`;
 }
 
 export function isNumber(val: string | undefined, valid: (n: number) => boolean): string | undefined {
+  if (!val) return;
   const num = Number.parseInt(`${val ?? ""}`);
   if (Number.isNaN(num) || !valid(num)) return "Invalid number.";
 }

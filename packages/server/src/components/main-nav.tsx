@@ -30,6 +30,7 @@ export function MainNav({ page, class: cssClass }: { page: PlangsPage; class?: s
         links={[
           { title: "News!️", href: "/blog", forPages: ["blog"] },
           { title: "About", href: "/about", forPages: ["about"] },
+          { title: "Editor", href: "/edit", forPages: ["edit"] },
           { title: "Source Code", href: "https://github.com/EmmanuelOga/plangs2", forPages: ["NA"] },
         ]}
       />

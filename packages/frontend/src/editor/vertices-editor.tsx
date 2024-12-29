@@ -19,34 +19,32 @@ import { type AnyRel, VerticesEditorState } from "./vertices-editor-state";
  */
 export function VerticesEditor({ pg }: { pg: PlangsGraph }) {
   const self = useRef<HTMLDivElement>(null);
-  const state = useDispatchable(() => new VerticesEditorState({ pg, currentKind: "plang", filter: "", tab: "json" }));
+  const state = useDispatchable(() => new VerticesEditorState({ pg, currentKind: "plang", filter: "", tab: "relations" }));
 
   useEffect(() => {
     self.current?.querySelectorAll("button.current")[1]?.scrollIntoView({ block: "nearest" });
   });
 
   return (
-    <div ref={self} class="flex w-full flex-col gap-2">
-      <div class="flex flex-1 flex-row gap-8 overflow-hidden p-4">
-        <div class="flex flex-col gap-4">
-          {state.vertexNames.map(vn => button({ label: vn, isCurrent: () => state.currentKind === vn, onClick: () => state.doSetCurrentKind(vn) }))}
-        </div>
-        <div class="flex max-h-full flex-col overflow-hidden">
-          <input
-            aria-label="Filter Key"
-            placeholder="Filter"
-            value={state.filter}
-            onInput={ev => state.doSetFilter((ev.target as HTMLInputElement).value)}
-            class={tw(INPUT, "mb-4 px-2 py-1")}
-          />
-          <div class="flex flex-1 flex-col gap-4 overflow-y-scroll pr-4">
-            {state.currentVertices.map(v =>
-              button({ label: v.key, isCurrent: () => state.currentVertex?.key === v.key, onClick: () => state.doSetCurrentVertex(v) }),
-            )}
-          </div>
-        </div>
-        {state.currentVertex ? tabs(state, state.currentVertex) : <div class="flex-1 bg-secondary/25 p-2 text-2xl">Select a vertex to edit.</div>}
+    <div ref={self} class={tw("p-4", "flex-1", "flex flex-row gap-8", "overflow-hidden")}>
+      <div class="flex flex-col gap-4">
+        {state.vertexNames.map(vn => button({ label: vn, isCurrent: () => state.currentKind === vn, onClick: () => state.doSetCurrentKind(vn) }))}
       </div>
+      <div class="flex max-h-full flex-col overflow-hidden">
+        <input
+          aria-label="Filter Key"
+          placeholder="Filter"
+          value={state.filter}
+          onInput={ev => state.doSetFilter((ev.target as HTMLInputElement).value)}
+          class={tw(INPUT, "mb-4 px-2 py-1")}
+        />
+        <div class="flex flex-1 flex-col gap-4 overflow-y-scroll pr-4">
+          {state.currentVertices.map(v =>
+            button({ label: v.key, isCurrent: () => state.currentVertex?.key === v.key, onClick: () => state.doSetCurrentVertex(v) }),
+          )}
+        </div>
+      </div>
+      {state.currentVertex ? tabs(state, state.currentVertex) : <div class="flex-1 bg-secondary/25 p-2 text-2xl">Select a vertex to edit.</div>}
     </div>
   );
 }
