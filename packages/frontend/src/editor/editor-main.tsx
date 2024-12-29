@@ -6,23 +6,23 @@ import { EditorButton, VerticesEditor } from "./vertices-editor";
 
 /** Top level of the editor: information, editing and exporting. */
 export function EditorMain({ pg }: { pg: PlangsGraph }) {
-  const [tab, setTab] = useState<"info" | "edit">("info");
+  const [tab, setTab] = useState<"status" | "edit">("status");
 
   return (
     <div class={tw("p-4", "flex-1", "flex flex-col gap-4", "overflow-hidden")}>
       <div class="flex flex-row gap-4">
-        <div>{EditorButton({ label: "INFO", isCurrent: () => tab === "info", onClick: () => setTab("info") })}</div>
+        <div>{EditorButton({ label: "STATUS", isCurrent: () => tab === "status", onClick: () => setTab("status") })}</div>
         <div>{EditorButton({ label: "EDIT", isCurrent: () => tab === "edit", onClick: () => setTab("edit") })}</div>
       </div>
       <div class="flex-1 justify-center overflow-hidden overflow-y-auto">
-        {tab === "info" && <Info pg={pg} />}
+        {tab === "status" && <Status pg={pg} />}
         {tab === "edit" && <VerticesEditor pg={pg} />}
       </div>
     </div>
   );
 }
 
-function Info({ pg }: { pg: PlangsGraph }) {
+function Status({ pg }: { pg: PlangsGraph }) {
   return (
     <div class={tw(PROSE_BASIC, "p-4")}>
       <h2 class="m-0! pb-8">Plangs Graph Editor</h2>
@@ -55,8 +55,4 @@ function Info({ pg }: { pg: PlangsGraph }) {
       </p>
     </div>
   );
-}
-
-function Export({ pg }: { pg: PlangsGraph }) {
-  return "TODO";
 }
