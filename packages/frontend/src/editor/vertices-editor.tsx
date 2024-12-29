@@ -5,10 +5,9 @@ import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { ADD, CLOSE } from "@plangs/frontend/auxiliar/icons";
 import { INPUT, tw } from "@plangs/frontend/auxiliar/styles";
 import { Pill } from "@plangs/frontend/components/misc/pill";
-import type { PlangsGraph, VPlang } from "@plangs/plangs/graph";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
 
-import { text } from "stream/consumers";
 import { VertexForm } from "./vertex-form";
 import { type AnyRel, VerticesEditorState } from "./vertices-editor-state";
 
@@ -20,18 +19,7 @@ import { type AnyRel, VerticesEditorState } from "./vertices-editor-state";
  */
 export function VerticesEditor({ pg }: { pg: PlangsGraph }) {
   const self = useRef<HTMLDivElement>(null);
-  const py = pg.plang.get("pl+python") as VPlang;
-  const state = useDispatchable(
-    () =>
-      new VerticesEditorState({
-        pg,
-        currentKind: "plang",
-        filter: "",
-        currentVertex: py,
-        currentRel: ["relInfluenced", py.relations.get("relInfluenced") as AnyRel],
-        tab: "json",
-      }),
-  );
+  const state = useDispatchable(() => new VerticesEditorState({ pg, currentKind: "plang", filter: "", tab: "json" }));
 
   useEffect(() => {
     self.current?.querySelectorAll("button.current")[1]?.scrollIntoView({ block: "nearest" });
@@ -84,14 +72,14 @@ export function button({ label, isCurrent, onClick }: { label: string; isCurrent
 function tabs(state: VerticesEditorState, vertex: TPlangsVertex) {
   return (
     <div class={tw("flex-1", "flex flex-col gap-4", "bg-secondary/10", "overflow-hidden")}>
+      <header class="border-1 border-primary bg-secondary/75 py-2 text-center text-xl">
+        {vertex.vertexName}: {vertex.key}: {vertex.name}
+      </header>
       <div class="flex flex-row gap-4">
         <div>{button({ label: "FORM", isCurrent: () => state.tab === "form", onClick: () => state.doSetTab("form") })}</div>
         <div>{button({ label: "RELATIONS", isCurrent: () => state.tab === "relations", onClick: () => state.doSetTab("relations") })}</div>
         <div>{button({ label: "JSON", isCurrent: () => state.tab === "json", onClick: () => state.doSetTab("json") })}</div>
       </div>
-      <header class="border-1 border-primary bg-secondary/75 py-2 text-center text-xl">
-        {vertex.vertexName}: {vertex.key}: {vertex.name}
-      </header>
       <div class="flex flex-1 justify-center overflow-hidden">
         {!state.currentVertex ? (
           "Please select a Vertex"

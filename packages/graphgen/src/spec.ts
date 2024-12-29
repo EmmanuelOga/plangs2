@@ -36,8 +36,10 @@ export interface GenEdgeSpec<VertexName extends string> {
   src: [vertexName: VertexName, relName: string, desc: string];
   dst: [vertexName: VertexName, relName: string, desc: string];
   /**
-   * Preferred end of the relationship, for instance, when generating code.
-   * See Languist codegen.ts for an example of how this is used.
+   * Preferred end of the relationship when generating code, mainly used by `packages/languist`'s codegen.ts.
+   *
+   * Affects the "gen" boolean field of the relationship configuration (in each Vertex class):
+   * When generating code, a relationship could be saved in the forward or backward direction, or not saved at all.
    */
   pref: "src" | "dst" | "none";
 }
