@@ -7,11 +7,10 @@ import { marked } from "marked";
 import render from "preact-render-to-string/jsx";
 import YAML from "yaml";
 
+import { type StrDate, parseDate } from "@plangs/auxiliar/str_date";
 import { Pill } from "@plangs/frontend/components/misc/pill";
-import { parseDate } from "@plangs/plangs/auxiliar/str_date";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { VPostKey } from "@plangs/plangs/graph/generated";
-import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 import { ZERO_WIDTH } from "./utils/server";
 

@@ -1,10 +1,10 @@
 import type { FunctionComponent } from "preact";
 
+import { dateAgo } from "@plangs/auxiliar/str_date";
 import type { AnyValue } from "@plangs/auxiliar/value";
 import type { FacetBoolMapper } from "@plangs/frontend/facets/misc/facet-bool";
 import { createFacetGroupsComponent } from "@plangs/frontend/facets/misc/facet-group";
 import type { FacetTableConfig } from "@plangs/frontend/facets/table/entries";
-import { dateAgo } from "@plangs/plangs/auxiliar/str_date";
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Facet Input Configuration

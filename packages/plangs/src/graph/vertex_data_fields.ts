@@ -6,9 +6,9 @@
  */
 
 import { IterTap } from "@plangs/auxiliar/iter_tap";
-import { isRecent, parseMonth, parseYear, strDateCompare } from "@plangs/plangs/auxiliar/str_date";
+import { type StrDate, isRecent, parseMonth, parseYear, strDateCompare } from "@plangs/auxiliar/str_date";
 
-import type { GithubRepo, Release, StrDate } from "./vertex_data_schemas";
+import type { GithubRepo, Release } from "./vertex_data_schemas";
 
 /** Wraps a single release. */
 export class ReleaseWrapper {

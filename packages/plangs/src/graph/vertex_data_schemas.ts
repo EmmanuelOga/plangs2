@@ -1,3 +1,5 @@
+import type { StrDate } from "@plangs/auxiliar/str_date";
+
 /**
  * Fields that *more or less* shared across vertices.
  *
@@ -153,13 +155,6 @@ export interface Image {
   /** Height in pixels. */
   height?: number;
 }
-
-export type year = number;
-export type month = string; // 0 padded
-export type day = string; // 0 padded
-
-/** A 0-padded YYYY-MM-DD date. Example: 2024-12-31. */
-export type StrDate = `${year}-${month}-${day}` | `${year}-${month}` | `${year}`;
 
 /** For anything that can be backed by a Github repository, we want at minimum the "path" and maybe star count. */
 export type GithubRepo = {

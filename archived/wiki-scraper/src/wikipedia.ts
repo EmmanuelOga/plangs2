@@ -2,9 +2,9 @@ import * as cheerio from "cheerio";
 import type { Element } from "domhandler";
 
 import { arrayMerge } from "@plangs/auxiliar/array";
-import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
-
+import type { StrDate } from "@plangs/auxiliar/str_date";
 import type { VPlangKey } from "@plangs/plangs/graph/generated";
+
 import { PL_WHITELIST } from "./whitelist";
 
 export const BASE_URL = new URL("https://en.wikipedia.org");

@@ -2,7 +2,7 @@
  * Validators for form fields.
  */
 
-import { parseDate } from "@plangs/plangs/auxiliar/str_date";
+import { parseDate } from "@plangs/auxiliar/str_date";
 
 export function isNonEmptyStr(val: string | undefined): string | undefined {
   if (!val) return "Cannot be empty.";

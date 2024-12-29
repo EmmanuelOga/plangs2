@@ -1,9 +1,9 @@
 import type { Filter } from "@plangs/auxiliar/filters";
 import { ret } from "@plangs/auxiliar/misc";
+import type { StrDate } from "@plangs/auxiliar/str_date";
 import type { AnyValue, ValNumber, ValString, Value } from "@plangs/auxiliar/value";
 import type { VSubsystem } from "@plangs/plangs/graph";
 import type { VLicenseKey, VPlangKey, VPlatformKey, VTagKey } from "@plangs/plangs/graph/generated";
-import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
 
 type Pred<T extends Value<AnyValue>> = (sys: VSubsystem, value: T) => boolean;
 

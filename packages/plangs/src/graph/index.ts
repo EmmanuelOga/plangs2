@@ -1,10 +1,10 @@
 import { arrayMerge } from "@plangs/auxiliar/array";
 import { IterTap } from "@plangs/auxiliar/iter_tap";
+import type { StrDate } from "@plangs/auxiliar/str_date";
 
 import * as Gen from "./generated";
-
 import { FieldGithub, FieldReleases } from "./vertex_data_fields";
-import type { Release, StrDate, VPlangData } from "./vertex_data_schemas";
+import type { Release, VPlangData } from "./vertex_data_schemas";
 
 // Shortcuts to the configuration objects.
 export const rel = Gen.PlangsGraphBase.relConfig;

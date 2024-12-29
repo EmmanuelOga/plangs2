@@ -2,7 +2,7 @@ import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { VLicense, VPlang } from "@plangs/plangs/graph";
 import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
 
-import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
+import type { StrDate } from "@plangs/auxiliar/str_date";
 import { isCSV, isNonEmptyStr, isNumber, isStrDate, isURL, matchesRegex } from "./validators";
 
 export type FormField = {

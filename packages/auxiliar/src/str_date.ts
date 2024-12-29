@@ -1,4 +1,9 @@
-import type { StrDate } from "@plangs/plangs/graph/vertex_data_schemas";
+export type year = number;
+export type month = string; // 0 padded
+export type day = string; // 0 padded
+
+/** A 0-padded YYYY-MM-DD date. Example: 2024-12-31. */
+export type StrDate = `${year}-${month}-${day}` | `${year}-${month}` | `${year}`;
 
 // Arbitrary "valid" year range.
 export const validYear = (year: number): boolean => year >= 1940 && year <= 2100;
