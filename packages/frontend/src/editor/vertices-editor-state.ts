@@ -20,6 +20,18 @@ export class VerticesEditorState extends Dispatchable<{
 
   doSetCurrentVertex(v: TPlangsVertex) {
     this.data.currentVertex = v;
+    // If the new vertex has a relation of the same name as the current relation, update the current relation.
+    // Otherwise clear the current relation.
+    if (this.currentRel?.[0]) {
+      const [lastRelKey] = this.currentRel;
+      const newRels = v.relations as Map<string, AnyRel>;
+      if (newRels.has(lastRelKey)) {
+        const newRel = newRels.get(lastRelKey) as AnyRel;
+        this.data.currentRel = [lastRelKey, newRel];
+      } else {
+        this.data.currentRel = undefined;
+      }
+    }
     this.dispatch();
   }
 

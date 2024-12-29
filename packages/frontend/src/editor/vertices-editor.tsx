@@ -28,7 +28,9 @@ export function VerticesEditor({ pg }: { pg: PlangsGraph }) {
   return (
     <div ref={self} class={tw("p-4", "flex-1", "flex flex-row gap-8", "overflow-hidden")}>
       <div class="flex flex-col gap-4">
-        {state.vertexNames.map(vn => button({ label: vn, isCurrent: () => state.currentKind === vn, onClick: () => state.doSetCurrentKind(vn) }))}
+        {state.vertexNames.map(vn =>
+          EditorButton({ label: vn, isCurrent: () => state.currentKind === vn, onClick: () => state.doSetCurrentKind(vn) }),
+        )}
       </div>
       <div class="flex max-h-full flex-col overflow-hidden">
         <input
@@ -40,16 +42,38 @@ export function VerticesEditor({ pg }: { pg: PlangsGraph }) {
         />
         <div class="flex flex-1 flex-col gap-4 overflow-y-scroll pr-4">
           {state.currentVertices.map(v =>
-            button({ label: v.key, isCurrent: () => state.currentVertex?.key === v.key, onClick: () => state.doSetCurrentVertex(v) }),
+            EditorButton({ label: v.key, isCurrent: () => state.currentVertex?.key === v.key, onClick: () => state.doSetCurrentVertex(v) }),
           )}
         </div>
       </div>
-      {state.currentVertex ? tabs(state, state.currentVertex) : <div class="flex-1 bg-secondary/25 p-2 text-2xl">Select a vertex to edit.</div>}
+      {state.currentVertex ? (
+        <div class={tw("flex-1", "flex flex-col gap-4", "bg-secondary/10", "overflow-hidden")}>
+          <header class="border-1 border-primary bg-secondary/75 py-2 text-center text-xl">
+            {state.currentVertex.vertexName}: {state.currentVertex.key}: {state.currentVertex.name}
+          </header>
+          <div class="flex flex-row gap-4">
+            <EditorButton label="FORM" isCurrent={() => state.tab === "form"} onClick={() => state.doSetTab("form")} />
+            <EditorButton label="RELATIONS" isCurrent={() => state.tab === "relations"} onClick={() => state.doSetTab("relations")} />
+            <EditorButton label="JSON" isCurrent={() => state.tab === "json"} onClick={() => state.doSetTab("json")} />
+          </div>
+          <div class="flex flex-1 justify-center overflow-hidden">
+            {state.tab === "form" ? (
+              <VertexForm key={state.currentVertex.key} vertex={state.currentVertex} />
+            ) : state.tab === "relations" ? (
+              <Relations key={state.currentVertex.key} state={state} />
+            ) : (
+              <JsonEditor key={state.currentVertex.key} vertex={state.currentVertex} />
+            )}
+          </div>
+        </div>
+      ) : (
+        <div class="flex-1 bg-secondary/25 p-2 text-2xl">Select a vertex to edit.</div>
+      )}
     </div>
   );
 }
 
-export function button({ label, isCurrent, onClick }: { label: string; isCurrent?: () => boolean; onClick: () => void }) {
+export function EditorButton({ label, isCurrent, onClick }: { label: string; isCurrent?: () => boolean; onClick: () => void }) {
   return (
     <button
       type="button"
@@ -67,32 +91,6 @@ export function button({ label, isCurrent, onClick }: { label: string; isCurrent
   );
 }
 
-function tabs(state: VerticesEditorState, vertex: TPlangsVertex) {
-  return (
-    <div class={tw("flex-1", "flex flex-col gap-4", "bg-secondary/10", "overflow-hidden")}>
-      <header class="border-1 border-primary bg-secondary/75 py-2 text-center text-xl">
-        {vertex.vertexName}: {vertex.key}: {vertex.name}
-      </header>
-      <div class="flex flex-row gap-4">
-        <div>{button({ label: "FORM", isCurrent: () => state.tab === "form", onClick: () => state.doSetTab("form") })}</div>
-        <div>{button({ label: "RELATIONS", isCurrent: () => state.tab === "relations", onClick: () => state.doSetTab("relations") })}</div>
-        <div>{button({ label: "JSON", isCurrent: () => state.tab === "json", onClick: () => state.doSetTab("json") })}</div>
-      </div>
-      <div class="flex flex-1 justify-center overflow-hidden">
-        {!state.currentVertex ? (
-          "Please select a Vertex"
-        ) : state.tab === "form" ? (
-          <VertexForm vertex={state.currentVertex} />
-        ) : state.tab === "relations" ? (
-          relations(state, vertex)
-        ) : (
-          <JsonEditor vertex={state.currentVertex} />
-        )}
-      </div>
-    </div>
-  );
-}
-
 function JsonEditor({ vertex }: { vertex: TPlangsVertex }): ComponentChildren {
   const vertexJson = () => JSON.stringify(vertex.data, null, 2);
 
@@ -100,16 +98,14 @@ function JsonEditor({ vertex }: { vertex: TPlangsVertex }): ComponentChildren {
   const [status, setStatus] = useState("");
 
   const reload = () => {
-    if (textarea.current) {
-      textarea.current.value = vertexJson();
-      setStatus(`Reloadad at ${new Date().toLocaleTimeString()}`);
-    }
+    if (textarea.current) textarea.current.value = vertexJson();
+    setStatus(`Reloadad at ${new Date().toLocaleTimeString()}`);
   };
 
   const save = () => {
     try {
       vertex.merge(JSON.parse(textarea.current?.value ?? ""));
-      setStatus("Saved.");
+      setStatus(`Saved at ${new Date().toLocaleTimeString()}`);
     } catch (e) {
       setStatus(`Error: ${e}`);
     }
@@ -123,8 +119,8 @@ function JsonEditor({ vertex }: { vertex: TPlangsVertex }): ComponentChildren {
   return (
     <div class={tw("w-full", "flex flex-col gap-4 justify-self-center", "bg-secondary/25")}>
       <header class={tw("px-4 py-2", "flex flex-row gap-4", "justify-end", "bg-secondary/50", "text-center text-xl")}>
-        {button({ label: "Reload", onClick: reload })}
-        {button({ label: "Save", onClick: save })}
+        <EditorButton label="Reload" onClick={reload} />
+        <EditorButton label="Save" onClick={save} />
       </header>
       <div class="text-center">{status}</div>
       <textarea ref={textarea} class={tw(INPUT, "text-xl", "flex-1 overflow-hidden overflow-y-auto")} style={"font-family: monospace;"} />
@@ -133,30 +129,44 @@ function JsonEditor({ vertex }: { vertex: TPlangsVertex }): ComponentChildren {
 }
 // <div class="grid grid-cols-[auto_1fr] items-start gap-4 pt-4">{textArea("Raw JSON Data", JSON.stringify(vertex.data, null, 2), 80)}</div>
 
-function relations(state: VerticesEditorState, vertex: TPlangsVertex): ComponentChildren {
+function Relations({ state }: { state: VerticesEditorState }): ComponentChildren {
+  const vertex = state.currentVertex as TPlangsVertex;
   return (
-    <div class="flex flex-1 flex-row gap-4 overflow-hidden">
+    <div key={vertex.key} class="flex flex-1 flex-row gap-4 overflow-hidden">
       <div class="flex flex-col gap-4 overflow-hidden overflow-y-scroll">
         {[...vertex.relations.entries()]
           .filter(([key]) => key !== "relPosts" && key !== "relAuthors")
-          .map(([key, vertices]) =>
-            button({
-              label: vertices.edgeDesc,
-              isCurrent: () => state.currentRel?.[0] === key,
-              onClick: () => state.doSetRel([key, vertices as AnyRel]),
-            }),
-          )}
+          .map(([key, vertices]) => (
+            <EditorButton
+              key={`${vertex.key}-${key}`}
+              label={vertices.edgeDesc}
+              isCurrent={() => state.currentRel?.[0] === key}
+              onClick={() => state.doSetRel([key, vertices as AnyRel])}
+            />
+          ))}
       </div>
       <div class="flex flex-1 flex-col gap-4">
-        <header class="border-1 border-primary bg-secondary/75 p-2 text-center text-xl">Related {state.currentRel?.[1].edgeDesc}</header>
-        <div class="flex flex-1 flex-col gap-4 bg-primary/10 p-4">{state.currentRel ? partition(state, state.currentRel) : "Select a Relation."}</div>
+        <header class="border-1 border-primary bg-secondary/75 p-2 text-center text-xl">
+          {vertex.vertexName}: {vertex.key}: {vertex.name} - Relation: {state.currentRel?.[1].edgeDesc}
+        </header>
+        {state.currentRel ? (
+          <Partition
+            key={`${vertex.key}-${state.currentRel[1]}`}
+            state={state}
+            vertex={vertex}
+            relKey={state.currentRel[0]}
+            rel={state.currentRel[1]}
+          />
+        ) : (
+          <div class="p-4">Select a Relation.</div>
+        )}
       </div>
     </div>
   );
 }
 
 /** Partition vertices from a relationship: those with an edge and those without. */
-function partition(state: VerticesEditorState, [key, rel]: [string, AnyRel]) {
+function Partition({ state, vertex, relKey, rel }: { state: VerticesEditorState; vertex: TPlangsVertex; relKey: string; rel: AnyRel }) {
   const related: TPlangsVertex[] = [];
   const unrelated: TPlangsVertex[] = [];
 
@@ -179,13 +189,13 @@ function partition(state: VerticesEditorState, [key, rel]: [string, AnyRel]) {
   }
 
   return (
-    <>
+    <div class={tw("p-4", "flex-1", "flex flex-col gap-4", "bg-primary/10")}>
       <div class="flex flex-row flex-wrap gap-1">
         <h2 class="w-full pb-2">Connected</h2>
-        {related.map(v => (
-          <Pill key={v.key} class="group cursor-pointer hover:bg-primary/25">
-            <button type="button" class="inline-flex items-center gap-1" onClick={() => disconnect(v)}>
-              {v.name}
+        {related.map(other => (
+          <Pill key={`${vertex.key}-${relKey}-${other.key}`} class="group cursor-pointer hover:bg-primary/25">
+            <button type="button" class="inline-flex items-center gap-1" onClick={() => disconnect(other)}>
+              {other.name}
               <div class={tw("inline-block", "group-hover:text-hiliteb")}>{CLOSE}</div>
             </button>
           </Pill>
@@ -193,15 +203,15 @@ function partition(state: VerticesEditorState, [key, rel]: [string, AnyRel]) {
       </div>
       <div class="flex flex-row flex-wrap gap-1">
         <h2 class="w-full pb-2">Unconnected</h2>
-        {unrelated.map(v => (
-          <Pill key={v.key} class="group hover:bg-primary/25">
-            <button type="button" class="inline-flex cursor-pointer items-center gap-1" onClick={() => connect(v)}>
-              {v.name}
+        {unrelated.map(other => (
+          <Pill key={`${vertex.key}-${relKey}-${other.key}`} class="group hover:bg-primary/25">
+            <button type="button" class="inline-flex cursor-pointer items-center gap-1" onClick={() => connect(other)}>
+              {other.name}
               <div class={tw("inline-block", "group-hover:text-hiliteb")}>{ADD}</div>
             </button>
           </Pill>
         ))}
       </div>
-    </>
+    </div>
   );
 }
