@@ -1,5 +1,5 @@
 import type { ComponentChildren } from "preact";
-import { useEffect, useRef } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { ADD, CLOSE } from "@plangs/frontend/auxiliar/icons";
@@ -8,6 +8,7 @@ import { Pill } from "@plangs/frontend/components/misc/pill";
 import type { PlangsGraph, VPlang } from "@plangs/plangs/graph";
 import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
 
+import { text } from "stream/consumers";
 import { VertexForm } from "./vertex-form";
 import { type AnyRel, VerticesEditorState } from "./vertices-editor-state";
 
@@ -28,7 +29,7 @@ export function VerticesEditor({ pg }: { pg: PlangsGraph }) {
         filter: "",
         currentVertex: py,
         currentRel: ["relInfluenced", py.relations.get("relInfluenced") as AnyRel],
-        tab: "form",
+        tab: "json",
       }),
   );
 
@@ -92,18 +93,55 @@ function tabs(state: VerticesEditorState, vertex: TPlangsVertex) {
         {vertex.vertexName}: {vertex.key}: {vertex.name}
       </header>
       <div class="flex flex-1 justify-center overflow-hidden">
-        {state.tab === "form" ? (
-          state.currentVertex ? (
-            <VertexForm vertex={state.currentVertex} />
-          ) : (
-            "Please select a Vertex"
-          )
+        {!state.currentVertex ? (
+          "Please select a Vertex"
+        ) : state.tab === "form" ? (
+          <VertexForm vertex={state.currentVertex} />
         ) : state.tab === "relations" ? (
           relations(state, vertex)
         ) : (
-          "JSON TODO"
+          <JsonEditor vertex={state.currentVertex} />
         )}
       </div>
+    </div>
+  );
+}
+
+function JsonEditor({ vertex }: { vertex: TPlangsVertex }): ComponentChildren {
+  const vertexJson = () => JSON.stringify(vertex.data, null, 2);
+
+  const textarea = useRef<HTMLTextAreaElement>(null);
+  const [status, setStatus] = useState("");
+
+  const reload = () => {
+    if (textarea.current) {
+      textarea.current.value = vertexJson();
+      setStatus(`Reloadad at ${new Date().toLocaleTimeString()}`);
+    }
+  };
+
+  const save = () => {
+    try {
+      vertex.merge(JSON.parse(textarea.current?.value ?? ""));
+      setStatus("Saved.");
+    } catch (e) {
+      setStatus(`Error: ${e}`);
+    }
+  };
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: This effect should only run once.
+  useEffect(() => {
+    if (textarea.current) textarea.current.value = vertexJson();
+  }, []);
+
+  return (
+    <div class={tw("w-full", "flex flex-col gap-4 justify-self-center", "bg-secondary/25")}>
+      <header class={tw("px-4 py-2", "flex flex-row gap-4", "justify-end", "bg-secondary/50", "text-center text-xl")}>
+        {button({ label: "Reload", onClick: reload })}
+        {button({ label: "Save", onClick: save })}
+      </header>
+      <div class="text-center">{status}</div>
+      <textarea ref={textarea} class={tw(INPUT, "text-xl", "flex-1 overflow-hidden overflow-y-auto")} style={"font-family: monospace;"} />
     </div>
   );
 }
