@@ -4,10 +4,6 @@ Plangs ambition is to become a community oriented programming languages page whe
 
 The website at the moment is fully static and will remain so until we have a very good reason to add a backend.
 
-## Draft
-
-We publish a draft/WIP at [eoga.dev](https://eoga.dev)
-
 ## Development
 
 Plangs! is a static website, but a development mode server is provided.
@@ -56,16 +52,16 @@ An OpenAI authorization key is required on the environment for this to work.
 
 ## Data exporting and loading
 
-To export a JSON file with all the definitions as a single graph structure:
+To export all data as `plangs.json` file:
 
 ```sh
-$ bun run export dst/path
+$ bun run export dst/folder
 ```
 
 To load a JSON file and regenerate the definitions from it:
 
 ```sh
-$ bun run import dst/path/plangs.json
+$ bun run import path/to/plangs.json
 ```
 
 The import process will delete all existing declarations and regenerate them.
@@ -88,21 +84,17 @@ The process of adding a relationship to the data that could be inferred is calle
 
 Both *materializing relationships* and *inferring them on the fly* give room for richer searches. Options for enriching the data this way include using existing graph databases, RDF based systems or writing our own inference/materialization code.
 
-## "ADMIN"
+## WIP
 
-- [ ] Tidy up regenarating code.
 - [ ] Revise data: tags: better-c, educational.
+- [ ] Sitemap.
+- [ ] Add SHA to built assets (css/JS)
 
 ## RELEASE
 
-- [ ] Sitemap.
-- [ ] Create an ESBuild script instead of using the command line.
-    - [ ] Replace preact/debug with preact.
-    - [ ] Add SHA to built assets (css/JS)
 - [ ] Publish to Clouflare Pages.
 - [ ] Simple analytics.
 - [ ] Create better guidelines, code of conduct, enable discussions, etc.
-- [ ] Link asking for help.
 
 ## Other
 
