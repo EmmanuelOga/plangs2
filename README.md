@@ -63,7 +63,7 @@ Both *materializing relationships* and *inferring them on the fly* give room for
 
 ## "ADMIN"
 
-- [ ] Tidy up regenarating the code.
+- [ ] Tidy up regenarating code.
 - [ ] Revise data: tags: better-c, educational.
 
 ## RELEASE

@@ -35,8 +35,8 @@ const server = Bun.serve({
     const page = await resolvePage(path, pg);
     if (page) return staticResponse(req, vdomToHTML(page), "text/html");
 
-    if (path.startsWith("/images")) {
-      const img = Bun.file(join(import.meta.dir, "../../definitions/assets/plang", path.slice(8)));
+    if (path.startsWith("/images/vertex/")) {
+      const img = Bun.file(join(import.meta.dir, "../../definitions/assets", path.slice(15)));
       const ct = contentTypeFor(path);
       if (ct && (await img.exists())) return staticResponse(req, img, ct);
       // Do not return, allow checking for a static image.
