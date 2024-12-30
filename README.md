@@ -1,6 +1,4 @@
-# Plangs
-
-![Plangs](packages/server/static/images/plangs-dark.svg)
+![Plangs!](packages/server/static/images/plangs-dark.svg)
 
 Plangs ambition is to become a community oriented programming languages page where people can find trends, tools and blog posts related to programming languages and the ecosystem of tools, documentation, learning resources, etc.
 
@@ -12,12 +10,11 @@ We publish a draft/WIP at [eoga.dev](https://eoga.dev)
 
 ## Development
 
+Plangs! is a static website, but a development mode server is provided.
 Requirements:
 
-* BunJS
-* Overmind
-
-Plangs! is a static website, but a development mode server is provided.
+* [BunJS](https://bun.sh/)
+* [Overmind](https://github.com/DarthSim/overmind)
 
 To install the dependencies:
 
@@ -35,11 +32,48 @@ $ overmind start
 
 ## Building
 
+To generate the static site instead of running a dev server, run:
+
 ```sh
-$ bun outapp && bun outjs
+$ bun build
 ```
 
-This simplistic build process just outputs the statically generated contents of the site at `~/dev/plangs-out` (will probably change at some point).
+The build generates the static site on the `output` folder.
+
+## AI enrichment
+
+Plang data includes links to the web pages of the language, wikipedia pages, and other resources that describe the language.
+
+We can send this data to an LLM to request a "first pass" of language definitions, which saves time when adding new languages. To do this, you can first create a new definition file:
+
+```sh
+$ bun create pl+my-new-lang
+```
+
+This will create a .ts file wich can be further edited to add links to relevant resources.
+After that, you can run a separate task to use AI for enrichment:
+
+```sh
+$ bun aienrich pl+my-new-lang
+```
+
+An OpenAI authorization key is required on the environment for this to work.
+
+## Data exporting and loading
+
+To export a JSON file with all the definitions as a single graph structure:
+
+```sh
+$ bun export dst/path
+```
+
+To load a JSON file and regenerate the definitions from it:
+
+```sh
+$ bun import dst/path/plangs.json
+```
+
+The import process will delete all existing declarations and regenerate them.
 
 ## Graph inference notes
 
