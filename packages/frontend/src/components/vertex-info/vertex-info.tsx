@@ -75,7 +75,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
     </p>
   );
 
-  let i = 0;
+  let i = 1;
   const relations = detail && detail.relations.length > 0 && (
     <details class={tw(forGrid && "hidden sm:block landscape-short:hidden", "overflow-hidden")} open={open}>
       <summary class="cursor-pointer pb-4 text-primary" {...onClickOnEnter(updateOpen)}>
