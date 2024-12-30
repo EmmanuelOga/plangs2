@@ -20,6 +20,13 @@ export abstract class Vertex<KeyPrefix extends string, Data> {
     return this;
   }
 
+  /** Clear all keys, without replacing the object. */
+  clearData(): this {
+    const data = this.data as Record<string, any>;
+    for (const key in Object.keys(data)) delete data[key];
+    return this;
+  }
+
   /** The key without the `${kind}+` prefix. */
   get plainKey(): string {
     return this.key.replace(/^[a-z]+\+/, "");

@@ -8,6 +8,7 @@ import { Pill } from "@plangs/frontend/components/misc/pill";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertex, TPlangsVertexName } from "@plangs/plangs/graph/generated";
 
+import { updateLocalEdits } from ".";
 import { VertexForm } from "./vertex-form";
 import { type AnyRel, VerticesEditorState } from "./vertices-editor-state";
 
@@ -111,7 +112,9 @@ function JsonEditor({ vertex }: { vertex: TPlangsVertex }): ComponentChildren {
 
   const save = () => {
     try {
-      vertex.merge(JSON.parse(textarea.current?.value ?? ""));
+      const newData = JSON.parse(textarea.current?.value ?? "");
+      Object.assign(vertex.clearData().data, newData);
+      updateLocalEdits(vertex.graph.toJSON());
       setStatus(`Saved at ${new Date().toLocaleTimeString()}`);
     } catch (e) {
       setStatus(`Error: ${e}`);
@@ -182,11 +185,13 @@ function Partition({ state, vertex, relKey, rel }: { state: VerticesEditorState;
 
   function disconnect(v: TPlangsVertex): void {
     rel.remove(v.key);
+    updateLocalEdits(vertex.graph.toJSON());
     state.dispatch();
   }
 
   function connect(v: TPlangsVertex): void {
     rel.add(v.key);
+    updateLocalEdits(vertex.graph.toJSON());
     state.dispatch();
   }
 

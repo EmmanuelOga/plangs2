@@ -8,11 +8,11 @@ import { connectLivereload } from "@plangs/frontend/auxiliar/livereload";
 import { activateIconButtons } from "@plangs/frontend/components/icon-button";
 import { ToggleFacetsMenu, ToggleHamburguer, ToggleLights } from "@plangs/frontend/components/icon-button/state";
 import { renderVertexInfo } from "@plangs/frontend/components/vertex-info";
+import { activatePlangsEditor } from "@plangs/frontend/editor";
 import { activateFacetsMain } from "@plangs/frontend/facets/main";
 import { PlangsGraph } from "@plangs/plangs/graph";
 
-import { activatePlangsEditor } from "../editor";
-import { getClosestVertex } from "./vertices";
+import { getClosestVertex, loadLocalOrRemote } from "./vertices";
 
 // Declare some globals that are called as the page is being loaded
 // to avoid flashing the wrong content.
@@ -53,9 +53,7 @@ document.addEventListener("mouseover", event => {
 
 async function start() {
   const pg = new PlangsGraph();
-  const loadData = fetch("/plangs.json")
-    .then(async r => pg.loadJSON(await r.json()))
-    .then(g => g.materialize());
+  const loadData = loadLocalOrRemote(pg);
 
   document.addEventListener("DOMContentLoaded", () => {
     activateIconButtons();

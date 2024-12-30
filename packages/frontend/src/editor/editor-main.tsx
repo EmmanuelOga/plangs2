@@ -2,13 +2,23 @@ import { useState } from "preact/hooks";
 
 import { getStore } from "@plangs/frontend/auxiliar/storage";
 import { PROSE_BASIC, tw } from "@plangs/frontend/auxiliar/styles";
-import type { PlangsGraph } from "@plangs/plangs/graph";
+import { PlangsGraph } from "@plangs/plangs/graph";
 
+import { toggleLocalEdits, updateLocalEdits } from ".";
 import { EditorButton, VerticesEditor } from "./vertices-editor";
 
 /** Top level of the editor: information, editing and exporting. */
 export function EditorMain({ pg }: { pg: PlangsGraph }) {
   const [tab, setTab] = useState<"status" | "edit">("status");
+
+  // The editor always works with a local copy of the graph.
+  const store = getStore("_any_page_");
+  let localJSON = store.load("local-edits");
+  if (!localJSON) {
+    localJSON = pg.toJSON();
+    store.update("local-edits", localJSON);
+  }
+  const localPg = new PlangsGraph().loadJSON(localJSON);
 
   return (
     <div class={tw("p-4", "flex-1", "flex flex-col gap-4", "overflow-hidden")}>
@@ -17,15 +27,16 @@ export function EditorMain({ pg }: { pg: PlangsGraph }) {
         <EditorButton class="w-[8rem]" label="EDIT" isCurrent={() => tab === "edit"} onClick={() => setTab("edit")} />
       </div>
       {tab === "status" && <Status />}
-      {tab === "edit" && <VerticesEditor pg={pg} />}
+      {tab === "edit" && <VerticesEditor pg={localPg} />}
     </div>
   );
 }
 
 function Status() {
   const store = getStore("_any_page_");
-  const [modeMsg, setModeMsg] = useState(store.load("local-edits"));
+  const [modeMsg, setModeMsg] = useState<string | undefined>();
   const [resetMsg, setResetMsg] = useState<string | undefined>();
+
   return (
     <div class={tw(PROSE_BASIC, "p-2", "overflow-y-auto")}>
       <h3 class="mt-0!">Local Edits</h3>
@@ -37,7 +48,7 @@ function Status() {
             type="checkbox"
             checked={!!store.load("enable-local-edits")}
             onChange={({ target }) => {
-              store.update("enable-local-edits", (target as HTMLInputElement).checked);
+              toggleLocalEdits((target as HTMLInputElement).checked);
               setModeMsg(`${new Date().toLocaleTimeString()}: mode updated.`);
             }}
           />
@@ -52,7 +63,7 @@ function Status() {
         <EditorButton
           label="Reset and Erase Edits"
           onClick={() => {
-            store.update("local-edits", "");
+            updateLocalEdits("");
             setResetMsg(`${new Date().toLocaleTimeString()}: Local edits erased.`);
           }}
         />
@@ -83,6 +94,10 @@ function Status() {
 
 /** Export the local data as a JSON object. */
 function exportData(data: any) {
+  if (!data) {
+    alert("No data to export.");
+    return;
+  }
   const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");

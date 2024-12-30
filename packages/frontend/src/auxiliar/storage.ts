@@ -39,7 +39,6 @@ export class Store {
   // biome-ignore lint/suspicious/noExplicitAny: JSON can serialize any data.
   update(key: StorageKey, data: any): void {
     const fk = this.fullKey(key);
-    console.log("Updating localStorage", { key: fk, data });
     stapi?.setItem(fk, JSON.stringify(data));
   }
 
@@ -54,6 +53,10 @@ export class Store {
       console.error("Failed to load data from localStorage", { key: fk, jsonString, e });
       stapi?.removeItem(fk);
     }
+  }
+
+  remove(key: StorageKey): void {
+    stapi?.removeItem(this.fullKey(key));
   }
 
   private fullKey(key: StorageKey): string {

@@ -3,7 +3,7 @@ import type { ComponentChildren } from "preact";
 import { background, gradLinear, tw } from "@plangs/frontend/auxiliar/styles";
 import { iconButton } from "@plangs/frontend/components/icon-button";
 import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
-import { cssClass, cssID } from "@plangs/server/elements";
+import { cssID } from "@plangs/server/elements";
 import { script } from "@plangs/server/utils/html";
 
 import { MainNav } from "./main-nav";
@@ -74,13 +74,15 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
           This site requires JavaScript for the best experience. In particular, the search feature will not work without JavaScript.
         </noscript>
 
-        <header id={cssID("localEditWarning")} class={tw("hidden", "border-primary border-b-1", "p-2 text-center")}>
-          Using localStorage data from the editor.{" "}
-          <a class="text-primary" href="/edit">
-            Go to the editor
-          </a>{" "}
-          to reset back to normal operation.
-        </header>
+        {page !== "edit" && (
+          <header id={cssID("localEditWarning")} class={tw("hidden", "border-primary border-b-1", "p-2 text-center")}>
+            Using localStorage data from the editor.{" "}
+            <a class="text-primary" href="/edit">
+              Go to the editor
+            </a>{" "}
+            to reset.
+          </header>
+        )}
 
         <header
           style={background({ bgs: [gradLinear()], backdrop: "" })}

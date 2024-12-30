@@ -1,8 +1,9 @@
+import type { StrDate } from "@plangs/auxiliar/str_date";
 import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { VLicense, VPlang } from "@plangs/plangs/graph";
 import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
 
-import type { StrDate } from "@plangs/auxiliar/str_date";
+import { updateLocalEdits } from ".";
 import { isCSV, isNonEmptyStr, isNumber, isStrDate, isURL, matchesRegex } from "./validators";
 
 export type FormField = {
@@ -39,7 +40,7 @@ export class VertexFormState extends Dispatchable<{
         label: "Keywords",
         desc: "Comma-separated list of keywords.",
         validator: v => isCSV(v, REGEXP_ANUMPLUS),
-        saver: val => vertex.addKeywords(val.split(",")),
+        saver: val => val && vertex.addKeywords(val.split(",")),
       },
       urlHome: {
         kind: "string",
@@ -67,7 +68,7 @@ export class VertexFormState extends Dispatchable<{
         label: "Stack Overflow Tags",
         desc: "Comma-separated list of tags.",
         validator: v => isCSV(v, REGEXP_ANUMPLUS),
-        saver: val => vertex.addStackovTags(val.split(",")),
+        saver: val => val && vertex.addStackovTags(val.split(",")),
       },
     };
 
@@ -77,14 +78,14 @@ export class VertexFormState extends Dispatchable<{
         label: "Extensions",
         desc: "Comma-separated list of extensions. Example: .py,.pyc",
         validator: v => isCSV(v, REGEXP_EXTENSION),
-        saver: val => vertex.addExtensions(val.split(",")),
+        saver: val => val && vertex.addExtensions(val.split(",")),
       };
       fields.filenames = {
         kind: "string",
         label: "Filenames",
         desc: "Comma-separated list of files associated. Example: Makefile",
         validator: v => isCSV(v, REGEXP_ANUMPLUS),
-        saver: val => vertex.addFilenames(val.split(",")),
+        saver: val => val && vertex.addFilenames(val.split(",")),
       };
       fields.isTranspiler = {
         kind: "bool",
@@ -153,6 +154,10 @@ export class VertexFormState extends Dispatchable<{
     return values;
   }
 
+  get vertex() {
+    return this.data.vertex;
+  }
+
   get values() {
     return this.data.values;
   }
@@ -193,6 +198,8 @@ export class VertexFormState extends Dispatchable<{
         saved++;
       }
     }
+
+    if (saved > 0) updateLocalEdits(this.vertex.graph.toJSON());
 
     const msg = [`${new Date().toLocaleTimeString()} update: saved ${saved} fields.`];
     if (errors.length) {

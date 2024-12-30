@@ -56,7 +56,7 @@ export class FieldReleases {
     const all = this.all;
     if (all.size === 0) return undefined;
     if (all.size === 1) return all.get(0);
-    return all.sort((r1, r2) => r1.compareDate(r2))[0];
+    return all.sort((r1, r2) => r2.compareDate(r1))[0];
   }
 }
 
