@@ -59,7 +59,7 @@ Both *materializing relationships* and *inferring them on the fly* give room for
 
 ## WIP
 
-- [] Allow images for all vertices.
+- [ ] Allow images for all vertices.
 
 ## UI
 

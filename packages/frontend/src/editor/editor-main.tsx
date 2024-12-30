@@ -1,32 +1,29 @@
 import { useState } from "preact/hooks";
 
-import { PROSE, PROSE_BASIC, tw } from "@plangs/frontend/auxiliar/styles";
+import { PROSE_BASIC, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import { EditorButton, VerticesEditor } from "./vertices-editor";
 
 /** Top level of the editor: information, editing and exporting. */
 export function EditorMain({ pg }: { pg: PlangsGraph }) {
-  const [tab, setTab] = useState<"status" | "edit">("status");
+  const [tab, setTab] = useState<"status" | "edit">("edit");
 
   return (
     <div class={tw("p-4", "flex-1", "flex flex-col gap-4", "overflow-hidden")}>
-      <div class="flex flex-row gap-4">
-        <div>{EditorButton({ label: "STATUS", isCurrent: () => tab === "status", onClick: () => setTab("status") })}</div>
-        <div>{EditorButton({ label: "EDIT", isCurrent: () => tab === "edit", onClick: () => setTab("edit") })}</div>
+      <div class={tw("p-2", "flex flex-row gap-4", "bg-secondary/25 text-primary", "border-secondary border-b-1", "shadow-secondary/25 shadow-sm")}>
+        <EditorButton class="w-[8rem]" label="STATUS" isCurrent={() => tab === "status"} onClick={() => setTab("status")} />
+        <EditorButton class="w-[8rem]" label="EDIT" isCurrent={() => tab === "edit"} onClick={() => setTab("edit")} />
       </div>
-      <div class="flex-1 justify-center overflow-hidden overflow-y-auto">
-        {tab === "status" && <Status pg={pg} />}
-        {tab === "edit" && <VerticesEditor pg={pg} />}
-      </div>
+      {tab === "status" && <Status pg={pg} />}
+      {tab === "edit" && <VerticesEditor pg={pg} />}
     </div>
   );
 }
 
 function Status({ pg }: { pg: PlangsGraph }) {
   return (
-    <div class={tw(PROSE_BASIC, "p-4")}>
-      <h2 class="m-0! pb-8">Plangs Graph Editor</h2>
-      <h3>Site Wide Mode</h3>
+    <div class={tw(PROSE_BASIC, "p-2", "overflow-y-auto")}>
+      <h3 class="mt-0!">Site Wide Mode</h3>
       <p>When you edit the data, it gets saved to localStorage. You can choose to use the local storage data site-wide for testing your changes.</p>
       <label>
         <input type="checkbox" checked={true} />

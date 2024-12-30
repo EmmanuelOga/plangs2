@@ -3,10 +3,10 @@ import { useEffect, useRef, useState } from "preact/hooks";
 
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { ADD, CLOSE } from "@plangs/frontend/auxiliar/icons";
-import { INPUT, tw } from "@plangs/frontend/auxiliar/styles";
+import { INPUT, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import { Pill } from "@plangs/frontend/components/misc/pill";
 import type { PlangsGraph } from "@plangs/plangs/graph";
-import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
+import type { TPlangsVertex, TPlangsVertexName } from "@plangs/plangs/graph/generated";
 
 import { VertexForm } from "./vertex-form";
 import { type AnyRel, VerticesEditorState } from "./vertices-editor-state";
@@ -26,21 +26,23 @@ export function VerticesEditor({ pg }: { pg: PlangsGraph }) {
   });
 
   return (
-    <div ref={self} class={tw("p-4", "flex-1", "flex flex-row gap-8", "overflow-hidden")}>
-      <div class="flex flex-col gap-4">
-        {state.vertexNames.map(vn =>
-          EditorButton({ label: vn, isCurrent: () => state.currentKind === vn, onClick: () => state.doSetCurrentKind(vn) }),
-        )}
-      </div>
-      <div class="flex max-h-full flex-col overflow-hidden">
+    <div ref={self} class={tw("p-2", "flex-1", "flex flex-row gap-8", "overflow-hidden")}>
+      <div class={tw("w-[11.5rem] pr-2", "flex flex-col gap-4")}>
+        <select class={tw(INPUT, "py-0 text-black/85")} onChange={ev => state.doSetCurrentKind(ev.currentTarget.value as TPlangsVertexName)}>
+          {state.vertexNames.map(vn => (
+            <option key={vn} value={vn} selected={state.currentKind === vn}>
+              {vn}
+            </option>
+          ))}
+        </select>
         <input
           aria-label="Filter Key"
           placeholder="Filter"
           value={state.filter}
           onInput={ev => state.doSetFilter((ev.target as HTMLInputElement).value)}
-          class={tw(INPUT, "mb-4 px-2 py-1")}
+          class={tw(INPUT, "px-2 py-1")}
         />
-        <div class="flex flex-1 flex-col gap-4 overflow-y-scroll pr-4">
+        <div class={tw("w-[11.5rem] pr-2", "flex flex-col gap-4", VSCROLL)}>
           {state.currentVertices.map(v =>
             EditorButton({ label: v.key, isCurrent: () => state.currentVertex?.key === v.key, onClick: () => state.doSetCurrentVertex(v) }),
           )}
@@ -67,26 +69,31 @@ export function VerticesEditor({ pg }: { pg: PlangsGraph }) {
           </div>
         </div>
       ) : (
-        <div class="flex-1 bg-secondary/25 p-2 text-2xl">Select a vertex to edit.</div>
+        <div class="flex-1 bg-secondary/25 p-4">Select a vertex to edit.</div>
       )}
     </div>
   );
 }
 
-export function EditorButton({ label, isCurrent, onClick }: { label: string; isCurrent?: () => boolean; onClick: () => void }) {
+export function EditorButton({
+  label,
+  isCurrent,
+  onClick,
+  class: klass,
+}: { label: string; class?: string; isCurrent?: () => boolean; onClick: () => void }) {
   return (
     <button
       type="button"
       class={tw(
-        "block",
-        "px-4 py-1",
-        "border-1 border-primary",
+        "inline-flex items-start align-middle",
         "cursor-pointer",
         "hover:bg-hiliteb hover:text-hilitef",
+        "m-0.5 ring-1 ring-primary",
         isCurrent?.() && "current bg-secondary",
+        klass,
       )}
       onClick={onClick}>
-      {label}
+      <span class={tw("mx-1 px-1 py-0.5", "inline-block w-full", "truncate")}>{label}</span>
     </button>
   );
 }
@@ -133,7 +140,7 @@ function Relations({ state }: { state: VerticesEditorState }): ComponentChildren
   const vertex = state.currentVertex as TPlangsVertex;
   return (
     <div key={vertex.key} class="flex flex-1 flex-row gap-4 overflow-hidden">
-      <div class="flex flex-col gap-4 overflow-hidden overflow-y-scroll">
+      <div class={tw("flex flex-col gap-4", VSCROLL, "pr-4", "max-w-[10rem]")}>
         {[...vertex.relations.entries()]
           .filter(([key]) => key !== "relPosts" && key !== "relAuthors")
           .map(([key, vertices]) => (
@@ -145,22 +152,17 @@ function Relations({ state }: { state: VerticesEditorState }): ComponentChildren
             />
           ))}
       </div>
-      <div class="flex flex-1 flex-col gap-4">
-        <header class="border-1 border-primary bg-secondary/75 p-2 text-center text-xl">
-          {vertex.vertexName}: {vertex.key}: {vertex.name} - Relation: {state.currentRel?.[1].edgeDesc}
-        </header>
-        {state.currentRel ? (
-          <Partition
-            key={`${vertex.key}-${state.currentRel[1]}`}
-            state={state}
-            vertex={vertex}
-            relKey={state.currentRel[0]}
-            rel={state.currentRel[1]}
-          />
-        ) : (
-          <div class="p-4">Select a Relation.</div>
-        )}
-      </div>
+      {state.currentRel ? (
+        <Partition
+          key={`${vertex.key}-${state.currentRel[1]}`}
+          state={state}
+          vertex={vertex}
+          relKey={state.currentRel[0]}
+          rel={state.currentRel[1]}
+        />
+      ) : (
+        <div class="p-4">Select a Relation.</div>
+      )}
     </div>
   );
 }
@@ -189,7 +191,10 @@ function Partition({ state, vertex, relKey, rel }: { state: VerticesEditorState;
   }
 
   return (
-    <div class={tw("p-4", "flex-1", "flex flex-col gap-4", "bg-primary/10")}>
+    <div class={tw("p-4", "flex-1", "flex flex-col gap-4", "bg-primary/10", "overflow-hidden overflow-y-scroll")}>
+      <header class="text-2xl">
+        {vertex.name} {rel.edgeDesc}
+      </header>
       <div class="flex flex-row flex-wrap gap-1">
         <h2 class="w-full pb-2">Connected</h2>
         {related.map(other => (

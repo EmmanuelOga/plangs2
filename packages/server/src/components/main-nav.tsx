@@ -30,7 +30,7 @@ export function MainNav({ page, class: cssClass }: { page: PlangsPage; class?: s
         links={[
           { title: "News!️", href: "/blog", forPages: ["blog"] },
           { title: "About", href: "/about", forPages: ["about"] },
-          { title: "Editor", href: "/edit", forPages: ["edit"] },
+          { title: "Editor", href: "/edit", forPages: ["edit"], mobileHidden: true },
           { title: "Source Code", href: "https://github.com/EmmanuelOga/plangs2", forPages: ["NA"] },
         ]}
       />
@@ -50,16 +50,22 @@ export function MainNav({ page, class: cssClass }: { page: PlangsPage; class?: s
   );
 }
 
-type NavLink = { title: string; href: string; forPages: PlangsPage[] };
+type NavLink = { title: string; href: string; forPages: PlangsPage[]; mobileHidden?: boolean };
 
 function NavSection({ title, links, page }: { title: string; links: NavLink[]; page: PlangsPage }) {
   return (
     <nav class={tw("mb-2 sm:mb-4")}>
       <header class={tw("p-2", "uppercase", "text-primary")}>{title}</header>
       <ul>
-        {links.map(({ title, href, forPages }) =>
+        {links.map(({ title, href, forPages, mobileHidden }) =>
           ret(forPages.includes(page), isCurrent => (
-            <li key={href} class={tw("px-4 py-1.5 sm:px-8 sm:py-2", isCurrent ? "bg-primary/85 text-background" : "hover:bg-primary/25")}>
+            <li
+              key={href}
+              class={tw(
+                "px-4 py-1.5 sm:px-8 sm:py-2",
+                isCurrent ? "bg-primary/85 text-background" : "hover:bg-primary/25",
+                mobileHidden && "hidden md:block",
+              )}>
               <a href={href} class={tw("block cursor-pointer", "truncate", "prefetch")}>
                 {title}
               </a>

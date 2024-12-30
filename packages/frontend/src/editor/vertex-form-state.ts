@@ -182,24 +182,24 @@ export class VertexFormState extends Dispatchable<{
 
   doSave() {
     const errors = [];
+    let saved = 0;
 
     for (const [attr, value] of Object.entries(this.values)) {
-      const { validator } = this.fields[attr];
-      if (validator?.(value)) errors.push(attr);
+      const { validator, saver } = this.fields[attr];
+      if (validator?.(value)) {
+        errors.push(attr);
+      } else {
+        saver?.(value);
+        saved++;
+      }
     }
 
+    const msg = [`${new Date().toLocaleTimeString()} update: saved ${saved} fields.`];
     if (errors.length) {
-      this.status = `Cannot save. Errors in fields: ${errors.join(", ")}`;
-      this.dispatch();
-      return;
+      msg.push(`Fields with errors: ${errors.join(", ")}.`);
     }
 
-    for (const [attr, value] of Object.entries(this.values)) {
-      const { saver } = this.fields[attr];
-      saver?.(value);
-    }
-
-    this.status = `Last succesful save: ${new Date().toLocaleTimeString()}`;
+    this.status = msg.join(" ");
     this.dispatch();
   }
 
