@@ -61,13 +61,9 @@ Both *materializing relationships* and *inferring them on the fly* give room for
 
 - [ ] Allow images for all vertices.
 
-## UI
-
-- [ ] Zebra stripe vertex info a renference pages.
-
 ## "ADMIN"
 
-- [ ] Editor: finalize exporting JSON and tidy up regenarating the code.
+- [ ] Tidy up regenarating the code.
 - [ ] Revise data: tags: better-c, educational.
 
 ## RELEASE

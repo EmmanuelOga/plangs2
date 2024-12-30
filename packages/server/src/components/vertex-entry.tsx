@@ -1,14 +1,10 @@
 import { EXTERN } from "@plangs/frontend/auxiliar/icons";
-import { BORDER, HOVER_ICON, tw } from "@plangs/frontend/auxiliar/styles";
+import { HOVER_ICON, tw } from "@plangs/frontend/auxiliar/styles";
 import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
 
-export function VertexEntry({ vertex }: { vertex: TPlangsVertex }) {
+export function VertexEntry({ vertex, class: klass }: { vertex: TPlangsVertex; class?: string }) {
   return (
-    <div
-      vocab="https://schema.org/"
-      typeof={vertex.schemaType}
-      key={vertex.key}
-      class={tw("mb-8", tw(BORDER, "border-b-1"), tw("hover:bg-hiliteb/10"))}>
+    <div vocab="https://schema.org/" typeof={vertex.schemaType} key={vertex.key} class={tw("hover:bg-hiliteb/10", klass)}>
       <meta property="identifier" content={vertex.key} />
       <header>
         <div class={tw("group", "inline-flex flex-row items-center gap-1 align-middle")}>

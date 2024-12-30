@@ -10,12 +10,15 @@ export function VertexReference({
   heading,
   vertexName,
 }: { pg: PlangsGraph; heading: string; vertexName: TPlangsVertexName; page: PlangsPage }) {
-  const entries = [...pg.vertices[vertexName].values].map(vertex => <VertexEntry key={vertex.key} vertex={vertex} />);
+  const entries = [...pg.vertices[vertexName].values]
+    .entries()
+    .map(([i, vertex]) => <VertexEntry key={vertex.key} vertex={vertex} class={tw("p-4", i % 2 === 0 ? "bg-primary/4" : "bg-primary/8")} />)
+    .toArray();
   return (
     <Layout page={page} title={META[page]?.title} desc={META[page]?.desc} mainClasses="overflow-y-auto">
       <article class={tw(PROSE, "p-4")}>
         <h1>{heading}</h1>
-        {entries.length === 0 ? <p>No resources just yet!</p> : entries}
+        {entries.length === 0 ? <p>No resources just yet!</p> : <div class="flex flex-col gap-4">{entries}</div>}
       </article>
     </Layout>
   );

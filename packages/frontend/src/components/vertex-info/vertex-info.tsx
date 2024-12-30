@@ -66,7 +66,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
 
   const info = detail ? (
     <div class={tw("hidden py-4 sm:block landscape-short:hidden")}>
-      {!forGrid && detail.thumbUrl && <VertexThumbn detail={detail} onlyImg={true} class="float-right my-2 mr-1 ml-4 size-24" />}
+      {!forGrid && detail.thumbUrl && <VertexThumbn detail={detail} onlyImg={true} class="float-right m-1 ml-6 size-24" />}
       <div class="hyphens-auto text-justify">{forGrid ? detail.shortDesc : detail.description}</div>
     </div>
   ) : (
@@ -75,6 +75,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
     </p>
   );
 
+  let i = 0;
   const relations = detail && detail.relations.length > 0 && (
     <details class={tw(forGrid && "hidden sm:block landscape-short:hidden", "overflow-hidden")} open={open}>
       <summary class="cursor-pointer pb-4 text-primary" {...onClickOnEnter(updateOpen)}>
@@ -82,7 +83,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
       </summary>
       <div class={tw("flex flex-col")}>
         {detail.general.length > 0 && (
-          <RelationCell title="General">
+          <RelationCell title="General" class={tw(i++ % 2 === 0 ? "bg-primary/6" : "bg-primary/12")}>
             {detail.general.map(item => (
               <Pill title={item.title} key={item}>
                 {item.kind === "text" ? (
@@ -98,7 +99,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
           </RelationCell>
         )}
         {detail.relations.map(([title, vertices]) => (
-          <RelationCell key={title} title={title}>
+          <RelationCell key={title} title={title} class={tw(i++ % 2 === 0 ? "bg-primary/6" : "bg-primary/12")}>
             {vertices.map(vertex => (
               <Pill key={vertex.name}>
                 <a href={vertex.href}>{vertex.name}</a>
@@ -134,9 +135,9 @@ function IconLink({ href, icon, title }: { href: string; icon: JSX.Element; titl
   );
 }
 
-function RelationCell({ title, children }: { title: string; children: ComponentChildren }) {
+function RelationCell({ title, children, class: klass }: { title: string; children: ComponentChildren; class?: string }) {
   return (
-    <div class={tw("hover:bg-hiliteb/10")} key={title}>
+    <div class={tw("hover:bg-hiliteb/10", klass)} key={title}>
       <header class="mb-2 p-2 text-foreground text-sm uppercase">{title}</header>
       <div class="ml-2 flex flex-row flex-wrap">{children}</div>
     </div>
