@@ -15,14 +15,9 @@ Requirements:
 
 * [BunJS](https://bun.sh/)
 * [Overmind](https://github.com/DarthSim/overmind)
+* [Entr](https://github.com/eradman/entr)
 
-To install the dependencies:
-
-```sh
-$ bun install
-```
-
-The server and frontend app is wired for "livereloading". A number of processes is required to run CSS bundles (which uses TailwindCSS), JS App budle (which uses ESBuild), and running the livereload enabled dev server (which uses Bun/JS). To wire everything together we use Overmind.
+The server and frontend app is wired for "livereloading". There are workers to build the CSS bundle (which uses TailwindCSS) and running the dev server (which uses Bun/JS and ESBuild). To wire everything together we use Overmind and Entr.
 
 Starting the dev server is as simple as:
 
@@ -35,7 +30,7 @@ $ overmind start
 To generate the static site instead of running a dev server, run:
 
 ```sh
-$ bun build
+$ bun run build
 ```
 
 The build generates the static site on the `output` folder.
@@ -47,14 +42,14 @@ Plang data includes links to the web pages of the language, wikipedia pages, and
 We can send this data to an LLM to request a "first pass" of language definitions, which saves time when adding new languages. To do this, you can first create a new definition file:
 
 ```sh
-$ bun create pl+my-new-lang
+$ bun run create pl+my-new-lang
 ```
 
 This will create a .ts file wich can be further edited to add links to relevant resources.
 After that, you can run a separate task to use AI for enrichment:
 
 ```sh
-$ bun aienrich pl+my-new-lang
+$ bun run enrich pl+my-new-lang
 ```
 
 An OpenAI authorization key is required on the environment for this to work.
@@ -64,13 +59,13 @@ An OpenAI authorization key is required on the environment for this to work.
 To export a JSON file with all the definitions as a single graph structure:
 
 ```sh
-$ bun export dst/path
+$ bun run export dst/path
 ```
 
 To load a JSON file and regenerate the definitions from it:
 
 ```sh
-$ bun import dst/path/plangs.json
+$ bun run import dst/path/plangs.json
 ```
 
 The import process will delete all existing declarations and regenerate them.
@@ -100,6 +95,7 @@ Both *materializing relationships* and *inferring them on the fly* give room for
 
 ## RELEASE
 
+- [ ] Sitemap.
 - [ ] Create an ESBuild script instead of using the command line.
     - [ ] Replace preact/debug with preact.
     - [ ] Add SHA to built assets (css/JS)

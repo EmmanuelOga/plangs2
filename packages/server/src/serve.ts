@@ -1,10 +1,6 @@
-import type { ServerWebSocket } from "bun";
-
-// biome-ignore lint/style/useNodejsImportProtocol: not needed with Bun.
-import { watch } from "fs";
-
-// @ts-ignore works ok with Bun
+import { watch } from "node:fs";
 import { join } from "node:path";
+import type { ServerWebSocket } from "bun";
 
 import { loadDefinitions } from "@plangs/definitions";
 import { PlangsGraph } from "@plangs/plangs/graph";

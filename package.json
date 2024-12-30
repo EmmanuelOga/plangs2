@@ -12,19 +12,21 @@
     "@tailwindcss/typography": "^0.5.15",
     "@types/bun": "latest",
     "@types/node": "latest",
-    "esbuild": "^0.23.1",
+    "esbuild": "^0.24.2",
     "tailwindcss": "^4.0.0-beta.6"
   },
   "peerDependencies": {
     "typescript": "5"
   },
   "scripts": {
-    "js": "esbuild --bundle --define:PLANGS_ENV=\\\"dev\\\" packages/frontend/src/app --sourcemap --outdir=packages/server/static/bundle --watch",
-    "css": "bun x @tailwindcss/cli@next -i ./styles.css -o packages/server/static/bundle/app.css --watch",
-    "serve": "bun run --watch --cwd $(pwd)/packages/server src/serve.ts",
-    "genjs": "esbuild --bundle --minify --define:PLANGS_ENV=\\\"prod\\\" packages/frontend/src/app --sourcemap --outdir=$HOME/dev/plangs-out/bundle",
-    "genapp": "bun packages/server/src/generators/site.ts $HOME/dev/plangs-out",
-    "genjson": "bun packages/server/src/generators/json.ts .",
-    "gengraph": "bun run --watch packages/server/src/generators/graph.ts"
+    "build": "bun run packages/server/src/generators/site.ts",
+    "watchcss": "bun x @tailwindcss/cli@next -i ./styles.css -o packages/server/static/app.css --watch",
+    "watchjs": "esbuild --target=chrome130,firefox132,safari18,edge130,es2022 --bundle --define:PLANGS_ENV=\\\"dev\\\" packages/frontend/src/app --sourcemap --outdir=packages/server/static --watch",
+    "enrich": "echo 'run ai enrich'",
+    "create": "echo 'create new vertex'",
+    "export": "bun run packages/server/src/generators/json.ts .",
+    "import": "echo 'recreate data from json'",
+    "gengraph": "bun run --watch packages/server/src/generators/graph.ts",
+    "serve": "bun run --watch --cwd $(pwd)/packages/server src/serve.ts"
   }
 }

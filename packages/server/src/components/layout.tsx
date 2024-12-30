@@ -48,10 +48,10 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
         <title>{title ? `Plangs! - ${title}` : "Plangs!"}</title>
         <meta name="description" content={desc ?? title} />
 
-        <script src="/bundle/app.js" />
+        <script src="/app.js" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="/bundle/app.css" />
+        <link rel="stylesheet" href="/app.css" />
         <link type="image/png" rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png" />
         <link type="image/png" rel="icon" sizes="192x192" href="/icons/icon-192x192.png" />
         <link type="image/png" rel="icon" sizes="72x72" href="/icons/icon-72x72.png" />
