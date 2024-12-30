@@ -14,7 +14,11 @@ export type StorageKey =
   /** Last Vertex displayed on a {@link VertexInfo} component. */
   | "vertex-detail"
   /** Whether the VertexInfo component is open. */
-  | "vertex-detail-open";
+  | "vertex-detail-open"
+  /** Work with date from localStorage instead of loading from the site. */
+  | "enable-local-edits"
+  /** Locally edited version of `plangs.json`. */
+  | "local-edits";
 
 // Alias to avoid errors if server side rendering is used.
 const stapi = (typeof localStorage === "undefined" ? undefined : localStorage) as Storage | undefined;
@@ -35,6 +39,7 @@ export class Store {
   // biome-ignore lint/suspicious/noExplicitAny: JSON can serialize any data.
   update(key: StorageKey, data: any): void {
     const fk = this.fullKey(key);
+    console.log("Updating localStorage", { key: fk, data });
     stapi?.setItem(fk, JSON.stringify(data));
   }
 

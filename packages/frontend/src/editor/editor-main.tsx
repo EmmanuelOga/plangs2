@@ -1,7 +1,9 @@
 import { useState } from "preact/hooks";
 
+import { getStore } from "@plangs/frontend/auxiliar/storage";
 import { PROSE_BASIC, tw } from "@plangs/frontend/auxiliar/styles";
 import type { PlangsGraph } from "@plangs/plangs/graph";
+
 import { EditorButton, VerticesEditor } from "./vertices-editor";
 
 /** Top level of the editor: information, editing and exporting. */
@@ -14,28 +16,56 @@ export function EditorMain({ pg }: { pg: PlangsGraph }) {
         <EditorButton class="w-[8rem]" label="STATUS" isCurrent={() => tab === "status"} onClick={() => setTab("status")} />
         <EditorButton class="w-[8rem]" label="EDIT" isCurrent={() => tab === "edit"} onClick={() => setTab("edit")} />
       </div>
-      {tab === "status" && <Status pg={pg} />}
+      {tab === "status" && <Status />}
       {tab === "edit" && <VerticesEditor pg={pg} />}
     </div>
   );
 }
 
-function Status({ pg }: { pg: PlangsGraph }) {
+function Status() {
+  const store = getStore("_any_page_");
+  const [modeMsg, setModeMsg] = useState(store.load("local-edits"));
+  const [resetMsg, setResetMsg] = useState<string | undefined>();
   return (
     <div class={tw(PROSE_BASIC, "p-2", "overflow-y-auto")}>
       <h3 class="mt-0!">Local Edits</h3>
       <p>Local edits are saved to localStorage, and can be used locally for testing.</p>
-      <label class="flex flex-row items-center">
-        <input type="checkbox" checked={true} />
-        <span class="ml-2">Use localStorage data site-wide.</span>
-      </label>
+
+      <div class="flex flex-row gap-4">
+        <label class="flex flex-row items-center">
+          <input
+            type="checkbox"
+            checked={!!store.load("enable-local-edits")}
+            onChange={({ target }) => {
+              store.update("enable-local-edits", (target as HTMLInputElement).checked);
+              setModeMsg(`${new Date().toLocaleTimeString()}: mode updated.`);
+            }}
+          />
+          <span class="ml-2">Use localStorage data site-wide.</span>
+        </label>
+        {modeMsg && <div class="text-primary">{modeMsg}</div>}
+      </div>
+
       <h3>Reset</h3>
       <p>Go back to a clean slate: you will lose your edits.</p>
-      {EditorButton({ label: "Reset and Erase Edits", onClick: () => console.log("TODO") })}
+      <div class="flex flex-row gap-4">
+        <EditorButton
+          label="Reset and Erase Edits"
+          onClick={() => {
+            store.update("local-edits", "");
+            setResetMsg(`${new Date().toLocaleTimeString()}: Local edits erased.`);
+          }}
+        />
+        {resetMsg && <div class="text-primary">{resetMsg}</div>}
+      </div>
+
       <h3>Exports and Contributions</h3>
       <p>Adding any edits back to the project requires a pull request. For now, this process involves a few steps:</p>
+
       <ol>
-        <li>{EditorButton({ label: "Export Local Data", onClick: () => console.log("TODO") })}</li>
+        <li>
+          <EditorButton label="Export Local Data" onClick={() => exportData(store.load("local-edits"))} />
+        </li>
         <li>
           Fork <a href="https://github.com/emmanueloga/plangs2">Plangs! source repository</a>.
         </li>
@@ -49,4 +79,15 @@ function Status({ pg }: { pg: PlangsGraph }) {
       <p>Now you should be ready to send a pull request. Thanks in advance!.</p>
     </div>
   );
+}
+
+/** Export the local data as a JSON object. */
+function exportData(data: any) {
+  const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "plangs.json";
+  a.click();
+  URL.revokeObjectURL(url);
 }
