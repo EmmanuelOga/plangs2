@@ -7,7 +7,7 @@
 
 import { arrayMerge } from "@plangs/auxiliar/array";
 import { loadDefinitions } from "@plangs/definitions";
-import { tsLongPath, tsShortPath, vertexCodeGen, verticesCodeGen } from "@plangs/languist/codegen";
+import { tsVertexPath, vertexCodeGen } from "@plangs/languist/codegen";
 import { LG_LANGS, type Rankings } from "@plangs/languist/languish";
 import { GH_LANGS } from "@plangs/languist/linguist";
 import { reformatCode } from "@plangs/languist/reformat";
@@ -95,25 +95,17 @@ export async function processGithubAndLanguish() {
 
   console.warn("Languages without updates:", { woGithub: [...woGH], woLanguish: [...woLG] });
 
-  for (const pl of pg.plang.values) Bun.write(tsLongPath(pl), await reformatCode(vertexCodeGen(pl)));
+  for (const pl of pg.plang.values) Bun.write(tsVertexPath(pl), await reformatCode(vertexCodeGen(pl)));
 
   console.warn("CAUTION: matching github data is not a perfect process. Results (git diff) should be manually reviewed.");
 }
 
-const VERTICES_TO_GEN = ["community", "learning", "license", "paradigm", "platform", "tag", "typeSystem"] as const;
-
-/** This regenerates some vertices that are not VPlangs. Useful to reorder the definitions. */
-export async function regenNonPlangs(pg: PlangsGraph) {
-  for (const vertexName of VERTICES_TO_GEN) {
-    Bun.write(tsShortPath(vertexName), await reformatCode(verticesCodeGen(pg, vertexName)));
-  }
-}
-
-/** Regenerate all Plang vertices. */
-export async function regenPlangs(pg: PlangsGraph) {
-  for (const pl of pg.plang.values) {
-    // This is good place for "migrations", like renaming keys.
-    Bun.write(tsLongPath(pl), await reformatCode(vertexCodeGen(pl)));
+/** Regenerate all vertices. */
+export async function regenVertexDefinitions(pg: PlangsGraph) {
+  for (const vertices of Object.values(pg.vertices)) {
+    for (const vertex of vertices.values) {
+      Bun.write(tsVertexPath(vertex), await reformatCode(vertexCodeGen(vertex)));
+    }
   }
 }
 
@@ -149,28 +141,7 @@ export async function cleanup() {
   pg.loadJSON(JSON.parse(await Bun.file("plangs.json").text()));
   pg.materialize();
 
-  const dry = false; // Set to true to only print missing data, false to regenerate after cleanup.
-  cleanupData(pg, !dry);
-
-  if (!dry) {
-    regenNonPlangs(pg);
-    regenPlangs(pg);
-  }
-}
-
-// Regenerating a language should result in the same file as before.
-async function regenTest() {
-  const pg = new PlangsGraph();
-  await loadDefinitions(pg, { scanImages: false });
-  pg.materialize();
-
-  const py = pg.plang.get("pl+python");
-  if (!py) throw new Error("Python not found!");
-
-  const code = await reformatCode(vertexCodeGen(py));
-  // Add date to the top of the file to make sure it's different.
-  Bun.write(tsLongPath(py), `//${new Date().toISOString()}\n${code}`);
-  console.log("Regenerated Python:", code.length, "bytes");
+  regenVertexDefinitions(pg);
 }
 
 await cleanup();

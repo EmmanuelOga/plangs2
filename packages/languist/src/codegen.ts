@@ -7,47 +7,17 @@ import type { Image } from "@plangs/plangs/graph/vertex_data_schemas";
 
 export const DEFINITIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions");
 
-export function tsLongPath(vertex: TPlangsVertex): string {
+export function tsVertexPath(vertex: TPlangsVertex): string {
   const name = vertex.plainKey.replace(/[^a-zA-Z0-9\_\+\-]/g, "-");
-  return join(DEFINITIONS_PATH, vertex.vertexName, vertex.classifier, name, `${name}.ts`);
+  return join(DEFINITIONS_PATH, vertex.vertexName, vertex.classifier, `${name}.ts`);
 }
-
-export const tsShortPath = (name: TPlangsVertexName) => join(DEFINITIONS_PATH, `${name}.ts`);
 
 /** Generate code that can reconstruct the state of a single vertex. */
 export function vertexCodeGen(vertex: TPlangsVertex): string {
-  let other = "";
-  // Special handling for VPlang, as we collocate the tools, bundles, libraries and apps.
-  if (vertex instanceof VPlang) {
-    other = `
-    // TOOLS\n
-    ${vertex.relTools.values.map(val => genSetter(val)).join("\n\n")}
-
-    // TOOL BUNDLES\n
-    ${vertex.relBundles.values.map(val => genSetter(val)).join("\n\n")}
-
-    // LIBRARIES\n
-    ${vertex.relLibraries.values.map(val => genSetter(val)).join("\n\n")}
-
-    // APPS\n
-    ${vertex.relApps.values.map(val => genSetter(val)).join("\n\n")}
-  `;
-  }
   return `import type { PlangsGraph } from "@plangs/plangs/graph";
 
   export function define(g: PlangsGraph) {
     ${genSetter(vertex)}
-    ${other}
-  }`;
-}
-
-/** Generates code that can reconstruct a whole collection of vertices. */
-export function verticesCodeGen(pg: PlangsGraph, name: TPlangsVertexName): string {
-  const vertices = [...pg[name].values];
-  return `import type { PlangsGraph } from "@plangs/plangs/graph";
-
-  export function define(g: PlangsGraph) {
-    ${vertices.map(v => genSetter(v)).join("\n\n")}
   }`;
 }
 
