@@ -48,4 +48,10 @@
     "[dot]": {
         "editor.defaultFormatter": "tintinweb.graphviz-interactive-preview"
     },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
 }
