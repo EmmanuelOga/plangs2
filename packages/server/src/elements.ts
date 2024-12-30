@@ -6,6 +6,8 @@
 export const ID_KEYS = [
   "todo",
 
+  "localEditWarning", // Warning about local edits.
+
   "mainContent", // Main content area in the layout.
   "mainNav", // Main navigation bar, toggled by the hamburger icon.
   "vertexGrid", // Main grid for vertices.
