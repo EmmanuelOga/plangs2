@@ -5,6 +5,7 @@
         ".cache/": true,
         "**/.git": true,
         "**/.DS_Store": true,
+        ".overmind.sock": true,
     },
     // ---------------------------------------------------------------------------- 
     // TailwindCSS IntelliSense.
@@ -53,5 +54,8 @@
     },
     "[markdown]": {
         "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
     },
 }
