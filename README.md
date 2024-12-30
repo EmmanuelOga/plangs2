@@ -57,10 +57,6 @@ The process of adding a relationship to the data that could be inferred is calle
 
 Both *materializing relationships* and *inferring them on the fly* give room for richer searches. Options for enriching the data this way include using existing graph databases, RDF based systems or writing our own inference/materialization code.
 
-## WIP
-
-- [ ] Allow images for all vertices.
-
 ## "ADMIN"
 
 - [ ] Tidy up regenarating code.

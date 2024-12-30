@@ -7,12 +7,12 @@
 
 import { arrayMerge } from "@plangs/auxiliar/array";
 import { loadDefinitions } from "@plangs/definitions";
+import { tsLongPath, tsShortPath, vertexCodeGen, verticesCodeGen } from "@plangs/languist/codegen";
 import { LG_LANGS, type Rankings } from "@plangs/languist/languish";
 import { GH_LANGS } from "@plangs/languist/linguist";
+import { reformatCode } from "@plangs/languist/reformat";
 import type { LanguishKeys, LinguistLang } from "@plangs/languist/types";
 import { PlangsGraph, type VPlang } from "@plangs/plangs/graph";
-import { tsLongPath, tsShortPath, vertexCodeGen, verticesCodeGen } from "../codegen";
-import { reformatCode } from "../reformat";
 
 /** Update the VPlang data with Github data. */
 function updateWithGH(pl: VPlang, ghMap: Map<string, LinguistLang>): boolean {
@@ -145,9 +145,9 @@ export async function cleanup() {
   const pg = new PlangsGraph();
 
   // Switch between: load definitions or load the data.
-  await loadDefinitions(pg, { scanImages: false });
+  // await loadDefinitions(pg, { scanImages: false });
+  pg.loadJSON(JSON.parse(await Bun.file("plangs.json").text()));
   pg.materialize();
-  // pg.loadJSON(JSON.parse(await Bun.file("plangs.json").text()));
 
   const dry = false; // Set to true to only print missing data, false to regenerate after cleanup.
   cleanupData(pg, !dry);
