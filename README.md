@@ -1,5 +1,7 @@
 # Plangs
 
+![Plangs](packages/server/static/images/plangs-dark.svg)
+
 Plangs ambition is to become a community oriented programming languages page where people can find trends, tools and blog posts related to programming languages and the ecosystem of tools, documentation, learning resources, etc.
 
 The website at the moment is fully static and will remain so until we have a very good reason to add a backend.
