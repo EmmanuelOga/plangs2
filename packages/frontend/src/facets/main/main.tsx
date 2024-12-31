@@ -51,7 +51,7 @@ export function FacetsMain({ page, pg }: { page: PlangsPage; pg: PlangsGraph }) 
         </span>
       </div>
 
-      <div class={tw("w-full ", "flex flex-col", "overflow-hidden", "bg-linear-to-b to-primary/25", "relative")}>
+      <div class={tw("w-full ", "flex flex-col", "overflow-hidden", "relative")}>
         <state.groupsComponent currentFacetGroup={state.currentGroupKey} />
       </div>
     </FacetsMainContext.Provider>

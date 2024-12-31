@@ -1,4 +1,4 @@
-import { tw } from "@plangs/frontend/auxiliar/styles";
+import { background, tw } from "@plangs/frontend/auxiliar/styles";
 import { VertexInfo } from "@plangs/frontend/components/vertex-info/vertex-info";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
