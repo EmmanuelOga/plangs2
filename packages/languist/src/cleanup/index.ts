@@ -102,7 +102,8 @@ export async function processGithubAndLanguish() {
 
 /** Regenerate all vertices. */
 export async function regenVertexDefinitions(pg: PlangsGraph) {
-  for (const vertices of Object.values(pg.vertices)) {
+  for (const [name, vertices] of Object.entries(pg.vertices)) {
+    if (name === "post") continue; // This is generated from the server/content folder.
     for (const vertex of vertices.values) {
       Bun.write(tsVertexPath(vertex), await reformatCode(vertexCodeGen(vertex)));
     }
@@ -133,15 +134,15 @@ export function cleanupData(pg: PlangsGraph, update: boolean) {
   }
 }
 
-export async function cleanup() {
+export async function importData(path: string) {
   const pg = new PlangsGraph();
 
   // Switch between: load definitions or load the data.
   // await loadDefinitions(pg, { scanImages: false });
-  pg.loadJSON(JSON.parse(await Bun.file("plangs.json").text()));
+  pg.loadJSON(JSON.parse(await Bun.file(path).text()));
   pg.materialize();
 
   regenVertexDefinitions(pg);
 }
 
-await cleanup();
+await importData("plangs.json");
