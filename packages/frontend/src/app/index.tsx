@@ -1,6 +1,5 @@
 import "preact/debug";
 
-import { debugAspectRatio } from "@plangs/frontend/auxiliar/aspect";
 import { elem, elems } from "@plangs/frontend/auxiliar/dom";
 import { on } from "@plangs/frontend/auxiliar/events";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";

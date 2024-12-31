@@ -4,9 +4,12 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertex, TPlangsVertexName } from "@plangs/plangs/graph/generated";
 import { dataKey } from "@plangs/server/elements";
 
+/** The build process defines this to be '/plangs.json' on dev mode, or the hashed file on prod. */
+declare const PLANGS_DATA_PATH: string;
+
 /** Load the data from the server. */
 export async function loadServerData(pg: PlangsGraph): Promise<void> {
-  return fetch("/plangs.json").then(async response => {
+  return fetch(PLANGS_DATA_PATH).then(async response => {
     console.info("Using remote data.");
     pg.loadJSON(await response.json());
     pg.materialize();

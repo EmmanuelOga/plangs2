@@ -16,6 +16,8 @@ const OUTPUT = join(ROOT, "output");
 const STATIC = join(ROOT, "packages/server/static");
 const ASSETS = join(ROOT, "packages/definitions/assets");
 
+const BUILD_DATE = new Date().toISOString().split("T")[0];
+
 const ensureDir = async (path: string) => {
   const dir = path.substring(0, path.lastIndexOf("/"));
   return mkdir(dir, { recursive: true });
@@ -29,13 +31,18 @@ async function resetOutput() {
 }
 
 /** Bundle the App's JS with ESBuild. */
-async function generateJSBundle(outputPath: string) {
+async function generateJSBundle(outputPath: string, pg: PlangsGraph) {
+  // We need to generate the data first to get the hash, and then use it in the define.
+  const data = JSON.stringify(pg.toJSON());
+  const dataName = `plangs-${Bun.hash(data)}-${BUILD_DATE}.json`;
+  Bun.write(join(outputPath, dataName), data);
+
   await esbuild.build({
     entryPoints: [join(ROOT, "packages/frontend/src/app/index.tsx")],
     target: ["chrome130", "firefox132", "safari18", "edge130", "es2022"],
     bundle: true,
     sourcemap: true,
-    define: { PLANGS_ENV: '"prod"' },
+    define: { PLANGS_ENV: '"prod"', PLANGS_DATA_PATH: `"/${dataName}"` },
     minify: true,
     treeShaking: true,
     alias: { "preact/debug": "preact" },
@@ -49,8 +56,8 @@ async function generateCSS(outputPath: string) {
 }
 
 async function hashOutputs(outputPath: string) {
-  const hashedJS = `app-${Bun.hash(await Bun.file(join(outputPath, "app.js")).text())}.js`;
-  const hashedCSS = `app-${Bun.hash(await Bun.file(join(outputPath, "app.css")).text())}.css`;
+  const hashedJS = `app-${Bun.hash(await Bun.file(join(outputPath, "app.js")).text())}-${BUILD_DATE}.js`;
+  const hashedCSS = `app-${Bun.hash(await Bun.file(join(outputPath, "app.css")).text())}-${BUILD_DATE}.css`;
 
   await rename(join(outputPath, "app.js"), join(outputPath, hashedJS));
   await rename(join(outputPath, "app.js.map"), join(outputPath, `${hashedJS}.map`));
@@ -65,7 +72,7 @@ async function hashOutputs(outputPath: string) {
  * then save the URL to disk instead of serving it.
  * We also need to save static assets like images and the files on `server/static`.
  */
-async function generateRest(outputPath: string) {
+async function generateRest(outputPath: string, pg: PlangsGraph) {
   const timestamp = new Date().toISOString();
 
   // Files to skip when copying static files.
@@ -87,12 +94,6 @@ async function generateRest(outputPath: string) {
     await ensureDir(dstPath);
     await copyFile(srcPath, dstPath);
   }
-
-  // Generate plangs.json
-  const pg = new PlangsGraph();
-  await loadDefinitions(pg, { scanImages: true });
-  await loadPosts(pg);
-  Bun.write(join(outputPath, "plangs.json"), JSON.stringify(pg.toJSON()));
 
   // Collect all paths.
   const allPaths = [...GRID_PATHS.keys(), ...REFERENCE_PATHS.keys(), "/about", "/blog", "/edit"];
@@ -116,8 +117,12 @@ async function generateRest(outputPath: string) {
 const outputPath = process.argv[2] || OUTPUT;
 console.log("Generating to", outputPath);
 
+const pg = new PlangsGraph();
+await loadDefinitions(pg, { scanImages: true });
+await loadPosts(pg);
+
 if (outputPath === OUTPUT) await resetOutput();
-await generateJSBundle(outputPath);
+await generateJSBundle(outputPath, pg);
 await generateCSS(outputPath);
 await hashOutputs(outputPath);
-await generateRest(outputPath);
+await generateRest(outputPath, pg);
