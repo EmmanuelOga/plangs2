@@ -60,7 +60,7 @@ export function FacetGroup<GroupKey extends string>({
         "size-full overflow-hidden overflow-y-auto",
 
         // Children.
-        "flex flex-col gap-2",
+        "flex flex-col gap-2 pb-2",
       )}>
       {children}
     </div>

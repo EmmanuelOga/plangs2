@@ -7,7 +7,7 @@ export const HOVER_ICON = "rounded p-1 hover:text-hiliteb hover:ring-1 hover:rin
 export const HOVER_ICON_BG = "rounded-2xl hover:bg-background/20 hover:text-hiliteb";
 
 export const BORDER = "border-primary/85 border-dotted";
-export const INPUT = "bg-background text-foreground placeholder:text-foreground/50";
+export const INPUT = "bg-background text-foreground placeholder:text-foreground/50 py-0.5";
 export const PROSE_BASIC = "prose dark:prose-invert sm:prose-sm lg:prose-lg xl:prose-xl";
 export const PROSE = `${PROSE_BASIC} max-w-[80ch] mx-auto`;
 export const VSCROLL = "overflow-hidden overflow-y-auto";

@@ -60,13 +60,7 @@ export function FacetsMain({ page, pg }: { page: PlangsPage; pg: PlangsGraph }) 
   return (
     <aside
       ref={self as Ref<HTMLElement>}
-      class={tw(
-        //
-        cssClass("facetsWrapper"),
-        "flex",
-        "size-full overflow-hidden",
-        "border-1 border-primary/25 border-t-0",
-      )}>
+      class={tw(cssClass("facetsWrapper"), "text-xs sm:text-base", "flex", "size-full overflow-hidden", "border-1 border-primary/25 border-t-0")}>
       {state && body(state)}
     </aside>
   );

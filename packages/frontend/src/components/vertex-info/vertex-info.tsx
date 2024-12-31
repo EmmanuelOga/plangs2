@@ -46,7 +46,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
   });
 
   const iconLinks = detail && (
-    <div class="flex flex-row flex-nowrap items-center gap-2 pt-2 align-middle">
+    <div class="flex flex-row flex-nowrap items-center gap-3 align-middle">
       {ret(detail.urlHome, url => url && <IconLink href={url} icon={EXTERN} />)}
       {ret(detail.urlLanguish, url => url && <IconLink href={url} icon={LANGUISH} title={`#${detail.ranking} on Languish`} />)}
       {ret(detail.urlGithub, url => url && <IconLink href={url} icon={GITHUB} />)}
@@ -65,7 +65,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
   );
 
   const info = detail ? (
-    <div class={tw("overflow-hidden overflow-y-scroll", !forGrid && "py-4", "landscape-short:hidden")}>
+    <div class={tw(forGrid && "pb-2 text-xs sm:text-base", VSCROLL, !forGrid && "py-4", "short:hidden")}>
       {!forGrid && detail.thumbUrl && <VertexThumbn detail={detail} onlyImg={true} class="float-right m-1 ml-6 size-24" />}
       <div class={tw("hyphens-auto", !forGrid && "text-justify")}>{forGrid ? detail.shortDesc : detail.description}</div>
     </div>
@@ -77,7 +77,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
 
   let i = 1;
   const relations = detail && detail.relations.length > 0 && (
-    <details class={tw(forGrid && "hidden sm:block landscape-short:hidden", "overflow-hidden")} open={open}>
+    <details class={tw(forGrid && "hidden short:hidden sm:block", "overflow-hidden")} open={open}>
       <summary class="cursor-pointer pb-4 text-primary" {...onClickOnEnter(updateOpen)}>
         Details
       </summary>
@@ -117,7 +117,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
       class={tw(
         "flex flex-col",
         tw(PROSE_BASIC, "max-w-[unset]"),
-        forGrid && "px-2 pt-1 sm:p-4",
+        forGrid && "px-2 short:py-0 pt-1 sm:p-4",
         forGrid && "border-primary/50 landscape-narrow:border-t-1",
         "overflow-hidden",
       )}>
@@ -130,7 +130,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
 
 function IconLink({ href, icon, title }: { href: string; icon: JSX.Element; title?: string }) {
   return (
-    <a {...(title ? { title } : {})} href={href} class={tw(cssClass("externalLink"), "inline-block aspect-square", "transition-transform", "p-1")}>
+    <a {...(title ? { title } : {})} href={href} class={tw(cssClass("externalLink"), "inline-block aspect-square", "transition-transform", "sm:p-1")}>
       <div class={tw("inline-block", HOVER_ICON)}>{icon}</div>
     </a>
   );

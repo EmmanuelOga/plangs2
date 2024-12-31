@@ -78,7 +78,7 @@ export function FacetMulti<GroupKey extends string, FacetKey extends string>({
         name={facetKey as string}
         ref={input as Ref<HTMLInputElement>}
         placeholder={label}
-        class={tw(INPUT, "m-2")}
+        class={tw(INPUT, "mx-2")}
         onKeyDown={add}
       />
 

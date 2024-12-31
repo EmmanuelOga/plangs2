@@ -19,5 +19,5 @@ export function FacetText<GroupKey extends string, FacetKey extends string>({
     50,
   );
   const current = main.values.get(groupKey, facetKey)?.value ?? "";
-  return <input type="search" onInput={onInput} placeholder={label} class={tw("m-2", INPUT)} value={current} />;
+  return <input type="search" onInput={onInput} placeholder={label} class={tw("mx-2", INPUT)} value={current} />;
 }

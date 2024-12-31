@@ -22,7 +22,7 @@ export function VertexGrid({ pg, page, vertexName }: { pg: PlangsGraph; page: Pl
         "p-2 sm:p-4 sm:pt-2",
         "grid-main",
         "grid auto-rows-max gap-4",
-        "grid-cols-[repeat(auto-fill,minmax(clamp(3.5rem,min(10dvh,10dvw),6rem),1fr))]",
+        "grid-cols-[repeat(auto-fill,minmax(clamp(2.5rem,min(10dvh,10dvw),6rem),1fr))]",
         "border-1 border-primary/25",
       )}>
       {[...pg.vertices[vertexName].values].map(vertex => (

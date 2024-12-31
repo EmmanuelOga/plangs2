@@ -94,5 +94,5 @@ if (PLANGS_ENV === "dev") {
   } catch (err) {
     console.error(err);
   }
-  debugAspectRatio();
+  // debugAspectRatio();
 }

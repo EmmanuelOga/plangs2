@@ -184,7 +184,7 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
     setTimeout(() => {
       const clearAll = $<HTMLElement & { state?: ToggleClearFacets }>(`#${iconButonId("clearFacets")}`);
       clearAll?.state?.doToggleMode(this.anyValues ? "clearFacets" : "");
-    }, 500);
+    }, 100);
   }
 
   /** Push state to the history, but debounced. */
