@@ -1,4 +1,4 @@
-import type { Ref } from "preact";
+import type { ComponentChildren, Ref } from "preact";
 import { useEffect } from "preact/hooks";
 
 import { useRootState } from "@plangs/frontend/auxiliar/dispatchable";
@@ -55,4 +55,12 @@ export function IconButton({ action, disabled, initial }: IconButtonProps) {
       {state?.icon}
     </div>
   );
+}
+
+/**
+ * Simple wrapper to make any icon look like an icon button.
+ * TODO: would be better to use the very same markup as IconButton.
+ */
+export function IconWrapper({ children }: { children: ComponentChildren }) {
+  return <div class={tw("group", "cursor-pointer", "border-1 border-dotted", "border-transparent", HOVER_ICON)}>{children}</div>;
 }

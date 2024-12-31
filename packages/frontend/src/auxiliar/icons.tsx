@@ -115,7 +115,6 @@ export const LINKOUT = (
 export const SORT_DOWN = (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" class={CSS}>
     <title>Sort Down</title>
-    <rect id="Canvas" fill="#ff13dc" opacity="0" width="18" height="18" />
     <rect height="2" rx="0.5" width="6" x="1" y="12" />
     <rect height="2" rx="0.5" width="8" x="1" y="8" />
     <rect height="2" rx="0.5" width="10" x="1" y="4" />
@@ -136,7 +135,6 @@ export const SORT_UP = (
 export const SEARCH = (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" class={CSS}>
     <title>Search</title>
-    <rect id="Canvas" fill="#ff13dc" opacity="0" width="18" height="18" />
     <path d="M16.5865,15.107,12.7,11.2215A6.413,6.413,0,1,0,11.2215,12.7l3.886,3.886a1.05,1.05,0,0,0,1.479-1.479ZM3,7.5A4.5,4.5,0,1,1,7.5,12,4.5,4.5,0,0,1,3,7.5Z" />
   </svg>
 );
@@ -145,6 +143,19 @@ export const LANGUISH = (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" class={CSS}>
     <title>Languish Language Rankings</title>
     <path d="M16.5465,3.0305l-4.07,5.687L10.45,4.6605a.25.25,0,0,0-.4585.0265l-2.725,7.496L5.226,10.1425a.25.25,0,0,0-.337-.0155L1.09,13.2895a.25.25,0,0,0-.09.192v2.094a.25.25,0,0,0,.4145.188l3.524-3.0785,2.854,2.854a.25.25,0,0,0,.4115-.0915l2.274-6.255L12,12.2405a.25.25,0,0,0,.4285.0315L16.955,5.808A.25.25,0,0,0,17,5.665V3.176a.25.25,0,0,0-.4535-.1455Z" />
+  </svg>
+);
+
+export const NEWS = (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" class={CSS}>
+    <title>News!</title>
+    <path d="M16.5,3H2.5a.5.5,0,0,0-.5.5v10a.5.5,0,0,1-1,0V5.25A.25.25,0,0,0,.75,5H.25A.25.25,0,0,0,0,5.25V13.5A1.5,1.5,0,0,0,1.5,15h14A1.5,1.5,0,0,0,17,13.5V3.5A.5.5,0,0,0,16.5,3Zm-1,11H3V4H16v9.5A.5.5,0,0,1,15.5,14Z" />
+    <rect height="1" width="5" x="10" y="6" />
+    <rect height="1" width="5" x="10" y="10" />
+    <rect height="1" width="5" x="4" y="12" />
+    <rect height="1" width="5" x="10" y="8" />
+    <rect height="1" width="5" x="10" y="12" />
+    <rect height="5" width="5" x="4" y="6" />
   </svg>
 );
 

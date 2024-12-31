@@ -6,6 +6,8 @@ import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
 import { cssID } from "@plangs/server/elements";
 import { script } from "@plangs/server/utils/html";
 
+import { NEWS } from "@plangs/frontend/auxiliar/icons";
+import { IconWrapper } from "@plangs/frontend/components/icon-button/icon-button";
 import { MainNav } from "./main-nav";
 
 export type PageType = "grid" | "other";
@@ -122,6 +124,7 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
             {page === "plangs" && iconButton("gridOrder")}
             {pageType === "grid" && iconButton("clearFacets")}
             <div class="flex-1" />
+            <IconWrapper children={<a href="/blog" title="News!" children={NEWS} />} />
             {iconButton("lights")}
           </div>
           <div class="flex flex-1 flex-row overflow-hidden">
