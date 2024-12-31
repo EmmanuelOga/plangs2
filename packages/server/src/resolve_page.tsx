@@ -34,7 +34,7 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
   if (path.length > 128) return;
 
   if (path === "/edit") return <Edit />;
-  if (path === "/about") return <ContentPage page="about" content={await loadContent("2024_09_20_about.md", pg)} />;
+  if (path === "/about") return <ContentPage page="about" content={await loadContent("2024_12_31_about.md", pg)} />;
 
   if (path === "/blog") return <Blog pg={pg} />;
   if (path.startsWith("/blog/") && path.length < 128) {
