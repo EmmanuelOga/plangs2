@@ -1,4 +1,4 @@
-import { copyFile, mkdir, rmdir } from "node:fs/promises";
+import { copyFile, mkdir, rename, rmdir } from "node:fs/promises";
 import { join } from "node:path";
 import { Glob } from "bun";
 import { $ } from "bun";
@@ -9,6 +9,7 @@ import { PlangsGraph } from "@plangs/plangs/graph";
 import { loadPosts } from "@plangs/server/content";
 import { GRID_PATHS, REFERENCE_PATHS, resolvePage } from "@plangs/server/resolve_page";
 import { vdomToHTML } from "@plangs/server/utils/server";
+import { LAYOUT_DEFAULTS } from "../components/layout";
 
 const ROOT = join(import.meta.dir, "../../../..");
 const OUTPUT = join(ROOT, "output");
@@ -45,6 +46,18 @@ async function generateJSBundle(outputPath: string) {
 /** Bundle the App's CSS with Tailwind. 4.0 beta doesn't have a good way to call this from code at the moment. */
 async function generateCSS(outputPath: string) {
   await $`bun x @tailwindcss/cli@next -m -i ${join(ROOT, "styles.css")} -o ${join(outputPath, "app.css")}`;
+}
+
+async function hashOutputs(outputPath: string) {
+  const hashedJS = `app-${Bun.hash(await Bun.file(join(outputPath, "app.js")).text())}.js`;
+  const hashedCSS = `app-${Bun.hash(await Bun.file(join(outputPath, "app.css")).text())}.css`;
+
+  await rename(join(outputPath, "app.js"), join(outputPath, hashedJS));
+  await rename(join(outputPath, "app.js.map"), join(outputPath, `${hashedJS}.map`));
+  await rename(join(outputPath, "app.css"), join(outputPath, hashedCSS));
+
+  LAYOUT_DEFAULTS.jsBundle = `/${hashedJS}`;
+  LAYOUT_DEFAULTS.cssBundle = `/${hashedCSS}`;
 }
 
 /**
@@ -106,4 +119,5 @@ console.log("Generating to", outputPath);
 if (outputPath === OUTPUT) await resetOutput();
 await generateJSBundle(outputPath);
 await generateCSS(outputPath);
+await hashOutputs(outputPath);
 await generateRest(outputPath);

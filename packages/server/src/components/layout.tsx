@@ -40,6 +40,11 @@ type LayoutProps = {
   children: ComponentChildren;
 };
 
+export const LAYOUT_DEFAULTS = {
+  jsBundle: "/app.js",
+  cssBundle: "/app.css",
+};
+
 export function Layout({ page, pageType, title, desc, mainClasses, children }: LayoutProps) {
   return (
     <html lang="en">
@@ -49,10 +54,10 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
         <meta name="description" content={desc ?? title} />
         <meta name="theme-color" content="#609" />
 
-        <script src="/app.js" />
+        <script src={LAYOUT_DEFAULTS.jsBundle} />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="/app.css" />
+        <link rel="stylesheet" href={LAYOUT_DEFAULTS.cssBundle} />
         <link type="image/png" rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png" />
         <link type="image/png" rel="icon" sizes="192x192" href="/icons/icon-192x192.png" />
         <link type="image/png" rel="icon" sizes="72x72" href="/icons/icon-72x72.png" />
