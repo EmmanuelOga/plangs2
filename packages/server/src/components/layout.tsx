@@ -17,6 +17,7 @@ export type PlangsPage =
   | "blog"
   | "communities"
   | "edit"
+  | "learnings"
   | "libraries"
   | "licenses"
   | "paradigms"
@@ -29,7 +30,7 @@ export type PlangsPage =
   | "typesystems"
   | "NA";
 
-export const GRID_PAGES: Set<PlangsPage> = new Set(["plangs", "tools", "apps", "libraries", "subsystems", "communities", "learning"]);
+export const GRID_PAGES: Set<PlangsPage> = new Set(["plangs", "tools", "apps", "libraries", "subsystems", "communities", "learnings"]);
 
 type LayoutProps = {
   page: PlangsPage;

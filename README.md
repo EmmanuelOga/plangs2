@@ -86,7 +86,7 @@ Both *materializing relationships* and *inferring them on the fly* give room for
 
 ## WIP
 
-- [ ] Sitemap.
+- [ ] Sitemap & robots.txt
 
 ## RELEASE
 
@@ -103,3 +103,4 @@ Both *materializing relationships* and *inferring them on the fly* give room for
 - [ ] Explore using the Github API to generate a PR or comment with changes.
 - [ ] Allow adding things in the editor and calling OpenAI's APIs.
 - [ ] Allow AI to crawl things other than Plangs.
+- [ ] Better structured data (fb ogp and schema.org).

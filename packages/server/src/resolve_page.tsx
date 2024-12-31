@@ -14,7 +14,7 @@ export const GRID_PATHS = new Map<string, { vertexName: TPlangsVertexName; page:
   ["/", { vertexName: "plang", page: "plangs" }],
   ["/apps", { vertexName: "app", page: "apps" }],
   ["/communities", { vertexName: "community", page: "communities" }],
-  ["/learning", { vertexName: "learning", page: "learning" }],
+  ["/learning", { vertexName: "learning", page: "learnings" }],
   ["/libraries", { vertexName: "library", page: "libraries" }],
   ["/plangs", { vertexName: "plang", page: "plangs" }],
   ["/subsystems", { vertexName: "subsystem", page: "subsystems" }],
