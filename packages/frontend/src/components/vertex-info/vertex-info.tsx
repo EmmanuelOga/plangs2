@@ -65,9 +65,9 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
   );
 
   const info = detail ? (
-    <div class={tw("hidden py-4 sm:block landscape-short:hidden")}>
+    <div class={tw("py-4 landscape-short:hidden")}>
       {!forGrid && detail.thumbUrl && <VertexThumbn detail={detail} onlyImg={true} class="float-right m-1 ml-6 size-24" />}
-      <div class="hyphens-auto text-justify">{forGrid ? detail.shortDesc : detail.description}</div>
+      <div class={tw("hyphens-auto", !forGrid && "text-justify")}>{forGrid ? detail.shortDesc : detail.description}</div>
     </div>
   ) : (
     <p>

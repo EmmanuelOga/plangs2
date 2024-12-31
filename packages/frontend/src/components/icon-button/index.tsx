@@ -7,10 +7,12 @@ import { IconButton, type IconButtonProps } from "./icon-button";
 
 const CL: CLKey = "iconButton";
 
+export const iconButonId = (action: IconButtonProps["action"]) => `icon-button-${action}`;
+
 /** Server side container for the Component. */
 export function iconButton(action: IconButtonProps["action"]) {
   return (
-    <div id={`icon-button-${action}`} data-action={action} class={cssClass("iconButton")}>
+    <div id={iconButonId(action)} data-action={action} class={cssClass("iconButton")}>
       {/* Render the icon server-side to reduce flickering when enabling the icons. */}
       <IconButton action={action} />
     </div>

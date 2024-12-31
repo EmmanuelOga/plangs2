@@ -7,6 +7,7 @@ import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { $, elems } from "@plangs/frontend/auxiliar/dom";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { getStore } from "@plangs/frontend/auxiliar/storage";
+import { iconButonId } from "@plangs/frontend/components/icon-button";
 import type { ToggleClearFacets } from "@plangs/frontend/components/icon-button/state";
 import type { Vertices } from "@plangs/graphgen/library";
 import { matchVerticesFromGroups } from "@plangs/plangs/facets";
@@ -177,11 +178,13 @@ export abstract class FacetsMainState<GroupKey extends string, FacetKey extends 
   }
 
   /** Update the clear facets button on the toolbar. */
-  private updateClearFacets(): this {
-    const clearAll = $<HTMLElement & { state?: ToggleClearFacets }>("#icon-button-clearFacets");
-    if (!clearAll?.state) return this;
-    clearAll.state.doToggleMode(this.anyValues ? "clearFacets" : "");
-    return this;
+  private updateClearFacets() {
+    // This needs to be delayed to give preact time to render and setup the state of the button on an effect.
+    // TODO: refactor this into a more straightforward solution.
+    setTimeout(() => {
+      const clearAll = $<HTMLElement & { state?: ToggleClearFacets }>(`#${iconButonId("clearFacets")}`);
+      clearAll?.state?.doToggleMode(this.anyValues ? "clearFacets" : "");
+    }, 500);
   }
 
   /** Push state to the history, but debounced. */
