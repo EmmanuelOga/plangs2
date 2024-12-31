@@ -14,7 +14,7 @@ export const PLANG_FACET_PREDICATES = {
   creationYear: ((pl, flt) => ret(pl.created.strYear, plYear => flt.matches(year => plYear === year))) as Pred<Filter<string>>,
   dialectOf: ((pl, flt) => flt.matches(key => pl.key === key || pl.relDialectOf.has(key))) as Pred<Filter<VPlangKey>>,
   extensions: ((pl, flt) => flt.matches(key => pl.extensions.includes(key))) as Pred<Filter<string>>,
-  hasLogo: ((pl, val) => val.value === pl.images.some(img => img.kind === "logo")) as Pred<ValBool>,
+  hasLogo: ((pl, val) => val.value === "" || ret(pl.hasLogo, hl => (hl && val.value === "1") || (!hl && val.value === "0"))) as Pred<ValString>,
   hasWikipedia: ((pl, val) => val.value === !!pl.data.extWikipediaPath) as Pred<ValBool>,
   implements: ((pl, flt) => flt.matches(key => key === pl.key || pl.relImplements.has(key))) as Pred<Filter<VPlangKey>>,
   influenced: ((pl, flt) => flt.matches(key => pl.relInfluenced.has(key))) as Pred<Filter<VPlangKey>>,

@@ -100,10 +100,12 @@ test("hasLogo", () => {
   const pascal = pg.plang.set("pl+pascal").addImages([{ kind: "logo", title: "Logo", url: "https://plangs.page/logo.png" }]);
   const { hasLogo: check } = PLANG_FACET_PREDICATES;
 
-  expect(check(java, new ValBool(false))).toBeTrue();
-  expect(check(java, new ValBool(true))).toBeFalse();
-  expect(check(pascal, new ValBool(false))).toBeFalse();
-  expect(check(pascal, new ValBool(true))).toBeTrue();
+  expect(check(java, new ValString("0"))).toBeTrue();
+  expect(check(java, new ValString("1"))).toBeFalse();
+  expect(check(java, new ValString(""))).toBeTrue();
+  expect(check(pascal, new ValString("0"))).toBeFalse();
+  expect(check(pascal, new ValString("1"))).toBeTrue();
+  expect(check(pascal, new ValString(""))).toBeTrue();
 });
 
 test("hasWikipedia", () => {

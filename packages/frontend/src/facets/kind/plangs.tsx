@@ -20,8 +20,12 @@ const [GROUPS, GK_BY_FK, COMPONENT] = defineFacetGroups<GK, FK>({
       multi("extensions", "Extensions"),
       select("created", "Created"),
       select("released", "Released"),
+      select("hasLogo", "Logo", [
+        { label: "Any", value: "" },
+        { label: "Present", value: "1" },
+        { label: "Absent", value: "0" },
+      ]),
       bool("isPopular", "Is Popular"),
-      bool("hasLogo", "Has Logo"),
       bool("hasWikipedia", "Has Wikipedia"),
     ],
   },

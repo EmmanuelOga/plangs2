@@ -205,6 +205,10 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
     return new IterTap(this.data.images);
   }
 
+  get hasLogo(): boolean {
+    return this.images.some(img => img.kind === "logo");
+  }
+
   get keywords(): IterTap<string> {
     return new IterTap(this.data.keywords);
   }
