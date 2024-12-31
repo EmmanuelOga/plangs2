@@ -51,7 +51,7 @@ export function FacetsMain({ page, pg }: { page: PlangsPage; pg: PlangsGraph }) 
         </span>
       </div>
 
-      <div class={tw("w-full ", "flex flex-col", "overflow-hidden", "relative")}>
+      <div class={tw("flex flex-col", "overflow-hidden", "relative")}>
         <state.groupsComponent currentFacetGroup={state.currentGroupKey} />
       </div>
     </FacetsMainContext.Provider>
@@ -71,7 +71,7 @@ function FacetsAsideMenu({ state, page, class: klass }: { state: AnyFacetsMainSt
     group.map(groupKey => callback(groupKey, state.currentGroupKey === groupKey, state.groupHasValues(groupKey)));
 
   return (
-    <aside class={tw("h-full min-w-[12rem] sm:pt-2", VSCROLL, "bg-linear-to-r from-primary/25 to-transparent", klass)}>
+    <aside class={tw("h-full min-w-[11rem] sm:pt-2", VSCROLL, "bg-linear-to-r from-primary/25 to-transparent", klass)}>
       <div class={tw("grid grid-cols-[1fr_auto]", "ml-2")}>
         <header class={tw("text-primary uppercase", "col-span-2 pt-2")}>Filter {page}</header>
 
@@ -87,17 +87,16 @@ function FacetsAsideMenu({ state, page, class: klass }: { state: AnyFacetsMainSt
                 class={tw(
                   SUBGRID,
                   isCurrent ? tw(tw("border-secondary border-dotted", "border-l-1"), "bg-primary/85 text-background") : "hover:bg-primary/25",
-                )}
-                style={`${hasValues ? "font-weight: bold" : ""}`}>
+                )}>
                 <button
                   {...onClickOnEnter(() => state.doSetCurrentGroup(groupKey))}
-                  class={tw("block w-full", "truncate text-left", "px-4 py-1.5", "cursor-pointer", isCurrent && "text-background/85")}>
+                  class={tw("block w-full", "truncate text-left", "py-1.5 pl-4", "cursor-pointer", isCurrent && "text-background/85")}>
                   {state.groupTitle(groupKey)}
                 </button>
                 <div
                   {...onClickOnEnter(() => state.doResetGroup(groupKey))}
                   class={tw(
-                    "p-1",
+                    "p-0.5",
                     "scale-75",
                     "cursor-pointer",
                     state.groupHasValues(groupKey) ? tw("hover:text-hiliteb", HOVER_ICON_BG) : "hidden",
