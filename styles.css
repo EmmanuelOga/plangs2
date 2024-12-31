@@ -6,8 +6,7 @@
 @theme {
   --spacing: 0.25rem;
   /* https://modernfontstacks.com/ */
-  --font-sans: ui-rounded, "Hiragino Maru Gothic ProN", Quicksand, Comfortaa, Manjari, "Arial Rounded MT", "Arial Rounded MT Bold", Calibri,
-    source-sans-pro, sans-serif;
+  --font-sans: "Nunito-Medium", "Arial Rounded MT Bold", Calibri, source-sans-pro, sans-serif;
 }
 
 @layer base {
@@ -37,13 +36,36 @@
     --tw-prose-links: chartreuse;
   }
 
+  @font-face {
+    font-family: 'Nunito-Medium';
+    src: url('/fonts/Nunito-Medium.woff2') format('woff2'), url('/fonts/Nunito-Medium.ttf') format('truetype');
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Nunito-Bold';
+    src: url('/fonts/Nunito-Bold.woff2') format('woff2'), url('/fonts/Nunito-Bold.ttf') format('truetype');
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Rubik';
+    src: url('/fonts/Rubik-SemiBold.woff2') format('woff2'),
+         url('/fonts/Rubik-SemiBold.ttf') format('truetype');
+    font-display: swap;
+  }
+
+  h1 { font-family: 'Nunito-Bold', sans-serif; font-weight: bold; }
+
+  header, h2, h3 { 
+    color: var(--color-primary) !important;
+    font-family: 'Rubik', sans-serif; font-style: italic;
+  }
+
   #id-mainContent {
     a, h2, h3 {
       color: var(--color-primary);
       --tw-prose-links: var(--color-primary);
-    }
-    h2, h3 {
-      font-style: italic;
     }
   }
 

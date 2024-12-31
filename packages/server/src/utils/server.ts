@@ -43,6 +43,9 @@ export type ContentType =
   | "application/javascript"
   | "application/json"
   | "application/manifest+json"
+  | "font/woff"
+  | "font/woff2"
+  | "font/ttf"
   | "image/svg+xml"
   | "text/css"
   | "text/html"
@@ -61,9 +64,12 @@ const EXTENSION_TO_CONTENT_TYPE: Record<string, ContentType> = {
   ".map": "application/json",
   ".png": "image/png",
   ".svg": "image/svg+xml",
+  ".ttf": "font/ttf",
   ".txt": "text/plain",
   ".webmanifest": "application/manifest+json",
   ".webp": "image/webp",
+  ".woff": "font/woff",
+  ".woff2": "font/woff2",
 } as const;
 
 export function contentTypeFor(path: string): ContentType | undefined {
