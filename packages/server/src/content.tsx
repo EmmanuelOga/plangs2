@@ -12,6 +12,7 @@ import { Pill } from "@plangs/frontend/components/misc/pill";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { VPostKey } from "@plangs/plangs/graph/generated";
 
+import { tw } from "@plangs/frontend/auxiliar/styles";
 import { ZERO_WIDTH } from "./utils/server";
 
 /** Markdown Content and metadata generated from the .md files on packages/server/content/ */
@@ -69,7 +70,7 @@ export async function loadContent(path: string, pg: PlangsGraph): Promise<Conten
         if (!v) throw new Error(`Post ${path} references unknown vertex ${vertexKey}`);
         const link = (
           <Pill>
-            <a class="mr-1" href={v.href} title={v.vertexDesc}>
+            <a href={v.href} title={v.vertexDesc} class={tw("mr-1", v.vertexKind === "author" && "uppercase")}>
               {v.vertexKind === "author" ? v.plainKey : v.name}
             </a>
           </Pill>
