@@ -46,7 +46,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
   });
 
   const iconLinks = detail && (
-    <div class="flex flex-row flex-nowrap items-center gap-2 align-middle">
+    <div class="flex flex-row flex-nowrap items-center gap-2 pt-2 align-middle">
       {ret(detail.urlHome, url => url && <IconLink href={url} icon={EXTERN} />)}
       {ret(detail.urlLanguish, url => url && <IconLink href={url} icon={LANGUISH} title={`#${detail.ranking} on Languish`} />)}
       {ret(detail.urlGithub, url => url && <IconLink href={url} icon={GITHUB} />)}
@@ -57,7 +57,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
   );
 
   const header = (
-    <header class="flex flex-wrap">
+    <header class="flex flex-wrap items-center align-middle">
       <h2 class={tw("m-0!", "truncate")}>{detail ? <a class="prefetch pr-2" href={detail.href} children={detail.name} /> : "Information"}</h2>
       <div class="flex-1" />
       {iconLinks}
@@ -65,7 +65,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
   );
 
   const info = detail ? (
-    <div class={tw("py-4 landscape-short:hidden")}>
+    <div class={tw("overflow-hidden overflow-y-scroll", !forGrid && "py-4", "landscape-short:hidden")}>
       {!forGrid && detail.thumbUrl && <VertexThumbn detail={detail} onlyImg={true} class="float-right m-1 ml-6 size-24" />}
       <div class={tw("hyphens-auto", !forGrid && "text-justify")}>{forGrid ? detail.shortDesc : detail.description}</div>
     </div>
@@ -115,10 +115,11 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
     <div
       ref={self}
       class={tw(
-        VSCROLL,
+        "flex flex-col",
         tw(PROSE_BASIC, "max-w-[unset]"),
         forGrid && "px-2 pt-1 sm:p-4",
         forGrid && "border-primary/50 landscape-narrow:border-t-1",
+        "overflow-hidden",
       )}>
       {header}
       {info}

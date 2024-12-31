@@ -1,4 +1,4 @@
-import { VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
+import { tw } from "@plangs/frontend/auxiliar/styles";
 import { VertexInfo } from "@plangs/frontend/components/vertex-info/vertex-info";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
@@ -32,7 +32,9 @@ export function VertexGrid({ pg, page, vertexName }: { pg: PlangsGraph; page: Pl
   );
 
   const info = (
-    <div class={tw("grid-info", VSCROLL, cssClass("vertexInfo"), "shadow-md shadow-secondary/75", "bg-linear-to-b to-secondary/50")} data-open={true}>
+    <div
+      class={tw("grid-info", cssClass("vertexInfo"), "flex flex-col", "shadow-md shadow-secondary/75", "bg-linear-to-b to-secondary/50")}
+      data-open={true}>
       <VertexInfo page={page} open={true} />
       {script("window.restoreVertexInfo()")}
     </div>

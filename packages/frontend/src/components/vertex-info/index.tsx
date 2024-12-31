@@ -4,7 +4,6 @@ import { elems } from "@plangs/frontend/auxiliar/dom";
 import { getCurrentPage, getCurrentPageStore } from "@plangs/frontend/auxiliar/storage";
 import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
 import type { VertexDetail } from "@plangs/plangs/graph/vertex_base";
-import type { PlangsPage } from "@plangs/server/components/layout";
 
 import { VertexInfo } from "./vertex-info";
 
