@@ -88,8 +88,8 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
                 {item.kind === "text" ? (
                   <span>{item.value}</span>
                 ) : (
-                  <a href={item.href} class={tw("inline-flex")}>
-                    <span>{item.value}</span>
+                  <a href={item.href} class={tw("inline-flex max-w-full flex-row items-center truncate align-middle")}>
+                    <span class="flex-1 truncate">{item.value}</span>
                     <span class="scale-50">{EXTERN}</span>
                   </a>
                 )}
