@@ -86,14 +86,11 @@ Both *materializing relationships* and *inferring them on the fly* give room for
 
 ## WIP
 
-- [ ] Revise data: tags: better-c, educational.
 - [ ] Sitemap.
-- [ ] Add SHA to built assets (css/JS)
 
 ## RELEASE
 
-- [ ] Publish to Clouflare Pages.
-- [ ] Simple analytics.
+- [ ] Revise data: tags: better-c, educational.
 - [ ] Create better guidelines, code of conduct, enable discussions, etc.
 
 ## Other
