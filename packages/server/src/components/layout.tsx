@@ -47,6 +47,7 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
         <meta charset="utf-8" />
         <title>{title ? `Plangs! - ${title}` : "Plangs!"}</title>
         <meta name="description" content={desc ?? title} />
+        <meta name="theme-color" content="#609" />
 
         <script src="/app.js" />
 
