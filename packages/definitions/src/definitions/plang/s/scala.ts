@@ -56,5 +56,14 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+testing",
     )
-    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural");
+    .relTypeSystems.add(
+      "tsys+algebraic",
+      "tsys+flow",
+      "tsys+generic",
+      "tsys+inferred",
+      "tsys+object",
+      "tsys+static",
+      "tsys+strong",
+      "tsys+structural",
+    );
 }

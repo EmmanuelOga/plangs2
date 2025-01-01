@@ -30,6 +30,6 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+concurrent", "para+oop", "para+reflective", "para+scripting")
     .relPlatforms.add("plat+cross", "plat+java")
     .relTags.add("tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+shell")
-    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+strong")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+object", "tsys+strong")
     .relWrittenWith.add("pl+java");
 }

@@ -19,5 +19,5 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+mit")
     .relParadigms.add("para+declarative", "para+functional", "para+logic")
     .relPlatforms.add("plat+bsd", "plat+linux", "plat+windows")
-    .relTypeSystems.add("tsys+static", "tsys+strong");
+    .relTypeSystems.add("tsys+algebraic", "tsys+static", "tsys+strong");
 }

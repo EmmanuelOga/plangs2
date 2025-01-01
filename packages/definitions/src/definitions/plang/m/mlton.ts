@@ -24,5 +24,5 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+compiled", "para+functional", "para+imperative", "para+multi")
     .relPlatforms.add("plat+cross", "plat+linux", "plat+windows")
     .relTags.add("tag+compiler")
-    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong");
+    .relTypeSystems.add("tsys+algebraic", "tsys+inferred", "tsys+static", "tsys+strong");
 }

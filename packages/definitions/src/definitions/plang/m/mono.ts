@@ -35,6 +35,6 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+shell",
     )
-    .relTypeSystems.add("tsys+nominal", "tsys+static", "tsys+strong")
+    .relTypeSystems.add("tsys+nominal", "tsys+object", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+c", "pl+c-sharp");
 }

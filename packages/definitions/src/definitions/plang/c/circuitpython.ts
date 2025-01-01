@@ -23,6 +23,6 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+embedded", "para+interpreted", "para+scripting")
     .relPlatforms.add("plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry")
     .relTags.add("tag+edu", "tag+embedded", "tag+interpreters", "tag+iot")
-    .relTypeSystems.add("tsys+dynamic", "tsys+strong")
+    .relTypeSystems.add("tsys+dynamic", "tsys+object", "tsys+strong")
     .relWrittenWith.add("pl+c");
 }

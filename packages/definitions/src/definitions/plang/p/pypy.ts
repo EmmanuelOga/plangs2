@@ -34,6 +34,6 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+interpreted", "para+scripting")
     .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
     .relTags.add("tag+analysis", "tag+compiler", "tag+framework", "tag+interpreters", "tag+testing")
-    .relTypeSystems.add("tsys+duck", "tsys+dynamic")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+object")
     .relWrittenWith.add("pl+c", "pl+python");
 }

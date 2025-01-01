@@ -22,6 +22,6 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+embedded", "para+oop", "para+scripting")
     .relPlatforms.add("plat+cross", "plat+embedded")
     .relTags.add("tag+compiler", "tag+embedded", "tag+interpreters")
-    .relTypeSystems.add("tsys+duck", "tsys+dynamic")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+object")
     .relWrittenWith.add("pl+c");
 }

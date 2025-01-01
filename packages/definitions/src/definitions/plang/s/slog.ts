@@ -9,10 +9,10 @@ export function define(g: PlangsGraph) {
       created: "2022",
       extensions: [".slg"],
       extGithubPath: "harp-lab/slog-lang1",
-      links: [{ title: "Higher-Order, Data-Parallel Structured Deduction", url: "https://arxiv.org/abs/2211.11573" }],
       filenames: ["slogfile"],
       isTranspiler: false,
       keywords: ["facts", "logic", "parallel"],
+      links: [{ title: "Higher-Order, Data-Parallel Structured Deduction", url: "https://arxiv.org/abs/2211.11573" }],
     })
     .relInfluencedBy.add("pl+prolog")
     .relLicenses.add("lic+mit")

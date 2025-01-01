@@ -16,6 +16,7 @@ export function define(g: PlangsGraph) {
       githubName: "Curry",
       githubPopular: false,
       githubType: "programming",
+      isTranspiler: false,
       keywords: ["curry", "declarative", "functional", "logic", "programming"],
       releases: [{ version: "3.6.0", name: "Curry 3.6.0", date: "2023-11-10" }],
     })
@@ -24,5 +25,5 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+concurrent", "para+constraint", "para+declarative", "para+functional", "para+lazy", "para+logic", "para+modular")
     .relPlatforms.add("plat+cross", "plat+linux", "plat+x86-64")
     .relTags.add("tag+audio-dev", "tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing")
-    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong");
+    .relTypeSystems.add("tsys+algebraic", "tsys+inferred", "tsys+static", "tsys+strong");
 }

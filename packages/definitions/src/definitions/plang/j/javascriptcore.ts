@@ -21,6 +21,6 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+event-driven", "para+interpreted", "para+oop", "para+scripting")
     .relPlatforms.add("plat+apple", "plat+arm", "plat+linux", "plat+windows")
     .relTags.add("tag+gui", "tag+interpreters", "tag+low-code", "tag+scripting")
-    .relTypeSystems.add("tsys+dynamic", "tsys+weak")
+    .relTypeSystems.add("tsys+dynamic", "tsys+object", "tsys+weak")
     .relWrittenWith.add("pl+c++");
 }

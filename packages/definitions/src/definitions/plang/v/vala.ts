@@ -30,6 +30,6 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+imperative", "para+oop", "para+procedural", "para+scripting", "para+structured")
     .relPlatforms.add("plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows")
     .relTags.add("tag+compiler", "tag+framework", "tag+gui")
-    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural")
+    .relTypeSystems.add("tsys+inferred", "tsys+object", "tsys+static", "tsys+strong", "tsys+structural")
     .relWrittenWith.add("pl+c");
 }

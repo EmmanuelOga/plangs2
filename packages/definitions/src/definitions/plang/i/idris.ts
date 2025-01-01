@@ -30,5 +30,5 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+functional")
     .relPlatforms.add("plat+cross")
     .relTags.add("tag+interpreters", "tag+proofs")
-    .relTypeSystems.add("tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong");
+    .relTypeSystems.add("tsys+algebraic", "tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong");
 }

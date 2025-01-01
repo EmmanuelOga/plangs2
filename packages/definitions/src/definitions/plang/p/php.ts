@@ -32,6 +32,6 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective", "para+scripting")
     .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
     .relTags.add("tag+scripting", "tag+server", "tag+webdev")
-    .relTypeSystems.add("tsys+dynamic", "tsys+gradual", "tsys+weak")
+    .relTypeSystems.add("tsys+dynamic", "tsys+gradual", "tsys+object", "tsys+weak")
     .relWrittenWith.add("pl+c");
 }

@@ -27,6 +27,6 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+compiled", "para+functional", "para+lazy")
     .relPlatforms.add("plat+cross")
     .relTags.add("tag+app", "tag+compiler", "tag+interpreters")
-    .relTypeSystems.add("tsys+dynamic", "tsys+static", "tsys+strong", "tsys+uniqueness")
+    .relTypeSystems.add("tsys+algebraic", "tsys+dynamic", "tsys+static", "tsys+strong", "tsys+uniqueness")
     .relWrittenWith.add("pl+c");
 }

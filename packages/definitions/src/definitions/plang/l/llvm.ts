@@ -32,5 +32,6 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+assembly", "para+compiled", "para+multi")
     .relPlatforms.add("plat+cross")
     .relTags.add("tag+analysis", "tag+asm", "tag+compiler", "tag+framework", "tag+interpreters", "tag+ray-tracer", "tag+shell", "tag+viz")
+    .relTypeSystems.add("tsys+object")
     .relWrittenWith.add("pl+c++");
 }

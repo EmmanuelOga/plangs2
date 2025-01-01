@@ -41,6 +41,6 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+webdev",
     )
-    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+weak")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+object", "tsys+weak")
     .relWrittenWith.add("pl+c", "pl+c++");
 }

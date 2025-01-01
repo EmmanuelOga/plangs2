@@ -43,5 +43,5 @@ export function define(g: PlangsGraph) {
       "tag+sci",
       "tag+viz",
     )
-    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong");
+    .relTypeSystems.add("tsys+inferred", "tsys+object", "tsys+static", "tsys+strong");
 }

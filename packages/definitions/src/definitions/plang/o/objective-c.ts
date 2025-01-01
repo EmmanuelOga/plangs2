@@ -28,6 +28,6 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+apsl")
     .relParadigms.add("para+oop", "para+procedural", "para+reflective")
     .relPlatforms.add("plat+apple", "plat+cross")
-    .relTypeSystems.add("tsys+dynamic", "tsys+static", "tsys+weak")
+    .relTypeSystems.add("tsys+dynamic", "tsys+object", "tsys+static", "tsys+weak")
     .relWrittenWith.add("pl+c");
 }

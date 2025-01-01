@@ -33,6 +33,6 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+functional", "para+imperative", "para+modular", "para+multi", "para+oop")
     .relPlatforms.add("plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64")
     .relTags.add("tag+analysis", "tag+automation", "tag+compiler", "tag+control", "tag+industrial", "tag+interpreters", "tag+proofs", "tag+viz")
-    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural")
+    .relTypeSystems.add("tsys+algebraic", "tsys+generic", "tsys+inferred", "tsys+object", "tsys+static", "tsys+strong", "tsys+structural")
     .relWrittenWith.add("pl+c");
 }

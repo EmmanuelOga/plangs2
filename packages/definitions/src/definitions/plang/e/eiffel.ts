@@ -39,5 +39,5 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     )
-    .relTypeSystems.add("tsys+static", "tsys+strong");
+    .relTypeSystems.add("tsys+object", "tsys+static", "tsys+strong");
 }

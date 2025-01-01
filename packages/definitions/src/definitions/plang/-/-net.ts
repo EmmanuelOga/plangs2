@@ -28,6 +28,6 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+concurrent", "para+functional", "para+multi", "para+oop")
     .relPlatforms.add("plat+.net", "plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64")
     .relTags.add("tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+gui", "tag+interpreters", "tag+shell")
-    .relTypeSystems.add("tsys+nominal", "tsys+polymorphic", "tsys+static", "tsys+strong")
+    .relTypeSystems.add("tsys+nominal", "tsys+object", "tsys+polymorphic", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+c++", "pl+c-sharp");
 }

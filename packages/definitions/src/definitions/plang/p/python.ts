@@ -65,6 +65,6 @@ export function define(g: PlangsGraph) {
       "tag+wavelet",
       "tag+webdev",
     )
-    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+inferred", "tsys+optional", "tsys+strong")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+inferred", "tsys+object", "tsys+optional", "tsys+strong")
     .relWrittenWith.add("pl+c", "pl+python");
 }

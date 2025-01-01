@@ -40,5 +40,5 @@ export function define(g: PlangsGraph) {
     )
     .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+nodejs", "plat+wasm", "plat+web", "plat+windows")
     .relTags.add("tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+shell", "tag+testing")
-    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong");
+    .relTypeSystems.add("tsys+flow", "tsys+generic", "tsys+inferred", "tsys+object", "tsys+static", "tsys+strong");
 }

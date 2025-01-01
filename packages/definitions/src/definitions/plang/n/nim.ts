@@ -59,6 +59,6 @@ export function define(g: PlangsGraph) {
       "tag+stats",
       "tag+viz",
     )
-    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural")
+    .relTypeSystems.add("tsys+inferred", "tsys+object", "tsys+static", "tsys+strong", "tsys+structural")
     .relWrittenWith.add("pl+c++");
 }

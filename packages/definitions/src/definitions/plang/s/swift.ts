@@ -55,6 +55,6 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+server",
     )
-    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong")
+    .relTypeSystems.add("tsys+flow", "tsys+generic", "tsys+inferred", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+c++");
 }

@@ -32,6 +32,6 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+functional", "para+general-purpose", "para+modular", "para+multi", "para+oop")
     .relPlatforms.add("plat+cross", "plat+linux", "plat+windows")
     .relTags.add("tag+app", "tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting")
-    .relTypeSystems.add("tsys+static", "tsys+strong")
+    .relTypeSystems.add("tsys+flow", "tsys+generic", "tsys+object", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+ocaml");
 }

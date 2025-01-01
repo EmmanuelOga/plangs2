@@ -23,6 +23,6 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+interpreted", "para+oop", "para+scripting")
     .relPlatforms.add("plat+cross", "plat+java")
     .relTags.add("tag+interpreters")
-    .relTypeSystems.add("tsys+duck", "tsys+dynamic")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+object")
     .relWrittenWith.add("pl+java");
 }

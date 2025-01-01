@@ -40,6 +40,6 @@ export function define(g: PlangsGraph) {
       "tag+testing",
       "tag+viz",
     )
-    .relTypeSystems.add("tsys+generic", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural")
+    .relTypeSystems.add("tsys+flow", "tsys+generic", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+structural")
     .relWrittenWith.add("pl+c++", "pl+zig");
 }

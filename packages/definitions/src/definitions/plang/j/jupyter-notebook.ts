@@ -29,5 +29,5 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+scripting")
     .relPlatforms.add("plat+cross")
     .relTags.add("tag+collab", "tag+dataq", "tag+sci")
-    .relTypeSystems.add("tsys+dynamic");
+    .relTypeSystems.add("tsys+dynamic", "tsys+object");
 }

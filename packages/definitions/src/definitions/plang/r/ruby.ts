@@ -47,6 +47,6 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+viz",
     )
-    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+strong")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+object", "tsys+strong")
     .relWrittenWith.add("pl+c");
 }

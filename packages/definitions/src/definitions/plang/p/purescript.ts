@@ -31,6 +31,6 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+declarative", "para+functional")
     .relPlatforms.add("plat+cross", "plat+nodejs")
     .relTags.add("tag+app", "tag+compiler", "tag+editor", "tag+interpreters")
-    .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong")
+    .relTypeSystems.add("tsys+algebraic", "tsys+inferred", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+haskell", "pl+javascript");
 }

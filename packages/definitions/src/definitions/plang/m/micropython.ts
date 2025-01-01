@@ -27,6 +27,6 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+embedded", "para+interpreted", "para+multi", "para+oop", "para+scripting")
     .relPlatforms.add("plat+arduino", "plat+arm", "plat+embedded", "plat+esp32", "plat+raspberry", "plat+riscv", "plat+windows")
     .relTags.add("tag+app", "tag+embedded", "tag+interpreters", "tag+iot", "tag+scripting", "tag+testing")
-    .relTypeSystems.add("tsys+duck", "tsys+dynamic")
+    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+object")
     .relWrittenWith.add("pl+c");
 }

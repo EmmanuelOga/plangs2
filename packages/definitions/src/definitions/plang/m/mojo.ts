@@ -30,5 +30,15 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+compiled", "para+functional", "para+general-purpose", "para+imperative", "para+multi", "para+scripting")
     .relPlatforms.add("plat+apple", "plat+cross", "plat+linux")
     .relTags.add("tag+automation", "tag+scripting")
-    .relTypeSystems.add("tsys+affine", "tsys+duck", "tsys+dynamic", "tsys+generic", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong");
+    .relTypeSystems.add(
+      "tsys+affine",
+      "tsys+duck",
+      "tsys+dynamic",
+      "tsys+generic",
+      "tsys+inferred",
+      "tsys+nominal",
+      "tsys+object",
+      "tsys+static",
+      "tsys+strong",
+    );
 }

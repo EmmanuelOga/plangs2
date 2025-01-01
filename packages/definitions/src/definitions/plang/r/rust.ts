@@ -60,6 +60,6 @@ export function define(g: PlangsGraph) {
       "tag+iot",
       "tag+viz",
     )
-    .relTypeSystems.add("tsys+affine", "tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong")
+    .relTypeSystems.add("tsys+affine", "tsys+algebraic", "tsys+flow", "tsys+inferred", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+ocaml");
 }

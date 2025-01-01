@@ -31,6 +31,16 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+functional", "para+imperative", "para+multi", "para+oop")
     .relPlatforms.add("plat+cross", "plat+nodejs")
     .relTags.add("tag+compiler", "tag+framework", "tag+scripting")
-    .relTypeSystems.add("tsys+duck", "tsys+gradual", "tsys+optional", "tsys+static", "tsys+strong", "tsys+structural")
+    .relTypeSystems.add(
+      "tsys+duck",
+      "tsys+flow",
+      "tsys+generic",
+      "tsys+gradual",
+      "tsys+object",
+      "tsys+optional",
+      "tsys+static",
+      "tsys+strong",
+      "tsys+structural",
+    )
     .relWrittenWith.add("pl+typescript");
 }

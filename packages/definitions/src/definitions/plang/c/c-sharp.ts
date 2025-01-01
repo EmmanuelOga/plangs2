@@ -56,5 +56,5 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+viz",
     )
-    .relTypeSystems.add("tsys+dynamic", "tsys+inferred", "tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong");
+    .relTypeSystems.add("tsys+dynamic", "tsys+generic", "tsys+inferred", "tsys+nominal", "tsys+object", "tsys+safe", "tsys+static", "tsys+strong");
 }

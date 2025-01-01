@@ -30,5 +30,5 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+declarative", "para+event-driven", "para+oop")
     .relPlatforms.add("plat+web")
     .relTags.add("tag+framework", "tag+gui")
-    .relTypeSystems.add("tsys+dynamic");
+    .relTypeSystems.add("tsys+dynamic", "tsys+object");
 }
