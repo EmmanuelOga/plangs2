@@ -1,15 +1,16 @@
 import { copyFile, mkdir, rename, rmdir } from "node:fs/promises";
 import { join } from "node:path";
-import { Glob } from "bun";
-import { $ } from "bun";
+import { $, Glob } from "bun";
 import * as esbuild from "esbuild";
+import { h } from "preact";
+import render from "preact-render-to-string";
 
 import { loadDefinitions } from "@plangs/definitions";
 import { PlangsGraph } from "@plangs/plangs/graph";
+import { LAYOUT_DEFAULTS } from "@plangs/server/components/layout";
 import { loadPosts } from "@plangs/server/content";
 import { GRID_PATHS, REFERENCE_PATHS, resolvePage } from "@plangs/server/resolve_page";
 import { vdomToHTML } from "@plangs/server/utils/server";
-import { LAYOUT_DEFAULTS } from "../components/layout";
 
 const ROOT = join(import.meta.dir, "../../../..");
 const OUTPUT = join(ROOT, "output");
@@ -17,6 +18,7 @@ const STATIC = join(ROOT, "packages/server/static");
 const ASSETS = join(ROOT, "packages/definitions/assets");
 
 const BUILD_DATE = new Date().toISOString().split("T")[0];
+const HOST = "plangs.page";
 
 const ensureDir = async (path: string) => {
   const dir = path.substring(0, path.lastIndexOf("/"));
@@ -112,6 +114,18 @@ async function generateRest(outputPath: string, pg: PlangsGraph) {
       console.warn("Page could not be resolved for path:", path);
     }
   }
+
+  // Generate sitemap.
+  const sitemap = render(sitemapComponent(allPaths.map(p => `https://${join(HOST, p)}`)), { xml: true });
+  Bun.write(join(outputPath, "sitemap.xml"), sitemap);
+}
+
+function sitemapComponent(urls: string[]) {
+  return h(
+    "urlset",
+    { xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" },
+    urls.map(url => h("url", null, h("loc", null, url))),
+  );
 }
 
 const outputPath = process.argv[2] || OUTPUT;
