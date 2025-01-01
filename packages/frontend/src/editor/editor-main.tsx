@@ -102,7 +102,7 @@ function Status() {
           <br />
         </li>
       </ol>
-      <p>Now you should be ready to send a pull request. Thanks in advance!.</p>
+      <p>Now you should be ready to send a pull request. Thanks in advance!</p>
     </div>
   );
 }
