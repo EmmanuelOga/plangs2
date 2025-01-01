@@ -31,3 +31,16 @@ export function removeIf<T>(array: T[], predicate: (value: T) => boolean, onRemo
   }
   return array;
 }
+
+export function groupBy<T, K>(array: T[], keyFn: (item: T) => K): Map<K, T[]> {
+  return array.reduce((map, item) => {
+    const key = keyFn(item);
+    const collection = map.get(key);
+    if (!collection) {
+      map.set(key, [item]);
+    } else {
+      collection.push(item);
+    }
+    return map;
+  }, new Map<K, T[]>());
+}

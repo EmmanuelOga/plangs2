@@ -3,11 +3,13 @@ import { useEffect, useRef, useState } from "preact/hooks";
 
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { ADD, CLOSE } from "@plangs/frontend/auxiliar/icons";
-import { INPUT, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
+import { HOVER, INPUT, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import { Pill } from "@plangs/frontend/components/misc/pill";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertex, TPlangsVertexName } from "@plangs/plangs/graph/generated";
 
+import { group } from "console";
+import { groupBy } from "@plangs/auxiliar/array";
 import { updateLocalEdits } from ".";
 import { VertexForm } from "./vertex-form";
 import { type AnyRel, VerticesEditorState } from "./vertices-editor-state";
@@ -138,7 +140,6 @@ function JsonEditor({ vertex }: { vertex: TPlangsVertex }): ComponentChildren {
     </div>
   );
 }
-// <div class="grid grid-cols-[auto_1fr] items-start gap-4 pt-4">{textArea("Raw JSON Data", JSON.stringify(vertex.data, null, 2), 80)}</div>
 
 function Relations({ state }: { state: VerticesEditorState }): ComponentChildren {
   const vertex = state.currentVertex as TPlangsVertex;
@@ -184,47 +185,46 @@ function Partition({ state, vertex, relKey, rel }: { state: VerticesEditorState;
     }
   }
 
-  function disconnect(v: TPlangsVertex): void {
-    rel.remove(v.key);
-    updateLocalEdits(vertex.graph.toJSON());
-    state.dispatch();
-  }
-
-  function connect(v: TPlangsVertex): void {
-    rel.add(v.key);
-    updateLocalEdits(vertex.graph.toJSON());
-    state.dispatch();
-  }
-
   return (
     <div class={tw("p-4", "flex-1", "flex flex-col gap-4", "bg-primary/10", "overflow-hidden overflow-y-scroll")}>
       <header class="text-2xl">
         {vertex.name} {rel.edgeDesc}
       </header>
-      <div class="flex flex-row flex-wrap gap-1">
-        <h2 class="w-full pb-2 uppercase">Connected</h2>
-        {related.map(other => (
-          <Pill key={`${vertex.key}-${relKey}-${other.key}`} class="group cursor-pointer hover:bg-primary/25">
-            <button type="button" class="inline-flex items-center gap-1" onClick={() => disconnect(other)}>
-              {other.name}
-              <div class={tw("inline-block", "group-hover:text-hiliteb")}>{CLOSE}</div>
-            </button>
-          </Pill>
-        ))}
-      </div>
-      <div class="flex flex-row flex-wrap gap-1">
-        <h2 class="w-full pb-2 uppercase" style="color: var(--color-hiliteb) !important;">
-          Unconnected
-        </h2>
-        {unrelated.map(other => (
-          <Pill key={`${vertex.key}-${relKey}-${other.key}`} class="group hover:bg-primary/25">
-            <button type="button" class="inline-flex cursor-pointer items-center gap-1" onClick={() => connect(other)}>
-              {other.name}
-              <div class={tw("inline-block", "group-hover:text-hiliteb")}>{ADD}</div>
-            </button>
-          </Pill>
-        ))}
-      </div>
+      {renderGroup("Related", CLOSE, related, v => {
+        rel.remove(v.key);
+        updateLocalEdits(vertex.graph.toJSON());
+        state.dispatch();
+      })}
+      {renderGroup("Unrelated", ADD, unrelated, v => {
+        rel.add(v.key);
+        updateLocalEdits(vertex.graph.toJSON());
+        state.dispatch();
+      })}
+    </div>
+  );
+}
+
+function renderGroup(label: string, icon: ComponentChildren, vgroup: TPlangsVertex[], action: (v: TPlangsVertex) => void): ComponentChildren {
+  return (
+    <div>
+      <h2 class="pb-4 uppercase">{label}</h2>
+      {[...groupBy(vgroup, v => v.name[0].toLowerCase()).entries()].map(([name, vertices]) => (
+        <div key={name} class={tw("mb-4", "flex flex-row items-center gap-4 align-middle", "ring-1 ring-primary/15", "hover:bg-hiliteb/10")}>
+          <h3 class="w-4 p-4 pr-5 text-foreground text-xl! uppercase" style="color: var(--color-foreground) !important;">
+            {name}
+          </h3>
+          <div class="flex flex-1 flex-row flex-wrap">
+            {vertices.map(other => (
+              <Pill key={other.key} class="group mt-3 hover:bg-primary/25">
+                <button type="button" class="inline-flex cursor-pointer items-center gap-1" onClick={() => action(other)}>
+                  {other.name}
+                  <div class={tw("inline-block", "group-hover:text-hiliteb")}>{icon}</div>
+                </button>
+              </Pill>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
