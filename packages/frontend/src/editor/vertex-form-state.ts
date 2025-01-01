@@ -4,7 +4,7 @@ import { VLicense, VPlang } from "@plangs/plangs/graph";
 import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
 
 import { updateLocalEdits } from ".";
-import { isCSV, isNonEmptyStr, isNumber, isStrDate, isURL, matchesRegex } from "./validators";
+import { isCSV, isEmptyOrStrDate, isNonEmptyStr, isNumber, isURL, matchesRegex } from "./validators";
 
 export type FormField = {
   kind: "bool" | "string" | "text";
@@ -33,8 +33,8 @@ export class VertexFormState extends Dispatchable<{
     const fields: Record<string, FormField> = {
       name: { kind: "string", label: "Name", validator: isNonEmptyStr, saver: val => (vertex.data.name = val) },
       description: { kind: "text", label: "Description", validator: isNonEmptyStr, saver: val => (vertex.data.description = val) },
-      shortDesc: { kind: "text", label: "Short Description", validator: isNonEmptyStr, saver: val => (vertex.data.shortDesc = val) },
-      created: { kind: "string", label: "Created", validator: isStrDate, saver: val => (vertex.data.created = val as StrDate) },
+      shortDesc: { kind: "text", label: "Short Description", validator: () => undefined, saver: val => (vertex.data.shortDesc = val) },
+      created: { kind: "string", label: "Created", validator: isEmptyOrStrDate, saver: val => (vertex.data.created = val as StrDate) },
       keywords: {
         kind: "string",
         label: "Keywords",

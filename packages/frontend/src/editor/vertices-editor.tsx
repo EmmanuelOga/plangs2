@@ -37,6 +37,7 @@ export function VerticesEditor({ pg }: { pg: PlangsGraph }) {
           ))}
         </select>
         <input
+          type="search"
           aria-label="Filter Key"
           placeholder="Filter"
           value={state.filter}

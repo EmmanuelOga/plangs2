@@ -8,6 +8,11 @@ export function isNonEmptyStr(val: string | undefined): string | undefined {
   if (!val) return "Cannot be empty.";
 }
 
+export function isEmptyOrStrDate(val: string | undefined): string | undefined {
+  if (!val) return;
+  return isStrDate(val);
+}
+
 export function isStrDate(val: string | undefined): string | undefined {
   if (!parseDate(val ?? "")) return "Invalid date format. Use YYYY-MM-DD.";
 }

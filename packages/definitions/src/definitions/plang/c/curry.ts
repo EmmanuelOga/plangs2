@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       shortDesc: "Declarative language that integrates features of functional and logic programming paradigms",
       created: "1995",
       extensions: [".curry"],
-      extHomeURL: "curry-lang.org",
+      extHomeURL: "https://curry-lang.org",
       extWikipediaPath: "Curry_(programming_language)",
       githubColor: "#531242",
       githubLangId: "439829048",
