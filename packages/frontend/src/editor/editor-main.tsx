@@ -98,7 +98,7 @@ function Status() {
         <li>
           Regenerate the TypeScript definitions through the command:
           <br />
-          <code>$ bun regenerate path/to/plangs.json</code>
+          <code>$ bun import path/to/plangs.json</code>
           <br />
         </li>
       </ol>
