@@ -201,7 +201,7 @@ function Partition({ state, vertex, relKey, rel }: { state: VerticesEditorState;
         {vertex.name} {rel.edgeDesc}
       </header>
       <div class="flex flex-row flex-wrap gap-1">
-        <h2 class="w-full pb-2">Connected</h2>
+        <h2 class="w-full pb-2 uppercase">Connected</h2>
         {related.map(other => (
           <Pill key={`${vertex.key}-${relKey}-${other.key}`} class="group cursor-pointer hover:bg-primary/25">
             <button type="button" class="inline-flex items-center gap-1" onClick={() => disconnect(other)}>
@@ -212,7 +212,9 @@ function Partition({ state, vertex, relKey, rel }: { state: VerticesEditorState;
         ))}
       </div>
       <div class="flex flex-row flex-wrap gap-1">
-        <h2 class="w-full pb-2">Unconnected</h2>
+        <h2 class="w-full pb-2 uppercase" style="color: var(--color-hiliteb) !important;">
+          Unconnected
+        </h2>
         {unrelated.map(other => (
           <Pill key={`${vertex.key}-${relKey}-${other.key}`} class="group hover:bg-primary/25">
             <button type="button" class="inline-flex cursor-pointer items-center gap-1" onClick={() => connect(other)}>
