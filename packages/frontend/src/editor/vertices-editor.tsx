@@ -3,12 +3,11 @@ import { useEffect, useRef, useState } from "preact/hooks";
 
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { ADD, CLOSE } from "@plangs/frontend/auxiliar/icons";
-import { HOVER, INPUT, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
+import { INPUT, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import { Pill } from "@plangs/frontend/components/misc/pill";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertex, TPlangsVertexName } from "@plangs/plangs/graph/generated";
 
-import { group } from "console";
 import { groupBy } from "@plangs/auxiliar/array";
 import { updateLocalEdits } from ".";
 import { VertexForm } from "./vertex-form";
