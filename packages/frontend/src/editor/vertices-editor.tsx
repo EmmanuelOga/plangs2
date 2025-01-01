@@ -21,10 +21,21 @@ import { type AnyRel, VerticesEditorState } from "./vertices-editor-state";
  */
 export function VerticesEditor({ pg }: { pg: PlangsGraph }) {
   const self = useRef<HTMLDivElement>(null);
-  const state = useDispatchable(() => new VerticesEditorState({ pg, currentKind: "plang", filter: "", tab: "relations" }));
+  const py = pg.plang.get("pl+python");
+  const state = useDispatchable(
+    () =>
+      new VerticesEditorState({
+        pg,
+        currentKind: "plang",
+        currentVertex: py,
+        currentRel: !py ? undefined : ["relInfluencedBy", py?.relations.get("relInfluencedBy") as AnyRel],
+        filter: "",
+        tab: "relations",
+      }),
+  );
 
   useEffect(() => {
-    self.current?.querySelectorAll("button.current")[1]?.scrollIntoView({ block: "nearest" });
+    for (const b of self.current?.querySelectorAll("button.current") ?? []) b.scrollIntoView({ block: "nearest" });
   });
 
   return (
@@ -144,7 +155,7 @@ function Relations({ state }: { state: VerticesEditorState }): ComponentChildren
   const vertex = state.currentVertex as TPlangsVertex;
   return (
     <div key={vertex.key} class="flex flex-1 flex-row gap-4 overflow-hidden">
-      <div class={tw("flex flex-col gap-4", VSCROLL, "pr-4", "max-w-[10rem]")}>
+      <div class={tw("flex flex-col gap-4", "pr-4", "max-w-[10rem]")}>
         {[...vertex.relations.entries()]
           .filter(([key]) => key !== "relPosts" && key !== "relAuthors")
           .map(([key, vertices]) => (
@@ -185,30 +196,37 @@ function Partition({ state, vertex, relKey, rel }: { state: VerticesEditorState;
   }
 
   return (
-    <div class={tw("p-4", "flex-1", "flex flex-col gap-4", "bg-primary/10", "overflow-hidden overflow-y-scroll")}>
+    <div class={tw("p-4", "flex-1", "flex flex-col gap-4", "bg-primary/10", "overflow-hidden")}>
       <header class="text-2xl">
         {vertex.name} {rel.edgeDesc}
       </header>
-      {renderGroup("Related", CLOSE, related, v => {
-        rel.remove(v.key);
-        updateLocalEdits(vertex.graph.toJSON());
-        state.dispatch();
-      })}
-      {renderGroup("Unrelated", ADD, unrelated, v => {
-        rel.add(v.key);
-        updateLocalEdits(vertex.graph.toJSON());
-        state.dispatch();
-      })}
+
+      <div class={tw("flex flex-row gap-4")}>
+        <h2 class="flex-1 uppercase">Related</h2>
+        <h2 class="flex-1 uppercase">Unrelated</h2>
+      </div>
+
+      <div class={tw("flex flex-row gap-4", "overflow-hidden")}>
+        {renderGroup(CLOSE, related, v => {
+          rel.remove(v.key);
+          updateLocalEdits(vertex.graph.toJSON());
+          state.dispatch();
+        })}
+        {renderGroup(ADD, unrelated, v => {
+          rel.add(v.key);
+          updateLocalEdits(vertex.graph.toJSON());
+          state.dispatch();
+        })}
+      </div>
     </div>
   );
 }
 
-function renderGroup(label: string, icon: ComponentChildren, vgroup: TPlangsVertex[], action: (v: TPlangsVertex) => void): ComponentChildren {
+function renderGroup(icon: ComponentChildren, vgroup: TPlangsVertex[], action: (v: TPlangsVertex) => void): ComponentChildren {
   return (
-    <div>
-      <h2 class="pb-4 uppercase">{label}</h2>
+    <div class={tw("mr-2 flex-1 p-1", VSCROLL)}>
       {[...groupBy(vgroup, v => v.name[0].toLowerCase()).entries()].map(([name, vertices]) => (
-        <div key={name} class={tw("mb-4", "flex flex-row items-center gap-4 align-middle", "ring-1 ring-primary/15", "hover:bg-hiliteb/10")}>
+        <div key={name} class={tw("mr-4 mb-4", "flex flex-row items-center gap-4 align-middle", "ring-1 ring-primary/15", "hover:bg-hiliteb/10")}>
           <h3 class="w-4 p-4 pr-5 text-foreground text-xl! uppercase" style="color: var(--color-foreground) !important;">
             {name}
           </h3>

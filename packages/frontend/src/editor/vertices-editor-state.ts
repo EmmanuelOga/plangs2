@@ -29,7 +29,7 @@ export class VerticesEditorState extends Dispatchable<{
         const newRel = newRels.get(lastRelKey) as AnyRel;
         this.data.currentRel = [lastRelKey, newRel];
       } else {
-        this.data.currentRel = undefined;
+        this.data.currentRel = newRels.entries().next().value;
       }
     }
     this.dispatch();
