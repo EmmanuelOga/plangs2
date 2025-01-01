@@ -36,6 +36,7 @@ function Status() {
   const store = getStore("_any_page_");
   const [modeMsg, setModeMsg] = useState<string | undefined>();
   const [resetMsg, setResetMsg] = useState<string | undefined>();
+  const [exportMsg, setExportMsg] = useState<string | undefined>();
 
   return (
     <div class={tw(PROSE_BASIC, "p-2", "overflow-y-auto")}>
@@ -75,7 +76,21 @@ function Status() {
 
       <ol>
         <li>
-          <EditorButton label="Export Local Data" onClick={() => exportData(store.load("local-edits"))} />
+          <div class="flex flex-row gap-4">
+            <EditorButton
+              label="Export Local Data"
+              onClick={() => {
+                const data = store.load("local-edits");
+                if (data) {
+                  exportData(data);
+                  setExportMsg(`${new Date().toLocaleTimeString()}: Local data exported.`);
+                } else {
+                  setExportMsg(`${new Date().toLocaleTimeString()}: No local data to export.`);
+                }
+              }}
+            />
+            {exportMsg && <div class="text-primary">{exportMsg}</div>}
+          </div>
         </li>
         <li>
           Fork <a href="https://github.com/emmanueloga/plangs2">Plangs! source repository</a>.
@@ -94,10 +109,6 @@ function Status() {
 
 /** Export the local data as a JSON object. */
 function exportData(data: any) {
-  if (!data) {
-    alert("No data to export.");
-    return;
-  }
   const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
