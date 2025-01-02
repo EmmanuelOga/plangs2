@@ -257,6 +257,11 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
     return super.merge(rest as Data);
   }
 
+  get tsName(): string {
+    const name = this.plainKey.replace(/[^a-zA-Z0-9\_\+\-]/g, "-");
+    return `${this.vertexName}/${this.classifier}/${name}.ts`;
+  }
+
   /** Generate code that can reconstruct the state of a single vertex. */
   toCode(): string {
     const vertex = this as unknown as TPlangsVertex;

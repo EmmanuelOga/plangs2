@@ -14,14 +14,8 @@ import { GH_LANGS } from "@plangs/languist/linguist";
 import { reformatCode } from "@plangs/languist/reformat";
 import type { LanguishKeys, LinguistLang } from "@plangs/languist/types";
 import { PlangsGraph, type VPlang } from "@plangs/plangs/graph";
-import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
 
 export const DEFINITIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions");
-
-export function tsVertexPath(vertex: TPlangsVertex): string {
-  const name = vertex.plainKey.replace(/[^a-zA-Z0-9\_\+\-]/g, "-");
-  return join(DEFINITIONS_PATH, vertex.vertexName, vertex.classifier, `${name}.ts`);
-}
 
 /** Update the VPlang data with Github data. */
 function updateWithGH(pl: VPlang, ghMap: Map<string, LinguistLang>): boolean {
@@ -104,7 +98,7 @@ export async function processGithubAndLanguish() {
 
   console.warn("Languages without updates:", { woGithub: [...woGH], woLanguish: [...woLG] });
 
-  for (const pl of pg.plang.values) Bun.write(tsVertexPath(pl), await reformatCode(pl.toCode()));
+  for (const pl of pg.plang.values) Bun.write(join(DEFINITIONS_PATH, pl.tsName), await reformatCode(pl.toCode()));
 
   console.warn("CAUTION: matching github data is not a perfect process. Results (git diff) should be manually reviewed.");
 }
@@ -114,7 +108,7 @@ export async function regenVertexDefinitions(pg: PlangsGraph) {
   for (const [name, vertices] of Object.entries(pg.vertices)) {
     if (name === "post") continue; // This is generated from the server/content folder.
     for (const vertex of vertices.values) {
-      Bun.write(tsVertexPath(vertex), await reformatCode(vertex.toCode()));
+      Bun.write(join(DEFINITIONS_PATH, vertex.tsName), await reformatCode(vertex.toCode()));
     }
   }
 }

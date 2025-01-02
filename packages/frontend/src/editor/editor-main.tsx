@@ -2,9 +2,10 @@ import { useState } from "preact/hooks";
 
 import { getStore } from "@plangs/frontend/auxiliar/storage";
 import { PROSE_BASIC, tw } from "@plangs/frontend/auxiliar/styles";
-import type { PlangsGraph } from "@plangs/plangs/graph";
+import { PlangsGraph } from "@plangs/plangs/graph";
+import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
 
-import { LAST_EDIT_TIME, toggleLocalEdits, updateLocalEdits } from ".";
+import { LAST_EDIT_TIME, localEditsData, toggleLocalEdits, updateLocalEdits } from ".";
 import { EditorButton, VerticesEditor } from "./vertices-editor";
 
 /** Top level of the editor: information, editing and exporting. */
@@ -17,13 +18,13 @@ export function EditorMain({ pg }: { pg: PlangsGraph }) {
         <EditorButton class="w-[8rem]" label="STATUS" isCurrent={() => tab === "status"} onClick={() => setTab("status")} />
         <EditorButton class="w-[8rem]" label="EDIT" isCurrent={() => tab === "edit"} onClick={() => setTab("edit")} />
       </div>
-      {tab === "status" && <Status />}
+      {tab === "status" && <Status pg={pg} />}
       {tab === "edit" && <VerticesEditor pg={pg} key={LAST_EDIT_TIME} />}
     </div>
   );
 }
 
-function Status() {
+function Status({ pg }: { pg: PlangsGraph }) {
   const store = getStore("_any_page_");
   const [modeMsg, setModeMsg] = useState<string | undefined>();
   const [resetMsg, setResetMsg] = useState<string | undefined>();
@@ -73,7 +74,8 @@ function Status() {
               onClick={() => {
                 const data = store.load("local-edits");
                 if (data) {
-                  exportData(data);
+                  downloadJSON("plangs.json", data);
+                  // const diff = generateCodeDiff(pg); if (diff) downloadJSON("code.json", diff);
                   setExportMsg(`${new Date().toLocaleTimeString()}: Local data exported.`);
                 } else {
                   setExportMsg(`${new Date().toLocaleTimeString()}: No local data to export.`);
@@ -99,12 +101,39 @@ function Status() {
 }
 
 /** Export the local data as a JSON object. */
-function exportData(data: any) {
+function downloadJSON(name: string, data: any) {
   const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = "plangs.json";
+  a.download = name;
   a.click();
   URL.revokeObjectURL(url);
+}
+
+/** Generate code for a pull request.  */
+export function generateCodeDiff(pg: PlangsGraph): Record<string, string> | undefined {
+  try {
+    const result: Record<string, string> = {};
+    let hasChanges = false;
+
+    // Iterate through all vertices of the edited graph.
+    const editedPG = new PlangsGraph().loadJSON(localEditsData(pg));
+    for (const [name, vertices] of Object.entries(editedPG.vertices)) {
+      for (const vertex of vertices.values) {
+        // Attempt to find the original vertex in the original graph, if it exists.
+        const original = pg.vertices[name as TPlangsVertexName]?.get(vertex.key as any);
+        const newCode = vertex.toCode();
+        // If the vertex is new or has changed, add it to the result.
+        if (!original || newCode !== original.toCode()) {
+          hasChanges = true;
+          result[vertex.tsName] = newCode;
+        }
+      }
+    }
+
+    return hasChanges ? result : undefined;
+  } catch (e) {
+    console.error("Error exporting code diff:", e);
+  }
 }
