@@ -23,7 +23,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+lgpl", "lic+mit")
     .relParadigms.add("para+compiled", "para+general-purpose", "para+multi", "para+procedural")
     .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
-    .relTags.add("tag+compiler", "tag+scripting")
+    .relTags.add("tag+better-c", "tag+compiler", "tag+scripting")
     .relTypeSystems.add("tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+c");
 }

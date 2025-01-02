@@ -32,7 +32,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+bsd")
     .relParadigms.add("para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop")
     .relPlatforms.add("plat+apple", "plat+bsd", "plat+linux", "plat+windows")
-    .relTags.add("tag+app", "tag+cli", "tag+compiler", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+testing", "tag+viz")
+    .relTags.add("tag+app", "tag+better-c", "tag+cli", "tag+compiler", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+testing", "tag+viz")
     .relTypeSystems.add("tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong", "tsys+structural")
     .relWrittenWith.add("pl+assembly", "pl+c++");
 }

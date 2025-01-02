@@ -32,6 +32,7 @@ export function define(g: PlangsGraph) {
     .relTags.add(
       "tag+app",
       "tag+asm",
+      "tag+better-c",
       "tag+compiler",
       "tag+embedded",
       "tag+framework",

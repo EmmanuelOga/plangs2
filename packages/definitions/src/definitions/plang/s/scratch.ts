@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+bsd", "lic+dual", "lic+gnu-gpl")
     .relParadigms.add("para+educational", "para+event-driven", "para+visual")
     .relPlatforms.add("plat+android", "plat+apple", "plat+linux", "plat+windows")
-    .relTags.add("tag+audio-dev", "tag+editor", "tag+games", "tag+interpreters", "tag+multimedia", "tag+video", "tag+viz")
+    .relTags.add("tag+audio-dev", "tag+editor", "tag+edu", "tag+games", "tag+interpreters", "tag+multimedia", "tag+video", "tag+viz")
     .relTypeSystems.add("tsys+untyped")
     .relWrittenWith.add("pl+actionscript", "pl+javascript", "pl+squeak");
 }
