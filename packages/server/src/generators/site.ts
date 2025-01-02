@@ -9,6 +9,7 @@ import { loadDefinitions } from "@plangs/definitions";
 import { PlangsGraph } from "@plangs/plangs/graph";
 import { LAYOUT_DEFAULTS } from "@plangs/server/components/layout";
 import { loadPosts } from "@plangs/server/content";
+import { esbuildOptions } from "@plangs/server/esbuilder";
 import { GRID_PATHS, REFERENCE_PATHS, resolvePage } from "@plangs/server/resolve_page";
 import { vdomToHTML } from "@plangs/server/utils/server";
 
@@ -38,18 +39,7 @@ async function generateJSBundle(outputPath: string, pg: PlangsGraph) {
   const data = JSON.stringify(pg.toJSON());
   const dataName = `plangs-${Bun.hash(data)}-${BUILD_DATE}.json`;
   Bun.write(join(outputPath, dataName), data);
-
-  await esbuild.build({
-    entryPoints: [join(ROOT, "packages/frontend/src/app/index.tsx")],
-    target: ["chrome130", "firefox132", "safari18", "edge130", "es2022"],
-    bundle: true,
-    sourcemap: true,
-    define: { PLANGS_ENV: '"prod"', PLANGS_DATA_PATH: `"/${dataName}"` },
-    minify: true,
-    treeShaking: true,
-    alias: { "preact/debug": "preact" },
-    outfile: join(outputPath, "app.js"),
-  });
+  await esbuild.build(esbuildOptions("prod", dataName, join(outputPath, "app.js")));
 }
 
 /** Bundle the App's CSS with Tailwind. 4.0 beta doesn't have a good way to call this from code at the moment. */
