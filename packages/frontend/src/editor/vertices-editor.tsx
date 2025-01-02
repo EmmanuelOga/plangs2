@@ -1,15 +1,16 @@
 import type { ComponentChildren } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
 
+import { groupBy } from "@plangs/auxiliar/array";
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { ADD, CLOSE } from "@plangs/frontend/auxiliar/icons";
+import { getStore } from "@plangs/frontend/auxiliar/storage";
 import { INPUT, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import { Pill } from "@plangs/frontend/components/misc/pill";
-import type { PlangsGraph } from "@plangs/plangs/graph";
+import { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertex, TPlangsVertexName } from "@plangs/plangs/graph/generated";
 
-import { groupBy } from "@plangs/auxiliar/array";
-import { updateLocalEdits } from ".";
+import { localEditsData, updateLocalEdits } from ".";
 import { VertexForm } from "./vertex-form";
 import { type AnyRel, VerticesEditorState } from "./vertices-editor-state";
 
@@ -19,9 +20,12 @@ import { type AnyRel, VerticesEditorState } from "./vertices-editor-state";
  * * An editor for relationships (edges) of the Vertex.
  * * A JSON editor for the raw data of the Vertex.
  */
-export function VerticesEditor({ pg }: { pg: PlangsGraph }) {
-  const self = useRef<HTMLDivElement>(null);
+export function VerticesEditor({ pg: referencePG }: { pg: PlangsGraph }) {
+  // The editor always works with a local copy of the graph.
+  const pg = new PlangsGraph().loadJSON(localEditsData(referencePG));
   const py = pg.plang.get("pl+python");
+
+  const self = useRef<HTMLDivElement>(null);
   const state = useDispatchable(
     () =>
       new VerticesEditorState({
