@@ -9,8 +9,6 @@ export function define(g: PlangsGraph) {
       created: "2020",
       extensions: [".pl"],
       extGithubPath: "trealla-prolog/trealla",
-      extHomeURL: "https://trealla-prolog.github.io/",
-      filenames: ["Trealla.pl"],
       isTranspiler: false,
       keywords: ["concurrency", "coroutines", "interpreter", "logic-programming", "prolog"],
     })

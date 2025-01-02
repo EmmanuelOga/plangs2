@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
       stackovTags: ["typescript"],
     })
     .relCompilesTo.add("pl+javascript")
-    .relInfluencedBy.add("pl+actionscript", "pl+c-sharp", "pl+f-sharp", "pl+java", "pl+javascript")
+    .relInfluencedBy.add("pl+c-sharp", "pl+f-sharp", "pl+java", "pl+javascript")
     .relLicenses.add("lic+apache")
     .relParadigms.add("para+functional", "para+imperative", "para+multi", "para+oop")
     .relPlatforms.add("plat+cross", "plat+nodejs")

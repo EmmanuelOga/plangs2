@@ -9,7 +9,7 @@ export function define(g: PlangsGraph) {
       shortDesc: "Typesetting system for scientific and academic documents, designed by Donald Knuth.",
       created: "1978",
       extensions: [".tex"],
-      extHomeURL: "https://www.tug.org/tex/",
+      extHomeURL: "https://www.tug.org/",
       extRedditPath: "LaTeX",
       extWikipediaPath: "LaTeX",
       githubColor: "#3D6117",

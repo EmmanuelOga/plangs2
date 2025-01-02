@@ -25,8 +25,8 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "4.3.6", name: "Haxe 4.3.6", date: "2024-08-07" }],
       stackovTags: ["haxe"],
     })
-    .relCompilesTo.add("pl+actionscript", "pl+c++", "pl+c-sharp", "pl+java", "pl+javascript", "pl+lua", "pl+ocaml", "pl+php", "pl+python")
-    .relInfluencedBy.add("pl+actionscript", "pl+c++", "pl+c-sharp", "pl+javascript", "pl+lua", "pl+ocaml", "pl+python")
+    .relCompilesTo.add("pl+c++", "pl+c-sharp", "pl+java", "pl+javascript", "pl+lua", "pl+ocaml", "pl+php", "pl+python")
+    .relInfluencedBy.add("pl+c++", "pl+c-sharp", "pl+javascript", "pl+lua", "pl+ocaml", "pl+python")
     .relLicenses.add("lic+gnu-gpl", "lic+mit")
     .relParadigms.add("para+functional", "para+multi", "para+oop")
     .relPlatforms.add("plat+android", "plat+apple", "plat+arm", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64")
