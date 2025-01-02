@@ -14,7 +14,15 @@ export function EditorMain({ pg }: { pg: PlangsGraph }) {
 
   return (
     <div class={tw("p-4", "flex-1", "flex flex-col gap-4", "overflow-hidden")}>
-      <div class={tw("p-2", "flex flex-row gap-4", "bg-secondary/25 text-primary", "border-secondary border-b-1", "shadow-secondary/25 shadow-sm")}>
+      <div
+        class={tw(
+          "hidden sm:block",
+          "p-2",
+          "flex flex-row gap-4",
+          "bg-secondary/25 text-primary",
+          "border-secondary border-b-1",
+          "shadow-secondary/25 shadow-sm",
+        )}>
         <EditorButton class="w-[8rem]" label="STATUS" isCurrent={() => tab === "status"} onClick={() => setTab("status")} />
         <EditorButton class="w-[8rem]" label="EDIT" isCurrent={() => tab === "edit"} onClick={() => setTab("edit")} />
       </div>
