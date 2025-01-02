@@ -124,8 +124,8 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
             {page === "plangs" && iconButton("gridOrder")}
             {pageType === "grid" && iconButton("clearFacets")}
             <div class="flex-1" />
+            <IconWrapper class="hidden sm:block" children={<a href="/edit" title="Edit" children={EDIT} />} />
             <IconWrapper children={<a href="/blog" title="News!" children={NEWS} />} />
-            <IconWrapper children={<a href="/edit" title="Edit" children={EDIT} />} />
             {iconButton("lights")}
           </div>
           <div class="flex flex-1 flex-row overflow-hidden">
