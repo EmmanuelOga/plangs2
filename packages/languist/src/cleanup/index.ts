@@ -145,4 +145,10 @@ export async function importData(path: string) {
   regenVertexDefinitions(pg);
 }
 
-await importData("plangs.json");
+const srcPath = process.argv[2];
+if (srcPath) {
+  console.log("Generating from", srcPath);
+  await importData(srcPath);
+} else {
+  console.error("Please include a source path to an exported JSON file.");
+}

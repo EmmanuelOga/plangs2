@@ -30,7 +30,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+mit")
     .relParadigms.add("para+compiled", "para+concurrent", "para+functional", "para+imperative", "para+structured")
     .relPlatforms.add("plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64")
-    .relTags.add("tag+compiler", "tag+interpreters", "tag+scripting")
+    .relTags.add("tag+better-c", "tag+compiler", "tag+interpreters", "tag+scripting")
     .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+c");
 }

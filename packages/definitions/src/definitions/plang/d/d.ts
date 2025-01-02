@@ -33,6 +33,7 @@ export function define(g: PlangsGraph) {
       "tag+analysis",
       "tag+app",
       "tag+asm",
+      "tag+better-c",
       "tag+cli",
       "tag+compiler",
       "tag+games",

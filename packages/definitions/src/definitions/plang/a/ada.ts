@@ -41,6 +41,7 @@ export function define(g: PlangsGraph) {
     .relPlatforms.add("plat+cross", "plat+linux", "plat+windows")
     .relTags.add(
       "tag+app",
+      "tag+better-c",
       "tag+compiler",
       "tag+dbms",
       "tag+embedded",

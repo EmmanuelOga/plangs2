@@ -24,8 +24,8 @@
     "watchjs": "esbuild --target=chrome130,firefox132,safari18,edge130,es2022 --bundle --define:PLANGS_ENV=\\\"dev\\\" --define:PLANGS_DATA_PATH=\\\"/plangs.json\\\" packages/frontend/src/app --sourcemap --outdir=packages/server/static --watch",
     "enrich": "echo 'run ai enrich'",
     "create": "echo 'create new vertex'",
-    "export": "bun run packages/server/src/generators/json.ts .",
-    "import": "echo 'recreate data from json'",
+    "export": "bun run packages/server/src/generators/json.ts",
+    "import": "bun run packages/languist/src/cleanup/index.ts",
     "gengraph": "bun run --watch packages/server/src/generators/graph.ts",
     "serve": "bun run --watch --cwd $(pwd)/packages/server src/serve.ts"
   }

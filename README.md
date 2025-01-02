@@ -86,11 +86,8 @@ Both *materializing relationships* and *inferring them on the fly* give room for
 
 ## WIP
 
-- [ ] Sitemap & robots.txt
-
 ## RELEASE
 
-- [ ] Revise data: tags: better-c, educational.
 - [ ] Create better guidelines, code of conduct, enable discussions, etc.
 
 ## Other

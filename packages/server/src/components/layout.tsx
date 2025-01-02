@@ -85,11 +85,11 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
 
         {page !== "edit" && (
           <header id={cssID("localEditWarning")} class={tw("hidden", "border-primary border-b-1", "p-2 text-center")}>
-            Using localStorage data from the editor.{" "}
+            <span class="text-foreground">Using localStorage data.</span>{" "}
             <a class="text-primary" href="/edit">
               Go to the editor
             </a>{" "}
-            to reset.
+            <span class="text-foreground">to reset.</span>{" "}
           </header>
         )}
 

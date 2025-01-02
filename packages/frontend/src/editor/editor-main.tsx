@@ -2,23 +2,14 @@ import { useState } from "preact/hooks";
 
 import { getStore } from "@plangs/frontend/auxiliar/storage";
 import { PROSE_BASIC, tw } from "@plangs/frontend/auxiliar/styles";
-import { PlangsGraph } from "@plangs/plangs/graph";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
-import { toggleLocalEdits, updateLocalEdits } from ".";
+import { LAST_EDIT_TIME, toggleLocalEdits, updateLocalEdits } from ".";
 import { EditorButton, VerticesEditor } from "./vertices-editor";
 
 /** Top level of the editor: information, editing and exporting. */
 export function EditorMain({ pg }: { pg: PlangsGraph }) {
   const [tab, setTab] = useState<"status" | "edit">("status");
-
-  // The editor always works with a local copy of the graph.
-  const store = getStore("_any_page_");
-  let localJSON = store.load("local-edits");
-  if (!localJSON) {
-    localJSON = pg.toJSON();
-    store.update("local-edits", localJSON);
-  }
-  const localPg = new PlangsGraph().loadJSON(localJSON);
 
   return (
     <div class={tw("p-4", "flex-1", "flex flex-col gap-4", "overflow-hidden")}>
@@ -27,7 +18,7 @@ export function EditorMain({ pg }: { pg: PlangsGraph }) {
         <EditorButton class="w-[8rem]" label="EDIT" isCurrent={() => tab === "edit"} onClick={() => setTab("edit")} />
       </div>
       {tab === "status" && <Status />}
-      {tab === "edit" && <VerticesEditor pg={localPg} />}
+      {tab === "edit" && <VerticesEditor pg={pg} key={LAST_EDIT_TIME} />}
     </div>
   );
 }
@@ -62,7 +53,7 @@ function Status() {
       <p>Go back to a clean slate: you will lose your edits.</p>
       <div class="flex flex-row gap-4">
         <EditorButton
-          label="Reset and Erase Edits"
+          label="Reset local Edits"
           onClick={() => {
             updateLocalEdits("");
             setResetMsg(`${new Date().toLocaleTimeString()}: Local edits erased.`);

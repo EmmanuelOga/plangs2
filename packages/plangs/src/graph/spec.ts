@@ -82,7 +82,7 @@ export const PLANGS_GRAPH_SPEC: GenGraphSpec<PlangVertexNames> = {
     { src: ["tool", "relWrittenWith", "Implemented With"], dst: ["plang", "relToolsUsing", "Tool Plang"], pref: "src" },
 
     // Tags
-    { src: ["tag", "relApps", "Apps tagged"], dst: ["app", "relTags", "Tags"], pref: "dst" },
+    { src: ["tag", "relApps", "Apps"], dst: ["app", "relTags", "Tags"], pref: "dst" },
     { src: ["tag", "relCommunities", "Communities"], dst: ["community", "relTags", "Tags"], pref: "dst" },
     { src: ["tag", "relLearning", "Learning Resources"], dst: ["learning", "relTags", "Tags"], pref: "dst" },
     { src: ["tag", "relLibraries", "Libraries"], dst: ["library", "relTags", "Tags"], pref: "dst" },

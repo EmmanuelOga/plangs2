@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+mit", "lic+mpl")
     .relParadigms.add("para+concurrent", "para+message-passing", "para+multi", "para+oop")
     .relPlatforms.add("plat+cross", "plat+linux")
-    .relTags.add("tag+automation")
+    .relTags.add("tag+automation", "tag+better-c")
     .relTypeSystems.add("tsys+nominal", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+llvm", "pl+rust");
 }

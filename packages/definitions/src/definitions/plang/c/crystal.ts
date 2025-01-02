@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+apache")
     .relParadigms.add("para+compiled", "para+concurrent", "para+multi", "para+oop")
     .relPlatforms.add("plat+apple", "plat+arm", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64")
-    .relTags.add("tag+compiler", "tag+interpreters", "tag+scripting")
+    .relTags.add("tag+better-c", "tag+compiler", "tag+interpreters", "tag+scripting")
     .relTypeSystems.add("tsys+duck", "tsys+inferred", "tsys+nominal", "tsys+object", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+crystal");
 }
