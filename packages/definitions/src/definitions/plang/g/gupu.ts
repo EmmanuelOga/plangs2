@@ -11,7 +11,6 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.complang.tuwien.ac.at/ulrich/gupu/",
       isTranspiler: false,
       keywords: ["constraint learning", "prolog", "teaching environment"],
-      links: [{ url: "https://www.youtube.com/watch?v=w7rM3_4hJKM", title: "GUPU on YouTube" }],
     })
     .relInfluencedBy.add("pl+prolog")
     .relParadigms.add("para+educational", "para+logic")

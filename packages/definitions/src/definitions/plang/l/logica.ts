@@ -13,7 +13,6 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://logica.dev/",
       isTranspiler: false,
       keywords: ["data analysis", "declarative", "logic programming", "query language"],
-      links: [{ url: "https://cloud.google.com/bigquery/docs/reference/mapping-functions#logica_extensions", title: "BigQuery Logica" }],
     })
     .relDialectOf.add("pl+prolog")
     .relImplements.add("pl+datalog")
