@@ -21,7 +21,7 @@
   "scripts": {
     "build": "bun run packages/server/src/generators/site.ts",
     "watchcss": "bun x @tailwindcss/cli@next -i ./styles.css -o packages/server/static/app.css --watch",
-    "watchjs": "esbuild --target=chrome130,firefox132,safari18,edge130,es2022 --bundle --define:PLANGS_ENV=\\\"dev\\\" --define:PLANGS_DATA_PATH=\\\"/plangs.json\\\" packages/frontend/src/app --sourcemap --outdir=packages/server/static --watch",
+    "watchjs": "bun run packages/server/src/esbuildWatch.ts",
     "enrich": "echo 'run ai enrich'",
     "create": "echo 'create new vertex'",
     "export": "bun run packages/server/src/generators/json.ts",
