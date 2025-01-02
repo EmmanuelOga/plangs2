@@ -5,14 +5,23 @@
  * * Home for other cleanup tasks that may need to be performed just once.
  */
 
+import { join } from "node:path";
+
 import { arrayMerge } from "@plangs/auxiliar/array";
 import { loadDefinitions } from "@plangs/definitions";
-import { tsVertexPath, vertexCodeGen } from "@plangs/languist/codegen";
 import { LG_LANGS, type Rankings } from "@plangs/languist/languish";
 import { GH_LANGS } from "@plangs/languist/linguist";
 import { reformatCode } from "@plangs/languist/reformat";
 import type { LanguishKeys, LinguistLang } from "@plangs/languist/types";
 import { PlangsGraph, type VPlang } from "@plangs/plangs/graph";
+import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
+
+export const DEFINITIONS_PATH = join(import.meta.dir, "../../definitions/src/definitions");
+
+export function tsVertexPath(vertex: TPlangsVertex): string {
+  const name = vertex.plainKey.replace(/[^a-zA-Z0-9\_\+\-]/g, "-");
+  return join(DEFINITIONS_PATH, vertex.vertexName, vertex.classifier, `${name}.ts`);
+}
 
 /** Update the VPlang data with Github data. */
 function updateWithGH(pl: VPlang, ghMap: Map<string, LinguistLang>): boolean {
@@ -95,7 +104,7 @@ export async function processGithubAndLanguish() {
 
   console.warn("Languages without updates:", { woGithub: [...woGH], woLanguish: [...woLG] });
 
-  for (const pl of pg.plang.values) Bun.write(tsVertexPath(pl), await reformatCode(vertexCodeGen(pl)));
+  for (const pl of pg.plang.values) Bun.write(tsVertexPath(pl), await reformatCode(pl.toCode()));
 
   console.warn("CAUTION: matching github data is not a perfect process. Results (git diff) should be manually reviewed.");
 }
@@ -105,7 +114,7 @@ export async function regenVertexDefinitions(pg: PlangsGraph) {
   for (const [name, vertices] of Object.entries(pg.vertices)) {
     if (name === "post") continue; // This is generated from the server/content folder.
     for (const vertex of vertices.values) {
-      Bun.write(tsVertexPath(vertex), await reformatCode(vertexCodeGen(vertex)));
+      Bun.write(tsVertexPath(vertex), await reformatCode(vertex.toCode()));
     }
   }
 }
@@ -132,23 +141,4 @@ export function cleanupData(pg: PlangsGraph, update: boolean) {
 
     if (missingKeys.size > 0) console.log("Edge type", e, "had missing keys:", [...missingKeys]);
   }
-}
-
-export async function importData(path: string) {
-  const pg = new PlangsGraph();
-
-  // Switch between: load definitions or load the data.
-  // await loadDefinitions(pg, { scanImages: false });
-  pg.loadJSON(JSON.parse(await Bun.file(path).text()));
-  pg.materialize();
-
-  regenVertexDefinitions(pg);
-}
-
-const srcPath = process.argv[2];
-if (srcPath) {
-  console.log("Generating from", srcPath);
-  await importData(srcPath);
-} else {
-  console.error("Please include a source path to an exported JSON file.");
 }

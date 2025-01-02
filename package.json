@@ -25,7 +25,8 @@
     "enrich": "echo 'run ai enrich'",
     "create": "echo 'create new vertex'",
     "export": "bun run packages/server/src/generators/json.ts",
-    "import": "bun run packages/languist/src/cleanup/index.ts",
+    "import": "bun run packages/languist/src/scripts/import.ts",
+    "cleanup": "bun run packages/languist/src/scripts/cleanup.ts",
     "gengraph": "bun run --watch packages/server/src/generators/graph.ts",
     "serve": "bun run --watch --cwd $(pwd)/packages/server src/serve.ts"
   }
