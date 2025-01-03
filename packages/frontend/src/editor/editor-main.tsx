@@ -10,7 +10,7 @@ import { EditorButton, VerticesEditor } from "./vertices-editor";
 
 /** Top level of the editor: information, editing and exporting. */
 export function EditorMain({ pg }: { pg: PlangsGraph }) {
-  const [tab, setTab] = useState<"status" | "edit">("edit");
+  const [tab, setTab] = useState<"status" | "edit">("status");
 
   return (
     <div class={tw("p-4", "flex-1", "flex flex-col gap-4", "overflow-hidden")}>

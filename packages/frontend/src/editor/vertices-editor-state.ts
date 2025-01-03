@@ -10,12 +10,12 @@ export class VerticesEditorState extends Dispatchable<{
   currentKind: TPlangsVertexName;
   currentVertex?: TPlangsVertex;
   currentRel?: [key: string, rel: AnyRel];
-  filter: string;
   tab: "form" | "relations" | "json";
 }> {
   doSetCurrentKind(name: TPlangsVertexName) {
     this.data.currentKind = name;
-    this.dispatch();
+    const v = this.data.pg[name].values.next().value as TPlangsVertex;
+    return this.doSetCurrentVertex(v);
   }
 
   doSetCurrentVertex(v: TPlangsVertex) {
@@ -35,11 +35,6 @@ export class VerticesEditorState extends Dispatchable<{
     this.dispatch();
   }
 
-  doSetFilter(filter: string) {
-    this.data.filter = filter;
-    this.dispatch();
-  }
-
   doSetTab(tab: "form" | "relations" | "json"): void {
     this.data.tab = tab;
     this.dispatch();
@@ -55,8 +50,7 @@ export class VerticesEditorState extends Dispatchable<{
   }
 
   get currentVertices() {
-    const vertices = [...this.data.pg.vertices[this.data.currentKind].values];
-    return this.data.filter ? vertices.filter(v => v.key.includes(this.data.filter)) : vertices;
+    return [...this.data.pg.vertices[this.data.currentKind].values];
   }
 
   get currentVertex() {

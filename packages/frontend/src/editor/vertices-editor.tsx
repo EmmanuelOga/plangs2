@@ -34,7 +34,6 @@ export function VerticesEditor({ pg: referencePG }: { pg: PlangsGraph }) {
         currentKind: "plang",
         currentVertex: py,
         currentRel: !py ? undefined : ["relInfluencedBy", py?.relations.get("relInfluencedBy") as AnyRel],
-        filter: "",
         tab: "relations",
       }),
   );
@@ -43,69 +42,68 @@ export function VerticesEditor({ pg: referencePG }: { pg: PlangsGraph }) {
     for (const b of self.current?.querySelectorAll("button.current") ?? []) b.scrollIntoView({ block: "nearest" });
   });
 
-  return (
-    <div ref={self} class={tw("p-2", "flex-1", "flex flex-row gap-8", "overflow-hidden")}>
-      <div class={tw("w-[11.5rem] pr-2", "flex flex-col gap-4")}>
-        <select class={tw(INPUT, "py-0 text-black/85")} onChange={ev => state.doSetCurrentKind(ev.currentTarget.value as TPlangsVertexName)}>
-          {state.vertexNames.map(vn => (
-            <option key={vn} value={vn} selected={state.currentKind === vn}>
-              {vn}
-            </option>
-          ))}
-        </select>
-        <input
-          type="search"
-          aria-label="Filter Key"
-          placeholder="Filter"
-          value={state.filter}
-          onInput={ev => state.doSetFilter((ev.target as HTMLInputElement).value)}
-          class={tw(INPUT, "px-2 py-1")}
-        />
-        <div class={tw("w-[11.5rem] pr-2", "flex flex-col gap-4", VSCROLL)}>
-          {state.currentVertices.map(v =>
-            EditorButton({ label: v.key, isCurrent: () => state.currentVertex?.key === v.key, onClick: () => state.doSetCurrentVertex(v) }),
-          )}
-        </div>
+  const vertexControls = (vertex: TPlangsVertex) => (
+    <>
+      <div class="flex flex-row gap-4">
+        <EditorButton label="FORM" isCurrent={() => state.tab === "form"} onClick={() => state.doSetTab("form")} />
+        <EditorButton label="RELATIONS" isCurrent={() => state.tab === "relations"} onClick={() => state.doSetTab("relations")} />
+        <EditorButton label="JSON" isCurrent={() => state.tab === "json"} onClick={() => state.doSetTab("json")} />
       </div>
-      {state.currentVertex ? (
-        <div class={tw("flex-1", "flex flex-col gap-4", "bg-secondary/10", "overflow-hidden")}>
-          <div class="flex w-full flex-row gap-4">
-            <EditorButton label="FORM" isCurrent={() => state.tab === "form"} onClick={() => state.doSetTab("form")} />
-            <EditorButton label="RELATIONS" isCurrent={() => state.tab === "relations"} onClick={() => state.doSetTab("relations")} />
-            <EditorButton label="JSON" isCurrent={() => state.tab === "json"} onClick={() => state.doSetTab("json")} />
-            <div class="flex-1" />
-            {state.tab === "relations" &&
-              ret(state.currentVertex, vertex => (
-                <select
-                  class={INPUT}
-                  onChange={({ currentTarget }) =>
-                    state.doSetRel([currentTarget.value, vertex.relations.get(currentTarget.value as never) as AnyRel])
-                  }>
-                  {[...vertex.relations.entries()]
-                    .filter(([key]) => key !== "relPosts" && key !== "relAuthors")
-                    .map(([key, rel]) => (
-                      <option key={`${vertex.key}-${key}`} selected={state.currentRel?.[0] === key} value={key}>
-                        {rel.edgeDesc}
-                      </option>
-                    ))}
-                </select>
+      {state.tab === "relations" ? (
+        <select
+          class={tw(INPUT, "max-w-[15rem]")}
+          onChange={({ currentTarget }) => state.doSetRel([currentTarget.value, vertex.relations.get(currentTarget.value as never) as AnyRel])}>
+          {[...vertex.relations.entries()]
+            .filter(([key]) => key !== "relPosts" && key !== "relAuthors")
+            .map(([key, rel]) => (
+              <option key={`${vertex.key}-${key}`} selected={state.currentRel?.[0] === key} value={key}>
+                {rel.edgeDesc}
+              </option>
+            ))}
+        </select>
+      ) : (
+        <div />
+      )}
+    </>
+  );
+
+  return (
+    <div ref={self} class={tw("flex-1", "flex flex-col gap-4", "overflow-hidden")}>
+      <div key={state.currentVertex?.key} class="grid grid-cols-3 gap-4">
+        <div class={tw("flex flex-row gap-4")}>
+          <select class={tw(INPUT, "py-0 text-black/85")} onChange={ev => state.doSetCurrentKind(ev.currentTarget.value as TPlangsVertexName)}>
+            {state.vertexNames.map(vn => (
+              <option key={vn} value={vn} selected={state.currentKind === vn} children={vn} />
+            ))}
+          </select>
+          <div class={tw("w-[11.5rem] pr-2", "flex flex-col gap-4", VSCROLL)}>
+            <select
+              class={INPUT}
+              onChange={({ currentTarget }) => {
+                state.doSetCurrentVertex(pg[state.currentKind].get(currentTarget.value as any) as TPlangsVertex);
+              }}>
+              {state.currentVertices.map(v => (
+                <option key={v.key} selected={state.currentVertex?.key === v.key} value={v.key} children={v.name} />
               ))}
-          </div>
-          <div class="flex flex-1 justify-center overflow-hidden">
-            {state.tab === "form" ? (
-              <VertexForm key={state.currentVertex.key} vertex={state.currentVertex} />
-            ) : state.tab === "relations" && state.currentRel ? (
-              <Relations key={state.currentVertex.key} state={state} vertex={state.currentVertex} rel={state.currentRel[1]} />
-            ) : state.tab === "json" ? (
-              <JsonEditor key={state.currentVertex.key} vertex={state.currentVertex} />
-            ) : (
-              ""
-            )}
+            </select>
           </div>
         </div>
-      ) : (
-        <div class="flex-1 bg-secondary/25 p-4">Select a vertex to edit.</div>
-      )}
+        {state.currentVertex && vertexControls(state.currentVertex)}
+      </div>
+
+      <div class="flex flex-1 justify-center overflow-hidden">
+        {!state.currentVertex ? (
+          "Select a vertex to edit."
+        ) : state.tab === "form" ? (
+          <VertexForm key={state.currentVertex.key} vertex={state.currentVertex} />
+        ) : state.tab === "relations" && state.currentRel ? (
+          <Relations key={state.currentVertex.key} state={state} vertex={state.currentVertex} rel={state.currentRel[1]} />
+        ) : state.tab === "json" ? (
+          <JsonEditor key={state.currentVertex.key} vertex={state.currentVertex} />
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 }
