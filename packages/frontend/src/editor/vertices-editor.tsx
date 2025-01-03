@@ -10,6 +10,7 @@ import { Pill } from "@plangs/frontend/components/misc/pill";
 import { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertex, TPlangsVertexName } from "@plangs/plangs/graph/generated";
 
+import { ret } from "@plangs/auxiliar/misc";
 import { localEditsData, updateLocalEdits } from ".";
 import { VertexForm } from "./vertex-form";
 import { type AnyRel, VerticesEditorState } from "./vertices-editor-state";
@@ -68,21 +69,37 @@ export function VerticesEditor({ pg: referencePG }: { pg: PlangsGraph }) {
       </div>
       {state.currentVertex ? (
         <div class={tw("flex-1", "flex flex-col gap-4", "bg-secondary/10", "overflow-hidden")}>
-          <header class="border-1 border-primary bg-secondary/75 py-2 text-center text-xl">
-            {state.currentVertex.vertexName}: {state.currentVertex.key}: {state.currentVertex.name}
-          </header>
-          <div class="flex flex-row gap-4">
+          <div class="flex w-full flex-row gap-4">
             <EditorButton label="FORM" isCurrent={() => state.tab === "form"} onClick={() => state.doSetTab("form")} />
             <EditorButton label="RELATIONS" isCurrent={() => state.tab === "relations"} onClick={() => state.doSetTab("relations")} />
             <EditorButton label="JSON" isCurrent={() => state.tab === "json"} onClick={() => state.doSetTab("json")} />
+            <div class="flex-1" />
+            {state.tab === "relations" &&
+              ret(state.currentVertex, vertex => (
+                <select
+                  class={INPUT}
+                  onChange={({ currentTarget }) =>
+                    state.doSetRel([currentTarget.value, vertex.relations.get(currentTarget.value as never) as AnyRel])
+                  }>
+                  {[...vertex.relations.entries()]
+                    .filter(([key]) => key !== "relPosts" && key !== "relAuthors")
+                    .map(([key, rel]) => (
+                      <option key={`${vertex.key}-${key}`} selected={state.currentRel?.[0] === key} value={key}>
+                        {rel.edgeDesc}
+                      </option>
+                    ))}
+                </select>
+              ))}
           </div>
           <div class="flex flex-1 justify-center overflow-hidden">
             {state.tab === "form" ? (
               <VertexForm key={state.currentVertex.key} vertex={state.currentVertex} />
-            ) : state.tab === "relations" ? (
-              <Relations key={state.currentVertex.key} state={state} />
-            ) : (
+            ) : state.tab === "relations" && state.currentRel ? (
+              <Relations key={state.currentVertex.key} state={state} vertex={state.currentVertex} rel={state.currentRel[1]} />
+            ) : state.tab === "json" ? (
               <JsonEditor key={state.currentVertex.key} vertex={state.currentVertex} />
+            ) : (
+              ""
             )}
           </div>
         </div>
@@ -145,49 +162,20 @@ function JsonEditor({ vertex }: { vertex: TPlangsVertex }): ComponentChildren {
 
   return (
     <div class={tw("w-full", "flex flex-col gap-4 justify-self-center", "bg-secondary/25")}>
-      <header class={tw("px-4 py-2", "flex flex-row gap-4", "justify-end", "bg-secondary/50", "text-center text-xl")}>
+      <header class={tw("px-4 py-2", "flex flex-row gap-4", "items-center align-middle", "bg-secondary/50", "text-center text-xl")}>
+        <div children={`${vertex.name}: ${vertex.vertexName} (${vertex.key}) / Full Vertex Data`} />
+        <div class="flex-1" />
         <EditorButton label="Reload" onClick={reload} />
         <EditorButton label="Save" onClick={save} />
       </header>
       <div class="text-center">{status}</div>
-      <textarea ref={textarea} class={tw(INPUT, "text-xl", "flex-1 overflow-hidden overflow-y-auto")} style={"font-family: monospace;"} />
-    </div>
-  );
-}
-
-function Relations({ state }: { state: VerticesEditorState }): ComponentChildren {
-  const vertex = state.currentVertex as TPlangsVertex;
-  return (
-    <div key={vertex.key} class="flex flex-1 flex-row gap-4 overflow-hidden">
-      <div class={tw("flex flex-col gap-4", "pr-4", "max-w-[10rem]")}>
-        {[...vertex.relations.entries()]
-          .filter(([key]) => key !== "relPosts" && key !== "relAuthors")
-          .map(([key, vertices]) => (
-            <EditorButton
-              key={`${vertex.key}-${key}`}
-              label={vertices.edgeDesc}
-              isCurrent={() => state.currentRel?.[0] === key}
-              onClick={() => state.doSetRel([key, vertices as AnyRel])}
-            />
-          ))}
-      </div>
-      {state.currentRel ? (
-        <Partition
-          key={`${vertex.key}-${state.currentRel[1]}`}
-          state={state}
-          vertex={vertex}
-          relKey={state.currentRel[0]}
-          rel={state.currentRel[1]}
-        />
-      ) : (
-        <div class="p-4">Select a Relation.</div>
-      )}
+      <textarea ref={textarea} class={tw(INPUT, "m-4", "text-xl", "flex-1 overflow-hidden overflow-y-auto")} style={"font-family: monospace;"} />
     </div>
   );
 }
 
 /** Partition vertices from a relationship: those with an edge and those without. */
-function Partition({ state, vertex, relKey, rel }: { state: VerticesEditorState; vertex: TPlangsVertex; relKey: string; rel: AnyRel }) {
+function Relations({ state, vertex, rel }: { state: VerticesEditorState; vertex: TPlangsVertex; rel: AnyRel }) {
   const related: TPlangsVertex[] = [];
   const unrelated: TPlangsVertex[] = [];
 
@@ -200,17 +188,17 @@ function Partition({ state, vertex, relKey, rel }: { state: VerticesEditorState;
   }
 
   return (
-    <div class={tw("p-4", "flex-1", "flex flex-col gap-4", "bg-primary/10", "overflow-hidden")}>
-      <header class="text-2xl">
-        {vertex.name} {rel.edgeDesc}
+    <div class={tw("flex-1", "flex flex-col gap-4", "bg-primary/10", "overflow-hidden")}>
+      <header class={tw("px-4 py-2", "flex flex-row gap-4", "items-center align-middle", "bg-secondary/50", "text-center text-xl")}>
+        <div children={`${vertex.name}: ${vertex.vertexName} (${vertex.key}) / ${rel.edgeDesc}`} />
       </header>
 
-      <div class={tw("flex flex-row gap-4")}>
+      <div class={tw("flex flex-row gap-4", "p-2")}>
         <h2 class="flex-1 uppercase">Related</h2>
         <h2 class="flex-1 uppercase">Unrelated</h2>
       </div>
 
-      <div class={tw("flex flex-row gap-4", "overflow-hidden")}>
+      <div class={tw("flex flex-row gap-4", "overflow-hidden", "p-2")}>
         {renderGroup(CLOSE, related, v => {
           rel.remove(v.key);
           updateLocalEdits(vertex.graph.toJSON());

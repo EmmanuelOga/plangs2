@@ -12,13 +12,17 @@ export function VertexForm({ vertex }: { vertex: TPlangsVertex }) {
   const state = useDispatchable(() => VertexFormState.create(vertex));
 
   return (
-    <div class={tw("flex flex-col gap-4 justify-self-center", "min-w-[50%] max-w-[160ch]", "bg-secondary/25")}>
-      <header class={tw("px-4 py-2", "flex flex-row gap-4", "justify-end", "bg-secondary/50", "text-center text-xl")}>
+    <div class={tw("w-full", "flex flex-col gap-4 justify-self-center", "bg-secondary/25")}>
+      <header class={tw("px-4 py-2", "flex flex-row gap-4", "items-center align-middle", "bg-secondary/50", "text-center text-xl")}>
+        <div children={`${vertex.name}: ${vertex.vertexName} (${vertex.key})`} />
+        <div class="flex-1" />
         {EditorButton({ label: "Reload", onClick: () => state.doReload() })}
         {EditorButton({ label: "Save", onClick: () => state.doSave() })}
       </header>
       <div class="text-center">{state.status}</div>
-      <div class="overflow-hidden overflow-y-auto">{[...Object.entries(state.fields)].map(([key, field]) => formField(state, key, field))}</div>
+      <div class="m-auto max-w-[120ch] overflow-hidden overflow-y-auto">
+        {[...Object.entries(state.fields)].map(([key, field]) => formField(state, key, field))}
+      </div>
     </div>
   );
 }
