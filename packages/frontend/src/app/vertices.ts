@@ -10,8 +10,12 @@ declare const PLANGS_DATA_PATH: string;
 /** Load the data from the server. */
 export async function loadServerData(pg: PlangsGraph): Promise<void> {
   return fetch(PLANGS_DATA_PATH).then(async response => {
-    console.info("Using remote data.");
-    pg.loadJSON(await response.json());
+    console.info("Using remote data.", PLANGS_DATA_PATH);
+    try {
+      pg.loadJSON(await response.json());
+    } catch (err) {
+      console.error(err);
+    }
     pg.materialize();
   });
 }
