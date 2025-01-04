@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Elvish",
       description:
         "Powerful scripting language and versatile interactive shell, offering a rich programming environment with structured data and functional features. It supports cross-platform compatibility with a statically linked binary for Linux, BSDs, macOS, and Windows.",
-      shortDesc: "Versatile scripting language and interactive shell with cross-platform binary support.",
+      shortDesc:
+        "Versatile scripting language and interactive shell with cross-platform binary support.",
       created: "2016",
       extensions: [".elv"],
       extGithubPath: "elves/elvish",
@@ -19,11 +20,19 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["elvish", "interactive", "scripting", "shell"],
-      releases: [{ version: "0.18.0", name: "Elvish 0.18.0", date: "2023-09-15" }],
+      releases: [
+        { version: "0.18.0", name: "Elvish 0.18.0", date: "2023-09-15" },
+      ],
     })
     .relLicenses.add("lic+bsd", "lic+cc-by", "lic+epl")
     .relParadigms.add("para+functional", "para+scripting")
-    .relPlatforms.add("plat+apple", "plat+bsd", "plat+linux", "plat+raspberry", "plat+windows")
+    .relPlatforms.add(
+      "plat+apple",
+      "plat+bsd",
+      "plat+linux",
+      "plat+raspberry",
+      "plat+windows",
+    )
     .relTags.add("tag+cli", "tag+scripting", "tag+shell")
     .relTypeSystems.add("tsys+dynamic")
     .relWrittenWith.add("pl+go");

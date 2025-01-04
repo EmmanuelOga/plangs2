@@ -6,13 +6,19 @@ export function define(g: PlangsGraph) {
       name: "Logica",
       description:
         "A declarative logic programming language designed for complex data analysis and manipulation tasks, facilitating efficient querying and reasoning over datasets.",
-      shortDesc: "A declarative logic programming language for data manipulation.",
+      shortDesc:
+        "A declarative logic programming language for data manipulation.",
       created: "2020",
       extensions: [".lgo"],
       extGithubPath: "google/logica",
       extHomeURL: "https://logica.dev/",
       isTranspiler: false,
-      keywords: ["data analysis", "declarative", "logic programming", "query language"],
+      keywords: [
+        "data analysis",
+        "declarative",
+        "logic programming",
+        "query language",
+      ],
     })
     .relDialectOf.add("pl+prolog")
     .relImplements.add("pl+datalog")

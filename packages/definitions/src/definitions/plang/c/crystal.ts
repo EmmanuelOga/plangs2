@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Crystal",
       description:
         "Statically-typed, object-oriented programming language with syntax inspired by Ruby, aimed at providing high performance through compilation to native code. It features type inference and compiles to fast executable binaries, primarily for system and web backend applications.",
-      shortDesc: "Compiled, statically-typed language with Ruby-like syntax and type inference.",
+      shortDesc:
+        "Compiled, statically-typed language with Ruby-like syntax and type inference.",
       created: "2014",
       extensions: [".cr"],
       extGithubPath: "crystal-lang/crystal",
@@ -22,14 +23,40 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       keywords: ["crystal", "ruby-syntax"],
       languishRanking: 144,
-      releases: [{ version: "1.14.0", name: "Crystal 1.14.0", date: "2024-10-09" }],
+      releases: [
+        { version: "1.14.0", name: "Crystal 1.14.0", date: "2024-10-09" },
+      ],
       stackovTags: ["crystal-lang"],
     })
     .relInfluencedBy.add("pl+ruby")
     .relLicenses.add("lic+apache")
-    .relParadigms.add("para+compiled", "para+concurrent", "para+multi", "para+oop")
-    .relPlatforms.add("plat+apple", "plat+arm", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64")
-    .relTags.add("tag+better-c", "tag+compiler", "tag+interpreters", "tag+scripting")
-    .relTypeSystems.add("tsys+duck", "tsys+inferred", "tsys+nominal", "tsys+object", "tsys+static", "tsys+strong")
+    .relParadigms.add(
+      "para+compiled",
+      "para+concurrent",
+      "para+multi",
+      "para+oop",
+    )
+    .relPlatforms.add(
+      "plat+apple",
+      "plat+arm",
+      "plat+bsd",
+      "plat+linux",
+      "plat+windows",
+      "plat+x86-64",
+    )
+    .relTags.add(
+      "tag+better-c",
+      "tag+compiler",
+      "tag+interpreters",
+      "tag+scripting",
+    )
+    .relTypeSystems.add(
+      "tsys+duck",
+      "tsys+inferred",
+      "tsys+nominal",
+      "tsys+object",
+      "tsys+static",
+      "tsys+strong",
+    )
     .relWrittenWith.add("pl+crystal");
 }

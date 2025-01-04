@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Tau Prolog",
       description:
         "An implementation of Prolog for browsers, focused on education, research, and web-based applications, allowing Prolog code to run directly within JavaScript environments.",
-      shortDesc: "An implementation of Prolog for web-based applications in JavaScript environments.",
+      shortDesc:
+        "An implementation of Prolog for web-based applications in JavaScript environments.",
       created: "2015",
       extensions: [".pl"],
       extGithubPath: "tau-prolog/tau-prolog",

@@ -6,14 +6,21 @@ export function define(g: PlangsGraph) {
       name: "vvvv",
       description:
         "Visual programming environment designed for creating and implementing complex media installations, allowing developers to create applications using video, audio, and interaction design in real-time. It features a node-based dataflow approach for rapid prototyping, suitable for designers and developers working with physical computing and multimedia applications.",
-      shortDesc: "Visual programming platform for multimedia applications with a focus on real-time interaction.",
+      shortDesc:
+        "Visual programming platform for multimedia applications with a focus on real-time interaction.",
       created: "1998",
       extGithubPath: "vvvv/vvvv-sdk",
       extHomeURL: "https://vvvv.org/",
       extWikipediaPath: "Vvvv",
       githubStars: 234,
       isTranspiler: false,
-      keywords: ["dataflow", "media applications", "real-time interaction", "visual programming", "vvvv"],
+      keywords: [
+        "dataflow",
+        "media applications",
+        "real-time interaction",
+        "visual programming",
+        "vvvv",
+      ],
       releases: [{ version: "beta40", name: "beta40", date: "2020-12-01" }],
     })
     .relInfluencedBy.add("pl+apl", "pl+max-msp")

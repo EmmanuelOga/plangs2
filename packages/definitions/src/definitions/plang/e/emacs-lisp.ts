@@ -24,15 +24,31 @@ export function define(g: PlangsGraph) {
       keywords: ["elisp", "emacs", "emacs-lisp"],
       languishRanking: 70,
       links: [{ url: "https://www.emacswiki.org/", title: "EmacsWiki" }],
-      releases: [{ version: "29.4", name: "Emacs Lisp 29.4", date: "2024-06-22" }],
+      releases: [
+        { version: "29.4", name: "Emacs Lisp 29.4", date: "2024-06-22" },
+      ],
       stackovTags: ["elisp"],
     })
     .relDialectOf.add("pl+lisp")
     .relInfluencedBy.add("pl+common-lisp")
     .relLicenses.add("lic+gnu-gpl")
-    .relParadigms.add("para+extensible", "para+functional", "para+metaprogramming", "para+reflective", "para+scripting")
+    .relParadigms.add(
+      "para+extensible",
+      "para+functional",
+      "para+metaprogramming",
+      "para+reflective",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
-    .relTags.add("tag+app", "tag+compiler", "tag+editor", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+shell")
+    .relTags.add(
+      "tag+app",
+      "tag+compiler",
+      "tag+editor",
+      "tag+industrial",
+      "tag+interpreters",
+      "tag+scripting",
+      "tag+shell",
+    )
     .relTypeSystems.add("tsys+dynamic", "tsys+strong")
     .relWrittenWith.add("pl+c");
 }

@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Blade",
       description:
         "Simple yet powerful templating engine provided with Laravel, a PHP framework, which allows developers to seamlessly blend PHP logic with HTML. It offers template inheritance, conditional statements, and looping constructs, enhancing code readability and maintainability.",
-      shortDesc: "Templating engine integrated with Laravel, enabling PHP logic in HTML.",
+      shortDesc:
+        "Templating engine integrated with Laravel, enabling PHP logic in HTML.",
       created: "2011",
       extensions: [".blade.php"],
       extGithubPath: "laravel/laravel",
@@ -20,7 +21,13 @@ export function define(g: PlangsGraph) {
       githubStars: 79000,
       githubType: "markup",
       isTranspiler: true,
-      keywords: ["blade", "laravel", "php", "template inheritance", "templating"],
+      keywords: [
+        "blade",
+        "laravel",
+        "php",
+        "template inheritance",
+        "templating",
+      ],
       languishRanking: 69,
       stackovTags: ["laravel-blade"],
     })

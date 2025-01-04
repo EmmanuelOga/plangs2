@@ -9,6 +9,13 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://bembem.page/",
       links: [{ title: "Discord", url: "https://discord.gg/MRrkpywtKR" }],
     })
-    .relPlangs.add("pl+c", "pl+c-sharp", "pl+go", "pl+javascript", "pl+python", "pl+typescript")
+    .relPlangs.add(
+      "pl+c",
+      "pl+c-sharp",
+      "pl+go",
+      "pl+javascript",
+      "pl+python",
+      "pl+typescript",
+    )
     .relTags.add("tag+games", "tag+multimedia", "tag+webdev");
 }

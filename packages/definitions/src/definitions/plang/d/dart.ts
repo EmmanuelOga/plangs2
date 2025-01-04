@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Dart",
       description:
         "Designed by Lars Bak and Kasper Lund and developed by Google. It is used to develop web and mobile apps as well as server and desktop applications, supporting a broad range of platforms with efficient compilation techniques including JavaScript and WebAssembly.",
-      shortDesc: "Language for building web, mobile, and server apps, with tools to compile to JavaScript and WebAssembly.",
+      shortDesc:
+        "Language for building web, mobile, and server apps, with tools to compile to JavaScript and WebAssembly.",
       created: "2011",
       extensions: [".dart"],
       extGithubPath: "dart-lang/sdk",
@@ -32,11 +33,51 @@ export function define(g: PlangsGraph) {
       stackovTags: ["dart"],
     })
     .relCompilesTo.add("pl+javascript")
-    .relInfluencedBy.add("pl+c", "pl+c++", "pl+c-sharp", "pl+erlang", "pl+javascript", "pl+ruby", "pl+typescript")
+    .relInfluencedBy.add(
+      "pl+c",
+      "pl+c++",
+      "pl+c-sharp",
+      "pl+erlang",
+      "pl+javascript",
+      "pl+ruby",
+      "pl+typescript",
+    )
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+functional", "para+imperative", "para+multi", "para+oop", "para+reflective")
-    .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+riscv", "plat+web", "plat+windows", "plat+x86-64")
-    .relTags.add("tag+app", "tag+cli", "tag+embedded", "tag+framework", "tag+gui", "tag+interpreters", "tag+scripting")
-    .relTypeSystems.add("tsys+dynamic", "tsys+flow", "tsys+generic", "tsys+inferred", "tsys+object", "tsys+optional", "tsys+static", "tsys+strong")
+    .relParadigms.add(
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+      "para+reflective",
+    )
+    .relPlatforms.add(
+      "plat+android",
+      "plat+apple",
+      "plat+cross",
+      "plat+linux",
+      "plat+riscv",
+      "plat+web",
+      "plat+windows",
+      "plat+x86-64",
+    )
+    .relTags.add(
+      "tag+app",
+      "tag+cli",
+      "tag+embedded",
+      "tag+framework",
+      "tag+gui",
+      "tag+interpreters",
+      "tag+scripting",
+    )
+    .relTypeSystems.add(
+      "tsys+dynamic",
+      "tsys+flow",
+      "tsys+generic",
+      "tsys+inferred",
+      "tsys+object",
+      "tsys+optional",
+      "tsys+static",
+      "tsys+strong",
+    )
     .relWrittenWith.add("pl+c++");
 }

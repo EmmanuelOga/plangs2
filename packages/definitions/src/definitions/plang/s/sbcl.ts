@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "SBCL",
       description:
         "Steel Bank Common Lisp is an implementation of ANSI Common Lisp that focuses on providing a high-performance compiler and a runtime environment for multi-paradigm programming. It is derived from CMUCL and extends its functionality with improved performance and type safety features.",
-      shortDesc: "Open-source, high-performance Common Lisp implementation derived from CMUCL.",
+      shortDesc:
+        "Open-source, high-performance Common Lisp implementation derived from CMUCL.",
       created: "1999",
       extensions: [".cl", ".l", ".lisp", ".lsp", ".ny"],
       extGithubPath: "sbcl/sbcl",
@@ -31,8 +32,20 @@ export function define(g: PlangsGraph) {
     .relDialectOf.add("pl+common-lisp")
     .relInfluencedBy.add("pl+common-lisp")
     .relLicenses.add("lic+bsd", "lic+mit", "lic+public-domain")
-    .relParadigms.add("para+functional", "para+multi", "para+oop", "para+procedural", "para+reflective")
-    .relPlatforms.add("plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows")
+    .relParadigms.add(
+      "para+functional",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+      "para+reflective",
+    )
+    .relPlatforms.add(
+      "plat+apple",
+      "plat+bsd",
+      "plat+cross",
+      "plat+linux",
+      "plat+windows",
+    )
     .relTags.add("tag+compiler", "tag+interpreters")
     .relTypeSystems.add("tsys+dynamic", "tsys+strong")
     .relWrittenWith.add("pl+c");

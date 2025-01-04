@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "GUPU",
       description:
         "An integrated teaching environment tailored for supporting the learning and debugging of Prolog and constraint logic programming methodologies.",
-      shortDesc: "An environment specialized for Prolog and constraint programming.",
+      shortDesc:
+        "An environment specialized for Prolog and constraint programming.",
       created: "1992",
       extHomeURL: "https://www.complang.tuwien.ac.at/ulrich/gupu/",
       isTranspiler: false,

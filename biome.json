@@ -20,7 +20,8 @@
   "formatter": {
     "ignore": [
       "packages/languist/src/languish-data.json",
-      "packages/languist/src/linguist-data.json"
+      "packages/languist/src/linguist-data.json",
+      "packages/definitions/src/definitions"
     ],
     "enabled": true,
     "formatWithErrors": false,

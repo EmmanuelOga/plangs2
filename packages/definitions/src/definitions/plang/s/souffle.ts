@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Soufflé",
       description:
         "Open source parallel logic programming language, influenced by Datalog, featuring both an interpreter and a compiler that targets parallel C++. Designed for large-scale static analysis, it allows for rapid prototyping in logic-based problem solving, and is used primarily for building static analyzers, disassemblers, and binary reverse engineering tools.",
-      shortDesc: "Parallel logic programming language used for static analysis and reverse engineering, influenced by Datalog.",
+      shortDesc:
+        "Parallel logic programming language used for static analysis and reverse engineering, influenced by Datalog.",
       created: "2016",
       extensions: [".dl"],
       extGithubPath: "souffle-lang/souffle",
@@ -20,7 +21,12 @@ export function define(g: PlangsGraph) {
     .relDialectOf.add("pl+datalog")
     .relInfluencedBy.add("pl+datalog")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+compiled", "para+declarative", "para+logic", "para+parallel")
+    .relParadigms.add(
+      "para+compiled",
+      "para+declarative",
+      "para+logic",
+      "para+parallel",
+    )
     .relPlatforms.add("plat+cross")
     .relTags.add("tag+analysis", "tag+compiler", "tag+interpreters")
     .relTypeSystems.add("tsys+static")

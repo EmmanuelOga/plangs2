@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Hack",
       description:
         "Programming language developed by Meta (formerly Facebook) for HHVM, designed to enhance PHP with features like static type checking, gradual typing, and asynchronous programming. It supports various programming paradigms and aims to provide a balance between development speed and safety.",
-      shortDesc: "PHP-influenced language with static and gradual typing, used on the HHVM platform.",
+      shortDesc:
+        "PHP-influenced language with static and gradual typing, used on the HHVM platform.",
       created: "2014",
       extensions: [".hack", ".hck", ".hh"],
       extGithubPath: "facebook/hhvm",
@@ -27,9 +28,24 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add("pl+php")
     .relImplements.add("pl+php")
-    .relInfluencedBy.add("pl+c-sharp", "pl+haskell", "pl+java", "pl+ocaml", "pl+php", "pl+scala", "pl+typescript")
+    .relInfluencedBy.add(
+      "pl+c-sharp",
+      "pl+haskell",
+      "pl+java",
+      "pl+ocaml",
+      "pl+php",
+      "pl+scala",
+      "pl+typescript",
+    )
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective")
+    .relParadigms.add(
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+      "para+reflective",
+    )
     .relPlatforms.add("plat+cross")
     .relTags.add("tag+interpreters", "tag+scripting", "tag+webdev")
     .relTypeSystems.add(

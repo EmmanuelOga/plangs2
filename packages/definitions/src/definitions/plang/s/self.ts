@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Self",
       description:
         "Prototype-based dynamic object-oriented programming language, environment, and virtual machine focused on principles like simplicity and uniformity. It allows direct and physical interaction with objects and integrates a programming environment for modifying objects. Influenced by Smalltalk and APL, it influenced languages like JavaScript and NewtonScript.",
-      shortDesc: "Prototype-based dynamic OOP language, influenced by Smalltalk and APL, impacting JavaScript.",
+      shortDesc:
+        "Prototype-based dynamic OOP language, influenced by Smalltalk and APL, impacting JavaScript.",
       created: "1987",
       extensions: [".self"],
       extGithubPath: "russellallen/self",
@@ -28,6 +29,14 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+bsd")
     .relParadigms.add("para+oop", "para+prototype")
     .relPlatforms.add("plat+apple", "plat+cross", "plat+windows")
-    .relTags.add("tag+4gl", "tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters", "tag+viz")
+    .relTags.add(
+      "tag+4gl",
+      "tag+app",
+      "tag+compiler",
+      "tag+framework",
+      "tag+industrial",
+      "tag+interpreters",
+      "tag+viz",
+    )
     .relTypeSystems.add("tsys+dynamic", "tsys+strong");
 }

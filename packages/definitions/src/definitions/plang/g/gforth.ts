@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Gforth",
       description:
         "Free and portable implementation of the Forth programming language for Unix-like systems, Microsoft Windows, and other operating systems. A primary goal of Gforth is to adhere to the ANS Forth standard. Gforth is free software as part of the GNU Project.",
-      shortDesc: "Free and portable implementation of the Forth language adhering to the ANS Forth standard.",
+      shortDesc:
+        "Free and portable implementation of the Forth language adhering to the ANS Forth standard.",
       created: "1992",
       extHomeURL: "http://gnu.org/s/gforth/",
       extWikipediaPath: "Gforth",

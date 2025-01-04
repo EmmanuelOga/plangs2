@@ -4,8 +4,10 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+fleng", {
       name: "Fleng",
-      description: "A compiler designed for implementing concurrent logic programming languages FGHC, Strand, KL1, and PCN.",
-      shortDesc: "A compiler for concurrent logic programming languages FGHC, Strand, KL1, and PCN.",
+      description:
+        "A compiler designed for implementing concurrent logic programming languages FGHC, Strand, KL1, and PCN.",
+      shortDesc:
+        "A compiler for concurrent logic programming languages FGHC, Strand, KL1, and PCN.",
       created: "1988-04-01",
       extHomeURL: "https://gitlab.com/b2495/fleng",
       isTranspiler: false,

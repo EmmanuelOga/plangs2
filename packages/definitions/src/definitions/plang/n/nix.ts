@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Nix",
       description:
         "Cross-platform, purely functional package manager and language, known for its ability to manage packages with immutable directories and unique content-addressed dependency models.",
-      shortDesc: "Cross-platform, functional package manager and language with immutable directory management.",
+      shortDesc:
+        "Cross-platform, functional package manager and language with immutable directory management.",
       created: "2003",
       extensions: [".nix"],
       extGithubPath: "NixOS/nix",
@@ -20,9 +21,18 @@ export function define(g: PlangsGraph) {
       githubStars: 13000,
       githubType: "programming",
       isTranspiler: false,
-      keywords: ["cross-platform", "declarative", "functional", "nix", "open-source", "package manager"],
+      keywords: [
+        "cross-platform",
+        "declarative",
+        "functional",
+        "nix",
+        "open-source",
+        "package manager",
+      ],
       languishRanking: 45,
-      releases: [{ version: "2.22.1", name: "Nix Stable Release", date: "2024-05-10" }],
+      releases: [
+        { version: "2.22.1", name: "Nix Stable Release", date: "2024-05-10" },
+      ],
       stackovTags: ["nix"],
     })
     .relLicenses.add("lic+lgpl")

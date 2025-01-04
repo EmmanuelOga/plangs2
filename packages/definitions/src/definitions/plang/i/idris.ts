@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Idris",
       description:
         "Purely-functional programming language, designed for Type-Driven Development with dependent types, optional lazy evaluation, and features such as a totality checker. It serves as both a general-purpose language and a proof assistant.",
-      shortDesc: "Purely-functional language for Type-Driven Development with dependent types and optional lazy evaluation.",
+      shortDesc:
+        "Purely-functional language for Type-Driven Development with dependent types and optional lazy evaluation.",
       created: "2007",
       extensions: [".idr", ".lidr"],
       extGithubPath: "idris-lang/Idris2",
@@ -20,15 +21,35 @@ export function define(g: PlangsGraph) {
       githubStars: 2500,
       githubType: "programming",
       isTranspiler: false,
-      keywords: ["dependent types", "functional programming", "idris", "type-driven development"],
+      keywords: [
+        "dependent types",
+        "functional programming",
+        "idris",
+        "type-driven development",
+      ],
       languishRanking: 274,
-      releases: [{ version: "0.7.0", name: "Idris 2 v0.7.0", date: "2023-12-22" }],
+      releases: [
+        { version: "0.7.0", name: "Idris 2 v0.7.0", date: "2023-12-22" },
+      ],
       stackovTags: ["idris"],
     })
-    .relInfluencedBy.add("pl+agda", "pl+clean", "pl+coq", "pl+f-sharp", "pl+haskell", "pl+rust")
+    .relInfluencedBy.add(
+      "pl+agda",
+      "pl+clean",
+      "pl+coq",
+      "pl+f-sharp",
+      "pl+haskell",
+      "pl+rust",
+    )
     .relLicenses.add("lic+bsd")
     .relParadigms.add("para+functional")
     .relPlatforms.add("plat+cross")
     .relTags.add("tag+interpreters", "tag+proofs")
-    .relTypeSystems.add("tsys+algebraic", "tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong");
+    .relTypeSystems.add(
+      "tsys+algebraic",
+      "tsys+dependent",
+      "tsys+inferred",
+      "tsys+static",
+      "tsys+strong",
+    );
 }

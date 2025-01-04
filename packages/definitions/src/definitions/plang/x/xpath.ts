@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "XPath",
       description:
         "XML Path Language is an expression language designed to support the query or transformation of XML documents. It was defined by the World Wide Web Consortium (W3C) in 1999, and can be used to compute values (e.g., strings, numbers, or Boolean values) from the content of an XML document. Support for XPath exists in applications that support XML, such as web browsers, and many programming languages.",
-      shortDesc: "Expression language for querying and transforming XML documents.",
+      shortDesc:
+        "Expression language for querying and transforming XML documents.",
       created: "1998",
       extWikipediaPath: "XPath",
       isTranspiler: false,

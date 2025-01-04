@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Euphoria",
       description:
         "Powerful yet easy-to-learn programming language that emphasizes simplicity and readability, making it suitable for a wide range of applications across Windows, Linux, macOS, and BSD. It was first released in 1993 as shareware and has evolved over time into an open-source community-driven project. Its design focuses on rapid development and performance, incorporating features like an interpreter, C translator, and simple syntax using English keywords.",
-      shortDesc: "User-friendly language focusing on simplicity and readability, popular for various applications on multiple OS platforms.",
+      shortDesc:
+        "User-friendly language focusing on simplicity and readability, popular for various applications on multiple OS platforms.",
       created: "1993",
       extensions: [".e", ".edb", ".ex", ".exw"],
       extGithubPath: "OpenEuphoria/euphoria",
@@ -20,12 +21,20 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["euphoria", "open source", "programming language"],
-      releases: [{ version: "4.1.0", name: "openEuphoria 4.1.0", date: "2021-03-01" }],
+      releases: [
+        { version: "4.1.0", name: "openEuphoria 4.1.0", date: "2021-03-01" },
+      ],
     })
     .relInfluencedBy.add("pl+basic")
     .relLicenses.add("lic+bsd")
     .relParadigms.add("para+imperative", "para+procedural")
-    .relPlatforms.add("plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows")
+    .relPlatforms.add(
+      "plat+apple",
+      "plat+bsd",
+      "plat+cross",
+      "plat+linux",
+      "plat+windows",
+    )
     .relTags.add(
       "tag+app",
       "tag+compiler",

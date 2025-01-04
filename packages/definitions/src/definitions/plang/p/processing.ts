@@ -20,14 +20,29 @@ export function define(g: PlangsGraph) {
       githubStars: 6500,
       githubType: "programming",
       isTranspiler: false,
-      keywords: ["IDE", "art", "graphics library", "processing", "programming language", "visual design"],
+      keywords: [
+        "IDE",
+        "art",
+        "graphics library",
+        "processing",
+        "programming language",
+        "visual design",
+      ],
       languishRanking: 156,
-      releases: [{ version: "4.3", name: "Processing 4.3", date: "2023-07-26" }],
+      releases: [
+        { version: "4.3", name: "Processing 4.3", date: "2023-07-26" },
+      ],
       stackovTags: ["processing"],
     })
     .relInfluencedBy.add("pl+c", "pl+java")
     .relLicenses.add("lic+gnu-gpl", "lic+lgpl")
-    .relParadigms.add("para+dsl", "para+educational", "para+multi", "para+oop", "para+visual")
+    .relParadigms.add(
+      "para+dsl",
+      "para+educational",
+      "para+multi",
+      "para+oop",
+      "para+visual",
+    )
     .relPlatforms.add("plat+cross", "plat+java")
     .relTags.add(
       "tag+app",

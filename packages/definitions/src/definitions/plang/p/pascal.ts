@@ -23,7 +23,19 @@ export function define(g: PlangsGraph) {
       stackovTags: ["pascal"],
     })
     .relParadigms.add("para+imperative", "para+procedural", "para+structured")
-    .relPlatforms.add("plat+bsd", "plat+cross", "plat+dos", "plat+linux", "plat+windows")
-    .relTags.add("tag+compiler", "tag+edu", "tag+framework", "tag+games", "tag+interpreters")
+    .relPlatforms.add(
+      "plat+bsd",
+      "plat+cross",
+      "plat+dos",
+      "plat+linux",
+      "plat+windows",
+    )
+    .relTags.add(
+      "tag+compiler",
+      "tag+edu",
+      "tag+framework",
+      "tag+games",
+      "tag+interpreters",
+    )
     .relTypeSystems.add("tsys+safe", "tsys+static", "tsys+strong");
 }

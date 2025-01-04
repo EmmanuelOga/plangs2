@@ -21,7 +21,12 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       keywords: ["azure", "bicep", "deployment", "infrastructure"],
       languishRanking: 80,
-      links: [{ url: "https://learn.microsoft.com/azure/azure-resource-manager/bicep/", title: "Bicep Language" }],
+      links: [
+        {
+          url: "https://learn.microsoft.com/azure/azure-resource-manager/bicep/",
+          title: "Bicep Language",
+        },
+      ],
       stackovTags: ["azure-bicep"],
     })
     .relCompilesTo.add("pl+json", "pl+typescript")

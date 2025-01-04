@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "GNU Prolog",
       description:
         "A Prolog implementation designed to be fast and resource-efficient, providing both an interactive interpreter and a native-code compiler.",
-      shortDesc: "A Prolog implementation with an interpreter and native compiler.",
+      shortDesc:
+        "A Prolog implementation with an interpreter and native compiler.",
       created: "1999",
       extensions: [".pro"],
       extGithubPath: "didoudiaz/gprolog",

@@ -29,7 +29,12 @@ export function define(g: PlangsGraph) {
     .relCompilesTo.add("pl+lua")
     .relInfluencedBy.add("pl+lua", "pl+scheme")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+functional", "para+macro", "para+metaprogramming", "para+scripting")
+    .relParadigms.add(
+      "para+functional",
+      "para+macro",
+      "para+metaprogramming",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+cross")
     .relTags.add("tag+interpreters", "tag+scripting")
     .relTypeSystems.add("tsys+dynamic")

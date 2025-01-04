@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Prolog",
       description:
         "Logic programming language that has its roots in artificial intelligence, automated theorem proving, and computational linguistics, influenced by first-order logic for declarative programming.",
-      shortDesc: "Logic programming language used in AI and theorem proving, influenced by first-order logic for declarative tasks.",
+      shortDesc:
+        "Logic programming language used in AI and theorem proving, influenced by first-order logic for declarative tasks.",
       created: "1972",
       extensions: [".P", ".pl", ".pro"],
       extRedditPath: "prolog",
@@ -20,8 +21,16 @@ export function define(g: PlangsGraph) {
       keywords: ["prolog"],
       languishRanking: 160,
       releases: [
-        { version: "ISO/IEC 13211-1", name: "General - Edition 1", date: "1995-06" },
-        { version: "ISO/IEC 13211-2", name: "Modules - Edition 1", date: "2000-06" },
+        {
+          version: "ISO/IEC 13211-1",
+          name: "General - Edition 1",
+          date: "1995-06",
+        },
+        {
+          version: "ISO/IEC 13211-2",
+          name: "Modules - Edition 1",
+          date: "2000-06",
+        },
       ],
       stackovTags: ["prolog"],
     })

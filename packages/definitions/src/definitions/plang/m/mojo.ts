@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Mojo",
       description:
         "Modular programming language designed for high-performance and AI-specific applications. It builds on Python's ease of use, aiming to provide the expressiveness of Python with the efficiency of C, targeting diverse hardware environments.",
-      shortDesc: "Modular language blending Python's syntax with C-like performance.",
+      shortDesc:
+        "Modular language blending Python's syntax with C-like performance.",
       created: "2023",
       extensions: [".mojo", ".🔥"],
       extGithubPath: "modularml/mojo",
@@ -22,12 +23,21 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       keywords: ["AI", "high-performance", "modular", "mojo", "python-based"],
       languishRanking: 208,
-      releases: [{ version: "24.4", name: "Preview release", date: "2024-05-24" }],
+      releases: [
+        { version: "24.4", name: "Preview release", date: "2024-05-24" },
+      ],
       stackovTags: ["mojolang"],
     })
     .relInfluencedBy.add("pl+python", "pl+swift")
     .relLicenses.add("lic+apache", "lic+mit")
-    .relParadigms.add("para+compiled", "para+functional", "para+general-purpose", "para+imperative", "para+multi", "para+scripting")
+    .relParadigms.add(
+      "para+compiled",
+      "para+functional",
+      "para+general-purpose",
+      "para+imperative",
+      "para+multi",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+apple", "plat+cross", "plat+linux")
     .relTags.add("tag+automation", "tag+scripting")
     .relTypeSystems.add(

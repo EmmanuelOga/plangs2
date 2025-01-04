@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Pure",
       description:
         "Successor to the equational language Q, Pure is a dynamically typed, functional programming language based on term rewriting. It integrates symbolic computation, pattern matching, and an easy-to-use C interface with the ability to JIT compile to native code via LLVM.",
-      shortDesc: "Based on term rewriting, integrating symbolic computation and JIT compilation via LLVM.",
+      shortDesc:
+        "Based on term rewriting, integrating symbolic computation and JIT compilation via LLVM.",
       created: "2008",
       extensions: [".pure"],
       extGithubPath: "agraef/pure-lang",
@@ -14,13 +15,27 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Pure_(programming_language)",
       githubStars: 317,
       isTranspiler: false,
-      keywords: ["JIT", "LLVM", "functional programming", "pattern matching", "pure", "symbolic computation", "term rewriting"],
+      keywords: [
+        "JIT",
+        "LLVM",
+        "functional programming",
+        "pattern matching",
+        "pure",
+        "symbolic computation",
+        "term rewriting",
+      ],
       releases: [{ version: "0.68", name: "Pure 0.68", date: "2018-01-01" }],
     })
     .relInfluencedBy.add("pl+haskell", "pl+lisp")
     .relLicenses.add("lic+lgpl")
     .relParadigms.add("para+declarative", "para+functional", "para+rewriting")
-    .relPlatforms.add("plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows")
+    .relPlatforms.add(
+      "plat+apple",
+      "plat+bsd",
+      "plat+cross",
+      "plat+linux",
+      "plat+windows",
+    )
     .relTags.add(
       "tag+app",
       "tag+audio-dev",

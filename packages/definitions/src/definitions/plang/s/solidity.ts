@@ -19,9 +19,17 @@ export function define(g: PlangsGraph) {
       githubStars: 23500,
       githubType: "programming",
       isTranspiler: false,
-      keywords: ["blockchain", "ethereum", "evm", "smart contracts", "solidity"],
+      keywords: [
+        "blockchain",
+        "ethereum",
+        "evm",
+        "smart contracts",
+        "solidity",
+      ],
       languishRanking: 55,
-      releases: [{ version: "0.8.28", name: "Stable release", date: "2024-10-09" }],
+      releases: [
+        { version: "0.8.28", name: "Stable release", date: "2024-10-09" },
+      ],
       stackovTags: ["solidity"],
     })
     .relInfluencedBy.add("pl+c++", "pl+javascript", "pl+python")

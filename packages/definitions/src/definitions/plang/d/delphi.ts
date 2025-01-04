@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Delphi",
       description:
         "General-purpose programming language and a software product that uses the Delphi dialect of the Object Pascal programming language and provides an integrated development environment (IDE) for rapid application development of desktop, mobile, web, and console software. It is currently developed and maintained by Embarcadero Technologies.",
-      shortDesc: "General-purpose programming language with an IDE for rapid application development, using the Delphi dialect of Object Pascal.",
+      shortDesc:
+        "General-purpose programming language with an IDE for rapid application development, using the Delphi dialect of Object Pascal.",
       created: "1995",
       extensions: [".dpr", ".pas"],
       extHomeURL: "https://www.embarcadero.com/products/delphi",
@@ -29,8 +30,18 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add("pl+pascal")
     .relImplements.add("pl+pascal")
-    .relParadigms.add("para+compiled", "para+multi", "para+oop", "para+procedural")
-    .relPlatforms.add("plat+android", "plat+apple", "plat+linux", "plat+windows")
+    .relParadigms.add(
+      "para+compiled",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+    )
+    .relPlatforms.add(
+      "plat+android",
+      "plat+apple",
+      "plat+linux",
+      "plat+windows",
+    )
     .relTags.add(
       "tag+asm",
       "tag+automation",

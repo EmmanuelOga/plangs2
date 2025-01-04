@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Futhark",
       description:
         "Data-parallel programming language designed for high-performance computing, particularly on GPUs, utilizing a functional programming paradigm influenced by languages such as APL and Haskell. It supports automatic differentiation and emphasizes efficient data parallelism in array computations through a Hindley-Milner type system with uniqueness types.",
-      shortDesc: "Functional, parallel programming language optimized for high-performance GPU and CPU execution.",
+      shortDesc:
+        "Functional, parallel programming language optimized for high-performance GPU and CPU execution.",
       created: "2014",
       extensions: [".fut"],
       extGithubPath: "diku-dk/futhark",
@@ -31,9 +32,28 @@ export function define(g: PlangsGraph) {
     .relCompilesTo.add("pl+cuda")
     .relInfluencedBy.add("pl+apl", "pl+haskell", "pl+standard-ml")
     .relLicenses.add("lic+isc")
-    .relParadigms.add("para+array", "para+compiled", "para+functional", "para+multi", "para+parallel")
+    .relParadigms.add(
+      "para+array",
+      "para+compiled",
+      "para+functional",
+      "para+multi",
+      "para+parallel",
+    )
     .relPlatforms.add("plat+cross")
-    .relTags.add("tag+app", "tag+compiler", "tag+interpreters", "tag+numeric", "tag+ray-tracer", "tag+sci")
-    .relTypeSystems.add("tsys+dependent", "tsys+inferred", "tsys+static", "tsys+strong", "tsys+uniqueness")
+    .relTags.add(
+      "tag+app",
+      "tag+compiler",
+      "tag+interpreters",
+      "tag+numeric",
+      "tag+ray-tracer",
+      "tag+sci",
+    )
+    .relTypeSystems.add(
+      "tsys+dependent",
+      "tsys+inferred",
+      "tsys+static",
+      "tsys+strong",
+      "tsys+uniqueness",
+    )
     .relWrittenWith.add("pl+standard-ml");
 }

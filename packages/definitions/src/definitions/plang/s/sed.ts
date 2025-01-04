@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "sed",
       description:
         "Unix utility that parses and transforms text, using a simple, compact programming language, developed in the early 1970s by Lee E. McMahon of Bell Labs. It was influenced by and based on the scripting features of the interactive editor ed and the earlier qed. Notable for its early support of regular expressions, sed remains widely used for text processing, particularly with its substitution command.",
-      shortDesc: "Unix utility that parses and transforms text, using a compact programming language developed by Lee E. McMahon.",
+      shortDesc:
+        "Unix utility that parses and transforms text, using a compact programming language developed by Lee E. McMahon.",
       created: "1974",
       extensions: [".sed"],
       extWikipediaPath: "Sed",
@@ -18,7 +19,9 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       keywords: ["sed", "stream editor"],
       languishRanking: 82,
-      releases: [{ version: "1.0", name: "Initial Version", date: "1974-01-01" }],
+      releases: [
+        { version: "1.0", name: "Initial Version", date: "1974-01-01" },
+      ],
       stackovTags: ["sed"],
     })
     .relLicenses.add("lic+public-domain")

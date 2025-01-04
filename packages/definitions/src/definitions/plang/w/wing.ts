@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Wing",
       description:
         "High-level programming language tailored for cloud infrastructure management, streamlining development for cloud-native and serverless applications with simplified syntax and robust features, enhancing productivity for cloud services like AWS.",
-      shortDesc: "Designed for managing cloud infrastructure and serverless applications.",
+      shortDesc:
+        "Designed for managing cloud infrastructure and serverless applications.",
       created: "2022",
       extensions: [".w", ".wing"],
       extGithubPath: "winglang/wing",
@@ -14,10 +15,18 @@ export function define(g: PlangsGraph) {
       githubStars: 5100,
       isTranspiler: false,
       keywords: ["cloud", "infrastructure", "serverless"],
-      releases: [{ version: "1.0.0", name: "Wing Initial Release", date: "2022-09-01" }],
+      releases: [
+        { version: "1.0.0", name: "Wing Initial Release", date: "2022-09-01" },
+      ],
     })
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+declarative", "para+event-driven", "para+multi", "para+reactive", "para+scripting")
+    .relParadigms.add(
+      "para+declarative",
+      "para+event-driven",
+      "para+multi",
+      "para+reactive",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+cross")
     .relTags.add("tag+framework", "tag+scripting")
     .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong")

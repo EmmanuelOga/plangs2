@@ -4,7 +4,8 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+shex", {
       name: "ShEx",
-      description: "Shape Expressions is a data modeling language used for describing and validating RDF data structures.",
+      description:
+        "Shape Expressions is a data modeling language used for describing and validating RDF data structures.",
       shortDesc: "Used for RDF data validation and description.",
       created: "2012",
       extensions: [".shex", ".sx"],
@@ -13,13 +14,23 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       keywords: ["rdf", "shex", "validation"],
       releases: [
-        { version: "2.0", name: "Shape Expressions Language 2.0", date: "2017-03-30" },
+        {
+          version: "2.0",
+          name: "Shape Expressions Language 2.0",
+          date: "2017-03-30",
+        },
         { version: "2.1", name: "ShEx 2.1", date: "2018-11-21" },
       ],
     })
     .relLicenses.add("lic+cc-by")
     .relParadigms.add("para+declarative", "para+dsl", "para+validation")
     .relPlatforms.add("plat+cross")
-    .relTags.add("tag+dataq", "tag+framework", "tag+rdf", "tag+scripting", "tag+workflow")
+    .relTags.add(
+      "tag+dataq",
+      "tag+framework",
+      "tag+rdf",
+      "tag+scripting",
+      "tag+workflow",
+    )
     .relWrittenWith.add("pl+javascript", "pl+scala");
 }

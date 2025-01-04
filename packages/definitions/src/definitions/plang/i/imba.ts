@@ -24,7 +24,13 @@ export function define(g: PlangsGraph) {
     .relCompilesTo.add("pl+javascript")
     .relInfluencedBy.add("pl+coffeescript")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+functional", "para+general-purpose", "para+imperative", "para+oop", "para+reactive")
+    .relParadigms.add(
+      "para+functional",
+      "para+general-purpose",
+      "para+imperative",
+      "para+oop",
+      "para+reactive",
+    )
     .relPlatforms.add("plat+nodejs", "plat+web")
     .relTags.add("tag+gui")
     .relTypeSystems.add("tsys+dynamic", "tsys+inferred", "tsys+static")

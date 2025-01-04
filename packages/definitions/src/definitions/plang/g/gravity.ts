@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Gravity",
       description:
         "Lightweight, dynamically typed, embeddable programming language designed for the Creo project. It supports multiple paradigms such as procedural, object-oriented, and functional programming, and takes influence from languages like Lua and Swift.",
-      shortDesc: "Lightweight, embeddable programming language supporting multiple paradigms.",
+      shortDesc:
+        "Lightweight, embeddable programming language supporting multiple paradigms.",
       created: "2015",
       extensions: [".gravity"],
       extGithubPath: "marcobambini/gravity",
@@ -18,7 +19,13 @@ export function define(g: PlangsGraph) {
     })
     .relInfluencedBy.add("pl+lua", "pl+swift")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+functional", "para+multi", "para+oop", "para+procedural", "para+scripting")
+    .relParadigms.add(
+      "para+functional",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+android", "plat+cross")
     .relTags.add("tag+embedded", "tag+games", "tag+scripting")
     .relTypeSystems.add("tsys+dynamic", "tsys+strong")

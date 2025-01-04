@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Potassco",
       description:
         "Focuses on providing tools for Answer Set Programming (ASP), aiming to solve complex combinatorial search problems with collections of efficient solvers.",
-      shortDesc: "Targets combinatorial search problems using efficient ASP solvers.",
+      shortDesc:
+        "Targets combinatorial search problems using efficient ASP solvers.",
       extGithubPath: "potassco/clingo",
       extHomeURL: "https://potassco.org/",
       isTranspiler: false,

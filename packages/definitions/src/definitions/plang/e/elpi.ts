@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "ELPI",
       description:
         "Embeddable Lambda Prolog Interpreter implements a variant of λProlog enriched with Constraint Handling Rules and serves as both a higher-order logical framework and an implementation language for type systems and logic programs.",
-      shortDesc: "An embeddable interpreter for a λProlog variant enriched with Constraint Handling Rules.",
+      shortDesc:
+        "An embeddable interpreter for a λProlog variant enriched with Constraint Handling Rules.",
       created: "2014-03",
       extGithubPath: "LPCIC/elpi",
       isTranspiler: false,

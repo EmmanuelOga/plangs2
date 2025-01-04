@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Java",
       description:
         "High-level programming language originally developed by Sun Microsystems and now owned by Oracle, known for its portability, strong memory management, and extensive ecosystem.",
-      shortDesc: "High-level language known for its portability and extensive ecosystem.",
+      shortDesc:
+        "High-level language known for its portability and extensive ecosystem.",
       created: "1995",
       extensions: [".class", ".jar", ".java", ".jmod", ".war"],
       extHomeURL: "https://openjdk.java.net/",
@@ -29,9 +30,32 @@ export function define(g: PlangsGraph) {
     })
     .relInfluencedBy.add("pl+c++")
     .relLicenses.add("lic+gnu-gpl")
-    .relParadigms.add("para+compiled", "para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop", "para+reflective")
-    .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows")
+    .relParadigms.add(
+      "para+compiled",
+      "para+concurrent",
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+      "para+reflective",
+    )
+    .relPlatforms.add(
+      "plat+android",
+      "plat+apple",
+      "plat+cross",
+      "plat+java",
+      "plat+linux",
+      "plat+windows",
+    )
     .relTags.add("tag+app", "tag+compiler", "tag+server")
-    .relTypeSystems.add("tsys+generic", "tsys+manifest", "tsys+nominal", "tsys+object", "tsys+safe", "tsys+static", "tsys+strong")
+    .relTypeSystems.add(
+      "tsys+generic",
+      "tsys+manifest",
+      "tsys+nominal",
+      "tsys+object",
+      "tsys+safe",
+      "tsys+static",
+      "tsys+strong",
+    )
     .relWrittenWith.add("pl+c");
 }

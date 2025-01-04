@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Standard ML",
       description:
         "Standard ML is a general-purpose, high-level, modular, functional programming language with compile-time type checking and type inference. It is popular for writing compilers, for programming language research, and for developing theorem provers.",
-      shortDesc: "Functional programming language known for its type inference and usage in compiler writing.",
+      shortDesc:
+        "Functional programming language known for its type inference and usage in compiler writing.",
       created: "1983",
       extensions: [".sig", ".sml"],
       extRedditPath: "sml",
@@ -24,9 +25,27 @@ export function define(g: PlangsGraph) {
     })
     .relInfluencedBy.add("pl+pascal")
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+functional", "para+imperative", "para+modular", "para+multi")
+    .relParadigms.add(
+      "para+functional",
+      "para+imperative",
+      "para+modular",
+      "para+multi",
+    )
     .relPlatforms.add("plat+bsd", "plat+cross", "plat+linux")
-    .relTags.add("tag+app", "tag+compiler", "tag+edu", "tag+industrial", "tag+interpreters", "tag+proofs", "tag+ray-tracer")
-    .relTypeSystems.add("tsys+algebraic", "tsys+inferred", "tsys+static", "tsys+strong")
+    .relTags.add(
+      "tag+app",
+      "tag+compiler",
+      "tag+edu",
+      "tag+industrial",
+      "tag+interpreters",
+      "tag+proofs",
+      "tag+ray-tracer",
+    )
+    .relTypeSystems.add(
+      "tsys+algebraic",
+      "tsys+inferred",
+      "tsys+static",
+      "tsys+strong",
+    )
     .relWrittenWith.add("pl+c");
 }

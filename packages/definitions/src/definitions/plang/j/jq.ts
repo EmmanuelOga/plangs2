@@ -26,7 +26,12 @@ export function define(g: PlangsGraph) {
     })
     .relInfluencedBy.add("pl+haskell")
     .relLicenses.add("lic+mit", "lic+public-domain")
-    .relParadigms.add("para+functional", "para+point-free", "para+query", "para+scripting")
+    .relParadigms.add(
+      "para+functional",
+      "para+point-free",
+      "para+query",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+bsd", "plat+cross", "plat+linux", "plat+windows")
     .relTags.add("tag+cli", "tag+interpreters", "tag+shell", "tag+workflow")
     .relTypeSystems.add("tsys+strong")

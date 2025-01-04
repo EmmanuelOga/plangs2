@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Tcl",
       description:
         "High-level, general-purpose, interpreted, dynamic programming language. Designed for extensibility and embeddability, Tcl supports multiple programming paradigms including event-driven, functional, imperative, and object-oriented styles. It is often used together with the Tk toolkit for GUI development, and is widely used for web applications, testing, and script automation.",
-      shortDesc: "Dynamic, interpreted programming language known for its extensibility, embeddability, and support for multiple paradigms.",
+      shortDesc:
+        "Dynamic, interpreted programming language known for its extensibility, embeddability, and support for multiple paradigms.",
       created: "1988",
       extensions: [".tbc", ".tcl"],
       extGithubPath: "tcltk/tcl",
@@ -27,7 +28,14 @@ export function define(g: PlangsGraph) {
     })
     .relInfluencedBy.add("pl+awk", "pl+lisp")
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+event-driven", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural")
+    .relParadigms.add(
+      "para+event-driven",
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+    )
     .relPlatforms.add("plat+cross", "plat+linux", "plat+windows")
     .relTags.add(
       "tag+app",

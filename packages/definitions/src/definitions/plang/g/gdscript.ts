@@ -31,8 +31,27 @@ export function define(g: PlangsGraph) {
     .relInfluencedBy.add("pl+python")
     .relLicenses.add("lic+mit")
     .relParadigms.add("para+imperative", "para+oop", "para+scripting")
-    .relPlatforms.add("plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+web", "plat+windows")
-    .relTags.add("tag+3dg", "tag+audio-dev", "tag+games", "tag+gui", "tag+scripting")
-    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+object", "tsys+strong")
+    .relPlatforms.add(
+      "plat+android",
+      "plat+apple",
+      "plat+bsd",
+      "plat+cross",
+      "plat+linux",
+      "plat+web",
+      "plat+windows",
+    )
+    .relTags.add(
+      "tag+3dg",
+      "tag+audio-dev",
+      "tag+games",
+      "tag+gui",
+      "tag+scripting",
+    )
+    .relTypeSystems.add(
+      "tsys+duck",
+      "tsys+dynamic",
+      "tsys+object",
+      "tsys+strong",
+    )
     .relWrittenWith.add("pl+c++");
 }

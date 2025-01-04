@@ -30,6 +30,14 @@ export function define(g: PlangsGraph) {
     .relInfluencedBy.add("pl+boomerang")
     .relParadigms.add("para+declarative", "para+dsl")
     .relPlatforms.add("plat+cross", "plat+java")
-    .relTags.add("tag+analysis", "tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+industrial", "tag+viz")
+    .relTags.add(
+      "tag+analysis",
+      "tag+app",
+      "tag+dbms",
+      "tag+editor",
+      "tag+framework",
+      "tag+industrial",
+      "tag+viz",
+    )
     .relTypeSystems.add("tsys+untyped");
 }

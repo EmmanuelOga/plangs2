@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Mustache",
       description:
         "Logic-less web template system that heavily uses braces `{{}}` for templating, resembling a sideways moustache. Known for strong separation of logic and presentation, Mustache relies on data-driven rendering without explicit flow control.",
-      shortDesc: "Logic-less web template system using braces `{{}}` for templating.",
+      shortDesc:
+        "Logic-less web template system using braces `{{}}` for templating.",
       created: "2009",
       extensions: [".mustache"],
       extGithubPath: "mustache/mustache",
@@ -21,7 +22,9 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       keywords: ["logic-less", "mustache", "templating", "web templates"],
       languishRanking: 87,
-      releases: [{ version: "4.2.0", name: "Stable release", date: "2021-03-28" }],
+      releases: [
+        { version: "4.2.0", name: "Stable release", date: "2021-03-28" },
+      ],
       stackovTags: ["mustache"],
     })
     .relCompilesTo.add("pl+javascript")

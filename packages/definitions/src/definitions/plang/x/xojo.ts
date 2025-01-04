@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Xojo",
       description:
         "Cross-platform development tool that allows users to develop applications for macOS, Windows, Linux, web, iOS, Android, and Raspberry Pi using a proprietary object-oriented language. Developed by Xojo, Inc., it provides an easy-to-use drag-and-drop interface for building native applications across multiple platforms.",
-      shortDesc: "Cross-platform development tool and proprietary object-oriented programming language for building native applications.",
+      shortDesc:
+        "Cross-platform development tool and proprietary object-oriented programming language for building native applications.",
       created: "1996",
       extensions: [".xojo_binary_project", ".xojo_code", ".xojo_xml_project"],
       extHomeURL: "https://www.xojo.com",
@@ -18,10 +19,20 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       isTranspiler: false,
-      keywords: ["app development", "cross-platform", "freemium", "object-oriented", "xojo"],
+      keywords: [
+        "app development",
+        "cross-platform",
+        "freemium",
+        "object-oriented",
+        "xojo",
+      ],
       languishRanking: 386,
       releases: [
-        { version: "2023R3.1", name: "Xojo 2023 Release 3.1", date: "2023-10-25" },
+        {
+          version: "2023R3.1",
+          name: "Xojo 2023 Release 3.1",
+          date: "2023-10-25",
+        },
         { version: "3.1", name: "Xojo 3.1", date: "2023-01-01" },
       ],
       stackovTags: ["realbasic", "xojo"],
@@ -30,7 +41,24 @@ export function define(g: PlangsGraph) {
     .relInfluencedBy.add("pl+basic", "pl+visual-basic")
     .relLicenses.add("lic+proprietary")
     .relParadigms.add("para+multi", "para+oop", "para+visual")
-    .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+raspberry", "plat+web", "plat+windows")
-    .relTags.add("tag+app", "tag+dbms", "tag+editor", "tag+framework", "tag+gui", "tag+industrial", "tag+interpreters", "tag+rad")
+    .relPlatforms.add(
+      "plat+android",
+      "plat+apple",
+      "plat+cross",
+      "plat+linux",
+      "plat+raspberry",
+      "plat+web",
+      "plat+windows",
+    )
+    .relTags.add(
+      "tag+app",
+      "tag+dbms",
+      "tag+editor",
+      "tag+framework",
+      "tag+gui",
+      "tag+industrial",
+      "tag+interpreters",
+      "tag+rad",
+    )
     .relTypeSystems.add("tsys+object", "tsys+static", "tsys+strong");
 }

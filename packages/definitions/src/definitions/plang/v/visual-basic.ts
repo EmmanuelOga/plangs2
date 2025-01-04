@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Visual Basic",
       description:
         "Multi-paradigm, object-oriented programming language developed by Microsoft, implemented on the .NET Framework and Mono. It was launched as the successor to the original Visual Basic language for developing Windows applications with a graphical user interface.",
-      shortDesc: "Multi-paradigm language developed by Microsoft for Windows applications.",
+      shortDesc:
+        "Multi-paradigm language developed by Microsoft for Windows applications.",
       created: "2002",
       extensions: [".vb"],
       extGithubPath: "dotnet/roslyn",
@@ -28,8 +29,23 @@ export function define(g: PlangsGraph) {
     .relImplements.add("pl+basic")
     .relInfluencedBy.add("pl+basic", "pl+haskell", "pl+visual-basic")
     .relLicenses.add("lic+apache")
-    .relParadigms.add("para+declarative", "para+event-driven", "para+imperative", "para+multi", "para+oop", "para+reflective", "para+structured")
-    .relPlatforms.add("plat+android", "plat+apple", "plat+bsd", "plat+dos", "plat+linux", "plat+windows")
+    .relParadigms.add(
+      "para+declarative",
+      "para+event-driven",
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+      "para+reflective",
+      "para+structured",
+    )
+    .relPlatforms.add(
+      "plat+android",
+      "plat+apple",
+      "plat+bsd",
+      "plat+dos",
+      "plat+linux",
+      "plat+windows",
+    )
     .relTags.add(
       "tag+app",
       "tag+cli",
@@ -45,5 +61,11 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+testing",
     )
-    .relTypeSystems.add("tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong", "tsys+weak");
+    .relTypeSystems.add(
+      "tsys+nominal",
+      "tsys+safe",
+      "tsys+static",
+      "tsys+strong",
+      "tsys+weak",
+    );
 }

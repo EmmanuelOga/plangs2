@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "GDB",
       description:
         "The GNU Debugger is a portable debugger that runs on many Unix-like systems and works for various programming languages. It provides facilities for tracing and altering program execution.",
-      shortDesc: "Portable debugger for Unix-like systems supporting various languages.",
+      shortDesc:
+        "Portable debugger for Unix-like systems supporting various languages.",
       created: "1986",
       extensions: [".gdb"],
       extHomeURL: "https://www.gnu.org/software/gdb",
@@ -19,10 +20,18 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       keywords: ["debugger", "gdb", "gnu debugger", "unix debugger"],
       languishRanking: 90,
-      releases: [{ version: "15.1", name: "Stable Release", date: "2024-07-07" }],
+      releases: [
+        { version: "15.1", name: "Stable Release", date: "2024-07-07" },
+      ],
       stackovTags: ["gdb"],
     })
     .relLicenses.add("lic+gnu-gpl")
-    .relPlatforms.add("plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows")
+    .relPlatforms.add(
+      "plat+apple",
+      "plat+bsd",
+      "plat+cross",
+      "plat+linux",
+      "plat+windows",
+    )
     .relTags.add("tag+cli", "tag+interpreters");
 }

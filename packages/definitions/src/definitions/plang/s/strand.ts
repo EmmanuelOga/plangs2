@@ -4,9 +4,11 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+strand", {
       name: "Strand",
-      description: "A parallel Prolog dialect focusing on concurrency and logic programming.",
+      description:
+        "A parallel Prolog dialect focusing on concurrency and logic programming.",
       shortDesc: "A parallel Prolog dialect.",
-      extHomeURL: "http://www.call-with-current-continuation.org/strand/strand.html",
+      extHomeURL:
+        "http://www.call-with-current-continuation.org/strand/strand.html",
       isTranspiler: false,
     })
     .relDialectOf.add("pl+prolog")

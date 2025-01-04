@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Nim",
       description:
         "General-purpose, statically typed, compiled programming language designed for performance and elegant syntax. It supports multiple paradigms including imperative, functional, and metaprogramming. Nim can compile to C, C++, and JavaScript, making it suitable for system programming, web, and embedded applications.",
-      shortDesc: "Statically typed, compiled language focusing on performance and elegant syntax, compilable to C, C++, and JavaScript.",
+      shortDesc:
+        "Statically typed, compiled language focusing on performance and elegant syntax, compilable to C, C++, and JavaScript.",
       created: "2008",
       extensions: [".nim", ".nimble", ".nims"],
       extGithubPath: "nim-lang/Nim",
@@ -29,7 +30,14 @@ export function define(g: PlangsGraph) {
       stackovTags: ["nim-lang"],
     })
     .relCompilesTo.add("pl+c++", "pl+javascript")
-    .relInfluencedBy.add("pl+ada", "pl+c", "pl+c++", "pl+lisp", "pl+python", "pl+rust")
+    .relInfluencedBy.add(
+      "pl+ada",
+      "pl+c",
+      "pl+c++",
+      "pl+lisp",
+      "pl+python",
+      "pl+rust",
+    )
     .relLicenses.add("lic+mit")
     .relParadigms.add(
       "para+compiled",
@@ -42,7 +50,16 @@ export function define(g: PlangsGraph) {
       "para+oop",
       "para+procedural",
     )
-    .relPlatforms.add("plat+apple", "plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64")
+    .relPlatforms.add(
+      "plat+apple",
+      "plat+arm",
+      "plat+bsd",
+      "plat+cross",
+      "plat+linux",
+      "plat+riscv",
+      "plat+windows",
+      "plat+x86-64",
+    )
     .relTags.add(
       "tag+3dg",
       "tag+analysis",
@@ -59,6 +76,12 @@ export function define(g: PlangsGraph) {
       "tag+stats",
       "tag+viz",
     )
-    .relTypeSystems.add("tsys+inferred", "tsys+object", "tsys+static", "tsys+strong", "tsys+structural")
+    .relTypeSystems.add(
+      "tsys+inferred",
+      "tsys+object",
+      "tsys+static",
+      "tsys+strong",
+      "tsys+structural",
+    )
     .relWrittenWith.add("pl+c++");
 }

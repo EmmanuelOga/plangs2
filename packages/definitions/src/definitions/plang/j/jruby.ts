@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "JRuby",
       description:
         "Implementation of the Ruby programming language atop the Java Virtual Machine, written largely in Java. It is free software released under a three-way EPL/GPL/LGPL license. JRuby is tightly integrated with Java to allow the embedding of the interpreter into any Java application with full two-way access between Java and Ruby code, similar to Jython for Python.",
-      shortDesc: "Java-based implementation of Ruby, integrating closely with Java for two-way access.",
+      shortDesc:
+        "Java-based implementation of Ruby, integrating closely with Java for two-way access.",
       created: "2001",
       extensions: [".jruby", ".rb"],
       extGithubPath: "jruby/jruby",
@@ -27,9 +28,25 @@ export function define(g: PlangsGraph) {
     .relImplements.add("pl+ruby")
     .relInfluencedBy.add("pl+ruby")
     .relLicenses.add("lic+epl", "lic+gnu-gpl", "lic+lgpl")
-    .relParadigms.add("para+concurrent", "para+oop", "para+reflective", "para+scripting")
+    .relParadigms.add(
+      "para+concurrent",
+      "para+oop",
+      "para+reflective",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+cross", "plat+java")
-    .relTags.add("tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+shell")
-    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+object", "tsys+strong")
+    .relTags.add(
+      "tag+compiler",
+      "tag+framework",
+      "tag+interpreters",
+      "tag+scripting",
+      "tag+shell",
+    )
+    .relTypeSystems.add(
+      "tsys+duck",
+      "tsys+dynamic",
+      "tsys+object",
+      "tsys+strong",
+    )
     .relWrittenWith.add("pl+java");
 }

@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "CUDA",
       description:
         "Compute Unified Device Architecture is a parallel computing platform and application programming interface (API) model developed by Nvidia. It facilitates dramatic increases in computing performance by harnessing the power of the graphics processing unit (GPU).",
-      shortDesc: "Parallel computing platform and API model by Nvidia for GPU acceleration.",
+      shortDesc:
+        "Parallel computing platform and API model by Nvidia for GPU acceleration.",
       created: "2006",
       extensions: [".cu"],
       extGithubPath: "NVIDIA/cuda-samples",
@@ -20,7 +21,15 @@ export function define(g: PlangsGraph) {
       githubStars: 6600,
       githubType: "programming",
       isTranspiler: false,
-      keywords: ["CUDA", "GPGPU", "GPU", "Nvidia", "graphics processing unit", "parallel computing", "parallel programming"],
+      keywords: [
+        "CUDA",
+        "GPGPU",
+        "GPU",
+        "Nvidia",
+        "graphics processing unit",
+        "parallel computing",
+        "parallel programming",
+      ],
       releases: [
         { version: "1.0", name: "Initial release", date: "2007-06-23" },
         { version: "12.6", name: "Stable release", date: "2024-08" },

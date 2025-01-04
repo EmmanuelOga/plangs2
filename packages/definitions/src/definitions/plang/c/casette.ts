@@ -20,7 +20,14 @@ export function define(g: PlangsGraph) {
       ],
     })
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+dataflow", "para+declarative", "para+dsl", "para+event-driven", "para+functional", "para+interpreted")
+    .relParadigms.add(
+      "para+dataflow",
+      "para+declarative",
+      "para+dsl",
+      "para+event-driven",
+      "para+functional",
+      "para+interpreted",
+    )
     .relPlatforms.add("plat+cross")
     .relWrittenWith.add("pl+c");
 }

@@ -22,12 +22,29 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       keywords: ["odin", "odin-lang", "programming"],
       languishRanking: 162,
-      releases: [{ version: "0.13.0", name: "Odin 0.13.0", date: "2023-08-21" }],
+      releases: [
+        { version: "0.13.0", name: "Odin 0.13.0", date: "2023-08-21" },
+      ],
     })
     .relInfluencedBy.add("pl+c")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+compiled", "para+concurrent", "para+functional", "para+general-purpose", "para+imperative", "para+procedural")
-    .relPlatforms.add("plat+arm", "plat+cross", "plat+linux", "plat+wasm", "plat+web", "plat+windows", "plat+x86-64")
+    .relParadigms.add(
+      "para+compiled",
+      "para+concurrent",
+      "para+functional",
+      "para+general-purpose",
+      "para+imperative",
+      "para+procedural",
+    )
+    .relPlatforms.add(
+      "plat+arm",
+      "plat+cross",
+      "plat+linux",
+      "plat+wasm",
+      "plat+web",
+      "plat+windows",
+      "plat+x86-64",
+    )
     .relTags.add("tag+compiler")
     .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+odin");

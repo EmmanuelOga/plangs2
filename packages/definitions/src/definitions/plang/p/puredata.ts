@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Pure Data",
       description:
         "Visual programming language developed by Miller Puckette in the 1990s for creating interactive computer music and multimedia works. While Puckette is the main author of the program, Pd has a large developer base working on new extensions.",
-      shortDesc: "Visual programming language for interactive computer music and multimedia.",
+      shortDesc:
+        "Visual programming language for interactive computer music and multimedia.",
       created: "1996",
       extensions: [".pd"],
       extGithubPath: "pure-data/pure-data",
@@ -25,8 +26,19 @@ export function define(g: PlangsGraph) {
       stackovTags: ["puredata"],
     })
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+concurrent", "para+dataflow", "para+event-driven", "para+visual")
-    .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+windows")
+    .relParadigms.add(
+      "para+concurrent",
+      "para+dataflow",
+      "para+event-driven",
+      "para+visual",
+    )
+    .relPlatforms.add(
+      "plat+android",
+      "plat+apple",
+      "plat+cross",
+      "plat+linux",
+      "plat+windows",
+    )
     .relTags.add(
       "tag+audio-dev",
       "tag+dataflow",

@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "C",
       description:
         "General-purpose programming language developed at Bell Labs in the early 1970s, known for its low-level capabilities and is foundational in developing operating systems, system software, and various applications.",
-      shortDesc: "General-purpose language foundational in systems and application programming.",
+      shortDesc:
+        "General-purpose language foundational in systems and application programming.",
       created: "1972",
       extensions: [".c", ".h"],
       extRedditPath: "C_Programming",
@@ -17,7 +18,15 @@ export function define(g: PlangsGraph) {
       githubPopular: true,
       githubType: "programming",
       isTranspiler: false,
-      keywords: ["bell-labs", "c", "general-purpose", "imperative", "procedural", "structured", "systems-programming"],
+      keywords: [
+        "bell-labs",
+        "c",
+        "general-purpose",
+        "imperative",
+        "procedural",
+        "structured",
+        "systems-programming",
+      ],
       languishRanking: 11,
       releases: [
         { version: "C18", name: "Standard C18", date: "2018-06-01" },
@@ -30,8 +39,23 @@ export function define(g: PlangsGraph) {
     })
     .relInfluencedBy.add("pl+fortran")
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+compiled", "para+imperative", "para+multi", "para+procedural", "para+structured")
-    .relPlatforms.add("plat+android", "plat+apple", "plat+bsd", "plat+cross", "plat+dos", "plat+embedded", "plat+linux", "plat+windows")
+    .relParadigms.add(
+      "para+compiled",
+      "para+imperative",
+      "para+multi",
+      "para+procedural",
+      "para+structured",
+    )
+    .relPlatforms.add(
+      "plat+android",
+      "plat+apple",
+      "plat+bsd",
+      "plat+cross",
+      "plat+dos",
+      "plat+embedded",
+      "plat+linux",
+      "plat+windows",
+    )
     .relTags.add(
       "tag+app",
       "tag+asm",
@@ -49,5 +73,10 @@ export function define(g: PlangsGraph) {
       "tag+viz",
       "tag+wavelet",
     )
-    .relTypeSystems.add("tsys+manifest", "tsys+nominal", "tsys+static", "tsys+weak");
+    .relTypeSystems.add(
+      "tsys+manifest",
+      "tsys+nominal",
+      "tsys+static",
+      "tsys+weak",
+    );
 }

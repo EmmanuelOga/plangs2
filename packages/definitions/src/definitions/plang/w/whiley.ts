@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Whiley",
       description:
         "Combines features from the functional and imperative paradigms, and supports formal specification through function preconditions, postconditions, and loop invariants.",
-      shortDesc: "Functional and imperative language with contracts and formal specification features.",
+      shortDesc:
+        "Functional and imperative language with contracts and formal specification features.",
       created: "2010",
       extensions: [".whiley"],
       extGithubPath: "Whiley/WhileyCompiler",
@@ -27,5 +28,10 @@ export function define(g: PlangsGraph) {
     .relParadigms.add("para+functional", "para+imperative")
     .relPlatforms.add("plat+cross", "plat+java")
     .relTags.add("tag+compiler", "tag+interpreters", "tag+sci")
-    .relTypeSystems.add("tsys+flow", "tsys+safe", "tsys+strong", "tsys+structural");
+    .relTypeSystems.add(
+      "tsys+flow",
+      "tsys+safe",
+      "tsys+strong",
+      "tsys+structural",
+    );
 }

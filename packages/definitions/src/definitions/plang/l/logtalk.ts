@@ -31,5 +31,11 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+apache", "lic+artistic")
     .relParadigms.add("para+logic", "para+oop", "para+prototype")
     .relPlatforms.add("plat+cross")
-    .relTags.add("tag+analysis", "tag+compiler", "tag+framework", "tag+interpreters", "tag+viz");
+    .relTags.add(
+      "tag+analysis",
+      "tag+compiler",
+      "tag+framework",
+      "tag+interpreters",
+      "tag+viz",
+    );
 }

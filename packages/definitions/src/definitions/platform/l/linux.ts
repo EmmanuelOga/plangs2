@@ -6,6 +6,14 @@ export function define(g: PlangsGraph) {
     description:
       "A family of open-source Unix-like operating systems, with various distributions such as Ubuntu, Debian, CentOS, and Red Hat Enterprise Linux.",
     extHomeURL: "https://en.wikipedia.org/wiki/Linux",
-    keywords: ["centos", "debian", "gnu/linux", "linux", "openSUSE", "redhat", "ubuntu"],
+    keywords: [
+      "centos",
+      "debian",
+      "gnu/linux",
+      "linux",
+      "openSUSE",
+      "redhat",
+      "ubuntu",
+    ],
   });
 }

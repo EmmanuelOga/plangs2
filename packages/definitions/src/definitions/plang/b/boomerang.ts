@@ -4,8 +4,10 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+boomerang", {
       name: "Boomerang",
-      description: "Programming language for writing lenses—well-behaved bidirectional transformations—that operate on ad-hoc, textual data formats.",
-      shortDesc: "Language for bidirectional transformations on textual data formats.",
+      description:
+        "Programming language for writing lenses—well-behaved bidirectional transformations—that operate on ad-hoc, textual data formats.",
+      shortDesc:
+        "Language for bidirectional transformations on textual data formats.",
       created: "2008",
       extHomeURL: "http://www.seas.upenn.edu/~harmony/",
       extWikipediaPath: "Boomerang_(programming_language)",

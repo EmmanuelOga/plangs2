@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Go",
       description:
         "Statically typed, compiled high-level programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson. It is syntactically similar to C, but offers memory safety, garbage collection, structural typing, and CSP-style concurrency. Sometimes referred to as Golang due to its former domain name golang.org, its proper name is Go. It is suitable for building scalable, simple, and secure systems.",
-      shortDesc: "Statically typed, compiled language with memory safety and CSP-style concurrency, designed at Google.",
+      shortDesc:
+        "Statically typed, compiled language with memory safety and CSP-style concurrency, designed at Google.",
       created: "2009",
       extensions: [".go"],
       extGithubPath: "golang/go",
@@ -28,11 +29,40 @@ export function define(g: PlangsGraph) {
       ],
       stackovTags: ["go"],
     })
-    .relInfluencedBy.add("pl+apl", "pl+c", "pl+d", "pl+erlang", "pl+pascal", "pl+python")
+    .relInfluencedBy.add(
+      "pl+apl",
+      "pl+c",
+      "pl+d",
+      "pl+erlang",
+      "pl+pascal",
+      "pl+python",
+    )
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop")
+    .relParadigms.add(
+      "para+concurrent",
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+    )
     .relPlatforms.add("plat+apple", "plat+bsd", "plat+linux", "plat+windows")
-    .relTags.add("tag+app", "tag+better-c", "tag+cli", "tag+compiler", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+testing", "tag+viz")
-    .relTypeSystems.add("tsys+inferred", "tsys+nominal", "tsys+static", "tsys+strong", "tsys+structural")
+    .relTags.add(
+      "tag+app",
+      "tag+better-c",
+      "tag+cli",
+      "tag+compiler",
+      "tag+dbms",
+      "tag+industrial",
+      "tag+interpreters",
+      "tag+testing",
+      "tag+viz",
+    )
+    .relTypeSystems.add(
+      "tsys+inferred",
+      "tsys+nominal",
+      "tsys+static",
+      "tsys+strong",
+      "tsys+structural",
+    )
     .relWrittenWith.add("pl+assembly", "pl+c++");
 }

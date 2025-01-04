@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Hy",
       description:
         "Lisp dialect embedded in Python, offering a multi-paradigm programming environment. Designed by Paul Tagliamonte and introduced at PyCon 2013, Hy acts as a transparent Lisp front-end for Python, translating s-expressions to Python's AST and incorporating Python libraries. This language allows the integration of imperative, functional, and object-oriented programming styles.",
-      shortDesc: "Lisp dialect embedded in Python, facilitating seamless integration with Python libraries and syntax.",
+      shortDesc:
+        "Lisp dialect embedded in Python, facilitating seamless integration with Python libraries and syntax.",
       created: "2013",
       extensions: [".hy"],
       extGithubPath: "hylang/hy",
@@ -22,14 +23,24 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       keywords: ["hy", "hylang", "lisp", "python"],
       languishRanking: 201,
-      releases: [{ version: "1.0.0", name: "Afternoon Review", date: "2024-09-22" }],
+      releases: [
+        { version: "1.0.0", name: "Afternoon Review", date: "2024-09-22" },
+      ],
       stackovTags: ["hy"],
     })
     .relCompilesTo.add("pl+python")
     .relDialectOf.add("pl+lisp")
     .relInfluencedBy.add("pl+clojure", "pl+common-lisp", "pl+python")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+functional", "para+metaprogramming", "para+multi", "para+oop", "para+procedural", "para+reflective", "para+scripting")
+    .relParadigms.add(
+      "para+functional",
+      "para+metaprogramming",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+      "para+reflective",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+cross", "plat+x86-64")
     .relTags.add("tag+interpreters", "tag+scripting")
     .relTypeSystems.add("tsys+duck", "tsys+dynamic")

@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "KornShell",
       description:
         "Unix-based shell developed by David Korn that combines features from the C shell and Bourne shell. It introduced command line editing, associative arrays, and floating-point arithmetic operations, and conforms to established POSIX standards.",
-      shortDesc: "Unix-based shell that combines features from C and Bourne shells, supporting POSIX standards.",
+      shortDesc:
+        "Unix-based shell that combines features from C and Bourne shells, supporting POSIX standards.",
       created: "1983",
       extensions: [".ksh", ".sh"],
       extGithubPath: "att/ast",
@@ -20,9 +21,21 @@ export function define(g: PlangsGraph) {
     .relDialectOf.add("pl+bash")
     .relInfluencedBy.add("pl+awk", "pl+bash")
     .relLicenses.add("lic+epl", "lic+isc", "lic+lgpl", "lic+public-domain")
-    .relParadigms.add("para+interpreted", "para+oop", "para+procedural", "para+scripting", "para+structured")
+    .relParadigms.add(
+      "para+interpreted",
+      "para+oop",
+      "para+procedural",
+      "para+scripting",
+      "para+structured",
+    )
     .relPlatforms.add("plat+apple", "plat+bsd", "plat+linux", "plat+windows")
-    .relTags.add("tag+automation", "tag+cli", "tag+interpreters", "tag+scripting", "tag+shell")
+    .relTags.add(
+      "tag+automation",
+      "tag+cli",
+      "tag+interpreters",
+      "tag+scripting",
+      "tag+shell",
+    )
     .relTypeSystems.add("tsys+dynamic", "tsys+untyped")
     .relWrittenWith.add("pl+c");
 }

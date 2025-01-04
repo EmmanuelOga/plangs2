@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "ShaderLab",
       description:
         "ShaderLab is Unity's language for defining shaders, allowing developers to write code that describes how to render graphics in the Unity engine.",
-      shortDesc: "ShaderLab allows developers to define shaders within the Unity engine for custom graphics rendering.",
+      shortDesc:
+        "ShaderLab allows developers to define shaders within the Unity engine for custom graphics rendering.",
       created: "2005",
       extensions: [".shader"],
       extHomeURL: "https://docs.unity3d.com/Manual/SL-ShaderPrograms.html",

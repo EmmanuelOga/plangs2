@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Eclair",
       description:
         "A logic programming language designed for specifying complex rules over large datasets efficiently, particularly used in the development of compilers and analyzing data dependencies.",
-      shortDesc: "A logic programming language for specifying complex rules over large datasets efficiently.",
+      shortDesc:
+        "A logic programming language for specifying complex rules over large datasets efficiently.",
       created: "2021-06",
       extGithubPath: "luc-tielen/eclair-lang",
       extHomeURL: "https://eclair-lang.org",

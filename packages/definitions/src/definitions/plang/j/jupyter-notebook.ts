@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Jupyter Notebook",
       description:
         "A web-based interactive computational environment for creating notebook documents, supporting execution environments (kernels) for languages like Python, Julia, and R. It is extensively used for data science, scientific computing, and educational purposes.",
-      shortDesc: "Web-based interactive computational environment for creating notebook documents.",
+      shortDesc:
+        "Web-based interactive computational environment for creating notebook documents.",
       created: "2014",
       extensions: [".ipynb"],
       extGithubPath: "jupyter/jupyter",
@@ -20,7 +21,15 @@ export function define(g: PlangsGraph) {
       githubStars: 15000,
       githubType: "markup",
       isTranspiler: true,
-      keywords: ["computational", "data science", "interactive", "kernel", "multilanguage", "notebook", "scientific computing"],
+      keywords: [
+        "computational",
+        "data science",
+        "interactive",
+        "kernel",
+        "multilanguage",
+        "notebook",
+        "scientific computing",
+      ],
       languishRanking: 16,
       stackovTags: ["jupyter"],
     })

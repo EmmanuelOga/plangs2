@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Lua",
       description:
         "Lightweight, high-level, multi-paradigm programming language designed mainly for embedded use in applications. It is cross-platform as it's implemented in ANSI C, enabling integration with various systems through its simple API.",
-      shortDesc: "Lightweight, high-level language designed for embedding in applications.",
+      shortDesc:
+        "Lightweight, high-level language designed for embedding in applications.",
       created: "1993",
       extensions: [".lua"],
       extGithubPath: "lua/lua",
@@ -25,7 +26,15 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "5.4.7", name: "Lua 5.4.7", date: "2024-06-25" }],
       stackovTags: ["lua"],
     })
-    .relInfluencedBy.add("pl+awk", "pl+c", "pl+c++", "pl+lisp", "pl+r5rs", "pl+scheme", "pl+self")
+    .relInfluencedBy.add(
+      "pl+awk",
+      "pl+c",
+      "pl+c++",
+      "pl+lisp",
+      "pl+r5rs",
+      "pl+scheme",
+      "pl+self",
+    )
     .relLicenses.add("lic+mit")
     .relParadigms.add(
       "para+functional",

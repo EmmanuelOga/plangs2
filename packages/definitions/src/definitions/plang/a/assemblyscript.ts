@@ -14,17 +14,35 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "AssemblyScript",
       githubStars: 17000,
       isTranspiler: true,
-      keywords: ["assemblyscript", "statically-typed", "typescript", "webassembly"],
+      keywords: [
+        "assemblyscript",
+        "statically-typed",
+        "typescript",
+        "webassembly",
+      ],
       releases: [
-        { version: "0.20.6", name: "AssemblyScript 0.20.6", date: "2022-01-22" },
-        { version: "0.27.30", name: "AssemblyScript 0.27.30", date: "2024-09-27" },
+        {
+          version: "0.20.6",
+          name: "AssemblyScript 0.20.6",
+          date: "2022-01-22",
+        },
+        {
+          version: "0.27.30",
+          name: "AssemblyScript 0.27.30",
+          date: "2024-09-27",
+        },
       ],
     })
     .relCompilesTo.add("pl+webassembly")
     .relDialectOf.add("pl+javascript", "pl+typescript")
     .relInfluencedBy.add("pl+javascript", "pl+typescript")
     .relLicenses.add("lic+apache")
-    .relParadigms.add("para+functional", "para+imperative", "para+multi", "para+oop")
+    .relParadigms.add(
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+    )
     .relPlatforms.add("plat+nodejs", "plat+wasm", "plat+web")
     .relTags.add("tag+asm", "tag+compiler", "tag+scripting")
     .relTypeSystems.add("tsys+static", "tsys+strong");

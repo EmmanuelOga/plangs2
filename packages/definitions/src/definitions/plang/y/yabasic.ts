@@ -14,7 +14,14 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Yabasic",
       githubStars: 91,
       isTranspiler: false,
-      keywords: ["basic", "interpreter", "open-source", "unix", "windows", "yabasic"],
+      keywords: [
+        "basic",
+        "interpreter",
+        "open-source",
+        "unix",
+        "windows",
+        "yabasic",
+      ],
       releases: [{ version: "2.90.4", date: "2023-09-17" }],
     })
     .relImplements.add("pl+basic")

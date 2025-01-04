@@ -42,7 +42,13 @@ export function define(g: PlangsGraph) {
       "pl+standard-ml",
     )
     .relLicenses.add("lic+apache")
-    .relParadigms.add("para+concurrent", "para+functional", "para+imperative", "para+multi", "para+oop")
+    .relParadigms.add(
+      "para+concurrent",
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+    )
     .relPlatforms.add("plat+java", "plat+nodejs", "plat+wasm")
     .relTags.add(
       "tag+app",

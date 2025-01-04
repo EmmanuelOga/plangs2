@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Markdown",
       description:
         "Lightweight markup language created by John Gruber in 2004 for formatting text using a simple, plain-text syntax. It is popular for use in digital publishing and web development, offering easy conversion to HTML.",
-      shortDesc: "Lightweight markup language for formatting text using simple syntax.",
+      shortDesc:
+        "Lightweight markup language for formatting text using simple syntax.",
       created: "2004",
       extensions: [".markdown", ".md"],
       extHomeURL: "https://daringfireball.net/projects/markdown/",

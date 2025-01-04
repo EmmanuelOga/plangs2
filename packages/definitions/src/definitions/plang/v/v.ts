@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "V",
       description:
         "V, also known as vlang, is a statically typed, compiled programming language created by Alexander Medvednikov in early 2019. It was inspired by the language Go, along with other influences like Oberon, Swift, and Rust. V aims for simplicity, readability, maintainability, and performance. It is free and open-source, with a model that emphasizes speed, safety, and reliability, under the MIT License.",
-      shortDesc: "Statically typed, compiled language emphasizing simplicity and performance.",
+      shortDesc:
+        "Statically typed, compiled language emphasizing simplicity and performance.",
       created: "2019",
       extensions: [".v", ".vsh"],
       extGithubPath: "vlang/v",
@@ -28,9 +29,26 @@ export function define(g: PlangsGraph) {
     .relCompilesTo.add("pl+c")
     .relInfluencedBy.add("pl+go", "pl+nim", "pl+rust", "pl+swift")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+compiled", "para+concurrent", "para+functional", "para+imperative", "para+structured")
-    .relPlatforms.add("plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64")
-    .relTags.add("tag+better-c", "tag+compiler", "tag+interpreters", "tag+scripting")
+    .relParadigms.add(
+      "para+compiled",
+      "para+concurrent",
+      "para+functional",
+      "para+imperative",
+      "para+structured",
+    )
+    .relPlatforms.add(
+      "plat+apple",
+      "plat+bsd",
+      "plat+linux",
+      "plat+windows",
+      "plat+x86-64",
+    )
+    .relTags.add(
+      "tag+better-c",
+      "tag+compiler",
+      "tag+interpreters",
+      "tag+scripting",
+    )
     .relTypeSystems.add("tsys+inferred", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+c");
 }

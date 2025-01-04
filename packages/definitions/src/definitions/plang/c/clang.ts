@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Clang",
       description:
         "Compiler front end for C, C++, Objective-C, and Objective-C++, integrating with LLVM to provide a modular, reusable compiler framework.",
-      shortDesc: "Compiler front end for C, C++, Objective-C, and Objective-C++, integrating with LLVM.",
+      shortDesc:
+        "Compiler front end for C, C++, Objective-C, and Objective-C++, integrating with LLVM.",
       created: "2007",
       extensions: [".c", ".cpp", ".cu", ".m", ".mm"],
       extGithubPath: "llvm/llvm-project",
@@ -30,8 +31,24 @@ export function define(g: PlangsGraph) {
     .relInfluencedBy.add("pl+llvm")
     .relLicenses.add("lic+apache")
     .relParadigms.add("para+compiled", "para+multi")
-    .relPlatforms.add("plat+apple", "plat+arm", "plat+bsd", "plat+cross", "plat+linux", "plat+windows", "plat+x86-64")
-    .relTags.add("tag+analysis", "tag+automation", "tag+cli", "tag+compiler", "tag+ray-tracer", "tag+shell", "tag+viz")
+    .relPlatforms.add(
+      "plat+apple",
+      "plat+arm",
+      "plat+bsd",
+      "plat+cross",
+      "plat+linux",
+      "plat+windows",
+      "plat+x86-64",
+    )
+    .relTags.add(
+      "tag+analysis",
+      "tag+automation",
+      "tag+cli",
+      "tag+compiler",
+      "tag+ray-tracer",
+      "tag+shell",
+      "tag+viz",
+    )
     .relTypeSystems.add("tsys+manifest", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+c++");
 }

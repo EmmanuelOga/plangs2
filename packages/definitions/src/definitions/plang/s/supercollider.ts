@@ -22,14 +22,33 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       keywords: ["algorithmic", "audio", "sound", "supercollider", "synthesis"],
       languishRanking: 218,
-      releases: [{ version: "3.13.0", name: "SuperCollider 3.13.0", date: "2023-02-19" }],
+      releases: [
+        { version: "3.13.0", name: "SuperCollider 3.13.0", date: "2023-02-19" },
+      ],
       stackovTags: ["supercollider"],
     })
     .relInfluencedBy.add("pl+csound", "pl+lisp")
     .relLicenses.add("lic+gnu-gpl")
-    .relParadigms.add("para+concurrent", "para+event-driven", "para+functional", "para+oop")
-    .relPlatforms.add("plat+apple", "plat+bsd", "plat+cross", "plat+linux", "plat+windows")
-    .relTags.add("tag+app", "tag+audio-dev", "tag+dsp", "tag+framework", "tag+interpreters")
+    .relParadigms.add(
+      "para+concurrent",
+      "para+event-driven",
+      "para+functional",
+      "para+oop",
+    )
+    .relPlatforms.add(
+      "plat+apple",
+      "plat+bsd",
+      "plat+cross",
+      "plat+linux",
+      "plat+windows",
+    )
+    .relTags.add(
+      "tag+app",
+      "tag+audio-dev",
+      "tag+dsp",
+      "tag+framework",
+      "tag+interpreters",
+    )
     .relTypeSystems.add("tsys+dynamic")
     .relWrittenWith.add("pl+c++");
 }

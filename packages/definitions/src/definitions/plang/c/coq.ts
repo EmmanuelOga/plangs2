@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Coq",
       description:
         "Interactive theorem prover that allows users to write formal mathematical definitions, executable algorithms, and theorems, mechanically check proofs of those properties, and extract a certified program from proofs. It leverages the calculus of inductive constructions for these purposes. Coq is widely utilized in formal verification projects and mathematical proof checking.",
-      shortDesc: "Interactive theorem prover focused on formal verification and proof checking.",
+      shortDesc:
+        "Interactive theorem prover focused on formal verification and proof checking.",
       created: "1989",
       extGithubPath: "coq/coq",
       extHomeURL: "https://coq.inria.fr/",
@@ -19,7 +20,13 @@ export function define(g: PlangsGraph) {
       githubStars: 4900,
       githubType: "programming",
       isTranspiler: false,
-      keywords: ["coq", "formal proof", "proof assistant", "theorem prover", "verification"],
+      keywords: [
+        "coq",
+        "formal proof",
+        "proof assistant",
+        "theorem prover",
+        "verification",
+      ],
       languishRanking: 142,
       releases: [
         { version: "4.10", name: "Initial Release", date: "1989-05-01" },

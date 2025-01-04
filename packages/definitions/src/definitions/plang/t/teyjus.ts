@@ -4,8 +4,10 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+teyjus", {
       name: "Teyjus",
-      description: "An implementation of Lambda Prolog focused on supporting higher-order and logic programming features.",
-      shortDesc: "Implementation of Lambda Prolog for higher-order logic programming.",
+      description:
+        "An implementation of Lambda Prolog focused on supporting higher-order and logic programming features.",
+      shortDesc:
+        "Implementation of Lambda Prolog for higher-order logic programming.",
       created: "2002",
       extensions: [".lp"],
       extGithubPath: "",

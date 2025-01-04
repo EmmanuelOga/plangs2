@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Groovy",
       description:
         "Optionally typed and dynamic language for the Java platform, offering seamless integration with Java, concise syntax, and meta-programming features.",
-      shortDesc: "Flexible and dynamic language for the Java platform with strong integration capabilities.",
+      shortDesc:
+        "Flexible and dynamic language for the Java platform with strong integration capabilities.",
       created: "2003",
       extensions: [".groovy", ".gsh", ".gvy", ".gy"],
       extGithubPath: "apache/groovy",
@@ -27,8 +28,26 @@ export function define(g: PlangsGraph) {
     })
     .relInfluencedBy.add("pl+perl", "pl+python", "pl+ruby")
     .relLicenses.add("lic+apache")
-    .relParadigms.add("para+aspect", "para+functional", "para+imperative", "para+multi", "para+oop", "para+scripting")
+    .relParadigms.add(
+      "para+aspect",
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+java")
-    .relTags.add("tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+testing")
-    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+static", "tsys+strong");
+    .relTags.add(
+      "tag+compiler",
+      "tag+framework",
+      "tag+interpreters",
+      "tag+scripting",
+      "tag+testing",
+    )
+    .relTypeSystems.add(
+      "tsys+duck",
+      "tsys+dynamic",
+      "tsys+static",
+      "tsys+strong",
+    );
 }

@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Boo",
       description:
         "Statically typed, general-purpose programming language that integrates .NET features such as Unicode and web application support, while using a Python-inspired syntax with language and compiler extensibility.",
-      shortDesc: "Statically typed language with Python-like syntax and support for .NET framework features.",
+      shortDesc:
+        "Statically typed language with Python-like syntax and support for .NET framework features.",
       created: "2003",
       extensions: [".boo"],
       extGithubPath: "boo-lang/boo",
@@ -27,7 +28,18 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+bsd")
     .relParadigms.add("para+multi", "para+oop", "para+scripting")
     .relPlatforms.add("plat+.net", "plat+cross")
-    .relTags.add("tag+app", "tag+compiler", "tag+games", "tag+interpreters", "tag+scripting")
-    .relTypeSystems.add("tsys+duck", "tsys+inferred", "tsys+static", "tsys+strong")
+    .relTags.add(
+      "tag+app",
+      "tag+compiler",
+      "tag+games",
+      "tag+interpreters",
+      "tag+scripting",
+    )
+    .relTypeSystems.add(
+      "tsys+duck",
+      "tsys+inferred",
+      "tsys+static",
+      "tsys+strong",
+    )
     .relWrittenWith.add("pl+c-sharp");
 }

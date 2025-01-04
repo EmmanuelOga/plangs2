@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Astro",
       description:
         "Modern framework for building fast, content-focused websites by leveraging static site generation and minimal client-side JavaScript.",
-      shortDesc: "Modern framework for building fast, content-focused websites using static site generation.",
+      shortDesc:
+        "Modern framework for building fast, content-focused websites using static site generation.",
       created: "2020",
       extensions: [".astro"],
       extGithubPath: "withastro/astro",
@@ -21,7 +22,9 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       keywords: ["astro", "static sites"],
       languishRanking: 68,
-      links: [{ url: "https://docs.astro.build/", title: "Astro Documentation" }],
+      links: [
+        { url: "https://docs.astro.build/", title: "Astro Documentation" },
+      ],
       releases: [
         { version: "1.0.0", name: "Version 1.0.0 Release", date: "2022-06-11" },
         { version: "astro@4.16.11", date: "2024-09-13" },

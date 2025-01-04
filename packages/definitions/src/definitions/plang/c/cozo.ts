@@ -4,7 +4,8 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+cozo", {
       name: "Cozo",
-      description: "A transactional, relational-graph-vector database leveraging Datalog for complex queries and data management.",
+      description:
+        "A transactional, relational-graph-vector database leveraging Datalog for complex queries and data management.",
       shortDesc: "A database leveraging Datalog for queries.",
       created: "2022-03",
       extensions: [".cozo"],

@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Clojure",
       description:
         "Dynamic, general-purpose programming language that combines the features of a scripting language with an efficient infrastructure for multithreaded programming, known for its expressiveness, immutability, and support for concurrency.",
-      shortDesc: "Dynamic language known for its expressiveness and concurrent processing capabilities.",
+      shortDesc:
+        "Dynamic language known for its expressiveness and concurrent processing capabilities.",
       created: "2007",
       extensions: [".clj", ".cljc", ".cljd", ".cljr", ".cljs", ".edn"],
       extGithubPath: "clojure/clojure",
@@ -40,7 +41,15 @@ export function define(g: PlangsGraph) {
       "pl+wolfram-language",
     )
     .relLicenses.add("lic+epl")
-    .relParadigms.add("para+agents", "para+concurrent", "para+functional", "para+logic", "para+macro", "para+multi", "para+pipeline")
+    .relParadigms.add(
+      "para+agents",
+      "para+concurrent",
+      "para+functional",
+      "para+logic",
+      "para+macro",
+      "para+multi",
+      "para+pipeline",
+    )
     .relPlatforms.add("plat+cross", "plat+java", "plat+nodejs")
     .relTags.add(
       "tag+app",

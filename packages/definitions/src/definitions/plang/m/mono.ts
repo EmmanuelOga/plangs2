@@ -15,12 +15,23 @@ export function define(g: PlangsGraph) {
       githubStars: 11200,
       isTranspiler: false,
       keywords: [".net", "cross-platform", "mono"],
-      releases: [{ version: "6.12.0.206", name: "Mono 6.12.0.206", date: "2024-02-13" }],
+      releases: [
+        { version: "6.12.0.206", name: "Mono 6.12.0.206", date: "2024-02-13" },
+      ],
     })
     .relImplements.add("pl+c-sharp", "pl+visual-basic")
     .relLicenses.add("lic+mit")
     .relParadigms.add("para+compiled", "para+multi", "para+oop")
-    .relPlatforms.add("plat+android", "plat+apple", "plat+arm", "plat+cross", "plat+linux", "plat+riscv", "plat+windows", "plat+x86-64")
+    .relPlatforms.add(
+      "plat+android",
+      "plat+apple",
+      "plat+arm",
+      "plat+cross",
+      "plat+linux",
+      "plat+riscv",
+      "plat+windows",
+      "plat+x86-64",
+    )
     .relTags.add(
       "tag+3dg",
       "tag+app",
@@ -35,6 +46,11 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+shell",
     )
-    .relTypeSystems.add("tsys+nominal", "tsys+object", "tsys+static", "tsys+strong")
+    .relTypeSystems.add(
+      "tsys+nominal",
+      "tsys+object",
+      "tsys+static",
+      "tsys+strong",
+    )
     .relWrittenWith.add("pl+c", "pl+c-sharp");
 }

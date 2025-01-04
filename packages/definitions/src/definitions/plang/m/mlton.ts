@@ -14,15 +14,33 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "MLton",
       githubStars: 966,
       isTranspiler: false,
-      keywords: ["MLton", "Standard ML", "compiler", "optimizing", "whole-program"],
-      releases: [{ version: "20210107", name: "Stable Release", date: "2021-01-07" }],
+      keywords: [
+        "MLton",
+        "Standard ML",
+        "compiler",
+        "optimizing",
+        "whole-program",
+      ],
+      releases: [
+        { version: "20210107", name: "Stable Release", date: "2021-01-07" },
+      ],
     })
     .relDialectOf.add("pl+standard-ml")
     .relImplements.add("pl+standard-ml")
     .relInfluencedBy.add("pl+standard-ml")
     .relLicenses.add("lic+dual")
-    .relParadigms.add("para+compiled", "para+functional", "para+imperative", "para+multi")
+    .relParadigms.add(
+      "para+compiled",
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+    )
     .relPlatforms.add("plat+cross", "plat+linux", "plat+windows")
     .relTags.add("tag+compiler")
-    .relTypeSystems.add("tsys+algebraic", "tsys+inferred", "tsys+static", "tsys+strong");
+    .relTypeSystems.add(
+      "tsys+algebraic",
+      "tsys+inferred",
+      "tsys+static",
+      "tsys+strong",
+    );
 }

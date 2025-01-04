@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Scheme",
       description:
         "Minimalistic and flexible dialect of the Lisp programming language, prioritizing functional programming and metaprogramming. Developed in the 1970s by Guy L. Steele and Gerald Jay Sussman at MIT, it pioneered concepts like lexical scoping and first-class continuations.",
-      shortDesc: "Minimalistic Lisp dialect known for its functional programming capabilities.",
+      shortDesc:
+        "Minimalistic Lisp dialect known for its functional programming capabilities.",
       created: "1975",
       extensions: [".scm", ".ss"],
       extHomeURL: "https://www.scheme.org/",
@@ -24,8 +25,18 @@ export function define(g: PlangsGraph) {
     .relDialectOf.add("pl+lisp")
     .relInfluencedBy.add("pl+lisp")
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+functional", "para+imperative", "para+metaprogramming", "para+multi")
+    .relParadigms.add(
+      "para+functional",
+      "para+imperative",
+      "para+metaprogramming",
+      "para+multi",
+    )
     .relPlatforms.add("plat+cross")
-    .relTags.add("tag+compiler", "tag+interpreters", "tag+scripting", "tag+testing")
+    .relTags.add(
+      "tag+compiler",
+      "tag+interpreters",
+      "tag+scripting",
+      "tag+testing",
+    )
     .relTypeSystems.add("tsys+dynamic", "tsys+latent", "tsys+strong");
 }

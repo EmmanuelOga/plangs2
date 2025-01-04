@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "FreeBASIC",
       description:
         "BASIC compiler that runs on multiple platforms including Windows, Linux, and DOS. It is designed to be syntax-compatible with QuickBASIC while expanding the capabilities with modern features such as object-oriented and metaprogramming capabilities.",
-      shortDesc: "BASIC compiler inspired by QuickBASIC, supporting object-oriented programming.",
+      shortDesc:
+        "BASIC compiler inspired by QuickBASIC, supporting object-oriented programming.",
       created: "2004",
       extensions: [".bas", ".bi"],
       extGithubPath: "freebasic/fbc",
@@ -27,7 +28,12 @@ export function define(g: PlangsGraph) {
     .relImplements.add("pl+basic")
     .relInfluencedBy.add("pl+basic", "pl+c")
     .relLicenses.add("lic+gnu-gpl", "lic+lgpl")
-    .relParadigms.add("para+compiled", "para+multi", "para+oop", "para+procedural")
+    .relParadigms.add(
+      "para+compiled",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+    )
     .relPlatforms.add("plat+bsd", "plat+dos", "plat+linux", "plat+windows")
     .relTags.add("tag+app", "tag+compiler", "tag+interpreters", "tag+viz")
     .relTypeSystems.add("tsys+static", "tsys+strong")

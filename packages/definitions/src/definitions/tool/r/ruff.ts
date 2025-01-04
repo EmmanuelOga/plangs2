@@ -4,7 +4,8 @@ export function define(g: PlangsGraph) {
   g.tool
     .set("tool+ruff", {
       name: "Ruff",
-      description: "Extremely fast Python linter and code formatter, written in Rust.",
+      description:
+        "Extremely fast Python linter and code formatter, written in Rust.",
       extHomeURL: "https://docs.astral.sh/ruff/",
       keywords: ["code quality", "formatter", "linter"],
     })

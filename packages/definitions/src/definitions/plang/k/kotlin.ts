@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Kotlin",
       description:
         "Cross-platform, statically typed language designed to interoperate with Java, featuring concise syntax due to its type inference. It targets the JVM and compiles to JavaScript and native code via LLVM for various platforms, under the guidance of JetBrains and the Kotlin Foundation.",
-      shortDesc: "Concise, statically typed language interoperative with Java, targeting JVM and other platforms.",
+      shortDesc:
+        "Concise, statically typed language interoperative with Java, targeting JVM and other platforms.",
       created: "2011",
       extensions: [".kexe", ".klib", ".kt", ".kts"],
       extGithubPath: "JetBrains/kotlin",
@@ -26,7 +27,14 @@ export function define(g: PlangsGraph) {
       stackovTags: ["kotlin"],
     })
     .relCompilesTo.add("pl+javascript", "pl+llvm")
-    .relInfluencedBy.add("pl+c-sharp", "pl+eiffel", "pl+groovy", "pl+javascript", "pl+python", "pl+scala")
+    .relInfluencedBy.add(
+      "pl+c-sharp",
+      "pl+eiffel",
+      "pl+groovy",
+      "pl+javascript",
+      "pl+python",
+      "pl+scala",
+    )
     .relLicenses.add("lic+apache")
     .relParadigms.add(
       "para+concurrent",
@@ -38,7 +46,33 @@ export function define(g: PlangsGraph) {
       "para+reflective",
       "para+structured",
     )
-    .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+nodejs", "plat+wasm", "plat+web", "plat+windows")
-    .relTags.add("tag+app", "tag+compiler", "tag+framework", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+shell", "tag+testing")
-    .relTypeSystems.add("tsys+flow", "tsys+generic", "tsys+inferred", "tsys+object", "tsys+static", "tsys+strong");
+    .relPlatforms.add(
+      "plat+android",
+      "plat+apple",
+      "plat+cross",
+      "plat+java",
+      "plat+linux",
+      "plat+nodejs",
+      "plat+wasm",
+      "plat+web",
+      "plat+windows",
+    )
+    .relTags.add(
+      "tag+app",
+      "tag+compiler",
+      "tag+framework",
+      "tag+industrial",
+      "tag+interpreters",
+      "tag+scripting",
+      "tag+shell",
+      "tag+testing",
+    )
+    .relTypeSystems.add(
+      "tsys+flow",
+      "tsys+generic",
+      "tsys+inferred",
+      "tsys+object",
+      "tsys+static",
+      "tsys+strong",
+    );
 }

@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Janet",
       description:
         "Versatile and lightweight programming language, designed to be embedded or used as a standalone script with a focus on functional and imperative programming paradigms. Ideal for scripting and embedding in C/C++ programs, Janet provides a rich ecosystem for networked applications and real-time data processing with minimal overhead.",
-      shortDesc: "Versatile, lightweight programming language, ideal for embedded scripting in C/C++ with functional and imperative paradigms.",
+      shortDesc:
+        "Versatile, lightweight programming language, ideal for embedded scripting in C/C++ with functional and imperative paradigms.",
       created: "2017",
       extensions: [".janet"],
       extGithubPath: "janet-lang/janet",
@@ -24,7 +25,12 @@ export function define(g: PlangsGraph) {
     })
     .relInfluencedBy.add("pl+scheme")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+extensible", "para+functional", "para+imperative", "para+scripting")
+    .relParadigms.add(
+      "para+extensible",
+      "para+functional",
+      "para+imperative",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
     .relTags.add("tag+cli", "tag+embedded", "tag+scripting")
     .relTypeSystems.add("tsys+dynamic")

@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "F#",
       description:
         "Strongly typed, functional-first language that supports both functional and object-oriented programming paradigms, and is commonly used as a cross-platform language on the .NET platform. It offers efficient solutions for statistical and analytical programming challenges.",
-      shortDesc: "Functional-first language on the .NET platform, known for its strong typing and multi-paradigm capabilities.",
+      shortDesc:
+        "Functional-first language on the .NET platform, known for its strong typing and multi-paradigm capabilities.",
       created: "2005",
       extensions: [".fs", ".fsi", ".fsscript", ".fsx"],
       extGithubPath: "dotnet/fsharp",
@@ -22,12 +23,25 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       keywords: ["f-sharp", "fsharp"],
       languishRanking: 94,
-      links: [{ url: "https://docs.microsoft.com/en-us/dotnet/fsharp/", title: "F# Documentation" }],
+      links: [
+        {
+          url: "https://docs.microsoft.com/en-us/dotnet/fsharp/",
+          title: "F# Documentation",
+        },
+      ],
       releases: [{ version: "8.0", date: "2023-11" }],
       stackovTags: ["f#"],
     })
     .relDialectOf.add("pl+ocaml")
-    .relInfluencedBy.add("pl+c-sharp", "pl+erlang", "pl+haskell", "pl+ocaml", "pl+python", "pl+scala", "pl+standard-ml")
+    .relInfluencedBy.add(
+      "pl+c-sharp",
+      "pl+erlang",
+      "pl+haskell",
+      "pl+ocaml",
+      "pl+python",
+      "pl+scala",
+      "pl+standard-ml",
+    )
     .relLicenses.add("lic+apache", "lic+mit")
     .relParadigms.add(
       "para+agents",
@@ -56,6 +70,12 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+viz",
     )
-    .relTypeSystems.add("tsys+algebraic", "tsys+flow", "tsys+inferred", "tsys+static", "tsys+strong")
+    .relTypeSystems.add(
+      "tsys+algebraic",
+      "tsys+flow",
+      "tsys+inferred",
+      "tsys+static",
+      "tsys+strong",
+    )
     .relWrittenWith.add("pl+c-sharp");
 }

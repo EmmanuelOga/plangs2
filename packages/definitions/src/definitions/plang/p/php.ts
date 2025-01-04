@@ -4,10 +4,20 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+php", {
       name: "PHP",
-      description: "Widely-used open source general-purpose scripting language especially suited for web development and embedded in HTML.",
+      description:
+        "Widely-used open source general-purpose scripting language especially suited for web development and embedded in HTML.",
       shortDesc: "Scripting language primarily used for web development.",
       created: "1995",
-      extensions: [".phar", ".php", ".php3", ".php4", ".php5", ".phps", ".pht", ".phtml"],
+      extensions: [
+        ".phar",
+        ".php",
+        ".php3",
+        ".php4",
+        ".php5",
+        ".phps",
+        ".pht",
+        ".phtml",
+      ],
       extGithubPath: "php/php-src",
       extHomeURL: "https://www.php.net/",
       extRedditPath: "PHP",
@@ -29,9 +39,22 @@ export function define(g: PlangsGraph) {
       stackovTags: ["php"],
     })
     .relInfluencedBy.add("pl+c", "pl+hack", "pl+java", "pl+perl")
-    .relParadigms.add("para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural", "para+reflective", "para+scripting")
+    .relParadigms.add(
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+      "para+reflective",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
     .relTags.add("tag+scripting", "tag+server", "tag+webdev")
-    .relTypeSystems.add("tsys+dynamic", "tsys+gradual", "tsys+object", "tsys+weak")
+    .relTypeSystems.add(
+      "tsys+dynamic",
+      "tsys+gradual",
+      "tsys+object",
+      "tsys+weak",
+    )
     .relWrittenWith.add("pl+c");
 }

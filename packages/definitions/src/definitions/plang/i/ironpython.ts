@@ -20,9 +20,27 @@ export function define(g: PlangsGraph) {
     .relImplements.add("pl+python")
     .relInfluencedBy.add("pl+.net", "pl+c-sharp")
     .relLicenses.add("lic+apache")
-    .relParadigms.add("para+imperative", "para+multi", "para+oop", "para+scripting")
+    .relParadigms.add(
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+.net", "plat+apple", "plat+linux", "plat+windows")
-    .relTags.add("tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+interpreters", "tag+scripting", "tag+shell")
-    .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+object", "tsys+strong")
+    .relTags.add(
+      "tag+app",
+      "tag+cli",
+      "tag+compiler",
+      "tag+framework",
+      "tag+interpreters",
+      "tag+scripting",
+      "tag+shell",
+    )
+    .relTypeSystems.add(
+      "tsys+duck",
+      "tsys+dynamic",
+      "tsys+object",
+      "tsys+strong",
+    )
     .relWrittenWith.add("pl+c-sharp");
 }

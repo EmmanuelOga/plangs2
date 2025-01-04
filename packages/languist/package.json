@@ -7,10 +7,6 @@
     "src"
   ],
   "dependencies": {
-    "@plangs/auxiliar": "workspace:*",
-    "@biomejs/js-api": "^0.7.1"
-  },
-  "peerDependencies": {
-    "@biomejs/wasm-nodejs": "^1.9.4"
+    "@plangs/auxiliar": "workspace:*"
   }
 }

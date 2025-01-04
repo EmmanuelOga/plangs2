@@ -4,7 +4,8 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+erlog", {
       name: "erlog",
-      description: "An interpreter for Prolog written entirely in Erlang, leveraging Erlang's features for concurrency and fault tolerance.",
+      description:
+        "An interpreter for Prolog written entirely in Erlang, leveraging Erlang's features for concurrency and fault tolerance.",
       shortDesc: "A Prolog interpreter implemented in Erlang.",
       created: "2008-08",
       extensions: [".erl"],

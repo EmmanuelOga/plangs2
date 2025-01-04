@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "XQuery",
       description:
         "XML Query is a query and functional programming language designed to query and transform XML data, developed by the W3C XML Query working group. It shares its foundation with XSLT, and makes extensive use of XPath.",
-      shortDesc: "W3C language for querying and transforming XML data using XPath.",
+      shortDesc:
+        "W3C language for querying and transforming XML data using XPath.",
       created: "1998",
       extensions: [".xq", ".xql", ".xqm", ".xquery", ".xqy"],
       extRedditPath: "xquery",
@@ -23,8 +24,29 @@ export function define(g: PlangsGraph) {
       stackovTags: ["xquery"],
     })
     .relInfluencedBy.add("pl+sql", "pl+xpath", "pl+xslt")
-    .relParadigms.add("para+data-exchange", "para+declarative", "para+dsl", "para+functional", "para+modular", "para+query")
+    .relParadigms.add(
+      "para+data-exchange",
+      "para+declarative",
+      "para+dsl",
+      "para+functional",
+      "para+modular",
+      "para+query",
+    )
     .relPlatforms.add("plat+cross")
-    .relTags.add("tag+analysis", "tag+app", "tag+dataq", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+scripting", "tag+viz")
-    .relTypeSystems.add("tsys+dynamic", "tsys+inferred", "tsys+static", "tsys+strong");
+    .relTags.add(
+      "tag+analysis",
+      "tag+app",
+      "tag+dataq",
+      "tag+dbms",
+      "tag+industrial",
+      "tag+interpreters",
+      "tag+scripting",
+      "tag+viz",
+    )
+    .relTypeSystems.add(
+      "tsys+dynamic",
+      "tsys+inferred",
+      "tsys+static",
+      "tsys+strong",
+    );
 }

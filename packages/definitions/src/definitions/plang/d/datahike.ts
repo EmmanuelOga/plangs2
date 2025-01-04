@@ -16,7 +16,12 @@ export function define(g: PlangsGraph) {
     .relImplements.add("pl+datalog")
     .relInfluencedBy.add("pl+datomic")
     .relLicenses.add("lic+apache")
-    .relParadigms.add("para+declarative", "para+distributed", "para+logic", "para+query")
+    .relParadigms.add(
+      "para+declarative",
+      "para+distributed",
+      "para+logic",
+      "para+query",
+    )
     .relPlatforms.add("plat+java")
     .relTags.add("tag+dbms")
     .relWrittenWith.add("pl+clojure");

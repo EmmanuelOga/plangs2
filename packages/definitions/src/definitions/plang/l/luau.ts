@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Luau",
       description:
         "High-performance scripting language developed by Roblox as a subset of Lua, optimized for game development on the Roblox platform, featuring gradual typing and safety features.",
-      shortDesc: "Lua subset developed by Roblox for game scripting with gradual typing.",
+      shortDesc:
+        "Lua subset developed by Roblox for game scripting with gradual typing.",
       created: "2019",
       extensions: [".luau"],
       extGithubPath: "Roblox/luau",
@@ -25,8 +26,20 @@ export function define(g: PlangsGraph) {
     .relDialectOf.add("pl+lua")
     .relInfluencedBy.add("pl+lua")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+imperative", "para+multi", "para+oop", "para+procedural", "para+scripting")
-    .relPlatforms.add("plat+arm", "plat+cross", "plat+embedded", "plat+linux", "plat+windows")
+    .relParadigms.add(
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+      "para+scripting",
+    )
+    .relPlatforms.add(
+      "plat+arm",
+      "plat+cross",
+      "plat+embedded",
+      "plat+linux",
+      "plat+windows",
+    )
     .relTags.add("tag+games", "tag+scripting")
     .relTypeSystems.add("tsys+dynamic", "tsys+gradual")
     .relWrittenWith.add("pl+c", "pl+c++");

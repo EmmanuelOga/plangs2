@@ -4,12 +4,22 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+natlog", {
       name: "Natlog",
-      description: "A lightweight Prolog-like system engineered to integrate seamlessly with deep learning tools such as PyTorch, JAX, and GPT.",
-      shortDesc: "A lightweight Prolog-like system designed for interoperability with deep learning tools.",
+      description:
+        "A lightweight Prolog-like system engineered to integrate seamlessly with deep learning tools such as PyTorch, JAX, and GPT.",
+      shortDesc:
+        "A lightweight Prolog-like system designed for interoperability with deep learning tools.",
       created: "2022-04",
       extGithubPath: "ptarau/natlog",
       isTranspiler: false,
-      keywords: ["deep-learning", "gpt", "interpretation", "jax", "logicprogramming", "prolog", "py-torch"],
+      keywords: [
+        "deep-learning",
+        "gpt",
+        "interpretation",
+        "jax",
+        "logicprogramming",
+        "prolog",
+        "py-torch",
+      ],
     })
     .relInfluencedBy.add("pl+prolog")
     .relLicenses.add("lic+gnu-gpl")

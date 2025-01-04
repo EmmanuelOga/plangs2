@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "C#",
       description:
         "General-purpose programming language with multi-paradigm features, supporting static and strong typing, object-oriented, functional, and component-based programming.",
-      shortDesc: "Versatile high-level language supporting multiple programming paradigms.",
+      shortDesc:
+        "Versatile high-level language supporting multiple programming paradigms.",
       created: "2000",
       extensions: [".cs", ".csx"],
       extGithubPath: "dotnet/csharplang",
@@ -26,7 +27,18 @@ export function define(g: PlangsGraph) {
       stackovTags: ["c#"],
     })
     .relDialectOf.add("pl+c")
-    .relInfluencedBy.add("pl+c", "pl+c++", "pl+d", "pl+eiffel", "pl+f-sharp", "pl+haskell", "pl+java", "pl+pascal", "pl+scala", "pl+visual-basic")
+    .relInfluencedBy.add(
+      "pl+c",
+      "pl+c++",
+      "pl+d",
+      "pl+eiffel",
+      "pl+f-sharp",
+      "pl+haskell",
+      "pl+java",
+      "pl+pascal",
+      "pl+scala",
+      "pl+visual-basic",
+    )
     .relLicenses.add("lic+gnu-gpl", "lic+lgpl", "lic+mit")
     .relParadigms.add(
       "para+async",
@@ -56,5 +68,14 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+viz",
     )
-    .relTypeSystems.add("tsys+dynamic", "tsys+generic", "tsys+inferred", "tsys+nominal", "tsys+object", "tsys+safe", "tsys+static", "tsys+strong");
+    .relTypeSystems.add(
+      "tsys+dynamic",
+      "tsys+generic",
+      "tsys+inferred",
+      "tsys+nominal",
+      "tsys+object",
+      "tsys+safe",
+      "tsys+static",
+      "tsys+strong",
+    );
 }

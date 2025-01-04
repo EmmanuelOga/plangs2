@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Isabelle",
       description:
         "Automated theorem prover that allows mathematical formulas to be expressed in a formal language and provides tools for proving those formulas in a logical calculus. It is written in Standard ML and Scala, supporting both procedural and declarative proof styles. Isabelle is designed to be a flexible IDE for formal methods and supports a wide variety of formal proofs and methods, notably higher-order logic (HOL).",
-      shortDesc: "Automated theorem prover for formalizing mathematical proofs in higher-order logic.",
+      shortDesc:
+        "Automated theorem prover for formalizing mathematical proofs in higher-order logic.",
       created: "1986",
       extensions: [".thy"],
       extHomeURL: "https://isabelle.in.tum.de/",
@@ -30,7 +31,21 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+bsd")
     .relParadigms.add("para+declarative", "para+dsl", "para+logic")
     .relPlatforms.add("plat+apple", "plat+linux", "plat+windows")
-    .relTags.add("tag+automation", "tag+control", "tag+framework", "tag+industrial", "tag+interpreters", "tag+modeling", "tag+proofs", "tag+wavelet")
-    .relTypeSystems.add("tsys+algebraic", "tsys+dependent", "tsys+static", "tsys+strong")
+    .relTags.add(
+      "tag+automation",
+      "tag+control",
+      "tag+framework",
+      "tag+industrial",
+      "tag+interpreters",
+      "tag+modeling",
+      "tag+proofs",
+      "tag+wavelet",
+    )
+    .relTypeSystems.add(
+      "tsys+algebraic",
+      "tsys+dependent",
+      "tsys+static",
+      "tsys+strong",
+    )
     .relWrittenWith.add("pl+scala", "pl+standard-ml");
 }

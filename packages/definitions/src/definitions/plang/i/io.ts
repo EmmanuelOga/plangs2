@@ -23,12 +23,23 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       keywords: ["io"],
       languishRanking: 285,
-      releases: [{ version: "2019.05.22-alpha", name: "Preview release", date: "2019-05-21" }],
+      releases: [
+        {
+          version: "2019.05.22-alpha",
+          name: "Preview release",
+          date: "2019-05-21",
+        },
+      ],
       stackovTags: ["iolanguage"],
     })
     .relInfluencedBy.add("pl+lisp", "pl+lua", "pl+self")
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+concurrent", "para+oop", "para+prototype", "para+scripting")
+    .relParadigms.add(
+      "para+concurrent",
+      "para+oop",
+      "para+prototype",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+cross", "plat+linux", "plat+windows")
     .relTags.add("tag+interpreters", "tag+scripting")
     .relTypeSystems.add("tsys+dynamic", "tsys+strong")

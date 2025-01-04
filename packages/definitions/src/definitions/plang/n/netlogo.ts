@@ -22,14 +22,28 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       keywords: ["modeling", "multi-agent", "netlogo"],
       languishRanking: 161,
-      releases: [{ version: "6.4.0", name: "NetLogo 6.4.0", date: "2023-11-17" }],
+      releases: [
+        { version: "6.4.0", name: "NetLogo 6.4.0", date: "2023-11-17" },
+      ],
       stackovTags: ["netlogo"],
     })
     .relDialectOf.add("pl+lisp")
     .relLicenses.add("lic+gnu-gpl")
-    .relParadigms.add("para+agents", "para+educational", "para+multi", "para+procedural", "para+simulation")
+    .relParadigms.add(
+      "para+agents",
+      "para+educational",
+      "para+multi",
+      "para+procedural",
+      "para+simulation",
+    )
     .relPlatforms.add("plat+cross", "plat+java")
-    .relTags.add("tag+edu", "tag+interpreters", "tag+modeling", "tag+sci", "tag+uml")
+    .relTags.add(
+      "tag+edu",
+      "tag+interpreters",
+      "tag+modeling",
+      "tag+sci",
+      "tag+uml",
+    )
     .relTypeSystems.add("tsys+dynamic", "tsys+strong")
     .relWrittenWith.add("pl+java", "pl+scala");
 }

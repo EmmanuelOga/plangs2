@@ -21,17 +21,45 @@ export function define(g: PlangsGraph) {
       githubStars: 18200,
       githubType: "programming",
       isTranspiler: true,
-      keywords: ["concurrent", "erlang", "functional", "gleam", "javascript", "type-safe"],
+      keywords: [
+        "concurrent",
+        "erlang",
+        "functional",
+        "gleam",
+        "javascript",
+        "type-safe",
+      ],
       languishRanking: 150,
       releases: [{ version: "1.6.3", date: "2024-12-03" }],
       stackovTags: ["gleam"],
     })
     .relCompilesTo.add("pl+erlang", "pl+javascript")
-    .relInfluencedBy.add("pl+elixir", "pl+erlang", "pl+go", "pl+javascript", "pl+ocaml", "pl+rust")
+    .relInfluencedBy.add(
+      "pl+elixir",
+      "pl+erlang",
+      "pl+go",
+      "pl+javascript",
+      "pl+ocaml",
+      "pl+rust",
+    )
     .relLicenses.add("lic+apache")
     .relParadigms.add("para+concurrent", "para+functional", "para+multi")
-    .relPlatforms.add("plat+apple", "plat+beam", "plat+bsd", "plat+cross", "plat+linux", "plat+web", "plat+windows")
+    .relPlatforms.add(
+      "plat+apple",
+      "plat+beam",
+      "plat+bsd",
+      "plat+cross",
+      "plat+linux",
+      "plat+web",
+      "plat+windows",
+    )
     .relTags.add("tag+compiler", "tag+framework", "tag+interpreters")
-    .relTypeSystems.add("tsys+algebraic", "tsys+inferred", "tsys+safe", "tsys+static", "tsys+strong")
+    .relTypeSystems.add(
+      "tsys+algebraic",
+      "tsys+inferred",
+      "tsys+safe",
+      "tsys+static",
+      "tsys+strong",
+    )
     .relWrittenWith.add("pl+rust");
 }

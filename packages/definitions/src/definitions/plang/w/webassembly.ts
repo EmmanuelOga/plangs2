@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "WebAssembly",
       description:
         "WebAssembly (Wasm) is a binary instruction format for a stack-based virtual machine. It is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications.",
-      shortDesc: "Binary instruction format for a stack-based virtual machine for the web.",
+      shortDesc:
+        "Binary instruction format for a stack-based virtual machine for the web.",
       created: "2017",
       extensions: [".wasm", ".wat"],
       extGithubPath: "WebAssembly",
@@ -19,7 +20,15 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       isTranspiler: false,
-      keywords: ["binary code", "portable", "stack machine", "virtual machine", "wasm", "web", "webassembly"],
+      keywords: [
+        "binary code",
+        "portable",
+        "stack machine",
+        "virtual machine",
+        "wasm",
+        "web",
+        "webassembly",
+      ],
       languishRanking: 93,
       links: [{ url: "https://github.com/WebAssembly", title: "GitHub Org" }],
       releases: [

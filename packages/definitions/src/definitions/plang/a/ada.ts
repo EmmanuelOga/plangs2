@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Ada",
       description:
         "Structured, statically typed, imperative, and object-oriented high-level programming language, inspired by Pascal. It features built-in support for design by contract, strong typing, concurrency, synchronous message passing, protected objects, and non-determinism. Ada is primarily used in systems where safety and reliability are crucial, such as in avionics and other mission-critical systems. It is standardized internationally by ISO/IEC.",
-      shortDesc: "High-level, structured, and object-oriented language with strong typing, used for reliability in mission-critical systems.",
+      shortDesc:
+        "High-level, structured, and object-oriented language with strong typing, used for reliability in mission-critical systems.",
       created: "1980",
       extensions: [".adb", ".ads"],
       extHomeURL: "https://www.adaic.org/",
@@ -19,9 +20,18 @@ export function define(g: PlangsGraph) {
       githubStars: 0,
       githubType: "programming",
       isTranspiler: false,
-      keywords: ["ada", "concurrency", "design by contract", "high-level", "object-oriented", "systems programming"],
+      keywords: [
+        "ada",
+        "concurrency",
+        "design by contract",
+        "high-level",
+        "object-oriented",
+        "systems programming",
+      ],
       languishRanking: 153,
-      releases: [{ version: "ISO/IEC 8652:2023", name: "Ada 2022", date: "2023-05-01" }],
+      releases: [
+        { version: "ISO/IEC 8652:2023", name: "Ada 2022", date: "2023-05-01" },
+      ],
       stackovTags: ["ada"],
     })
     .relDialectOf.add("pl+pascal")
@@ -51,5 +61,10 @@ export function define(g: PlangsGraph) {
       "tag+testing",
       "tag+viz",
     )
-    .relTypeSystems.add("tsys+nominal", "tsys+safe", "tsys+static", "tsys+strong");
+    .relTypeSystems.add(
+      "tsys+nominal",
+      "tsys+safe",
+      "tsys+static",
+      "tsys+strong",
+    );
 }

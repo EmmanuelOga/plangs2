@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Racket",
       description:
         "General-purpose, multi-paradigm programming language derived from Lisp and Scheme, renowned for its robust macro system and extensive libraries for domain-specific language development and scripting.",
-      shortDesc: "Multi-paradigm language derived from Lisp and Scheme, known for powerful macros and libraries.",
+      shortDesc:
+        "Multi-paradigm language derived from Lisp and Scheme, known for powerful macros and libraries.",
       created: "1995",
       extensions: [".rkt"],
       extGithubPath: "racket/racket",
@@ -58,5 +59,10 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+testing",
     )
-    .relTypeSystems.add("tsys+dynamic", "tsys+object", "tsys+static", "tsys+strong");
+    .relTypeSystems.add(
+      "tsys+dynamic",
+      "tsys+object",
+      "tsys+static",
+      "tsys+strong",
+    );
 }

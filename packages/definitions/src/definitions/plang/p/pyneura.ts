@@ -4,7 +4,8 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+pyneura", {
       name: "PyNeuraLogic",
-      description: "Enables the creation of Differentiable Logic Programs using neural networks within a Python-friendly framework.",
+      description:
+        "Enables the creation of Differentiable Logic Programs using neural networks within a Python-friendly framework.",
       shortDesc: "Enables Differentiable Logic Programs via neural networks.",
       extensions: [".plogic"],
       extGithubPath: "LukasZahradnik/PyNeuraLogic",

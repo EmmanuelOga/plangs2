@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Amber",
       description:
         "Programming language compiled into Bash. It was designed with a modern syntax, safety features, type safety and practical functionalities that Bash could not offer, allowing enhanced runtime and type safety for writing scripts.",
-      shortDesc: "Language compiling into Bash with modern syntax and safety features.",
+      shortDesc:
+        "Language compiling into Bash with modern syntax and safety features.",
       created: "2015",
       extensions: [".amber"],
       extGithubPath: "amber-lang/amber",
@@ -18,7 +19,12 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add("pl+bash")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+compiled", "para+multi", "para+oop", "para+scripting")
+    .relParadigms.add(
+      "para+compiled",
+      "para+multi",
+      "para+oop",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+apple", "plat+linux", "plat+web")
     .relTags.add("tag+cli", "tag+scripting")
     .relTypeSystems.add("tsys+dynamic", "tsys+safe", "tsys+static")

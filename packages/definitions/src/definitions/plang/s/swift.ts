@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Swift",
       description:
         "Powerful and intuitive programming language developed by Apple Inc. for iOS, macOS, watchOS, and tvOS app development. It was introduced in 2014 as an alternative to Objective-C, designed for safety, performance, and modern software design patterns.",
-      shortDesc: "Developed by Apple for its platforms, with a focus on safety and performance.",
+      shortDesc:
+        "Developed by Apple for its platforms, with a focus on safety and performance.",
       created: "2014",
       extensions: [".swift"],
       extGithubPath: "swiftlang/swift",
@@ -25,7 +26,18 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "6.0.1", date: "2024-09-27" }],
       stackovTags: ["swift"],
     })
-    .relInfluencedBy.add("pl+c", "pl+c-sharp", "pl+d", "pl+haskell", "pl+lisp", "pl+objective-c", "pl+python", "pl+ruby", "pl+rust", "pl+scala")
+    .relInfluencedBy.add(
+      "pl+c",
+      "pl+c-sharp",
+      "pl+d",
+      "pl+haskell",
+      "pl+lisp",
+      "pl+objective-c",
+      "pl+python",
+      "pl+ruby",
+      "pl+rust",
+      "pl+scala",
+    )
     .relLicenses.add("lic+apache")
     .relParadigms.add(
       "para+concurrent",
@@ -41,7 +53,14 @@ export function define(g: PlangsGraph) {
       "para+scripting",
       "para+structured",
     )
-    .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+java", "plat+linux", "plat+windows")
+    .relPlatforms.add(
+      "plat+android",
+      "plat+apple",
+      "plat+cross",
+      "plat+java",
+      "plat+linux",
+      "plat+windows",
+    )
     .relTags.add(
       "tag+app",
       "tag+compiler",
@@ -55,6 +74,12 @@ export function define(g: PlangsGraph) {
       "tag+scripting",
       "tag+server",
     )
-    .relTypeSystems.add("tsys+flow", "tsys+generic", "tsys+inferred", "tsys+static", "tsys+strong")
+    .relTypeSystems.add(
+      "tsys+flow",
+      "tsys+generic",
+      "tsys+inferred",
+      "tsys+static",
+      "tsys+strong",
+    )
     .relWrittenWith.add("pl+c++");
 }

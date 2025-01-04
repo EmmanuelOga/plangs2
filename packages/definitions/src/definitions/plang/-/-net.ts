@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: ".NET",
       description:
         "Free and open-source, managed computer software framework for Windows, Linux, and macOS operating systems. It is developed by Microsoft employees and the open-source community through the .NET Foundation and is released under the MIT License. .NET is known for its cross-platform capabilities and support for multiple programming paradigms, making it suitable for building a wide range of applications from web and mobile to cloud and microservices.",
-      shortDesc: "Cross-platform, open-source framework known for supporting multiple programming paradigms.",
+      shortDesc:
+        "Cross-platform, open-source framework known for supporting multiple programming paradigms.",
       created: "2016",
       extensions: [".csproj", ".fsproj", ".sln", ".vbproj"],
       extGithubPath: "microsoft/dotnet",
@@ -25,9 +26,37 @@ export function define(g: PlangsGraph) {
     .relImplements.add("pl+c-sharp", "pl+f-sharp", "pl+visual-basic")
     .relInfluencedBy.add("pl+java")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+concurrent", "para+functional", "para+multi", "para+oop")
-    .relPlatforms.add("plat+.net", "plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows", "plat+x86-64")
-    .relTags.add("tag+app", "tag+cli", "tag+compiler", "tag+framework", "tag+gui", "tag+interpreters", "tag+shell")
-    .relTypeSystems.add("tsys+nominal", "tsys+object", "tsys+polymorphic", "tsys+static", "tsys+strong")
+    .relParadigms.add(
+      "para+concurrent",
+      "para+functional",
+      "para+multi",
+      "para+oop",
+    )
+    .relPlatforms.add(
+      "plat+.net",
+      "plat+android",
+      "plat+apple",
+      "plat+cross",
+      "plat+linux",
+      "plat+wasm",
+      "plat+windows",
+      "plat+x86-64",
+    )
+    .relTags.add(
+      "tag+app",
+      "tag+cli",
+      "tag+compiler",
+      "tag+framework",
+      "tag+gui",
+      "tag+interpreters",
+      "tag+shell",
+    )
+    .relTypeSystems.add(
+      "tsys+nominal",
+      "tsys+object",
+      "tsys+polymorphic",
+      "tsys+static",
+      "tsys+strong",
+    )
     .relWrittenWith.add("pl+c++", "pl+c-sharp");
 }

@@ -6,10 +6,12 @@ export function define(g: PlangsGraph) {
       name: "JavaScript",
       description:
         "Versatile Scripting language and a core technology of the World Wide Web, alongside HTML and CSS. It is widely used for web page interactivity, animation, and asynchronous server requests.",
-      shortDesc: "Scripting language essential for web interactivity and development.",
+      shortDesc:
+        "Scripting language essential for web interactivity and development.",
       created: "1995",
       extensions: [".cjs", ".js", ".mjs"],
-      extHomeURL: "https://ecma-international.org/publications-and-standards/standards/ecma-262/",
+      extHomeURL:
+        "https://ecma-international.org/publications-and-standards/standards/ecma-262/",
       extRedditPath: "javascript",
       extWikipediaPath: "JavaScript",
       githubColor: "#f1e05a",
@@ -20,13 +22,46 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       keywords: ["javascript", "js"],
       languishRanking: 3,
-      links: [{ url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", title: "MDN JavaScript" }],
+      links: [
+        {
+          url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+          title: "MDN JavaScript",
+        },
+      ],
       stackovTags: ["javascript"],
     })
-    .relInfluencedBy.add("pl+awk", "pl+c", "pl+java", "pl+lisp", "pl+lua", "pl+moonscript", "pl+perl", "pl+python", "pl+r5rs", "pl+scheme", "pl+self")
+    .relInfluencedBy.add(
+      "pl+awk",
+      "pl+c",
+      "pl+java",
+      "pl+lisp",
+      "pl+lua",
+      "pl+moonscript",
+      "pl+perl",
+      "pl+python",
+      "pl+r5rs",
+      "pl+scheme",
+      "pl+self",
+    )
     .relLicenses.add("lic+public-domain")
-    .relParadigms.add("para+event-driven", "para+functional", "para+imperative", "para+multi", "para+oop", "para+procedural")
-    .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+nodejs", "plat+wasm", "plat+web", "plat+windows")
+    .relParadigms.add(
+      "para+event-driven",
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+    )
+    .relPlatforms.add(
+      "plat+android",
+      "plat+apple",
+      "plat+cross",
+      "plat+linux",
+      "plat+nodejs",
+      "plat+wasm",
+      "plat+web",
+      "plat+windows",
+    )
     .relTags.add(
       "tag+app",
       "tag+asm",

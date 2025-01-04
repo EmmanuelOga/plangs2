@@ -5,7 +5,8 @@ export function define(g: PlangsGraph) {
     name: "CCA",
     description:
       "The Creative Commons Attribution license allows for the sharing and adaptation of works, provided that appropriate credit is given.",
-    extHomeURL: "https://en.wikipedia.org/wiki/Creative_Commons_license#Attribution",
+    extHomeURL:
+      "https://en.wikipedia.org/wiki/Creative_Commons_license#Attribution",
     isFSFLibre: false,
     isOSIApproved: false,
     keywords: ["cc-by"],

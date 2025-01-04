@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Jython",
       description:
         "Implementation of the Python programming language designed to run on the Java platform. It allows Python code to run on the JVM, providing seamless integration with Java libraries and classes.",
-      shortDesc: "Python implementation for the Java platform, enabling Python code to run on the JVM.",
+      shortDesc:
+        "Python implementation for the Java platform, enabling Python code to run on the JVM.",
       created: "2001",
       extensions: [".py"],
       extGithubPath: "jython/jython",

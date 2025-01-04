@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Makefile",
       description:
         "Command-line tool used for build automation primarily on Unix-like operating systems. It operates by reading makefiles, which define how to derive target files from source files by comparing timestamps to decide what needs to be rebuilt.",
-      shortDesc: "Tool used for build automation, defining build tasks in makefiles based on file timestamps.",
+      shortDesc:
+        "Tool used for build automation, defining build tasks in makefiles based on file timestamps.",
       created: "1976",
       extensions: [".mk"],
       extWikipediaPath: "Make_(software)",
@@ -17,7 +18,12 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       isTranspiler: true,
-      keywords: ["build automation", "dependency management", "makefile", "unix"],
+      keywords: [
+        "build automation",
+        "dependency management",
+        "makefile",
+        "unix",
+      ],
       languishRanking: 38,
       stackovTags: ["makefile"],
     })

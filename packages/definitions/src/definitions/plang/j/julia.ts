@@ -21,7 +21,12 @@ export function define(g: PlangsGraph) {
       githubStars: 46000,
       githubType: "programming",
       isTranspiler: false,
-      keywords: ["data science", "julia", "machine learning", "numerical computing"],
+      keywords: [
+        "data science",
+        "julia",
+        "machine learning",
+        "numerical computing",
+      ],
       languishRanking: 48,
       releases: [
         { version: "1.11.1", name: "Julia 1.11.1", date: "2024-10-16" },
@@ -57,7 +62,13 @@ export function define(g: PlangsGraph) {
       "para+reflective",
       "para+structured",
     )
-    .relPlatforms.add("plat+apple", "plat+bsd", "plat+linux", "plat+windows", "plat+x86-64")
+    .relPlatforms.add(
+      "plat+apple",
+      "plat+bsd",
+      "plat+linux",
+      "plat+windows",
+      "plat+x86-64",
+    )
     .relTags.add(
       "tag+3dg",
       "tag+analysis",
@@ -78,6 +89,14 @@ export function define(g: PlangsGraph) {
       "tag+shell",
       "tag+wavelet",
     )
-    .relTypeSystems.add("tsys+dynamic", "tsys+flow", "tsys+generic", "tsys+inferred", "tsys+nominal", "tsys+optional", "tsys+strong")
+    .relTypeSystems.add(
+      "tsys+dynamic",
+      "tsys+flow",
+      "tsys+generic",
+      "tsys+inferred",
+      "tsys+nominal",
+      "tsys+optional",
+      "tsys+strong",
+    )
     .relWrittenWith.add("pl+c", "pl+c++", "pl+llvm", "pl+scheme");
 }

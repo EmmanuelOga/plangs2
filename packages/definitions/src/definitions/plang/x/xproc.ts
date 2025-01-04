@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "XProc",
       description:
         "XML transformation language for processing documents in pipelines: chaining conversions and other steps together to achieve the desired results. It can handle documents in XML, HTML, JSON, text and binary data seamlessly.",
-      shortDesc: "XML transformation language for processing documents in pipelines.",
+      shortDesc:
+        "XML transformation language for processing documents in pipelines.",
       created: "2010",
       extensions: [".xpl"],
       extHomeURL: "https://xproc.org/",

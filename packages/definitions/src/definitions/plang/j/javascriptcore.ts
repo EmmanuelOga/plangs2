@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "JavaScriptCore",
       description:
         "JavaScript engine developed as part of the WebKit project. It is widely known for being used in the Safari web browser and provides a robust implementation of the ECMAScript standards.",
-      shortDesc: "JavaScript engine utilized in Safari and part of the WebKit project.",
+      shortDesc:
+        "JavaScript engine utilized in Safari and part of the WebKit project.",
       created: "2008",
       extGithubPath: "WebKit/WebKit",
       extHomeURL: "http://webkit.org/",
@@ -18,7 +19,12 @@ export function define(g: PlangsGraph) {
     .relImplements.add("pl+javascript")
     .relInfluencedBy.add("pl+javascript")
     .relLicenses.add("lic+bsd", "lic+lgpl")
-    .relParadigms.add("para+event-driven", "para+interpreted", "para+oop", "para+scripting")
+    .relParadigms.add(
+      "para+event-driven",
+      "para+interpreted",
+      "para+oop",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+apple", "plat+arm", "plat+linux", "plat+windows")
     .relTags.add("tag+gui", "tag+interpreters", "tag+low-code", "tag+scripting")
     .relTypeSystems.add("tsys+dynamic", "tsys+object", "tsys+weak")

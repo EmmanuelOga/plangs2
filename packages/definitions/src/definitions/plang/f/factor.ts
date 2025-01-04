@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Factor",
       description:
         "Stack-oriented programming language created by Slava Pestov. It features dynamic types, extensible syntax, macros, and garbage collection. The language supports a large standard library with cross-platform capabilities, providing a self-hosted optimizing compiler and an interactive development environment.",
-      shortDesc: "Stack-oriented programming language with dynamic types, extensible syntax, and a self-hosted optimizing compiler.",
+      shortDesc:
+        "Stack-oriented programming language with dynamic types, extensible syntax, and a self-hosted optimizing compiler.",
       created: "2003",
       extensions: [".factor"],
       extGithubPath: "factor/factor",
@@ -29,7 +30,13 @@ export function define(g: PlangsGraph) {
     })
     .relInfluencedBy.add("pl+forth", "pl+lisp", "pl+self")
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+concatenative", "para+functional", "para+multi", "para+oop", "para+stack-oriented")
+    .relParadigms.add(
+      "para+concatenative",
+      "para+functional",
+      "para+multi",
+      "para+oop",
+      "para+stack-oriented",
+    )
     .relPlatforms.add("plat+apple", "plat+linux", "plat+windows", "plat+x86-64")
     .relTags.add("tag+compiler", "tag+interpreters", "tag+scripting")
     .relTypeSystems.add("tsys+dynamic", "tsys+strong");

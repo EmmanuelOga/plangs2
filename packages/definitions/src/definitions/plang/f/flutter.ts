@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Flutter",
       description:
         "UI software development toolkit by Google, used for crafting natively compiled cross-platform applications from a single codebase for mobile, web, and desktop.",
-      shortDesc: "Toolkit for creating natively compiled cross-platform apps from a single codebase.",
+      shortDesc:
+        "Toolkit for creating natively compiled cross-platform apps from a single codebase.",
       created: "2017",
       extensions: [".dart"],
       extGithubPath: "flutter/flutter",
@@ -21,8 +22,23 @@ export function define(g: PlangsGraph) {
     .relImplements.add("pl+dart")
     .relLicenses.add("lic+bsd")
     .relParadigms.add("para+declarative", "para+functional", "para+oop")
-    .relPlatforms.add("plat+android", "plat+apple", "plat+cross", "plat+linux", "plat+web", "plat+windows")
-    .relTags.add("tag+3dg", "tag+app", "tag+framework", "tag+gui", "tag+industrial", "tag+ray-tracer", "tag+webdev")
+    .relPlatforms.add(
+      "plat+android",
+      "plat+apple",
+      "plat+cross",
+      "plat+linux",
+      "plat+web",
+      "plat+windows",
+    )
+    .relTags.add(
+      "tag+3dg",
+      "tag+app",
+      "tag+framework",
+      "tag+gui",
+      "tag+industrial",
+      "tag+ray-tracer",
+      "tag+webdev",
+    )
     .relTypeSystems.add("tsys+object", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+c", "pl+c++", "pl+dart");
 }

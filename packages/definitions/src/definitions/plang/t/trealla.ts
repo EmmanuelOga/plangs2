@@ -4,13 +4,21 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+trealla", {
       name: "Trealla Prolog",
-      description: "A compact, efficient Prolog interpreter implemented in C, known for its ability to handle concurrent threads and coroutines.",
-      shortDesc: "An efficient Prolog interpreter with concurrent capabilities.",
+      description:
+        "A compact, efficient Prolog interpreter implemented in C, known for its ability to handle concurrent threads and coroutines.",
+      shortDesc:
+        "An efficient Prolog interpreter with concurrent capabilities.",
       created: "2020",
       extensions: [".pl"],
       extGithubPath: "trealla-prolog/trealla",
       isTranspiler: false,
-      keywords: ["concurrency", "coroutines", "interpreter", "logic-programming", "prolog"],
+      keywords: [
+        "concurrency",
+        "coroutines",
+        "interpreter",
+        "logic-programming",
+        "prolog",
+      ],
     })
     .relDialectOf.add("pl+prolog")
     .relInfluencedBy.add("pl+gprolog", "pl+swi-prolog", "pl+tau")

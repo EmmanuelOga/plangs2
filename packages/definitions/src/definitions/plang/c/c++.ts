@@ -6,9 +6,24 @@ export function define(g: PlangsGraph) {
       name: "C++",
       description:
         "General-purpose language created by Bjarne Stroustrup as an extension of C. It supports object-oriented, generic, and functional programming with low-level memory manipulation capabilities. Used broadly for its performance, C++ is implemented in systems programming and resource-constrained applications like operating systems and game development.",
-      shortDesc: "General-purpose language designed by Bjarne Stroustrup, supporting multiple programming paradigms.",
+      shortDesc:
+        "General-purpose language designed by Bjarne Stroustrup, supporting multiple programming paradigms.",
       created: "1985",
-      extensions: [".C", ".H", ".c++", ".cc", ".cpp", ".cppm", ".cxx", ".h", ".h++", ".hh", ".hpp", ".hxx", ".ixx"],
+      extensions: [
+        ".C",
+        ".H",
+        ".c++",
+        ".cc",
+        ".cpp",
+        ".cppm",
+        ".cxx",
+        ".h",
+        ".h++",
+        ".hh",
+        ".hpp",
+        ".hxx",
+        ".ixx",
+      ],
       extHomeURL: "https://isocpp.org/",
       extRedditPath: "cpp",
       extWikipediaPath: "C++",
@@ -37,8 +52,21 @@ export function define(g: PlangsGraph) {
     })
     .relDialectOf.add("pl+c")
     .relInfluencedBy.add("pl+ada", "pl+apl", "pl+c", "pl+f-sharp")
-    .relParadigms.add("para+functional", "para+imperative", "para+modular", "para+multi", "para+oop", "para+procedural")
-    .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+wasm", "plat+windows")
+    .relParadigms.add(
+      "para+functional",
+      "para+imperative",
+      "para+modular",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+    )
+    .relPlatforms.add(
+      "plat+apple",
+      "plat+cross",
+      "plat+linux",
+      "plat+wasm",
+      "plat+windows",
+    )
     .relTags.add(
       "tag+app",
       "tag+better-c",
@@ -51,6 +79,13 @@ export function define(g: PlangsGraph) {
       "tag+interpreters",
       "tag+viz",
     )
-    .relTypeSystems.add("tsys+generic", "tsys+inferred", "tsys+nominal", "tsys+object", "tsys+static", "tsys+strong")
+    .relTypeSystems.add(
+      "tsys+generic",
+      "tsys+inferred",
+      "tsys+nominal",
+      "tsys+object",
+      "tsys+static",
+      "tsys+strong",
+    )
     .relWrittenWith.add("pl+c");
 }

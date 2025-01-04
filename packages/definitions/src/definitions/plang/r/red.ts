@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Red",
       description:
         "Multifunctional programming language designed to address the limitations of Rebol, with features supporting both imperative and functional programming. Introduced in 2011 by Nenad Rakočević, Red caters to symbolic computations and system-level programming through its high-level and low-level syntactical elements.",
-      shortDesc: "Programming language supporting imperative and functional paradigms, developed to overcome Rebol's limitations.",
+      shortDesc:
+        "Programming language supporting imperative and functional paradigms, developed to overcome Rebol's limitations.",
       created: "2011",
       extensions: [".red", ".reds"],
       extGithubPath: "red/red",
@@ -27,9 +28,21 @@ export function define(g: PlangsGraph) {
     })
     .relInfluencedBy.add("pl+lisp", "pl+lua", "pl+rebol")
     .relLicenses.add("lic+boost", "lic+bsd")
-    .relParadigms.add("para+functional", "para+imperative", "para+multi", "para+symbolic")
+    .relParadigms.add(
+      "para+functional",
+      "para+imperative",
+      "para+multi",
+      "para+symbolic",
+    )
     .relPlatforms.add("plat+apple", "plat+linux", "plat+windows")
-    .relTags.add("tag+app", "tag+asm", "tag+dataflow", "tag+flow", "tag+gui", "tag+interpreters")
+    .relTags.add(
+      "tag+app",
+      "tag+asm",
+      "tag+dataflow",
+      "tag+flow",
+      "tag+gui",
+      "tag+interpreters",
+    )
     .relTypeSystems.add("tsys+dynamic", "tsys+weak")
     .relWrittenWith.add("pl+c", "pl+rebol");
 }

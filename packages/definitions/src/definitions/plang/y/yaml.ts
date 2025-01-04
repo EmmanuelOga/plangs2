@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "YAML",
       description:
         "Human-readable data serialization language commonly used for configuration files and data exchange, known for its minimal syntax and complex data structure representation. YAML is particularly popular for configuration files, allowing for nesting and structures similar to Python but using indentation-based syntax.",
-      shortDesc: "Human-readable data serialization language for configuration files and data exchange, featuring minimal syntax.",
+      shortDesc:
+        "Human-readable data serialization language for configuration files and data exchange, featuring minimal syntax.",
       created: "2001",
       extensions: [".yaml", ".yml"],
       extHomeURL: "https://yaml.org/",

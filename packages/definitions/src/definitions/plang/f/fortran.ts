@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Fortran",
       description:
         "A high-performance programming language optimized for numerical computation and scientific computing. Originally developed by IBM in the 1950s, Fortran excels in handling computationally intensive tasks and is widely used in areas like scientific research, engineering, and high-performance computing.",
-      shortDesc: "Language optimized for high-performance numerical computation and scientific computing.",
+      shortDesc:
+        "Language optimized for high-performance numerical computation and scientific computing.",
       created: "1957",
       extensions: [".f", ".f90", ".for"],
       extHomeURL: "https://fortran-lang.org/",
@@ -18,9 +19,18 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       isTranspiler: false,
-      keywords: ["fortran", "high-performance computing", "scientific computing"],
+      keywords: [
+        "fortran",
+        "high-performance computing",
+        "scientific computing",
+      ],
       languishRanking: 67,
-      links: [{ url: "https://github.com/fortran-lang", title: "Fortran Language GitHub Org" }],
+      links: [
+        {
+          url: "https://github.com/fortran-lang",
+          title: "Fortran Language GitHub Org",
+        },
+      ],
       stackovTags: ["fortran"],
     })
     .relParadigms.add(

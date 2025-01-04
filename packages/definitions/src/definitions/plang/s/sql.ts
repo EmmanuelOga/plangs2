@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "SQL",
       description:
         "Structured Query Language is a domain-specific language for managing data in relational database systems, focusing primarily on data query and manipulation.",
-      shortDesc: "Domain-specific language for managing data in relational databases.",
+      shortDesc:
+        "Domain-specific language for managing data in relational databases.",
       created: "1974",
       extensions: [".sql"],
       extHomeURL: "https://www.iso.org/standard/76583.html",
@@ -24,8 +25,23 @@ export function define(g: PlangsGraph) {
       stackovTags: ["sql"],
     })
     .relInfluencedBy.add("pl+datalog")
-    .relParadigms.add("para+data-driven", "para+declarative", "para+dsl", "para+query")
+    .relParadigms.add(
+      "para+data-driven",
+      "para+declarative",
+      "para+dsl",
+      "para+query",
+    )
     .relPlatforms.add("plat+cross")
-    .relTags.add("tag+4gl", "tag+dbms", "tag+industrial", "tag+interpreters", "tag+multimedia", "tag+testing", "tag+video", "tag+viz", "tag+workflow")
+    .relTags.add(
+      "tag+4gl",
+      "tag+dbms",
+      "tag+industrial",
+      "tag+interpreters",
+      "tag+multimedia",
+      "tag+testing",
+      "tag+video",
+      "tag+viz",
+      "tag+workflow",
+    )
     .relTypeSystems.add("tsys+static", "tsys+strong");
 }

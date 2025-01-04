@@ -4,7 +4,8 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+ichiban", {
       name: "Ichiban Prolog",
-      description: "An embeddable interpreter for ISO Prolog, designed for integration within Go applications.",
+      description:
+        "An embeddable interpreter for ISO Prolog, designed for integration within Go applications.",
       shortDesc: "An embeddable ISO Prolog interpreter in Go.",
       created: "2021",
       extensions: [".plg"],

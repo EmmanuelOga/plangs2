@@ -27,7 +27,12 @@ export function define(g: PlangsGraph) {
       ],
       stackovTags: ["apl"],
     })
-    .relParadigms.add("para+array", "para+functional", "para+modular", "para+structured")
+    .relParadigms.add(
+      "para+array",
+      "para+functional",
+      "para+modular",
+      "para+structured",
+    )
     .relPlatforms.add("plat+cross")
     .relTags.add(
       "tag+3dg",

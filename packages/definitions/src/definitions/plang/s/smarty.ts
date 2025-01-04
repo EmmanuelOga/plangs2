@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Smarty",
       description:
         "PHP-based web template engine designed to separate the presentation layer from the application logic, facilitating easier management of web page layout and design.",
-      shortDesc: "PHP template engine for separating presentation and application logic.",
+      shortDesc:
+        "PHP template engine for separating presentation and application logic.",
       created: "2001",
       extensions: [".tpl"],
       extGithubPath: "smarty-php/smarty",
@@ -22,7 +23,9 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       keywords: ["php", "smarty", "template system", "web"],
       languishRanking: 89,
-      releases: [{ version: "5.4.1", name: "Stable release", date: "2024-08-29" }],
+      releases: [
+        { version: "5.4.1", name: "Stable release", date: "2024-08-29" },
+      ],
       stackovTags: ["smarty"],
     })
     .relCompilesTo.add("pl+php")

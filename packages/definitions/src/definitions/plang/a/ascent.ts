@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Ascent",
       description:
         "A logic programming language, similar to Datalog, embedded in Rust using macros for declarative logic processing and query optimization.",
-      shortDesc: "Logic programming language (similar to Datalog) embedded in Rust via macros.",
+      shortDesc:
+        "Logic programming language (similar to Datalog) embedded in Rust via macros.",
       created: "2023",
       extGithubPath: "s-arash/ascent",
       extHomeURL: "https://s-arash.github.io/ascent/",

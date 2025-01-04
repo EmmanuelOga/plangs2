@@ -8,7 +8,17 @@ export function define(g: PlangsGraph) {
         'High-level, general-purpose, interpreted, dynamic programming language. Though Perl is not officially an acronym, there are various backronyms in use, including "Practical Extraction and Reporting Language".',
       shortDesc: "Dynamic language known for its text-processing capabilities.",
       created: "1987",
-      extensions: [".cgi", ".pl", ".pls", ".plx", ".pm", ".pod", ".psgi", ".t", ".xs"],
+      extensions: [
+        ".cgi",
+        ".pl",
+        ".pls",
+        ".plx",
+        ".pm",
+        ".pod",
+        ".psgi",
+        ".t",
+        ".xs",
+      ],
       extGithubPath: "Perl/perl5",
       extHomeURL: "https://www.perl.org/",
       extRedditPath: "perl",
@@ -29,9 +39,23 @@ export function define(g: PlangsGraph) {
       ],
       stackovTags: ["perl"],
     })
-    .relInfluencedBy.add("pl+awk", "pl+basic", "pl+c", "pl+c++", "pl+lisp", "pl+raku", "pl+sed")
+    .relInfluencedBy.add(
+      "pl+awk",
+      "pl+basic",
+      "pl+c",
+      "pl+c++",
+      "pl+lisp",
+      "pl+raku",
+      "pl+sed",
+    )
     .relLicenses.add("lic+artistic", "lic+gnu-gpl")
-    .relParadigms.add("para+functional", "para+multi", "para+oop", "para+procedural", "para+scripting")
+    .relParadigms.add(
+      "para+functional",
+      "para+multi",
+      "para+oop",
+      "para+procedural",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+cross")
     .relTags.add(
       "tag+app",

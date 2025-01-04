@@ -6,7 +6,8 @@ export function define(g: PlangsGraph) {
       name: "Wasp",
       description:
         "Configuration-driven, declarative programming language for building full-stack web applications, focusing on reducing boilerplate and improving developer productivity by efficiently managing both server and client-side code.",
-      shortDesc: "Simplifies full-stack web development with a declarative approach.",
+      shortDesc:
+        "Simplifies full-stack web development with a declarative approach.",
       created: "2021",
       extensions: [".wasp"],
       extGithubPath: "wasp-lang/wasp",
@@ -14,8 +15,16 @@ export function define(g: PlangsGraph) {
       filenames: ["wasp"],
       githubStars: 14000,
       isTranspiler: true,
-      keywords: ["configuration-driven", "declarative language", "full-stack", "wasp", "web development"],
-      releases: [{ version: "0.2.0", name: "Beta Release", date: "2023-08-15" }],
+      keywords: [
+        "configuration-driven",
+        "declarative language",
+        "full-stack",
+        "wasp",
+        "web development",
+      ],
+      releases: [
+        { version: "0.2.0", name: "Beta Release", date: "2023-08-15" },
+      ],
     })
     .relCompilesTo.add("pl+javascript")
     .relInfluencedBy.add("pl+javascript")

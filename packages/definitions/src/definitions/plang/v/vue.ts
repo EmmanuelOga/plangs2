@@ -4,7 +4,8 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+vue", {
       name: "Vue",
-      description: "model-view-viewmodel front end JavaScript framework for building user interfaces and single-page applications.",
+      description:
+        "model-view-viewmodel front end JavaScript framework for building user interfaces and single-page applications.",
       shortDesc: "JavaScript framework for front end development.",
       created: "2014",
       extensions: [".vue"],
@@ -21,7 +22,13 @@ export function define(g: PlangsGraph) {
       isTranspiler: true,
       keywords: ["vue.js"],
       languishRanking: 20,
-      releases: [{ version: "3.5.12", name: "Tengen Toppa Gurren Lagann", date: "2024-10-11" }],
+      releases: [
+        {
+          version: "3.5.12",
+          name: "Tengen Toppa Gurren Lagann",
+          date: "2024-10-11",
+        },
+      ],
       stackovTags: ["vue.js"],
     })
     .relCompilesTo.add("pl+javascript")

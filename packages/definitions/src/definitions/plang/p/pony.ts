@@ -4,7 +4,8 @@ export function define(g: PlangsGraph) {
   g.plang
     .set("pl+pony", {
       name: "Pony",
-      description: "Object-oriented, actor-model, capabilities-secure, high-performance programming language.",
+      description:
+        "Object-oriented, actor-model, capabilities-secure, high-performance programming language.",
       shortDesc: "Object-oriented, actor-model, secure programming language.",
       created: "2015",
       extensions: [".pony"],
@@ -20,12 +21,19 @@ export function define(g: PlangsGraph) {
       isTranspiler: false,
       keywords: ["actor-model", "capability-security", "pony"],
       languishRanking: 357,
-      releases: [{ version: "0.58.7", name: "Pony 0.41.0", date: "2024-09-30" }],
+      releases: [
+        { version: "0.58.7", name: "Pony 0.41.0", date: "2024-09-30" },
+      ],
       stackovTags: ["ponylang"],
     })
     .relInfluencedBy.add("pl+erlang", "pl+scala")
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+concurrent", "para+functional", "para+message-passing", "para+oop")
+    .relParadigms.add(
+      "para+concurrent",
+      "para+functional",
+      "para+message-passing",
+      "para+oop",
+    )
     .relPlatforms.add("plat+apple", "plat+bsd", "plat+linux", "plat+windows")
     .relTypeSystems.add("tsys+safe", "tsys+static", "tsys+strong")
     .relWrittenWith.add("pl+c");

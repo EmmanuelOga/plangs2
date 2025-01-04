@@ -5,6 +5,10 @@ export function define(g: PlangsGraph) {
     name: "Numeric Computation",
     description: "Software for performing numeric computations and algorithms.",
     extHomeURL: "https://en.wikipedia.org/wiki/Numeric_computation",
-    keywords: ["numeric computation", "numerical analysis", "scientific computing"],
+    keywords: [
+      "numeric computation",
+      "numerical analysis",
+      "scientific computing",
+    ],
   });
 }

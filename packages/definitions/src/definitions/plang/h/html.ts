@@ -17,7 +17,14 @@ export function define(g: PlangsGraph) {
       githubPopular: true,
       githubType: "markup",
       isTranspiler: false,
-      keywords: ["HTML", "hypertext", "markup language", "web browser", "web content", "web structure"],
+      keywords: [
+        "HTML",
+        "hypertext",
+        "markup language",
+        "web browser",
+        "web content",
+        "web structure",
+      ],
       languishRanking: 7,
       releases: [
         { version: "4.01", name: "HTML 4.01", date: "1999-12-24" },
