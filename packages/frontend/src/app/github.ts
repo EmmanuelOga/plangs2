@@ -1,7 +1,8 @@
+const GITHUB_SCOPE = "public_repo";
 const GITHUB_CLIENT_ID = "Ov23li7sluQbapgJCEn8";
 
 export const initiateGitHubAuth = (redirectUri: string) =>
-  (window.location.href = `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&redirect_uri=${redirectUri}&scope=repo`);
+  (window.location.href = `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&redirect_uri=${redirectUri}&scope=${GITHUB_SCOPE}`);
 
 // Check if the user is coming from GitHub OAuth.
 export const isGithubRedirect = () =>
@@ -12,7 +13,7 @@ export async function handleGitHubCallback(githubCode: string) {
   try {
     const files = { "README.md": "Testing, 1, 2, 3.", "file2.txt": "content2" };
 
-    const response = await fetch("/api/githubapi", {
+    const response = await fetch("/githubapi", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ code: githubCode, files }),
