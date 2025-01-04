@@ -79,7 +79,7 @@ function Status({ pg }: { pg: PlangsGraph }) {
           label="Create Pull Request"
           onClick={() => {
             const ok = true;
-            initiateGitHubAuth();
+            initiateGitHubAuth("https://plangs.page/edit");
             if (ok) {
               // const diff = generateCodeDiff(pg); if (diff) downloadJSON("code.json", diff);
               setPullreqMsg(`${new Date().toLocaleTimeString()}: Ok.`);

@@ -1,6 +1,6 @@
 const GITHUB_CLIENT_ID = "Ov23li7sluQbapgJCEn8";
 
-export const initiateGitHubAuth = (redirectUri = window.location.origin) =>
+export const initiateGitHubAuth = (redirectUri: string) =>
   (window.location.href = `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&redirect_uri=${redirectUri}&scope=repo`);
 
 // Check if the user is coming from GitHub OAuth.
