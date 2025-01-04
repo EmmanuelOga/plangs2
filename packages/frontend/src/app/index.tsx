@@ -78,10 +78,9 @@ async function start() {
       }
     });
 
-    if (isGithubRedirect()) {
-      const code = new URLSearchParams(window.location.search).get("code");
-      if (code) handleGitHubCallback(code);
-    }
+    // Check if the user is coming from GitHub OAuth.
+    const code = new URLSearchParams(window.location.search).get("code");
+    if (code && window.location.pathname === "/edit") handleGitHubCallback(code);
   });
 }
 

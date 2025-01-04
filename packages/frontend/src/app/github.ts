@@ -4,12 +4,6 @@ const GITHUB_CLIENT_ID = "Ov23li7sluQbapgJCEn8";
 export const initiateGitHubAuth = (redirectUri: string) =>
   (window.location.href = `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&redirect_uri=${redirectUri}&scope=${GITHUB_SCOPE}`);
 
-// Check if the user is coming from GitHub OAuth.
-export const isGithubRedirect = () => {
-  debugger;
-  return document.referrer && new URL(document.referrer).hostname === "github.com" && window.location.search.includes("code=");
-};
-
 // Invoke API to create a pull request.
 export async function handleGitHubCallback(githubCode: string) {
   try {
