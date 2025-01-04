@@ -7,21 +7,22 @@ export const initiateGitHubAuth = (redirectUri: string) =>
 // Invoke API to create a pull request.
 export async function handleGitHubCallback(githubCode: string) {
   try {
-    const files = { "README.md": "Testing, 1, 2, 3.", "file2.txt": "content2" };
-
     const response = await fetch("/githubapi", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ code: githubCode, files }),
+      body: JSON.stringify({ code: githubCode }),
     });
 
-    const data = await response.json();
-    if (data.success) {
-      console.log("Pull request created:", data.pullRequest);
-      // Redirect to the pull request or show success message.
-      window.location.href = data.pullRequest;
-    } else {
-      console.error("Error:", data.error);
+    const responseData = await response.json();
+    console.log("RESULT", responseData);
+
+    const { access_token } = responseData;
+    if (access_token) {
+      const githubApi = await fetch("https://api.github.com/user", {
+        headers: { Authorization: `Bearer ${access_token}`, Accept: "application/vnd.github.v3+json" },
+      });
+      const userData = await githubApi.json();
+      console.log("Authenticated as:", userData.login);
     }
   } catch (error) {
     console.error("Error:", error);

@@ -80,7 +80,13 @@ async function start() {
 
     // Check if the user is coming from GitHub OAuth.
     const code = new URLSearchParams(window.location.search).get("code");
-    if (code && window.location.pathname === "/edit") handleGitHubCallback(code);
+    if (code) {
+      const url = new URL(window.location.href);
+      url.searchParams.delete("code");
+      window.history.replaceState({}, document.title, url.toString());
+
+      if (window.location.pathname === "/edit") handleGitHubCallback(code);
+    }
   });
 }
 

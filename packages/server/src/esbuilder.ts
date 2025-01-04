@@ -20,17 +20,3 @@ export function appESBuildOptions(envName: "prod" | "dev", plangsDataPath: strin
     logLevel: "info",
   };
 }
-
-/** ESBuild options for Clouflare functions. */
-export function cffESBuildOptions(outfile: string): esbuild.BuildOptions {
-  return {
-    entryPoints: [join(ROOT, "packages/functions/src/githubapi.ts")],
-    target: TARGET,
-    bundle: true,
-    sourcemap: true,
-    minify: false,
-    treeShaking: true,
-    outfile: outfile,
-    logLevel: "info",
-  };
-}

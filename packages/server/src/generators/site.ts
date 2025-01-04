@@ -9,7 +9,7 @@ import { loadDefinitions } from "@plangs/definitions";
 import { PlangsGraph } from "@plangs/plangs/graph";
 import { LAYOUT_DEFAULTS } from "@plangs/server/components/layout";
 import { loadPosts } from "@plangs/server/content";
-import { appESBuildOptions, cffESBuildOptions } from "@plangs/server/esbuilder";
+import { appESBuildOptions } from "@plangs/server/esbuilder";
 import { GRID_PATHS, REFERENCE_PATHS, resolvePage } from "@plangs/server/resolve_page";
 import { vdomToHTML } from "@plangs/server/utils/server";
 
@@ -40,7 +40,6 @@ async function generateJSBundle(outputPath: string, pg: PlangsGraph) {
   const dataName = `plangs-${Bun.hash(data)}-${BUILD_DATE}.json`;
   Bun.write(join(outputPath, dataName), data);
   await esbuild.build(appESBuildOptions("prod", dataName, join(outputPath, "app.js")));
-  await esbuild.build(cffESBuildOptions(join(outputPath, "functions/githubapi.js")));
 }
 
 /** Bundle the App's CSS with Tailwind. 4.0 beta doesn't have a good way to call this from code at the moment. */
