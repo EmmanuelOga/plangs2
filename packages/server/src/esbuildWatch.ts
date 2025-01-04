@@ -3,12 +3,12 @@
 
 import { join } from "node:path";
 import * as esbuild from "esbuild";
-import { esbuildOptions } from "./esbuilder";
+import { appESBuildOptions } from "./esbuilder";
 
 const ROOT = join(import.meta.dir, "../../..");
 
 // Create an ESBuild context with the options for the dev environment.
-const options = esbuildOptions("dev", "plangs.json", join(ROOT, "packages/server/static/app.js"));
+const options = appESBuildOptions("dev", "plangs.json", join(ROOT, "packages/server/static/app.js"));
 const context = await esbuild.context(options);
 
 const cleanup = async () => {

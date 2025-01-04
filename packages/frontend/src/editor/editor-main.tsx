@@ -1,5 +1,6 @@
 import { useState } from "preact/hooks";
 
+import { initiateGitHubAuth } from "@plangs/frontend/app/github";
 import { getStore } from "@plangs/frontend/auxiliar/storage";
 import { PROSE_BASIC, tw } from "@plangs/frontend/auxiliar/styles";
 import { PlangsGraph } from "@plangs/plangs/graph";
@@ -35,6 +36,7 @@ function Status({ pg }: { pg: PlangsGraph }) {
   const store = getStore("_any_page_");
   const [modeMsg, setModeMsg] = useState<string | undefined>();
   const [resetMsg, setResetMsg] = useState<string | undefined>();
+  const [pullreqMsg, setPullreqMsg] = useState<string | undefined>();
   const [exportMsg, setExportMsg] = useState<string | undefined>();
 
   return (
@@ -70,6 +72,25 @@ function Status({ pg }: { pg: PlangsGraph }) {
         {resetMsg && <div class="text-primary">{resetMsg}</div>}
       </div>
 
+      <h3>Pull Requests</h3>
+
+      <div class="flex flex-row gap-4">
+        <EditorButton
+          label="Create Pull Request"
+          onClick={() => {
+            const ok = true;
+            initiateGitHubAuth();
+            if (ok) {
+              // const diff = generateCodeDiff(pg); if (diff) downloadJSON("code.json", diff);
+              setPullreqMsg(`${new Date().toLocaleTimeString()}: Ok.`);
+            } else {
+              setPullreqMsg(`${new Date().toLocaleTimeString()}: Not Ok.`);
+            }
+          }}
+        />
+        {pullreqMsg && <div class="text-primary">{pullreqMsg}</div>}
+      </div>
+
       <h3>Exports and Contributions</h3>
       <p>Adding any edits back to the project requires a pull request. For now, this process involves a few steps:</p>
 
@@ -82,7 +103,6 @@ function Status({ pg }: { pg: PlangsGraph }) {
                 const data = store.load("local-edits");
                 if (data) {
                   downloadJSON("plangs.json", data);
-                  // const diff = generateCodeDiff(pg); if (diff) downloadJSON("code.json", diff);
                   setExportMsg(`${new Date().toLocaleTimeString()}: Local data exported.`);
                 } else {
                   setExportMsg(`${new Date().toLocaleTimeString()}: No local data to export.`);

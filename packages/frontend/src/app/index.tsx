@@ -11,6 +11,7 @@ import { activatePlangsEditor } from "@plangs/frontend/editor";
 import { activateFacetsMain } from "@plangs/frontend/facets/main";
 import { PlangsGraph } from "@plangs/plangs/graph";
 
+import { handleGitHubCallback, isGithubRedirect } from "./github";
 import { getClosestVertex, loadLocalOrRemote } from "./vertices";
 
 // Declare some globals that are called as the page is being loaded
@@ -76,6 +77,11 @@ async function start() {
         if (src) img.setAttribute("src", src);
       }
     });
+
+    if (isGithubRedirect()) {
+      const code = new URLSearchParams(window.location.search).get("code");
+      if (code) handleGitHubCallback(code);
+    }
   });
 }
 
