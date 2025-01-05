@@ -11,5 +11,6 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://www.nand2tetris.org/",
       kinds: ["book", "course"],
     })
+    .relApps.add("app+aider")
     .relTags.add("tag+embedded", "tag+languages");
 }
