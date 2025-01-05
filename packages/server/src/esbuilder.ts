@@ -20,3 +20,16 @@ export function appESBuildOptions(envName: "prod" | "dev", plangsDataPath: strin
     logLevel: "info",
   };
 }
+
+/** ESBuild options for the Cloudflare Functions. */
+export function cffESBuildOptions(outfile: string): esbuild.BuildOptions {
+  return {
+    entryPoints: [join(ROOT, "packages/functions/src/worker.ts")],
+    target: "esnext",
+    format: "esm",
+    bundle: true,
+    treeShaking: true,
+    outfile: outfile,
+    logLevel: "info",
+  };
+}
