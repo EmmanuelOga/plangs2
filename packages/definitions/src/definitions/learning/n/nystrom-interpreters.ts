@@ -9,6 +9,6 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://craftinginterpreters.com/",
       kinds: ["book"],
     })
-    .relPlangs.add("pl+c", "pl+java")
+    .relPlangs.add("pl+c", "pl+java", "pl+python")
     .relTags.add("tag+interpreters", "tag+languages");
 }
