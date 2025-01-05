@@ -1,5 +1,6 @@
 import { render } from "preact";
 
+import type { PRResult } from "@plangs/frontend/app/github";
 import { elem } from "@plangs/frontend/auxiliar/dom";
 import { getStore } from "@plangs/frontend/auxiliar/storage";
 import type { PlangsGraph } from "@plangs/plangs/graph";
@@ -9,9 +10,9 @@ import { EditorMain } from "./editor-main";
 import { VerticesEditor } from "./vertices-editor";
 
 /** Locate and render all {@link VerticesEditor} component instances. */
-export function activatePlangsEditor(pg: PlangsGraph) {
+export function activatePlangsEditor(pg: PlangsGraph, pullreq: PRResult) {
   const el = elem("plangsEditor");
-  if (el) render(<EditorMain pg={pg} />, el);
+  if (el) render(<EditorMain pg={pg} pullreq={pullreq} />, el);
 }
 
 /** Remove stale locally stored data from all these pages. */

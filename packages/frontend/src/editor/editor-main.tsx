@@ -1,16 +1,16 @@
+import type { ComponentChildren } from "preact";
 import { useState } from "preact/hooks";
 
-import { initiateGitHubAuth, invokePullRequestAPI } from "@plangs/frontend/app/github";
+import { type PRResult, initiateGitHubAuth } from "@plangs/frontend/app/github";
 import { getStore } from "@plangs/frontend/auxiliar/storage";
 import { PROSE_BASIC, tw } from "@plangs/frontend/auxiliar/styles";
-import { PlangsGraph } from "@plangs/plangs/graph";
-import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
-import { LAST_EDIT_TIME, localEditsData, toggleLocalEdits, updateLocalEdits } from ".";
+import { LAST_EDIT_TIME, toggleLocalEdits, updateLocalEdits } from ".";
 import { EditorButton, VerticesEditor } from "./vertices-editor";
 
 /** Top level of the editor: information, editing and exporting. */
-export function EditorMain({ pg }: { pg: PlangsGraph }) {
+export function EditorMain({ pg, pullreq }: { pg: PlangsGraph; pullreq?: PRResult }) {
   const [tab, setTab] = useState<"status" | "edit">("status");
 
   return (
@@ -26,18 +26,30 @@ export function EditorMain({ pg }: { pg: PlangsGraph }) {
         <EditorButton class="w-[8rem]" label="STATUS" isCurrent={() => tab === "status"} onClick={() => setTab("status")} />
         <EditorButton class="w-[8rem]" label="EDIT" isCurrent={() => tab === "edit"} onClick={() => setTab("edit")} />
       </div>
-      {tab === "status" && <Status pg={pg} />}
+      {tab === "status" && <Status pullreq={pullreq} />}
       {tab === "edit" && <VerticesEditor pg={pg} key={LAST_EDIT_TIME} />}
     </div>
   );
 }
 
-function Status({ pg }: { pg: PlangsGraph }) {
+function Status({ pullreq }: { pullreq?: PRResult }) {
   const store = getStore("_any_page_");
   const [modeMsg, setModeMsg] = useState<string | undefined>();
   const [resetMsg, setResetMsg] = useState<string | undefined>();
-  const [pullreqMsg, setPullreqMsg] = useState<string | undefined>();
   const [exportMsg, setExportMsg] = useState<string | undefined>();
+
+  let pullreqMsg: ComponentChildren;
+  if (pullreq?.kind === "error") {
+    pullreqMsg = `Error creating PR: ${pullreq.data}`;
+  } else if (pullreq?.kind === "success") {
+    pullreqMsg = (
+      <>
+        <a href="{pullreq.data}">Pull Request</a> created!
+      </>
+    );
+  } else if (pullreq?.kind === "nodiff") {
+    pullreqMsg = "No changes to create PR.";
+  }
 
   return (
     <div class={tw(PROSE_BASIC, "p-2", "overflow-y-auto")}>
@@ -73,27 +85,16 @@ function Status({ pg }: { pg: PlangsGraph }) {
       </div>
 
       <h3>Pull Requests</h3>
+      <p>If you have made any changes to the graph, you can create a pull request to add them back to the project.</p>
+      <p>This will require Github authentication to access to create a public for of Plangs on your account.</p>
 
       <div class="flex flex-row gap-4">
-        <EditorButton
-          label="Create Pull Request"
-          onClick={() => {
-            const files = generateCodeDiff(pg);
-            if (files) {
-              const token = localStorage.getItem("githubCode") ?? "";
-              if (!token) initiateGitHubAuth("https://plangs.page/edit");
-              invokePullRequestAPI(token, files);
-              setPullreqMsg(`${new Date().toLocaleTimeString()}: Creating a pull-request.`);
-            } else {
-              setPullreqMsg(`${new Date().toLocaleTimeString()}: No local edits found.`);
-            }
-          }}
-        />
+        <EditorButton label="Create Pull Request" onClick={() => initiateGitHubAuth("https://plangs.page/edit")} />
         {pullreqMsg && <div class="text-primary">{pullreqMsg}</div>}
       </div>
 
-      <h3>Exports and Contributions</h3>
-      <p>Adding any edits back to the project requires a pull request. For now, this process involves a few steps:</p>
+      <h3>Export</h3>
+      <p>Instead of creating a pull request through the button above, you can export the complete local data manually if you prefer.</p>
 
       <ol>
         <li>
@@ -137,31 +138,4 @@ function downloadJSON(name: string, data: any) {
   a.download = name;
   a.click();
   URL.revokeObjectURL(url);
-}
-
-/** Generate code for a pull request. Retuns a map of vertex definition path to vertex code, for only the changed vertices. */
-export function generateCodeDiff(pg: PlangsGraph): Record<string, string> | undefined {
-  try {
-    const result: Record<string, string> = {};
-    let hasChanges = false;
-
-    // Iterate through all vertices of the edited graph.
-    const editedPG = new PlangsGraph().loadJSON(localEditsData(pg));
-    for (const [name, vertices] of Object.entries(editedPG.vertices)) {
-      for (const vertex of vertices.values) {
-        // Attempt to find the original vertex in the original graph, if it exists.
-        const original = pg.vertices[name as TPlangsVertexName]?.get(vertex.key as any);
-        const newCode = vertex.toCode();
-        // If the vertex is new or has changed, add it to the result.
-        if (!original || newCode !== original.toCode()) {
-          hasChanges = true;
-          result[vertex.tsName] = newCode;
-        }
-      }
-    }
-
-    return hasChanges ? result : undefined;
-  } catch (e) {
-    console.error("Error exporting code diff:", e);
-  }
 }
