@@ -4,6 +4,7 @@ import { elem, elems } from "@plangs/frontend/auxiliar/dom";
 import { on } from "@plangs/frontend/auxiliar/events";
 import { FragmentTracker } from "@plangs/frontend/auxiliar/fragment";
 import { connectLivereload } from "@plangs/frontend/auxiliar/livereload";
+import { getCurrentPage } from "@plangs/frontend/auxiliar/storage";
 import { activateIconButtons } from "@plangs/frontend/components/icon-button";
 import { ToggleFacetsMenu, ToggleHamburguer, ToggleLights } from "@plangs/frontend/components/icon-button/state";
 import { renderVertexInfo } from "@plangs/frontend/components/vertex-info";
@@ -11,6 +12,7 @@ import { activatePlangsEditor } from "@plangs/frontend/editor";
 import { activateFacetsMain } from "@plangs/frontend/facets/main";
 import { PlangsGraph } from "@plangs/plangs/graph";
 
+import { handleGithubCallback } from "./github";
 import { getClosestVertex, loadLocalOrRemote } from "./vertices";
 
 // Declare some globals that are called as the page is being loaded
@@ -50,50 +52,36 @@ document.addEventListener("mouseover", event => {
   document.head.appendChild(linkElement);
 });
 
-async function start() {
-  const pg = new PlangsGraph();
-  const loadData = loadLocalOrRemote(pg);
+async function start(pg: PlangsGraph) {
+  if (getCurrentPage() === "edit") {
+    // If we are in edit mode, activate the editor.
+    // We may also be coming back from GitHub OAuth, so we need to handle that.
+    activatePlangsEditor(pg, await handleGithubCallback(pg));
+    return;
+  }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    activateIconButtons();
+  const grid = elem("vertexGrid");
+  if (!grid) return;
 
-    loadData.then(() => {
-      activateFacetsMain(pg);
-      activatePlangsEditor(pg);
+  activateFacetsMain(pg);
 
-      const grid = elem("vertexGrid");
-      if (!grid) return;
-
-      // On click display the vertex info.
-      on(grid, "pointerdown", ({ target }: MouseEvent) => {
-        const vertex = getClosestVertex(pg, target);
-        renderVertexInfo(vertex);
-      });
-
-      // Replace placeholders with the actual images, if any.
-      for (const img of elems("vertexThumbnImg")) {
-        const src = img.dataset.src;
-        if (src) img.setAttribute("src", src);
-      }
-    });
-
-    // Check if the user is coming from GitHub OAuth.
-    const code = new URLSearchParams(window.location.search).get("code");
-    if (code) {
-      const url = new URL(window.location.href);
-      url.searchParams.delete("code");
-      window.history.replaceState({}, document.title, url.toString());
-      localStorage.setItem("githubCode", code);
-
-      if (window.location.pathname === "/edit") {
-        // TODO
-      }
-    }
+  // On click display the vertex info.
+  on(grid, "pointerdown", ({ target }: MouseEvent) => {
+    const vertex = getClosestVertex(pg, target);
+    renderVertexInfo(vertex);
   });
+
+  // Replace placeholders with the actual images, if any.
+  for (const img of elems("vertexThumbnImg")) {
+    const src = img.dataset.src;
+    if (src) img.setAttribute("src", src);
+  }
 }
 
 try {
-  start();
+  activateIconButtons();
+  const pg = new PlangsGraph();
+  loadLocalOrRemote(pg).then(() => document.addEventListener("DOMContentLoaded", () => start(pg)));
 } catch (err) {
   console.error(err);
 }
