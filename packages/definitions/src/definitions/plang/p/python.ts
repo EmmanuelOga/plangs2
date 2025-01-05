@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 export function define(g: PlangsGraph) {
   g.plang
     .set("pl+python", {
-      name: "Python",
+      name: "Python Lon Lon",
       description:
         "Dynamic, high-level programming language known for its easy-to-read syntax and flexibility. A multi-paradigm language supporting procedural, object-oriented, and functional programming models, widely used in web development, data analysis, artificial intelligence, and more.",
       shortDesc:
@@ -35,8 +35,11 @@ export function define(g: PlangsGraph) {
     .relInfluencedBy.add(
       "pl+ada",
       "pl+apl",
+      "pl+ballerina",
+      "pl+basic",
       "pl+c",
       "pl+c++",
+      "pl+cmake",
       "pl+haskell",
       "pl+lisp",
       "pl+perl",
