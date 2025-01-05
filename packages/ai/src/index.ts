@@ -1,7 +1,6 @@
 import OpenAI from "openai";
 
 import { loadDefinitions } from "@plangs/definitions";
-import { tsLongPath, vertexCodeGen } from "@plangs/languist/codegen";
 import { reformatCode } from "@plangs/languist/reformat";
 import { PlangsGraph, type VPlang } from "@plangs/plangs/graph";
 import type { VPlangKey } from "@plangs/plangs/graph/generated";
@@ -42,9 +41,9 @@ export async function aiRegenPlang(pg: PlangsGraph, pl: VPlang): Promise<{ resul
     // TODO: apply Linguist/Languish data here, which should take precedence over the AI data.
     // TODO: query Github API if we have a Github repository.
 
-    const path = tsLongPath(pl);
+    const path = pl.tsName;
     console.log("Writing ", path, "LLM Tokens used:", completions.usage?.total_tokens ?? "unknown");
-    Bun.write(path, await reformatCode(vertexCodeGen(newPl)));
+    Bun.write(path, await reformatCode(newPl.toCode()));
   } catch (err) {
     return { result: "error", message: `${err}` };
   }
