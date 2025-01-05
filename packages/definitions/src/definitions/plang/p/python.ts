@@ -33,6 +33,7 @@ export function define(g: PlangsGraph) {
       stackovTags: ["python"],
     })
     .relInfluencedBy.add(
+      "pl+.net",
       "pl+ada",
       "pl+apl",
       "pl+c",
