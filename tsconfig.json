@@ -16,6 +16,9 @@
       "@plangs/frontend/*": [
         "packages/frontend/src/*"
       ],
+      "@plangs/functions/*": [
+        "packages/functions/src/*"
+      ],
       "@plangs/graphgen/*": [
         "packages/graphgen/src/*"
       ],
@@ -46,6 +49,7 @@
   },
   "exclude": [
     "node_modules",
-    "**/node_modules/*"
+    "**/node_modules/*",
+    "packages/functions",
   ]
 }

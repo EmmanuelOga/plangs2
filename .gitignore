@@ -33,3 +33,5 @@ web_modules/
 *.egg-info
 .aider*
 .env
+
+.wrangler

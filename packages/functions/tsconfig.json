@@ -1,0 +1,16 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "lib": [
+            "esnext"
+        ],
+        "types": [
+            "@cloudflare/workers-types"
+        ],
+    },
+    "files": [
+        "src/worker.ts"
+    ]
+}
