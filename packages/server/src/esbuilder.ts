@@ -28,6 +28,7 @@ export function cffESBuildOptions(outfile: string): esbuild.BuildOptions {
     target: "esnext",
     format: "esm",
     bundle: true,
+    minify: true,
     treeShaking: true,
     outfile: outfile,
     logLevel: "info",

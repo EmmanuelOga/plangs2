@@ -1,4 +1,6 @@
 import * as prettier from "prettier";
+import * as estreePlugin from "prettier/plugins/estree";
+import * as tsPlugin from "prettier/plugins/typescript";
 
 interface Env {
   ASSETS: Fetcher;
@@ -35,17 +37,34 @@ export default {
 
 async function githubAPIHandler(env: Env, code: string, files: Record<string, string>): Promise<Response> {
   try {
+    const getAccessToken = async () => {
+      const options = {
+        method: "POST",
+        headers: { Accept: "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({ client_id: env.GITHUB_CLIENT_ID, client_secret: env.GITHUB_CLIENT_SECRET, code }),
+      };
+      const res = await fetch("https://github.com/login/oauth/access_token", options);
+      if (res.ok) {
+        const data = (await res.json()) as { access_token: string };
+        return data.access_token;
+      }
+      console.error("Failed to get access token", res.status, res.statusText, await res.text());
+    };
+
     // Exchange code for access token.
-    const response = await fetch("https://github.com/login/oauth/access_token", {
-      method: "POST",
-      headers: { Accept: "application/json", "Content-Type": "application/json" },
-      body: JSON.stringify({ client_id: env.GITHUB_CLIENT_ID, client_secret: env.GITHUB_CLIENT_SECRET, code }),
-    });
-    const data = (await response.json()) as { access_token: string };
-    const pullRequest = await performGithubActions(data.access_token, files);
+    const accessToken = await getAccessToken();
+    if (!accessToken) {
+      return new Response(JSON.stringify({ error: "Failed to get access token." }), {
+        status: 500,
+        headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+      });
+    }
+
+    const pullRequest = await performGithubActions(accessToken, files);
     return new Response(JSON.stringify({ pullRequest }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } });
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : `An error occurred: ${error}`;
+    console.error("githubAPIHandler:", errorMessage);
     return new Response(JSON.stringify({ error: errorMessage }), {
       status: 500,
       headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
@@ -65,39 +84,54 @@ async function githubAPIHandler(env: Env, code: string, files: Record<string, st
  * 4) Creates a pull request and returns the URL.
  */
 async function performGithubActions(token: string, files: Record<string, string>): Promise<string | undefined> {
-  const userData = (await (await githubAPI(token, "/user")).json()) as { login: string };
+  // Get user login name.
+  const getUserData = async () => {
+    const res = await githubAPI(token, "/user");
+    if (res?.ok) return (await res.json()) as { login: string };
+  };
+  const userData = await getUserData();
+  const login = userData?.login;
+  if (!login) return undefined;
 
-  // Check if fork exists.
-  const getRepo = async () => (await githubAPI(token, `/repos/${userData.login}/plangs2`)).ok;
-
-  // Create fork if it doesn't exist.
+  // Create a fork if the repository doesn't exist.
+  const getRepo = async () => (await githubAPI(token, `/repos/${login}/plangs2`))?.ok ?? false;
   if (!(await getRepo())) {
-    await githubAPI(token, "/repos/emmanueloga/plangs2/forks", { method: "POST" });
+    await githubAPI(token, "/repos/emmanueloga/plangs2/forks", { method: "POST" }); // Create fork if it doesn't exist.
     poll(getRepo); // Wait until the fork is created.
   }
 
   // Get the SHA of the latest commit.
   const branch = "main";
-  const refData = (await (await githubAPI(token, `/repos/${userData.login}/plangs2/git/refs/heads/${branch}`)).json()) as {
-    object: { sha: string };
+  const getRefData = async () => {
+    const res = await githubAPI(token, `/repos/${login}/plangs2/git/refs/heads/${branch}`);
+    if (res?.ok) return (await res.json()) as { object: { sha: string } };
   };
+  const refData = await getRefData();
+  if (!refData) return undefined;
 
   // Create new branch.
   const branchName = `update-${Date.now()}`;
-  await githubAPI(token, `/repos/${userData.login}/plangs2/git/refs`, {
+  const res = await githubAPI(token, `/repos/${login}/plangs2/git/refs`, {
     method: "POST",
     body: JSON.stringify({ ref: `refs/heads/${branchName}`, sha: refData.object.sha }),
   });
+  if (!res?.ok) return undefined;
 
   // Create or update files.
   for (const [vertexPath, content] of Object.entries(files)) {
     const path = `packages/definitions/src/definitions/${vertexPath}`;
-    const base64content = btoa(await prettier.format(content, { parser: "typescript" }));
+    let formatted = content;
+    try {
+      formatted = await prettier.format(content, { parser: "typescript", plugins: [tsPlugin, estreePlugin as any] });
+    } catch (error) {
+      console.error(`Error formatting ${path}:`, error);
+    }
+    const base64content = btoa(formatted);
 
     // Try to get existing file.
-    const req = await githubAPI(token, `/repos/${userData.login}/plangs2/contents/${path}?ref=${branchName}`);
-    const notFound = !req.ok;
-    const existingFile = notFound ? { sha: undefined } : ((await req.json()) as { sha: string });
+    const res = await githubAPI(token, `/repos/${login}/plangs2/contents/${path}?ref=${branchName}`);
+    const notFound = !res?.ok;
+    const existingFile = notFound ? { sha: undefined } : ((await res.json()) as { sha: string });
 
     const updateData = {
       message: notFound ? `Create ${path}` : `Update ${path}`,
@@ -107,36 +141,49 @@ async function performGithubActions(token: string, files: Record<string, string>
     };
 
     // Create or update file.
-    await githubAPI(token, `/repos/${userData.login}/plangs2/contents/${path}`, { method: "PUT", body: JSON.stringify(updateData) });
+    const res2 = await githubAPI(token, `/repos/${login}/plangs2/contents/${path}`, { method: "PUT", body: JSON.stringify(updateData) });
+    if (!res2?.ok) console.error(`Error ${notFound ? "creating" : "updating"} ${path}`);
   }
 
   // Create pull request
-  const prReq = await githubAPI(token, "/repos/emmanueloga/plangs2/pulls", {
+  const prRes = await githubAPI(token, "/repos/emmanueloga/plangs2/pulls", {
     method: "POST",
     body: JSON.stringify({
       title: "Update definitions",
-      head: `${userData.login}:${branchName}`,
+      head: `${login}:${branchName}`,
       base: branch,
-      body: `Export of ${userData.login}'s local definitions updates.`,
+      body: `Export of ${login}'s local definitions updates.`,
     }),
   });
 
-  if (prReq.ok) {
-    const prData = (await prReq.json()) as { html_url: string };
+  if (prRes?.ok) {
+    const prData = (await prRes.json()) as { html_url: string };
     return prData.html_url;
   }
 
-  console.error("Error creating PR", prReq);
-  return undefined;
+  console.error("Error creating PR", prRes);
 }
 
 /** Helper function for GitHub API calls. */
-async function githubAPI(accessToken: string, path: `/${string}`, options: RequestInit = {}): Promise<Response> {
-  const baseURL = "https://api.github.com";
-  return await fetch(`${baseURL}${path}`, {
-    ...options,
-    headers: { Accept: "application/vnd.github.v3+json", Authorization: `Bearer ${accessToken}`, ...options.headers },
-  });
+async function githubAPI(accessToken: string, path: `/${string}`, options: RequestInit = {}): Promise<Response | undefined> {
+  try {
+    const baseURL = "https://api.github.com";
+    const fullURL = `${baseURL}${path}`;
+    const fullOptions = {
+      ...options,
+      headers: {
+        ...options.headers,
+        Accept: "application/vnd.github.v3+json",
+        Authorization: `Bearer ${accessToken}`,
+        "User-Agent": "Plangs (Cloudflare Worker; +https://plangs.page)",
+      },
+    };
+    const res = await fetch(fullURL, fullOptions);
+    if (res.ok) return res;
+    console.info(res.status, res.statusText, await res.text());
+  } catch (error) {
+    console.log("Error in githubAPI", error);
+  }
 }
 
 /** Simple poller function, repeatedly calls the checkFn until it returns true (or throws an Error). */
