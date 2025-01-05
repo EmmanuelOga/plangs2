@@ -12,7 +12,7 @@ import { activatePlangsEditor } from "@plangs/frontend/editor";
 import { activateFacetsMain } from "@plangs/frontend/facets/main";
 import { PlangsGraph } from "@plangs/plangs/graph";
 
-import { handleGithubCallback } from "./github";
+import { callPrApi, generateCodeDiff, getGithubCode } from "./github";
 import { getClosestVertex, loadLocalOrRemote } from "./vertices";
 
 // Declare some globals that are called as the page is being loaded
@@ -54,9 +54,15 @@ document.addEventListener("mouseover", event => {
 
 async function start(pg: PlangsGraph) {
   if (getCurrentPage() === "edit") {
-    // If we are in edit mode, activate the editor.
-    // We may also be coming back from GitHub OAuth, so we need to handle that.
-    activatePlangsEditor(pg, await handleGithubCallback(pg));
+    // In the editor we may be coming back from GitHub OAuth.
+    const ghCode = getGithubCode();
+    if (ghCode) {
+      activatePlangsEditor(pg, { kind: "loading" });
+      const diff = generateCodeDiff(pg);
+      activatePlangsEditor(pg, diff ? await callPrApi(ghCode, diff) : { kind: "nodiff" });
+    } else {
+      activatePlangsEditor(pg);
+    }
     return;
   }
 
@@ -79,8 +85,7 @@ async function start(pg: PlangsGraph) {
 }
 
 try {
-  console.log("Starting the App.");
-  activateIconButtons();
+  document.addEventListener("DOMContentLoaded", () => activateIconButtons());
   const pg = new PlangsGraph();
   loadLocalOrRemote(pg).then(() => {
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => start(pg));

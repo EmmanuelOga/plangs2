@@ -9,22 +9,19 @@ const GITHUB_CLIENT_ID = "Ov23li7sluQbapgJCEn8";
 export const initiateGitHubAuth = (redirectUri: string) =>
   (window.location.href = `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&redirect_uri=${redirectUri}&scope=${GITHUB_SCOPE}`);
 
-export type PRResult = { kind: "success" | "error"; data: string } | { kind: "none" | "nodiff" };
+export type PRResult = { kind: "success" | "error"; data: string } | { kind: "nodiff" | "loading" };
 
-export async function handleGithubCallback(pg: PlangsGraph): Promise<PRResult> {
-  // If the user is coming from a GitHub OAuth callback, remove the code param from the URL.
+/** If the user is coming from a GitHub OAuth callback, remove the code param from the URL. */
+export const getGithubCode = () => {
   const githubCode = new URLSearchParams(window.location.search).get("code");
-  if (!githubCode) return { kind: "none" };
+  if (!githubCode) return undefined;
+
   const url = new URL(window.location.href);
   url.searchParams.delete("code");
   window.history.replaceState({}, document.title, url.toString());
 
-  // To call the PR API, the diff needs to be non-empty.
-  const diff = generateCodeDiff(pg);
-  if (!diff) return { kind: "nodiff" };
-
-  return callPrApi(githubCode, diff);
-}
+  return githubCode;
+};
 
 export const callPrApi = (githubCode: string, files: Record<string, string>) =>
   tryFetch(

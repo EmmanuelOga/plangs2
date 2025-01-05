@@ -10,7 +10,7 @@ import { EditorMain } from "./editor-main";
 import { VerticesEditor } from "./vertices-editor";
 
 /** Locate and render all {@link VerticesEditor} component instances. */
-export function activatePlangsEditor(pg: PlangsGraph, pullreq: PRResult) {
+export function activatePlangsEditor(pg: PlangsGraph, pullreq?: PRResult) {
   const el = elem("plangsEditor");
   if (el) render(<EditorMain pg={pg} pullreq={pullreq} />, el);
 }
