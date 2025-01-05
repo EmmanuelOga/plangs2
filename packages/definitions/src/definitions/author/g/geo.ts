@@ -8,10 +8,5 @@ export function define(g: PlangsGraph) {
         "Hello! I'm the creator of the Plangs! community. Thanks for visiting Plangs!",
       extHomeURL: "https://emmanueloga.com/",
     })
-    .relCommunites.add(
-      "comm+bembem",
-      "comm+contextfree",
-      "comm+prefix.dev",
-      "comm+threejs-journey",
-    );
+    .relCommunites.add("comm+contextfree", "comm+threejs-journey");
 }
