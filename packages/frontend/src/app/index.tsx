@@ -79,9 +79,13 @@ async function start(pg: PlangsGraph) {
 }
 
 try {
+  console.log("Starting the App.");
   activateIconButtons();
   const pg = new PlangsGraph();
-  loadLocalOrRemote(pg).then(() => document.addEventListener("DOMContentLoaded", () => start(pg)));
+  loadLocalOrRemote(pg).then(() => {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => start(pg));
+    else start(pg);
+  });
 } catch (err) {
   console.error(err);
 }
