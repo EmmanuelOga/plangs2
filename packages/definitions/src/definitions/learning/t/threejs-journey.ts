@@ -10,6 +10,6 @@ export function define(g: PlangsGraph) {
       kinds: ["course"],
     })
     .relCommunities.add("comm+threejs-journey")
-    .relPlangs.add("pl+javascript")
+    .relPlangs.add("pl+javascript", "pl+python")
     .relTags.add("tag+3dg", "tag+games", "tag+webdev");
 }
