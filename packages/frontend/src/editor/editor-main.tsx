@@ -1,6 +1,6 @@
 import { useState } from "preact/hooks";
 
-import { initiateGitHubAuth } from "@plangs/frontend/app/github";
+import { initiateGitHubAuth, invokePullRequestAPI } from "@plangs/frontend/app/github";
 import { getStore } from "@plangs/frontend/auxiliar/storage";
 import { PROSE_BASIC, tw } from "@plangs/frontend/auxiliar/styles";
 import { PlangsGraph } from "@plangs/plangs/graph";
@@ -78,13 +78,14 @@ function Status({ pg }: { pg: PlangsGraph }) {
         <EditorButton
           label="Create Pull Request"
           onClick={() => {
-            const ok = true;
-            initiateGitHubAuth("https://plangs.page/edit");
-            if (ok) {
-              // const diff = generateCodeDiff(pg); if (diff) downloadJSON("code.json", diff);
-              setPullreqMsg(`${new Date().toLocaleTimeString()}: Ok.`);
+            const files = generateCodeDiff(pg);
+            if (files) {
+              const token = localStorage.getItem("githubCode") ?? "";
+              if (!token) initiateGitHubAuth("https://plangs.page/edit");
+              invokePullRequestAPI(token, files);
+              setPullreqMsg(`${new Date().toLocaleTimeString()}: Creating a pull-request.`);
             } else {
-              setPullreqMsg(`${new Date().toLocaleTimeString()}: Not Ok.`);
+              setPullreqMsg(`${new Date().toLocaleTimeString()}: No local edits found.`);
             }
           }}
         />
@@ -138,7 +139,7 @@ function downloadJSON(name: string, data: any) {
   URL.revokeObjectURL(url);
 }
 
-/** Generate code for a pull request.  */
+/** Generate code for a pull request. Retuns a map of vertex definition path to vertex code, for only the changed vertices. */
 export function generateCodeDiff(pg: PlangsGraph): Record<string, string> | undefined {
   try {
     const result: Record<string, string> = {};

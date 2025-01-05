@@ -11,7 +11,6 @@ import { activatePlangsEditor } from "@plangs/frontend/editor";
 import { activateFacetsMain } from "@plangs/frontend/facets/main";
 import { PlangsGraph } from "@plangs/plangs/graph";
 
-import { handleGitHubCallback, isGithubRedirect } from "./github";
 import { getClosestVertex, loadLocalOrRemote } from "./vertices";
 
 // Declare some globals that are called as the page is being loaded
@@ -84,8 +83,11 @@ async function start() {
       const url = new URL(window.location.href);
       url.searchParams.delete("code");
       window.history.replaceState({}, document.title, url.toString());
+      localStorage.setItem("githubCode", code);
 
-      if (window.location.pathname === "/edit") handleGitHubCallback(code);
+      if (window.location.pathname === "/edit") {
+        // TODO
+      }
     }
   });
 }

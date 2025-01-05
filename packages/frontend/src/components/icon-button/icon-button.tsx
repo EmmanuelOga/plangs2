@@ -61,6 +61,6 @@ export function IconButton({ action, disabled, initial }: IconButtonProps) {
  * Simple wrapper to make any icon look like an icon button.
  * TODO: would be better to use the very same markup as IconButton.
  */
-export function IconWrapper({ children }: { children: ComponentChildren }) {
-  return <div class={tw("group", "cursor-pointer", "border-1 border-dotted", "border-transparent", HOVER_ICON)}>{children}</div>;
+export function IconWrapper({ children, class: klass }: { children: ComponentChildren; class?: string }) {
+  return <div class={tw("group", "cursor-pointer", "border-1 border-dotted", "border-transparent", HOVER_ICON, klass)}>{children}</div>;
 }

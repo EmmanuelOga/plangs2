@@ -61,10 +61,6 @@ export class VerticesEditorState extends Dispatchable<{
     return this.data.currentRel;
   }
 
-  get filter() {
-    return this.data.filter;
-  }
-
   get tab() {
     return this.data.tab;
   }
