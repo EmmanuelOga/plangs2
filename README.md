@@ -4,22 +4,33 @@ Plangs ambition is to become a community oriented programming languages page whe
 
 The website at the moment is fully static and will remain so until we have a very good reason to add a backend.
 
-## Development
+## Requirements
 
-Plangs! is a static website, but a development mode server is provided.
+Plangs! is a static website, but a development mode server is provided to serve the pages (with livereload support) without having to build the static assets.
+
 Requirements:
 
 * [BunJS](https://bun.sh/)
 * [Overmind](https://github.com/DarthSim/overmind)
 * [Entr](https://github.com/eradman/entr)
 
-The server and frontend app is wired for "livereloading". There are workers to build the CSS bundle (which uses TailwindCSS) and running the dev server (which uses Bun/JS and ESBuild). To wire everything together we use Overmind and Entr.
+Overmind is a process manager for Procfile-based applications and tmux. We use it to run the processes to build the CSS bundle (which uses TailwindCSS) and running the dev server (which uses Bun/JS).
 
-Starting the dev server is as simple as:
+### Dynamic Parts
 
-```sh
-$ overmind start
-```
+The only dynamic functionality at the moment is Github Pull Request generation. We deploy to [Cloudflare Pages](https://pages.cloudflare.com/) and use a CF Function when clicking the "Create PR" button on the editor (/edit path). This will only work on the deployed site. Other than that, the full website can run locally without requiring anything else from CF Pages.
+
+## Command Line
+
+Here's a list of commands you can use after clonning the repository:
+
+* `overmind start`: Launch the development mode server.
+* `bun run build`: [Builds](#building) the static site into the output folder.
+* `bun run create kind+key`: [Defines](#definitions) a new vertex for the Graph. For instance: `bun run pl+python` to create a new `pl+python` vertex.
+* `bun run enrich pl+key`: [Enriches](#ai-enrichment) programming language data using OpenAI's APIs.
+* `bun run cleanup`: [Cleanup](#cleanup) ensures data integrity and reformats the definitions.
+* `bun run export path/file.json`: [Exports](#exporting-and-importing) the data as a single JSON file.
+* `bun run import path/file.json`: [Imports](#exporting-and-importing) the data and recreates the definitions.
 
 ## Building
 
@@ -29,42 +40,97 @@ To generate the static site instead of running a dev server, run:
 $ bun run build
 ```
 
-The build generates the static site on the `output` folder.
+The build generates the static site on the `output` folder. This is the command that Cloudflare Pages uses to build the website too.
 
-## AI enrichment
+## Definitions
 
-Plang data includes links to the web pages of the language, wikipedia pages, and other resources that describe the language.
-
-We can send this data to an LLM to request a "first pass" of language definitions, which saves time when adding new languages. To do this, you can first create a new definition file:
+Plangs runs off of JSON Graph data that we construct with TypeScript. As a shortcut to create data in the proper place, you can a definition like this:
 
 ```sh
 $ bun run create pl+my-new-lang
 ```
 
 This will create a .ts file wich can be further edited to add links to relevant resources.
-After that, you can run a separate task to use AI for enrichment:
+
+The "pl+" prefix specifies the kind of vertex you are creating. Check some [existing prefixes](#vertex-prefixes).
+
+If you want to add a logo for the newly created vertex, include it on the corresponding path on `packages/definitions/assets`. Images on that folder should be a 128x128 pixels webp image.
+
+### Bulk Import
+
+To create many definitions at once, the easiest way is to create a simple TypeScript program. There's [an example here](https://github.com/EmmanuelOga/plangs2/blob/b93362c76b8e983a86f75395575a86c63bc66192/packages/ai/src/bulk.ts) that created many logic programming languages vertices. You can addapt it with your own languages to add many at once.
+
+You can run the script directly:
+
+```sh
+$ bun run packages/ai/src/bulk.ts
+```
+
+An OpenAI authorization key is required on the environment (`OPENAI_API_KEY` env var) for this to work.
+Note that you'll have to add the assets (logos) manually since the script doesn't try to fetch logos.
+
+## AI enrichment
+
+Plang data includes links to the web pages of the language, wikipedia pages, and other resources that describe the language.
+
+There's support for scraping those pages and sending them to an LLM to request a "first pass" of a language definition, which saves time when adding new languages.
+
+If you added a new language with `bun run create`, and edited the definition to include a few urls (like home page, github page and/or wikipedia page), you can start the AI enrichment process with:
 
 ```sh
 $ bun run enrich pl+my-new-lang
 ```
 
-An OpenAI authorization key is required on the environment for this to work.
+An OpenAI authorization key is required on the environment (`OPENAI_API_KEY` env var) for this to work.
 
-## Data exporting and loading
+## Cleanup
+
+The cleanup task, invoked like:
+
+```sh
+$ bun run cleanup
+```
+
+... ensures there are no "dangling vertices", and reformats the code.
+
+For instance: if we had pl+lang and pl+other, and we said pl+lang is influenced by pl+other, but later we deleted pl+other, we want to delete the edge pointing to the now non-existing vertex. This task will do that for us.
+
+Cleanup of defnitions is important after manually defining data. The code formatter used here needs to match the one used by our pull-request creation code to ensure the best diff quality, and running this task ensures that.
+
+## Exporting and Importing
 
 To export all data as `plangs.json` file:
 
 ```sh
-$ bun run export dst/folder
+$ bun run export /dst/folder/plangs.json
 ```
 
 To load a JSON file and regenerate the definitions from it:
 
 ```sh
-$ bun run import path/to/plangs.json
+$ bun run import /src/folder/plangs.json
 ```
 
 The import process will delete all existing declarations and regenerate them.
+
+## Vertex Prefixes
+
+| Prefix    | Description                                       |
+| --------- | ------------------------------------------------- |
+| `app+`    | Software Application.                             |
+| `author+` | Author for Blog Posts.                            |
+| `bun+`    | Bundle of tools.                                  |
+| `comm+`   | Community.                                        |
+| `learn+`  | Learning Resource (book, video, course, etc).     |
+| `lib+`    | Sofware Library.                                  |
+| `lic+`    | Software License.                                 |
+| `para+`   | Language paradigm.                                |
+| `pl+`     | Programming Language.                             |
+| `plat+`   | Platform (Operating Sytem, WASM, CPU, etc).       |
+| `sys+`    | Subsystem: databases, queues, and other services. |
+| `tag+`    | Generic Tag.                                      |
+| `tool+`   | Software Tool.                                    |
+| `tsys+`   | Type System.                                      |
 
 ## Graph inference notes
 
@@ -83,21 +149,3 @@ There are some relationships that are simpler to infer.
 The process of adding a relationship to the data that could be inferred is called "materializing". Right now, we don't materialize many relationships, and the search code usually doesn't try to infer the relationships on the fly.
 
 Both *materializing relationships* and *inferring them on the fly* give room for richer searches. Options for enriching the data this way include using existing graph databases, RDF based systems or writing our own inference/materialization code.
-
-## WIP
-
-## RELEASE
-
-- [ ] Create better guidelines, code of conduct, enable discussions, etc.
-
-## Other
-
-- [ ] Kuzu export.
-- [ ] Client side full text search.
-
-## Future
-
-- [ ] Explore using the Github API to generate a PR or comment with changes.
-- [ ] Allow adding things in the editor and calling OpenAI's APIs.
-- [ ] Allow AI to crawl things other than Plangs.
-- [ ] Better structured data (fb ogp and schema.org).
