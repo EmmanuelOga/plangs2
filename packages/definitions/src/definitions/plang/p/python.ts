@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 export function define(g: PlangsGraph) {
   g.plang
     .set("pl+python", {
-      name: "Python",
+      name: "Python Yeah!",
       description:
         "Dynamic, high-level programming language known for its easy-to-read syntax and flexibility. A multi-paradigm language supporting procedural, object-oriented, and functional programming models, widely used in web development, data analysis, artificial intelligence, and more.",
       shortDesc:
@@ -29,6 +29,7 @@ export function define(g: PlangsGraph) {
           date: "2020-04-19",
         },
         { version: "3.13.0", name: "Python 3.13.0", date: "2024-10-07" },
+        { date: "2024-01-01", name: "greatest version ever" },
       ],
       stackovTags: ["python"],
     })
@@ -36,10 +37,10 @@ export function define(g: PlangsGraph) {
       "pl+ada",
       "pl+apl",
       "pl+c",
-      "pl+c++",
       "pl+haskell",
       "pl+lisp",
       "pl+perl",
+      "pl+pure",
       "pl+r5rs",
       "pl+scheme",
       "pl+standard-ml",
