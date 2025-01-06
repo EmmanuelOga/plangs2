@@ -6,7 +6,7 @@ export function define(g: PlangsGraph) {
       name: "BEMBEM",
       description:
         "Community by the creator of Plangs! Welcome to Billie English Muffin's Brilliantly Engineered Machine of Boundless Excitement and Marvel! A place for friends to talk about anything. Feel free to share or talk about whatever you may find interesting!",
-      extHomeURL: "https://bembem.page/",
+      extHomeURL: "https://emmanueloga.com/",
       links: [{ title: "Discord", url: "https://discord.gg/MRrkpywtKR" }],
     })
     .relPlangs.add(
