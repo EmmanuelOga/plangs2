@@ -35,6 +35,7 @@ export function define(g: PlangsGraph) {
       ],
       stackovTags: ["ampl"],
     })
+    .relCompilesTo.add("pl+javascript")
     .relParadigms.add(
       "para+declarative",
       "para+dsl",
