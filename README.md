@@ -2,11 +2,9 @@
 
 Plangs ambition is to become a community oriented programming languages page where people can find trends, tools and blog posts related to programming languages and the ecosystem of tools, documentation, learning resources, etc.
 
-The website at the moment is fully static and will remain so until we have a very good reason to add a backend.
-
 ## Requirements
 
-Plangs! is a static website, but a development mode server is provided to serve the pages (with livereload support) without having to build the static assets.
+Plangs! is a (mostly) static website, but a development mode server is provided to serve the pages, with livereload support, without needing to build the static assets.
 
 Requirements:
 
@@ -18,7 +16,7 @@ Overmind is a process manager for Procfile-based applications and tmux. We use i
 
 ### Dynamic Parts
 
-The only dynamic functionality at the moment is Github Pull Request generation. We deploy to [Cloudflare Pages](https://pages.cloudflare.com/) and use a CF Function when clicking the "Create PR" button on the editor (/edit path). This will only work on the deployed site. Other than that, the full website can run locally without requiring anything else from CF Pages.
+The only dynamic functionality at the moment is Github Pull Request generation. We deploy to [Cloudflare Pages](https://pages.cloudflare.com/) and use a CF Function when clicking the "Create PR" button on [the editor](https://plangs.page/edit). This will only work on the deployed site. Other than that, the full website can run locally without requiring anything else from CF Pages.
 
 ## Command Line
 
@@ -56,19 +54,6 @@ The "pl+" prefix specifies the kind of vertex you are creating. Check some [exis
 
 If you want to add a logo for the newly created vertex, include it on the corresponding path on `packages/definitions/assets`. Images on that folder should be a 128x128 pixels webp image.
 
-### Bulk Import
-
-To create many definitions at once, the easiest way is to create a simple TypeScript program. There's [an example here](https://github.com/EmmanuelOga/plangs2/blob/b93362c76b8e983a86f75395575a86c63bc66192/packages/ai/src/bulk.ts) that created many logic programming languages vertices. You can addapt it with your own languages to add many at once.
-
-You can run the script directly:
-
-```sh
-$ bun run packages/ai/src/bulk.ts
-```
-
-An OpenAI authorization key is required on the environment (`OPENAI_API_KEY` env var) for this to work.
-Note that you'll have to add the assets (logos) manually since the script doesn't try to fetch logos.
-
 ## AI enrichment
 
 Plang data includes links to the web pages of the language, wikipedia pages, and other resources that describe the language.
@@ -82,6 +67,16 @@ $ bun run enrich pl+my-new-lang
 ```
 
 An OpenAI authorization key is required on the environment (`OPENAI_API_KEY` env var) for this to work.
+
+### Bulk Import
+
+To create many definitions at once, the easiest way is to create a simple TypeScript program. There's [an example here](https://github.com/EmmanuelOga/plangs2/blob/b93362c76b8e983a86f75395575a86c63bc66192/packages/ai/src/bulk.ts) that created many logic programming languages vertices. You can modify this script, then run:
+
+```sh
+$ bun run enrich bulk
+```
+
+Note that you'll have to add the assets (logos) manually since the script doesn't try to fetch logos.
 
 ## Cleanup
 

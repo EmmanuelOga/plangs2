@@ -91,5 +91,6 @@ if (argv.startsWith("pl+")) {
   console.info('Usage: Provide the string "all" or a plang key (`pl+${key}`) as argument.\n');
   console.info(`Example: bun ${__filename} pl+python`);
   console.info(`Example: bun ${__filename} all`);
+  console.info(`Example: bun ${__filename} bulk`);
   process.exit(1);
 }
