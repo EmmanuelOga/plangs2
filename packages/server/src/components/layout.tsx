@@ -70,9 +70,9 @@ export function Layout({ page, pageType, title, desc, mainClasses, children }: L
         <meta property="og:description" content={desc} />
         <meta property="og:url" content="https://plangs.page" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://plangs.page/images/plangs-1200x400.png" />
+        <meta property="og:image" content="https://plangs.page/images/plangs-1200x630.png" />
         <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="400" />
+        <meta property="og:image:height" content="630" />
       </head>
       <body
         data-page={page}
