@@ -9,7 +9,6 @@
     "marked": "^13.0.3",
     "preact": "^10.25.2",
     "preact-render-to-string": "^6.5.12",
-    "wrangler": "^3.99.0",
     "yaml": "^2.5.0"
   },
   "main": "src/serve.ts",
