@@ -46,10 +46,12 @@ function VertexRelation({ vertex, rel, title, desc }: { vertex: TPlangsVertex; r
   const relation = vertex[rel as keyof typeof vertex] as Direct | Indirect;
 
   if (!relation) return null;
-  const relVertices = relation.values.filter(related => related.key !== vertex.key);
+  const isNews = rel === "relPosts";
+  const relVertices = relation.values
+    .filter(related => related.key !== vertex.key)
+    .sort((a, b) => (isNews ? b.created.compareTo(a.created.value) : a.name.localeCompare(b.name)));
   if (relVertices.length === 0) return null;
 
-  const isNews = rel === "relPosts";
   const link = (v: TPlangsVertex) => <a href={v.href} title={v.name} children={v.name} />;
 
   return (
@@ -61,7 +63,7 @@ function VertexRelation({ vertex, rel, title, desc }: { vertex: TPlangsVertex; r
           {relVertices.map(v => (
             <tr key={v.key} class={tw("hover:bg-hiliteb/10")}>
               <th class={tw("truncate", "min-w-[20%] max-w-[25%]")}>
-                {isNews ? <time datetime={(v as VPost).date}>{(v as VPost).date}</time> : link(v)}
+                {isNews ? <time datetime={(v as VPost).created.value}>{(v as VPost).created.value}</time> : link(v)}
               </th>
               <td>{isNews ? link(v) : v.shortDesc}</td>
             </tr>

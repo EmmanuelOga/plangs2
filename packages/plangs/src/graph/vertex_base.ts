@@ -159,8 +159,11 @@ export abstract class PlangsVertex<KeyPrefix extends string, Data extends Vertex
     return this.#lcName;
   }
 
-  get created(): FieldStrDate<"created"> {
-    return new FieldStrDate("created", this);
+  get created(): FieldStrDate {
+    return new FieldStrDate(
+      () => this.data.created,
+      val => (this.data.created = val),
+    );
   }
 
   get description(): string {

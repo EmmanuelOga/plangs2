@@ -281,10 +281,10 @@ test("license vertices", () => {
 
 test("post vertices", () => {
   const g = new PlangsGraph();
-  const post = g.post.set("post+hello", { name: "Hello World!", author: "Tony Mottola", path: "/some/path.md", date: "2021-01-01" });
+  const post = g.post.set("post+hello", { name: "Hello World!", author: "Tony Mottola", path: "/some/path.md", created: "2021-01-01" });
 
   expect(post.author).toEqual("Tony Mottola");
-  expect(post.date).toEqual("2021-01-01");
+  expect(post.created.value).toEqual("2021-01-01");
   expect(post.path).toEqual("/some/path.md");
   expect(post.title).toEqual("Hello World!");
   expect(post.name).toEqual("Hello World!");

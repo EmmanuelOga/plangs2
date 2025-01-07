@@ -93,7 +93,7 @@ export async function loadContent(path: string, pg: PlangsGraph): Promise<Conten
 export async function loadPosts(pg: PlangsGraph) {
   for await (const path of new Glob("*.md").scan(join(import.meta.dir, "../content/posts"))) {
     const { title, rels, date, basename } = await loadContent(`posts/${path}`, pg);
-    const post = pg.post.set(`post+${basename}`, { path, name: title, date });
+    const post = pg.post.set(`post+${basename}`, { path, name: title, created: date });
     // Add the post to the related vertices for "news" sections of vertices that support it.
     for (const vkey of rels) {
       const vertex = pg.getVertex(vkey);

@@ -61,14 +61,18 @@ export class FieldReleases {
 }
 
 /** Wraps a StrDate field. */
-export class FieldStrDate<Key extends string> {
+export class FieldStrDate {
   constructor(
-    private readonly key: Key,
-    private readonly vertex: { data: Partial<Record<Key, StrDate | undefined>> },
+    readonly getter: () => StrDate | undefined,
+    readonly setter: (val: StrDate | undefined) => void,
   ) {}
 
+  set value(val: StrDate | undefined) {
+    this.setter(val);
+  }
+
   get value(): StrDate | undefined {
-    return this.vertex.data[this.key];
+    return this.getter();
   }
 
   get year(): number | undefined {
@@ -85,6 +89,10 @@ export class FieldStrDate<Key extends string> {
 
   isRecent(referenceDate: StrDate): boolean {
     return isRecent(this.value, referenceDate);
+  }
+
+  compareTo(other: StrDate | undefined): number {
+    return strDateCompare(this.value, other);
   }
 }
 

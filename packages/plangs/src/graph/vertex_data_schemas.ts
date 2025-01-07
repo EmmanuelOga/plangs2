@@ -90,8 +90,6 @@ export type VPostBaseData = {
   author: string;
   /** Website of the author of the blog post. */
   authorHref?: string;
-  /** Published date of the blog post, in the format: YYYY-MM-DD or YYYY-MMM or YYYY. */
-  date: StrDate;
 };
 
 /** Learning resource data. */

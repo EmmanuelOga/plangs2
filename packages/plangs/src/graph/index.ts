@@ -184,10 +184,6 @@ export class VPost extends Gen.VPostBase {
     return this.data.author;
   }
 
-  get date(): StrDate | undefined {
-    return this.data.date;
-  }
-
   get path(): string | undefined {
     return this.data.path;
   }
