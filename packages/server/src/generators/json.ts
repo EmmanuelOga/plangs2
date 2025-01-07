@@ -1,13 +1,12 @@
-import { join } from "node:path";
 import { loadDefinitions } from "@plangs/definitions";
 import { PlangsGraph } from "@plangs/plangs/graph";
 
-async function generateJSON(dstRoot: string) {
+async function generateJSON(dstPath: string) {
   const pg = new PlangsGraph();
   await loadDefinitions(pg, { scanImages: false });
   pg.materialize();
 
-  Bun.write(join(dstRoot, "plangs.json"), JSON.stringify(pg));
+  Bun.write(dstPath, JSON.stringify(pg));
 }
 
 const dstPath = process.argv[2];
