@@ -1,3 +1,4 @@
+import { join } from "node:path";
 import OpenAI from "openai";
 
 import { loadDefinitions } from "@plangs/definitions";
@@ -10,6 +11,8 @@ import AIVPlangSchema from "@plangs/plangs/schema/AIVPlang.json";
 import { bulkImport } from "./bulk";
 import { plangFromAI } from "./fromAI";
 import { plangPrompt } from "./plangPrompt";
+
+const DEF_ROOT = join(import.meta.dir, "../../definitions");
 
 export async function aiRegenPlang(pg: PlangsGraph, pl: VPlang): Promise<{ result: "success" } | { result: "error"; message: string }> {
   try {
@@ -41,7 +44,7 @@ export async function aiRegenPlang(pg: PlangsGraph, pl: VPlang): Promise<{ resul
     // TODO: apply Linguist/Languish data here, which should take precedence over the AI data.
     // TODO: query Github API if we have a Github repository.
 
-    const path = pl.tsName;
+    const path = join(DEF_ROOT, "src/definitions", pl.tsName);
     console.log("Writing ", path, "LLM Tokens used:", completions.usage?.total_tokens ?? "unknown");
     Bun.write(path, await reformatCode(newPl.toCode()));
   } catch (err) {
