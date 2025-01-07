@@ -127,6 +127,12 @@ The import process will delete all existing declarations and regenerate them.
 | `tool+`   | Software Tool.                                    |
 | `tsys+`   | Type System.                                      |
 
+## Acknowledgements
+
+Sometimes a source may only be found on the git history for, say, a bulk script that was used only once. To help credit these sources too, we add them here.
+
+* @llaisdy's list of logic programming languages: [llaisdy/PrologInfo].
+
 ## Graph inference notes
 
 Some relationships can be used to infer others.

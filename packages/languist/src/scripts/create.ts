@@ -35,7 +35,7 @@ function getVertexName(key: string): TPlangsVertexName | undefined {
 
 const DEF_ROOT = join(import.meta.dir, "../../../definitions");
 
-const vertexKey = process.argv[2];
+const vertexKey = process.argv[2] ?? "";
 const vertexName = getVertexName(vertexKey);
 
 if (vertexName) {

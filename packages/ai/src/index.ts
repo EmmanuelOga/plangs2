@@ -92,8 +92,8 @@ if (argv.startsWith("pl+")) {
   await bulkImport(await loadPG());
 } else {
   console.info('Usage: Provide the string "all" or a plang key (`pl+${key}`) as argument.\n');
-  console.info(`Example: bun ${__filename} pl+python`);
-  console.info(`Example: bun ${__filename} all`);
-  console.info(`Example: bun ${__filename} bulk`);
+  console.info("Example: bun run enrich pl+python");
+  console.info("Example: bun run enrich all");
+  console.info("Example: bun run enrich bulk");
   process.exit(1);
 }
