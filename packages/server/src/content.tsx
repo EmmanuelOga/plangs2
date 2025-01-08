@@ -1,17 +1,16 @@
+import { basename, join } from "node:path";
 import { Glob } from "bun";
 
-// @ts-ignore types for these?
-import { basename, join } from "node:path";
-
 import { type MarkedExtension, type Tokens, marked } from "marked";
-import render from "preact-render-to-string/jsx";
+import render from "preact-render-to-string";
 import YAML from "yaml";
 
 import { type StrDate, parseDate } from "@plangs/auxiliar/str_date";
+import { tw } from "@plangs/frontend/auxiliar/styles";
 import { Pill } from "@plangs/frontend/components/misc/pill";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 
-import { tw } from "@plangs/frontend/auxiliar/styles";
+import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
 import { ZERO_WIDTH } from "./utils/server";
 
 /** Markdown Content and metadata generated from the .md files on packages/server/content/ */
@@ -29,6 +28,16 @@ const YAML_KEYS = new Set(["title", "rels", "hideMeta"]);
 
 /** {@param path} relative to the content/ folder (ex: "about.md"). */
 export async function loadContent(path: string, pg: PlangsGraph): Promise<Content> {
+  const renderVertices = (keys: string[], pill = true) =>
+    keys
+      .map(key => {
+        const v = pg.getVertex(key);
+        if (!v) throw new Error(`Post ${path} references unknown vertex: ${key}`);
+        return v;
+      })
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .map(v => render(vertexLink(v, pill)));
+
   const date = parseDate(basename(path).slice(0, 10));
   if (!date) throw new Error(`Post ${path} is missing a date in the filename.`);
 
@@ -47,46 +56,40 @@ export async function loadContent(path: string, pg: PlangsGraph): Promise<Conten
 
   if (!title) throw new Error(`Post ${path} is missing a title in the YAML header.`);
 
-  const metadata = [render(<Pill children={<time datetime={date}>{date}</time>} />)];
-
   const keyFound = new Set<string>();
   const keyNotFound = new Set<string>();
 
-  // Parse the markdown body: as a side effect, it will populate the found and not found sets.
-  const htmlBody = await marked.use(plangsMarkdown(pg, keyFound, keyNotFound)).parse(`# ${title}\n\n${mdBody.replace(ZERO_WIDTH, "")}`);
-
-  // Add relations from the metadata _and_ content, and sort them.
-  const rels: string[] = [...(data.rels ?? []), ...keyFound];
-
-  // Render relations as links.
-  const vertices = rels
-    .map(key => {
-      const v = pg.getVertex(key);
-      if (!v) throw new Error(`Post ${path} references unknown vertex: ${key}`);
-      return v;
-    })
-    .sort((a, b) => {
-      const aIsAuthor = a.vertexName === "author";
-      const bIsAuthor = b.vertexName === "author";
-      if (aIsAuthor && !bIsAuthor) return 1;
-      if (!aIsAuthor && bIsAuthor) return -1;
-      return a.name.localeCompare(b.name);
-    });
-  for (const v of vertices) {
-    const link = (
-      <Pill>
-        <a href={v.href} title={v.vertexDesc} class={tw("mr-1", v.vertexKind === "author" && "uppercase")}>
-          {v.vertexKind === "author" ? v.plainKey : v.name}
-        </a>
-      </Pill>
-    );
-    metadata.push(render(link));
-  }
-
+  const forHeader = [render(<time datetime={date} children={date} />), ...renderVertices(data.rels ?? [], false)];
   const klass = `flex flex-row flex-wrap${hideMeta ? " hidden" : ""}`;
-  const htmlHeader = `<div class="${klass}">${metadata.join("")}</div>`;
+  const htmlHeader = `<div class="${klass} gap-4 italic opacity-80">${forHeader.join("")}</div>`;
 
-  return { title, rels, date, html: `${htmlHeader}${htmlBody}`, basename: basename(path).replace(/\.md$/, ""), keyFound, keyNotFound };
+  // Parse the markdown body: as a side effect, it will populate the found and not found sets.
+  const htmlBody = await marked
+    .use(plangsMarkdown(pg, keyFound, keyNotFound))
+    .parse(`${htmlHeader}\n\n# ${title}\n\n${mdBody.replace(ZERO_WIDTH, "")}`);
+
+  const forFooter = renderVertices(Array.from(keyFound));
+  const boxy = "bg-secondary/10 ring-1 ring-primary/15 p-4 mt-[4rem]";
+  const htmlFooter = `<div class="${klass} ${boxy}">${forFooter.join("")}</div>`;
+
+  return {
+    title,
+    rels: [...(data.rels ?? []), ...Array.from(keyFound)],
+    date,
+    html: `${htmlBody}\n${htmlFooter}`,
+    basename: basename(path).replace(/\.md$/, ""),
+    keyFound,
+    keyNotFound,
+  };
+}
+
+function vertexLink(v: TPlangsVertex, pill: boolean) {
+  const link = (
+    <a href={v.href} title={v.vertexDesc} class={tw("inline-block", "mr-1", v.vertexKind === "author" && "uppercase")}>
+      {v.vertexKind === "author" ? v.plainKey : v.name}
+    </a>
+  );
+  return pill ? <Pill>{link}</Pill> : link;
 }
 
 /**
