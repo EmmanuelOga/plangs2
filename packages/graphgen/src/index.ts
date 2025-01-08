@@ -130,14 +130,6 @@ export async function generateGraph<T extends string>(spec: GenGraphSpec<T>, fil
     /** Reverse map of vertexKind. */
     static readonly vertexNameByKind = new Map<string, ${typeVertexName}>(Array.from(${graphClassName}.vertexKind.entries()).map(([k, v]) => [v, k]));
 
-    /** Get a vertex by key, if the kind of vertex is known. */
-    getVertex(vertexKey: string): ${typeVClass} | undefined {
-      const kind = vertexKey.split("+", 2)[0] as ${typeVertexName};
-      const vertexName = ${graphClassName}.vertexNameByKind.get(kind);
-      if (!vertexName) return;
-      return this.vertices[vertexName]?.get(vertexKey as any);
-    }
-
     // Create a Vertices instances for each vertex.
 
     ${(Object.entries(spec.vertices) as [T, GenVertexSpec][])
