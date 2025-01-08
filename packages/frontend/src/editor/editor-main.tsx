@@ -66,6 +66,13 @@ function Status({ pullreq }: { pullreq?: PRResult }) {
     <div class={tw(PROSE_BASIC, "p-2", "overflow-y-auto")}>
       <h3 class="mt-0!">Local Edits</h3>
       <p>Local edits are saved to localStorage, and can be used locally for testing.</p>
+      <p>
+        Consider checking this{" "}
+        <a href="https://www.loom.com/share/bfd54381f2b34b05b6fda84d4282e632?sid=797df9aa-9995-456b-800f-90df4f70bd2d">
+          introduction to how the editor works
+        </a>
+        .
+      </p>
 
       <div class="flex flex-row gap-4">
         <label class="flex flex-row items-center">
