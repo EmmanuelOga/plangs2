@@ -35,13 +35,6 @@ export class VertexFormState extends Dispatchable<{
       description: { kind: "text", label: "Description", validator: isNonEmptyStr, saver: val => (vertex.data.description = val) },
       shortDesc: { kind: "text", label: "Short Description", validator: () => undefined, saver: val => (vertex.data.shortDesc = val) },
       created: { kind: "string", label: "Created", validator: isEmptyOrStrDate, saver: val => (vertex.data.created = val as StrDate) },
-      keywords: {
-        kind: "string",
-        label: "Keywords",
-        desc: "Comma-separated list of keywords.",
-        validator: v => isCSV(v, REGEXP_ANUMPLUS),
-        saver: val => val && vertex.addKeywords(val.split(",")),
-      },
       urlHome: {
         kind: "string",
         label: "Home URL",
@@ -49,30 +42,32 @@ export class VertexFormState extends Dispatchable<{
         validator: isURL,
         saver: val => (vertex.data.extHomeURL = val),
       },
-      extRedditPath: {
-        kind: "string",
-        label: "Reddit Path",
-        desc: "Path to subreddit. Example: Python for https://www.reddit.com/r/Python/",
-        validator: v => matchesRegex(v, REGEXP_ANUMPLUS),
-        saver: val => (vertex.data.extRedditPath = val),
-      },
-      extWikipediaPath: {
-        kind: "string",
-        label: "Wikipedia Path",
-        desc: "Path to wikipedia. Example: Python_(programming_language) for https://en.wikipedia.org/wiki/Python_(programming_language)",
-        validator: v => matchesRegex(v, REGEXP_WIKIPEDIA_PATH),
-        saver: val => (vertex.data.extWikipediaPath = val),
-      },
-      stackovTags: {
-        kind: "string",
-        label: "Stack Overflow Tags",
-        desc: "Comma-separated list of tags.",
-        validator: v => isCSV(v, REGEXP_ANUMPLUS),
-        saver: val => val && vertex.addStackovTags(val.split(",")),
-      },
     };
 
+    if ("github" in vertex) {
+      fields.extGithubPath = {
+        kind: "string",
+        label: "Github Path",
+        desc: "Example: EmmanuelOga/plangs2 for github.com/emmanueloga/plangs2",
+        validator: v => matchesRegex(v, REGEXP_GITHUB_PATH),
+        saver: val => (vertex.data.extGithubPath = val),
+      };
+      fields.githubStars = {
+        kind: "string",
+        label: "Github Stars",
+        validator: v => isNumber(v, num => num > 0),
+        saver: val => (vertex.github.stars = Number.parseInt(val)),
+      };
+    }
+
     if (vertex instanceof VPlang) {
+      fields.isTranspiler = {
+        kind: "bool",
+        label: "Is Transpiler",
+        desc: "Compiles to some other language.",
+        validator: () => undefined,
+        saver: val => (vertex.data.isTranspiler = val),
+      };
       fields.extensions = {
         kind: "string",
         label: "Extensions",
@@ -87,13 +82,6 @@ export class VertexFormState extends Dispatchable<{
         validator: v => isCSV(v, REGEXP_ANUMPLUS),
         saver: val => val && vertex.addFilenames(val.split(",")),
       };
-      fields.isTranspiler = {
-        kind: "bool",
-        label: "Is Transpiler",
-        desc: "Compiles to any other language.",
-        validator: () => undefined,
-        saver: val => (vertex.data.isTranspiler = val),
-      };
     }
 
     if (vertex instanceof VLicense) {
@@ -102,21 +90,34 @@ export class VertexFormState extends Dispatchable<{
       fields.isOSIApproved = { kind: "bool", label: "OSI Approved?", validator: () => undefined, saver: val => (vertex.data.isOSIApproved = val) };
     }
 
-    if ("github" in vertex) {
-      fields.extGithubPath = {
-        kind: "string",
-        label: "Github Path",
-        desc: "Example: EmmanuelOga/plangs2 for github.com/emmanueloga/plangs2",
-        validator: v => matchesRegex(v, REGEXP_GITHUB_PATH),
-        saver: val => (vertex.data.extGithubPath = val),
-      };
-      fields.githubStars = {
-        kind: "string",
-        label: "Github Stars",
-        validator: v => isNumber(v, num => num > 0),
-        saver: val => (vertex.data.githubStars = Number.parseInt(val)),
-      };
-    }
+    fields.extWikipediaPath = {
+      kind: "string",
+      label: "Wikipedia Path",
+      desc: "Path to wikipedia. Example: Python_(programming_language) for https://en.wikipedia.org/wiki/Python_(programming_language)",
+      validator: v => matchesRegex(v, REGEXP_WIKIPEDIA_PATH),
+      saver: val => (vertex.data.extWikipediaPath = val),
+    };
+    fields.extRedditPath = {
+      kind: "string",
+      label: "Reddit Path",
+      desc: "Path to subreddit. Example: Python for https://www.reddit.com/r/Python/",
+      validator: v => matchesRegex(v, REGEXP_ANUMPLUS),
+      saver: val => (vertex.data.extRedditPath = val),
+    };
+    fields.stackovTags = {
+      kind: "string",
+      label: "Stack Overflow Tags",
+      desc: "Comma-separated list of tags.",
+      validator: v => isCSV(v, REGEXP_ANUMPLUS),
+      saver: val => val && vertex.addStackovTags(val.split(",")),
+    };
+    fields.keywords = {
+      kind: "string",
+      label: "Keywords",
+      desc: "Comma-separated list of keywords.",
+      validator: v => isCSV(v, REGEXP_ANUMPLUS),
+      saver: val => val && vertex.addKeywords(val.split(",")),
+    };
 
     return fields;
   }

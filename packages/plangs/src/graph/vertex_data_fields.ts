@@ -103,6 +103,10 @@ export class FieldStrDate {
 export class FieldGithub {
   constructor(private readonly vertex: { data: Partial<GithubRepo> }) {}
 
+  set stars(val: number) {
+    if (val && !Number.isNaN(val)) this.vertex.data.githubStars = val;
+  }
+
   /** Returns -1 if the number of stars is unknown. */
   get stars(): number {
     return this.vertex.data.githubStars ?? -1;
