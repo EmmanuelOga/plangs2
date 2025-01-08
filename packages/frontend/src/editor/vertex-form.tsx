@@ -36,7 +36,7 @@ function formField(state: VertexFormState, key: string, field: FormField): Compo
 
   return (
     <div class="px-4">
-      <label class="block" for={cssid}>
+      <label class="block text-primary" for={cssid}>
         {label}
       </label>
       {desc && <div class="text-foreground/80 text-sm italic">{desc}</div>}

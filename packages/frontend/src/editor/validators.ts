@@ -1,5 +1,6 @@
 /**
  * Validators for form fields.
+ * TODO: this return undefined if valid, and a string if invalid. This can be a little confusing.
  */
 
 import { parseDate } from "@plangs/auxiliar/str_date";
@@ -24,6 +25,7 @@ export function isCSV(val: string | undefined, each: RegExp): string | undefined
 }
 
 export function isURL(val: string | undefined): string | undefined {
+  if (!val) return;
   let url: URL | undefined;
   try {
     url = new URL(`${val ?? ""}`);
