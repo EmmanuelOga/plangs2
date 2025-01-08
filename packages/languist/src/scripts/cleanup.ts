@@ -32,16 +32,21 @@ export async function cleanup() {
     }
   }
 
-  console.log(`\nInvalid Keys:\n---------------\n${[...invalid].sort().join("\n")}\n`);
-  console.log(`\nNot found Keys:\n---------------\n${[...notFound].sort().join("\n")}\n`);
+  if (invalid.size > 0) {
+    // TODO: track where these are coming from.
+    console.log(`\nInvalid Keys:\n---------------\n${[...invalid].sort().join("\n")}\n`);
+  }
 
-  const answer = prompt("Do you want to create definitions for the valid keys? (y/n)");
-  if (answer === "y") {
-    for (const key of notFound) {
-      const vertex = pg.getVertex(key, true);
-      if (!vertex) throw new Error(`Issue creating a vertex ${key}`);
-      const path = join(DEF_ROOT, "/src/definitions", vertex.tsName);
-      Bun.write(path, await reformatCode(vertex.toCode()));
+  if (notFound.size > 0) {
+    console.log(`\nNot found Keys:\n---------------\n${[...notFound].sort().join("\n")}\n`);
+    const answer = prompt("Do you want to create definitions for the valid keys? (y/n)");
+    if (answer === "y") {
+      for (const key of notFound) {
+        const vertex = pg.getVertex(key, true);
+        if (!vertex) throw new Error(`Issue creating a vertex ${key}`);
+        const path = join(DEF_ROOT, "/src/definitions", vertex.tsName);
+        Bun.write(path, await reformatCode(vertex.toCode()));
+      }
     }
   }
 }
