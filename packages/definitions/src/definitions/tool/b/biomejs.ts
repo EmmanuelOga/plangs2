@@ -3,10 +3,10 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 export function define(g: PlangsGraph) {
   g.tool
     .set("tool+biomejs", {
-      name: "biomejs",
+      name: "Biome",
       description:
         "A toolchain for web projects, aimed to provide functionalities to maintain them. Biome offers formatter and linter, usable via CLI and LSP.",
-      shortDesc: "Biome offers a formatter and linter, usable via CLI and LSP.",
+      shortDesc: "Offers a formatter and linter, usable via CLI and LSP.",
       extGithubPath: "biomejs/biome",
       extHomeURL: "https://biomejs.dev/",
     })

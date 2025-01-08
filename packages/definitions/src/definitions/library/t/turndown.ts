@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 export function define(g: PlangsGraph) {
   g.library
     .set("lib+turndown", {
-      name: "turndown",
+      name: "Turndown",
       description: "An HTML to Markdown converter written in JavaScript.",
       shortDesc: "An HTML to Markdown converter written in JavaScript.",
       extGithubPath: "mixmark-io/turndown",

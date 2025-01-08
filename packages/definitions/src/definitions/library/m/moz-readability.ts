@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 export function define(g: PlangsGraph) {
   g.library
     .set("lib+moz-readability", {
-      name: "moz-readability",
+      name: "Readability",
       description:
         "A standalone version of the readability library used for Firefox Reader View.",
       shortDesc:

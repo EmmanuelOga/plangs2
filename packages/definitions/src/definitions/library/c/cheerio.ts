@@ -3,7 +3,7 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 export function define(g: PlangsGraph) {
   g.library
     .set("lib+cheerio", {
-      name: "cheerio",
+      name: "Cheerio",
       description:
         "The fast, flexible & elegant library for parsing and manipulating HTML and XML. Cheerio implements a subset of core jQuery.",
       shortDesc:
