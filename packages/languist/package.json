@@ -7,6 +7,7 @@
     "src"
   ],
   "dependencies": {
-    "@plangs/auxiliar": "workspace:*"
+    "@plangs/auxiliar": "workspace:*",
+    "@plangs/server": "workspace:*"
   }
 }

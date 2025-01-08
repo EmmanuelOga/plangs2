@@ -1,8 +1,9 @@
 import { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
 
+import { join } from "node:path";
 import type { PlangsPage } from "./components/layout";
-import { loadBlogPost, loadContent } from "./content";
+import { loadContent } from "./content";
 import { Blog } from "./pages/blog";
 import { ContentPage } from "./pages/content-page";
 import { Edit } from "./pages/edit";
@@ -38,8 +39,11 @@ export async function resolvePage(path: string, pg: PlangsGraph) {
 
   if (path === "/blog") return <Blog pg={pg} />;
   if (path.startsWith("/blog/") && path.length < 128) {
-    const post = await loadBlogPost(pg, `post+${path.slice(6)}`);
-    if (post) return <ContentPage page="blog" content={post} />;
+    const post = pg.post.get(`post+${path.slice(6)}`);
+    if (post?.path) {
+      const content = await loadContent(join("posts", post.path), pg);
+      if (content) return <ContentPage page="blog" content={content} />;
+    }
     console.warn(`Blog post not found: ${path}`);
     return;
   }

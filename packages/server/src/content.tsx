@@ -3,14 +3,13 @@ import { Glob } from "bun";
 // @ts-ignore types for these?
 import { basename, join } from "node:path";
 
-import { marked } from "marked";
+import { type MarkedExtension, type Tokens, marked } from "marked";
 import render from "preact-render-to-string/jsx";
 import YAML from "yaml";
 
 import { type StrDate, parseDate } from "@plangs/auxiliar/str_date";
 import { Pill } from "@plangs/frontend/components/misc/pill";
 import type { PlangsGraph } from "@plangs/plangs/graph";
-import type { VPostKey } from "@plangs/plangs/graph/generated";
 
 import { tw } from "@plangs/frontend/auxiliar/styles";
 import { ZERO_WIDTH } from "./utils/server";
@@ -22,6 +21,8 @@ export type Content = {
   html: string;
   rels: string[];
   title: string;
+  keyFound: Set<string>;
+  keyNotFound: Set<string>;
 };
 
 const YAML_KEYS = new Set(["title", "rels", "hideMeta"]);
@@ -38,53 +39,54 @@ export async function loadContent(path: string, pg: PlangsGraph): Promise<Conten
   const [_, yaml, mdBody] = match;
 
   const data = YAML.parse(yaml);
-  const { title, rels, hideMeta } = data;
+  if (data.rels && !Array.isArray(data.rels)) throw new Error(`Post ${path} has an invalid rels field in the YAML header.`);
+  const { title, hideMeta } = data;
 
   const unknown = new Set(Object.keys(data)).difference(YAML_KEYS);
   if (unknown.size) throw new Error(`Post ${path} has unknown fields in the YAML header: ${[...unknown].join(", ")}`);
 
   if (!title) throw new Error(`Post ${path} is missing a title in the YAML header.`);
 
-  const metadata = [
-    render(
+  const metadata = [render(<Pill children={<time datetime={date}>{date}</time>} />)];
+
+  const keyFound = new Set<string>();
+  const keyNotFound = new Set<string>();
+
+  // Parse the markdown body: as a side effect, it will populate the found and not found sets.
+  const htmlBody = await marked.use(plangsMarkdown(pg, keyFound, keyNotFound)).parse(`# ${title}\n\n${mdBody.replace(ZERO_WIDTH, "")}`);
+
+  // Add relations from the metadata _and_ content, and sort them.
+  const rels: string[] = [...(data.rels ?? []), ...keyFound];
+
+  // Render relations as links.
+  const vertices = rels
+    .map(key => {
+      const v = pg.getVertex(key);
+      if (!v) throw new Error(`Post ${path} references unknown vertex: ${key}`);
+      return v;
+    })
+    .sort((a, b) => {
+      const aIsAuthor = a.vertexName === "author";
+      const bIsAuthor = b.vertexName === "author";
+      if (aIsAuthor && !bIsAuthor) return 1;
+      if (!aIsAuthor && bIsAuthor) return -1;
+      return a.name.localeCompare(b.name);
+    });
+  for (const v of vertices) {
+    const link = (
       <Pill>
-        <time datetime={date}>{date}</time>
-      </Pill>,
-    ),
-  ];
-
-  if (rels !== undefined) {
-    if (!Array.isArray(rels)) throw new Error(`Post ${path} has an invalid rels field in the YAML header.`);
-    if (rels.length > 0) {
-      // Put authors last.
-      rels.sort((a, b) => {
-        const aIsAuthor = a.startsWith("author");
-        const bIsAuthor = b.startsWith("author");
-        if (aIsAuthor && !bIsAuthor) return 1;
-        if (!aIsAuthor && bIsAuthor) return -1;
-        return a.localeCompare(b);
-      });
-
-      for (const vertexKey of rels) {
-        const v = pg.getVertex(vertexKey);
-        if (!v) throw new Error(`Post ${path} references unknown vertex ${vertexKey}`);
-        const link = (
-          <Pill>
-            <a href={v.href} title={v.vertexDesc} class={tw("mr-1", v.vertexKind === "author" && "uppercase")}>
-              {v.vertexKind === "author" ? v.plainKey : v.name}
-            </a>
-          </Pill>
-        );
-        metadata.push(render(link));
-      }
-    }
+        <a href={v.href} title={v.vertexDesc} class={tw("mr-1", v.vertexKind === "author" && "uppercase")}>
+          {v.vertexKind === "author" ? v.plainKey : v.name}
+        </a>
+      </Pill>
+    );
+    metadata.push(render(link));
   }
-  const klass = `flex flex-row flex-wrap${hideMeta ? " hidden" : ""}`;
-  const dateAndLinks = `<div class="${klass}">${metadata.join("")}</div>`;
-  const md = `${dateAndLinks}\n\n# ${title}\n\n${mdBody.replace(ZERO_WIDTH, "")}`;
-  const html = await marked.use(customHeadingId()).parse(md);
 
-  return { title, rels: rels ?? [], date, html, basename: basename(path).replace(/\.md$/, "") };
+  const klass = `flex flex-row flex-wrap${hideMeta ? " hidden" : ""}`;
+  const htmlHeader = `<div class="${klass}">${metadata.join("")}</div>`;
+
+  return { title, rels, date, html: `${htmlHeader}${htmlBody}`, basename: basename(path).replace(/\.md$/, ""), keyFound, keyNotFound };
 }
 
 /**
@@ -104,13 +106,10 @@ export async function loadPosts(pg: PlangsGraph) {
   }
 }
 
-export async function loadBlogPost(pg: PlangsGraph, key: VPostKey): Promise<Content | undefined> {
-  const post = pg.post.get(key);
-  if (post?.path) return loadContent(`posts/${post.path}`, pg);
-}
+const REFS = /\(([a-z]+)\+([a-zA-Z0-9\_\+\-]+)\)/g; // Matches (kind+key) references.
 
-/** Add a link to headings other than h1. */
-export function customHeadingId() {
+/** Process markdown adding some custom features. */
+export function plangsMarkdown(pg: PlangsGraph, keyFound: Set<string>, keyNotFound: Set<string>): MarkedExtension {
   return {
     useNewRenderer: true,
     renderer: {
@@ -118,6 +117,26 @@ export function customHeadingId() {
         const cssId = text.toLowerCase().replace(/[^\w]+/g, "-");
         const link = `<a class="px-2 text-foreground opacity-30 group-hover:opacity-90 decoration-0" href="#${cssId}">#</a>`;
         return `<h${depth} class="group" id="${cssId}">${text}${depth > 1 ? link : ""}</h${depth}>\n`;
+      },
+      text(token: Tokens.Text | Tokens.Escape | Tokens.Tag) {
+        if (token.type === "text") {
+          return token.text.replaceAll(REFS, (match, kind, plainKey) => {
+            const key = `${kind}+${plainKey}`;
+            const vertex = pg.getVertex(key);
+
+            if (!vertex) {
+              keyNotFound.add(key);
+              return match;
+            }
+
+            // Only link the first occurrence of each vertex.
+            if (keyFound.has(vertex.key)) return vertex.name;
+            keyFound.add(vertex.key);
+
+            return `<a href="${vertex.href}">${vertex.name}</a>`;
+          });
+        }
+        return token.text;
       },
     },
   };

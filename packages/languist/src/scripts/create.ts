@@ -1,8 +1,7 @@
 import { join } from "node:path";
 
+import { reformatCode } from "@plangs/languist/reformat";
 import { PlangsGraph } from "@plangs/plangs/graph";
-import type { TPlangsVertexName } from "@plangs/plangs/graph/generated";
-import { reformatCode } from "../reformat";
 
 function error() {
   console.error("Please include a vertex key. Vertex keys should be alphanumeric with dashes and underscores and look like: pl+python.\n");
@@ -20,29 +19,15 @@ function error() {
   }
 }
 
-/** If the key is valid, return the vertex name. */
-function getVertexName(key: string): TPlangsVertexName | undefined {
-  const [prefix, suffix] = key.split("+", 2);
-  if (!/^[a-z0-9_-]+$/.test(suffix)) return undefined;
-
-  for (const [name, key] of PlangsGraph.vertexKind) {
-    if (name === "post") return undefined;
-    if (key === prefix) return name;
-  }
-
-  return undefined;
-}
-
 const DEF_ROOT = join(import.meta.dir, "../../../definitions");
 
+const pg = new PlangsGraph();
 const vertexKey = process.argv[2] ?? "";
-const vertexName = getVertexName(vertexKey);
+const vertex = pg.getVertex(vertexKey, true);
 
-if (vertexName) {
-  const pg = new PlangsGraph();
-  const vertex = pg.vertices[vertexName].set(vertexKey as any);
+if (vertex) {
   const path = join(DEF_ROOT, "/src/definitions", vertex.tsName);
-  const assetPath = join(DEF_ROOT, "assets", vertexName, `${vertexKey}.webp`);
+  const assetPath = join(DEF_ROOT, "assets", vertex.vertexName, `${vertexKey}.webp`);
   Bun.write(path, await reformatCode(vertex.toCode()));
 
   console.log("Generated vertex for", vertexKey, "at", path, "\n");
