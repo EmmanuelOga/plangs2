@@ -1,6 +1,5 @@
 import { arrayMerge } from "@plangs/auxiliar/array";
 import { IterTap } from "@plangs/auxiliar/iter_tap";
-import type { StrDate } from "@plangs/auxiliar/str_date";
 
 import * as Gen from "./generated";
 import { FieldGithub, FieldReleases } from "./vertex_data_fields";
@@ -10,7 +9,29 @@ import type { Release, VPlangData } from "./vertex_data_schemas";
 export const rel = Gen.PlangsGraphBase.relConfig;
 export const prop = Gen.PlangsGraphBase.propConfig;
 
+/** Valid keys are in the form kind+alphanumKey. */
+const VALID_KEY = /^[a-z]+\+[a-zA-Z0-9\_\+\-]+$/;
+
 export class PlangsGraph extends Gen.PlangsGraphBase {
+  static getVertexName(vertexKey: string): Gen.TPlangsVertexName | undefined {
+    const kind = vertexKey.split("+", 2)[0] as Gen.TPlangsVertexName;
+    return Gen.PlangsGraphBase.vertexNameByKind.get(kind) as Gen.TPlangsVertexName;
+  }
+
+  static validKey(vertexKey: string): vertexKey is Gen.TPlangsVertexName {
+    return VALID_KEY.test(vertexKey) && PlangsGraph.getVertexName(vertexKey) !== undefined;
+  }
+
+  /** Get a vertex by key, if the kind of vertex is known. */
+  getVertex(vertexKey: string, create = false): Gen.TPlangsVertex | undefined {
+    const vertexName = PlangsGraph.getVertexName(vertexKey);
+    if (!vertexName) return;
+    const vertices = this.vertices[vertexName];
+    const vertex = vertices.get(vertexKey as any);
+    if (vertex) return vertex;
+    if (create) return vertices.set(vertexKey as any);
+  }
+
   /** We can derive / infer some data from the existing data. */
   materialize(): this {
     // Bundle -> Tool -> Plang is transitive: a bundle supports all the languages supported by its tools.

@@ -112,14 +112,6 @@ export class PlangsGraphBase {
   /** Reverse map of vertexKind. */
   static readonly vertexNameByKind = new Map<string, TPlangsVertexName>(Array.from(PlangsGraphBase.vertexKind.entries()).map(([k, v]) => [v, k]));
 
-  /** Get a vertex by key, if the kind of vertex is known. */
-  getVertex(vertexKey: string): TPlangsVertex | undefined {
-    const kind = vertexKey.split("+", 2)[0] as TPlangsVertexName;
-    const vertexName = PlangsGraphBase.vertexNameByKind.get(kind);
-    if (!vertexName) return;
-    return this.vertices[vertexName]?.get(vertexKey as any);
-  }
-
   // Create a Vertices instances for each vertex.
 
   readonly app = new Vertices<VC.VApp>("app", "app", key => new VC.VApp(this, key));
