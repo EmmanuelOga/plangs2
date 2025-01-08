@@ -5,8 +5,12 @@ export function define(g: PlangsGraph) {
     .set("lib+msgspec", {
       name: "msgspec",
       description:
-        "Fast serialization and validation library, with builtin support for JSON, MessagePack, YAML, and TOML.",
+        "Fast serialization and validation library, with builtin support for JSON, MessagePack, YAML, and TOML. Alternative to Pydantic.",
+      shortDesc:
+        "Fast serialization and validation library. Alternative to Pydantic.",
+      extGithubPath: "jcrist/msgspec",
       extHomeURL: "https://jcristharif.com/msgspec/",
+      githubStars: 2500,
       keywords: [
         "json",
         "messagepack",
