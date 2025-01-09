@@ -28,6 +28,7 @@ export function define(g: PlangsGraph) {
       ],
       stackovTags: ["d"],
     })
+    .relImplements.add("pl+c")
     .relInfluencedBy.add(
       "pl+ada",
       "pl+basic",
