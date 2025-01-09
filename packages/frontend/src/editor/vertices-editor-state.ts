@@ -18,7 +18,9 @@ export class VerticesEditorState extends Dispatchable<{
     return this.doSetCurrentVertex(v);
   }
 
-  doSetCurrentVertex(v: TPlangsVertex) {
+  doSetCurrentVertex(vref: TPlangsVertex | string) {
+    const v = typeof vref === "string" ? this.data.pg[this.data.currentKind].get(vref as any) : vref;
+
     this.data.currentVertex = v;
     // If the new vertex has a relation of the same name as the current relation, update the current relation.
     // Otherwise clear the current relation.

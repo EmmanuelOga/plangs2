@@ -2,16 +2,14 @@ import type { ComponentChildren } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
 
 import { groupBy } from "@plangs/auxiliar/array";
-import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { ADD, CLOSE } from "@plangs/frontend/auxiliar/icons";
 import { INPUT, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import { Pill } from "@plangs/frontend/components/misc/pill";
-import { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertex, TPlangsVertexName } from "@plangs/plangs/graph/generated";
 
-import { localEditsData, updateLocalEdits } from ".";
+import { updateLocalEdits } from ".";
 import { VertexForm } from "./vertex-form";
-import { type AnyRel, VerticesEditorState } from "./vertices-editor-state";
+import type { AnyRel, VerticesEditorState } from "./vertices-editor-state";
 
 /**
  * Editor component which includes 3 sections:
@@ -19,22 +17,8 @@ import { type AnyRel, VerticesEditorState } from "./vertices-editor-state";
  * * An editor for relationships (edges) of the Vertex.
  * * A JSON editor for the raw data of the Vertex.
  */
-export function VerticesEditor({ pg: referencePG }: { pg: PlangsGraph }) {
-  // The editor always works with a local copy of the graph.
-  const pg = new PlangsGraph().loadJSON(localEditsData(referencePG));
-  const py = pg.plang.get("pl+python");
-
+export function VerticesEditor({ state }: { state: VerticesEditorState }) {
   const self = useRef<HTMLDivElement>(null);
-  const state = useDispatchable(
-    () =>
-      new VerticesEditorState({
-        pg,
-        currentKind: "plang",
-        currentVertex: py,
-        currentRel: !py ? undefined : ["relInfluencedBy", py?.relations.get("relInfluencedBy") as AnyRel],
-        tab: "relations",
-      }),
-  );
 
   useEffect(() => {
     for (const b of self.current?.querySelectorAll("button.current") ?? []) b.scrollIntoView({ block: "nearest" });
@@ -75,11 +59,7 @@ export function VerticesEditor({ pg: referencePG }: { pg: PlangsGraph }) {
             ))}
           </select>
           <div class={tw("w-[11.5rem] pr-2", "flex flex-col gap-4", VSCROLL)}>
-            <select
-              class={INPUT}
-              onChange={({ currentTarget }) => {
-                state.doSetCurrentVertex(pg[state.currentKind].get(currentTarget.value as any) as TPlangsVertex);
-              }}>
+            <select class={INPUT} onChange={({ currentTarget: sel }) => state.doSetCurrentVertex(sel.value)}>
               {state.currentVertices.map(v => (
                 <option key={v.key} selected={state.currentVertex?.key === v.key} value={v.key} children={v.name} />
               ))}
