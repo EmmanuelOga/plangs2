@@ -27,3 +27,13 @@ export function renderVertexInfo(vertex?: TPlangsVertex) {
     render(<VertexInfo detail={detail} page={page} open={open} />, elem);
   }
 }
+
+/** Locates the current vertex info, reseting the vertex to "none" first. */
+export function closeVertexInfo() {
+  const page = getCurrentPage();
+  const store = getCurrentPageStore();
+  store.update("vertex-detail", undefined);
+  for (const elem of elems<HTMLDivElement>("vertexInfo")) {
+    render(<VertexInfo detail={undefined} page={page} />, elem);
+  }
+}

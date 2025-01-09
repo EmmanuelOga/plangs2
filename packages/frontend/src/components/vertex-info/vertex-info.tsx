@@ -3,7 +3,7 @@ import { useEffect, useRef } from "preact/hooks";
 
 import { ret } from "@plangs/auxiliar/misc";
 import { onClickOnEnter } from "@plangs/frontend/auxiliar/dom";
-import { EXTERN, GITHUB, LANGUISH, REDDIT, STACKOV, WIKIPEDIA } from "@plangs/frontend/auxiliar/icons";
+import { CLOSE, EXTERN, GITHUB, LANGUISH, REDDIT, STACKOV, WIKIPEDIA } from "@plangs/frontend/auxiliar/icons";
 import { getCurrentPageStore } from "@plangs/frontend/auxiliar/storage";
 import { HOVER_ICON, PROSE_BASIC, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import { Pill } from "@plangs/frontend/components/misc/pill";
@@ -11,6 +11,7 @@ import type { VertexDetail } from "@plangs/plangs/graph/vertex_base";
 import { GRID_PAGES, type PlangsPage } from "@plangs/server/components/layout";
 import { VertexThumbn } from "@plangs/server/components/vertex-thumbn";
 import { cssClass } from "@plangs/server/elements";
+import { closeVertexInfo } from ".";
 
 export type VertexInfoProps = {
   page: PlangsPage;
@@ -53,6 +54,7 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
       {ret(detail.urlWikipedia, url => url && <IconLink href={url} icon={WIKIPEDIA} />)}
       {ret(detail.urlStackov, url => url && <IconLink href={url} icon={STACKOV} />)}
       {ret(detail.urlReddit, url => url && <IconLink href={url} icon={REDDIT} />)}
+      {forGrid && <IconLink icon={CLOSE} onClick={closeVertexInfo} />}
     </div>
   );
 
@@ -127,10 +129,19 @@ export function VertexInfo({ detail, open, page }: VertexInfoProps) {
   );
 }
 
-function IconLink({ href, icon, title }: { href: string; icon: JSX.Element; title?: string }) {
+type IconLinkProps = { icon: JSX.Element; title?: string } & ({ href: string } | { onClick: () => void });
+
+function IconLink(props: IconLinkProps) {
+  const { icon, title } = props;
+  const click = "onClick" in props;
   return (
-    <a {...(title ? { title } : {})} href={href} class={tw(cssClass("externalLink"), "inline-block aspect-square", "transition-transform", "sm:p-1")}>
-      <div class={tw("inline-block", HOVER_ICON)}>{icon}</div>
+    <a
+      {...(title ? { title } : {})}
+      {...(click ? {} : { target: "_blank" })}
+      href={!click ? props.href : undefined}
+      onClick={click ? props.onClick : undefined}
+      class={tw(cssClass("externalLink"), "inline-block aspect-square", "transition-transform", "sm:p-1")}>
+      <div class={tw("inline-block", HOVER_ICON, click && "bg-hiliteb/18")}>{icon}</div>
     </a>
   );
 }
