@@ -171,11 +171,6 @@ export class VertexFormState extends Dispatchable<{
     return this.data.status;
   }
 
-  set status(status: string | undefined) {
-    this.data.status = status;
-    this.dispatch();
-  }
-
   doUpdate(attr: string, value: any) {
     this.values[attr] = value;
     this.dispatch();
@@ -207,7 +202,7 @@ export class VertexFormState extends Dispatchable<{
       msg.push(`Fields with errors: ${errors.join(", ")}.`);
     }
 
-    this.status = msg.join(" ");
+    this.data.status = msg.join(" ");
     this.dispatch();
   }
 

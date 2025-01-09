@@ -4,13 +4,11 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import { groupBy } from "@plangs/auxiliar/array";
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { ADD, CLOSE } from "@plangs/frontend/auxiliar/icons";
-import { getStore } from "@plangs/frontend/auxiliar/storage";
 import { INPUT, VSCROLL, tw } from "@plangs/frontend/auxiliar/styles";
 import { Pill } from "@plangs/frontend/components/misc/pill";
 import { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertex, TPlangsVertexName } from "@plangs/plangs/graph/generated";
 
-import { ret } from "@plangs/auxiliar/misc";
 import { localEditsData, updateLocalEdits } from ".";
 import { VertexForm } from "./vertex-form";
 import { type AnyRel, VerticesEditorState } from "./vertices-editor-state";
