@@ -10,7 +10,6 @@ export function define(g: PlangsGraph) {
       links: [{ title: "Discord", url: "https://discord.gg/MRrkpywtKR" }],
     })
     .relPlangs.add(
-      "pl+bun",
       "pl+c",
       "pl+c-sharp",
       "pl+go",
