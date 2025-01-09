@@ -37,6 +37,7 @@ export function define(g: PlangsGraph) {
       ],
       stackovTags: ["c"],
     })
+    .relCompilesTo.add("pl+assembly", "pl+webassembly")
     .relInfluencedBy.add("pl+fortran")
     .relLicenses.add("lic+bsd")
     .relParadigms.add(
