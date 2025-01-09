@@ -5,9 +5,7 @@ export function define(g: PlangsGraph) {
     .set("lib+flask", {
       name: "Flask",
       description: "Lightweight WSGI web application framework.",
-      extGithubPath: "pallets/flask",
       extHomeURL: "https://flask.palletsprojects.com/",
-      githubStars: 68500,
       keywords: ["framework", "web", "wsgi"],
     })
     .relPlangs.add("pl+python");
