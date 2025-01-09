@@ -22,15 +22,6 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       languishRanking: 1,
-      links: [
-        { url: "https://www.python.org/doc/", title: "Python Documentation" },
-        { url: "https://realpython.com/", title: "Real Python" },
-        { url: "https://pypi.org/", title: "Python Package Index (PyPI)" },
-        {
-          url: "https://docs.python-guide.org/",
-          title: "The Hitchhiker’s Guide to Python",
-        },
-      ],
       releases: [
         {
           version: "2.7.18",
