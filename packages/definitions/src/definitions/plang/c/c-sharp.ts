@@ -26,7 +26,6 @@ export function define(g: PlangsGraph) {
       releases: [{ version: "12.0", name: "C# 12", date: "2023-11-14" }],
       stackovTags: ["c#"],
     })
-    .relDialectOf.add("pl+c")
     .relInfluencedBy.add(
       "pl+c",
       "pl+c++",
