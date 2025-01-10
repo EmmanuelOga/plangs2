@@ -16,7 +16,7 @@ export function EditorMain({ pg, pullreq }: { pg: PlangsGraph; pullreq?: PRResul
   const state = useDispatchable(() => {
     // The editor always works with a local copy of the graph.
     const pgCopy = new PlangsGraph().loadJSON(localEditsData(pg));
-    const py = undefined; // pgCopy.plang.get("pl+python");
+    const py = pgCopy.plang.get("pl+python");
     return new EditorMainState({
       pg: pgCopy,
       mainTab: "edit",
