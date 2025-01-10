@@ -27,12 +27,13 @@ export class VertexFormState extends Dispatchable<{
   fields: Record<string, FormField>;
   values: Record<string, FormValue>;
   original: Record<string, FormValue>;
+  dirty: boolean;
   status?: string;
 }> {
   static create(vertex: TPlangsVertex) {
     const fields = VertexFormState.fields(vertex);
     const values = VertexFormState.values(vertex, fields);
-    return new VertexFormState({ vertex, fields, values, original: { ...values } });
+    return new VertexFormState({ vertex, fields, values, original: { ...values }, dirty: false });
   }
 
   static values(vertex: TPlangsVertex, fields: Record<string, FormField>): Record<string, FormValue> {
@@ -202,13 +203,19 @@ export class VertexFormState extends Dispatchable<{
     return this.data.status;
   }
 
+  get dirty() {
+    return this.data.dirty;
+  }
+
   doUpdate(attr: string, value: any) {
     this.values[attr] = value;
+    this.updateDirty();
     this.dispatch();
   }
 
   doReload() {
     this.data.values = { ...this.data.original };
+    this.data.dirty = false;
     this.dispatch();
   }
 
@@ -217,16 +224,20 @@ export class VertexFormState extends Dispatchable<{
     let saved = 0;
 
     for (const [attr, value] of Object.entries(this.values)) {
-      const { validator, saver } = this.fields[attr];
+      const { validator, saver, getter } = this.fields[attr];
       if (validator?.(value)) {
         errors.push(attr);
       } else {
         saver?.(value);
+        this.data.original[attr] = getter(this.vertex);
         saved++;
       }
     }
 
-    if (saved > 0) updateLocalEdits(this.vertex.graph.toJSON());
+    if (saved > 0) {
+      updateLocalEdits(this.vertex.graph.toJSON());
+      this.updateDirty();
+    }
 
     const msg = [`${new Date().toLocaleTimeString()} update: saved ${saved} fields.`];
     if (errors.length) {
@@ -235,6 +246,15 @@ export class VertexFormState extends Dispatchable<{
 
     this.data.status = msg.join(" ");
     this.dispatch();
+  }
+
+  updateDirty() {
+    this.data.dirty = false;
+    for (const [attr, value] of Object.entries(this.values)) {
+      if (value === this.data.original[attr]) continue;
+      this.data.dirty = true;
+      break;
+    }
   }
 
   validate(attr: string): string | undefined {
