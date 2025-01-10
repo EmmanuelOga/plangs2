@@ -1,4 +1,4 @@
-import { tw } from "@plangs/frontend/auxiliar/styles";
+import { HOVER, tw } from "@plangs/frontend/auxiliar/styles";
 
 export function EditorButton({
   label,
@@ -9,14 +9,7 @@ export function EditorButton({
   return (
     <button
       type="button"
-      class={tw(
-        "inline-flex items-start align-middle",
-        "cursor-pointer",
-        "hover:bg-hiliteb hover:text-hilitef",
-        "m-0.5 ring-1 ring-primary",
-        isCurrent?.() && "current bg-secondary",
-        klass,
-      )}
+      class={tw("px-4", "inline-flex items-center align-middle", HOVER, "ring-1 ring-primary", isCurrent?.() && "current bg-secondary", klass)}
       onClick={onClick}>
       <span class={tw("mx-1 px-1 py-0.5", "inline-block w-full", "truncate")}>{label}</span>
     </button>
