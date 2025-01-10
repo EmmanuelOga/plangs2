@@ -6,7 +6,7 @@ import { getStore } from "@plangs/frontend/auxiliar/storage";
 import { PROSE_BASIC, tw } from "@plangs/frontend/auxiliar/styles";
 
 import { toggleLocalEdits, updateLocalEdits } from ".";
-import { EditorButton } from "./vertices-editor";
+import { EditorButton } from "./button";
 
 export function Status({ pullreq }: { pullreq?: PRResult }) {
   const store = getStore("_any_page_");

@@ -5,7 +5,7 @@ import type { TPlangsVertex, TPlangsVertexName } from "@plangs/plangs/graph/gene
 
 export type AnyRel = RelFrom<TPlangsVertex, TPlangsVertex> | RelTo<TPlangsVertex, TPlangsVertex>;
 
-export class VerticesEditorState extends Dispatchable<{
+export class EditorMainState extends Dispatchable<{
   pg: PlangsGraph;
   currentKind: TPlangsVertexName;
   currentVertex?: TPlangsVertex;
@@ -20,6 +20,10 @@ export class VerticesEditorState extends Dispatchable<{
 
   doSetCurrentVertex(vref: TPlangsVertex | string) {
     const v = typeof vref === "string" ? this.data.pg[this.data.currentKind].get(vref as any) : vref;
+    if (!v) {
+      console.error(`Vertex not found: ${vref}`);
+      return;
+    }
 
     this.data.currentVertex = v;
     // If the new vertex has a relation of the same name as the current relation, update the current relation.

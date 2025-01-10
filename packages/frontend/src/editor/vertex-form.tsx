@@ -3,9 +3,9 @@ import type { ComponentChildren } from "preact";
 import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { INPUT, tw } from "@plangs/frontend/auxiliar/styles";
 import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
-import { type FormField, VertexFormState } from "./vertex-form-state";
 
-import { EditorButton } from "./vertices-editor";
+import { EditorButton } from "./button";
+import { type FormField, VertexFormState } from "./vertex-form-state";
 
 /** Form to edit the _data_ of the Vertex. */
 export function VertexForm({ vertex }: { vertex: TPlangsVertex }) {
