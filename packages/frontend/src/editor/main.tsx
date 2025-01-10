@@ -19,7 +19,7 @@ export function EditorMain({ pg, pullreq }: { pg: PlangsGraph; pullreq?: PRResul
     const py = pgCopy.plang.get("pl+python");
     return new EditorMainState({
       pg: pgCopy,
-      mainTab: "edit",
+      mainTab: "status",
       currentKind: "plang",
       currentVertex: py,
       tab: "relations",
