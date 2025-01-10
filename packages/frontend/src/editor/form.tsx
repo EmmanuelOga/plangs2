@@ -12,7 +12,7 @@ export function VertexForm({ vertex }: { vertex: TPlangsVertex }) {
   const state = useDispatchable(() => VertexFormState.create(vertex));
 
   return (
-    <div class={tw("w-full", "flex flex-col gap-4 justify-self-center", "bg-secondary/25")}>
+    <div class={tw("w-full", "flex flex-col gap-4 justify-self-center", "bg-secondary/25", "overflow-hidden")}>
       <header class={tw("px-2 sm:py-2", "flex flex-row gap-4", "items-center align-middle", "bg-secondary/50")}>
         <div class="text-xl" children={"Vertex Form"} />
         <div class="flex-1" />

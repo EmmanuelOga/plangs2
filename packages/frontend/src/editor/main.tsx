@@ -19,10 +19,10 @@ export function EditorMain({ pg, pullreq }: { pg: PlangsGraph; pullreq?: PRResul
     const py = pgCopy.plang.get("pl+python");
     return new EditorMainState({
       pg: pgCopy,
-      mainTab: "status",
+      mainTab: "edit",
       currentKind: "plang",
       currentVertex: py,
-      tab: "relations",
+      tab: "form",
       currentRel: !py ? undefined : ["relInfluencedBy", py?.relations.get("relInfluencedBy") as AnyRel],
     });
   });
