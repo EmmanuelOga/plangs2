@@ -1,7 +1,8 @@
-import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
+import { Dispatchable, useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import type { RelFrom, RelTo } from "@plangs/graphgen/library";
 import type { PlangsGraph } from "@plangs/plangs/graph";
 import type { TPlangsVertex, TPlangsVertexName } from "@plangs/plangs/graph/generated";
+import { VertexFormState } from "./form_state";
 
 export type AnyRel = RelFrom<TPlangsVertex, TPlangsVertex> | RelTo<TPlangsVertex, TPlangsVertex>;
 
@@ -12,6 +13,7 @@ export class EditorMainState extends Dispatchable<{
   currentRel?: [key: string, rel: AnyRel];
   mainTab: "status" | "edit";
   tab: "form" | "relations" | "json";
+  formState: VertexFormState | undefined;
 }> {
   doSetCurrentKind(name: TPlangsVertexName) {
     this.data.currentKind = name;
@@ -79,6 +81,15 @@ export class EditorMainState extends Dispatchable<{
 
   get tab() {
     return this.data.tab;
+  }
+
+  get formState(): VertexFormState | undefined {
+    const vertex = this.currentVertex;
+    if (!vertex) return (this.data.formState = undefined);
+    if (this.data.formState?.vertex.key !== vertex.key) {
+      this.data.formState = useDispatchable(() => VertexFormState.create(vertex));
+    }
+    return this.data.formState;
   }
 
   get vertexNames() {

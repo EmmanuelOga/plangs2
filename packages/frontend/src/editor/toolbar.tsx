@@ -27,7 +27,12 @@ export function EditorToolbar({ state }: { state: EditorMainState }) {
           {state.mainTab === "edit" && (
             <div class="flex flex-row">
               <div class="grid max-w-fit grid-cols-3 gap-4 bg-secondary px-2 sm:px-6">
-                <EditorButton label="FORM" isCurrent={() => state.tab === "form"} onClick={() => state.doSetTab("form")} />
+                <EditorButton
+                  label="FORM"
+                  isCurrent={() => state.tab === "form"}
+                  onClick={() => state.doSetTab("form")}
+                  hilight={state.formState?.dirty}
+                />
                 <EditorButton label="JSON" isCurrent={() => state.tab === "json"} onClick={() => state.doSetTab("json")} />
                 <EditorButton label="RELS" isCurrent={() => state.tab === "relations"} onClick={() => state.doSetTab("relations")} />
               </div>

@@ -1,16 +1,12 @@
 import type { ComponentChildren } from "preact";
 
-import { useDispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { INPUT, tw } from "@plangs/frontend/auxiliar/styles";
-import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
 
 import { EditorButton } from "./button";
-import { type FormField, VertexFormState } from "./form_state";
+import type { FormField, VertexFormState } from "./form_state";
 
 /** Form to edit the _data_ of the Vertex. */
-export function VertexForm({ vertex }: { vertex: TPlangsVertex }) {
-  const state = useDispatchable(() => VertexFormState.create(vertex));
-
+export function VertexForm({ state }: { state: VertexFormState }) {
   return (
     <div class={tw("w-full", "flex flex-col gap-4 justify-self-center", "bg-secondary/25", "overflow-hidden")}>
       <header

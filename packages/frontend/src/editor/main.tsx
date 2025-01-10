@@ -37,12 +37,12 @@ export function EditorMain({ pg, pullreq }: { pg: PlangsGraph; pullreq?: PRResul
       {state.mainTab === "edit" &&
         (!state.currentVertex ? (
           <div class="size-full bg-secondary/25 p-4">Select a vertex to edit.</div>
-        ) : state.tab === "form" ? (
-          <VertexForm key={state.currentVertex.key} vertex={state.currentVertex} />
         ) : state.tab === "relations" && state.currentRel ? (
           <Relations key={state.currentVertex.key} state={state} vertex={state.currentVertex} rel={state.currentRel[1]} />
         ) : state.tab === "json" ? (
           <JsonEditor key={state.currentVertex.key} vertex={state.currentVertex} />
+        ) : state.tab === "form" && state.formState ? (
+          <VertexForm key={state.currentVertex.key} state={state.formState} />
         ) : (
           ""
         ))}

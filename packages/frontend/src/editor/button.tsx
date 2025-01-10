@@ -4,8 +4,9 @@ export function EditorButton({
   label,
   isCurrent,
   onClick,
+  hilight,
   class: klass,
-}: { label: string; class?: string; isCurrent?: () => boolean; onClick: () => void }) {
+}: { label: string; class?: string; isCurrent?: () => boolean; onClick: () => void; hilight?: boolean }) {
   const current = !!isCurrent?.();
   return (
     <button
@@ -15,7 +16,7 @@ export function EditorButton({
         "inline-flex",
         "border-1",
         current ? "border-primary" : "border-primary/75",
-        current ? "current bg-primary/90 text-hilitef" : "bg-background",
+        hilight ? "bg-hiliteb text-hilitef" : current ? "current bg-primary/90 text-hilitef" : "bg-background",
         "cursor-pointer hover:bg-hiliteb hover:text-hilitef",
         klass,
       )}
