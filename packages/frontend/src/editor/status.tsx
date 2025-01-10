@@ -69,7 +69,7 @@ export function Status({ pullreq }: { pullreq?: PRResult }) {
 
       <h3>Pull Requests</h3>
       <p>If you have made any changes to the graph, you can create a pull request to add them back to the project.</p>
-      <p>This will require Github authentication to access to create a public for of Plangs on your account.</p>
+      <p>This will require Github authentication the first time (we only request access to public repositories).</p>
 
       <div class="flex flex-row gap-4">
         <EditorButton label="Create Pull Request" onClick={() => initiateGitHubAuth("https://plangs.page/edit")} />
