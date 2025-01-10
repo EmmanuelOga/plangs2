@@ -4,19 +4,19 @@ import { tw } from "@plangs/frontend/auxiliar/styles";
 import { PlangsGraph } from "@plangs/plangs/graph";
 
 import { localEditsData } from ".";
+import { VertexForm } from "./form";
 import { JsonEditor } from "./json";
 import { Relations } from "./relations";
 import { type AnyRel, EditorMainState } from "./state";
 import { Status } from "./status";
 import { EditorToolbar } from "./toolbar";
-import { VertexForm } from "./vertex-form";
 
 /** Top level of the editor: information, editing and exporting. */
 export function EditorMain({ pg, pullreq }: { pg: PlangsGraph; pullreq?: PRResult }) {
   const state = useDispatchable(() => {
     // The editor always works with a local copy of the graph.
     const pgCopy = new PlangsGraph().loadJSON(localEditsData(pg));
-    const py = pgCopy.plang.get("pl+python");
+    const py = undefined; // pgCopy.plang.get("pl+python");
     return new EditorMainState({
       pg: pgCopy,
       mainTab: "edit",
@@ -36,7 +36,7 @@ export function EditorMain({ pg, pullreq }: { pg: PlangsGraph; pullreq?: PRResul
       {state.mainTab === "status" && <Status pullreq={pullreq} />}
       {state.mainTab === "edit" &&
         (!state.currentVertex ? (
-          "Select a vertex to edit."
+          <div class="size-full bg-secondary/25 p-4">Select a vertex to edit.</div>
         ) : state.tab === "form" ? (
           <VertexForm key={state.currentVertex.key} vertex={state.currentVertex} />
         ) : state.tab === "relations" && state.currentRel ? (

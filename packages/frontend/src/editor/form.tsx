@@ -5,7 +5,7 @@ import { INPUT, tw } from "@plangs/frontend/auxiliar/styles";
 import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
 
 import { EditorButton } from "./button";
-import { type FormField, VertexFormState } from "./vertex-form-state";
+import { type FormField, VertexFormState } from "./form_state";
 
 /** Form to edit the _data_ of the Vertex. */
 export function VertexForm({ vertex }: { vertex: TPlangsVertex }) {
@@ -13,8 +13,8 @@ export function VertexForm({ vertex }: { vertex: TPlangsVertex }) {
 
   return (
     <div class={tw("w-full", "flex flex-col gap-4 justify-self-center", "bg-secondary/25")}>
-      <header class={tw("px-4 py-2", "flex flex-row gap-4", "items-center align-middle", "bg-secondary/50", "text-center text-xl")}>
-        <div children={`${vertex.name}: ${vertex.vertexName} (${vertex.key})`} />
+      <header class={tw("px-2 sm:py-2", "flex flex-row gap-4", "items-center align-middle", "bg-secondary/50")}>
+        <div class="text-xl" children={"Vertex Form"} />
         <div class="flex-1" />
         {EditorButton({ label: "Reload", onClick: () => state.doReload() })}
         {EditorButton({ label: "Save", onClick: () => state.doSave() })}

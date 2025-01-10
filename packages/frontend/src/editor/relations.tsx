@@ -23,9 +23,9 @@ export function Relations({ state, vertex, rel }: { state: EditorMainState; vert
   }
 
   return (
-    <div class={tw("flex-1", "flex flex-col gap-4", "bg-primary/10", "overflow-hidden")}>
-      <header class={tw("px-4 py-2", "flex flex-row gap-4", "items-center align-middle", "bg-secondary/50", "text-center text-xl")}>
-        <div children={`${vertex.name}: ${vertex.vertexName} (${vertex.key}) / ${rel.edgeDesc}`} />
+    <div class={tw("flex-1", "flex flex-col sm:gap-4", "bg-primary/10", "overflow-hidden")}>
+      <header class={tw("px-2 sm:py-2", "flex flex-row gap-4", "items-center align-middle", "bg-secondary/50")}>
+        <div class="text-xl" children={rel.edgeDesc} />
       </header>
 
       <div class={tw("flex flex-row gap-4", "p-2")}>
@@ -33,7 +33,7 @@ export function Relations({ state, vertex, rel }: { state: EditorMainState; vert
         <h2 class="flex-1 uppercase">Unrelated</h2>
       </div>
 
-      <div class={tw("flex flex-row gap-4", "overflow-hidden", "p-2")}>
+      <div class={tw("flex flex-row sm:gap-4", "overflow-hidden", "sm:p-2")}>
         {renderGroup(CLOSE, related, v => {
           rel.remove(v.key);
           updateLocalEdits(vertex.graph.toJSON());
@@ -54,7 +54,7 @@ function renderGroup(icon: ComponentChildren, vgroup: TPlangsVertex[], action: (
     <div class={tw("mr-2 flex-1 p-1", VSCROLL)}>
       {[...groupBy(vgroup, v => v.name[0].toLowerCase()).entries()].map(([name, vertices]) => (
         <div key={name} class={tw("mr-4 mb-4", "flex flex-row items-center gap-4 align-middle", "ring-1 ring-primary/15", "hover:bg-hiliteb/10")}>
-          <h3 class="w-4 p-4 pr-5 text-foreground text-xl! uppercase" style="color: var(--color-foreground) !important;">
+          <h3 class="hidden w-4 p-4 pr-5 text-foreground text-xl! uppercase sm:block" style="color: var(--color-foreground) !important;">
             {name}
           </h3>
           <div class="flex flex-1 flex-row flex-wrap">

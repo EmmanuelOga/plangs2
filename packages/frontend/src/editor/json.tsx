@@ -36,8 +36,8 @@ export function JsonEditor({ vertex }: { vertex: TPlangsVertex }): ComponentChil
 
   return (
     <div class={tw("size-full", "flex flex-col gap-4 justify-self-center", "bg-secondary/25")}>
-      <header class={tw("px-4 py-2", "flex flex-row gap-4", "items-center align-middle", "bg-secondary/50", "text-center text-xl")}>
-        <div children={`${vertex.name}: ${vertex.vertexName} (${vertex.key}) / Full Vertex Data`} />
+      <header class={tw("px-2 sm:py-2", "flex flex-row gap-4", "items-center align-middle", "bg-secondary/50")}>
+        <div class="text-xl" children={"Vertex JSON"} />
         <div class="flex-1" />
         <EditorButton label="Reload" onClick={reload} />
         <EditorButton label="Save" onClick={save} />
