@@ -10,6 +10,7 @@ export class EditorMainState extends Dispatchable<{
   currentKind: TPlangsVertexName;
   currentVertex?: TPlangsVertex;
   currentRel?: [key: string, rel: AnyRel];
+  mainTab: "status" | "edit";
   tab: "form" | "relations" | "json";
 }> {
   doSetCurrentKind(name: TPlangsVertexName) {
@@ -49,6 +50,15 @@ export class EditorMainState extends Dispatchable<{
   doSetRel(rel: [string, AnyRel]): void {
     this.data.currentRel = rel;
     this.dispatch();
+  }
+
+  doSetMainTab(tab: "status" | "edit"): void {
+    this.data.mainTab = tab;
+    this.dispatch();
+  }
+
+  get mainTab() {
+    return this.data.mainTab;
   }
 
   get currentKind() {

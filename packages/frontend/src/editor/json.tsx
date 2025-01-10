@@ -15,7 +15,7 @@ export function JsonEditor({ vertex }: { vertex: TPlangsVertex }): ComponentChil
 
   const reload = () => {
     if (textarea.current) textarea.current.value = vertexJson();
-    setStatus(`Reloadad at ${new Date().toLocaleTimeString()}`);
+    setStatus("");
   };
 
   const save = () => {
@@ -42,8 +42,8 @@ export function JsonEditor({ vertex }: { vertex: TPlangsVertex }): ComponentChil
         <EditorButton label="Reload" onClick={reload} />
         <EditorButton label="Save" onClick={save} />
       </header>
-      <div class="text-center">{status}</div>
-      <textarea ref={textarea} class={tw(INPUT, "m-4", "text-xl", "flex-1 overflow-hidden overflow-y-auto")} style={"font-family: monospace;"} />
+      {status && <div class="text-center">{status}</div>}
+      <textarea ref={textarea} class={tw(INPUT, "m-4 mt-0", "text-xl", "flex-1 overflow-hidden overflow-y-auto")} style={"font-family: monospace;"} />
     </div>
   );
 }
