@@ -15,17 +15,20 @@ export class EditorMainState extends Dispatchable<{
   tab: "form" | "relations" | "json";
   formState: VertexFormState | undefined;
 }> {
-  doSetCurrentKind(name: TPlangsVertexName) {
+  doSetCurrentKind(name: TPlangsVertexName): boolean {
+    if (this.checkDirty() === "abort") return false;
     this.data.currentKind = name;
     const v = this.data.pg[name].values.next().value as TPlangsVertex;
-    return this.doSetCurrentVertex(v);
+    this.doSetCurrentVertex(v, false);
+    return true;
   }
 
-  doSetCurrentVertex(vref: TPlangsVertex | string) {
+  doSetCurrentVertex(vref: TPlangsVertex | string, checkDirty = true): boolean {
+    if (checkDirty && this.checkDirty() === "abort") return false;
     const v = typeof vref === "string" ? this.data.pg[this.data.currentKind].get(vref as any) : vref;
     if (!v) {
       console.error(`Vertex not found: ${vref}`);
-      return;
+      return false;
     }
 
     this.data.currentVertex = v;
@@ -42,6 +45,7 @@ export class EditorMainState extends Dispatchable<{
       }
     }
     this.dispatch();
+    return true;
   }
 
   doSetTab(tab: "form" | "relations" | "json"): void {
@@ -57,6 +61,11 @@ export class EditorMainState extends Dispatchable<{
   doSetMainTab(tab: "status" | "edit"): void {
     this.data.mainTab = tab;
     this.dispatch();
+  }
+
+  checkDirty(): "abort" | "continue" {
+    if (this.data.formState?.dirty && !confirm("Discard changes?")) return "abort";
+    return "continue";
   }
 
   get mainTab() {
@@ -83,6 +92,9 @@ export class EditorMainState extends Dispatchable<{
     return this.data.tab;
   }
 
+  // TODO: Nesting dispatchables may create hairy situations with the dispatching mechanism.
+  // Perhaps it would be better to compose dispatchables in such way that we only call useDispatchable
+  // on the top-level component.
   get formState(): VertexFormState | undefined {
     const vertex = this.currentVertex;
     if (!vertex) return (this.data.formState = undefined);

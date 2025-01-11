@@ -60,7 +60,16 @@ const selVertex = (state: EditorMainState, klass: string) => (
     <label for="editor-kind" class="hidden flex-row items-center gap-2 py-1 pl-1 text-background sm:inline-flex">
       Kind
     </label>
-    <select id="editor-kind" class={tw(INPUT)} onChange={ev => state.doSetCurrentKind(ev.currentTarget.value as TPlangsVertexName)}>
+    <select
+      id="editor-kind"
+      class={tw(INPUT)}
+      onChange={ev => {
+        const select = ev.currentTarget;
+        if (!state.doSetCurrentKind(select.value as TPlangsVertexName)) {
+          ev.preventDefault();
+          select.value = state.currentKind;
+        }
+      }}>
       {state.vertexNames.map(vn => (
         <option key={vn} value={vn} selected={state.currentKind === vn} children={vn} />
       ))}
@@ -68,7 +77,16 @@ const selVertex = (state: EditorMainState, klass: string) => (
     <label for="editor-vertex" class="hidden flex-row items-center gap-2 py-1 pl-1 text-background sm:inline-flex">
       Vertex
     </label>
-    <select id="editor-vertex" class={INPUT} onChange={({ currentTarget: sel }) => state.doSetCurrentVertex(sel.value)}>
+    <select
+      id="editor-vertex"
+      class={INPUT}
+      onChange={ev => {
+        const select = ev.currentTarget;
+        if (!state.doSetCurrentVertex(select.value)) {
+          ev.preventDefault();
+          select.value = state.currentVertex?.key || "";
+        }
+      }}>
       {state.currentVertices.map(v => (
         <option key={v.key} selected={state.currentVertex?.key === v.key} value={v.key} children={v.name} />
       ))}
