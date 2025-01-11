@@ -19,11 +19,12 @@ export function EditorMain({ pg, pullreq }: { pg: PlangsGraph; pullreq?: PRResul
     const py = pgCopy.plang.get("pl+python");
     return new EditorMainState({
       pg: pgCopy,
-      mainTab: "edit",
+      mainTab: "status",
       currentKind: "plang",
       currentVertex: py,
-      tab: "form",
+      tab: "relations",
       currentRel: !py ? undefined : ["relInfluencedBy", py?.relations.get("relInfluencedBy") as AnyRel],
+      formState: undefined,
     });
   });
 
@@ -33,7 +34,7 @@ export function EditorMain({ pg, pullreq }: { pg: PlangsGraph; pullreq?: PRResul
 
       <EditorToolbar state={state} />
 
-      {state.mainTab === "status" && <Status pullreq={pullreq} />}
+      {state.mainTab === "status" && <Status pg={pg} pullreq={pullreq} />}
       {state.mainTab === "edit" &&
         (!state.currentVertex ? (
           <div class="size-full bg-secondary/25 p-4">Select a vertex to edit.</div>

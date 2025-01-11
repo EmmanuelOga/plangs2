@@ -1,14 +1,16 @@
 import type { ComponentChildren } from "preact";
 import { useState } from "preact/hooks";
 
-import { type PRResult, initiateGitHubAuth } from "@plangs/frontend/app/github";
+import { type PRResult, generateCodeDiff, initiateGitHubAuth } from "@plangs/frontend/app/github";
 import { getStore } from "@plangs/frontend/auxiliar/storage";
 import { PROSE_BASIC, tw } from "@plangs/frontend/auxiliar/styles";
+import { Pill } from "@plangs/frontend/components/misc/pill";
+import type { PlangsGraph } from "@plangs/plangs/graph";
 
 import { toggleLocalEdits, updateLocalEdits } from ".";
 import { EditorButton } from "./button";
 
-export function Status({ pullreq }: { pullreq?: PRResult }) {
+export function Status({ pg, pullreq }: { pg: PlangsGraph; pullreq?: PRResult }) {
   const store = getStore("_any_page_");
   const [modeMsg, setModeMsg] = useState<string | undefined>();
   const [resetMsg, setResetMsg] = useState<string | undefined>();
@@ -27,6 +29,7 @@ export function Status({ pullreq }: { pullreq?: PRResult }) {
     pullreqMsg = "No changes to create PR.";
   }
 
+  const diffKeys = Object.keys(generateCodeDiff(pg) ?? {});
   return (
     <div class={tw(PROSE_BASIC, "p-2", "overflow-y-auto")}>
       <h3 class="mt-0!">Local Edits</h3>
@@ -53,6 +56,17 @@ export function Status({ pullreq }: { pullreq?: PRResult }) {
         </label>
         {modeMsg && <div class="text-primary">{modeMsg}</div>}
       </div>
+
+      {diffKeys.length > 0 && (
+        <div class="mt-4">
+          Local definitions:
+          <div class={tw("flex flex-row flex-wrap", "mt-2 bg-secondary/10 p-4 ring-1 ring-primary/15")}>
+            {diffKeys.map(key => (
+              <Pill key={key} class="text-primary" children={key} />
+            ))}
+          </div>
+        </div>
+      )}
 
       <h3>Reset</h3>
       <p>Go back to a clean slate: you will lose your edits.</p>
