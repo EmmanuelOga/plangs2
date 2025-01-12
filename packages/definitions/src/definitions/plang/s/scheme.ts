@@ -27,9 +27,11 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+bsd")
     .relParadigms.add(
       "para+functional",
+      "para+general-purpose",
       "para+imperative",
       "para+metaprogramming",
       "para+multi",
+      "para+symbolic",
     )
     .relPlatforms.add("plat+cross")
     .relTags.add(

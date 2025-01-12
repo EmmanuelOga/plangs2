@@ -28,7 +28,12 @@ export function define(g: PlangsGraph) {
       stackovTags: ["xslt"],
     })
     .relInfluencedBy.add("pl+boomerang")
-    .relParadigms.add("para+declarative", "para+dsl")
+    .relParadigms.add(
+      "para+declarative",
+      "para+dsl",
+      "para+pattern-matching",
+      "para+pipeline",
+    )
     .relPlatforms.add("plat+cross", "plat+java")
     .relTags.add(
       "tag+analysis",

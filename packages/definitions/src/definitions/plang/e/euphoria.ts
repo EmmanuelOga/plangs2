@@ -27,7 +27,11 @@ export function define(g: PlangsGraph) {
     })
     .relInfluencedBy.add("pl+basic")
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+imperative", "para+procedural")
+    .relParadigms.add(
+      "para+general-purpose",
+      "para+imperative",
+      "para+procedural",
+    )
     .relPlatforms.add(
       "plat+apple",
       "plat+bsd",

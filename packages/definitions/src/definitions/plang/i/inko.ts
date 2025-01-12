@@ -21,6 +21,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+mit", "lic+mpl")
     .relParadigms.add(
       "para+concurrent",
+      "para+general-purpose",
       "para+message-passing",
       "para+multi",
       "para+oop",

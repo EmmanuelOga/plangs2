@@ -47,10 +47,13 @@ export function define(g: PlangsGraph) {
       "pl+python",
       "pl+r5rs",
       "pl+scheme",
+      "pl+smalltalk",
     )
     .relLicenses.add("lic+bsd", "lic+mit")
     .relParadigms.add(
+      "para+dsl",
       "para+functional",
+      "para+general-purpose",
       "para+imperative",
       "para+multi",
       "para+oop",

@@ -27,6 +27,8 @@ export function define(g: PlangsGraph) {
     .relInfluencedBy.add("pl+lua")
     .relLicenses.add("lic+mit")
     .relParadigms.add(
+      "para+embedded",
+      "para+general-purpose",
       "para+imperative",
       "para+multi",
       "para+oop",

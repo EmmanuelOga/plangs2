@@ -21,7 +21,11 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add("pl+forth")
     .relLicenses.add("lic+gnu-gpl")
-    .relParadigms.add("para+procedural", "para+stack-oriented")
+    .relParadigms.add(
+      "para+general-purpose",
+      "para+procedural",
+      "para+stack-oriented",
+    )
     .relPlatforms.add("plat+cross", "plat+dos", "plat+linux", "plat+windows")
     .relTags.add("tag+interpreters")
     .relTypeSystems.add("tsys+untyped")

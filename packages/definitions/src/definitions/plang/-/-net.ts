@@ -15,7 +15,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: ".NET",
       githubPopular: true,
       githubStars: 14500,
-      isTranspiler: false,
+      isTranspiler: true,
       keywords: [".net", "dotnet"],
       releases: [
         { version: "7.0", name: ".NET 7", date: "2022-09-08" },
@@ -23,14 +23,17 @@ export function define(g: PlangsGraph) {
         { version: "9.0", name: ".NET 9", date: "2024-09-12" },
       ],
     })
+    .relCompilesTo.add("pl+webassembly")
     .relImplements.add("pl+c-sharp", "pl+f-sharp", "pl+visual-basic")
     .relInfluencedBy.add("pl+java")
     .relLicenses.add("lic+mit")
     .relParadigms.add(
       "para+concurrent",
       "para+functional",
+      "para+general-purpose",
       "para+multi",
       "para+oop",
+      "para+parallel",
     )
     .relPlatforms.add(
       "plat+.net",

@@ -29,6 +29,7 @@ export function define(g: PlangsGraph) {
       "para+imperative",
       "para+metaprogramming",
       "para+multi",
+      "para+symbolic",
     )
     .relPlatforms.add("plat+cross")
     .relTags.add(

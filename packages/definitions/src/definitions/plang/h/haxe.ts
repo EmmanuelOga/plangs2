@@ -45,7 +45,12 @@ export function define(g: PlangsGraph) {
       "pl+python",
     )
     .relLicenses.add("lic+gnu-gpl", "lic+mit")
-    .relParadigms.add("para+functional", "para+multi", "para+oop")
+    .relParadigms.add(
+      "para+functional",
+      "para+general-purpose",
+      "para+multi",
+      "para+oop",
+    )
     .relPlatforms.add(
       "plat+android",
       "plat+apple",

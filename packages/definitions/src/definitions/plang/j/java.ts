@@ -34,9 +34,11 @@ export function define(g: PlangsGraph) {
       "para+compiled",
       "para+concurrent",
       "para+functional",
+      "para+general-purpose",
       "para+imperative",
       "para+multi",
       "para+oop",
+      "para+parallel",
       "para+reflective",
     )
     .relPlatforms.add(

@@ -21,8 +21,10 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+bsd", "lic+lgpl")
     .relParadigms.add(
       "para+event-driven",
+      "para+general-purpose",
       "para+interpreted",
       "para+oop",
+      "para+reflective",
       "para+scripting",
     )
     .relPlatforms.add("plat+apple", "plat+arm", "plat+linux", "plat+windows")

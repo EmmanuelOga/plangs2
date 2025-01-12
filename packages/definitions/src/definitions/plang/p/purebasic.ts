@@ -27,7 +27,12 @@ export function define(g: PlangsGraph) {
     .relDialectOf.add("pl+basic")
     .relImplements.add("pl+basic")
     .relLicenses.add("lic+proprietary")
-    .relParadigms.add("para+imperative", "para+procedural", "para+structured")
+    .relParadigms.add(
+      "para+general-purpose",
+      "para+imperative",
+      "para+procedural",
+      "para+structured",
+    )
     .relPlatforms.add(
       "plat+apple",
       "plat+linux",

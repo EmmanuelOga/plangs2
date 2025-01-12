@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
     })
     .relInfluencedBy.add("pl+apl")
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+oop", "para+prototype")
+    .relParadigms.add("para+general-purpose", "para+oop", "para+prototype")
     .relPlatforms.add("plat+apple", "plat+cross", "plat+windows")
     .relTags.add(
       "tag+4gl",

@@ -30,7 +30,13 @@ export function define(g: PlangsGraph) {
       stackovTags: ["bash"],
     })
     .relLicenses.add("lic+gnu-gpl")
-    .relParadigms.add("para+imperative", "para+procedural", "para+scripting")
+    .relParadigms.add(
+      "para+general-purpose",
+      "para+imperative",
+      "para+pipeline",
+      "para+procedural",
+      "para+scripting",
+    )
     .relPlatforms.add(
       "plat+apple",
       "plat+bsd",

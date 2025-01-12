@@ -36,7 +36,12 @@ export function define(g: PlangsGraph) {
     })
     .relInfluencedBy.add("pl+c")
     .relLicenses.add("lic+apsl")
-    .relParadigms.add("para+oop", "para+procedural", "para+reflective")
+    .relParadigms.add(
+      "para+general-purpose",
+      "para+oop",
+      "para+procedural",
+      "para+reflective",
+    )
     .relPlatforms.add("plat+apple", "plat+cross")
     .relTypeSystems.add(
       "tsys+dynamic",

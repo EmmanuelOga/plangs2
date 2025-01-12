@@ -30,6 +30,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+gnu-gpl", "lic+lgpl")
     .relParadigms.add(
       "para+compiled",
+      "para+general-purpose",
       "para+multi",
       "para+oop",
       "para+procedural",

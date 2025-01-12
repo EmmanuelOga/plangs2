@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       githubPopular: true,
       githubStars: 124500,
       githubType: "programming",
-      isTranspiler: false,
+      isTranspiler: true,
       keywords: ["go", "golang"],
       languishRanking: 8,
       releases: [
@@ -29,6 +29,7 @@ export function define(g: PlangsGraph) {
       ],
       stackovTags: ["go"],
     })
+    .relCompilesTo.add("pl+webassembly")
     .relInfluencedBy.add(
       "pl+apl",
       "pl+c",
@@ -41,6 +42,7 @@ export function define(g: PlangsGraph) {
     .relParadigms.add(
       "para+concurrent",
       "para+functional",
+      "para+general-purpose",
       "para+imperative",
       "para+multi",
       "para+oop",

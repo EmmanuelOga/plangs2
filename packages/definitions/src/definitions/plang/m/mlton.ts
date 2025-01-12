@@ -32,6 +32,7 @@ export function define(g: PlangsGraph) {
     .relParadigms.add(
       "para+compiled",
       "para+functional",
+      "para+general-purpose",
       "para+imperative",
       "para+multi",
     )

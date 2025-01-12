@@ -22,7 +22,12 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add("pl+fortran")
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+compiled", "para+procedural", "para+scientific")
+    .relParadigms.add(
+      "para+compiled",
+      "para+general-purpose",
+      "para+procedural",
+      "para+scientific",
+    )
     .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")
     .relTags.add(
       "tag+3dg",

@@ -33,6 +33,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+public-domain")
     .relParadigms.add(
       "para+concatenative",
+      "para+general-purpose",
       "para+procedural",
       "para+reflective",
       "para+stack-oriented",

@@ -28,6 +28,7 @@ export function define(g: PlangsGraph) {
     .relInfluencedBy.add("pl+fortran")
     .relLicenses.add("lic+public-domain")
     .relParadigms.add(
+      "para+general-purpose",
       "para+imperative",
       "para+oop",
       "para+procedural",

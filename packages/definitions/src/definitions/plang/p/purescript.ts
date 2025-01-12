@@ -29,7 +29,11 @@ export function define(g: PlangsGraph) {
     .relCompilesTo.add("pl+javascript")
     .relInfluencedBy.add("pl+haskell", "pl+javascript")
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+declarative", "para+functional")
+    .relParadigms.add(
+      "para+declarative",
+      "para+functional",
+      "para+general-purpose",
+    )
     .relPlatforms.add("plat+cross", "plat+nodejs")
     .relTags.add("tag+app", "tag+compiler", "tag+editor", "tag+interpreters")
     .relTypeSystems.add(

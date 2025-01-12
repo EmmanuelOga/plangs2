@@ -20,17 +20,19 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubStars: 35400,
       githubType: "programming",
-      isTranspiler: false,
+      isTranspiler: true,
       keywords: ["zig"],
       languishRanking: 52,
       releases: [{ version: "0.13.0", name: "Zig 0.13.0", date: "2024-06-06" }],
       stackovTags: ["zig"],
     })
+    .relCompilesTo.add("pl+webassembly")
     .relInfluencedBy.add("pl+c", "pl+c++", "pl+go", "pl+javascript", "pl+rust")
     .relLicenses.add("lic+mit")
     .relParadigms.add(
       "para+concurrent",
       "para+functional",
+      "para+general-purpose",
       "para+imperative",
       "para+multi",
       "para+procedural",

@@ -28,6 +28,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+apache")
     .relParadigms.add(
       "para+functional",
+      "para+general-purpose",
       "para+imperative",
       "para+logic",
       "para+multi",

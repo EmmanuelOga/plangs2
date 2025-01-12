@@ -27,6 +27,7 @@ export function define(g: PlangsGraph) {
     .relInfluencedBy.add("pl+lisp", "pl+r5rs", "pl+scheme")
     .relParadigms.add(
       "para+functional",
+      "para+general-purpose",
       "para+metaprogramming",
       "para+multi",
       "para+oop",

@@ -12,5 +12,6 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://json-schema.org/",
       isTranspiler: false,
     })
+    .relParadigms.add("para+validation")
     .relTags.add("tag+webdev");
 }

@@ -43,7 +43,12 @@ export function define(g: PlangsGraph) {
       "pl+rust",
     )
     .relLicenses.add("lic+apache")
-    .relParadigms.add("para+concurrent", "para+functional", "para+multi")
+    .relParadigms.add(
+      "para+concurrent",
+      "para+functional",
+      "para+general-purpose",
+      "para+multi",
+    )
     .relPlatforms.add(
       "plat+apple",
       "plat+beam",

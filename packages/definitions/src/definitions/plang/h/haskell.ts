@@ -44,6 +44,7 @@ export function define(g: PlangsGraph) {
       "para+concurrent",
       "para+declarative",
       "para+functional",
+      "para+general-purpose",
       "para+lazy",
     )
     .relPlatforms.add("plat+bsd", "plat+cross", "plat+linux", "plat+windows")

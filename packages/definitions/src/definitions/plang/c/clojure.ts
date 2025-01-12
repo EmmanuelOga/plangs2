@@ -44,11 +44,16 @@ export function define(g: PlangsGraph) {
     .relParadigms.add(
       "para+agents",
       "para+concurrent",
+      "para+exp-oriented",
+      "para+extensible",
       "para+functional",
+      "para+general-purpose",
       "para+logic",
       "para+macro",
       "para+multi",
+      "para+multi-dispatch",
       "para+pipeline",
+      "para+protocol",
     )
     .relPlatforms.add("plat+cross", "plat+java", "plat+nodejs")
     .relTags.add(

@@ -17,7 +17,12 @@ export function define(g: PlangsGraph) {
     .relDialectOf.add("pl+prolog")
     .relInfluencedBy.add("pl+haskell", "pl+prolog")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+declarative", "para+functional", "para+logic")
+    .relParadigms.add(
+      "para+declarative",
+      "para+functional",
+      "para+general-purpose",
+      "para+logic",
+    )
     .relPlatforms.add("plat+bsd", "plat+linux", "plat+windows")
     .relTypeSystems.add("tsys+algebraic", "tsys+static", "tsys+strong");
 }

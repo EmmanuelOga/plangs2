@@ -22,7 +22,12 @@ export function define(g: PlangsGraph) {
       languishRanking: 72,
       stackovTags: ["pascal"],
     })
-    .relParadigms.add("para+imperative", "para+procedural", "para+structured")
+    .relParadigms.add(
+      "para+general-purpose",
+      "para+imperative",
+      "para+procedural",
+      "para+structured",
+    )
     .relPlatforms.add(
       "plat+bsd",
       "plat+cross",

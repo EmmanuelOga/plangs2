@@ -24,10 +24,12 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+gnu-gpl", "lic+lgpl", "lic+mit")
     .relParadigms.add(
       "para+functional",
+      "para+general-purpose",
       "para+metaprogramming",
       "para+multi",
       "para+procedural",
       "para+reflective",
+      "para+symbolic",
     )
     .relPlatforms.add("plat+cross")
     .relTags.add(

@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       ],
     })
     .relInfluencedBy.add("pl+xslt")
-    .relParadigms.add("para+query")
+    .relParadigms.add("para+pattern-matching", "para+query")
     .relPlatforms.add("plat+cross")
     .relTags.add("tag+automation", "tag+dataflow", "tag+workflow");
 }

@@ -22,7 +22,15 @@ export function define(g: PlangsGraph) {
         },
       ],
     })
-    .relParadigms.add("para+interpreted", "para+oop", "para+reflective")
+    .relParadigms.add(
+      "para+agents",
+      "para+data-hiding",
+      "para+general-purpose",
+      "para+interpreted",
+      "para+message-passing",
+      "para+oop",
+      "para+reflective",
+    )
     .relPlatforms.add("plat+cross")
     .relTags.add("tag+edu")
     .relTypeSystems.add("tsys+duck", "tsys+dynamic");

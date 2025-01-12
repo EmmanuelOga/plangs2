@@ -21,7 +21,12 @@ export function define(g: PlangsGraph) {
     .relImplements.add("pl+python")
     .relInfluencedBy.add("pl+java", "pl+python")
     .relLicenses.add("lic+apache", "lic+python")
-    .relParadigms.add("para+interpreted", "para+oop", "para+scripting")
+    .relParadigms.add(
+      "para+general-purpose",
+      "para+interpreted",
+      "para+oop",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+cross", "plat+java")
     .relTags.add("tag+interpreters")
     .relTypeSystems.add("tsys+duck", "tsys+dynamic", "tsys+object")

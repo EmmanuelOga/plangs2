@@ -26,7 +26,12 @@ export function define(g: PlangsGraph) {
       stackovTags: ["xproc"],
     })
     .relInfluencedBy.add("pl+xml")
-    .relParadigms.add("para+declarative", "para+dsl", "para+pipeline")
+    .relParadigms.add(
+      "para+declarative",
+      "para+dsl",
+      "para+pattern-matching",
+      "para+pipeline",
+    )
     .relPlatforms.add("plat+cross")
     .relTags.add("tag+dataflow", "tag+workflow")
     .relTypeSystems.add("tsys+dynamic");

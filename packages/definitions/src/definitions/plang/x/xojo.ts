@@ -40,7 +40,12 @@ export function define(g: PlangsGraph) {
     .relImplements.add("pl+basic")
     .relInfluencedBy.add("pl+basic", "pl+visual-basic")
     .relLicenses.add("lic+proprietary")
-    .relParadigms.add("para+multi", "para+oop", "para+visual")
+    .relParadigms.add(
+      "para+general-purpose",
+      "para+multi",
+      "para+oop",
+      "para+visual",
+    )
     .relPlatforms.add(
       "plat+android",
       "plat+apple",

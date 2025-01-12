@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       githubPopular: true,
       githubStars: 99400,
       githubType: "programming",
-      isTranspiler: false,
+      isTranspiler: true,
       keywords: [
         "concurrency",
         "memory safety",
@@ -35,6 +35,7 @@ export function define(g: PlangsGraph) {
       ],
       stackovTags: ["rust"],
     })
+    .relCompilesTo.add("pl+webassembly")
     .relInfluencedBy.add(
       "pl+c",
       "pl+c++",
@@ -57,6 +58,7 @@ export function define(g: PlangsGraph) {
       "para+compiled",
       "para+concurrent",
       "para+functional",
+      "para+general-purpose",
       "para+imperative",
       "para+multi",
       "para+structured",

@@ -30,7 +30,7 @@ export function define(g: PlangsGraph) {
     .relImplements.add("pl+c", "pl+c++", "pl+objective-c")
     .relInfluencedBy.add("pl+llvm")
     .relLicenses.add("lic+apache")
-    .relParadigms.add("para+compiled", "para+multi")
+    .relParadigms.add("para+compiled", "para+general-purpose", "para+multi")
     .relPlatforms.add(
       "plat+apple",
       "plat+arm",

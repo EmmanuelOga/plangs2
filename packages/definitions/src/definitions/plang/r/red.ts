@@ -30,6 +30,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+boost", "lic+bsd")
     .relParadigms.add(
       "para+functional",
+      "para+general-purpose",
       "para+imperative",
       "para+multi",
       "para+symbolic",

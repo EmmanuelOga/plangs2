@@ -25,7 +25,11 @@ export function define(g: PlangsGraph) {
       stackovTags: ["sed"],
     })
     .relLicenses.add("lic+public-domain")
-    .relParadigms.add("para+procedural", "para+scripting")
+    .relParadigms.add(
+      "para+pattern-matching",
+      "para+procedural",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+bsd", "plat+cross", "plat+linux")
     .relTags.add("tag+cli", "tag+editor", "tag+scripting", "tag+shell")
     .relTypeSystems.add("tsys+untyped")

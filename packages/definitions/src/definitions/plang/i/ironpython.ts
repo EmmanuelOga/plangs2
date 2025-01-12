@@ -21,6 +21,7 @@ export function define(g: PlangsGraph) {
     .relInfluencedBy.add("pl+.net", "pl+c-sharp")
     .relLicenses.add("lic+apache")
     .relParadigms.add(
+      "para+general-purpose",
       "para+imperative",
       "para+multi",
       "para+oop",

@@ -47,6 +47,7 @@ export function define(g: PlangsGraph) {
       "para+agents",
       "para+concurrent",
       "para+functional",
+      "para+general-purpose",
       "para+imperative",
       "para+metaprogramming",
       "para+multi",

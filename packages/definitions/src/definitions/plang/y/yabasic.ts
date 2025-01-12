@@ -27,7 +27,12 @@ export function define(g: PlangsGraph) {
     .relImplements.add("pl+basic")
     .relInfluencedBy.add("pl+basic")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+interpreted", "para+procedural", "para+scripting")
+    .relParadigms.add(
+      "para+general-purpose",
+      "para+interpreted",
+      "para+procedural",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+linux", "plat+windows")
     .relTags.add("tag+games", "tag+gui", "tag+interpreters", "tag+scripting")
     .relTypeSystems.add("tsys+dynamic", "tsys+weak")

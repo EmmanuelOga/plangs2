@@ -30,7 +30,12 @@ export function define(g: PlangsGraph) {
     })
     .relInfluencedBy.add("pl+c", "pl+sed")
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+data-driven", "para+procedural", "para+scripting")
+    .relParadigms.add(
+      "para+data-driven",
+      "para+pattern-matching",
+      "para+procedural",
+      "para+scripting",
+    )
     .relPlatforms.add("plat+cross")
     .relTags.add(
       "tag+dataflow",

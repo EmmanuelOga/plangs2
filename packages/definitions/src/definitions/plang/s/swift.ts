@@ -45,6 +45,7 @@ export function define(g: PlangsGraph) {
       "para+declarative",
       "para+distributed",
       "para+functional",
+      "para+general-purpose",
       "para+imperative",
       "para+multi",
       "para+oop",

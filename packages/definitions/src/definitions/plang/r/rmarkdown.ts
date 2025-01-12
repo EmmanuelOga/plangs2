@@ -35,7 +35,12 @@ export function define(g: PlangsGraph) {
     .relCompilesTo.add("pl+html", "pl+markdown")
     .relInfluencedBy.add("pl+markdown", "pl+r")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+data-driven", "para+declarative", "para+multi")
+    .relParadigms.add(
+      "para+data-driven",
+      "para+declarative",
+      "para+markup",
+      "para+multi",
+    )
     .relPlatforms.add("plat+cross")
     .relTags.add("tag+dataq", "tag+sci", "tag+stats", "tag+workflow");
 }

@@ -11,9 +11,10 @@ export function define(g: PlangsGraph) {
       created: "2021-06",
       extGithubPath: "luc-tielen/eclair-lang",
       extHomeURL: "https://eclair-lang.org",
-      isTranspiler: false,
+      isTranspiler: true,
       keywords: ["data analysis", "dependency analysis", "logic programming"],
     })
+    .relCompilesTo.add("pl+webassembly")
     .relInfluencedBy.add("pl+souffle")
     .relLicenses.add("lic+mit")
     .relParadigms.add("para+declarative", "para+logic")

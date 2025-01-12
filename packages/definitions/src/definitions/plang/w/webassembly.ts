@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
     .relImplements.add("pl+assembly", "pl+javascript")
     .relInfluencedBy.add("pl+javascript", "pl+llvm")
     .relLicenses.add("lic+apache")
-    .relParadigms.add("para+stack-oriented", "para+structured")
+    .relParadigms.add("para+assembly", "para+stack-oriented", "para+structured")
     .relPlatforms.add("plat+cross", "plat+web")
     .relTags.add("tag+compiler");
 }

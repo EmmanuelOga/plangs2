@@ -24,6 +24,7 @@ export function define(g: PlangsGraph) {
     .relParadigms.add(
       "para+compiled",
       "para+concurrent",
+      "para+general-purpose",
       "para+procedural",
       "para+structured",
     )

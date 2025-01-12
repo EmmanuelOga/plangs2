@@ -42,6 +42,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+gnu-gpl")
     .relParadigms.add(
       "para+array",
+      "para+data-driven",
       "para+functional",
       "para+imperative",
       "para+multi",

@@ -19,7 +19,12 @@ export function define(g: PlangsGraph) {
     .relImplements.add("pl+javascript", "pl+typescript")
     .relInfluencedBy.add("pl+rust")
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+concurrent", "para+event-driven", "para+reactive")
+    .relParadigms.add(
+      "para+concurrent",
+      "para+event-driven",
+      "para+general-purpose",
+      "para+reactive",
+    )
     .relPlatforms.add(
       "plat+apple",
       "plat+cross",

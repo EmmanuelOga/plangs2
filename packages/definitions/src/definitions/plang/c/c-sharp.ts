@@ -20,12 +20,13 @@ export function define(g: PlangsGraph) {
       githubPopular: true,
       githubStars: 11600,
       githubType: "programming",
-      isTranspiler: false,
+      isTranspiler: true,
       keywords: ["c#", "c-sharp", "csharp", "dotnet"],
       languishRanking: 6,
       releases: [{ version: "12.0", name: "C# 12", date: "2023-11-14" }],
       stackovTags: ["c#"],
     })
+    .relCompilesTo.add("pl+webassembly")
     .relInfluencedBy.add(
       "pl+c",
       "pl+c++",

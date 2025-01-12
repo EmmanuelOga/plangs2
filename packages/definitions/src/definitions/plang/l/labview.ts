@@ -30,6 +30,7 @@ export function define(g: PlangsGraph) {
       "para+event-driven",
       "para+low-code",
       "para+multi",
+      "para+simulation",
       "para+visual",
     )
     .relPlatforms.add("plat+apple", "plat+cross", "plat+linux", "plat+windows")

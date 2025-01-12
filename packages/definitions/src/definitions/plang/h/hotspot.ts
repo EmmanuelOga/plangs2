@@ -26,7 +26,12 @@ export function define(g: PlangsGraph) {
     .relImplements.add("pl+java")
     .relInfluencedBy.add("pl+self")
     .relLicenses.add("lic+gnu-gpl")
-    .relParadigms.add("para+compiled", "para+concurrent", "para+interpreted")
+    .relParadigms.add(
+      "para+compiled",
+      "para+concurrent",
+      "para+general-purpose",
+      "para+interpreted",
+    )
     .relPlatforms.add(
       "plat+apple",
       "plat+bsd",

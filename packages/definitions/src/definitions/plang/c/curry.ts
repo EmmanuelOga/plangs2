@@ -28,6 +28,7 @@ export function define(g: PlangsGraph) {
       "para+constraint",
       "para+declarative",
       "para+functional",
+      "para+general-purpose",
       "para+lazy",
       "para+logic",
       "para+modular",

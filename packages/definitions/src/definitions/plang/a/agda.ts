@@ -37,7 +37,7 @@ export function define(g: PlangsGraph) {
     })
     .relInfluencedBy.add("pl+coq", "pl+haskell")
     .relLicenses.add("lic+bsd")
-    .relParadigms.add("para+functional")
+    .relParadigms.add("para+functional", "para+general-purpose")
     .relPlatforms.add("plat+cross")
     .relTags.add(
       "tag+automation",

@@ -19,13 +19,14 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubStars: 7100,
       githubType: "programming",
-      isTranspiler: false,
+      isTranspiler: true,
       keywords: ["odin", "odin-lang", "programming"],
       languishRanking: 162,
       releases: [
         { version: "0.13.0", name: "Odin 0.13.0", date: "2023-08-21" },
       ],
     })
+    .relCompilesTo.add("pl+webassembly")
     .relInfluencedBy.add("pl+c")
     .relLicenses.add("lic+mit")
     .relParadigms.add(

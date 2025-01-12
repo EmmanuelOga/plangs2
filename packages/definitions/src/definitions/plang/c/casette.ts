@@ -26,6 +26,7 @@ export function define(g: PlangsGraph) {
       "para+dsl",
       "para+event-driven",
       "para+functional",
+      "para+general-purpose",
       "para+interpreted",
     )
     .relPlatforms.add("plat+cross")

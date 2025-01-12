@@ -35,6 +35,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+bsd")
     .relParadigms.add(
       "para+functional",
+      "para+general-purpose",
       "para+logic",
       "para+multi",
       "para+pattern-matching",

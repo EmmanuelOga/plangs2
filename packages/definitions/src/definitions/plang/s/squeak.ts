@@ -40,11 +40,15 @@ export function define(g: PlangsGraph) {
       ],
       stackovTags: ["smalltalk"],
     })
+    .relImplements.add("pl+smalltalk")
     .relInfluencedBy.add("pl+lisp", "pl+self")
     .relLicenses.add("lic+apache", "lic+mit")
     .relParadigms.add(
+      "para+agents",
       "para+educational",
+      "para+general-purpose",
       "para+interpreted",
+      "para+message-passing",
       "para+oop",
       "para+reflective",
     )

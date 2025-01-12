@@ -30,6 +30,8 @@ export function define(g: PlangsGraph) {
       "para+dsl",
       "para+functional",
       "para+modular",
+      "para+pattern-matching",
+      "para+pipeline",
       "para+query",
     )
     .relPlatforms.add("plat+cross")

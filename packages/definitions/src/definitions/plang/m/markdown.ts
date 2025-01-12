@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add("pl+html")
     .relLicenses.add("lic+public-domain")
-    .relParadigms.add("para+dsl", "para+scripting")
+    .relParadigms.add("para+dsl", "para+markup", "para+scripting")
     .relPlatforms.add("plat+web")
     .relTags.add("tag+editor", "tag+scripting", "tag+webdev")
     .relTypeSystems.add("tsys+untyped");

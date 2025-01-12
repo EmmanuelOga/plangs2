@@ -23,6 +23,7 @@ export function define(g: PlangsGraph) {
     .relParadigms.add(
       "para+event-driven",
       "para+functional",
+      "para+general-purpose",
       "para+imperative",
       "para+oop",
     )

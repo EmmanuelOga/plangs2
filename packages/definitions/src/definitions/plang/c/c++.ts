@@ -32,6 +32,7 @@ export function define(g: PlangsGraph) {
       githubName: "C++",
       githubPopular: true,
       githubType: "programming",
+      isTranspiler: true,
       keywords: ["c++", "cplusplus", "cpp"],
       languishRanking: 5,
       links: [{ url: "https://en.cppreference.com/w/", title: "cppreference" }],
@@ -50,10 +51,12 @@ export function define(g: PlangsGraph) {
       ],
       stackovTags: ["c++"],
     })
+    .relCompilesTo.add("pl+webassembly")
     .relDialectOf.add("pl+c")
     .relInfluencedBy.add("pl+ada", "pl+apl", "pl+c", "pl+f-sharp")
     .relParadigms.add(
       "para+functional",
+      "para+general-purpose",
       "para+imperative",
       "para+modular",
       "para+multi",

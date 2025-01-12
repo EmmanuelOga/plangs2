@@ -35,6 +35,7 @@ export function define(g: PlangsGraph) {
       "para+concurrent",
       "para+distributed",
       "para+functional",
+      "para+general-purpose",
       "para+metaprogramming",
       "para+multi",
       "para+process-oriented",

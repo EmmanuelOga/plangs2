@@ -33,7 +33,12 @@ export function define(g: PlangsGraph) {
       "pl+zig",
     )
     .relLicenses.add("lic+mit")
-    .relParadigms.add("para+functional", "para+imperative", "para+interpreted")
+    .relParadigms.add(
+      "para+functional",
+      "para+general-purpose",
+      "para+imperative",
+      "para+interpreted",
+    )
     .relPlatforms.add(
       "plat+cross",
       "plat+linux",

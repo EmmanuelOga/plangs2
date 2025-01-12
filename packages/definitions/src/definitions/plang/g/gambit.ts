@@ -26,6 +26,7 @@ export function define(g: PlangsGraph) {
     .relLicenses.add("lic+apache", "lic+lgpl")
     .relParadigms.add(
       "para+functional",
+      "para+general-purpose",
       "para+imperative",
       "para+metaprogramming",
       "para+multi",

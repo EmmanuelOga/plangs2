@@ -22,7 +22,12 @@ export function define(g: PlangsGraph) {
     })
     .relImplements.add("pl+common-lisp")
     .relLicenses.add("lic+apache")
-    .relParadigms.add("para+functional", "para+multi", "para+oop")
+    .relParadigms.add(
+      "para+functional",
+      "para+general-purpose",
+      "para+multi",
+      "para+oop",
+    )
     .relPlatforms.add(
       "plat+apple",
       "plat+bsd",
