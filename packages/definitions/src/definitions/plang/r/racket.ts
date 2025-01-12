@@ -31,6 +31,7 @@ export function define(g: PlangsGraph) {
       stackovTags: ["racket"],
     })
     .relDialectOf.add("pl+lisp", "pl+scheme")
+    .relImplements.add("pl+scheme")
     .relInfluencedBy.add("pl+eiffel", "pl+lisp", "pl+r5rs", "pl+scheme")
     .relLicenses.add("lic+apache", "lic+mit")
     .relParadigms.add(

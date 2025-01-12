@@ -23,6 +23,7 @@ export function define(g: PlangsGraph) {
       ],
     })
     .relDialectOf.add("pl+lisp", "pl+scheme")
+    .relImplements.add("pl+scheme")
     .relInfluencedBy.add("pl+lisp")
     .relParadigms.add(
       "para+functional",

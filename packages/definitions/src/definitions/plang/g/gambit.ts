@@ -22,6 +22,7 @@ export function define(g: PlangsGraph) {
     })
     .relCompilesTo.add("pl+c")
     .relDialectOf.add("pl+lisp", "pl+scheme")
+    .relImplements.add("pl+scheme")
     .relInfluencedBy.add("pl+lisp", "pl+scheme")
     .relLicenses.add("lic+apache", "lic+lgpl")
     .relParadigms.add(

@@ -24,6 +24,7 @@ export function define(g: PlangsGraph) {
       stackovTags: ["common-lisp"],
     })
     .relDialectOf.add("pl+lisp")
+    .relImplements.add("pl+lisp")
     .relInfluencedBy.add("pl+lisp", "pl+r5rs", "pl+scheme")
     .relParadigms.add(
       "para+functional",

@@ -30,6 +30,7 @@ export function define(g: PlangsGraph) {
       stackovTags: ["elisp"],
     })
     .relDialectOf.add("pl+lisp")
+    .relImplements.add("pl+lisp")
     .relInfluencedBy.add("pl+common-lisp")
     .relLicenses.add("lic+gnu-gpl")
     .relParadigms.add(
