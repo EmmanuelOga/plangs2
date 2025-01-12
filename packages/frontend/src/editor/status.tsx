@@ -9,12 +9,14 @@ import type { PlangsGraph } from "@plangs/plangs/graph";
 
 import { toggleLocalEdits, updateLocalEdits } from ".";
 import { EditorButton } from "./button";
+import type { EditorMainState } from "./state";
 
-export function Status({ pg, pullreq }: { pg: PlangsGraph; pullreq?: PRResult }) {
+export function Status({ pg, pullreq, state }: { pg: PlangsGraph; pullreq?: PRResult; state: EditorMainState }) {
   const store = getStore("_any_page_");
   const [modeMsg, setModeMsg] = useState<string | undefined>();
   const [resetMsg, setResetMsg] = useState<string | undefined>();
   const [exportMsg, setExportMsg] = useState<string | undefined>();
+  const [localMsg, setlocalMsg] = useState<string | undefined>();
 
   let pullreqMsg: ComponentChildren;
   if (pullreq?.kind === "error") {
@@ -43,7 +45,7 @@ export function Status({ pg, pullreq }: { pg: PlangsGraph; pullreq?: PRResult })
       </p>
 
       <div class="flex flex-row gap-4">
-        <label class="flex flex-row items-center">
+        <label class="flex flex-row items-center align-middle">
           <input
             type="checkbox"
             checked={!!store.load("enable-local-edits")}
@@ -58,19 +60,42 @@ export function Status({ pg, pullreq }: { pg: PlangsGraph; pullreq?: PRResult })
       </div>
 
       {diffKeys.length > 0 && (
-        <div class="mt-4">
-          Local definitions:
+        <>
+          {PLANGS_ENV === "dev" && (
+            <>
+              <h3>Push Locally</h3>
+              <p>Since you are runnign locally, you can push the changes directly.</p>
+              <div class="flex flex-row items-center gap-4 align-middle">
+                <EditorButton
+                  label="Push locally"
+                  onClick={() => {
+                    state.doLoading(true);
+                    fetch("/api/push", { method: "POST", body: store.loadRaw("local-edits") }).then(async res => {
+                      if (res.ok) {
+                        window.location.reload();
+                      } else {
+                        state.doLoading(false);
+                        setlocalMsg(`${new Date().toLocaleTimeString()}: Error: ${await res.text()}.`);
+                      }
+                    });
+                  }}
+                />
+                {localMsg && <div class="text-primary">{localMsg}</div>}
+              </div>
+            </>
+          )}
+          <h3>Local Changes</h3>
           <div class={tw("flex flex-row flex-wrap", "mt-2 bg-secondary/10 p-4 ring-1 ring-primary/15")}>
             {diffKeys.map(key => (
               <Pill key={key} class="text-primary" children={key} />
             ))}
           </div>
-        </div>
+        </>
       )}
 
       <h3>Reset</h3>
       <p>Go back to a clean slate: you will lose your edits.</p>
-      <div class="flex flex-row gap-4">
+      <div class="flex flex-row items-center gap-4 align-middle">
         <EditorButton
           label="Reset local Edits"
           onClick={() => {
@@ -85,7 +110,7 @@ export function Status({ pg, pullreq }: { pg: PlangsGraph; pullreq?: PRResult })
       <p>If you have made any changes to the graph, you can create a pull request to add them back to the project.</p>
       <p>This will require Github authentication the first time (we only request access to public repositories).</p>
 
-      <div class="flex flex-row gap-4">
+      <div class="flex flex-row items-center gap-4 align-middle">
         <EditorButton label="Create Pull Request" onClick={() => initiateGitHubAuth("https://plangs.page/edit")} />
         {pullreqMsg && <div class="text-primary">{pullreqMsg}</div>}
       </div>
@@ -95,7 +120,7 @@ export function Status({ pg, pullreq }: { pg: PlangsGraph; pullreq?: PRResult })
 
       <ol>
         <li>
-          <div class="flex flex-row gap-4">
+          <div class="flex flex-row items-center gap-4 align-middle">
             <EditorButton
               label="Export Local Data"
               onClick={() => {

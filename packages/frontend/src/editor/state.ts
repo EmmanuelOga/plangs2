@@ -14,7 +14,14 @@ export class EditorMainState extends Dispatchable<{
   mainTab: "status" | "edit";
   tab: "form" | "relations" | "json";
   formState: VertexFormState | undefined;
+  loading: boolean;
 }> {
+  doLoading(loading: boolean) {
+    if (this.data.loading === loading) return;
+    this.data.loading = loading;
+    this.dispatch();
+  }
+
   doSetCurrentKind(name: TPlangsVertexName): boolean {
     if (this.checkDirty() === "abort") return false;
     this.data.currentKind = name;
@@ -66,6 +73,10 @@ export class EditorMainState extends Dispatchable<{
   checkDirty(): "abort" | "continue" {
     if (this.data.formState?.dirty && !confirm("Discard changes?")) return "abort";
     return "continue";
+  }
+
+  get loading() {
+    return this.data.loading;
   }
 
   get mainTab() {

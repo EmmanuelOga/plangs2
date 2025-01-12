@@ -28,7 +28,7 @@ const vertex = pg.getVertex(vertexKey, true);
 if (vertex) {
   const path = join(DEF_ROOT, "/src/definitions", vertex.tsName);
   const assetPath = join(DEF_ROOT, "assets", vertex.vertexName, `${vertexKey}.webp`);
-  Bun.write(path, await reformatCode(vertex.toCode()));
+  await Bun.write(path, await reformatCode(vertex.toCode()));
 
   console.log("Generated vertex for", vertexKey, "at", path, "\n");
   console.log("Next steps: you can add data with your text editor to the generated file.");

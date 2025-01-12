@@ -1,4 +1,6 @@
 import { watch } from "node:fs";
+import { mkdtemp, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import { join } from "node:path";
 import type { ServerWebSocket } from "bun";
 
@@ -10,14 +12,50 @@ import { notifyWebsockets, trackWebsocket, untrackWebsocket } from "./livereload
 import { resolvePage } from "./resolve_page";
 import { contentTypeFor, staticResponse, vdomToHTML } from "./utils/server";
 
-const pg = new PlangsGraph();
-await loadDefinitions(pg, { scanImages: true });
-await loadPosts(pg);
-pg.materialize();
+const ROOT = join(import.meta.dir, "../../..");
+
+async function loadGraph() {
+  const pg = new PlangsGraph();
+  await loadDefinitions(pg, { scanImages: true });
+  await loadPosts(pg);
+  pg.materialize();
+  return pg;
+}
+
+const pg: PlangsGraph = await loadGraph();
 
 const server = Bun.serve({
   async fetch(req: Request): Promise<Response> {
     const path = new URL(req.url).pathname;
+
+    if (path === "/api/push" && req.method === "POST") {
+      try {
+        // The most effective way to regen the data is to spawn a bun process.
+        // This avoids issues with --watch mode and the server being restarted.
+        const newData = await req.json();
+        const tmpDir = await mkdtemp(join(tmpdir(), "plangs"));
+        const jsonPath = join(tmpDir, "plangs.json");
+        await Bun.write(jsonPath, JSON.stringify(newData));
+
+        const regen = Bun.spawn(["bun", "run", "import", jsonPath], { cwd: ROOT });
+        await regen.exited;
+
+        if (process.exitCode !== 0) {
+          const error = await new Response(regen.stderr).text();
+          console.error(error);
+          console.error("TMP: ", jsonPath);
+          return new Response(`Error creating definitions: ${error}`, { status: 500 });
+        }
+
+        await rm(jsonPath, { force: true });
+
+        // NOTE: after moving the files, the --watch mode should restart the server.
+        // So we don't reload the data here since the server will be restarted.
+        return new Response("OK.");
+      } catch (e) {
+        return new Response(`Error creating definitions: ${e}`, { status: 500 });
+      }
+    }
 
     if (path === "/livereload") {
       const success = server.upgrade(req);

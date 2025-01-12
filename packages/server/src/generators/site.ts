@@ -30,7 +30,7 @@ const ensureDir = async (path: string) => {
 async function resetOutput() {
   await rmdir(OUTPUT, { recursive: true });
   await mkdir(OUTPUT);
-  Bun.write(join(OUTPUT, ".gitignore"), "*");
+  await Bun.write(join(OUTPUT, ".gitignore"), "*");
 }
 
 /** Bundle the App's JS with ESBuild. */
@@ -38,7 +38,7 @@ async function generateJSBundle(outputPath: string, pg: PlangsGraph) {
   // We need to generate the data first to get the hash, and then use it in the define.
   const data = JSON.stringify(pg.toJSON());
   const dataName = `plangs-${Bun.hash(data)}-${BUILD_DATE}.json`;
-  Bun.write(join(outputPath, dataName), data);
+  await Bun.write(join(outputPath, dataName), data);
   await esbuild.build(appESBuildOptions("prod", dataName, join(outputPath, "app.js")));
   await esbuild.build(cffESBuildOptions(join(outputPath, "_worker.js")));
 }
@@ -100,7 +100,7 @@ async function generateRest(outputPath: string, pg: PlangsGraph) {
     if (page) {
       const dstPath = join(outputPath, `${path === "/" ? "index" : path}.html`);
       ensureDir(dstPath);
-      Bun.write(dstPath, `${vdomToHTML(page)}\n<!-- Generated at ${timestamp} -->`);
+      await Bun.write(dstPath, `${vdomToHTML(page)}\n<!-- Generated at ${timestamp} -->`);
     } else {
       console.warn("Page could not be resolved for path:", path);
     }
@@ -108,7 +108,7 @@ async function generateRest(outputPath: string, pg: PlangsGraph) {
 
   // Generate sitemap.
   const sitemap = render(sitemapComponent(allPaths.map(p => `https://${join(HOST, p)}`)), { xml: true });
-  Bun.write(join(outputPath, "sitemap.xml"), sitemap);
+  await Bun.write(join(outputPath, "sitemap.xml"), sitemap);
 }
 
 function sitemapComponent(urls: string[]) {

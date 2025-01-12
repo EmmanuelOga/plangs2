@@ -55,6 +55,12 @@ export class Store {
     }
   }
 
+  /** Retrieve the item but don't attempt to parse it. */
+  loadRaw(key: StorageKey): string | null | undefined {
+    const fk = this.fullKey(key);
+    return stapi?.getItem(fk);
+  }
+
   remove(key: StorageKey): void {
     stapi?.removeItem(this.fullKey(key));
   }

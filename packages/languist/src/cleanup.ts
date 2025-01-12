@@ -98,17 +98,17 @@ export async function processGithubAndLanguish() {
 
   console.warn("Languages without updates:", { woGithub: [...woGH], woLanguish: [...woLG] });
 
-  for (const pl of pg.plang.values) Bun.write(join(DEFINITIONS_PATH, pl.tsName), await reformatCode(pl.toCode()));
+  for (const pl of pg.plang.values) await Bun.write(join(DEFINITIONS_PATH, pl.tsName), await reformatCode(pl.toCode()));
 
   console.warn("CAUTION: matching github data is not a perfect process. Results (git diff) should be manually reviewed.");
 }
 
 /** Regenerate all vertices. */
-export async function regenVertexDefinitions(pg: PlangsGraph) {
+export async function regenVertexDefinitions(pg: PlangsGraph, defPath = DEFINITIONS_PATH) {
   for (const [name, vertices] of Object.entries(pg.vertices)) {
     if (name === "post") continue; // This is generated from the server/content folder.
     for (const vertex of vertices.values) {
-      Bun.write(join(DEFINITIONS_PATH, vertex.tsName), await reformatCode(vertex.toCode()));
+      await Bun.write(join(defPath, vertex.tsName), await reformatCode(vertex.toCode()));
     }
   }
 }

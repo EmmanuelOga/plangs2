@@ -46,7 +46,7 @@ export async function aiRegenPlang(pg: PlangsGraph, pl: VPlang): Promise<{ resul
 
     const path = join(DEF_ROOT, "src/definitions", pl.tsName);
     console.log("Writing ", path, "LLM Tokens used:", completions.usage?.total_tokens ?? "unknown");
-    Bun.write(path, await reformatCode(newPl.toCode()));
+    await Bun.write(path, await reformatCode(newPl.toCode()));
   } catch (err) {
     return { result: "error", message: `${err}` };
   }

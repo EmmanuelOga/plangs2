@@ -21,7 +21,7 @@
   },
   "scripts": {
     "build": "bun run packages/server/src/generators/site.ts",
-    "serve": "bun run --watch --cwd $(pwd)/packages/server src/serve.ts",
+    "serve": "bun --watch run --cwd $(pwd)/packages/server src/serve.ts",
     "watchcss": "bun x @tailwindcss/cli@next -i ./styles.css -o packages/server/static/app.css --watch",
     "watchjs": "bun run packages/server/src/esbuildWatch.ts",
     "create": "bun run packages/languist/src/scripts/create.ts",
@@ -29,6 +29,6 @@
     "import": "bun run packages/languist/src/scripts/import.ts",
     "cleanup": "bun run packages/languist/src/scripts/cleanup.ts",
     "enrich": "bun run packages/ai/src/index.ts",
-    "gengraph": "bun run --watch packages/server/src/generators/graph.ts"
+    "gengraph": "bun --watch run packages/server/src/generators/graph.ts"
   }
 }

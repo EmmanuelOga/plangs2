@@ -28,7 +28,7 @@ async function generateJsonSchemas() {
   const path = join(import.meta.dir, `schema/${MAIN_TYPE}.json`);
   console.info("Generating schema for", MAIN_TYPE, "at", path, "\n");
 
-  Bun.write(path, JSON.stringify({ name: MAIN_TYPE, ...massageDefinition(schema) }, null, 2));
+  await Bun.write(path, JSON.stringify({ name: MAIN_TYPE, ...massageDefinition(schema) }, null, 2));
 }
 
 // A def name we want to change to a more readable format.

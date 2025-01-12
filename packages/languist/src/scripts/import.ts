@@ -1,5 +1,5 @@
+import { regenVertexDefinitions } from "@plangs/languist/cleanup";
 import { PlangsGraph } from "@plangs/plangs/graph";
-import { regenVertexDefinitions } from "../cleanup";
 
 /** Regenerate vertex definitions from data loaded from a path. */
 export async function importData(jsonPath: string) {

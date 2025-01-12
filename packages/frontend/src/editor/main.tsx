@@ -25,16 +25,17 @@ export function EditorMain({ pg, pullreq }: { pg: PlangsGraph; pullreq?: PRResul
       tab: "relations",
       currentRel: !py ? undefined : ["relInfluencedBy", py?.relations.get("relInfluencedBy") as AnyRel],
       formState: undefined,
+      loading: pullreq?.kind === "loading",
     });
   });
 
   return (
     <div class={tw("p-4", "flex-1", "flex flex-col gap-4", "overflow-hidden", "relative")}>
-      {pullreq?.kind === "loading" && LOADING_OVERLAY}
+      {state.loading && LOADING_OVERLAY}
 
       <EditorToolbar state={state} />
 
-      {state.mainTab === "status" && <Status pg={pg} pullreq={pullreq} />}
+      {state.mainTab === "status" && <Status state={state} pg={pg} pullreq={pullreq} />}
       {state.mainTab === "edit" &&
         (!state.currentVertex ? (
           <div class="size-full bg-secondary/25 p-4">Select a vertex to edit.</div>
@@ -56,7 +57,7 @@ const LOADING_OVERLAY = (
     <div class="flex-1" />
     <div class="flex flex-row items-center justify-center">
       <div class="h-8 w-8 animate-spin rounded-full border-primary border-t-2" />
-      <div class="ml-2">Creating Pull Request...</div>
+      <div class="ml-2">Loading...</div>
     </div>
     <div class="flex-1" />
   </div>

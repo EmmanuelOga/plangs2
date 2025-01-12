@@ -45,7 +45,7 @@ export async function cleanup() {
         const vertex = pg.getVertex(key, true);
         if (!vertex) throw new Error(`Issue creating a vertex ${key}`);
         const path = join(DEF_ROOT, "/src/definitions", vertex.tsName);
-        Bun.write(path, await reformatCode(vertex.toCode()));
+        await Bun.write(path, await reformatCode(vertex.toCode()));
       }
     }
   }
