@@ -211,7 +211,6 @@ export class VertexFormState extends Dispatchable<{
 
   doUpdate(attr: string, value: any) {
     this.values[attr] = value;
-    this.updateDirty();
     this.dispatch();
   }
 
@@ -238,7 +237,6 @@ export class VertexFormState extends Dispatchable<{
 
     if (saved > 0) {
       updateLocalEdits(this.vertex.graph.toJSON());
-      this.updateDirty();
     }
 
     const msg = [`${new Date().toLocaleTimeString()} update: saved ${saved} fields.`];
@@ -269,6 +267,7 @@ export class VertexFormState extends Dispatchable<{
   }
 
   override dispatch(): this {
+    this.updateDirty();
     // TODO: this is a bit of a hack.
     this.data.mainState.dispatch();
     return this;
