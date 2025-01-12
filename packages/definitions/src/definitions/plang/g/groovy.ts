@@ -29,7 +29,6 @@ export function define(g: PlangsGraph) {
     .relInfluencedBy.add("pl+perl", "pl+python", "pl+ruby")
     .relLicenses.add("lic+apache")
     .relParadigms.add(
-      "para+aspect",
       "para+functional",
       "para+imperative",
       "para+multi",

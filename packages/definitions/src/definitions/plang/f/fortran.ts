@@ -34,7 +34,6 @@ export function define(g: PlangsGraph) {
       stackovTags: ["fortran"],
     })
     .relParadigms.add(
-      "para+array",
       "para+compiled",
       "para+functional",
       "para+imperative",

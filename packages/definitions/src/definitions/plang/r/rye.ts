@@ -24,6 +24,7 @@ export function define(g: PlangsGraph) {
     .relInfluencedBy.add("pl+factor", "pl+rebol", "pl+red")
     .relLicenses.add("lic+mit")
     .relParadigms.add(
+      "para+array",
       "para+functional",
       "para+interpreted",
       "para+multi",

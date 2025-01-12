@@ -33,6 +33,7 @@ export function define(g: PlangsGraph) {
     .relInfluencedBy.add("pl+ada")
     .relLicenses.add("lic+dual", "lic+epl")
     .relParadigms.add(
+      "para+aspect",
       "para+compiled",
       "para+concurrent",
       "para+contracts",

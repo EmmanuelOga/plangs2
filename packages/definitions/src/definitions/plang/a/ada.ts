@@ -37,8 +37,6 @@ export function define(g: PlangsGraph) {
     .relDialectOf.add("pl+pascal")
     .relInfluencedBy.add("pl+c++", "pl+eiffel", "pl+pascal")
     .relParadigms.add(
-      "para+array",
-      "para+aspect",
       "para+concurrent",
       "para+distributed",
       "para+imperative",
