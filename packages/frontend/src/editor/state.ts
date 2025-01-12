@@ -39,6 +39,8 @@ export class EditorMainState extends Dispatchable<{
     }
 
     this.data.currentVertex = v;
+    this.data.formState = undefined;
+
     // If the new vertex has a relation of the same name as the current relation, update the current relation.
     // Otherwise clear the current relation.
     if (this.currentRel?.[0]) {
@@ -51,6 +53,7 @@ export class EditorMainState extends Dispatchable<{
         this.data.currentRel = newRels.entries().next().value;
       }
     }
+
     this.dispatch();
     return true;
   }
@@ -103,14 +106,14 @@ export class EditorMainState extends Dispatchable<{
     return this.data.tab;
   }
 
-  // TODO: Nesting dispatchables may create hairy situations with the dispatching mechanism.
-  // Perhaps it would be better to compose dispatchables in such way that we only call useDispatchable
-  // on the top-level component.
   get formState(): VertexFormState | undefined {
     const vertex = this.currentVertex;
     if (!vertex) return (this.data.formState = undefined);
     if (this.data.formState?.vertex.key !== vertex.key) {
-      this.data.formState = useDispatchable(() => VertexFormState.create(vertex));
+      // TODO: experimental.. sharing dispatcher.
+      const newFormState = VertexFormState.create(vertex);
+      newFormState.dispatcher = this.dispatcher as any;
+      this.data.formState = newFormState;
     }
     return this.data.formState;
   }
