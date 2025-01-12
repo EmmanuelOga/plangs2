@@ -44,7 +44,7 @@ export function EditorMain({ pg, pullreq }: { pg: PlangsGraph; pullreq?: PRResul
         ) : state.tab === "json" ? (
           <JsonEditor key={state.currentVertex.key} vertex={state.currentVertex} />
         ) : state.tab === "form" && state.formState ? (
-          <VertexForm key={state.currentVertex.key} state={state.formState} />
+          <VertexForm key={state.formState.vertex.key} state={state.formState} />
         ) : (
           ""
         ))}
