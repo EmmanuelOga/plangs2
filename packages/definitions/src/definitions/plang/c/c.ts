@@ -17,7 +17,7 @@ export function define(g: PlangsGraph) {
       githubName: "C",
       githubPopular: true,
       githubType: "programming",
-      isTranspiler: false,
+      isTranspiler: true,
       keywords: [
         "bell-labs",
         "c",
