@@ -25,7 +25,7 @@ export function Relations({ state, vertex, rel }: { state: EditorMainState; vert
   return (
     <div class={tw("flex-1", "flex flex-col sm:gap-4", "bg-primary/10", "overflow-hidden")}>
       <header class={tw("px-2 sm:py-2", "flex flex-row gap-4", "items-center align-middle", "bg-secondary/50")}>
-        <div class="text-xl" children={rel.edgeDesc} />
+        <div class="text-xl" children={`${vertex.key}: ${rel.edgeDesc}`} />
       </header>
 
       <div class={tw("flex flex-row gap-4", "p-2")}>

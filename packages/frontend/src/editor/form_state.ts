@@ -2,9 +2,10 @@ import type { StrDate } from "@plangs/auxiliar/str_date";
 import { Dispatchable } from "@plangs/frontend/auxiliar/dispatchable";
 import { VLicense, VPlang } from "@plangs/plangs/graph";
 import type { TPlangsVertex } from "@plangs/plangs/graph/generated";
-
 import type { GithubRepo, VPlangData } from "@plangs/plangs/graph/vertex_data_schemas";
+
 import { updateLocalEdits } from ".";
+import type { EditorMainState } from "./state";
 import { isCSV, isEmptyOrStrDate, isNonEmptyStr, isNumber, isURL, matchesRegex } from "./validators";
 
 export type FormValue = number | string | boolean | undefined;
@@ -23,6 +24,7 @@ const REGEXP_GITHUB_PATH = /[a-zA-Z0-9\-\_]+\/[a-zA-Z0-9\-\_]+/;
 const REGEXP_WIKIPEDIA_PATH = /[a-zA-Z0-9\_\(\)\-]+$/;
 
 export class VertexFormState extends Dispatchable<{
+  mainState: EditorMainState;
   vertex: TPlangsVertex;
   fields: Record<string, FormField>;
   values: Record<string, FormValue>;
@@ -30,10 +32,10 @@ export class VertexFormState extends Dispatchable<{
   dirty: boolean;
   status?: string;
 }> {
-  static create(vertex: TPlangsVertex) {
+  static create(mainState: EditorMainState, vertex: TPlangsVertex) {
     const fields = VertexFormState.fields(vertex);
     const values = VertexFormState.values(vertex, fields);
-    return new VertexFormState({ vertex, fields, values, original: { ...values }, dirty: false });
+    return new VertexFormState({ mainState, vertex, fields, values, original: { ...values }, dirty: false });
   }
 
   static values(vertex: TPlangsVertex, fields: Record<string, FormField>): Record<string, FormValue> {
@@ -260,5 +262,15 @@ export class VertexFormState extends Dispatchable<{
   validate(attr: string): string | undefined {
     const field = this.fields[attr];
     return field?.validator?.(this.values[attr]);
+  }
+
+  updateMain(mainState: EditorMainState) {
+    this.data.mainState = mainState;
+  }
+
+  override dispatch(): this {
+    // TODO: this is a bit of a hack.
+    this.data.mainState.dispatch();
+    return this;
   }
 }

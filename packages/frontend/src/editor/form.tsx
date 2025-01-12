@@ -11,7 +11,7 @@ export function VertexForm({ state }: { state: VertexFormState }) {
     <div class={tw("w-full", "flex flex-col gap-4 justify-self-center", "bg-secondary/25", "overflow-hidden")}>
       <header
         class={tw("px-2 sm:py-2", "flex flex-row gap-4", "items-center align-middle", "bg-secondary/50", state.dirty && "outline-2 outline-hiliteb")}>
-        <div class="text-xl" children={`Vertex Form${state.dirty ? " (Unsaved)" : ""}`} />
+        <div class="text-xl" children={`${state.vertex.key}: Form${state.dirty ? " (Unsaved)" : ""}`} />
         <div class="flex-1" />
         {EditorButton({ label: "Reload", onClick: () => state.doReload() })}
         {EditorButton({ label: "Save", onClick: () => state.doSave() })}

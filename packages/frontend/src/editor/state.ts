@@ -110,9 +110,7 @@ export class EditorMainState extends Dispatchable<{
     const vertex = this.currentVertex;
     if (!vertex) return (this.data.formState = undefined);
     if (this.data.formState?.vertex.key !== vertex.key) {
-      // TODO: experimental.. sharing dispatcher.
-      const newFormState = VertexFormState.create(vertex);
-      newFormState.dispatcher = this.dispatcher as any;
+      const newFormState = VertexFormState.create(this, vertex);
       this.data.formState = newFormState;
     }
     return this.data.formState;
@@ -120,5 +118,11 @@ export class EditorMainState extends Dispatchable<{
 
   get vertexNames() {
     return Object.keys(this.data.pg.vertices).filter(vn => vn !== "post") as TPlangsVertexName[];
+  }
+
+  override clone(): this {
+    const clone = super.clone();
+    if (clone.data.formState) clone.data.formState.updateMain(clone);
+    return clone;
   }
 }
