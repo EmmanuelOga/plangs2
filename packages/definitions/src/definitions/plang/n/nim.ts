@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
       ],
       stackovTags: ["nim-lang"],
     })
-    .relCompilesTo.add("pl+c++", "pl+javascript")
+    .relCompilesTo.add("pl+c", "pl+c++", "pl+javascript", "pl+objective-c")
     .relInfluencedBy.add(
       "pl+ada",
       "pl+c",
@@ -45,18 +45,23 @@ export function define(g: PlangsGraph) {
       "para+functional",
       "para+general-purpose",
       "para+imperative",
+      "para+macro",
       "para+metaprogramming",
       "para+multi",
       "para+oop",
       "para+procedural",
     )
     .relPlatforms.add(
+      "plat+android",
       "plat+apple",
       "plat+arm",
       "plat+bsd",
       "plat+cross",
       "plat+linux",
+      "plat+nodejs",
+      "plat+osx",
       "plat+riscv",
+      "plat+web",
       "plat+windows",
       "plat+x86-64",
     )
@@ -64,6 +69,7 @@ export function define(g: PlangsGraph) {
       "tag+3dg",
       "tag+analysis",
       "tag+app",
+      "tag+cli",
       "tag+compiler",
       "tag+editor",
       "tag+edu",
@@ -83,5 +89,5 @@ export function define(g: PlangsGraph) {
       "tsys+strong",
       "tsys+structural",
     )
-    .relWrittenWith.add("pl+c++");
+    .relWrittenWith.add("pl+c", "pl+nim");
 }
