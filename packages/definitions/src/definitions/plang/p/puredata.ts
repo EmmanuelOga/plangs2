@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       githubType: "data",
       isTranspiler: false,
       keywords: ["pd", "pure data", "puredata"],
-      languishRanking: 306,
+      languishRanking: 350,
       releases: [{ version: "0.55-2", date: "2023-09-17" }],
       stackovTags: ["puredata"],
     })

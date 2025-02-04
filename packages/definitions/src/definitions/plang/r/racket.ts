@@ -23,7 +23,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["lisp", "racket", "scheme"],
-      languishRanking: 151,
+      languishRanking: 153,
       releases: [
         { version: "8.15", name: "Racket 8.15", date: "2024-11-05" },
         { version: "8.14", name: "Racket 8.14", date: "2024-01-01" },

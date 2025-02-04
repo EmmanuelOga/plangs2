@@ -28,6 +28,7 @@ export function define(g: PlangsGraph) {
         "shen",
         "symbolic",
       ],
+      languishRanking: 419,
       releases: [{ version: "22.2", name: "Shen 22.2", date: "2023-08-01" }],
       stackovTags: ["shen"],
     })

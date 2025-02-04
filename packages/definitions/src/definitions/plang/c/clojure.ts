@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["clojure"],
-      languishRanking: 51,
+      languishRanking: 58,
       releases: [{ version: "1.12.0", date: "2024-09-05" }],
       stackovTags: ["clojure"],
     })

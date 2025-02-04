@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       githubType: "markup",
       isTranspiler: true,
       keywords: ["logic-less", "mustache", "templating", "web templates"],
-      languishRanking: 87,
+      languishRanking: 100,
       releases: [
         { version: "4.2.0", name: "Stable release", date: "2021-03-28" },
       ],

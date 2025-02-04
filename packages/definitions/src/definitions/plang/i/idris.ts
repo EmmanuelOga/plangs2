@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
         "idris",
         "type-driven development",
       ],
-      languishRanking: 274,
+      languishRanking: 252,
       releases: [
         { version: "0.7.0", name: "Idris 2 v0.7.0", date: "2023-12-22" },
       ],

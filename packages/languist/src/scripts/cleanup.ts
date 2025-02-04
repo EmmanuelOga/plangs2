@@ -5,6 +5,7 @@ import { regenVertexDefinitions } from "@plangs/languist/cleanup";
 import { reformatCode } from "@plangs/languist/reformat";
 import { PlangsGraph } from "@plangs/plangs/graph";
 import { loadContent, loadPosts } from "@plangs/server/content";
+import { LG_LANGS } from "../languish";
 
 const DEF_ROOT = join(import.meta.dir, "../../../definitions");
 
@@ -13,6 +14,13 @@ export async function cleanup() {
   const pg = new PlangsGraph();
   await loadDefinitions(pg, { scanImages: false });
   pg.materialize();
+
+  // Update Languish rankings.
+  const rankings = LG_LANGS.rankings();
+  for (const pl of pg.plang.values) {
+    pl.data.languishRanking = rankings.rankByGHName.get(pl.name);
+  }
+
   regenVertexDefinitions(pg);
 
   await loadPosts(pg);

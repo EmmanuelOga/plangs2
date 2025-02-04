@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["clean", "functional programming", "uniqueness typing"],
-      languishRanking: 420,
+      languishRanking: 428,
       releases: [{ version: "3.1", name: "Clean 3.1", date: "2022-01-05" }],
       stackovTags: ["clean-language"],
     })

@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["pascal", "wirth"],
-      languishRanking: 72,
+      languishRanking: 75,
       stackovTags: ["pascal"],
     })
     .relParadigms.add(

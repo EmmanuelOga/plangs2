@@ -22,7 +22,6 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["audio programming", "csound", "music computing"],
-      languishRanking: 363,
       releases: [
         { version: "6.18.1", name: "Csound 6.18.1", date: "2022-11-24" },
       ],

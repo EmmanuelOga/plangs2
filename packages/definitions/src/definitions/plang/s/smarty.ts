@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["php", "smarty", "template system", "web"],
-      languishRanking: 89,
+      languishRanking: 98,
       releases: [
         { version: "5.4.1", name: "Stable release", date: "2024-08-29" },
       ],

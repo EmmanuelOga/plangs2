@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["hy", "hylang", "lisp", "python"],
-      languishRanking: 201,
+      languishRanking: 436,
       releases: [
         { version: "1.0.0", name: "Afternoon Review", date: "2024-09-22" },
       ],

@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
         "scripting-language",
         "whitespace-sensitive",
       ],
-      languishRanking: 360,
+      languishRanking: 361,
       stackovTags: ["moonscript"],
     })
     .relCompilesTo.add("pl+lua")

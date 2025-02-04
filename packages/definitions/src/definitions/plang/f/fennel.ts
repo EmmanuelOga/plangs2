@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["fennel"],
-      languishRanking: 244,
+      languishRanking: 246,
       releases: [
         { version: "0.6.0", name: "Fennel 0.6.0", date: "2021-07-22" },
         { version: "0.7.0", name: "Fennel 0.7.0", date: "2022-03-01" },

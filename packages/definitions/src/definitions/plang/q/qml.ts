@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
         "qt quick",
         "user interface",
       ],
-      languishRanking: 62,
+      languishRanking: 78,
       releases: [
         { version: "6.4", name: "Stable release", date: "2022-09-29" },
       ],

@@ -31,7 +31,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["perl"],
-      languishRanking: 54,
+      languishRanking: 45,
       releases: [
         { version: "5.40.0", name: "Perl 5.40.0", date: "2024-06-09" },
         { version: "5.38.2", name: "Perl 5.38.2", date: "2023-11-29" },

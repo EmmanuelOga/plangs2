@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
         "open-source",
         "package manager",
       ],
-      languishRanking: 45,
+      languishRanking: 44,
       releases: [
         { version: "2.22.1", name: "Nix Stable Release", date: "2024-05-10" },
       ],

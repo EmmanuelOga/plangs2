@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["crystal", "ruby-syntax"],
-      languishRanking: 144,
+      languishRanking: 155,
       releases: [
         { version: "1.14.0", name: "Crystal 1.14.0", date: "2024-10-09" },
       ],

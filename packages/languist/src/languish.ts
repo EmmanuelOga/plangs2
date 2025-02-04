@@ -1,10 +1,10 @@
 import languishData from "./languish-data.json" with { type: "json" };
-import type { LanguishData, LanguishItem, LanguishKeys, LanguishWeights, YearQuarter } from "./types";
+import type { LanguishData, LanguishKeys, LanguishWeights, YearQuarter } from "./types";
 
 export const DEFAULT_WEIGHTS: LanguishWeights = { ghIssues: 1.0, ghPRs: 0, ghStars: 1.0, soQuestions: 1.0 };
 
 /** Latest available ranking by the time we import it. */
-export const LATEST_QUARTER = "2024Q3";
+export const LATEST_QUARTER = "2024Q4";
 
 /** A Wrapper for all the data in Languish's keys.csv. */
 export class Languish {
@@ -60,8 +60,8 @@ export class Languish {
     return map;
   }
 
-  rankings(targetDate = LATEST_QUARTER, weights: LanguishWeights = DEFAULT_WEIGHTS): Rankings {
-    const byKey = LG_LANGS.rankingsMap("2024Q3");
+  rankings(): Rankings {
+    const byKey = LG_LANGS.rankingsMap(LATEST_QUARTER);
     const byRanking: Map<number, string> = new Map();
     for (const [k, v] of byKey.entries()) byRanking.set(v, k);
     return { rankByGHName: byKey, ghNameByRank: byRanking };

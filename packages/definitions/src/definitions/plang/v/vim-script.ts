@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
         "scripting language",
         "text editor",
       ],
-      languishRanking: 63,
+      languishRanking: 68,
       releases: [{ version: "9.1", name: "Vim 9.1", date: "2024-01-02" }],
       stackovTags: ["vim"],
     })

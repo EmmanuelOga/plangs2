@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["xslt"],
-      languishRanking: 74,
+      languishRanking: 73,
       releases: [
         { version: "1.0", name: "XSLT 1.0", date: "1999-11-16" },
         { version: "2.0", name: "XSLT 2.0", date: "2007-01-23" },

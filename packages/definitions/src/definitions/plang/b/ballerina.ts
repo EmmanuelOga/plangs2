@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["ballerina", "cloud-native", "integration"],
-      languishRanking: 140,
+      languishRanking: 156,
       releases: [
         {
           version: "2201.10.2",

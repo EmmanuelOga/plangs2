@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["elisp", "emacs", "emacs-lisp"],
-      languishRanking: 70,
+      languishRanking: 67,
       links: [{ url: "https://www.emacswiki.org/", title: "EmacsWiki" }],
       releases: [
         { version: "29.4", name: "Emacs Lisp 29.4", date: "2024-06-22" },

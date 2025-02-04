@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["glascow haskell compiler", "haskell", "purely functional"],
-      languishRanking: 44,
+      languishRanking: 42,
       releases: [
         { version: "1.0", name: "Haskell 1.0", date: "1990" },
         { version: "98", name: "Haskell 98", date: "1999-02" },

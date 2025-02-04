@@ -25,7 +25,7 @@ export function define(g: PlangsGraph) {
         "batchfile",
         "command-line script",
       ],
-      languishRanking: 37,
+      languishRanking: 32,
       stackovTags: ["batch-file"],
     })
     .relParadigms.add("para+procedural", "para+scripting")

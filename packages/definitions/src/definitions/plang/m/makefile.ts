@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
         "makefile",
         "unix",
       ],
-      languishRanking: 38,
+      languishRanking: 40,
       stackovTags: ["makefile"],
     })
     .relParadigms.add("para+declarative", "para+macro")

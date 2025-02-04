@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
         "build automation",
         "configuration language",
       ],
-      languishRanking: 77,
+      languishRanking: 83,
       releases: [{ version: "1.0", name: "Version 1.0", date: "2019-10-01" }],
       stackovTags: ["bazel"],
     })

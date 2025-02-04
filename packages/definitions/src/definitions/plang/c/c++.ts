@@ -34,7 +34,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["c++", "cplusplus", "cpp"],
-      languishRanking: 5,
+      languishRanking: 6,
       links: [{ url: "https://en.cppreference.com/w/", title: "cppreference" }],
       releases: [
         { version: "C++98", name: "ISO/IEC 14882:1998", date: "1998" },

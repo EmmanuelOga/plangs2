@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
         "eiffel",
         "object-oriented",
       ],
-      languishRanking: 402,
+      languishRanking: 306,
       releases: [
         { version: "24.05", name: "EiffelStudio", date: "2024-06-14" },
       ],

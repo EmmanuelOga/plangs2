@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
         "reflective",
         "stack-oriented",
       ],
-      languishRanking: 202,
+      languishRanking: 196,
       stackovTags: ["forth"],
     })
     .relInfluencedBy.add("pl+lisp")

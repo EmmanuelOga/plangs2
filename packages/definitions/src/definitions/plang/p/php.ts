@@ -30,7 +30,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["php", "php-script", "php5", "php7", "php8"],
-      languishRanking: 9,
+      languishRanking: 11,
       releases: [
         { version: "8.3.13", name: "PHP 8.3.13", date: "2024-10-24" },
         { version: "8.2.25", name: "PHP 8.2.25", date: "2024-10-24" },

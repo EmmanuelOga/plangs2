@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["hack", "hhvm", "meta", "static type checking"],
-      languishRanking: 165,
+      languishRanking: 174,
       releases: [{ version: "4.172", name: "", date: "2022-11-02" }],
       stackovTags: ["hacklang"],
     })

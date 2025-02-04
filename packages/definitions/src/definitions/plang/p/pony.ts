@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["actor-model", "capability-security", "pony"],
-      languishRanking: 357,
+      languishRanking: 377,
       releases: [
         { version: "0.58.7", name: "Pony 0.41.0", date: "2024-09-30" },
       ],

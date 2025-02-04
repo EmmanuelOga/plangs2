@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["ansi common lisp", "cl", "common lisp", "lisp"],
-      languishRanking: 60,
+      languishRanking: 95,
       stackovTags: ["common-lisp"],
     })
     .relDialectOf.add("pl+lisp")

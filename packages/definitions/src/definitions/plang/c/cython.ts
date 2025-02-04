@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
         "interoperability",
         "python",
       ],
-      languishRanking: 110,
+      languishRanking: 103,
       releases: [{ version: "3.0.10", date: "2024-03-30" }],
       stackovTags: ["cython"],
     })

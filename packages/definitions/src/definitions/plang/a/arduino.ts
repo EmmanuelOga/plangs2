@@ -22,6 +22,7 @@ export function define(g: PlangsGraph) {
         "microcontroller",
         "open-source",
       ],
+      languishRanking: 71,
       releases: [
         { version: "2.3.3", name: "Arduino IDE 2.3.3", date: "2024-09-25" },
       ],

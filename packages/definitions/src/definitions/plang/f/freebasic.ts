@@ -21,6 +21,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["basic", "freebasic"],
+      languishRanking: 400,
       releases: [{ version: "1.10.1", name: "", date: "2023-12-25" }],
       stackovTags: ["freebasic"],
     })

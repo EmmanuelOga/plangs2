@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["graphics", "rendering", "shader", "unity"],
-      languishRanking: 99,
+      languishRanking: 88,
       links: [{ url: "https://learn.unity.com", title: "Unity Learn" }],
       stackovTags: ["shaderlab"],
     })

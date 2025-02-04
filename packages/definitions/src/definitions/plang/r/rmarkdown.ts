@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
         "reproducible-research",
         "rmarkdown",
       ],
-      languishRanking: 79,
+      languishRanking: 87,
       releases: [
         { version: "1.0", name: "Initial Release", date: "2014-01-21" },
       ],

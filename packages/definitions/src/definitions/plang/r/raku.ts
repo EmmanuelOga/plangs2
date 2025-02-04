@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["perl6", "raku"],
-      languishRanking: 205,
+      languishRanking: 154,
       releases: [
         { version: "2023.08", name: "Raku 2023.08", date: "2023-08-01" },
       ],

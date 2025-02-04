@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
         "serialization",
         "structured data",
       ],
-      languishRanking: 85,
+      languishRanking: 89,
       releases: [
         { version: "28.3", name: "Stable Release", date: "2024-10-22" },
       ],

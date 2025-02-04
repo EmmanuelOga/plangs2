@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["dsl", "metaprogramming", "rascal"],
-      languishRanking: 232,
+      languishRanking: 207,
       releases: [
         { version: "0.30.1", name: "Rascal 0.30.1", date: "2023-07-05" },
       ],

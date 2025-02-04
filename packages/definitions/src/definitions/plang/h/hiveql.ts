@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["apache-hive", "hadoop", "hiveql", "mapreduce", "sql"],
-      languishRanking: 91,
+      languishRanking: 84,
       releases: [
         { version: "3.1.3", name: "Stable release", date: "2022-04-08" },
         {

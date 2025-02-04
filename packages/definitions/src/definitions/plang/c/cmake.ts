@@ -23,7 +23,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["CMake", "build system", "compiler-independent"],
-      languishRanking: 35,
+      languishRanking: 36,
       releases: [
         { version: "3.30.5", name: "Stable release", date: "2024-10-09" },
         { version: "3.31.0-rc3", name: "Preview release", date: "2024-10-29" },

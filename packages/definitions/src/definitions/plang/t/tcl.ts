@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["tcl", "tk"],
-      languishRanking: 120,
+      languishRanking: 110,
       releases: [{ version: "9.0.0", date: "2024-09-26" }],
       stackovTags: ["tcl"],
     })

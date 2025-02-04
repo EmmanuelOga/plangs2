@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
         "objective-c",
         "programming",
       ],
-      languishRanking: 33,
+      languishRanking: 31,
       releases: [
         { version: "2.0", name: "Objective-C 2.0", date: "2007-10-01" },
       ],

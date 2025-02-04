@@ -20,6 +20,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["logic programming", "logtalk", "prolog"],
+      languishRanking: 310,
       releases: [
         { version: "3.85.0", name: "", date: "2024-11-12" },
         { version: "3.66.0", name: "", date: "2023-05-30" },

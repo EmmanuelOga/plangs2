@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["modeling", "multi-agent", "netlogo"],
-      languishRanking: 161,
+      languishRanking: 149,
       releases: [
         { version: "6.4.0", name: "NetLogo 6.4.0", date: "2023-11-17" },
       ],

@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["dataflow", "flow", "rebol", "red", "shader", "symbolic"],
-      languishRanking: 340,
+      languishRanking: 321,
       releases: [{ version: "0.6.5", name: "Red 0.6.5", date: "2024-02-19" }],
       stackovTags: ["red"],
     })

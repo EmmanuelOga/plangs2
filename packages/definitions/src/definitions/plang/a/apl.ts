@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["apl", "array programming"],
-      languishRanking: 259,
+      languishRanking: 224,
       releases: [
         { version: "1", name: "APL 1", date: "1966-01-01" },
         { version: "2", name: "APL 2", date: "1980-01-01" },

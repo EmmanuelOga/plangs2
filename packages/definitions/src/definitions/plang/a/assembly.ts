@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["asm", "assembler", "assembly"],
-      languishRanking: 40,
+      languishRanking: 33,
       stackovTags: ["assembly"],
     })
     .relParadigms.add(

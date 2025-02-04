@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
         "multi-domain",
         "object-oriented",
       ],
-      languishRanking: 124,
+      languishRanking: 134,
       releases: [{ version: "3.6", name: "Modelica 3.6", date: "2023-03-09" }],
       stackovTags: ["modelica"],
     })

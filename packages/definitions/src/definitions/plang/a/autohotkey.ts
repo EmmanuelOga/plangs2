@@ -30,7 +30,7 @@ export function define(g: PlangsGraph) {
         "scripting",
         "software automation",
       ],
-      languishRanking: 84,
+      languishRanking: 96,
       links: [
         {
           url: "https://www.autohotkey.com/docs/",

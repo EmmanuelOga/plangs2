@@ -26,7 +26,7 @@ export function define(g: PlangsGraph) {
         "smart contracts",
         "solidity",
       ],
-      languishRanking: 55,
+      languishRanking: 56,
       releases: [
         { version: "0.8.28", name: "Stable release", date: "2024-10-09" },
       ],

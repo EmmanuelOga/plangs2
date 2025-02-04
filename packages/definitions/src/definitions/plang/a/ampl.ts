@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
         "scheduling",
         "solvers",
       ],
-      languishRanking: 236,
+      languishRanking: 233,
       releases: [
         { version: "20230430", name: "Stable Release", date: "2023-04-30" },
       ],

@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["d language", "d programming", "dlang"],
-      languishRanking: 147,
+      languishRanking: 77,
       releases: [
         { version: "2.109.1", name: "Stable Release", date: "2024-07-01" },
       ],

@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["llvm"],
-      languishRanking: 83,
+      languishRanking: 82,
       releases: [
         { version: "19.1.3", name: "LLVM 19.1.3", date: "2024-10-30" },
         { version: "18.1.8", name: "LLVM 18.1.8", date: "2024-06-01" },

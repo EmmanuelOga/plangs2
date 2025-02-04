@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["AI", "high-performance", "modular", "mojo", "python-based"],
-      languishRanking: 208,
+      languishRanking: 261,
       releases: [
         { version: "24.4", name: "Preview release", date: "2024-05-24" },
       ],

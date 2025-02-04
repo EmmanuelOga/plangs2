@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
         "object-oriented",
         "systems programming",
       ],
-      languishRanking: 153,
+      languishRanking: 161,
       releases: [
         { version: "ISO/IEC 8652:2023", name: "Ada 2022", date: "2023-05-01" },
       ],

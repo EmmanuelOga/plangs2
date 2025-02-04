@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["java"],
-      languishRanking: 4,
+      languishRanking: 5,
       releases: [
         { version: "17", name: "Java SE 17", date: "2021-09-14" },
         { version: "20", name: "Java SE 20", date: "2023-03-21" },

@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["futhark"],
-      languishRanking: 399,
+      languishRanking: 392,
       releases: [
         { version: "0.20.0", name: "Futhark 0.20.0", date: "2021-12-01" },
         { version: "0.21.0", name: "Futhark 0.21.0", date: "2022-06-01" },

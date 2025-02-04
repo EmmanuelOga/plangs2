@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["boo"],
-      languishRanking: 312,
+      languishRanking: 297,
       releases: [{ version: "0.9.7", name: "Boo 0.9.7", date: "2013-03-25" }],
       stackovTags: ["boo"],
     })

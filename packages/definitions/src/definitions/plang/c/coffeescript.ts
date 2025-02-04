@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["coffeescript"],
-      languishRanking: 122,
+      languishRanking: 131,
       releases: [
         { version: "2.7.0", name: "CoffeeScript 2.7.0", date: "2022-04-24" },
       ],

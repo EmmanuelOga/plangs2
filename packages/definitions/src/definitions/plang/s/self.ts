@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["dynamic language", "object-oriented", "prototype", "self"],
-      languishRanking: 296,
+      languishRanking: 239,
       releases: [{ version: "2024.1", name: "", date: "2024-08-28" }],
       stackovTags: ["self"],
     })

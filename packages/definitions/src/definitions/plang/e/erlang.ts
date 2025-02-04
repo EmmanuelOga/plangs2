@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
         "real-time",
         "telecom",
       ],
-      languishRanking: 107,
+      languishRanking: 118,
       releases: [
         { version: "27.2", name: "Erlang/OTP 27.2", date: "2024-12-11" },
       ],

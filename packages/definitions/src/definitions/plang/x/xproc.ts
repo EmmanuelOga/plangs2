@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["pipeline", "transformation", "xml", "xproc", "xproc 3.0"],
-      languishRanking: 371,
+      languishRanking: 314,
       releases: [
         { version: "1.0", name: "XProc 1.0", date: "2010-05-11" },
         { version: "3.0", name: "XProc 3.0", date: "2020-08-18" },

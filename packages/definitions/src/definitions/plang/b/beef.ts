@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["beef", "manual memory management", "performance-oriented"],
-      languishRanking: 378,
+      languishRanking: 344,
       releases: [
         { version: "0.43.4", name: "Beef 0.43.4", date: "2022-09-07" },
       ],

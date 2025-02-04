@@ -21,6 +21,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["dynamic", "embedded", "functional", "janet", "scripting"],
+      languishRanking: 369,
       releases: [{ version: "1.37.1", date: "2024-12-05" }],
     })
     .relInfluencedBy.add("pl+scheme")

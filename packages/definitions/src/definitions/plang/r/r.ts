@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
         "statistical computing",
         "statisticians",
       ],
-      languishRanking: 18,
+      languishRanking: 19,
       releases: [
         { version: "4.4.2", name: "Pile of Leaves", date: "2024-10-31" },
         { version: "4.3.3", name: "Angel Food Cake", date: "2024-02-29" },

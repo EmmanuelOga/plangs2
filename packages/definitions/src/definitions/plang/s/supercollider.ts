@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["algorithmic", "audio", "sound", "supercollider", "synthesis"],
-      languishRanking: 218,
+      languishRanking: 359,
       releases: [
         { version: "3.13.0", name: "SuperCollider 3.13.0", date: "2023-02-19" },
       ],

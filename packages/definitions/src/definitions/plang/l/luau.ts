@@ -20,6 +20,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["game development", "lua", "luau", "roblox", "scripting"],
+      languishRanking: 219,
       releases: [{ version: "1.0", name: "Luau 1.0", date: "2021-02-18" }],
     })
     .relCompilesTo.add("pl+lua")

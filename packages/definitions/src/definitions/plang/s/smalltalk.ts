@@ -15,6 +15,7 @@ export function define(g: PlangsGraph) {
       extWikipediaPath: "Smalltalk",
       isTranspiler: false,
       keywords: ["metaprogramming", "object-oriented", "oop"],
+      languishRanking: 138,
       links: [
         {
           url: "https://en.wikipedia.org/wiki/Smalltalk",

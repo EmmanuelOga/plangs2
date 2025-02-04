@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["haxe"],
-      languishRanking: 97,
+      languishRanking: 109,
       releases: [{ version: "4.3.6", name: "Haxe 4.3.6", date: "2024-08-07" }],
       stackovTags: ["haxe"],
     })

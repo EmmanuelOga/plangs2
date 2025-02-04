@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
         "rust",
         "systems programming",
       ],
-      languishRanking: 10,
+      languishRanking: 9,
       releases: [
         { version: "1.82.0", name: "Rust 1.82.0", date: "2024-10-17" },
         { version: "1.80.1", name: "Rust 1.80.1", date: "2024-01-01" },

@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
         "high-performance computing",
         "scientific computing",
       ],
-      languishRanking: 67,
+      languishRanking: 69,
       links: [
         {
           url: "https://github.com/fortran-lang",

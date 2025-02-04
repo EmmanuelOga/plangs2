@@ -21,6 +21,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["euphoria", "open source", "programming language"],
+      languishRanking: 410,
       releases: [
         { version: "4.1.0", name: "openEuphoria 4.1.0", date: "2021-03-01" },
       ],

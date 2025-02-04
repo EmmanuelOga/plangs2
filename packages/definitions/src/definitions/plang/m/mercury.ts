@@ -13,6 +13,7 @@ export function define(g: PlangsGraph) {
       extHomeURL: "https://mercurylang.org/",
       isTranspiler: false,
       keywords: ["declarative", "functional", "logic", "static"],
+      languishRanking: 332,
     })
     .relDialectOf.add("pl+prolog")
     .relInfluencedBy.add("pl+haskell", "pl+prolog")

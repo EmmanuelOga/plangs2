@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["dart", "google", "language", "programming"],
-      languishRanking: 19,
+      languishRanking: 18,
       releases: [
         { version: "3.5.4", name: "Dart 3.5.4", date: "2024-10-17" },
         { version: "3.0.0", name: "Dart 3.0", date: "2023-05-01" },

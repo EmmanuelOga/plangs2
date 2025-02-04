@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
         "structured",
         "systems-programming",
       ],
-      languishRanking: 11,
+      languishRanking: 10,
       releases: [
         { version: "C18", name: "Standard C18", date: "2018-06-01" },
         { version: "C11", name: "Standard C11", date: "2011-12-08" },

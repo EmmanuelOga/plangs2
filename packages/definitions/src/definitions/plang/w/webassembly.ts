@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
         "web",
         "webassembly",
       ],
-      languishRanking: 93,
+      languishRanking: 48,
       links: [{ url: "https://github.com/WebAssembly", title: "GitHub Org" }],
       releases: [
         { version: "1.0", name: "Initial Release", date: "2017-03" },

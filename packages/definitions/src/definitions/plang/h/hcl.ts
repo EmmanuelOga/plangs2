@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["configuration language", "hashicorp", "hcl", "terraform"],
-      languishRanking: 53,
+      languishRanking: 55,
       releases: [
         { version: "1.9.1", name: "Stable release", date: "2024-07-03" },
         { version: "1.0.0", name: "Initial release", date: "2014-07-28" },

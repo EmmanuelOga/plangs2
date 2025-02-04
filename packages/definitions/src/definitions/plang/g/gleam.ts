@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
         "javascript",
         "type-safe",
       ],
-      languishRanking: 150,
+      languishRanking: 157,
       releases: [{ version: "1.6.3", date: "2024-12-03" }],
       stackovTags: ["gleam"],
     })

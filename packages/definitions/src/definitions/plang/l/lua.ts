@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["lua"],
-      languishRanking: 26,
+      languishRanking: 27,
       releases: [{ version: "5.4.7", name: "Lua 5.4.7", date: "2024-06-25" }],
       stackovTags: ["lua"],
     })

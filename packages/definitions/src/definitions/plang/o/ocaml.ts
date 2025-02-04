@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["functional", "imperative", "ml", "mult-paradigm", "ocaml"],
-      languishRanking: 71,
+      languishRanking: 66,
       releases: [
         { version: "5.2.0", name: "OCaml 5.2.0", date: "2024-05-13" },
         { version: "4.14.2", name: "LTS 4.14.2" },

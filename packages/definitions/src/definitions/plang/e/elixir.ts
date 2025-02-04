@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["concurrent", "distributed", "elixir", "erlang", "functional"],
-      languishRanking: 43,
+      languishRanking: 47,
       releases: [
         { version: "1.17.3", name: "Elixir 1.17.3", date: "2024-09-18" },
         { version: "1.17.2", name: "Elixir 1.17.2", date: "2024-01-01" },

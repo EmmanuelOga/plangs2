@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       githubType: "markup",
       isTranspiler: true,
       keywords: ["astro", "static sites"],
-      languishRanking: 68,
+      languishRanking: 63,
       links: [
         { url: "https://docs.astro.build/", title: "Astro Documentation" },
       ],

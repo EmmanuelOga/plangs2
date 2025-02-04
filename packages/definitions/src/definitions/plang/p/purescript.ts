@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["functional", "haskell", "javascript", "purescript"],
-      languishRanking: 222,
+      languishRanking: 230,
       releases: [{ version: "0.15.15", date: "2024-02-07" }],
       stackovTags: ["purescript"],
     })

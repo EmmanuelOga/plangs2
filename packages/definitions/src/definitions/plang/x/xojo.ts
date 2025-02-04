@@ -26,7 +26,6 @@ export function define(g: PlangsGraph) {
         "object-oriented",
         "xojo",
       ],
-      languishRanking: 386,
       releases: [
         {
           version: "2023R3.1",

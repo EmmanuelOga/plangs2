@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       isTranspiler: false,
-      languishRanking: 193,
+      languishRanking: 208,
       releases: [{ version: "2024 Q3", date: "2024-07-16" }],
       stackovTags: ["labview"],
     })

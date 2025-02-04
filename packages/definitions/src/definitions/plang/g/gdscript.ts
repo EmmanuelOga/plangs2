@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["gdscript", "godot"],
-      languishRanking: 41,
+      languishRanking: 43,
       releases: [
         { version: "3.6", date: "2024-09-09" },
         { version: "4.3", date: "2024-08-15" },

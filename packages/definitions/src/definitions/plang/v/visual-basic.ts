@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["vb", "vb.net", "visual-basic"],
-      languishRanking: 260,
+      languishRanking: 270,
       releases: [{ version: "16.9", date: "2024-03-02" }],
       stackovTags: ["vb.net"],
     })

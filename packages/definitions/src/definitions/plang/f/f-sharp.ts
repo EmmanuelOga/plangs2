@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["f-sharp", "fsharp"],
-      languishRanking: 94,
+      languishRanking: 97,
       links: [
         {
           url: "https://docs.microsoft.com/en-us/dotnet/fsharp/",

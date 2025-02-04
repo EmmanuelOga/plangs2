@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       githubType: "markup",
       isTranspiler: false,
       keywords: ["latex", "tex", "typesetting", "typography"],
-      languishRanking: 39,
+      languishRanking: 37,
       links: [
         {
           url: "https://ctan.org/",

@@ -24,7 +24,7 @@ export function define(g: PlangsGraph) {
         "json",
         "lightweight",
       ],
-      languishRanking: 27,
+      languishRanking: 28,
       releases: [
         { version: "1.0", name: "Initial JSON Specification", date: "2013" },
       ],

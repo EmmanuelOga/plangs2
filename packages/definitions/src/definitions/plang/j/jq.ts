@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["jq"],
-      languishRanking: 102,
+      languishRanking: 101,
       releases: [{ version: "1.7.1", date: "2023-12-13" }],
       stackovTags: ["jq"],
     })

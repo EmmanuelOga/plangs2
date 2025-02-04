@@ -29,7 +29,7 @@ export function define(g: PlangsGraph) {
         "troff",
         "typesetting",
       ],
-      languishRanking: 92,
+      languishRanking: 99,
       releases: [
         { version: "1.23.0", name: "Stable Release", date: "2023-07-07" },
         { version: "1.04", name: "First Stable Version", date: "1991-11-01" },

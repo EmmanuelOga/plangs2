@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
         "machine learning",
         "numerical computing",
       ],
-      languishRanking: 48,
+      languishRanking: 49,
       releases: [
         { version: "1.11.1", name: "Julia 1.11.1", date: "2024-10-16" },
         { version: "1.10.6", name: "Julia 1.10.6", date: "2024-10-28" },

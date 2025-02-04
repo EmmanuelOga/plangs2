@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["debugger", "gdb", "gnu debugger", "unix debugger"],
-      languishRanking: 90,
+      languishRanking: 81,
       releases: [
         { version: "15.1", name: "Stable Release", date: "2024-07-07" },
       ],

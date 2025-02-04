@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubPopular: false,
       githubType: "programming",
       isTranspiler: false,
-      languishRanking: 115,
+      languishRanking: 106,
       stackovTags: ["scheme"],
     })
     .relDialectOf.add("pl+lisp")

@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubType: "markup",
       isTranspiler: true,
       keywords: ["ejs", "templating"],
-      languishRanking: 86,
+      languishRanking: 85,
       stackovTags: ["ejs"],
     })
     .relCompilesTo.add("pl+javascript")

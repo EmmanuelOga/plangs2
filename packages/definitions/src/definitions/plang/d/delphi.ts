@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["delphi", "object pascal"],
-      languishRanking: 58,
+      languishRanking: 50,
       releases: [
         { version: "12.2", name: "RAD Studio 12.2 Athens", date: "2024-09-12" },
         { version: "11.3", name: "Delphi 11.3", date: "2023-03-01" },

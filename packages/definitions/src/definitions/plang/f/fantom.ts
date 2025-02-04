@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["fantom"],
-      languishRanking: 425,
+      languishRanking: 434,
       releases: [
         { version: "1.0.79", name: "Fantom 1.0.79", date: "2023-07-17" },
       ],

@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
         "template inheritance",
         "templating",
       ],
-      languishRanking: 69,
+      languishRanking: 62,
       stackovTags: ["laravel-blade"],
     })
     .relCompilesTo.add("pl+php")

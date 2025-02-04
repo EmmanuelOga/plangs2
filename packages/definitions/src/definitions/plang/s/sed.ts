@@ -18,7 +18,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["sed", "stream editor"],
-      languishRanking: 82,
+      languishRanking: 86,
       releases: [
         { version: "1.0", name: "Initial Version", date: "1974-01-01" },
       ],

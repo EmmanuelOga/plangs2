@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["prolog"],
-      languishRanking: 160,
+      languishRanking: 105,
       releases: [
         {
           version: "ISO/IEC 13211-1",

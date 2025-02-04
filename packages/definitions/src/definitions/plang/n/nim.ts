@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["nim"],
-      languishRanking: 104,
+      languishRanking: 119,
       releases: [
         { version: "2.2.0", date: "2024-10-02" },
         { version: "2.0.12", date: "2024-11-01" },

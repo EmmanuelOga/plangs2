@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["zig"],
-      languishRanking: 52,
+      languishRanking: 54,
       releases: [{ version: "0.13.0", name: "Zig 0.13.0", date: "2024-06-06" }],
       stackovTags: ["zig"],
     })

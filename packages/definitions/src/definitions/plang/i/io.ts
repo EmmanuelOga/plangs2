@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["io"],
-      languishRanking: 285,
+      languishRanking: 292,
       releases: [
         {
           version: "2019.05.22-alpha",

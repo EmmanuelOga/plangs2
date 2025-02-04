@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
         "linear logic",
         "proof assistant",
       ],
-      languishRanking: 197,
+      languishRanking: 201,
       releases: [
         { version: "1.0", date: "1995-01-01" },
         { version: "2.0", date: "2007-01-01" },

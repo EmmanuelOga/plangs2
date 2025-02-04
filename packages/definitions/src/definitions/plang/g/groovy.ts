@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["groovy", "java", "language", "programming", "scripting"],
-      languishRanking: 61,
+      languishRanking: 60,
       releases: [{ version: "4.0.24", date: "2024-09-09" }],
       stackovTags: ["groovy"],
     })

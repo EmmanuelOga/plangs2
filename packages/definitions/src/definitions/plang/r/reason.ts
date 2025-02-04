@@ -22,7 +22,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["ocaml", "reasonml"],
-      languishRanking: 245,
+      languishRanking: 235,
       releases: [{ version: "3.14.0", date: "2024-09-28" }],
       stackovTags: ["reason"],
     })

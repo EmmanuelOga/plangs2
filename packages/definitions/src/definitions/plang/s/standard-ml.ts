@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["SML", "Standard ML"],
-      languishRanking: 194,
+      languishRanking: 197,
       releases: [{ version: "SML '97", name: "Standard ML '97", date: "1997" }],
       stackovTags: ["sml"],
     })

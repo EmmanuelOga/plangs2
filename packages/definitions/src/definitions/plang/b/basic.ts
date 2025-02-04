@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["basic"],
-      languishRanking: 239,
+      languishRanking: 195,
       releases: [
         { version: "1.0", name: "Initial Release", date: "1964-05-01" },
       ],

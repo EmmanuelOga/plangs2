@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["cycling74", "max for live", "max msp", "maxmsp"],
-      languishRanking: 196,
+      languishRanking: 218,
       releases: [
         { version: "8.6.2", name: "Max 8.6.2", date: "2024-03-19" },
         { version: "9", name: "Max 9", date: "2024-10-29" },

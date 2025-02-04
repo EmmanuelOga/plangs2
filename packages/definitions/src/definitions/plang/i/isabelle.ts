@@ -20,7 +20,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["automated theorem prover", "formal methods", "isabelle"],
-      languishRanking: 317,
+      languishRanking: 187,
       releases: [
         { version: "2024", name: "Isabelle2024", date: "2024-05" },
         { version: "2023", name: "Isabelle 2023", date: "2023-06-15" },

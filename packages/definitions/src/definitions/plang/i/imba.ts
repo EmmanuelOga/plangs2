@@ -19,6 +19,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: true,
       keywords: ["full-stack", "imba", "javascript", "web"],
+      languishRanking: 397,
       releases: [{ version: "2.0.0-alpha.238", date: "2022-11-26" }],
     })
     .relCompilesTo.add("pl+javascript")

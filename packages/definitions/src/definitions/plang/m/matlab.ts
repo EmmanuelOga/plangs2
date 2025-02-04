@@ -40,7 +40,7 @@ export function define(g: PlangsGraph) {
         "programming",
         "visualization",
       ],
-      languishRanking: 47,
+      languishRanking: 46,
       releases: [
         { version: "R2024b", name: "Stable Release", date: "2024-09-12" },
         {

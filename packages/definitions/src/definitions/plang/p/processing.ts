@@ -28,7 +28,7 @@ export function define(g: PlangsGraph) {
         "programming language",
         "visual design",
       ],
-      languishRanking: 156,
+      languishRanking: 166,
       releases: [
         { version: "4.3", name: "Processing 4.3", date: "2023-07-26" },
       ],

@@ -19,7 +19,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["functional", "query", "w3c", "xml", "xpath", "xquery"],
-      languishRanking: 200,
+      languishRanking: 193,
       releases: [{ version: "3.1", name: "XQuery 3.1", date: "2017-03-21" }],
       stackovTags: ["xquery"],
     })

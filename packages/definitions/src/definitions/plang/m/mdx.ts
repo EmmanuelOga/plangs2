@@ -20,6 +20,7 @@ export function define(g: PlangsGraph) {
       githubType: "markup",
       isTranspiler: true,
       keywords: ["javascript", "jsx", "markdown", "mdx", "react"],
+      languishRanking: 65,
     })
     .relCompilesTo.add("pl+html", "pl+javascript", "pl+markdown")
     .relLicenses.add("lic+mit")

@@ -21,7 +21,7 @@ export function define(g: PlangsGraph) {
       githubType: "programming",
       isTranspiler: false,
       keywords: ["squirrel"],
-      languishRanking: 221,
+      languishRanking: 300,
       releases: [{ version: "3.2", name: "Squirrel 3.2", date: "2022-02-10" }],
       stackovTags: ["squirrel"],
     })

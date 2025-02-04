@@ -27,7 +27,7 @@ export function define(g: PlangsGraph) {
         "theorem prover",
         "verification",
       ],
-      languishRanking: 142,
+      languishRanking: 139,
       releases: [
         { version: "4.10", name: "Initial Release", date: "1989-05-01" },
         { version: "8.20.0", name: "Stable Release", date: "2024-09-03" },
