@@ -19,6 +19,8 @@ export function FacetsMain({ page, pg }: { page: PlangsPage; pg: PlangsGraph }) 
   const state = useFacetState(page, pg);
   const self = useRootState(state);
 
+  // TODO: why is the window.fragment global type missing?
+  // NOTE: onUserChange return the callback to remove the event.
   // Subscribe to user changes to reset the form when the user changes URL fragment.
   useEffect(() => window.fragment.onUserChange(ev => state?.doResetAll(ev.deserFrag)));
 

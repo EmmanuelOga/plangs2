@@ -18,6 +18,7 @@ export function IconButton({ action, disabled, initial }: IconButtonProps) {
   const state = useIconButtonState({ action, disabled, initial });
   const self = useRootState(state);
 
+  // TODO: here we should update the state with the prop, if needed, instead of using an effect.
   // biome-ignore lint/correctness/useExhaustiveDependencies: state is not a dependency since it is a dispatchable.
   useEffect(() => {
     if (!state) return;

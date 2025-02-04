@@ -29,6 +29,7 @@ export function JsonEditor({ vertex }: { vertex: TPlangsVertex }): ComponentChil
     }
   };
 
+  // TODO: not sure why I'm using an effect here, it should be a simple assignment.
   // biome-ignore lint/correctness/useExhaustiveDependencies: This effect should only run once.
   useEffect(() => {
     if (textarea.current) textarea.current.value = vertexJson();
