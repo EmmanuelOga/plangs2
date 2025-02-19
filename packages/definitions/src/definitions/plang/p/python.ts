@@ -41,6 +41,7 @@ export function define(g: PlangsGraph) {
       ],
       stackovTags: ["python"],
     })
+    .relCompilesTo.add("pl+javascript")
     .relInfluencedBy.add(
       "pl+ada",
       "pl+apl",
