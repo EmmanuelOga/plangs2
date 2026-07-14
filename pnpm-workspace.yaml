@@ -16,9 +16,19 @@ catalog:
   tinyglobby: 0.2.15
   yaml: 2.9.0
   zod: 4.4.3
+  # pipeline (importers + AI enrichment)
+  "@anthropic-ai/sdk": 0.111.0
+  "@mozilla/readability": 0.6.0
+  jsdom: 29.1.1
+  turndown: 7.2.4
+  "@types/jsdom": 28.0.3
+  "@types/turndown": 5.0.6
   # ui / framework
   astro: 7.0.9
   "@astrojs/react": 6.0.1
+  # Astro 7 defaults to the Sätteri markdown processor; remark plugins require
+  # the unified-based processor to be installed explicitly.
+  "@astrojs/markdown-remark": 7.2.1
   react: 19.2.7
   react-dom: 19.2.7
   "@types/react": 19.2.17

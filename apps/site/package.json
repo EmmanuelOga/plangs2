@@ -11,6 +11,7 @@
     "check": "astro check"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "catalog:",
     "@astrojs/react": "catalog:",
     "@plangs/graph": "workspace:*",
     "@plangs/schema": "workspace:*",

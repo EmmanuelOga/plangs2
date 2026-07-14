@@ -1,0 +1,26 @@
+---
+title: "Your Guide to Programming Languages"
+rels: ["author+geo"]
+hideMeta: true
+---
+**Plangs** is a curated resource for exploring programming languages and tools. Our goal is to provide a practical, production-ready selection of languages and resources, helping you find what’s worth using today.  
+
+## What’s Included  
+
+Plangs focuses on languages that are ready for real-world projects—or close to it. While experimental or alpha-stage languages may appear, they must at least support prototyping, and have good documentation. The community ultimately shapes what gets featured, so discussions and contributions are welcome!  
+
+## Community Contributions  
+
+Plangs started with a mix of Wikipedia data, AI prompts, [Github](https://github.com/tjpalmer/languish) and [Languish](https://github.com/tjpalmer/languish) data, and manual curation. Contributions from developers are always appreciated!  
+
+## Built for Simplicity  
+
+Plangs is a static website. All site data can be [exported as a single JSON file](/edit), inspired by [Simon Willison’s Baked Data Pattern](https://simonwillison.net/2021/Jul/28/baked-data/).  
+
+## License  
+
+**Plangs © 2024 by [Emmanuel Oga](https://emmanueloga.com) and contributors** is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).  
+
+---
+
+### Thanks for visiting Plangs!  

@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets";
 import ThemeToggle from "../islands/ThemeToggle.tsx";
 import "../styles/global.css";
 
@@ -13,6 +14,9 @@ const nav = [
   ["/plangs", "Languages"],
   ["/tools", "Tools"],
   ["/libraries", "Libraries"],
+  ["/apps", "Apps"],
+  ["/paradigms", "Paradigms"],
+  ["/tags", "Tags"],
   ["/blog", "Blog"],
   ["/about", "About"],
 ];
@@ -27,6 +31,8 @@ const nav = [
     {description && <meta name="description" content={description} />}
     {markdownHref && <link rel="alternate" type="text/markdown" href={markdownHref} />}
     <link rel="icon" href="/favicon.svg" />
+    <Font cssVariable="--font-nunito" preload />
+    <Font cssVariable="--font-rubik" />
     {/* Set theme before paint to avoid a flash (PLAN §6.3). */}
     <script is:inline>
       (() => {

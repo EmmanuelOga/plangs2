@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import { dateFromId, formatDate } from "../../lib/posts";
+
+const posts = (await getCollection("blog"))
+  .map(p => ({ ...p, date: dateFromId(p.id) ?? "" }))
+  .sort((a, b) => b.date.localeCompare(a.date));
+---
+
+<Base title="Blog — plangs!" description="News and notes from the plangs! project.">
+  <div class="mx-auto max-w-prose">
+    <h1 class="mb-6 text-3xl">Blog</h1>
+    <ul class="flex flex-col gap-5">
+      {
+        posts.map(post => (
+          <li>
+            {post.date && (
+              <time datetime={post.date} class="text-sm italic opacity-70">
+                {formatDate(post.date)}
+              </time>
+            )}
+            <h2 class="text-xl">
+              <a href={`/blog/${post.id}`} class="no-underline hover:underline">
+                {post.data.title}
+              </a>
+            </h2>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>

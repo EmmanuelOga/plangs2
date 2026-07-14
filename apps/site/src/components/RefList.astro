@@ -1,0 +1,41 @@
+---
+import { nodesByKind } from "@plangs/graph";
+import { type NodeKind, parseKey } from "@plangs/schema";
+import { getGraph } from "../lib/graph";
+import { hrefForKey, nodeName } from "../lib/view";
+
+interface Props {
+  kind: NodeKind;
+  /** Edge used to count how many things reference each entry. */
+  countLabel?: string;
+}
+const { kind, countLabel = "uses" } = Astro.props;
+
+const graph = getGraph();
+const entries = nodesByKind(graph, kind)
+  .map(key => ({
+    key,
+    name: nodeName(graph, key),
+    href: hrefForKey(key),
+    slug: parseKey(key)?.slug ?? key,
+    data: graph.getNodeAttributes(key).data,
+    degree: graph.degree(key),
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<ul class="grid grid-cols-[repeat(auto-fill,minmax(16rem,1fr))] gap-3">
+  {
+    entries.map(e => (
+      <li class="rounded-lg border border-primary/20 p-3">
+        <a href={e.href} class="font-medium no-underline hover:underline">
+          {e.name}
+        </a>
+        <span class="ml-2 text-xs opacity-60">
+          {e.degree} {countLabel}
+        </span>
+        {typeof e.data.shortDesc === "string" && <p class="mt-1 text-sm opacity-80">{e.data.shortDesc}</p>}
+      </li>
+    ))
+  }
+</ul>

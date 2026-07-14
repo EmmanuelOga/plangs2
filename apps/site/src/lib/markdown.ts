@@ -1,10 +1,10 @@
-import type { NodeDetail } from "./view";
+import { type NodeDetail, urlKind } from "./view";
 
 const SITE = "https://plangs.page";
 
 /** Clean markdown twin of a node page (PLAN §7.2): frontmatter + relations. */
 export function nodeToMarkdown(detail: NodeDetail): string {
-  const canonical = detail.kind === "plang" ? `${SITE}/${detail.slug}` : `${SITE}/${detail.kind}/${detail.slug}`;
+  const canonical = detail.kind === "plang" ? `${SITE}/${detail.slug}` : `${SITE}/${urlKind(detail.kind)}/${detail.slug}`;
   const d = detail.data;
   const lines: string[] = [];
   lines.push("---");

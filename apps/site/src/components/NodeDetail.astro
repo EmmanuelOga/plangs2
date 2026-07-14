@@ -1,10 +1,11 @@
 ---
-import type { NodeDetail } from "../lib/view";
+import { type NodeDetail, urlKind } from "../lib/view";
 
 interface Props {
   detail: NodeDetail;
 }
 const { detail } = Astro.props;
+const mdHref = detail.kind === "plang" ? `/${detail.slug}.md` : `/${urlKind(detail.kind)}/${detail.slug}.md`;
 const d = detail.data;
 const desc = typeof d.description === "string" ? d.description : undefined;
 const home = typeof d.extHomeURL === "string" ? d.extHomeURL : undefined;
@@ -32,7 +33,7 @@ const editHref = `https://github.com/janAkali/plangs2/edit/main/packages/data/no
     {home && <a href={home} class="underline">Homepage</a>}
     {github && <a href={`https://github.com/${github}`} class="underline">GitHub</a>}
     {wikipedia && <a href={`https://en.wikipedia.org/wiki/${wikipedia}`} class="underline">Wikipedia</a>}
-    <a href={`/${detail.kind === "plang" ? detail.slug : `${detail.kind}/${detail.slug}`}.md`} class="underline">Markdown</a>
+    <a href={mdHref} class="underline">Markdown</a>
     <a href={editHref} class="underline opacity-70">Edit</a>
   </div>
 

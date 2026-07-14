@@ -7,12 +7,12 @@
  *   Nunito body + Rubik-italic headers.
  * Colors are runtime CSS variables (light/dark) surfaced to Tailwind via
  * `@theme inline`, so `text-primary`, `bg-background`, etc. all swap with mode.
- * Fonts use a modernfontstacks fallback for now; the Astro Fonts API replaces
- * the shipped .ttf/.woff2 in Phase 5.
+ * Fonts come from Astro's Fonts API (--font-nunito / --font-rubik), which
+ * self-hosts + preloads them; no hand-rolled @font-face, no shipped .ttf.
  */
 @theme inline {
-  --font-sans: "Nunito", "Arial Rounded MT Bold", Calibri, source-sans-pro, sans-serif;
-  --font-display: "Rubik", var(--font-sans);
+  --font-sans: var(--font-nunito), "Arial Rounded MT Bold", Calibri, sans-serif;
+  --font-display: var(--font-rubik), var(--font-sans);
   --color-primary: var(--c-primary);
   --color-secondary: var(--c-secondary);
   --color-background: var(--c-background);

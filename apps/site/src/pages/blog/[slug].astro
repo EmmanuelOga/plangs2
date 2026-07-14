@@ -1,0 +1,47 @@
+---
+import { getNode } from "@plangs/graph";
+import { legacyToNew } from "@plangs/schema";
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import { getGraph } from "../../lib/graph";
+import { dateFromId, formatDate } from "../../lib/posts";
+import { hrefForKey, nodeName } from "../../lib/view";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map(post => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const date = dateFromId(post.id);
+
+// Resolve the post's declared rels (legacy keys) to real nodes.
+const graph = getGraph();
+const rels = post.data.rels
+  .map(legacyKey => {
+    const key = legacyToNew(legacyKey);
+    return getNode(graph, key)?.defined ? { key, name: nodeName(graph, key), href: hrefForKey(key) } : undefined;
+  })
+  .filter(r => r !== undefined);
+---
+
+<Base title={`${post.data.title} — plangs!`} description={post.data.title}>
+  <article class="mx-auto max-w-prose">
+    {
+      !post.data.hideMeta && (
+        <div class="mb-4 flex flex-row flex-wrap items-center gap-4 italic opacity-80">
+          {date && <time datetime={date}>{formatDate(date)}</time>}
+          {rels.map(r => (
+            <a href={r.href}>{r.name}</a>
+          ))}
+        </div>
+      )
+    }
+    <h1 class="mb-6 text-3xl">{post.data.title}</h1>
+    <div
+      class="prose-headings:font-display flex flex-col gap-4 leading-relaxed [&_h2]:mt-6 [&_h2]:text-2xl [&_h3]:mt-4 [&_h3]:text-xl [&_li]:ml-6 [&_li]:list-disc [&_pre]:overflow-x-auto [&_pre]:rounded [&_pre]:bg-primary/10 [&_pre]:p-3">
+      <Content />
+    </div>
+  </article>
+</Base>
