@@ -1,0 +1,57 @@
+---
+import type { NodeDetail } from "../lib/view";
+
+interface Props {
+  detail: NodeDetail;
+}
+const { detail } = Astro.props;
+const d = detail.data;
+const desc = typeof d.description === "string" ? d.description : undefined;
+const home = typeof d.extHomeURL === "string" ? d.extHomeURL : undefined;
+const github = typeof d.extGithubPath === "string" ? d.extGithubPath : undefined;
+const wikipedia = typeof d.extWikipediaPath === "string" ? d.extWikipediaPath : undefined;
+const created = typeof d.created === "string" ? d.created : undefined;
+
+// GitHub edit deep-link for the node's YAML (PLAN Decision D3).
+const editHref = `https://github.com/janAkali/plangs2/edit/main/packages/data/nodes/${detail.kind}/${detail.slug}.yaml`;
+---
+
+<article class="mx-auto max-w-4xl">
+  <header class="mb-6 flex items-center gap-4">
+    {detail.thumb && <img src={detail.thumb} alt={detail.name} width="72" height="72" class="size-18 object-contain" />}
+    <div>
+      <p class="text-xs uppercase tracking-wide opacity-60">{detail.kindLabel}</p>
+      <h1 class="text-3xl">{detail.name}</h1>
+      {created && <p class="text-sm opacity-70">Appeared {created}</p>}
+    </div>
+  </header>
+
+  {desc && <p class="mb-6 max-w-prose leading-relaxed">{desc}</p>}
+
+  <div class="mb-6 flex flex-wrap gap-3 text-sm">
+    {home && <a href={home} class="underline">Homepage</a>}
+    {github && <a href={`https://github.com/${github}`} class="underline">GitHub</a>}
+    {wikipedia && <a href={`https://en.wikipedia.org/wiki/${wikipedia}`} class="underline">Wikipedia</a>}
+    <a href={`/${detail.kind === "plang" ? detail.slug : `${detail.kind}/${detail.slug}`}.md`} class="underline">Markdown</a>
+    <a href={editHref} class="underline opacity-70">Edit</a>
+  </div>
+
+  <div class="grid gap-6 md:grid-cols-2">
+    {
+      detail.relations.map(group => (
+        <section>
+          <h2 class="mb-2 text-lg">{group.label}</h2>
+          <ul class="flex flex-wrap gap-2">
+            {group.items.map(item => (
+              <li>
+                <a href={item.href} class="rounded border border-primary/30 px-2 py-0.5 text-sm no-underline hover:border-primary">
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</article>

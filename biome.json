@@ -5,6 +5,7 @@
     "includes": [
       "**",
       "!**/node_modules",
+      "!.vscode",
       "!**/dist",
       "!**/.astro",
       "!packages/data/nodes",
@@ -23,7 +24,12 @@
       "!tailwind.config.js",
       "!wrangler.toml",
       "!scripts/.artifacts",
-      "!packages/graph/test/fixtures"
+      "!packages/graph/test/fixtures",
+      "!apps/site/public",
+      "!apps/*/dist",
+      "!apps/*/.astro",
+      "!apps/site/src/styles",
+      "!**/*.astro"
     ]
   },
   "formatter": {

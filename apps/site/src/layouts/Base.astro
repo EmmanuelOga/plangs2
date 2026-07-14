@@ -1,0 +1,53 @@
+---
+import ThemeToggle from "../islands/ThemeToggle.tsx";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Canonical markdown-twin URL for LLM consumers (PLAN §7). */
+  markdownHref?: string;
+}
+const { title, description, markdownHref } = Astro.props;
+const nav = [
+  ["/plangs", "Languages"],
+  ["/tools", "Tools"],
+  ["/libraries", "Libraries"],
+  ["/blog", "Blog"],
+  ["/about", "About"],
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    {markdownHref && <link rel="alternate" type="text/markdown" href={markdownHref} />}
+    <link rel="icon" href="/favicon.svg" />
+    {/* Set theme before paint to avoid a flash (PLAN §6.3). */}
+    <script is:inline>
+      (() => {
+        try {
+          const stored = localStorage.getItem("theme");
+          const dark = stored ? stored === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.classList.toggle("dark", dark);
+        } catch (_) {}
+      })();
+    </script>
+  </head>
+  <body class="min-h-dvh">
+    <header class="flex items-center gap-4 border-b border-primary/30 px-4 py-3">
+      <a href="/" class="brand text-xl font-bold no-underline">plangs!</a>
+      <nav class="flex flex-1 flex-wrap gap-3 text-sm">
+        {nav.map(([href, label]) => <a href={href} class="no-underline hover:underline">{label}</a>)}
+      </nav>
+      <ThemeToggle client:load />
+    </header>
+    <main id="id-mainContent" class="px-4 py-6">
+      <slot />
+    </main>
+  </body>
+</html>

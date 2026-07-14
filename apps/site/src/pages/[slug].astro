@@ -1,0 +1,25 @@
+---
+import { nodesByKind } from "@plangs/graph";
+import { parseKey } from "@plangs/schema";
+import NodeDetail from "../components/NodeDetail.astro";
+import Base from "../layouts/Base.astro";
+import { getGraph } from "../lib/graph";
+import { nodeDetail } from "../lib/view";
+
+export function getStaticPaths() {
+  const graph = getGraph();
+  return nodesByKind(graph, "plang")
+    .map(key => ({ key, slug: parseKey(key)?.slug }))
+    .filter(x => x.slug)
+    .map(x => ({ params: { slug: x.slug }, props: { key: x.key } }));
+}
+
+const { key } = Astro.props;
+const detail = nodeDetail(getGraph(), key as string);
+if (!detail) return Astro.rewrite("/404");
+const description = typeof detail.data.shortDesc === "string" ? detail.data.shortDesc : undefined;
+---
+
+<Base title={`${detail.name} — plangs!`} description={description} markdownHref={`/${detail.slug}.md`}>
+  <NodeDetail detail={detail} />
+</Base>

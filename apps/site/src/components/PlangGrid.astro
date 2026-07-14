@@ -1,0 +1,67 @@
+---
+import { parseKey } from "@plangs/schema";
+import FacetsPanel, { type FacetDimension } from "../islands/FacetsPanel.tsx";
+import { getGraph } from "../lib/graph";
+import { nodeName, plangCards } from "../lib/view";
+
+const graph = getGraph();
+const cards = plangCards(graph);
+const slug = (key: string) => parseKey(key)?.slug ?? key;
+
+// Build facet dimensions with counts + display names.
+function buildDimension(dim: string, label: string): FacetDimension {
+  const counts = new Map<string, number>();
+  const names = new Map<string, string>();
+  for (const card of cards) {
+    for (const key of card.facets[dim] ?? []) {
+      const s = slug(key);
+      counts.set(s, (counts.get(s) ?? 0) + 1);
+      if (!names.has(s)) names.set(s, nodeName(graph, key));
+    }
+  }
+  const options = [...counts.entries()]
+    .map(([value, count]) => ({ value, count, label: names.get(value) ?? value }))
+    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+  return { dim, label, options };
+}
+
+const dimensions = [buildDimension("paradigms", "Paradigms"), buildDimension("tags", "Tags"), buildDimension("platforms", "Platforms")];
+
+const dataAttr = (keys: string[]) => keys.map(slug).join(" ");
+---
+
+<div class="cl-facetsMain grid gap-6 md:grid-cols-[18rem_1fr]">
+  <FacetsPanel client:load dimensions={dimensions} />
+
+  <section>
+    <p class="mb-3 text-sm opacity-70">
+      <span data-result-count>{cards.length}</span> languages
+    </p>
+    <ul class="grid grid-cols-[repeat(auto-fill,minmax(9rem,1fr))] gap-3">
+      {
+        cards.map(card => (
+          <li
+            data-grid-item
+            data-key={card.key}
+            data-paradigms={dataAttr(card.facets.paradigms)}
+            data-tags={dataAttr(card.facets.tags)}
+            data-platforms={dataAttr(card.facets.platforms)}>
+            <a
+              href={`/${card.slug}`}
+              class="flex h-full flex-col items-center gap-2 rounded-lg border border-primary/20 bg-thumbnails p-3 text-center no-underline transition hover:border-primary">
+              {card.thumb ? (
+                <img src={card.thumb} alt={card.name} width="64" height="64" loading="lazy" class="size-16 object-contain" />
+              ) : (
+                <span class="flex size-16 items-center justify-center rounded bg-primary/10 text-2xl text-primary">
+                  {card.name.slice(0, 1)}
+                </span>
+              )}
+              <span class="text-sm font-medium text-foreground">{card.name}</span>
+              {card.ranking ? <span class="text-xs opacity-60">#{card.ranking}</span> : null}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</div>

@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/*
+ * Theme port of the legacy styles.css identity (PLAN §6.3):
+ *   purple #609 / chartreuse primary↔secondary swap between modes,
+ *   mintcream / #001 background↔foreground, thin purple scrollbars,
+ *   Nunito body + Rubik-italic headers.
+ * Colors are runtime CSS variables (light/dark) surfaced to Tailwind via
+ * `@theme inline`, so `text-primary`, `bg-background`, etc. all swap with mode.
+ * Fonts use a modernfontstacks fallback for now; the Astro Fonts API replaces
+ * the shipped .ttf/.woff2 in Phase 5.
+ */
+@theme inline {
+  --font-sans: "Nunito", "Arial Rounded MT Bold", Calibri, source-sans-pro, sans-serif;
+  --font-display: "Rubik", var(--font-sans);
+  --color-primary: var(--c-primary);
+  --color-secondary: var(--c-secondary);
+  --color-background: var(--c-background);
+  --color-foreground: var(--c-foreground);
+  --color-thumbnails: var(--c-thumbnails);
+  --color-stripes: var(--c-stripes);
+  --color-hiliteb: var(--c-hiliteb);
+  --color-hilitef: var(--c-hilitef);
+}
+
+:root {
+  --c-primary: #609;
+  --c-secondary: chartreuse;
+  --c-background: mintcream;
+  --c-foreground: #001;
+  --c-thumbnails: rgba(255, 255, 255, 0.85);
+  --c-stripes: rgba(127, 255, 0, 0.85);
+  --c-hiliteb: #a0f;
+  --c-hilitef: mintcream;
+}
+
+:root.dark {
+  --c-primary: chartreuse;
+  --c-secondary: #609;
+  --c-background: #001;
+  --c-foreground: mintcream;
+  --c-thumbnails: rgba(102, 0, 153, 0.85);
+  --c-stripes: rgba(102, 0, 153, 0.85);
+  --c-hiliteb: yellow;
+  --c-hilitef: #222;
+}
+
+@layer base {
+  html {
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+    /* Striped + radial-gradient backdrop (legacy identity). */
+    background-image:
+      radial-gradient(circle at 50% 0, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent 60%),
+      repeating-linear-gradient(135deg, var(--color-stripes) 0 1px, transparent 1px 22px);
+    background-attachment: fixed;
+    font-family: var(--font-sans);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+  h2,
+  h3,
+  header .brand {
+    color: var(--color-primary);
+    font-family: var(--font-display);
+    font-style: italic;
+  }
+  a {
+    color: var(--color-primary);
+  }
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+  }
+  * {
+    scrollbar-color: var(--color-primary) transparent;
+  }
+  @view-transition {
+    navigation: auto;
+  }
+}

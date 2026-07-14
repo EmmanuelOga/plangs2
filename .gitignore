@@ -38,3 +38,8 @@ web_modules/
 
 # v3 migration artifacts
 scripts/.artifacts/
+
+# Astro site build + synced assets
+apps/site/dist/
+apps/site/.astro/
+apps/site/public/images/vertex/

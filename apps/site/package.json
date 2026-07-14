@@ -1,0 +1,29 @@
+{
+  "name": "@plangs/site",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "sync-assets": "node scripts/sync-assets.mjs",
+    "dev": "pnpm sync-assets && astro dev",
+    "build": "pnpm sync-assets && astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/react": "catalog:",
+    "@plangs/graph": "workspace:*",
+    "@plangs/schema": "workspace:*",
+    "@tailwindcss/vite": "catalog:",
+    "@xstate/store": "catalog:",
+    "@xstate/store-react": "catalog:",
+    "astro": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "tailwindcss": "catalog:"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:"
+  }
+}
