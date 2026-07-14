@@ -32,3 +32,7 @@ jobs:
 
       - name: Test
         run: pnpm test
+
+      # Phase 3 gate: every URL the v2 site served must still be served.
+      - name: URL parity
+        run: pnpm url-parity
