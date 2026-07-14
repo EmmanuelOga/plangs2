@@ -8,8 +8,12 @@ interface Props {
   description?: string;
   /** Canonical markdown-twin URL for LLM consumers (PLAN §7). */
   markdownHref?: string;
+  /** OpenGraph image path (defaults to the site card). */
+  image?: string;
 }
-const { title, description, markdownHref } = Astro.props;
+const { title, description, markdownHref, image = "/images/plangs-1200x630.png" } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://plangs.page");
+const ogImage = new URL(image, Astro.site ?? "https://plangs.page");
 const nav = [
   ["/plangs", "Languages"],
   ["/tools", "Tools"],
@@ -29,8 +33,20 @@ const nav = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical.href} />
     {markdownHref && <link rel="alternate" type="text/markdown" href={markdownHref} />}
     <link rel="icon" href="/favicon.svg" />
+    {/* OpenGraph / Twitter (PLAN §11: preserve SEO metadata). */}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="plangs!" />
+    <meta property="og:title" content={title} />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:image" content={ogImage.href} />
+    {description && <meta property="og:description" content={description} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={ogImage.href} />
     <Font cssVariable="--font-nunito" preload />
     <Font cssVariable="--font-rubik" />
     {/* Set theme before paint to avoid a flash (PLAN §6.3). */}

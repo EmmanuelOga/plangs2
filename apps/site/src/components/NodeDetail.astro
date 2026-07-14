@@ -6,6 +6,12 @@ interface Props {
 }
 const { detail } = Astro.props;
 const mdHref = detail.kind === "plang" ? `/${detail.slug}.md` : `/${urlKind(detail.kind)}/${detail.slug}.md`;
+const itemType =
+  detail.kind === "plang"
+    ? "https://schema.org/ComputerLanguage"
+    : detail.kind === "app" || detail.kind === "tool" || detail.kind === "library"
+      ? "https://schema.org/SoftwareApplication"
+      : "https://schema.org/Thing";
 const d = detail.data;
 const desc = typeof d.description === "string" ? d.description : undefined;
 const home = typeof d.extHomeURL === "string" ? d.extHomeURL : undefined;
@@ -17,17 +23,18 @@ const created = typeof d.created === "string" ? d.created : undefined;
 const editHref = `https://github.com/janAkali/plangs2/edit/main/packages/data/nodes/${detail.kind}/${detail.slug}.yaml`;
 ---
 
-<article class="mx-auto max-w-4xl">
+{/* schema.org microdata — plangs are ComputerLanguage, everything else SoftwareApplication-ish (PLAN §8). */}
+<article class="mx-auto max-w-4xl" itemscope itemtype={itemType}>
   <header class="mb-6 flex items-center gap-4">
-    {detail.thumb && <img src={detail.thumb} alt={detail.name} width="72" height="72" class="size-18 object-contain" />}
+    {detail.thumb && <img src={detail.thumb} alt="" itemprop="image" width="72" height="72" class="size-18 object-contain" />}
     <div>
       <p class="text-xs uppercase tracking-wide opacity-60">{detail.kindLabel}</p>
-      <h1 class="text-3xl">{detail.name}</h1>
-      {created && <p class="text-sm opacity-70">Appeared {created}</p>}
+      <h1 class="text-3xl" itemprop="name">{detail.name}</h1>
+      {created && <p class="text-sm opacity-70">Appeared <span itemprop="dateCreated">{created}</span></p>}
     </div>
   </header>
 
-  {desc && <p class="mb-6 max-w-prose leading-relaxed">{desc}</p>}
+  {desc && <p class="mb-6 max-w-prose leading-relaxed" itemprop="description">{desc}</p>}
 
   <div class="mb-6 flex flex-wrap gap-3 text-sm">
     {home && <a href={home} class="underline">Homepage</a>}
