@@ -1,5 +1,6 @@
 ---
 import { Font } from "astro:assets";
+import PromptMenu from "../islands/PromptMenu.tsx";
 import ThemeToggle from "../islands/ThemeToggle.tsx";
 import "../styles/global.css";
 
@@ -10,8 +11,10 @@ interface Props {
   markdownHref?: string;
   /** OpenGraph image path (defaults to the site card). */
   image?: string;
+  /** What this page is about, used by the prompt menu (PLAN §7.5). */
+  subject?: string;
 }
-const { title, description, markdownHref, image = "/images/plangs-1200x630.png" } = Astro.props;
+const { title, description, markdownHref, image = "/images/plangs-1200x630.png", subject } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://plangs.page");
 const ogImage = new URL(image, Astro.site ?? "https://plangs.page");
 const nav = [
@@ -66,6 +69,7 @@ const nav = [
       <nav class="flex flex-1 flex-wrap gap-3 text-sm">
         {nav.map(([href, label]) => <a href={href} class="no-underline hover:underline">{label}</a>)}
       </nav>
+      <PromptMenu client:load canonical={canonical.href} markdownHref={markdownHref} subject={subject ?? title.replace(/ — plangs!$/, "")} />
       <ThemeToggle client:load />
     </header>
     <main id="id-mainContent" class="px-4 py-6">
