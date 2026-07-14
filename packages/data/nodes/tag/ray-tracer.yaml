@@ -1,0 +1,8 @@
+name: Ray Tracer
+description: Software that uses ray tracing to generate realistic lighting and shadows in 3D environments.
+keywords:
+  - 3D rendering
+  - graphics
+  - ray tracer
+  - ray tracing
+extHomeURL: https://en.wikipedia.org/wiki/Ray_tracing_(graphics)

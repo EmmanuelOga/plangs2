@@ -1,0 +1,81 @@
+name: JavaScript
+shortDesc: Scripting language essential for web interactivity and development.
+description: Versatile Scripting language and a core technology of the World Wide Web, alongside HTML and CSS. It is widely used for web page interactivity, animation, and asynchronous server requests.
+created: "1995"
+keywords:
+  - javascript
+  - js
+extHomeURL: https://ecma-international.org/publications-and-standards/standards/ecma-262/
+extRedditPath: javascript
+extWikipediaPath: JavaScript
+extensions:
+  - .cjs
+  - .js
+  - .mjs
+githubColor: "#f1e05a"
+githubLangId: "183"
+githubName: JavaScript
+githubPopular: true
+githubType: programming
+isTranspiler: false
+languishRanking: 3
+links:
+  - url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+    title: MDN JavaScript
+stackovTags:
+  - javascript
+rels:
+  influencedBy:
+    - pl/awk
+    - pl/c
+    - pl/java
+    - pl/lisp
+    - pl/lua
+    - pl/moonscript
+    - pl/perl
+    - pl/python
+    - pl/r5rs
+    - pl/scheme
+    - pl/self
+  licenses:
+    - lic/public-domain
+  paradigms:
+    - para/event-driven
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/interpreted
+    - para/multi
+    - para/oop
+    - para/procedural
+    - para/reflective
+  platforms:
+    - plat/android
+    - plat/apple
+    - plat/cross
+    - plat/linux
+    - plat/nodejs
+    - plat/wasm
+    - plat/web
+    - plat/windows
+  tags:
+    - tag/app
+    - tag/asm
+    - tag/dbms
+    - tag/framework
+    - tag/industrial
+    - tag/interpreters
+    - tag/multimedia
+    - tag/ray-tracer
+    - tag/scripting
+    - tag/shell
+    - tag/viz
+    - tag/webdev
+  typeSystems:
+    - tsys/duck
+    - tsys/dynamic
+    - tsys/object
+    - tsys/weak
+  writtenWith:
+    - pl/c
+    - pl/c++

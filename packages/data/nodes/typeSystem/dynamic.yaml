@@ -1,0 +1,5 @@
+name: Dynamic
+description: Dynamic typing defers type checking until runtime, allowing variables to hold different types at different times.
+keywords:
+  - dynamic
+extHomeURL: https://en.wikipedia.org/wiki/Dynamic_typing

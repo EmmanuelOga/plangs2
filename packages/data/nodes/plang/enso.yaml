@@ -1,0 +1,40 @@
+name: Enso
+shortDesc: Visual, data-centric programming language designed for efficient collaboration.
+description: Visual, data-centric programming language designed for data professionals to efficiently collaborate. It seamlessly combines visual programming with a high-performance engine, offering both scalability and intuitive design.
+created: "2021"
+keywords:
+  - data-centric
+  - enso
+  - visual programming
+extGithubPath: enso-org/enso
+extHomeURL: https://enso.org
+extensions:
+  - .enso
+githubStars: 7400
+isTranspiler: false
+releases:
+  - version: 2024.5.0
+    date: 2024-05
+rels:
+  licenses:
+    - lic/agpl
+    - lic/apache
+  paradigms:
+    - para/data-driven
+    - para/functional
+    - para/multi
+    - para/visual
+  platforms:
+    - plat/apple
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/analysis
+    - tag/viz
+    - tag/workflow
+  typeSystems:
+    - tsys/dynamic
+    - tsys/gradual
+  writtenWith:
+    - pl/rust
+    - pl/scala

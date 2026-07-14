@@ -1,0 +1,33 @@
+name: JIProlog
+shortDesc: An interpreter for the Prolog language implemented in Java.
+description: An interpreter for the Prolog language implemented in Java, providing cross-platform compatibility and integration capabilities with Java environments.
+created: "1999"
+keywords:
+  - java prolog
+  - jiprolog
+  - prolog interpreter
+extGithubPath: jiprolog/jiprolog
+extHomeURL: http://www.jiprolog.com/
+extensions:
+  - .pl
+  - .prolog
+isTranspiler: false
+links:
+  - url: https://x.com/jiprolog
+    title: Twitter
+rels:
+  dialectOf:
+    - pl/prolog
+  influencedBy:
+    - pl/prolog
+  paradigms:
+    - para/declarative
+    - para/interpreted
+    - para/logic
+  platforms:
+    - plat/cross
+    - plat/java
+  tags:
+    - tag/scripting
+  writtenWith:
+    - pl/java

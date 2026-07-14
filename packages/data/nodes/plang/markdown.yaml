@@ -1,0 +1,48 @@
+name: Markdown
+shortDesc: Lightweight markup language for formatting text using simple syntax.
+description: Lightweight markup language created by John Gruber in 2004 for formatting text using a simple, plain-text syntax. It is popular for use in digital publishing and web development, offering easy conversion to HTML.
+created: "2004"
+keywords:
+  - lightweight
+  - markup
+  - plain-text
+  - text-formatting
+extHomeURL: https://daringfireball.net/projects/markdown/
+extRedditPath: Markdown
+extWikipediaPath: Markdown
+extensions:
+  - .markdown
+  - .md
+githubColor: "#083fa1"
+githubLangId: "222"
+githubName: Markdown
+githubPopular: false
+githubType: prose
+isTranspiler: true
+languishRanking: 12
+releases:
+  - version: "1.0"
+    name: ""
+    date: 2004-03-09
+  - version: 1.0.1
+    name: ""
+    date: 2004-12-17
+stackovTags:
+  - markdown
+rels:
+  compilesTo:
+    - pl/html
+  licenses:
+    - lic/public-domain
+  paradigms:
+    - para/dsl
+    - para/markup
+    - para/scripting
+  platforms:
+    - plat/web
+  tags:
+    - tag/editor
+    - tag/scripting
+    - tag/webdev
+  typeSystems:
+    - tsys/untyped

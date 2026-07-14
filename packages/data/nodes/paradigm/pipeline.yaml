@@ -1,0 +1,5 @@
+name: Pipeline
+description: Passes data through a series of processing stages, each stage producing input for the next.
+keywords:
+  - pipeline
+extHomeURL: https://en.wikipedia.org/wiki/Pipeline_(software)

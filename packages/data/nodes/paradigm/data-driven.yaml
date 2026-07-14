@@ -1,0 +1,5 @@
+name: Data-Centric
+description: Programs describe the data to be matched and the processing required rather than defining a sequence of steps to be taken.
+keywords:
+  - data-driven
+extHomeURL: https://en.wikipedia.org/wiki/Data-driven_programming

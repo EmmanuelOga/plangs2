@@ -1,0 +1,43 @@
+name: Hackety Hack
+shortDesc: Educational platform for learning Ruby programming, using the Shoes toolkit for GUI development.
+description: Application that teaches beginners how to program using the Ruby language, incorporating the Shoes toolkit for creating simple and intuitive GUI applications.
+created: "2009"
+keywords:
+  - beginner programming
+  - education platform
+  - hackety hack
+  - ruby programming
+  - shoes toolkit
+extGithubPath: hacketyhack/hacketyhack
+extWikipediaPath: Hackety_Hack
+extensions:
+  - .rb
+githubStars: 0
+isTranspiler: false
+releases:
+  - version: "1.0"
+    name: Hackety Hack 1.0
+    date: 2011-11-04
+rels:
+  influencedBy:
+    - pl/ruby
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/educational
+    - para/oop
+    - para/scripting
+  platforms:
+    - plat/apple
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/edu
+    - tag/gui
+    - tag/interpreters
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic
+    - tsys/object
+  writtenWith:
+    - pl/ruby

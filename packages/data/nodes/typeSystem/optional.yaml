@@ -1,0 +1,5 @@
+name: Optional
+description: Allows for type annotations to be included or omitted, offering flexibility between static and dynamic typing.
+keywords:
+  - optional
+extHomeURL: https://en.wikipedia.org/wiki/Optional_typing

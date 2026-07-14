@@ -1,0 +1,7 @@
+description: Bundle used on the implementation of the Plangs! website.
+rels:
+  tools:
+    - tool/biomejs
+    - tool/entr
+    - tool/esbuild
+    - tool/overmind

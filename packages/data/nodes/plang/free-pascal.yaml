@@ -1,0 +1,58 @@
+name: Free Pascal
+shortDesc: Pascal compiler supporting multiple architectures and dialects.
+description: Pascal and Object Pascal compiler designed to support a wide range of processor architectures and operating systems with its feature-rich environment. It adheres to the "write once, compile anywhere" philosophy and includes functionality for inline assembly and compatibility with multiple Pascal dialects.
+created: "1993"
+keywords:
+  - cross-platform
+  - fpc
+  - freepascal
+  - object pascal
+  - pascal
+extHomeURL: https://www.freepascal.org/
+extWikipediaPath: Free_Pascal
+extensions:
+  - .p
+  - .pas
+  - .pp
+filenames:
+  - Makefile
+isTranspiler: false
+releases:
+  - version: 3.2.2
+    date: 2021-05-20
+rels:
+  dialectOf:
+    - pl/pascal
+  implements:
+    - pl/pascal
+  influencedBy:
+    - pl/pascal
+  licenses:
+    - lic/gnu-gpl
+  paradigms:
+    - para/compiled
+    - para/general-purpose
+    - para/multi
+    - para/oop
+    - para/procedural
+    - para/structured
+  platforms:
+    - plat/android
+    - plat/apple
+    - plat/bsd
+    - plat/cross
+    - plat/dos
+    - plat/embedded
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/better-c
+    - tag/compiler
+    - tag/gui
+    - tag/industrial
+  typeSystems:
+    - tsys/object
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/pascal

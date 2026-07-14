@@ -1,0 +1,11 @@
+name: Linux
+description: A family of open-source Unix-like operating systems, with various distributions such as Ubuntu, Debian, CentOS, and Red Hat Enterprise Linux.
+keywords:
+  - centos
+  - debian
+  - gnu/linux
+  - linux
+  - openSUSE
+  - redhat
+  - ubuntu
+extHomeURL: https://en.wikipedia.org/wiki/Linux

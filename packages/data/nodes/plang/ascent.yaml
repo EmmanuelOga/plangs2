@@ -1,0 +1,31 @@
+name: Ascent
+shortDesc: Logic programming language (similar to Datalog) embedded in Rust via macros.
+description: A logic programming language, similar to Datalog, embedded in Rust using macros for declarative logic processing and query optimization.
+created: "2023"
+keywords:
+  - datalog
+  - macros-usage
+  - rust-embedded
+extGithubPath: s-arash/ascent
+extHomeURL: https://s-arash.github.io/ascent/
+isTranspiler: true
+links:
+  - url: https://docs.rs/ascent
+    title: Docs
+  - url: https://crates.io/crates/ascent
+    title: Rust Crate
+rels:
+  influencedBy:
+    - pl/datalog
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/declarative
+    - para/embedded
+    - para/logic
+  tags:
+    - tag/languages
+    - tag/proofs
+    - tag/webdev
+  writtenWith:
+    - pl/rust

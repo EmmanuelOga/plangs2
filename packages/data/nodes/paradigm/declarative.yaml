@@ -1,0 +1,5 @@
+name: Declarative
+description: Expresses the logic of a computation without describing its control flow.
+keywords:
+  - declarative
+extHomeURL: https://en.wikipedia.org/wiki/Declarative_programming

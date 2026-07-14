@@ -1,0 +1,70 @@
+name: Java
+shortDesc: High-level language known for its portability and extensive ecosystem.
+description: High-level programming language originally developed by Sun Microsystems and now owned by Oracle, known for its portability, strong memory management, and extensive ecosystem.
+created: "1995"
+keywords:
+  - java
+extHomeURL: https://openjdk.java.net/
+extRedditPath: java
+extWikipediaPath: Java_(programming_language)
+extensions:
+  - .class
+  - .jar
+  - .java
+  - .jmod
+  - .war
+githubColor: "#b07219"
+githubLangId: "181"
+githubName: Java
+githubPopular: true
+githubType: programming
+isTranspiler: false
+languishRanking: 5
+releases:
+  - version: "17"
+    name: Java SE 17
+    date: 2021-09-14
+  - version: "20"
+    name: Java SE 20
+    date: 2023-03-21
+  - version: "21"
+    name: Java SE 21
+    date: 2023-09-19
+stackovTags:
+  - java
+rels:
+  influencedBy:
+    - pl/c++
+  licenses:
+    - lic/gnu-gpl
+  paradigms:
+    - para/compiled
+    - para/concurrent
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/multi
+    - para/oop
+    - para/parallel
+    - para/reflective
+  platforms:
+    - plat/android
+    - plat/apple
+    - plat/cross
+    - plat/java
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/app
+    - tag/compiler
+    - tag/server
+  typeSystems:
+    - tsys/generic
+    - tsys/manifest
+    - tsys/nominal
+    - tsys/object
+    - tsys/safe
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/c

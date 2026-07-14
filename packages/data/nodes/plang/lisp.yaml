@@ -1,0 +1,49 @@
+name: Lisp
+shortDesc: Family of programming languages known for its fully parenthesized prefix notation and influence on AI research.
+description: Family of programming languages known for their fully parenthesized prefix notation and rich macro systems, initially developed for AI research. It is one of the oldest high-level programming languages still in use, with widespread influence on subsequent languages.
+created: "1960"
+keywords:
+  - lisp
+extRedditPath: Common_Lisp
+extWikipediaPath: Common_Lisp
+extensions:
+  - .cl
+  - .fasl
+  - .lisp
+  - .lsp
+githubColor: "#3fb68b"
+githubLangId: "66"
+githubName: Common Lisp
+githubPopular: false
+githubType: programming
+isTranspiler: false
+stackovTags:
+  - common-lisp
+rels:
+  licenses:
+    - lic/gnu-gpl
+    - lic/lgpl
+    - lic/mit
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/metaprogramming
+    - para/multi
+    - para/procedural
+    - para/reflective
+    - para/symbolic
+  platforms:
+    - plat/cross
+  tags:
+    - tag/app
+    - tag/asm
+    - tag/compiler
+    - tag/editor
+    - tag/industrial
+    - tag/interpreters
+    - tag/languages
+    - tag/scripting
+    - tag/viz
+  typeSystems:
+    - tsys/dynamic
+    - tsys/strong

@@ -1,0 +1,45 @@
+name: R5RS
+shortDesc: R5RS is the fifth version of Scheme, emphasizing minimalist and functional programming.
+description: R5RS is the fifth revision of the Scheme programming language, part of the Lisp family, known for its minimalist and clean design focusing on functional programming and domain-specific languages. This version, ratified in January 1998, introduced various standard features to make Scheme widely implementable and usable for educational, research, and multi-paradigm development.
+created: "1998"
+keywords:
+  - scheme
+extHomeURL: https://www.scheme.org/
+extWikipediaPath: R5RS
+extensions:
+  - .scm
+  - .ss
+isTranspiler: false
+releases:
+  - version: R5RS
+    name: Revised^5 Report on the Algorithmic Language Scheme
+    date: 1998-01-01
+rels:
+  dialectOf:
+    - pl/lisp
+    - pl/scheme
+  implements:
+    - pl/scheme
+  influencedBy:
+    - pl/lisp
+  paradigms:
+    - para/functional
+    - para/imperative
+    - para/metaprogramming
+    - para/multi
+    - para/symbolic
+  platforms:
+    - plat/cross
+  tags:
+    - tag/analysis
+    - tag/compiler
+    - tag/industrial
+    - tag/interpreters
+    - tag/scripting
+    - tag/testing
+  typeSystems:
+    - tsys/dynamic
+    - tsys/latent
+    - tsys/strong
+  writtenWith:
+    - pl/c

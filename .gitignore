@@ -35,3 +35,6 @@ web_modules/
 .env
 
 .wrangler
+
+# v3 migration artifacts
+scripts/.artifacts/

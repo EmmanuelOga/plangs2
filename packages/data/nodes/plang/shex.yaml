@@ -1,0 +1,39 @@
+name: ShEx
+shortDesc: Used for RDF data validation and description.
+description: Shape Expressions is a data modeling language used for describing and validating RDF data structures.
+created: "2012"
+keywords:
+  - rdf
+  - shex
+  - validation
+extHomeURL: http://shex.io
+extWikipediaPath: ShEx
+extensions:
+  - .shex
+  - .sx
+isTranspiler: false
+releases:
+  - version: "2.0"
+    name: Shape Expressions Language 2.0
+    date: 2017-03-30
+  - version: "2.1"
+    name: ShEx 2.1
+    date: 2018-11-21
+rels:
+  licenses:
+    - lic/cc-by
+  paradigms:
+    - para/declarative
+    - para/dsl
+    - para/validation
+  platforms:
+    - plat/cross
+  tags:
+    - tag/dataq
+    - tag/framework
+    - tag/rdf
+    - tag/scripting
+    - tag/workflow
+  writtenWith:
+    - pl/javascript
+    - pl/scala

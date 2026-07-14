@@ -1,0 +1,38 @@
+# Plangs v3 workspace. The workspace list grows per migration phase; legacy
+# packages (server/frontend/definitions/…) are intentionally NOT members — they
+# are frozen and recoverable from the `final-plangs-2` tag.
+packages:
+  - packages/schema
+  - packages/graph
+  - packages/data
+  - packages/pipeline
+  - apps/site
+
+# Shared, single-sourced dependency versions (verified July 2026).
+catalog:
+  # runtime / graph
+  graphology: 0.26.0
+  graphology-types: 0.24.8
+  tinyglobby: 0.2.15
+  yaml: 2.9.0
+  zod: 4.4.3
+  # ui / framework
+  astro: 7.0.9
+  "@astrojs/react": 6.0.1
+  react: 19.2.7
+  react-dom: 19.2.7
+  "@types/react": 19.2.7
+  "@types/react-dom": 19.2.7
+  "@xstate/store": 4.2.1
+  "@xstate/store-react": 2.0.0
+  # styling
+  tailwindcss: 4.3.2
+  "@tailwindcss/vite": 4.3.2
+  # tooling
+  "@biomejs/biome": 2.5.3
+  typescript: 5.9.3
+  vitest: 4.1.10
+  "@types/node": 24.10.1
+
+# pnpm 11's minimumReleaseAge default can hold back fresh releases; all versions
+# above are already older than the default window, so no override is needed yet.

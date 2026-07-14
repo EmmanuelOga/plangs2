@@ -1,0 +1,5 @@
+name: Shared Mem
+description: Allow multiple processes to access the same memory space.
+keywords:
+  - shared memory
+extHomeURL: https://en.wikipedia.org/wiki/Shared_memory

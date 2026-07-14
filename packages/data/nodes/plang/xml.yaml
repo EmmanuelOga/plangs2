@@ -1,0 +1,41 @@
+name: XML
+shortDesc: Markup language used for storing and sharing data.
+description: Extensible Markup Language (XML) is a markup language and file format for storing, transmitting, and reconstructing arbitrary data in a way that is both human-readable and machine-readable. It is widely used for data interchange over the Internet.
+created: "1996"
+keywords:
+  - W3C
+  - data interchange
+  - markup language
+  - serialization
+extHomeURL: https://www.w3.org/XML/
+extRedditPath: xml
+extWikipediaPath: XML
+extensions:
+  - .xml
+githubColor: "#0060ac"
+githubLangId: "399"
+githubName: XML
+githubPopular: false
+githubType: data
+isTranspiler: false
+languishRanking: 34
+releases:
+  - version: "1.0"
+    name: 5th Edition
+    date: 2008-11-26
+  - version: "1.1"
+    name: 2nd Edition
+    date: 2006-08-16
+stackovTags:
+  - xml
+rels:
+  paradigms:
+    - para/data-exchange
+    - para/markup
+  platforms:
+    - plat/cross
+  tags:
+    - tag/dataq
+    - tag/workflow
+  typeSystems:
+    - tsys/untyped

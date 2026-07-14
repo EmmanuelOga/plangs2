@@ -1,0 +1,10 @@
+name: BSD
+description: BSD licenses are a family of permissive free software licenses, imposing minimal restrictions on the use and distribution of covered software.
+keywords:
+  - bsd
+  - bsd3
+  - bsd4
+extHomeURL: https://en.wikipedia.org/wiki/BSD_licenses
+isFSFLibre: true
+isOSIApproved: true
+spdx: BSD-3-Clause

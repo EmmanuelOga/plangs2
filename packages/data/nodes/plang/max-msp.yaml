@@ -1,0 +1,63 @@
+name: Max
+shortDesc: Visual language used for multimedia and music creation.
+description: Also known as Max/MSP/Jitter. A visual programming language primarily used for music and multimedia development. It allows users to create interactive sound, graphics, and media applications through a scalable visual interface.
+created: "1988"
+keywords:
+  - cycling74
+  - max for live
+  - max msp
+  - maxmsp
+extHomeURL: https://cycling74.com/products/max
+extRedditPath: MaxMSP
+extWikipediaPath: Max_(software)
+extensions:
+  - .maxpat
+  - .mxb
+  - .mxt
+githubColor: "#c4a79c"
+githubLangId: "227"
+githubName: Max
+githubPopular: false
+githubType: programming
+isTranspiler: false
+languishRanking: 218
+releases:
+  - version: 8.6.2
+    name: Max 8.6.2
+    date: 2024-03-19
+  - version: "9"
+    name: Max 9
+    date: 2024-10-29
+stackovTags:
+  - max-msp-jitter
+rels:
+  licenses:
+    - lic/proprietary
+  paradigms:
+    - para/dataflow
+    - para/event-driven
+    - para/visual
+  platforms:
+    - plat/apple
+    - plat/windows
+  tags:
+    - tag/3dg
+    - tag/app
+    - tag/audio-dev
+    - tag/dsp
+    - tag/flow
+    - tag/gui
+    - tag/industrial
+    - tag/interpreters
+    - tag/midi
+    - tag/modular
+    - tag/multimedia
+    - tag/ray-tracer
+    - tag/video
+    - tag/viz
+    - tag/wavelet
+  typeSystems:
+    - tsys/dynamic
+  writtenWith:
+    - pl/c
+    - pl/c++

@@ -1,0 +1,50 @@
+name: Flutter
+shortDesc: Toolkit for creating natively compiled cross-platform apps from a single codebase.
+description: UI software development toolkit by Google, used for crafting natively compiled cross-platform applications from a single codebase for mobile, web, and desktop.
+created: "2017"
+keywords:
+  - flutter
+extGithubPath: flutter/flutter
+extHomeURL: https://flutter.dev/
+extWikipediaPath: Flutter_(software)
+extensions:
+  - .dart
+githubStars: 167000
+isTranspiler: true
+releases:
+  - version: 3.27.0
+    date: 2024-12-11
+rels:
+  compilesTo:
+    - pl/javascript
+  implements:
+    - pl/dart
+  licenses:
+    - lic/bsd
+  paradigms:
+    - para/declarative
+    - para/functional
+    - para/oop
+  platforms:
+    - plat/android
+    - plat/apple
+    - plat/cross
+    - plat/linux
+    - plat/web
+    - plat/windows
+  tags:
+    - tag/3dg
+    - tag/app
+    - tag/framework
+    - tag/gui
+    - tag/industrial
+    - tag/ray-tracer
+    - tag/webdev
+  typeSystems:
+    - tsys/object
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/c
+    - pl/c++
+    - pl/dart

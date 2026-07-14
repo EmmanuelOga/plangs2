@@ -1,0 +1,61 @@
+name: Svelte
+shortDesc: Front-end framework that compiles HTML templates to optimized JavaScript.
+description: Component-based front-end software framework, created by Rich Harris and maintained by the Svelte core team members. It compiles HTML templates to specialized code that manipulates the DOM directly, reducing the size of transferred files and improving client performance.
+created: "2016"
+keywords:
+  - component-based
+  - frontend-framework
+  - rich-harris
+  - svelte
+extGithubPath: sveltejs/svelte
+extHomeURL: https://svelte.dev/
+extRedditPath: sveltejs
+extWikipediaPath: Svelte
+extensions:
+  - .svelte
+githubColor: "#ff3e00"
+githubLangId: "928734530"
+githubName: Svelte
+githubPopular: false
+githubStars: 80400
+githubType: markup
+isTranspiler: true
+languishRanking: 30
+releases:
+  - version: 1.0.0
+    name: Initial Release
+    date: 2016-11-29
+  - version: 2.0.0
+    name: Release 2
+    date: 2018-04-19
+  - version: 3.0.0
+    name: Release 3
+    date: 2019-04-21
+  - version: 4.0.0
+    name: Release 4
+    date: 2023-06-22
+  - version: 5.0.0
+    name: Release 5
+    date: 2024-10-19
+stackovTags:
+  - svelte
+rels:
+  compilesTo:
+    - pl/javascript
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/compiled
+    - para/event-driven
+    - para/functional
+    - para/reactive
+  platforms:
+    - plat/nodejs
+    - plat/web
+  tags:
+    - tag/framework
+    - tag/gui
+    - tag/webdev
+  typeSystems:
+    - tsys/dynamic
+    - tsys/static

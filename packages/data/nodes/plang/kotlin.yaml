@@ -1,0 +1,79 @@
+name: Kotlin
+shortDesc: Concise, statically typed language interoperative with Java, targeting JVM and other platforms.
+description: Cross-platform, statically typed language designed to interoperate with Java, featuring concise syntax due to its type inference. It targets the JVM and compiles to JavaScript and native code via LLVM for various platforms, under the guidance of JetBrains and the Kotlin Foundation.
+created: "2011"
+keywords:
+  - jetbrains
+  - kotlin
+  - programming language
+extGithubPath: JetBrains/kotlin
+extHomeURL: https://kotlinlang.org/
+extRedditPath: Kotlin
+extWikipediaPath: Kotlin_(programming_language)
+extensions:
+  - .kexe
+  - .klib
+  - .kt
+  - .kts
+githubColor: "#A97BFF"
+githubLangId: "189"
+githubName: Kotlin
+githubPopular: true
+githubStars: 49600
+githubType: programming
+isTranspiler: true
+languishRanking: 14
+releases:
+  - version: 2.1.0
+    date: 2024-09-27
+stackovTags:
+  - kotlin
+rels:
+  compilesTo:
+    - pl/javascript
+    - pl/llvm
+  influencedBy:
+    - pl/c-sharp
+    - pl/eiffel
+    - pl/groovy
+    - pl/javascript
+    - pl/python
+    - pl/scala
+  licenses:
+    - lic/apache
+  paradigms:
+    - para/concurrent
+    - para/declarative
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/multi
+    - para/oop
+    - para/reflective
+    - para/structured
+  platforms:
+    - plat/android
+    - plat/apple
+    - plat/cross
+    - plat/java
+    - plat/linux
+    - plat/nodejs
+    - plat/wasm
+    - plat/web
+    - plat/windows
+  tags:
+    - tag/app
+    - tag/compiler
+    - tag/framework
+    - tag/industrial
+    - tag/interpreters
+    - tag/scripting
+    - tag/shell
+    - tag/testing
+  typeSystems:
+    - tsys/flow
+    - tsys/generic
+    - tsys/inferred
+    - tsys/object
+    - tsys/static
+    - tsys/strong

@@ -1,0 +1,93 @@
+name: Nim
+shortDesc: Statically typed, compiled language focusing on performance and elegant syntax, compilable to C, C++, and JavaScript.
+description: General-purpose, statically typed, compiled programming language designed for performance and elegant syntax. It supports multiple paradigms including imperative, functional, and metaprogramming. Nim can compile to C, C++, and JavaScript, making it suitable for system programming, web, and embedded applications.
+created: "2008"
+keywords:
+  - nim
+extGithubPath: nim-lang/Nim
+extHomeURL: https://nim-lang.org/
+extRedditPath: nim
+extWikipediaPath: Nim_(programming_language)
+extensions:
+  - .nim
+  - .nimble
+  - .nims
+githubColor: "#ffc200"
+githubLangId: "249"
+githubName: Nim
+githubPopular: false
+githubStars: 16700
+githubType: programming
+isTranspiler: true
+languishRanking: 119
+releases:
+  - version: 2.2.0
+    date: 2024-10-02
+  - version: 2.0.12
+    date: 2024-11-01
+stackovTags:
+  - nim-lang
+rels:
+  compilesTo:
+    - pl/c
+    - pl/c++
+    - pl/javascript
+    - pl/objective-c
+  influencedBy:
+    - pl/ada
+    - pl/c
+    - pl/c++
+    - pl/lisp
+    - pl/python
+    - pl/rust
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/compiled
+    - para/concurrent
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/macro
+    - para/metaprogramming
+    - para/multi
+    - para/oop
+    - para/procedural
+  platforms:
+    - plat/android
+    - plat/apple
+    - plat/arm
+    - plat/bsd
+    - plat/cross
+    - plat/linux
+    - plat/nodejs
+    - plat/osx
+    - plat/riscv
+    - plat/web
+    - plat/windows
+    - plat/x86-64
+  tags:
+    - tag/3dg
+    - tag/analysis
+    - tag/app
+    - tag/cli
+    - tag/compiler
+    - tag/editor
+    - tag/edu
+    - tag/embedded
+    - tag/games
+    - tag/interpreters
+    - tag/iot
+    - tag/ray-tracer
+    - tag/scripting
+    - tag/stats
+    - tag/viz
+  typeSystems:
+    - tsys/inferred
+    - tsys/object
+    - tsys/static
+    - tsys/strong
+    - tsys/structural
+  writtenWith:
+    - pl/c
+    - pl/nim

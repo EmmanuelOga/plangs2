@@ -1,0 +1,8 @@
+name: CeCILL
+description: The CeCILL license is a French free software license compatible with the GNU General Public License.
+keywords:
+  - cecill
+extHomeURL: https://en.wikipedia.org/wiki/CeCILL
+isFSFLibre: true
+isOSIApproved: false
+spdx: CECILL-2.1

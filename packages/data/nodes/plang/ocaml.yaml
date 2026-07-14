@@ -1,0 +1,74 @@
+name: OCaml
+shortDesc: General-purpose, multi-paradigm language extending Caml with OO features.
+description: General-purpose, high-level, multi-paradigm programming language which extends the Caml dialect of ML with object-oriented features. OCaml was created in 1996 by Xavier Leroy, Jérôme Vouillon, Damien Doligez, Didier Rémy, Ascánder Suárez, and others.
+created: "1996"
+keywords:
+  - functional
+  - imperative
+  - ml
+  - mult-paradigm
+  - ocaml
+extGithubPath: ocaml/ocaml
+extHomeURL: https://ocaml.org/
+extRedditPath: ocaml
+extWikipediaPath: OCaml
+extensions:
+  - .ml
+  - .mli
+githubColor: "#ef7a08"
+githubLangId: "255"
+githubName: OCaml
+githubPopular: false
+githubStars: 5500
+githubType: programming
+isTranspiler: false
+languishRanking: 66
+releases:
+  - version: 5.2.0
+    name: OCaml 5.2.0
+    date: 2024-05-13
+  - version: 4.14.2
+    name: LTS 4.14.2
+stackovTags:
+  - ocaml
+rels:
+  influencedBy:
+    - pl/c
+    - pl/pascal
+    - pl/standard-ml
+  licenses:
+    - lic/lgpl
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/modular
+    - para/multi
+    - para/oop
+  platforms:
+    - plat/apple
+    - plat/arm
+    - plat/cross
+    - plat/linux
+    - plat/riscv
+    - plat/windows
+    - plat/x86-64
+  tags:
+    - tag/analysis
+    - tag/automation
+    - tag/compiler
+    - tag/control
+    - tag/industrial
+    - tag/interpreters
+    - tag/proofs
+    - tag/viz
+  typeSystems:
+    - tsys/algebraic
+    - tsys/generic
+    - tsys/inferred
+    - tsys/object
+    - tsys/static
+    - tsys/strong
+    - tsys/structural
+  writtenWith:
+    - pl/c

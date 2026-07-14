@@ -1,0 +1,29 @@
+name: Ichiban Prolog
+shortDesc: An embeddable ISO Prolog interpreter in Go.
+description: An embeddable interpreter for ISO Prolog, designed for integration within Go applications.
+created: "2021"
+keywords:
+  - embeddable
+  - go
+  - interpreter
+  - prolog
+extGithubPath: ichiban/prolog
+extensions:
+  - .plg
+isTranspiler: false
+rels:
+  implements:
+    - pl/prolog
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/declarative
+    - para/embedded
+    - para/logic
+  platforms:
+    - plat/cross
+  tags:
+    - tag/embedded
+    - tag/scripting
+  writtenWith:
+    - pl/go

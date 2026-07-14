@@ -1,0 +1,7 @@
+name: x86-64
+description: x86-64 is the 64-bit architecture for x86 processors, developed by AMD and used in modern processors from both Intel and AMD.
+keywords:
+  - amd64
+  - x64
+  - x86-64
+extHomeURL: https://en.wikipedia.org/wiki/x86-64

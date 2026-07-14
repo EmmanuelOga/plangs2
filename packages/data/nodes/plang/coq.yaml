@@ -1,0 +1,54 @@
+name: Coq
+shortDesc: Interactive theorem prover focused on formal verification and proof checking.
+description: Interactive theorem prover that allows users to write formal mathematical definitions, executable algorithms, and theorems, mechanically check proofs of those properties, and extract a certified program from proofs. It leverages the calculus of inductive constructions for these purposes. Coq is widely utilized in formal verification projects and mathematical proof checking.
+created: "1989"
+keywords:
+  - coq
+  - formal proof
+  - proof assistant
+  - theorem prover
+  - verification
+extGithubPath: coq/coq
+extHomeURL: https://coq.inria.fr/
+extRedditPath: Coq
+extWikipediaPath: Coq
+githubColor: "#d0b68c"
+githubLangId: "69"
+githubName: Coq
+githubPopular: false
+githubStars: 4900
+githubType: programming
+isTranspiler: false
+languishRanking: 139
+releases:
+  - version: "4.10"
+    name: Initial Release
+    date: 1989-05-01
+  - version: 8.20.0
+    name: Stable Release
+    date: 2024-09-03
+  - version: 8.19.2
+    date: 2024-01-01
+stackovTags:
+  - coq
+rels:
+  influencedBy:
+    - pl/ocaml
+  licenses:
+    - lic/lgpl
+  paradigms:
+    - para/declarative
+    - para/functional
+    - para/logic
+  platforms:
+    - plat/cross
+  tags:
+    - tag/edu
+    - tag/interpreters
+    - tag/proofs
+  typeSystems:
+    - tsys/dependent
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/ocaml

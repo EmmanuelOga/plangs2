@@ -1,0 +1,48 @@
+name: Sass
+shortDesc: Preprocessor language that compiles to CSS.
+description: Syntactically awesome style sheets is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS). SassScript is the scripting language itself.
+created: "2006"
+keywords:
+  - sass
+extGithubPath: sass/sass
+extHomeURL: https://sass-lang.com/
+extRedditPath: Sass
+extWikipediaPath: Sass_(style_sheet_language)
+extensions:
+  - .sass
+  - .scss
+githubColor: "#a53b70"
+githubLangId: "340"
+githubName: Sass
+githubPopular: false
+githubStars: 15200
+githubType: markup
+isTranspiler: true
+releases:
+  - version: 1.75.0
+    name: Sass 1.75.0
+    date: 2024-04-11
+  - version: 1.80.7
+    name: Dart Sass 1.80.7
+  - version: 3.6.6
+    name: LibSass 3.6.6
+stackovTags:
+  - sass
+rels:
+  compilesTo:
+    - pl/css
+  influencedBy:
+    - pl/css
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/dsl
+  platforms:
+    - plat/cross
+  tags:
+    - tag/automation
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic
+  writtenWith:
+    - pl/ruby

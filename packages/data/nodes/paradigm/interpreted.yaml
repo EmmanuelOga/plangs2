@@ -1,0 +1,5 @@
+name: Interpreted
+description: Executed directly, without prior compilation.
+keywords:
+  - interpreted
+extHomeURL: https://en.wikipedia.org/wiki/Interpreted_language

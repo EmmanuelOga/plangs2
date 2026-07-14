@@ -1,0 +1,12 @@
+name: Pixi
+description: A package management tool for developers. It allows the developer to install libraries and applications in a reproducible way. Use pixi cross-platform, on Windows, Mac and Linux.
+keywords:
+  - dependency manager
+  - package management
+  - package manager
+extHomeURL: https://pixi.sh/
+rels:
+  plangs:
+    - pl/python
+  writtenWith:
+    - pl/rust

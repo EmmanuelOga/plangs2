@@ -1,0 +1,45 @@
+name: Flix
+shortDesc: Functional, imperative, and logic language focusing on type and effect systems.
+description: Versatile programming language blending functional, imperative, and logic paradigms, developed at Aarhus University with community contributions. It stands out for its type and effect system alongside support for first-class Datalog constraints.
+created: "2015"
+keywords:
+  - flix
+extGithubPath: flix/flix
+extHomeURL: https://flix.dev/
+extWikipediaPath: Flix_(programming_language)
+extensions:
+  - .flix
+githubStars: 2200
+isTranspiler: false
+releases:
+  - version: 0.54.0
+    date: 2024-09-30
+rels:
+  influencedBy:
+    - pl/f-sharp
+    - pl/go
+    - pl/haskell
+    - pl/ocaml
+    - pl/scala
+  licenses:
+    - lic/apache
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/logic
+    - para/multi
+  platforms:
+    - plat/cross
+    - plat/java
+  tags:
+    - tag/compiler
+    - tag/interpreters
+  typeSystems:
+    - tsys/algebraic
+    - tsys/inferred
+    - tsys/static
+    - tsys/strong
+    - tsys/structural
+  writtenWith:
+    - pl/java

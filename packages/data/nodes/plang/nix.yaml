@@ -1,0 +1,43 @@
+name: Nix
+shortDesc: Cross-platform, functional package manager and language with immutable directory management.
+description: Cross-platform, purely functional package manager and language, known for its ability to manage packages with immutable directories and unique content-addressed dependency models.
+created: "2003"
+keywords:
+  - cross-platform
+  - declarative
+  - functional
+  - nix
+  - open-source
+  - package manager
+extGithubPath: NixOS/nix
+extHomeURL: https://nixos.org
+extRedditPath: NixOS
+extWikipediaPath: Nix_package_manager
+extensions:
+  - .nix
+githubColor: "#7e7eff"
+githubLangId: "252"
+githubName: Nix
+githubPopular: false
+githubStars: 13000
+githubType: programming
+isTranspiler: false
+languishRanking: 44
+releases:
+  - version: 2.22.1
+    name: Nix Stable Release
+    date: 2024-05-10
+stackovTags:
+  - nix
+rels:
+  licenses:
+    - lic/lgpl
+  paradigms:
+    - para/declarative
+    - para/functional
+  platforms:
+    - plat/apple
+    - plat/bsd
+    - plat/linux
+  typeSystems:
+    - tsys/dynamic

@@ -1,0 +1,75 @@
+name: D
+shortDesc: Modern system programming language influenced by C++ with multiple paradigms and expressive features.
+description: System programming language created by Walter Bright at Digital Mars and later joined by Andrei Alexandrescu, offering a unique blend of efficiency and expressiveness inspired by C++ but standing distinct from it. It incorporates multiple programming paradigms and features an innovative type system, appealing to programmers looking for modernized C++ alternatives. D is influenced by languages such as Java, Python, and C#, and it has, in turn, influenced newer languages like Rust and Go.
+created: "2001"
+keywords:
+  - d language
+  - d programming
+  - dlang
+extGithubPath: dlang/dmd
+extHomeURL: https://dlang.org
+extRedditPath: d_language
+extWikipediaPath: D_(programming_language)
+extensions:
+  - .d
+githubColor: "#ba595e"
+githubLangId: "80"
+githubName: D
+githubPopular: false
+githubStars: 3000
+githubType: programming
+isTranspiler: false
+languishRanking: 77
+releases:
+  - version: 2.109.1
+    name: Stable Release
+    date: 2024-07-01
+stackovTags:
+  - d
+rels:
+  implements:
+    - pl/c
+  influencedBy:
+    - pl/ada
+    - pl/basic
+    - pl/c
+    - pl/c++
+    - pl/c-sharp
+    - pl/eiffel
+    - pl/java
+    - pl/python
+    - pl/ruby
+  licenses:
+    - lic/boost
+  paradigms:
+    - para/concurrent
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/metaprogramming
+    - para/multi
+    - para/oop
+  platforms:
+    - plat/apple
+    - plat/bsd
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/analysis
+    - tag/app
+    - tag/asm
+    - tag/better-c
+    - tag/cli
+    - tag/compiler
+    - tag/games
+    - tag/gui
+    - tag/industrial
+    - tag/interpreters
+    - tag/numeric
+    - tag/sci
+    - tag/viz
+  typeSystems:
+    - tsys/inferred
+    - tsys/object
+    - tsys/static
+    - tsys/strong

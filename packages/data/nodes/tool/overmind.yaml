@@ -1,0 +1,7 @@
+name: Overmind
+shortDesc: Process manager for Procfile-based applications and tmux.
+description: Overmind is a process manager for Procfile-based applications and tmux. With Overmind, you can easily run several processes from your Procfile in a single terminal.
+extGithubPath: DarthSim/overmind
+rels:
+  writtenWith:
+    - pl/go

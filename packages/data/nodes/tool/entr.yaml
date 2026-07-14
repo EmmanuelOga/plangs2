@@ -1,0 +1,9 @@
+name: entr
+shortDesc: Run arbitrary commands when files change.
+description: Run arbitrary commands when files change.
+extGithubPath: eradman/entr
+extHomeURL: https://eradman.com/entrproject/
+githubStars: 4800
+rels:
+  writtenWith:
+    - pl/c

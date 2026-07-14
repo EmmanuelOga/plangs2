@@ -1,0 +1,54 @@
+name: Standard ML
+shortDesc: Functional programming language known for its type inference and usage in compiler writing.
+description: Standard ML is a general-purpose, high-level, modular, functional programming language with compile-time type checking and type inference. It is popular for writing compilers, for programming language research, and for developing theorem provers.
+created: "1983"
+keywords:
+  - SML
+  - Standard ML
+extRedditPath: sml
+extWikipediaPath: Standard_ML
+extensions:
+  - .sig
+  - .sml
+githubColor: "#dc566d"
+githubLangId: "357"
+githubName: Standard ML
+githubPopular: false
+githubType: programming
+isTranspiler: false
+languishRanking: 197
+releases:
+  - version: SML '97
+    name: Standard ML '97
+    date: "1997"
+stackovTags:
+  - sml
+rels:
+  influencedBy:
+    - pl/pascal
+  licenses:
+    - lic/bsd
+  paradigms:
+    - para/functional
+    - para/imperative
+    - para/modular
+    - para/multi
+  platforms:
+    - plat/bsd
+    - plat/cross
+    - plat/linux
+  tags:
+    - tag/app
+    - tag/compiler
+    - tag/edu
+    - tag/industrial
+    - tag/interpreters
+    - tag/proofs
+    - tag/ray-tracer
+  typeSystems:
+    - tsys/algebraic
+    - tsys/inferred
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/c

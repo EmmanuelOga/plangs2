@@ -1,0 +1,8 @@
+name: CPL
+description: The Common Public License is a free software license used by IBM for some of its software projects.
+keywords:
+  - cpl
+extHomeURL: https://en.wikipedia.org/wiki/Common_Public_License
+isFSFLibre: true
+isOSIApproved: true
+spdx: CPL-1.0

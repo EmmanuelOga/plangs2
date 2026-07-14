@@ -1,0 +1,8 @@
+name: CCA
+description: The Creative Commons Attribution license allows for the sharing and adaptation of works, provided that appropriate credit is given.
+keywords:
+  - cc-by
+extHomeURL: https://en.wikipedia.org/wiki/Creative_Commons_license#Attribution
+isFSFLibre: false
+isOSIApproved: false
+spdx: CC-BY-4.0

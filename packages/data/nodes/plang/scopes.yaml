@@ -1,0 +1,46 @@
+name: Scopes
+shortDesc: Modern, multi-stage programming language with a focus on systems programming and expressiveness.
+description: Modern programming language emphasizing multi-stage programming, influenced by systems programming and expressive languages like Python and Scheme. It features a borrow checker along with extensive retargeting capabilities for high performance tasks.
+created: "2015"
+keywords:
+  - borrow checking
+  - multi-stage programming
+  - retargetable
+  - systems programming
+extHomeURL: https://hg.sr.ht/~duangle/scopes
+extensions:
+  - .scopes
+filenames:
+  - scopes
+isTranspiler: false
+releases:
+  - version: "0.1"
+    name: Initial release
+    date: 2015-01-01
+rels:
+  influencedBy:
+    - pl/c
+    - pl/python
+    - pl/scheme
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/extensible
+    - para/low-code
+    - para/macro
+    - para/metaprogramming
+  platforms:
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/compiler
+    - tag/interpreters
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic
+    - tsys/inferred
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/c++

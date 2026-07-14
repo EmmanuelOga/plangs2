@@ -1,0 +1,37 @@
+name: Logica
+shortDesc: A declarative logic programming language for data manipulation.
+description: A declarative logic programming language designed for complex data analysis and manipulation tasks, facilitating efficient querying and reasoning over datasets.
+created: "2020"
+keywords:
+  - data analysis
+  - declarative
+  - logic programming
+  - query language
+extGithubPath: google/logica
+extHomeURL: https://logica.dev/
+extensions:
+  - .lgo
+isTranspiler: false
+rels:
+  dialectOf:
+    - pl/prolog
+  implements:
+    - pl/datalog
+  influencedBy:
+    - pl/datalog
+    - pl/prolog
+  licenses:
+    - lic/apache
+  paradigms:
+    - para/declarative
+    - para/logic
+  platforms:
+    - plat/linux
+    - plat/web
+    - plat/windows
+  tags:
+    - tag/dataq
+    - tag/dbms
+    - tag/scripting
+  writtenWith:
+    - pl/python

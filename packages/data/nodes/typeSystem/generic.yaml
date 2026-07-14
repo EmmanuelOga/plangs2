@@ -1,0 +1,5 @@
+name: Generic
+description: Uses algorithms that can work with several different but related data types.
+keywords:
+  - generic
+extHomeURL: https://en.wikipedia.org/wiki/Generic_programming

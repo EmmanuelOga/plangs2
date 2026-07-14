@@ -1,0 +1,53 @@
+name: Starlark
+shortDesc: Python-like configuration language used for application configuration and build automation with tools like Bazel.
+description: Python-like configuration language designed primarily as a scripting language for application configuration and build automation, commonly used with Bazel for defining build rules.
+created: "2015"
+keywords:
+  - Bazel
+  - Skylark
+  - Starlark
+  - build automation
+  - configuration language
+extGithubPath: bazelbuild/bazel
+extHomeURL: https://bazel.build/rules/language
+extRedditPath: bazel
+extWikipediaPath: Bazel_(software)
+extensions:
+  - .bzl
+  - .star
+githubColor: "#76d275"
+githubLangId: "960266174"
+githubName: Starlark
+githubPopular: false
+githubStars: 23400
+githubType: programming
+isTranspiler: false
+languishRanking: 83
+releases:
+  - version: "1.0"
+    name: Version 1.0
+    date: 2019-10-01
+stackovTags:
+  - bazel
+rels:
+  influencedBy:
+    - pl/python
+  licenses:
+    - lic/apache
+  paradigms:
+    - para/dataflow
+    - para/declarative
+    - para/scripting
+  platforms:
+    - plat/apple
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/automation
+    - tag/compiler
+  typeSystems:
+    - tsys/strong
+  writtenWith:
+    - pl/go
+    - pl/java

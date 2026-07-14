@@ -1,0 +1,9 @@
+name: Apache 2.0
+description: The Apache License 2.0 is a permissive free software license written by the Apache Software Foundation, providing an explicit grant of patent rights from contributors to users.
+keywords:
+  - apache
+  - apache-2
+extHomeURL: https://en.wikipedia.org/wiki/Apache_License_2.0
+isFSFLibre: true
+isOSIApproved: true
+spdx: Apache-2.0

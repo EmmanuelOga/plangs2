@@ -1,0 +1,10 @@
+name: Algebraic Data Types
+description: Kind of composite type, i.e., a type formed by combining other types.
+keywords:
+  - adt
+  - algebraic
+  - product types
+  - sum types
+  - unions
+  - variant
+extHomeURL: https://en.wikipedia.org/wiki/Algebraic_data_type

@@ -1,0 +1,34 @@
+name: ShaderLab
+shortDesc: ShaderLab allows developers to define shaders within the Unity engine for custom graphics rendering.
+description: ShaderLab is Unity's language for defining shaders, allowing developers to write code that describes how to render graphics in the Unity engine.
+created: "2005"
+keywords:
+  - graphics
+  - rendering
+  - shader
+  - unity
+extHomeURL: https://docs.unity3d.com/Manual/SL-ShaderPrograms.html
+extensions:
+  - .shader
+githubColor: "#222c37"
+githubLangId: "664257356"
+githubName: ShaderLab
+githubPopular: false
+githubType: programming
+isTranspiler: false
+languishRanking: 88
+links:
+  - url: https://learn.unity.com
+    title: Unity Learn
+stackovTags:
+  - shaderlab
+rels:
+  paradigms:
+    - para/dsl
+    - para/visual
+  platforms:
+    - plat/cross
+  tags:
+    - tag/3dg
+    - tag/games
+    - tag/workflow

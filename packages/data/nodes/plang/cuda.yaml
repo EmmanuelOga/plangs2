@@ -1,0 +1,43 @@
+name: CUDA
+shortDesc: Parallel computing platform and API model by Nvidia for GPU acceleration.
+description: Compute Unified Device Architecture is a parallel computing platform and application programming interface (API) model developed by Nvidia. It facilitates dramatic increases in computing performance by harnessing the power of the graphics processing unit (GPU).
+created: "2006"
+keywords:
+  - CUDA
+  - GPGPU
+  - GPU
+  - Nvidia
+  - graphics processing unit
+  - parallel computing
+  - parallel programming
+extGithubPath: NVIDIA/cuda-samples
+extHomeURL: https://developer.nvidia.com/cuda-zone
+extRedditPath: CUDA
+extWikipediaPath: CUDA
+extensions:
+  - .cu
+githubColor: "#3A4E3A"
+githubLangId: "77"
+githubName: Cuda
+githubPopular: false
+githubStars: 6600
+githubType: programming
+isTranspiler: false
+releases:
+  - version: "1.0"
+    name: Initial release
+    date: 2007-06-23
+  - version: "12.6"
+    name: Stable release
+    date: 2024-08
+stackovTags:
+  - cuda
+rels:
+  paradigms:
+    - para/compiled
+    - para/parallel
+  platforms:
+    - plat/linux
+    - plat/windows
+  writtenWith:
+    - pl/c++

@@ -1,0 +1,57 @@
+name: SuperCollider
+shortDesc: Real-time audio synthesis and music composition.
+description: Used for real-time audio synthesis and algorithmic music composition, originally introduced by James McCartney in 1996. It plays a significant role in sound design and music technology.
+created: "1996"
+keywords:
+  - algorithmic
+  - audio
+  - sound
+  - supercollider
+  - synthesis
+extGithubPath: supercollider/supercollider
+extHomeURL: http://supercollider.github.io/
+extRedditPath: supercollider
+extWikipediaPath: SuperCollider
+extensions:
+  - .scd
+githubColor: "#46390b"
+githubLangId: "361"
+githubName: SuperCollider
+githubPopular: false
+githubStars: 5600
+githubType: programming
+isTranspiler: false
+languishRanking: 359
+releases:
+  - version: 3.13.0
+    name: SuperCollider 3.13.0
+    date: 2023-02-19
+stackovTags:
+  - supercollider
+rels:
+  influencedBy:
+    - pl/csound
+    - pl/lisp
+  licenses:
+    - lic/gnu-gpl
+  paradigms:
+    - para/concurrent
+    - para/event-driven
+    - para/functional
+    - para/oop
+  platforms:
+    - plat/apple
+    - plat/bsd
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/app
+    - tag/audio-dev
+    - tag/dsp
+    - tag/framework
+    - tag/interpreters
+  typeSystems:
+    - tsys/dynamic
+  writtenWith:
+    - pl/c++

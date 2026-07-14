@@ -1,0 +1,53 @@
+name: Idris
+shortDesc: Purely-functional language for Type-Driven Development with dependent types and optional lazy evaluation.
+description: Purely-functional programming language, designed for Type-Driven Development with dependent types, optional lazy evaluation, and features such as a totality checker. It serves as both a general-purpose language and a proof assistant.
+created: "2007"
+keywords:
+  - dependent types
+  - functional programming
+  - idris
+  - type-driven development
+extGithubPath: idris-lang/Idris2
+extHomeURL: http://idris-lang.org/
+extRedditPath: Idris
+extWikipediaPath: Idris_(programming_language)
+extensions:
+  - .idr
+  - .lidr
+githubColor: "#b30000"
+githubLangId: "165"
+githubName: Idris
+githubPopular: false
+githubStars: 2500
+githubType: programming
+isTranspiler: false
+languishRanking: 252
+releases:
+  - version: 0.7.0
+    name: Idris 2 v0.7.0
+    date: 2023-12-22
+stackovTags:
+  - idris
+rels:
+  influencedBy:
+    - pl/agda
+    - pl/clean
+    - pl/coq
+    - pl/f-sharp
+    - pl/haskell
+    - pl/rust
+  licenses:
+    - lic/bsd
+  paradigms:
+    - para/functional
+  platforms:
+    - plat/cross
+  tags:
+    - tag/interpreters
+    - tag/proofs
+  typeSystems:
+    - tsys/algebraic
+    - tsys/dependent
+    - tsys/inferred
+    - tsys/static
+    - tsys/strong

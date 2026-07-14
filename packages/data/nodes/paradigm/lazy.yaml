@@ -1,0 +1,5 @@
+name: Lazy Eval
+description: Delays the evaluation of an expression until its value is needed.
+keywords:
+  - lazy
+extHomeURL: https://en.wikipedia.org/wiki/Lazy_evaluation

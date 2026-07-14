@@ -1,0 +1,40 @@
+name: Mustache
+shortDesc: Logic-less web template system using braces `{{}}` for templating.
+description: Logic-less web template system that heavily uses braces `{{}}` for templating, resembling a sideways moustache. Known for strong separation of logic and presentation, Mustache relies on data-driven rendering without explicit flow control.
+created: "2009"
+keywords:
+  - logic-less
+  - mustache
+  - templating
+  - web templates
+extGithubPath: mustache/mustache
+extHomeURL: https://mustache.github.io/
+extWikipediaPath: Mustache_(template_system)
+extensions:
+  - .mustache
+githubColor: "#724b3b"
+githubLangId: "638334590"
+githubName: Mustache
+githubPopular: false
+githubStars: 3000
+githubType: markup
+isTranspiler: true
+languishRanking: 100
+releases:
+  - version: 4.2.0
+    name: Stable release
+    date: 2021-03-28
+stackovTags:
+  - mustache
+rels:
+  compilesTo:
+    - pl/javascript
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/data-driven
+    - para/declarative
+  platforms:
+    - plat/web
+  tags:
+    - tag/webdev

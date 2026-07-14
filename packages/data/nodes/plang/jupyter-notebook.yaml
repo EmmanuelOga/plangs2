@@ -1,0 +1,46 @@
+name: Jupyter Notebook
+shortDesc: Web-based interactive computational environment for creating notebook documents.
+description: A web-based interactive computational environment for creating notebook documents, supporting execution environments (kernels) for languages like Python, Julia, and R. It is extensively used for data science, scientific computing, and educational purposes.
+created: "2014"
+keywords:
+  - computational
+  - data science
+  - interactive
+  - kernel
+  - multilanguage
+  - notebook
+  - scientific computing
+extGithubPath: jupyter/jupyter
+extHomeURL: https://jupyter.org/
+extRedditPath: IPython
+extWikipediaPath: Project_Jupyter
+extensions:
+  - .ipynb
+githubColor: "#DA5B0B"
+githubLangId: "185"
+githubName: Jupyter Notebook
+githubPopular: false
+githubStars: 15000
+githubType: markup
+isTranspiler: true
+languishRanking: 16
+stackovTags:
+  - jupyter
+rels:
+  compilesTo:
+    - pl/julia
+    - pl/python
+    - pl/r
+  licenses:
+    - lic/bsd
+  paradigms:
+    - para/scripting
+  platforms:
+    - plat/cross
+  tags:
+    - tag/collab
+    - tag/dataq
+    - tag/sci
+  typeSystems:
+    - tsys/dynamic
+    - tsys/object

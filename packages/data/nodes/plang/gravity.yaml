@@ -1,0 +1,44 @@
+name: Gravity
+shortDesc: Lightweight, embeddable programming language supporting multiple paradigms.
+description: Lightweight, dynamically typed, embeddable programming language designed for the Creo project. It supports multiple paradigms such as procedural, object-oriented, and functional programming, and takes influence from languages like Lua and Swift.
+created: "2015"
+keywords:
+  - creo
+  - gravity
+  - lua-inspired
+  - swift-like
+extGithubPath: marcobambini/gravity
+extHomeURL: https://marcobambini.github.io/gravity/
+extensions:
+  - .gravity
+githubStars: 4300
+isTranspiler: false
+releases:
+  - version: "0.8"
+    name: Gravity 0.8
+    date: 2023-01-01
+rels:
+  influencedBy:
+    - pl/lua
+    - pl/swift
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/multi
+    - para/oop
+    - para/procedural
+    - para/scripting
+  platforms:
+    - plat/android
+    - plat/cross
+  tags:
+    - tag/embedded
+    - tag/games
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic
+    - tsys/strong
+  writtenWith:
+    - pl/c

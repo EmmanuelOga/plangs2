@@ -1,0 +1,47 @@
+name: CircuitPython
+shortDesc: Maintained by Adafruit, simplifies Python for microcontroller applications and is implemented in C.
+description: An open-source derivative of the MicroPython programming language targeted towards microcontroller applications and educational purposes, primarily maintained by Adafruit Industries. It simplifies Python for use on microcontrollers, enabling easier experimentation for beginners and hobbyists, and it is implemented in C.
+created: "2017"
+keywords:
+  - ""
+  - adafruit
+  - circuitpython
+  - python-microcontrollers
+extGithubPath: adafruit/circuitpython
+extHomeURL: https://circuitpython.org/
+extWikipediaPath: CircuitPython
+extensions:
+  - .py
+githubStars: 4100
+isTranspiler: false
+releases:
+  - version: 9.1.4
+    name: CircuitPython 9.1.4
+    date: 2024-09-17
+rels:
+  implements:
+    - pl/python
+  influencedBy:
+    - pl/micropython
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/embedded
+    - para/interpreted
+    - para/scripting
+  platforms:
+    - plat/arm
+    - plat/embedded
+    - plat/esp32
+    - plat/raspberry
+  tags:
+    - tag/edu
+    - tag/embedded
+    - tag/interpreters
+    - tag/iot
+  typeSystems:
+    - tsys/dynamic
+    - tsys/object
+    - tsys/strong
+  writtenWith:
+    - pl/c

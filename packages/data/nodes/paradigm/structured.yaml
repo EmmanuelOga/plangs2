@@ -1,0 +1,5 @@
+name: Structured
+description: Emphasizes control structures like loops and conditionals, avoiding the use of 'goto' statements.
+keywords:
+  - structured
+extHomeURL: https://en.wikipedia.org/wiki/Structured_programming

@@ -1,0 +1,27 @@
+name: Cozo
+shortDesc: A database leveraging Datalog for queries.
+description: A transactional, relational-graph-vector database leveraging Datalog for complex queries and data management.
+created: 2022-03
+keywords:
+  - datalog
+  - relational-graph-vector
+  - transactional-db
+extGithubPath: cozodb/cozo
+extHomeURL: https://cozodb.org/
+extensions:
+  - .cozo
+isTranspiler: false
+rels:
+  implements:
+    - pl/datalog
+  licenses:
+    - lic/apache
+  paradigms:
+    - para/dataflow
+    - para/declarative
+    - para/logic
+  platforms:
+    - plat/cross
+  tags:
+    - tag/dbms
+    - tag/graph

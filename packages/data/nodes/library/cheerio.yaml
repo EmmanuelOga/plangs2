@@ -1,0 +1,15 @@
+name: Cheerio
+shortDesc: The fast, flexible & elegant library for parsing and manipulating HTML and XML.
+description: The fast, flexible & elegant library for parsing and manipulating HTML and XML. Cheerio implements a subset of core jQuery.
+extGithubPath: cheeriojs/cheerio
+extHomeURL: https://cheerio.js.org/
+githubStars: 28900
+rels:
+  plangs:
+    - pl/javascript
+    - pl/javascriptcore
+    - pl/typescript
+  tags:
+    - tag/webdev
+  writtenWith:
+    - pl/typescript

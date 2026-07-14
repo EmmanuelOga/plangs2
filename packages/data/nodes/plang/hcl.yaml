@@ -1,0 +1,48 @@
+name: HCL
+shortDesc: Declarative configuration language used in Terraform to define cloud infrastructure resources.
+description: HashiCorp Configuration Language is a declarative configuration language developed by HashiCorp, often used in Terraform to describe cloud infrastructure resources.
+created: "2014"
+keywords:
+  - configuration language
+  - hashicorp
+  - hcl
+  - terraform
+extGithubPath: hashicorp/hcl
+extHomeURL: https://github.com/hashicorp/hcl
+extRedditPath: Terraform
+extWikipediaPath: Terraform_(software)
+extensions:
+  - .hcl
+githubColor: "#844FBA"
+githubLangId: "144"
+githubName: HCL
+githubPopular: false
+githubStars: 5300
+githubType: programming
+isTranspiler: true
+languishRanking: 55
+releases:
+  - version: 1.9.1
+    name: Stable release
+    date: 2024-07-03
+  - version: 1.0.0
+    name: Initial release
+    date: 2014-07-28
+stackovTags:
+  - Terraform
+rels:
+  compilesTo:
+    - pl/go
+  licenses:
+    - lic/mpl
+  paradigms:
+    - para/declarative
+    - para/dsl
+  platforms:
+    - plat/apple
+    - plat/bsd
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  writtenWith:
+    - pl/go

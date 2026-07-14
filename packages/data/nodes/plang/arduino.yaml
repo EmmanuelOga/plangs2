@@ -1,0 +1,46 @@
+name: Arduino
+shortDesc: platform for creating interactive electronics projects, using a C/C++-based language.
+description: Electronics platform based on easy-to-use hardware and software, designed for creating interactive projects. The Arduino programming language is based on C/C++, allowing users to control hardware like motors and LEDs.
+created: "2005"
+keywords:
+  - arduino
+  - embedded
+  - iot
+  - microcontroller
+  - open-source
+extGithubPath: arduino/Arduino
+extHomeURL: https://www.arduino.cc/
+extWikipediaPath: Arduino
+extensions:
+  - .ino
+  - .pde
+githubStars: 14000
+isTranspiler: false
+languishRanking: 71
+releases:
+  - version: 2.3.3
+    name: Arduino IDE 2.3.3
+    date: 2024-09-25
+stackovTags:
+  - arduino
+rels:
+  licenses:
+    - lic/cc-by
+    - lic/gnu-gpl
+    - lic/lgpl
+  paradigms:
+    - para/embedded
+    - para/event-driven
+    - para/procedural
+  platforms:
+    - plat/arduino
+    - plat/embedded
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/edu
+    - tag/embedded
+    - tag/iot
+    - tag/sci
+  writtenWith:
+    - pl/c++

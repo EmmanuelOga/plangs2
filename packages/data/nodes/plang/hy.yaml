@@ -1,0 +1,60 @@
+name: Hy
+shortDesc: Lisp dialect embedded in Python, facilitating seamless integration with Python libraries and syntax.
+description: Lisp dialect embedded in Python, offering a multi-paradigm programming environment. Designed by Paul Tagliamonte and introduced at PyCon 2013, Hy acts as a transparent Lisp front-end for Python, translating s-expressions to Python's AST and incorporating Python libraries. This language allows the integration of imperative, functional, and object-oriented programming styles.
+created: "2013"
+keywords:
+  - hy
+  - hylang
+  - lisp
+  - python
+extGithubPath: hylang/hy
+extHomeURL: http://hylang.org/
+extRedditPath: hylang
+extWikipediaPath: Hy
+extensions:
+  - .hy
+githubColor: "#7790B2"
+githubLangId: "159"
+githubName: Hy
+githubPopular: false
+githubStars: 5100
+githubType: programming
+isTranspiler: true
+languishRanking: 436
+releases:
+  - version: 1.0.0
+    name: Afternoon Review
+    date: 2024-09-22
+stackovTags:
+  - hy
+rels:
+  compilesTo:
+    - pl/python
+  dialectOf:
+    - pl/lisp
+  influencedBy:
+    - pl/clojure
+    - pl/common-lisp
+    - pl/python
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/metaprogramming
+    - para/multi
+    - para/oop
+    - para/procedural
+    - para/reflective
+    - para/scripting
+  platforms:
+    - plat/cross
+    - plat/x86-64
+  tags:
+    - tag/interpreters
+    - tag/scripting
+  typeSystems:
+    - tsys/duck
+    - tsys/dynamic
+  writtenWith:
+    - pl/python

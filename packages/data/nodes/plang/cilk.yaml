@@ -1,0 +1,43 @@
+name: Cilk
+shortDesc: Family of languages designed for parallel computing extending C and C++.
+description: Cilk++, Cilk Plus, and OpenCilk are general-purpose programming languages designed for multithreaded parallel computing. They are based on the C and C++ languages and extend them with constructs for parallel loops and the fork-join idiom.
+created: "1994"
+keywords:
+  - cilk
+  - cilk plus
+  - opencilk
+extGithubPath: OpenCilk/opencilk-project
+extHomeURL: https://www.opencilk.org/
+extWikipediaPath: Cilk
+extensions:
+  - .cilk
+githubStars: 99
+isTranspiler: false
+releases:
+  - version: "2.1"
+    date: 2024-01-13
+rels:
+  dialectOf:
+    - pl/c
+  influencedBy:
+    - pl/c
+    - pl/c++
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/concurrent
+    - para/imperative
+    - para/parallel
+    - para/procedural
+    - para/structured
+  platforms:
+    - plat/apple
+    - plat/cross
+    - plat/linux
+    - plat/x86-64
+  tags:
+    - tag/compiler
+  typeSystems:
+    - tsys/manifest
+    - tsys/static
+    - tsys/weak

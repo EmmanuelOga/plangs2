@@ -1,0 +1,7 @@
+name: tmux
+shortDesc: Terminal multiplexer for switching between programs in a single terminal.
+description: A terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal.
+extHomeURL: https://github.com/tmux/tmux/wiki
+rels:
+  writtenWith:
+    - pl/c

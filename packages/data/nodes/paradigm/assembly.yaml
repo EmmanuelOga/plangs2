@@ -1,0 +1,5 @@
+name: Assembly
+description: Low-level language with strong (generally one-to-one) correspondence between the language and the architecture's machine code instructions.
+keywords:
+  - assembly
+extHomeURL: https://en.wikipedia.org/wiki/Assembly_language

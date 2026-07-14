@@ -1,0 +1,8 @@
+name: PySFL
+description: The Python Software Foundation License is a free software license used for Python and related projects.
+keywords:
+  - python-software-foundation
+extHomeURL: https://en.wikipedia.org/wiki/Python_Software_Foundation_License
+isFSFLibre: true
+isOSIApproved: true
+spdx: Python-2.0

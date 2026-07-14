@@ -1,0 +1,50 @@
+name: Janet
+shortDesc: Versatile, lightweight programming language, ideal for embedded scripting in C/C++ with functional and imperative paradigms.
+description: Versatile and lightweight programming language, designed to be embedded or used as a standalone script with a focus on functional and imperative programming paradigms. Ideal for scripting and embedding in C/C++ programs, Janet provides a rich ecosystem for networked applications and real-time data processing with minimal overhead.
+created: "2017"
+keywords:
+  - dynamic
+  - embedded
+  - functional
+  - janet
+  - scripting
+extGithubPath: janet-lang/janet
+extHomeURL: https://janet-lang.org/
+extRedditPath: janetlang
+extensions:
+  - .janet
+githubColor: "#0886a5"
+githubLangId: "1028705371"
+githubName: Janet
+githubPopular: false
+githubStars: 3600
+githubType: programming
+isTranspiler: false
+languishRanking: 369
+releases:
+  - version: 1.37.1
+    date: 2024-12-05
+rels:
+  influencedBy:
+    - pl/scheme
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/extensible
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/scripting
+  platforms:
+    - plat/apple
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/cli
+    - tag/embedded
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic
+  writtenWith:
+    - pl/c

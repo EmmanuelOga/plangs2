@@ -1,0 +1,10 @@
+name: ThreeJS Journey
+description: Public and Private communities for ThreeJS Journey students.
+extHomeURL: https://threejs-journey.com/discord
+rels:
+  plangs:
+    - pl/javascript
+  tags:
+    - tag/3dg
+    - tag/games
+    - tag/webdev

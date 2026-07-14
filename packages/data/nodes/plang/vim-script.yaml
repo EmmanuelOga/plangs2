@@ -1,0 +1,51 @@
+name: Vim script
+shortDesc: Vim script is the scripting language built into the Vim text editor, designed for user customization.
+description: Vim script is the scripting language built into the Vim text editor. It was designed for user customization and scripting, building upon the ex editor language of the original vi. Vim script supports imperative programming and offers features for functional and object-oriented programming.
+created: "1991"
+keywords:
+  - .vimrc
+  - Vim
+  - Vim script
+  - scripting language
+  - text editor
+extGithubPath: vim/vim
+extHomeURL: https://www.vim.org
+extRedditPath: vim
+extWikipediaPath: Vim_(text_editor)
+extensions:
+  - .vim
+filenames:
+  - .vimrc
+githubColor: "#199f4b"
+githubLangId: "388"
+githubName: Vim Script
+githubPopular: false
+githubStars: 36900
+githubType: programming
+isTranspiler: false
+languishRanking: 68
+releases:
+  - version: "9.1"
+    name: Vim 9.1
+    date: 2024-01-02
+stackovTags:
+  - vim
+rels:
+  licenses:
+    - lic/gnu-gpl
+  paradigms:
+    - para/functional
+    - para/imperative
+    - para/oop
+    - para/scripting
+  platforms:
+    - plat/android
+    - plat/bsd
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/editor
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic

@@ -1,0 +1,50 @@
+name: Logtalk
+shortDesc: Object-oriented logic programming language extending Prolog.
+description: Object-oriented logic programming language that facilitates code reuse by extending Prolog, enabling encapsulated logic programs with a distinct separation of interface and implementation.
+created: "1998"
+keywords:
+  - logic programming
+  - logtalk
+  - prolog
+extGithubPath: LogtalkDotOrg/logtalk3
+extHomeURL: https://logtalk.org/
+extWikipediaPath: Logtalk
+extensions:
+  - .lgt
+githubColor: "#295b9a"
+githubLangId: "210"
+githubName: Logtalk
+githubPopular: false
+githubStars: 425
+githubType: programming
+isTranspiler: true
+languishRanking: 310
+releases:
+  - version: 3.85.0
+    name: ""
+    date: 2024-11-12
+  - version: 3.66.0
+    name: ""
+    date: 2023-05-30
+stackovTags:
+  - logtalk
+rels:
+  compilesTo:
+    - pl/prolog
+  influencedBy:
+    - pl/prolog
+  licenses:
+    - lic/apache
+    - lic/artistic
+  paradigms:
+    - para/logic
+    - para/oop
+    - para/prototype
+  platforms:
+    - plat/cross
+  tags:
+    - tag/analysis
+    - tag/compiler
+    - tag/framework
+    - tag/interpreters
+    - tag/viz

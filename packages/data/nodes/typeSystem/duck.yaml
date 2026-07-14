@@ -1,0 +1,5 @@
+name: Duck
+description: Style of dynamic typing where an object's behavior determines its type rather than its inheritance.
+keywords:
+  - duck
+extHomeURL: https://en.wikipedia.org/wiki/Duck_typing

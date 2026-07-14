@@ -1,0 +1,36 @@
+name: Trealla Prolog
+shortDesc: An efficient Prolog interpreter with concurrent capabilities.
+description: A compact, efficient Prolog interpreter implemented in C, known for its ability to handle concurrent threads and coroutines.
+created: "2020"
+keywords:
+  - concurrency
+  - coroutines
+  - interpreter
+  - logic-programming
+  - prolog
+extGithubPath: trealla-prolog/trealla
+extensions:
+  - .pl
+isTranspiler: false
+rels:
+  dialectOf:
+    - pl/prolog
+  influencedBy:
+    - pl/gprolog
+    - pl/swi-prolog
+    - pl/tau
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/concurrent
+    - para/declarative
+    - para/logic
+  platforms:
+    - plat/cross
+  tags:
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic
+    - tsys/untyped
+  writtenWith:
+    - pl/c

@@ -1,0 +1,7 @@
+name: Functional
+description: Programs are constructed by applying and composing functions.
+keywords:
+  - functional
+  - lambda
+  - pure
+extHomeURL: https://en.wikipedia.org/wiki/Functional_programming

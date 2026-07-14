@@ -1,0 +1,58 @@
+name: GraalVM
+shortDesc: High-performance runtime for multiple languages including Java, Python, and WebAssembly, with polyglot capabilities.
+description: High-performance runtime that provides significant performance enhancements for Java and other applications, enabling multiple languages to run together in a single virtual machine. With its polyglot capabilities, it supports Java, JavaScript, Python, Ruby, and LLVM-based projects, as well as web-based applications in WebAssembly.
+created: "2019"
+keywords:
+  - graalvm
+  - high-performance
+  - interoperability
+  - java
+  - native-image
+  - oracle
+  - polyglot
+  - runtime
+  - vee
+extGithubPath: oracle/graal
+extHomeURL: https://www.graalvm.org/
+extWikipediaPath: GraalVM
+githubStars: 20500
+isTranspiler: false
+releases:
+  - version: JDK23
+    date: 2024-09-17
+rels:
+  implements:
+    - pl/ruby
+  influencedBy:
+    - pl/java
+    - pl/javascript
+  licenses:
+    - lic/apache
+    - lic/dual
+    - lic/gnu-gpl
+  paradigms:
+    - para/compiled
+    - para/general-purpose
+    - para/interpreted
+    - para/multi
+    - para/multi-dispatch
+  platforms:
+    - plat/apple
+    - plat/cross
+    - plat/java
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/app
+    - tag/compiler
+    - tag/framework
+    - tag/industrial
+    - tag/interpreters
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic
+    - tsys/polymorphic
+    - tsys/static
+  writtenWith:
+    - pl/c++
+    - pl/java

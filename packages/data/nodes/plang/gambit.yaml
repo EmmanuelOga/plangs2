@@ -1,0 +1,54 @@
+name: Gambit
+shortDesc: Scheme implementation with both an interpreter and a C compiler, emphasizing simplicity and performance.
+description: Long-standing Scheme implementation that is part of the Lisp family. It provides both a Scheme interpreter and a compiler that translates Scheme into C, enhancing its portability across various platforms. The language adheres to R4RS, R5RS, and IEEE standards, alongside numerous Scheme Requests for Implementations (SRFIs). Released first in 1988, Gambit is open-source under the LGPL 2.1 and Apache 2.0 licenses. Its design emphasizes simplicity while achieving performance, making it suitable for research in compilers and concurrency. Variants like Gerbil Scheme and Termite Scheme were influenced by Gambit.
+created: "1988"
+keywords:
+  - compilers
+  - concurrency
+  - gambit
+  - lisp
+  - scheme
+extGithubPath: gambit/gambit
+extHomeURL: https://gambitscheme.org
+extWikipediaPath: Gambit_(scheme_implementation)
+extensions:
+  - .o6
+  - .scm
+githubStars: 1300
+isTranspiler: true
+releases:
+  - version: 4.9.5
+    name: Gambit 4.9.5
+    date: 2023-07-01
+rels:
+  compilesTo:
+    - pl/c
+  dialectOf:
+    - pl/lisp
+    - pl/scheme
+  implements:
+    - pl/scheme
+  influencedBy:
+    - pl/lisp
+    - pl/scheme
+  licenses:
+    - lic/apache
+    - lic/lgpl
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/metaprogramming
+    - para/multi
+  platforms:
+    - plat/cross
+    - plat/x86-64
+  tags:
+    - tag/compiler
+    - tag/interpreters
+  typeSystems:
+    - tsys/dynamic
+    - tsys/latent
+    - tsys/strong
+  writtenWith:
+    - pl/c

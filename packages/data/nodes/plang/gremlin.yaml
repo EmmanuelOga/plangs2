@@ -1,0 +1,35 @@
+name: Gremlin
+shortDesc: Graph traversal language and virtual machine developed by Apache TinkerPop.
+description: Graph traversal language and virtual machine developed by Apache TinkerPop of the Apache Software Foundation. It works for both OLTP-based graph databases and OLAP-based graph processors. Gremlin's automata and functional language foundation enable it to support both imperative and declarative querying. It is designed to be host language agnostic and allows for user-defined domain specific languages.
+created: "2009"
+keywords:
+  - apache
+  - graph traversal
+  - gremlin
+  - tinkerpop
+extGithubPath: apache/tinkerpop
+extHomeURL: https://tinkerpop.apache.org/gremlin.html
+extWikipediaPath: Gremlin_(programming_language)
+githubStars: 2000
+isTranspiler: false
+releases:
+  - version: 3.7.0
+    name: Gremlin 3.7.0
+    date: 2023-07-31
+rels:
+  influencedBy:
+    - pl/sql
+    - pl/xpath
+  licenses:
+    - lic/apache
+  paradigms:
+    - para/declarative
+    - para/dsl
+    - para/imperative
+    - para/query
+  platforms:
+    - plat/cross
+  tags:
+    - tag/compiler
+    - tag/dbms
+    - tag/graph

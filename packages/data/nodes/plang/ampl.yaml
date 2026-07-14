@@ -1,0 +1,52 @@
+name: AMPL
+shortDesc: Algebraic modeling language for complex optimization problems in large-scale computing.
+description: A Mathematical Programming Language is an algebraic modeling language designed to describe and solve complex optimization problems for large-scale mathematical computing. Developed by Robert Fourer, David Gay, and Brian Kernighan at Bell Laboratories, it is widely used in industrial, academic, and governmental settings. AMPL features a mix of declarative and imperative paradigms, making it effective for formulating optimization models and constructing hybrid algorithms. With open-source and commercial solver support, AMPL allows seamless integration into existing systems across multiple platforms.
+created: "1985"
+keywords:
+  - ampl
+  - large-scale computing
+  - mathematical programming language
+  - modeling
+  - optimization
+  - scheduling
+  - solvers
+extGithubPath: ampl/amplpy
+extHomeURL: https://ampl.com
+extWikipediaPath: AMPL
+extensions:
+  - .dat
+  - .mod
+  - .run
+githubColor: "#E6EFBB"
+githubLangId: "3"
+githubName: AMPL
+githubPopular: false
+githubStars: 70
+githubType: programming
+isTranspiler: false
+languishRanking: 233
+releases:
+  - version: "20230430"
+    name: Stable Release
+    date: 2023-04-30
+stackovTags:
+  - ampl
+rels:
+  paradigms:
+    - para/declarative
+    - para/dsl
+    - para/imperative
+    - para/multi
+  platforms:
+    - plat/apple
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/industrial
+    - tag/interpreters
+    - tag/modeling
+    - tag/sci
+    - tag/stats
+  typeSystems:
+    - tsys/untyped

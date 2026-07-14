@@ -1,0 +1,9 @@
+name: Emmanuel Oga
+description: Hello! I'm the creator of the Plangs! community. Thanks for visiting Plangs!
+extHomeURL: https://emmanueloga.com/
+rels:
+  communites:
+    - comm/bembem
+    - comm/contextfree
+    - comm/prefix.dev
+    - comm/threejs-journey

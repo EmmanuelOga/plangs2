@@ -1,0 +1,5 @@
+name: Dependent
+description: Type system where types depend on terms, allowing for more expressive type constraints.
+keywords:
+  - dependent
+extHomeURL: https://en.wikipedia.org/wiki/Dependent_typing

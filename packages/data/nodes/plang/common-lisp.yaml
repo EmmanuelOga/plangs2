@@ -1,0 +1,61 @@
+name: Common Lisp
+shortDesc: A high-performance, ANSI-standardized Lisp dialect recognized for its flexibility and macro system, supporting multiple programming paradigms.
+description: A multi-paradigm, high-performance, ANSI-standardized dialect of Lisp, known for its flexibility and powerful macro system. It supports procedural, functional, and object-oriented programming, and includes the Common Lisp Object System (CLOS) for object-oriented capabilities. Common Lisp is praised for its support of dynamic and incremental development, iterative compilation, and allows real-time application modification and debugging. It offers cross-platform compatibility and remains influential in various domains such as artificial intelligence, rapid prototyping, and long-running server applications.
+created: "1984"
+keywords:
+  - ansi common lisp
+  - cl
+  - common lisp
+  - lisp
+extHomeURL: http://common-lisp.net/
+extRedditPath: Common_Lisp
+extWikipediaPath: Common_Lisp
+extensions:
+  - .cl
+  - .fasl
+  - .l
+  - .lisp
+  - .lsp
+githubColor: "#3fb68b"
+githubLangId: "66"
+githubName: Common Lisp
+githubPopular: false
+githubType: programming
+isTranspiler: false
+languishRanking: 95
+stackovTags:
+  - common-lisp
+rels:
+  dialectOf:
+    - pl/lisp
+  implements:
+    - pl/lisp
+  influencedBy:
+    - pl/lisp
+    - pl/r5rs
+    - pl/scheme
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/metaprogramming
+    - para/multi
+    - para/oop
+    - para/procedural
+    - para/reflective
+  platforms:
+    - plat/cross
+  tags:
+    - tag/app
+    - tag/compiler
+    - tag/industrial
+    - tag/interpreters
+    - tag/low-code
+    - tag/modeling
+    - tag/rad
+    - tag/scripting
+    - tag/shell
+    - tag/viz
+    - tag/wavelet
+  typeSystems:
+    - tsys/dynamic
+    - tsys/strong

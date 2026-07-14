@@ -1,0 +1,66 @@
+name: Vala
+shortDesc: Object-oriented language that generates C code using the GObject system.
+description: Object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject system.
+created: "2006"
+keywords:
+  - cross-platform
+  - gobject
+  - object-oriented
+  - vala
+extGithubPath: GNOME/vala
+extHomeURL: https://wiki.gnome.org/Projects/Vala
+extRedditPath: vala
+extWikipediaPath: Vala_(programming_language)
+extensions:
+  - .vala
+  - .vapi
+githubColor: "#a56de2"
+githubLangId: "386"
+githubName: Vala
+githubPopular: false
+githubStars: 824
+githubType: programming
+isTranspiler: true
+languishRanking: 122
+releases:
+  - version: 0.56.17
+    name: Vala 0.56.17
+    date: 2024-04-19
+stackovTags:
+  - vala
+rels:
+  compilesTo:
+    - pl/c
+  influencedBy:
+    - pl/boo
+    - pl/c
+    - pl/c-sharp
+    - pl/d
+  licenses:
+    - lic/lgpl
+  paradigms:
+    - para/general-purpose
+    - para/imperative
+    - para/oop
+    - para/procedural
+    - para/scripting
+    - para/structured
+  platforms:
+    - plat/apple
+    - plat/bsd
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/better-c
+    - tag/compiler
+    - tag/framework
+    - tag/gui
+  typeSystems:
+    - tsys/inferred
+    - tsys/object
+    - tsys/static
+    - tsys/strong
+    - tsys/structural
+  writtenWith:
+    - pl/c

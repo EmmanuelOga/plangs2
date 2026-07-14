@@ -1,0 +1,45 @@
+name: QML
+shortDesc: Declarative user interface markup language, primarily for Qt Quick applications.
+description: Qt Modeling Language is a user interface markup language for user interfaces. It is declarative, leveraging inline JavaScript for imperative aspects. QML is designed for applications prioritizing touch input, animations, and user experiences, especially for mobile platforms. It extends JavaScript with a custom V4 engine, compiling to native C++, or caching compiled QML for fast application startups. QML can directly integrate with C++ via the Qt framework.
+created: "2009"
+keywords:
+  - declarative
+  - markup language
+  - qml
+  - qt modeling language
+  - qt quick
+  - user interface
+extGithubPath: qt/qt5
+extRedditPath: QtFramework
+extWikipediaPath: QML
+extensions:
+  - .qml
+githubColor: "#44a51c"
+githubLangId: "305"
+githubName: QML
+githubPopular: false
+githubStars: 1500
+githubType: programming
+isTranspiler: true
+languishRanking: 78
+releases:
+  - version: "6.4"
+    name: Stable release
+    date: 2022-09-29
+stackovTags:
+  - qml
+rels:
+  compilesTo:
+    - pl/c++
+  paradigms:
+    - para/declarative
+    - para/reactive
+    - para/scripting
+  platforms:
+    - plat/cross
+  tags:
+    - tag/gui
+  typeSystems:
+    - tsys/dynamic
+    - tsys/object
+    - tsys/strong

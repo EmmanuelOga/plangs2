@@ -1,0 +1,44 @@
+name: JavaScriptCore
+shortDesc: JavaScript engine utilized in Safari and part of the WebKit project.
+description: JavaScript engine developed as part of the WebKit project. It is widely known for being used in the Safari web browser and provides a robust implementation of the ECMAScript standards.
+created: "2008"
+keywords:
+  - javascriptcore
+  - js engine
+  - webkit
+extGithubPath: WebKit/WebKit
+extHomeURL: http://webkit.org/
+extWikipediaPath: JavaScriptCore
+githubStars: 8100
+isTranspiler: false
+rels:
+  implements:
+    - pl/javascript
+  influencedBy:
+    - pl/javascript
+  licenses:
+    - lic/bsd
+    - lic/lgpl
+  paradigms:
+    - para/event-driven
+    - para/general-purpose
+    - para/interpreted
+    - para/oop
+    - para/reflective
+    - para/scripting
+  platforms:
+    - plat/apple
+    - plat/arm
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/gui
+    - tag/interpreters
+    - tag/low-code
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic
+    - tsys/object
+    - tsys/weak
+  writtenWith:
+    - pl/c++

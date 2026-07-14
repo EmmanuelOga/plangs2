@@ -1,0 +1,5 @@
+name: Uniqueness
+description: Enforces that certain values are used only once, allowing optimizations like in-place updates in functional programming.
+keywords:
+  - unique
+extHomeURL: https://en.wikipedia.org/wiki/Uniqueness_type

@@ -1,0 +1,43 @@
+name: Lobster
+shortDesc: Statically typed, game-oriented language with Python-like syntax and compile-time memory management.
+description: Statically typed programming language with Python-like syntax, emphasizing friendly and efficient features for game development and graphical applications. It provides many features catering to developers such as compile-time memory management and an expressive type system, helping reduce the complexity of code.
+created: "2016"
+keywords:
+  - game development
+  - lobster
+  - statically typed
+extGithubPath: aardappel/lobster
+extHomeURL: https://strlen.com/lobster/
+extensions:
+  - .lobster
+githubStars: 2300
+isTranspiler: false
+releases:
+  - version: "1.0"
+    name: Initial Release
+    date: 2016-01-01
+rels:
+  influencedBy:
+    - pl/python
+  licenses:
+    - lic/apache
+    - lic/zlib
+  paradigms:
+    - para/compiled
+    - para/functional
+    - para/multi
+    - para/oop
+  platforms:
+    - plat/cross
+    - plat/linux
+    - plat/web
+    - plat/windows
+  tags:
+    - tag/games
+    - tag/scripting
+  typeSystems:
+    - tsys/inferred
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/c++

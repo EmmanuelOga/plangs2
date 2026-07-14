@@ -1,0 +1,8 @@
+name: Assembler
+description: Software that translates assembly language code into machine code.
+keywords:
+  - asm
+  - assembler
+  - assembly language
+  - low-level programming
+extHomeURL: https://en.wikipedia.org/wiki/Assembly_language#Assembler

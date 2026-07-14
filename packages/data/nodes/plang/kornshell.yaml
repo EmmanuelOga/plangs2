@@ -1,0 +1,51 @@
+name: KornShell
+shortDesc: Unix-based shell that combines features from C and Bourne shells, supporting POSIX standards.
+description: Unix-based shell developed by David Korn that combines features from the C shell and Bourne shell. It introduced command line editing, associative arrays, and floating-point arithmetic operations, and conforms to established POSIX standards.
+created: "1983"
+keywords:
+  - kornshell
+  - ksh
+  - unix-shell
+extGithubPath: att/ast
+extHomeURL: http://kornshell.com/
+extWikipediaPath: KornShell
+extensions:
+  - .ksh
+  - .sh
+filenames:
+  - ksh
+githubStars: 561
+isTranspiler: false
+rels:
+  dialectOf:
+    - pl/bash
+  influencedBy:
+    - pl/awk
+    - pl/bash
+  licenses:
+    - lic/epl
+    - lic/isc
+    - lic/lgpl
+    - lic/public-domain
+  paradigms:
+    - para/interpreted
+    - para/oop
+    - para/procedural
+    - para/scripting
+    - para/structured
+  platforms:
+    - plat/apple
+    - plat/bsd
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/automation
+    - tag/cli
+    - tag/interpreters
+    - tag/scripting
+    - tag/shell
+  typeSystems:
+    - tsys/dynamic
+    - tsys/untyped
+  writtenWith:
+    - pl/c

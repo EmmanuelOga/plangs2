@@ -1,0 +1,6 @@
+name: Task-Driven
+description: Asynchronous tasks executed independently, enabling concurrency and efficient resource utilization.
+keywords:
+  - async
+  - task-driven
+extHomeURL: https://en.wikipedia.org/wiki/Asynchronous_method_invocation

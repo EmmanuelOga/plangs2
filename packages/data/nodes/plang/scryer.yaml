@@ -1,0 +1,31 @@
+name: Scryer Prolog
+shortDesc: An ISO Prolog implemented in Rust.
+description: An implementation of ISO Prolog written in Rust, tailored for capabilities like constraint solving, coroutining, and logical reasoning.
+created: "2018"
+keywords:
+  - iso
+  - prolog
+  - rust
+extGithubPath: mthom/scryer-prolog
+extHomeURL: https://www.scryer.pl/
+extensions:
+  - .pl
+  - prolog
+isTranspiler: false
+rels:
+  dialectOf:
+    - pl/prolog
+  influencedBy:
+    - pl/prolog
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/declarative
+    - para/logic
+  platforms:
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/proofs
+  writtenWith:
+    - pl/rust

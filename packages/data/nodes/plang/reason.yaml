@@ -1,0 +1,62 @@
+name: Reason
+shortDesc: Multi-paradigm language focusing on functional programming, compiling to OCaml and JavaScript.
+description: General-purpose, high-level, multi-paradigm programming language and syntax extension for OCaml, created by Jordan Walke at Facebook. It focuses on functional and object-oriented programming features and compiles to native code via OCaml's compiler, as well as to JavaScript using a ReScript compiler.
+created: "2016"
+keywords:
+  - ocaml
+  - reasonml
+extGithubPath: reasonml/reason
+extHomeURL: https://reasonml.github.io
+extRedditPath: reasonml
+extWikipediaPath: Reason_(programming_language)
+extensions:
+  - .re
+  - .rei
+githubColor: "#ff5847"
+githubLangId: "869538413"
+githubName: Reason
+githubPopular: false
+githubStars: 10200
+githubType: programming
+isTranspiler: true
+languishRanking: 235
+releases:
+  - version: 3.14.0
+    date: 2024-09-28
+stackovTags:
+  - reason
+rels:
+  compilesTo:
+    - pl/javascript
+    - pl/ocaml
+  dialectOf:
+    - pl/ocaml
+  influencedBy:
+    - pl/javascript
+    - pl/ocaml
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/modular
+    - para/multi
+    - para/oop
+  platforms:
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/app
+    - tag/compiler
+    - tag/framework
+    - tag/interpreters
+    - tag/scripting
+  typeSystems:
+    - tsys/flow
+    - tsys/generic
+    - tsys/object
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/ocaml

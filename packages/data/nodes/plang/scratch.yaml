@@ -1,0 +1,58 @@
+name: Scratch
+shortDesc: Block-based visual language for children to learn coding through interactive projects.
+description: Block-based visual programming language developed by MIT Media Lab for children, providing an educational tool to learn coding through interactive projects. Users create animations, games, and stories using a simple drag-and-drop interface. The language encourages creativity and logical thinking, with global reach and availability in multiple languages.
+created: "2003"
+keywords:
+  - scratch
+extGithubPath: scratchfoundation/scratch-vm
+extHomeURL: https://scratch.mit.edu
+extWikipediaPath: Scratch_(programming_language)
+extensions:
+  - .sb
+  - .sb2
+  - .sb3
+  - .sprite
+  - .sprite2
+  - .sprite3
+githubStars: 1200
+isTranspiler: false
+releases:
+  - version: "3.0"
+    name: Scratch 3.0
+    date: 2019-01-02
+  - version: "1.0"
+    name: Scratch 1.0
+    date: 2007-05-15
+  - version: "2.0"
+    name: Scratch 2.0
+    date: 2013-05-09
+rels:
+  influencedBy:
+    - pl/squeak
+  licenses:
+    - lic/bsd
+    - lic/dual
+    - lic/gnu-gpl
+  paradigms:
+    - para/educational
+    - para/event-driven
+    - para/visual
+  platforms:
+    - plat/android
+    - plat/apple
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/audio-dev
+    - tag/editor
+    - tag/edu
+    - tag/games
+    - tag/interpreters
+    - tag/multimedia
+    - tag/video
+    - tag/viz
+  typeSystems:
+    - tsys/untyped
+  writtenWith:
+    - pl/javascript
+    - pl/squeak

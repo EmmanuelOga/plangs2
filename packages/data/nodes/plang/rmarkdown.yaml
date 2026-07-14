@@ -1,0 +1,49 @@
+name: RMarkdown
+shortDesc: Document format for creating dynamic reports by integrating R code chunks in markdown-like syntax.
+description: Document format that combines markdown-like syntax with embedded R code chunks, allowing the material to be 'knit' into a final document where the code is executed and outputs are integrated. It is widely used for creating dynamic reports, documents, and presentations that incorporate direct outputs from R.
+created: "2014"
+keywords:
+  - markdown
+  - r
+  - reports
+  - reproducible-research
+  - rmarkdown
+extGithubPath: rstudio/rmarkdown
+extHomeURL: https://rmarkdown.rstudio.com/
+extensions:
+  - .Rmd
+githubColor: "#198ce7"
+githubLangId: "313"
+githubName: RMarkdown
+githubPopular: false
+githubStars: 2900
+githubType: prose
+isTranspiler: true
+languishRanking: 87
+releases:
+  - version: "1.0"
+    name: Initial Release
+    date: 2014-01-21
+stackovTags:
+  - r-markdown
+rels:
+  compilesTo:
+    - pl/html
+    - pl/markdown
+  influencedBy:
+    - pl/markdown
+    - pl/r
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/data-driven
+    - para/declarative
+    - para/markup
+    - para/multi
+  platforms:
+    - plat/cross
+  tags:
+    - tag/dataq
+    - tag/sci
+    - tag/stats
+    - tag/workflow

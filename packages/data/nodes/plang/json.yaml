@@ -1,0 +1,31 @@
+name: JSON
+shortDesc: Lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate.
+description: JavaScript Object Notation is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate.
+created: "2001"
+keywords:
+  - data interchange
+  - javascript object notation
+  - json
+  - lightweight
+extHomeURL: https://json.org
+extWikipediaPath: JSON
+extensions:
+  - .json
+githubColor: "#292929"
+githubLangId: "174"
+githubName: JSON
+githubPopular: false
+githubType: data
+isTranspiler: false
+languishRanking: 28
+releases:
+  - version: "1.0"
+    name: Initial JSON Specification
+    date: "2013"
+stackovTags:
+  - json
+rels:
+  paradigms:
+    - para/data-exchange
+  platforms:
+    - plat/cross

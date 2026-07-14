@@ -1,0 +1,8 @@
+name: Inferred
+description: Types are automatically deduced without requiring explicit type annotations.
+keywords:
+  - hindley
+  - implicit
+  - inferred
+  - milner
+extHomeURL: https://en.wikipedia.org/wiki/Type_inference

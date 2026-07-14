@@ -1,0 +1,8 @@
+name: ISC
+description: The ISC License is a permissive free software license similar to the MIT License, with simplified terms.
+keywords:
+  - isc
+extHomeURL: https://en.wikipedia.org/wiki/ISC_license
+isFSFLibre: true
+isOSIApproved: true
+spdx: ISC

@@ -1,0 +1,15 @@
+name: Marked
+shortDesc: A markdown parser and compiler. Built for speed.
+description: Marked is a fast, lightweight markdown compiler designed for both client and server-side JavaScript, supporting all markdown features across various specifications and available as a CLI tool.
+extGithubPath: markedjs/marked
+extHomeURL: https://marked.js.org/
+githubStars: 33600
+rels:
+  plangs:
+    - pl/javascript
+    - pl/javascriptcore
+    - pl/typescript
+  tags:
+    - tag/webdev
+  writtenWith:
+    - pl/typescript

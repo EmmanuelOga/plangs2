@@ -1,0 +1,5 @@
+name: Mult-Dispatch
+description: Selects a function to invoke based on the runtime types of multiple arguments.
+keywords:
+  - multi-dispatch
+extHomeURL: https://en.wikipedia.org/wiki/Multiple_dispatch

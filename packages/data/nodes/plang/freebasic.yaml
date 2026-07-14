@@ -1,0 +1,59 @@
+name: FreeBASIC
+shortDesc: BASIC compiler inspired by QuickBASIC, supporting object-oriented programming.
+description: BASIC compiler that runs on multiple platforms including Windows, Linux, and DOS. It is designed to be syntax-compatible with QuickBASIC while expanding the capabilities with modern features such as object-oriented and metaprogramming capabilities.
+created: "2004"
+keywords:
+  - basic
+  - freebasic
+extGithubPath: freebasic/fbc
+extHomeURL: https://www.freebasic.net/
+extWikipediaPath: FreeBASIC
+extensions:
+  - .bas
+  - .bi
+githubColor: "#141AC9"
+githubLangId: "472896659"
+githubName: FreeBasic
+githubPopular: false
+githubStars: 914
+githubType: programming
+isTranspiler: false
+languishRanking: 400
+releases:
+  - version: 1.10.1
+    name: ""
+    date: 2023-12-25
+stackovTags:
+  - freebasic
+rels:
+  dialectOf:
+    - pl/basic
+  implements:
+    - pl/basic
+  influencedBy:
+    - pl/basic
+    - pl/c
+  licenses:
+    - lic/gnu-gpl
+    - lic/lgpl
+  paradigms:
+    - para/compiled
+    - para/general-purpose
+    - para/multi
+    - para/oop
+    - para/procedural
+  platforms:
+    - plat/bsd
+    - plat/dos
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/app
+    - tag/compiler
+    - tag/interpreters
+    - tag/viz
+  typeSystems:
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/c

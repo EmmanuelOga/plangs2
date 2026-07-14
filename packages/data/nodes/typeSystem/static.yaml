@@ -1,0 +1,5 @@
+name: Static
+description: Checks type correctness at compile-time, reducing runtime errors by ensuring variables are properly typed before execution.
+keywords:
+  - static
+extHomeURL: https://en.wikipedia.org/wiki/Static_typing

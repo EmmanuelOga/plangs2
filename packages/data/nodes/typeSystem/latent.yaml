@@ -1,0 +1,5 @@
+name: Latent
+description: Dynamic typing model where type constraints are deferred until runtime, similar to duck typing.
+keywords:
+  - latent
+extHomeURL: https://en.wikipedia.org/wiki/Latent_typing

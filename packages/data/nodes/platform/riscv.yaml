@@ -1,0 +1,7 @@
+name: RISC-V
+description: Open standard instruction set architecture (ISA) based on the reduced instruction set computer (RISC) principles.
+keywords:
+  - open isa
+  - risc-v
+  - riscv
+extHomeURL: https://en.wikipedia.org/wiki/RISC-V

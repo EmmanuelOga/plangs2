@@ -1,0 +1,12 @@
+name: PostgreSQL
+description: A powerful relational database system with a strong reputation for reliability, feature robustness, and performance.
+keywords:
+  - database
+  - pgsql
+  - postgres
+  - postgresql
+  - sql
+extHomeURL: https://www.postgresql.org/
+rels:
+  writtenWith:
+    - pl/c

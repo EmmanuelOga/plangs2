@@ -1,0 +1,52 @@
+name: Rye
+shortDesc: High-level, interpreted programming language focused on simplicity and expressiveness.
+description: A high-level, interpreted programming language focused on simplicity, expressiveness, and modern coding paradigms. It is designed to make programming more intuitive and accessible, with features that emphasize functional programming and ease of use.
+created: "2022"
+keywords:
+  - rye
+  - ryelang
+extGithubPath: refaktor/rye
+extHomeURL: https://ryelang.org/
+extensions:
+  - .ry
+githubStars: 477
+isTranspiler: false
+releases:
+  - version: 0.0.26
+    name: Rye 0.0.26
+    date: 2024-10-01
+  - version: "1.0"
+    name: Rye 1.0
+    date: 2022-01-01
+  - version: "1.1"
+    name: Rye 1.1
+    date: 2023-03-10
+rels:
+  influencedBy:
+    - pl/factor
+    - pl/rebol
+    - pl/red
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/array
+    - para/functional
+    - para/general-purpose
+    - para/interpreted
+    - para/multi
+    - para/scripting
+  platforms:
+    - plat/apple
+    - plat/cross
+    - plat/linux
+    - plat/web
+    - plat/windows
+  tags:
+    - tag/app
+    - tag/cli
+    - tag/scripting
+  typeSystems:
+    - tsys/duck
+    - tsys/dynamic
+  writtenWith:
+    - pl/go

@@ -1,0 +1,63 @@
+name: V
+shortDesc: Statically typed, compiled language emphasizing simplicity and performance.
+description: V, also known as vlang, is a statically typed, compiled programming language created by Alexander Medvednikov in early 2019. It was inspired by the language Go, along with other influences like Oberon, Swift, and Rust. V aims for simplicity, readability, maintainability, and performance. It is free and open-source, with a model that emphasizes speed, safety, and reliability, under the MIT License.
+created: "2019"
+keywords:
+  - v language
+  - v programming
+  - vlang
+extGithubPath: vlang/v
+extHomeURL: https://vlang.io
+extRedditPath: vlang
+extWikipediaPath: V_(programming_language)
+extensions:
+  - .v
+  - .vsh
+githubColor: "#4f87c4"
+githubLangId: "603371597"
+githubName: V
+githubPopular: false
+githubStars: 35900
+githubType: programming
+isTranspiler: true
+languishRanking: 159
+releases:
+  - version: 0.4.8
+    name: V 0.4.8
+    date: 2024-09-28
+stackovTags:
+  - vlang
+rels:
+  compilesTo:
+    - pl/c
+  influencedBy:
+    - pl/go
+    - pl/nim
+    - pl/rust
+    - pl/swift
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/compiled
+    - para/concurrent
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/structured
+  platforms:
+    - plat/apple
+    - plat/bsd
+    - plat/linux
+    - plat/windows
+    - plat/x86-64
+  tags:
+    - tag/better-c
+    - tag/compiler
+    - tag/interpreters
+    - tag/scripting
+  typeSystems:
+    - tsys/inferred
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/c

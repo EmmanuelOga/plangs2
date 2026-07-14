@@ -1,0 +1,60 @@
+name: JRuby
+shortDesc: Java-based implementation of Ruby, integrating closely with Java for two-way access.
+description: Implementation of the Ruby programming language atop the Java Virtual Machine, written largely in Java. It is free software released under a three-way EPL/GPL/LGPL license. JRuby is tightly integrated with Java to allow the embedding of the interpreter into any Java application with full two-way access between Java and Ruby code, similar to Jython for Python.
+created: "2001"
+keywords:
+  - interpreter
+  - java
+  - jruby
+  - jvm
+  - ruby
+extGithubPath: jruby/jruby
+extHomeURL: https://www.jruby.org/
+extRedditPath: ruby
+extWikipediaPath: Ruby_(programming_language)
+extensions:
+  - .jruby
+  - .rb
+githubColor: "#701516"
+githubLangId: "326"
+githubName: Ruby
+githubPopular: true
+githubStars: 3800
+githubType: programming
+isTranspiler: false
+releases:
+  - version: 9.4.9.0
+    date: 2024-09-04
+stackovTags:
+  - ruby
+rels:
+  implements:
+    - pl/ruby
+  influencedBy:
+    - pl/ruby
+  licenses:
+    - lic/epl
+    - lic/gnu-gpl
+    - lic/lgpl
+  paradigms:
+    - para/concurrent
+    - para/general-purpose
+    - para/oop
+    - para/reflective
+    - para/scripting
+  platforms:
+    - plat/cross
+    - plat/java
+  tags:
+    - tag/compiler
+    - tag/framework
+    - tag/interpreters
+    - tag/scripting
+    - tag/shell
+  typeSystems:
+    - tsys/duck
+    - tsys/dynamic
+    - tsys/object
+    - tsys/strong
+  writtenWith:
+    - pl/java

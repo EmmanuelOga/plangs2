@@ -1,0 +1,12 @@
+name: Strand
+shortDesc: A parallel Prolog dialect.
+description: A parallel Prolog dialect focusing on concurrency and logic programming.
+extHomeURL: http://www.call-with-current-continuation.org/strand/strand.html
+isTranspiler: false
+rels:
+  dialectOf:
+    - pl/prolog
+  paradigms:
+    - para/concurrent
+    - para/logic
+    - para/parallel

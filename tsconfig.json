@@ -1,55 +1,25 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
     "paths": {
-      "@plangs/auxiliar/*": [
-        "packages/auxiliar/src/*"
-      ],
-      "@plangs/definitions/*": [
-        "packages/definitions/src/*"
-      ],
-      "@plangs/frontend/*": [
-        "packages/frontend/src/*"
-      ],
-      "@plangs/functions/*": [
-        "packages/functions/src/*"
-      ],
-      "@plangs/graphgen/*": [
-        "packages/graphgen/src/*"
-      ],
-      "@plangs/languist/*": [
-        "packages/languist/src/*"
-      ],
-      "@plangs/plangs/*": [
-        "packages/plangs/src/*"
-      ],
-      "@plangs/server/*": [
-        "packages/server/src/*"
-      ],
-      "@plangs/wiki-scraper/*": [
-        "archive/wiki-scraper/src/*"
-      ]
-    },
-    "rootDir": ".",
-    "skipLibCheck": true, // Do not type check code in node_modules.
-    "sourceMap": true,
-    "strict": true,
-    "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "target": "ES2022",
-    "types": [
-      "bun-types",
-      "node"
-    ],
+      "@plangs/schema": ["packages/schema/src/index.ts"],
+      "@plangs/graph": ["packages/graph/src/index.ts"]
+    }
   },
+  "include": ["packages/schema/src", "packages/graph/src", "packages/pipeline/src", "apps/site/src", "scripts"],
   "exclude": [
     "node_modules",
-    "**/node_modules/*",
+    "**/node_modules",
+    "packages/ai",
+    "packages/auxiliar",
+    "packages/definitions",
+    "packages/frontend",
     "packages/functions",
+    "packages/graphgen",
+    "packages/languist",
+    "packages/plangs",
+    "packages/server",
+    "archived"
   ]
 }

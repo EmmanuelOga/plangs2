@@ -1,0 +1,51 @@
+name: XSLT
+shortDesc: Declarative language for transforming XML documents.
+description: Extensible Stylesheet Language Transformations is a declarative, data transformation language used for transforming XML documents into other XML documents or different output formats, such as HTML or plain text.
+created: "1998"
+keywords:
+  - xslt
+extHomeURL: https://www.w3.org/TR/xslt-30/
+extRedditPath: xslt
+extWikipediaPath: XSLT
+extensions:
+  - .xslt
+githubColor: "#EB8CEB"
+githubLangId: "404"
+githubName: XSLT
+githubPopular: false
+githubType: programming
+isTranspiler: false
+languishRanking: 73
+releases:
+  - version: "1.0"
+    name: XSLT 1.0
+    date: 1999-11-16
+  - version: "2.0"
+    name: XSLT 2.0
+    date: 2007-01-23
+  - version: "3.0"
+    name: XSLT 3.0
+    date: 2017-06-08
+stackovTags:
+  - xslt
+rels:
+  influencedBy:
+    - pl/boomerang
+  paradigms:
+    - para/declarative
+    - para/dsl
+    - para/pattern-matching
+    - para/pipeline
+  platforms:
+    - plat/cross
+    - plat/java
+  tags:
+    - tag/analysis
+    - tag/app
+    - tag/dbms
+    - tag/editor
+    - tag/framework
+    - tag/industrial
+    - tag/viz
+  typeSystems:
+    - tsys/untyped

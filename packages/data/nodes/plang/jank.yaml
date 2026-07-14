@@ -1,0 +1,29 @@
+name: Jank
+shortDesc: clojure-compatible language with an LLVM-based JIT compiler for native performance.
+description: General-purpose programming language which embraces the interactive, value-oriented nature of Clojure as well as the desire for native runtime and performance similar to C++. It is strongly compatible with Clojure and considers itself a dialect of Clojure. Jank uses an LLVM-based JIT to compile machine code on-the-fly.
+created: "2015"
+keywords:
+  - clojure
+  - jank
+  - llvm
+extGithubPath: jank-lang/jank
+extHomeURL: https://jank-lang.org/
+extensions:
+  - .jank
+githubStars: 1700
+isTranspiler: true
+rels:
+  dialectOf:
+    - pl/clojure
+  influencedBy:
+    - pl/clojure
+  paradigms:
+    - para/functional
+    - para/general-purpose
+  platforms:
+    - plat/cross
+  typeSystems:
+    - tsys/strong
+  writtenWith:
+    - pl/c++
+    - pl/llvm

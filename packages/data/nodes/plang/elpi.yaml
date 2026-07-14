@@ -1,0 +1,16 @@
+name: ELPI
+shortDesc: An embeddable interpreter for a λProlog variant enriched with Constraint Handling Rules.
+description: Embeddable Lambda Prolog Interpreter implements a variant of λProlog enriched with Constraint Handling Rules and serves as both a higher-order logical framework and an implementation language for type systems and logic programs.
+created: 2014-03
+keywords:
+  - constraint-handling-rules
+  - lambda-prolog
+extGithubPath: LPCIC/elpi
+isTranspiler: false
+rels:
+  paradigms:
+    - para/declarative
+    - para/logic
+  tags:
+    - tag/languages
+    - tag/proofs

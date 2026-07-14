@@ -1,0 +1,109 @@
+name: Python
+shortDesc: Dynamic, high-level programming language known for its easy-to-read syntax.
+description: Dynamic, high-level programming language known for its easy-to-read syntax and flexibility. A multi-paradigm language supporting procedural, object-oriented, and functional programming models, widely used in web development, data analysis, artificial intelligence, and more.
+created: "1991"
+extGithubPath: python/cpython
+extHomeURL: https://www.python.org/
+extRedditPath: Python
+extWikipediaPath: Python_(programming_language)
+extensions:
+  - .py
+  - .pyc
+  - .pyd
+  - .pyi
+  - .pyo
+  - .pyw
+  - .pyz
+githubColor: "#3572A5"
+githubLangId: "303"
+githubName: Python
+githubPopular: true
+githubStars: 64100
+githubType: programming
+isTranspiler: false
+languishRanking: 1
+links:
+  - url: https://www.python.org/doc/
+    title: Python Documentation
+  - url: https://realpython.com/
+    title: Real Python
+  - url: https://pypi.org/
+    title: Python Package Index (PyPI)
+  - url: https://docs.python-guide.org/
+    title: The Hitchhiker’s Guide to Python
+releases:
+  - version: 2.7.18
+    name: Final Release of Python 2
+    date: 2020-04-19
+  - version: 3.13.0
+    name: Python 3.13.0
+    date: 2024-10-07
+stackovTags:
+  - python
+rels:
+  influencedBy:
+    - pl/ada
+    - pl/apl
+    - pl/c
+    - pl/c++
+    - pl/haskell
+    - pl/lisp
+    - pl/perl
+    - pl/r5rs
+    - pl/scheme
+    - pl/standard-ml
+  licenses:
+    - lic/python
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/interpreted
+    - para/multi
+    - para/oop
+    - para/procedural
+    - para/reflective
+    - para/scripting
+    - para/structured
+  platforms:
+    - plat/android
+    - plat/apple
+    - plat/bsd
+    - plat/cross
+    - plat/linux
+    - plat/raspberry
+    - plat/wasm
+    - plat/windows
+  tags:
+    - tag/analysis
+    - tag/app
+    - tag/automation
+    - tag/cas
+    - tag/cli
+    - tag/compiler
+    - tag/dataflow
+    - tag/dbms
+    - tag/framework
+    - tag/games
+    - tag/gui
+    - tag/industrial
+    - tag/interpreters
+    - tag/low-code
+    - tag/modeling
+    - tag/numeric
+    - tag/sci
+    - tag/scripting
+    - tag/testing
+    - tag/viz
+    - tag/wavelet
+    - tag/webdev
+  typeSystems:
+    - tsys/duck
+    - tsys/dynamic
+    - tsys/inferred
+    - tsys/object
+    - tsys/optional
+    - tsys/strong
+  writtenWith:
+    - pl/c
+    - pl/python

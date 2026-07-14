@@ -1,0 +1,7 @@
+name: Embedded
+description: Microprocessor-based hardware system with software designed to perform a specific function, often real-time.
+keywords:
+  - embedded
+  - embedded systems
+  - microcontroller
+extHomeURL: https://en.wikipedia.org/wiki/Embedded_system

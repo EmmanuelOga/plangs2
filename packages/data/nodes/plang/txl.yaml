@@ -1,0 +1,38 @@
+name: TXL
+shortDesc: Language for creating and manipulating programming languages with pattern-matching.
+description: Domain-specific language designed for creating, manipulating, and prototyping programming languages. Developed in 1985 by Charles Halpern-Hamu and James Cordy, it utilizes term-rewriting and pattern-matching techniques.
+created: "1985"
+keywords:
+  - language prototyping
+  - pattern-matching
+  - term-rewriting
+  - txl
+extHomeURL: https://www.txl.ca/
+extWikipediaPath: TXL_(programming_language)
+extensions:
+  - .txl
+githubColor: "#0178b8"
+githubLangId: "366"
+githubName: TXL
+githubPopular: false
+githubType: programming
+isTranspiler: false
+releases:
+  - version: 10.8b
+    name: FreeTxl
+    date: 2022-07
+rels:
+  paradigms:
+    - para/dsl
+    - para/language-oriented
+    - para/pattern-matching
+    - para/rewriting
+  platforms:
+    - plat/cross
+  tags:
+    - tag/analysis
+    - tag/interpreters
+    - tag/languages
+    - tag/workflow
+  typeSystems:
+    - tsys/untyped

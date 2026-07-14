@@ -1,0 +1,5 @@
+name: Untyped
+description: Lacks explicit types, with variables and functions being dynamically interpreted based on their usage.
+keywords:
+  - untyped
+extHomeURL: https://en.wikipedia.org/wiki/Type_system

@@ -1,0 +1,27 @@
+name: SHACL
+shortDesc: W3C standard language for RDF graph constraints and validation.
+description: Shapes Constraint Language is a World Wide Web Consortium (W3C) standard language for describing Resource Description Framework (RDF) graphs. SHACL has been designed to enhance the semantic and technical interoperability layers of ontologies expressed as RDF graphs.
+created: "2015"
+keywords:
+  - shacl
+extHomeURL: https://www.w3.org/TR/shacl/
+extWikipediaPath: SHACL
+extensions:
+  - .shacl
+isTranspiler: false
+releases:
+  - version: "1.0"
+    name: SHACL 1.0
+    date: 2017-07-20
+rels:
+  influencedBy:
+    - pl/shex
+  paradigms:
+    - para/declarative
+    - para/dsl
+    - para/validation
+  tags:
+    - tag/dbms
+    - tag/framework
+  typeSystems:
+    - tsys/structural

@@ -1,0 +1,7 @@
+name: Shell
+description: Command-line interface that interprets text commands to control the operating system.
+keywords:
+  - CLI
+  - command-line interface
+  - shell
+extHomeURL: https://en.wikipedia.org/wiki/Shell_(computing)

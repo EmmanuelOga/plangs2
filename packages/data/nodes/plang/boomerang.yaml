@@ -1,0 +1,34 @@
+name: Boomerang
+shortDesc: Language for bidirectional transformations on textual data formats.
+description: Programming language for writing lenses—well-behaved bidirectional transformations—that operate on ad-hoc, textual data formats.
+created: "2008"
+keywords:
+  - boomerang
+extHomeURL: http://www.seas.upenn.edu/~harmony/
+extWikipediaPath: Boomerang_(programming_language)
+githubStars: 0
+isTranspiler: false
+releases:
+  - version: "0.2"
+    name: Stable Release
+    date: 2009-09-02
+  - version: "0.1"
+    name: Initial Release
+    date: 2008-01-01
+rels:
+  influencedBy:
+    - pl/ocaml
+  licenses:
+    - lic/lgpl
+  paradigms:
+    - para/bidirectional
+    - para/declarative
+    - para/dsl
+  platforms:
+    - plat/apple
+    - plat/cross
+    - plat/linux
+  tags:
+    - tag/interpreters
+  typeSystems:
+    - tsys/strong

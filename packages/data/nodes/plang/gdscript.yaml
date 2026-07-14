@@ -1,0 +1,58 @@
+name: GDScript
+shortDesc: High-level, dynamically typed language for the Godot Engine.
+description: High-level, dynamically typed programming language tailored for the Godot Engine, influenced by Python, facilitating gameplay scripting and rapid prototyping.
+created: "2014"
+keywords:
+  - gdscript
+  - godot
+extGithubPath: godotengine/godot
+extHomeURL: https://godotengine.org/
+extRedditPath: godot
+extWikipediaPath: Godot_(game_engine)
+extensions:
+  - .gd
+githubColor: "#355570"
+githubLangId: "123"
+githubName: GDScript
+githubPopular: false
+githubStars: 91800
+githubType: programming
+isTranspiler: false
+languishRanking: 43
+releases:
+  - version: "3.6"
+    date: 2024-09-09
+  - version: "4.3"
+    date: 2024-08-15
+stackovTags:
+  - godot
+rels:
+  influencedBy:
+    - pl/python
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/imperative
+    - para/oop
+    - para/scripting
+  platforms:
+    - plat/android
+    - plat/apple
+    - plat/bsd
+    - plat/cross
+    - plat/linux
+    - plat/web
+    - plat/windows
+  tags:
+    - tag/3dg
+    - tag/audio-dev
+    - tag/games
+    - tag/gui
+    - tag/scripting
+  typeSystems:
+    - tsys/duck
+    - tsys/dynamic
+    - tsys/object
+    - tsys/strong
+  writtenWith:
+    - pl/c++

@@ -1,0 +1,62 @@
+name: PyPy
+shortDesc: High-performance alternative implementation of Python featuring a JIT compiler for speed.
+description: High-performance, compliant alternative implementation of the Python language. It is notable for its Just-in-Time (JIT) compiler, often achieving faster execution than standard CPython by optimizing Python code dynamically. PyPy prioritizes speed and flexibility while maintaining code compatibility.
+created: "2007"
+keywords:
+  - jit
+  - pypy
+  - python alternative
+  - python interpreter
+extGithubPath: pypy/pypy
+extHomeURL: https://pypy.org
+extRedditPath: Python
+extWikipediaPath: Python_(programming_language)
+extensions:
+  - .py
+githubColor: "#3572A5"
+githubLangId: "303"
+githubName: Python
+githubPopular: true
+githubStars: 1200
+githubType: programming
+isTranspiler: false
+releases:
+  - version: 7.3.17
+    name: PyPy 7.3.17
+    date: 2024-08-28
+  - version: 7.3.16
+    name: PyPy 7.3.16
+    date: 2024-01-01
+stackovTags:
+  - python
+rels:
+  dialectOf:
+    - pl/python
+  implements:
+    - pl/python
+  influencedBy:
+    - pl/python
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/general-purpose
+    - para/interpreted
+    - para/scripting
+  platforms:
+    - plat/apple
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/analysis
+    - tag/compiler
+    - tag/framework
+    - tag/interpreters
+    - tag/testing
+  typeSystems:
+    - tsys/duck
+    - tsys/dynamic
+    - tsys/object
+  writtenWith:
+    - pl/c
+    - pl/python

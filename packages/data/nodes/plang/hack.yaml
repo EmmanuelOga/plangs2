@@ -1,0 +1,72 @@
+name: Hack
+shortDesc: PHP-influenced language with static and gradual typing, used on the HHVM platform.
+description: Programming language developed by Meta (formerly Facebook) for HHVM, designed to enhance PHP with features like static type checking, gradual typing, and asynchronous programming. It supports various programming paradigms and aims to provide a balance between development speed and safety.
+created: "2014"
+keywords:
+  - hack
+  - hhvm
+  - meta
+  - static type checking
+extGithubPath: facebook/hhvm
+extHomeURL: https://hacklang.org/
+extRedditPath: hacklang
+extWikipediaPath: Hack_(programming_language)
+extensions:
+  - .hack
+  - .hck
+  - .hh
+githubColor: "#878787"
+githubLangId: "153"
+githubName: Hack
+githubPopular: false
+githubStars: 18200
+githubType: programming
+isTranspiler: false
+languishRanking: 174
+releases:
+  - version: "4.172"
+    name: ""
+    date: 2022-11-02
+stackovTags:
+  - hacklang
+rels:
+  dialectOf:
+    - pl/php
+  implements:
+    - pl/php
+  influencedBy:
+    - pl/c-sharp
+    - pl/haskell
+    - pl/java
+    - pl/ocaml
+    - pl/php
+    - pl/scala
+    - pl/typescript
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/multi
+    - para/oop
+    - para/procedural
+    - para/reflective
+  platforms:
+    - plat/cross
+  tags:
+    - tag/interpreters
+    - tag/scripting
+    - tag/webdev
+  typeSystems:
+    - tsys/dynamic
+    - tsys/gradual
+    - tsys/inferred
+    - tsys/manifest
+    - tsys/object
+    - tsys/safe
+    - tsys/static
+    - tsys/strong
+    - tsys/weak
+  writtenWith:
+    - pl/ocaml

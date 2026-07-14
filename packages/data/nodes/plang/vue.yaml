@@ -1,0 +1,45 @@
+name: Vue
+shortDesc: JavaScript framework for front end development.
+description: model-view-viewmodel front end JavaScript framework for building user interfaces and single-page applications.
+created: "2014"
+keywords:
+  - vue.js
+extGithubPath: vuejs/core
+extHomeURL: https://vuejs.org
+extRedditPath: vuejs
+extWikipediaPath: Vue.js
+extensions:
+  - .vue
+githubColor: "#41b883"
+githubLangId: "391"
+githubName: Vue
+githubPopular: false
+githubStars: 48000
+githubType: markup
+isTranspiler: true
+languishRanking: 20
+releases:
+  - version: 3.5.12
+    name: Tengen Toppa Gurren Lagann
+    date: 2024-10-11
+stackovTags:
+  - vue.js
+rels:
+  compilesTo:
+    - pl/javascript
+  influencedBy:
+    - pl/javascript
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/declarative
+    - para/event-driven
+    - para/oop
+  platforms:
+    - plat/web
+  tags:
+    - tag/framework
+    - tag/gui
+  typeSystems:
+    - tsys/dynamic
+    - tsys/object

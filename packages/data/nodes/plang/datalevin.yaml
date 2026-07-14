@@ -1,0 +1,27 @@
+name: Datalevin
+shortDesc: A simple, fast and versatile Datalog database.
+description: A simple, fast, and versatile Datalog database designed for use with Clojure, focusing on efficient data storage and retrieval for various applications.
+created: "2023"
+keywords:
+  - clojure
+  - database
+  - datalog
+extGithubPath: juji-io/datalevin
+isTranspiler: false
+rels:
+  implements:
+    - pl/datalog
+  influencedBy:
+    - pl/datomic
+  licenses:
+    - lic/epl
+  paradigms:
+    - para/data-driven
+    - para/declarative
+    - para/logic
+  platforms:
+    - plat/cross
+  tags:
+    - tag/dbms
+  writtenWith:
+    - pl/clojure

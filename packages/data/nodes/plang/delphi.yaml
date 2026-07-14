@@ -1,0 +1,69 @@
+name: Delphi
+shortDesc: General-purpose programming language with an IDE for rapid application development, using the Delphi dialect of Object Pascal.
+description: General-purpose programming language and a software product that uses the Delphi dialect of the Object Pascal programming language and provides an integrated development environment (IDE) for rapid application development of desktop, mobile, web, and console software. It is currently developed and maintained by Embarcadero Technologies.
+created: "1995"
+keywords:
+  - delphi
+  - object pascal
+extHomeURL: https://www.embarcadero.com/products/delphi
+extRedditPath: pascal
+extWikipediaPath: Pascal_(programming_language)
+extensions:
+  - .dpr
+  - .pas
+githubColor: "#E3F171"
+githubLangId: "281"
+githubName: Pascal
+githubPopular: false
+githubType: programming
+isTranspiler: false
+languishRanking: 50
+releases:
+  - version: "12.2"
+    name: RAD Studio 12.2 Athens
+    date: 2024-09-12
+  - version: "11.3"
+    name: Delphi 11.3
+    date: 2023-03-01
+  - version: "12.1"
+    name: Delphi 12.1
+    date: 2024-01-01
+stackovTags:
+  - delphi
+  - pascal
+rels:
+  dialectOf:
+    - pl/pascal
+  implements:
+    - pl/pascal
+  paradigms:
+    - para/compiled
+    - para/general-purpose
+    - para/multi
+    - para/oop
+    - para/procedural
+  platforms:
+    - plat/android
+    - plat/apple
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/asm
+    - tag/automation
+    - tag/compiler
+    - tag/control
+    - tag/dbms
+    - tag/editor
+    - tag/framework
+    - tag/gui
+    - tag/industrial
+    - tag/interpreters
+    - tag/rad
+    - tag/uml
+    - tag/viz
+  typeSystems:
+    - tsys/object
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/c++

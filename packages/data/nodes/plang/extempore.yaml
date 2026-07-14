@@ -1,0 +1,52 @@
+name: Extempore
+shortDesc: High-performance language for real-time audiovisual computing and live coding.
+description: Programming language aimed at providing a high-performance environment for real-time audiovisual computing. It supports live coding and integrates Scheme with unique extensions, intended to help developers construct cyber-physical systems.
+created: "2011"
+keywords:
+  - audiovisual
+  - extempore
+  - live-coding
+  - real-time
+extGithubPath: digego/extempore
+extHomeURL: https://extemporelang.github.io/
+extWikipediaPath: Extempore_(software)
+extensions:
+  - .xtm
+filenames:
+  - Makefile
+githubStars: 1400
+isTranspiler: false
+releases:
+  - version: 0.8.9
+    name: ""
+    date: 2021-05-06
+rels:
+  implements:
+    - pl/scheme
+  influencedBy:
+    - pl/lisp
+    - pl/scheme
+  licenses:
+    - lic/bsd
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/interpreted
+    - para/multi
+    - para/real-time
+  platforms:
+    - plat/apple
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/audio-dev
+    - tag/compiler
+    - tag/dsp
+    - tag/multimedia
+    - tag/wavelet
+  typeSystems:
+    - tsys/dynamic
+    - tsys/static
+  writtenWith:
+    - pl/c

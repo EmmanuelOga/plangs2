@@ -1,0 +1,5 @@
+name: Data Hiding
+description: Restrict access to certain parts of a program's code.
+keywords:
+  - hiding
+extHomeURL: https://en.wikipedia.org/wiki/Information_hiding

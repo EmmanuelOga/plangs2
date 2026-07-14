@@ -1,0 +1,9 @@
+name: BSD
+description: Family of Unix-like operating systems derived from the Berkeley Software Distribution, including FreeBSD, OpenBSD, and NetBSD.
+keywords:
+  - bsd
+  - dragonflybsd
+  - freebsd
+  - netbsd
+  - openbsd
+extHomeURL: https://en.wikipedia.org/wiki/BSD

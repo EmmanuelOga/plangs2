@@ -1,0 +1,20 @@
+name: Harlequin
+shortDesc: The SQL IDE for Your Terminal.
+description: Easy, fast, and beautiful database client for the terminal.
+keywords:
+  - client
+  - database
+  - terminal
+extGithubPath: tconbeer/harlequin
+extHomeURL: https://harlequin.sh/
+githubStars: 4000
+rels:
+  platforms:
+    - plat/cross
+    - plat/linux
+    - plat/osx
+    - plat/windows
+  tags:
+    - tag/analysis
+  writtenWith:
+    - pl/python

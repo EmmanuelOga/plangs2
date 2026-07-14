@@ -1,0 +1,32 @@
+name: Natlog
+shortDesc: A lightweight Prolog-like system designed for interoperability with deep learning tools.
+description: A lightweight Prolog-like system engineered to integrate seamlessly with deep learning tools such as PyTorch, JAX, and GPT.
+created: 2022-04
+keywords:
+  - deep-learning
+  - gpt
+  - interpretation
+  - jax
+  - logicprogramming
+  - prolog
+  - py-torch
+extGithubPath: ptarau/natlog
+isTranspiler: false
+rels:
+  influencedBy:
+    - pl/prolog
+  licenses:
+    - lic/gnu-gpl
+  paradigms:
+    - para/declarative
+    - para/interpreted
+    - para/logic
+  platforms:
+    - plat/cross
+  tags:
+    - tag/languages
+    - tag/sci
+  typeSystems:
+    - tsys/untyped
+  writtenWith:
+    - pl/python

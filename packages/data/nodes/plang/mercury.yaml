@@ -1,0 +1,36 @@
+name: Mercury
+shortDesc: A logic-based programming language with functional features.
+description: Derived from Prolog, it provides a clean and efficient logic programming with support for functional programming features and powerful static analysis tools.
+created: "1995"
+keywords:
+  - declarative
+  - functional
+  - logic
+  - static
+extGithubPath: Mercury-Language/mercury
+extHomeURL: https://mercurylang.org/
+extensions:
+  - .m
+isTranspiler: false
+languishRanking: 332
+rels:
+  dialectOf:
+    - pl/prolog
+  influencedBy:
+    - pl/haskell
+    - pl/prolog
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/declarative
+    - para/functional
+    - para/general-purpose
+    - para/logic
+  platforms:
+    - plat/bsd
+    - plat/linux
+    - plat/windows
+  typeSystems:
+    - tsys/algebraic
+    - tsys/static
+    - tsys/strong

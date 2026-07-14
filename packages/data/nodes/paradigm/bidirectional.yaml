@@ -1,0 +1,6 @@
+name: Bidi
+description: The same data are sometimes considered as input, and sometimes as output.
+keywords:
+  - bi-directional
+  - bidirectional
+extHomeURL: https://en.wikipedia.org/wiki/Bidirectional_transformation

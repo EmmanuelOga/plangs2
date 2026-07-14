@@ -1,0 +1,53 @@
+name: IronPython
+shortDesc: Implementation of Python for the .NET framework.
+description: Implementation of Python, designed to work seamlessly with the .NET and Mono frameworks, allowing for the integration of .NET libraries within Python code. It provides a bridge between Python scripting and the .NET runtime, enabling developers to leverage .NET's extensive libraries.
+created: "2006"
+keywords:
+  - ironpython
+  - python
+extGithubPath: IronLanguages/ironpython3
+extHomeURL: https://ironpython.net/
+extWikipediaPath: IronPython
+extensions:
+  - .py
+  - .pyi
+githubStars: 2500
+isTranspiler: false
+releases:
+  - version: 3.4.1
+    name: 3.4.1
+    date: 2023-07-12
+rels:
+  implements:
+    - pl/python
+  influencedBy:
+    - pl/.net
+    - pl/c-sharp
+  licenses:
+    - lic/apache
+  paradigms:
+    - para/general-purpose
+    - para/imperative
+    - para/multi
+    - para/oop
+    - para/scripting
+  platforms:
+    - plat/.net
+    - plat/apple
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/app
+    - tag/cli
+    - tag/compiler
+    - tag/framework
+    - tag/interpreters
+    - tag/scripting
+    - tag/shell
+  typeSystems:
+    - tsys/duck
+    - tsys/dynamic
+    - tsys/object
+    - tsys/strong
+  writtenWith:
+    - pl/c-sharp

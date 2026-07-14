@@ -1,0 +1,14 @@
+name: ThreeJS Journey
+description: "Everything you need in one place: 93 hours of video to go from absolute beginner to advanced Three.js developer."
+extHomeURL: https://threejs-journey.com/
+kinds:
+  - course
+rels:
+  communities:
+    - comm/threejs-journey
+  plangs:
+    - pl/javascript
+  tags:
+    - tag/3dg
+    - tag/games
+    - tag/webdev

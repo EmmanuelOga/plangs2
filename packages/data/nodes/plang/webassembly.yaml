@@ -1,0 +1,56 @@
+name: WebAssembly
+shortDesc: Binary instruction format for a stack-based virtual machine for the web.
+description: WebAssembly (Wasm) is a binary instruction format for a stack-based virtual machine. It is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications.
+created: "2017"
+keywords:
+  - binary code
+  - portable
+  - stack machine
+  - virtual machine
+  - wasm
+  - web
+  - webassembly
+extGithubPath: WebAssembly
+extHomeURL: https://webassembly.org
+extRedditPath: WebAssembly
+extWikipediaPath: WebAssembly
+extensions:
+  - .wasm
+  - .wat
+githubColor: "#04133b"
+githubLangId: "956556503"
+githubName: WebAssembly
+githubPopular: false
+githubType: programming
+isTranspiler: false
+languishRanking: 48
+links:
+  - url: https://github.com/WebAssembly
+    title: GitHub Org
+releases:
+  - version: "1.0"
+    name: Initial Release
+    date: 2017-03
+  - version: 2.0 Draft
+    name: Draft Status
+    date: 2022-04
+stackovTags:
+  - webassembly
+rels:
+  implements:
+    - pl/assembly
+    - pl/javascript
+  influencedBy:
+    - pl/javascript
+    - pl/llvm
+  licenses:
+    - lic/apache
+  paradigms:
+    - para/assembly
+    - para/stack-oriented
+    - para/structured
+  platforms:
+    - plat/cross
+    - plat/web
+  tags:
+    - tag/compiler

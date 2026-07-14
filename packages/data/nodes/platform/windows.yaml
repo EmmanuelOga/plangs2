@@ -1,0 +1,9 @@
+name: Windows
+description: Series of operating systems developed by Microsoft, with versions for both personal computers and servers.
+keywords:
+  - win32
+  - win64
+  - windows
+  - windows 10
+  - windows 11
+extHomeURL: https://en.wikipedia.org/wiki/Microsoft_Windows

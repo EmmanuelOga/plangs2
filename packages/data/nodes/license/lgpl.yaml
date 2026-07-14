@@ -1,0 +1,8 @@
+name: LGPL
+description: The GNU Lesser General Public License is a free software license that allows for linking with proprietary software.
+keywords:
+  - lgpl
+extHomeURL: https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
+isFSFLibre: true
+isOSIApproved: true
+spdx: LGPL-2.1-only

@@ -1,0 +1,43 @@
+name: sed
+shortDesc: Unix utility that parses and transforms text, using a compact programming language developed by Lee E. McMahon.
+description: Unix utility that parses and transforms text, using a simple, compact programming language, developed in the early 1970s by Lee E. McMahon of Bell Labs. It was influenced by and based on the scripting features of the interactive editor ed and the earlier qed. Notable for its early support of regular expressions, sed remains widely used for text processing, particularly with its substitution command.
+created: "1974"
+keywords:
+  - sed
+  - stream editor
+extWikipediaPath: Sed
+extensions:
+  - .sed
+githubColor: "#64b970"
+githubLangId: "847830017"
+githubName: sed
+githubPopular: false
+githubType: programming
+isTranspiler: false
+languishRanking: 86
+releases:
+  - version: "1.0"
+    name: Initial Version
+    date: 1974-01-01
+stackovTags:
+  - sed
+rels:
+  licenses:
+    - lic/public-domain
+  paradigms:
+    - para/pattern-matching
+    - para/procedural
+    - para/scripting
+  platforms:
+    - plat/bsd
+    - plat/cross
+    - plat/linux
+  tags:
+    - tag/cli
+    - tag/editor
+    - tag/scripting
+    - tag/shell
+  typeSystems:
+    - tsys/untyped
+  writtenWith:
+    - pl/c

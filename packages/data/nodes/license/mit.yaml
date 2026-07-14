@@ -1,0 +1,8 @@
+name: MIT
+description: The MIT License is a permissive free software license that is very simple and permissive, with very few restrictions.
+keywords:
+  - mit
+extHomeURL: https://en.wikipedia.org/wiki/MIT_License
+isFSFLibre: true
+isOSIApproved: true
+spdx: MIT

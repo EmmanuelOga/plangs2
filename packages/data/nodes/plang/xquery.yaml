@@ -1,0 +1,62 @@
+name: XQuery
+shortDesc: W3C language for querying and transforming XML data using XPath.
+description: XML Query is a query and functional programming language designed to query and transform XML data, developed by the W3C XML Query working group. It shares its foundation with XSLT, and makes extensive use of XPath.
+created: "1998"
+keywords:
+  - functional
+  - query
+  - w3c
+  - xml
+  - xpath
+  - xquery
+extRedditPath: xquery
+extWikipediaPath: XQuery
+extensions:
+  - .xq
+  - .xql
+  - .xqm
+  - .xquery
+  - .xqy
+githubColor: "#5232e7"
+githubLangId: "402"
+githubName: XQuery
+githubPopular: false
+githubType: programming
+isTranspiler: false
+languishRanking: 193
+releases:
+  - version: "3.1"
+    name: XQuery 3.1
+    date: 2017-03-21
+stackovTags:
+  - xquery
+rels:
+  influencedBy:
+    - pl/sql
+    - pl/xpath
+    - pl/xslt
+  paradigms:
+    - para/data-exchange
+    - para/declarative
+    - para/dsl
+    - para/functional
+    - para/modular
+    - para/pattern-matching
+    - para/pipeline
+    - para/query
+  platforms:
+    - plat/cross
+  tags:
+    - tag/analysis
+    - tag/app
+    - tag/dataq
+    - tag/dbms
+    - tag/industrial
+    - tag/interpreters
+    - tag/scripting
+    - tag/viz
+  typeSystems:
+    - tsys/dynamic
+    - tsys/inferred
+    - tsys/static
+    - tsys/strong

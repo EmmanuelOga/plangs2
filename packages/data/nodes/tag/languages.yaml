@@ -1,0 +1,12 @@
+name: Language Engineering
+description: Tools and techniques for designing, implementing, and analyzing programming languages.
+keywords:
+  - compilers
+  - interpreters
+  - lexers
+  - parsers
+  - programming languages
+  - semantics
+  - static analysis
+  - syntax
+extHomeURL: https://en.wikipedia.org/wiki/Programming_language

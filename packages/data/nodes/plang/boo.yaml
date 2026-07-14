@@ -1,0 +1,50 @@
+name: Boo
+shortDesc: Statically typed language with Python-like syntax and support for .NET framework features.
+description: Statically typed, general-purpose programming language that integrates .NET features such as Unicode and web application support, while using a Python-inspired syntax with language and compiler extensibility.
+created: "2003"
+keywords:
+  - boo
+extGithubPath: boo-lang/boo
+extWikipediaPath: Boo_(programming_language)
+extensions:
+  - .boo
+githubColor: "#d4bec1"
+githubLangId: "37"
+githubName: Boo
+githubPopular: false
+githubStars: 875
+githubType: programming
+isTranspiler: false
+languishRanking: 297
+releases:
+  - version: 0.9.7
+    name: Boo 0.9.7
+    date: 2013-03-25
+stackovTags:
+  - boo
+rels:
+  influencedBy:
+    - pl/c-sharp
+    - pl/python
+  licenses:
+    - lic/bsd
+  paradigms:
+    - para/multi
+    - para/oop
+    - para/scripting
+  platforms:
+    - plat/.net
+    - plat/cross
+  tags:
+    - tag/app
+    - tag/compiler
+    - tag/games
+    - tag/interpreters
+    - tag/scripting
+  typeSystems:
+    - tsys/duck
+    - tsys/inferred
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/c-sharp

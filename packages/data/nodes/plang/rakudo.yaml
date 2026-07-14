@@ -1,0 +1,67 @@
+name: Rakudo
+shortDesc: The main compiler for the Raku language, targeting MoarVM and JVM.
+description: A compiler for the Raku programming language, targeting MoarVM and JVM, and aligning with the Raku specification as its standard bearer.
+created: "2008"
+keywords:
+  - compiler
+  - jvm
+  - moarvm
+  - raku
+  - rakudo
+extGithubPath: rakudo/rakudo
+extHomeURL: https://rakudo.org/
+extRedditPath: rakulang
+extWikipediaPath: Raku_(programming_language)
+extensions:
+  - .raku
+  - .rakudoc
+  - .rakumod
+githubColor: "#0000fb"
+githubLangId: "283"
+githubName: Raku
+githubPopular: false
+githubStars: 1700
+githubType: programming
+isTranspiler: true
+releases:
+  - version: "2024.10"
+    name: Rakudo 2024.10
+    date: 2024-10-24
+  - version: "2024.08"
+    name: Rakudo 2024.08
+    date: 2024-01-01
+stackovTags:
+  - raku
+rels:
+  implements:
+    - pl/raku
+  influencedBy:
+    - pl/common-lisp
+    - pl/haskell
+    - pl/perl
+  licenses:
+    - lic/apache
+    - lic/artistic
+  paradigms:
+    - para/declarative
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/multi
+    - para/procedural
+  platforms:
+    - plat/android
+    - plat/apple
+    - plat/bsd
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/compiler
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic
+    - tsys/gradual
+    - tsys/object
+    - tsys/strong
+  writtenWith:
+    - pl/c++

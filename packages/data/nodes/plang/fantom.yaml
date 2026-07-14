@@ -1,0 +1,67 @@
+name: Fantom
+shortDesc: General-purpose object-oriented language, designed for cross-platform use and supporting static and dynamic typing.
+description: General-purpose object-oriented programming language, created by Brian Frank and Andy Frank. It runs on the Java Runtime Environment (JRE), JavaScript, and the .NET Common Language Runtime (CLR). Its stated goal is to provide a standard library API. Fantom uses a curly brace syntax, supports functional programming through closures and concurrency through the Actor model, and blends aspects of both static and dynamic typing.
+created: "2005"
+keywords:
+  - fantom
+extGithubPath: fantom-lang/fantom
+extHomeURL: http://fantom.org
+extRedditPath: Fantom
+extWikipediaPath: Fantom_(programming_language)
+extensions:
+  - .fan
+  - .fwt
+  - .pod
+githubColor: "#14253c"
+githubLangId: "110"
+githubName: Fantom
+githubPopular: false
+githubStars: 134
+githubType: programming
+isTranspiler: true
+languishRanking: 434
+releases:
+  - version: 1.0.79
+    name: Fantom 1.0.79
+    date: 2023-07-17
+stackovTags:
+  - fantom
+rels:
+  compilesTo:
+    - pl/c-sharp
+    - pl/erlang
+    - pl/java
+    - pl/javascript
+    - pl/ruby
+    - pl/scala
+  influencedBy:
+    - pl/c-sharp
+    - pl/erlang
+    - pl/java
+    - pl/ruby
+    - pl/scala
+  licenses:
+    - lic/afl
+    - lic/mit
+  paradigms:
+    - para/concurrent
+    - para/functional
+    - para/general-purpose
+    - para/multi
+    - para/oop
+  platforms:
+    - plat/.net
+    - plat/cross
+    - plat/java
+    - plat/web
+  tags:
+    - tag/app
+    - tag/interpreters
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic
+    - tsys/object
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/java

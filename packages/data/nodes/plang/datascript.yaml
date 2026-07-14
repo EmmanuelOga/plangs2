@@ -1,0 +1,35 @@
+name: DataScript
+shortDesc: Immutable database and Datalog query engine for Clojure, ClojureScript and JS.
+description: A Datalog query engine built for use with Clojure, ClojureScript, and JavaScript environments, enabling immutable database operations.
+keywords:
+  - clojure-script
+  - database
+  - datalog
+  - immutable
+extGithubPath: tonsky/datascript
+extHomeURL: https://github.com/tonsky/datascript
+extensions:
+  - .cljs
+isTranspiler: false
+links:
+  - url: https://github.com/tonsky/datascript
+    title: Main GitHub Repository
+rels:
+  influencedBy:
+    - pl/datalog
+    - pl/datomic
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/declarative
+    - para/functional
+    - para/logic
+  platforms:
+    - plat/web
+  tags:
+    - tag/dbms
+    - tag/webdev
+  typeSystems:
+    - tsys/dynamic
+  writtenWith:
+    - pl/clojure

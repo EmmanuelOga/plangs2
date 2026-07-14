@@ -1,0 +1,5 @@
+name: Message Passing
+description: Communication between processes through the exchange of messages.
+keywords:
+  - message-passing
+extHomeURL: https://en.wikipedia.org/wiki/Message_passing

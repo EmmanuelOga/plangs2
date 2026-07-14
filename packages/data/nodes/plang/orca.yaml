@@ -1,0 +1,38 @@
+name: Orca
+shortDesc: Esoteric language for creating procedural sequencers for music and visual applications.
+description: Esoteric programming language designed to create procedural sequencers, facilitating real-time algorithmic music composition and experimentation. It functions as a livecoding environment capable of interfacing with audio/visual applications via MIDI, OSC, and UDP.
+created: "2019"
+keywords:
+  - esoteric
+  - livecoding
+  - midi
+  - orca
+  - osc
+  - udp
+extGithubPath: hundredrabbits/Orca
+extHomeURL: https://100r.co/site/orca.html
+extensions:
+  - .orca
+githubStars: 4600
+isTranspiler: false
+releases:
+  - version: 0.9.0
+    name: Initial Release
+    date: 2019-05-01
+rels:
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/declarative
+    - para/esoteric
+    - para/visual
+  platforms:
+    - plat/cross
+  tags:
+    - tag/audio-dev
+    - tag/interpreters
+    - tag/midi
+    - tag/modular
+    - tag/scripting
+  typeSystems:
+    - tsys/untyped

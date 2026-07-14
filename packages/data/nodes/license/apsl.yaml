@@ -1,0 +1,8 @@
+name: APSL
+description: The Apple Public Source License is a free software license used by Apple for its open-source projects.
+keywords:
+  - apsl
+extHomeURL: https://en.wikipedia.org/wiki/Apple_Public_Source_License
+isFSFLibre: false
+isOSIApproved: true
+spdx: APSL-2.0

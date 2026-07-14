@@ -1,0 +1,6 @@
+name: Term Rewriting
+description: Involves transforming expressions according to a set of rules to perform computation.
+keywords:
+  - rewriting
+  - term-rewriting
+extHomeURL: https://en.wikipedia.org/wiki/Term-rewriting

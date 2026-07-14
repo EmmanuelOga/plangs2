@@ -1,0 +1,22 @@
+name: PyNeuraLogic
+shortDesc: Enables Differentiable Logic Programs via neural networks.
+description: Enables the creation of Differentiable Logic Programs using neural networks within a Python-friendly framework.
+keywords:
+  - differentiable logic
+  - neural networks
+  - pyneuralogic
+extGithubPath: LukasZahradnik/PyNeuraLogic
+extensions:
+  - .plogic
+isTranspiler: false
+rels:
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/declarative
+    - para/logic
+  typeSystems:
+    - tsys/dynamic
+  writtenWith:
+    - pl/java
+    - pl/python

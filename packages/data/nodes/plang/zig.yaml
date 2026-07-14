@@ -1,0 +1,77 @@
+name: Zig
+shortDesc: System programming language designed as an improvement over C/C++ with native error handling and performance enhancements.
+description: Imperative, general-purpose, statically typed system programming language designed to improve upon C/C++'s features, focusing on robust error handling and performance without hidden control flows or a preprocessor.
+created: "2015"
+keywords:
+  - zig
+extGithubPath: ziglang/zig
+extHomeURL: https://ziglang.org
+extRedditPath: Zig
+extWikipediaPath: Zig_(programming_language)
+extensions:
+  - .zig
+  - .zigr
+  - .zir
+  - .zon
+githubColor: "#ec915c"
+githubLangId: "646424281"
+githubName: Zig
+githubPopular: false
+githubStars: 35400
+githubType: programming
+isTranspiler: true
+languishRanking: 54
+releases:
+  - version: 0.13.0
+    name: Zig 0.13.0
+    date: 2024-06-06
+stackovTags:
+  - zig
+rels:
+  compilesTo:
+    - pl/webassembly
+  influencedBy:
+    - pl/c
+    - pl/c++
+    - pl/go
+    - pl/javascript
+    - pl/rust
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/concurrent
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/multi
+    - para/procedural
+  platforms:
+    - plat/arm
+    - plat/bsd
+    - plat/cross
+    - plat/linux
+    - plat/riscv
+    - plat/wasm
+    - plat/windows
+    - plat/x86-64
+  tags:
+    - tag/app
+    - tag/asm
+    - tag/better-c
+    - tag/compiler
+    - tag/embedded
+    - tag/framework
+    - tag/industrial
+    - tag/interpreters
+    - tag/testing
+    - tag/viz
+  typeSystems:
+    - tsys/flow
+    - tsys/generic
+    - tsys/inferred
+    - tsys/static
+    - tsys/strong
+    - tsys/structural
+  writtenWith:
+    - pl/c++
+    - pl/zig

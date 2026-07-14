@@ -1,0 +1,7 @@
+name: Erlang BEAM/OTP
+description: Open Telecom Platform (OTP) is a collection of useful middleware, libraries, and tools written in the Erlang programming language.
+keywords:
+  - beam
+  - erlang
+  - otp
+extHomeURL: https://en.wikipedia.org/wiki/Open_Telecom_Platform

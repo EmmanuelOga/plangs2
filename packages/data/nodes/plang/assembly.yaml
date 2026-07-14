@@ -1,0 +1,50 @@
+name: Assembly
+shortDesc: Low-level programming language closely aligned with machine code instructions.
+description: "Low-level language with a strong correspondence between instructions and machine code: usually a 1:1 mapping between them."
+created: "1947"
+keywords:
+  - asm
+  - assembler
+  - assembly
+extRedditPath: asm
+extWikipediaPath: Assembly_language
+extensions:
+  - .S
+  - .SRC
+  - .a51
+  - .asm
+  - .inc
+  - .s
+  - .src
+  - .wla
+githubColor: "#6E4C13"
+githubLangId: "24"
+githubName: Assembly
+githubPopular: false
+githubType: programming
+isTranspiler: false
+languishRanking: 33
+stackovTags:
+  - assembly
+rels:
+  paradigms:
+    - para/imperative
+    - para/macro
+    - para/metaprogramming
+    - para/structured
+  platforms:
+    - plat/apple
+    - plat/arm
+    - plat/cross
+    - plat/embedded
+    - plat/linux
+    - plat/windows
+    - plat/x86-64
+  tags:
+    - tag/asm
+    - tag/compiler
+    - tag/embedded
+    - tag/industrial
+    - tag/interpreters
+  typeSystems:
+    - tsys/untyped

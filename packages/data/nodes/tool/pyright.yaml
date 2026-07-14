@@ -1,0 +1,10 @@
+name: Pyright
+description: A full-featured, standards-compliant static type checker for Python. It is designed for high performance and can be used with large Python source bases.
+keywords:
+  - static analysis
+  - type checker
+  - type inference
+extHomeURL: https://microsoft.github.io/pyright/
+rels:
+  plangs:
+    - pl/python

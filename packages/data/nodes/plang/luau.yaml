@@ -1,0 +1,58 @@
+name: Luau
+shortDesc: Lua subset developed by Roblox for game scripting with gradual typing.
+description: High-performance scripting language developed by Roblox as a subset of Lua, optimized for game development on the Roblox platform, featuring gradual typing and safety features.
+created: "2019"
+keywords:
+  - game development
+  - lua
+  - luau
+  - roblox
+  - scripting
+extGithubPath: Roblox/luau
+extHomeURL: https://luau.org/
+extensions:
+  - .luau
+githubColor: "#00A2FF"
+githubLangId: "365050359"
+githubName: Luau
+githubPopular: false
+githubStars: 4100
+githubType: programming
+isTranspiler: true
+languishRanking: 219
+releases:
+  - version: "1.0"
+    name: Luau 1.0
+    date: 2021-02-18
+rels:
+  compilesTo:
+    - pl/lua
+  dialectOf:
+    - pl/lua
+  influencedBy:
+    - pl/lua
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/embedded
+    - para/general-purpose
+    - para/imperative
+    - para/multi
+    - para/oop
+    - para/procedural
+    - para/scripting
+  platforms:
+    - plat/arm
+    - plat/cross
+    - plat/embedded
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/games
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic
+    - tsys/gradual
+  writtenWith:
+    - pl/c
+    - pl/c++

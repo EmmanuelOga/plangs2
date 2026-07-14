@@ -1,0 +1,34 @@
+name: Picat
+shortDesc: A multi-paradigm language integrating functional, logic, and imperative programming features.
+description: A logic-based, multi-paradigm language that integrates functional, logic, and imperative programming features designed for general-purpose applications, especially known for its modeling and constraint-solving capabilities.
+created: "2013"
+keywords:
+  - constraint-solving
+  - logic-based
+  - modeling
+  - multi-paradigm
+extGithubPath: ""
+extHomeURL: http://picat-lang.org/
+extensions:
+  - .pi
+  - .picat
+isTranspiler: false
+rels:
+  influencedBy:
+    - pl/prolog
+    - pl/python
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/constraint
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/logic
+    - para/multi
+  platforms:
+    - plat/cross
+  tags:
+    - tag/modeling
+  typeSystems:
+    - tsys/dynamic

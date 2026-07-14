@@ -1,0 +1,16 @@
+name: Turndown
+shortDesc: An HTML to Markdown converter written in JavaScript.
+description: An HTML to Markdown converter written in JavaScript.
+extGithubPath: mixmark-io/turndown
+extHomeURL: https://mixmark-io.github.io/turndown/
+extWikipediaPath: ""
+githubStars: 9100
+rels:
+  plangs:
+    - pl/javascript
+    - pl/javascriptcore
+    - pl/typescript
+  tags:
+    - tag/webdev
+  writtenWith:
+    - pl/javascript

@@ -1,0 +1,27 @@
+name: AbcDatalog
+shortDesc: Easy Datalog for research & pedagogy.
+description: A lightweight Datalog engine designed for educational and research purposes, providing an intuitive platform for experimentation with logic programming.
+created: "2021"
+keywords:
+  - datalog
+  - logic programming
+  - pedagogy
+  - research
+extGithubPath: HarvardPL/AbcDatalog
+extHomeURL: https://harvardpl.github.io/AbcDatalog/
+isTranspiler: false
+rels:
+  dialectOf:
+    - pl/datalog
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/declarative
+    - para/logic
+  platforms:
+    - plat/java
+  tags:
+    - tag/edu
+    - tag/proofs
+  writtenWith:
+    - pl/java

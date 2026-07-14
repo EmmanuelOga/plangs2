@@ -1,0 +1,30 @@
+name: Datahike
+shortDesc: A Datalog engine supporting immutability and distribution.
+description: Datahike is a Datalog engine that supports immutability, distribution, and composability, designed to manage and query data efficiently.
+created: 2014-04
+keywords:
+  - compositional
+  - datalog
+  - distributed
+  - immutable
+extGithubPath: replikativ/datahike
+extHomeURL: https://datahike.io/
+isTranspiler: false
+rels:
+  implements:
+    - pl/datalog
+  influencedBy:
+    - pl/datomic
+  licenses:
+    - lic/apache
+  paradigms:
+    - para/declarative
+    - para/distributed
+    - para/logic
+    - para/query
+  platforms:
+    - plat/java
+  tags:
+    - tag/dbms
+  writtenWith:
+    - pl/clojure

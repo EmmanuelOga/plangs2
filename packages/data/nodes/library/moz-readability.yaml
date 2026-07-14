@@ -1,0 +1,10 @@
+name: Readability
+shortDesc: A standalone version of the readability library used for Firefox Reader View.
+description: A standalone version of the readability library used for Firefox Reader View.
+extGithubPath: mozilla/readability
+extHomeURL: https://support.mozilla.org/en-US/kb/firefox-reader-view-clutter-free-web-pages
+rels:
+  plangs:
+    - pl/javascript
+    - pl/javascriptcore
+    - pl/typescript

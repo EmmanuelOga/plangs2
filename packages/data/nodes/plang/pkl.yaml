@@ -1,0 +1,48 @@
+name: PKL
+shortDesc: Configuration language for defining data structures and generating JSON or YAML outputs.
+description: Configuration language designed to define data structures and generate multiple output formats such as JSON and YAML. It supports embedded configurations in applications across various languages like Java, Kotlin, Swift, and Go, and provides integrations to enhance usability.
+created: "2021"
+keywords:
+  - pkl
+extGithubPath: apple/pkl
+extWikipediaPath: PKL_(programming_language)
+extensions:
+  - .pkl
+githubColor: "#6b9543"
+githubLangId: "288822799"
+githubName: Pkl
+githubPopular: false
+githubStars: 10400
+githubType: programming
+isTranspiler: true
+releases:
+  - version: 1.0.0
+    name: PKL 1.0.0
+    date: 2021-06-01
+rels:
+  compilesTo:
+    - pl/json
+    - pl/yaml
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/data-driven
+    - para/data-exchange
+    - para/declarative
+    - para/functional
+    - para/multi
+    - para/scripting
+    - para/validation
+  platforms:
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/automation
+    - tag/interpreters
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic
+    - tsys/strong
+  writtenWith:
+    - pl/python

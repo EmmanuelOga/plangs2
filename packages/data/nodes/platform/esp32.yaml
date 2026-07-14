@@ -1,0 +1,9 @@
+name: ESP32
+description: Low-cost, low-power system-on-chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth.
+keywords:
+  - bluetooth
+  - esp32
+  - esp8266
+  - microcontroller
+  - wifi
+extHomeURL: https://en.wikipedia.org/wiki/ESP32

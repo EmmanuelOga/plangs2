@@ -1,0 +1,64 @@
+name: Cython
+shortDesc: Is an optimising static compiler for Python and Cython extensions improving performance and interoperability with C.
+description: An optimising static compiler for both the Python programming language and the Cython language extensions, facilitating the writing of C extensions for Python. It allows for Python code to call C functions and includes C libraries, providing near-C performance.
+created: "2007"
+keywords:
+  - c
+  - compiler
+  - cython
+  - extension
+  - interoperability
+  - python
+extGithubPath: cython/cython
+extHomeURL: https://cython.org
+extRedditPath: Cython
+extWikipediaPath: Cython
+extensions:
+  - .pxd
+  - .pxi
+  - .pyx
+githubColor: "#fedf5b"
+githubLangId: "79"
+githubName: Cython
+githubPopular: false
+githubStars: 9600
+githubType: programming
+isTranspiler: true
+languishRanking: 103
+releases:
+  - version: 3.0.10
+    date: 2024-03-30
+stackovTags:
+  - cython
+rels:
+  compilesTo:
+    - pl/c
+  dialectOf:
+    - pl/python
+  influencedBy:
+    - pl/c
+    - pl/python
+  licenses:
+    - lic/apache
+  paradigms:
+    - para/compiled
+    - para/functional
+    - para/multi
+    - para/oop
+    - para/scripting
+  platforms:
+    - plat/apple
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/automation
+    - tag/compiler
+    - tag/interpreters
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/python

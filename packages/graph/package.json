@@ -1,0 +1,27 @@
+{
+  "name": "@plangs/graph",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Loads the YAML dataset into graphology; integrity checks, materialization, exporters and typed query helpers.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "export": "node --experimental-strip-types src/cli/export.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@plangs/schema": "workspace:*",
+    "graphology": "catalog:",
+    "graphology-types": "catalog:",
+    "tinyglobby": "catalog:",
+    "yaml": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "typescript": "catalog:"
+  }
+}

@@ -1,0 +1,49 @@
+name: Squirrel
+shortDesc: Object-oriented scripting language designed for applications like video games.
+description: High-level imperative, object-oriented programming language, designed to be a lightweight scripting language that fits in the size, memory bandwidth, and real-time requirements of applications like video games.
+created: "2003"
+keywords:
+  - squirrel
+extGithubPath: albertodemichelis/squirrel
+extHomeURL: http://squirrel-lang.org/
+extWikipediaPath: Squirrel_(programming_language)
+extensions:
+  - .nut
+githubColor: "#800000"
+githubLangId: "355"
+githubName: Squirrel
+githubPopular: false
+githubStars: 932
+githubType: programming
+isTranspiler: false
+languishRanking: 300
+releases:
+  - version: "3.2"
+    name: Squirrel 3.2
+    date: 2022-02-10
+stackovTags:
+  - squirrel
+rels:
+  influencedBy:
+    - pl/c++
+    - pl/javascript
+    - pl/lua
+    - pl/python
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/multi
+    - para/oop
+    - para/scripting
+  platforms:
+    - plat/cross
+  tags:
+    - tag/app
+    - tag/games
+    - tag/interpreters
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic

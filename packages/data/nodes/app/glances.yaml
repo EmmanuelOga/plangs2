@@ -1,0 +1,22 @@
+name: Glances
+shortDesc: Cross-platform system monitoring tool written in Python.
+description: "Glances: an Eye on your system. A top or htop alternative for GNU/Linux, BSD, Mac OS and Windows operating systems."
+keywords:
+  - monitoring
+  - system
+  - terminal
+extGithubPath: nicolargo/glances
+extHomeURL: https://nicolargo.github.io/glances/
+rels:
+  licenses:
+    - lic/lgpl
+  platforms:
+    - plat/bsd
+    - plat/linux
+    - plat/osx
+    - plat/windows
+  tags:
+    - tag/gui
+    - tag/server
+  writtenWith:
+    - pl/python

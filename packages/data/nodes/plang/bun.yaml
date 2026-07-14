@@ -1,0 +1,54 @@
+name: Bun
+shortDesc: A fast JavaScript runtime with a built-in bundler and npm-compatible package manager.
+description: A fast JavaScript runtime designed to enhance JavaScript and TypeScript projects with a built-in bundler, transpiler, and npm-compatible package manager.
+created: "2022"
+keywords:
+  - bun
+  - bundler
+  - javascript
+  - npm
+  - runtime
+  - typescript
+extGithubPath: oven-sh/bun
+extHomeURL: https://bun.sh
+extensions:
+  - .js
+  - .ts
+isTranspiler: true
+rels:
+  compilesTo:
+    - pl/javascript
+  dialectOf:
+    - pl/node
+  implements:
+    - pl/javascript
+    - pl/node
+    - pl/typescript
+  influencedBy:
+    - pl/javascript
+    - pl/node
+    - pl/nodejs
+    - pl/typescript
+    - pl/zig
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/interpreted
+  platforms:
+    - plat/cross
+    - plat/linux
+    - plat/nodejs
+    - plat/web
+    - plat/windows
+  tags:
+    - tag/scripting
+    - tag/server
+    - tag/webdev
+  typeSystems:
+    - tsys/dynamic
+    - tsys/inferred
+  writtenWith:
+    - pl/zig

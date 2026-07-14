@@ -1,0 +1,38 @@
+name: Tau Prolog
+shortDesc: An implementation of Prolog for web-based applications in JavaScript environments.
+description: An implementation of Prolog for browsers, focused on education, research, and web-based applications, allowing Prolog code to run directly within JavaScript environments.
+created: "2015"
+keywords:
+  - education
+  - javascript
+  - prolog
+  - research
+  - web
+extGithubPath: tau-prolog/tau-prolog
+extHomeURL: http://tau-prolog.org/
+extensions:
+  - .pl
+isTranspiler: false
+rels:
+  dialectOf:
+    - pl/prolog
+  influencedBy:
+    - pl/javascript
+    - pl/prolog
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/declarative
+    - para/interpreted
+    - para/logic
+  platforms:
+    - plat/nodejs
+    - plat/web
+  tags:
+    - tag/edu
+    - tag/interpreters
+    - tag/webdev
+  typeSystems:
+    - tsys/untyped
+  writtenWith:
+    - pl/javascript

@@ -1,0 +1,39 @@
+name: HTML
+shortDesc: HTML is the standard markup language for web pages.
+description: HTML (Hypertext Markup Language) is the standard markup language for documents designed to be displayed in a web browser. It defines the structure and content of web pages.
+created: "1993"
+keywords:
+  - HTML
+  - hypertext
+  - markup language
+  - web browser
+  - web content
+  - web structure
+extRedditPath: HTML
+extWikipediaPath: HTML
+extensions:
+  - .htm
+  - .html
+githubColor: "#e34c26"
+githubLangId: "146"
+githubName: HTML
+githubPopular: true
+githubType: markup
+isTranspiler: false
+languishRanking: 4
+releases:
+  - version: "4.01"
+    name: HTML 4.01
+    date: 1999-12-24
+  - version: "5"
+    name: HTML 5
+    date: 2014-10-28
+stackovTags:
+  - html
+rels:
+  paradigms:
+    - para/declarative
+  platforms:
+    - plat/web
+  tags:
+    - tag/scripting

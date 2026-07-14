@@ -1,0 +1,45 @@
+name: CMake
+shortDesc: Cross-platform build system that generates build files for software projects.
+description: Cross-platform build system that automates the configuration and generation of build files for software projects, abstracting platform-specific details by using a compiler-independent approach. Initially developed for the ITK toolkit, CMake has become the standard build tool for many open-source projects.
+created: "2000"
+keywords:
+  - CMake
+  - build system
+  - compiler-independent
+extGithubPath: Kitware/CMake
+extHomeURL: https://cmake.org/
+extRedditPath: cmake
+extWikipediaPath: CMake
+extensions:
+  - .cmake
+filenames:
+  - CMakeLists.txt
+githubColor: "#DA3434"
+githubLangId: "47"
+githubName: CMake
+githubPopular: false
+githubStars: 6900
+githubType: programming
+isTranspiler: true
+languishRanking: 36
+releases:
+  - version: 3.30.5
+    name: Stable release
+    date: 2024-10-09
+  - version: 3.31.0-rc3
+    name: Preview release
+    date: 2024-10-29
+stackovTags:
+  - cmake
+rels:
+  compilesTo:
+    - pl/makefile
+  licenses:
+    - lic/bsd
+  paradigms:
+    - para/procedural
+    - para/scripting
+  platforms:
+    - plat/cross
+  tags:
+    - tag/automation

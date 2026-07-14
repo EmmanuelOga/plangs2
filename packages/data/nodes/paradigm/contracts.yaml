@@ -1,0 +1,7 @@
+name: DbC
+description: Design by Contract is a software design approach that uses contracts to define the obligations and guarantees of software components.
+keywords:
+  - contracts
+  - dbc
+  - design by contract
+extHomeURL: https://en.wikipedia.org/wiki/Design_by_contract

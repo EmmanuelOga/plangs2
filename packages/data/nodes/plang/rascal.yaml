@@ -1,0 +1,50 @@
+name: Rascal
+shortDesc: Domain-specific language for metaprogramming and implementing domain-specific languages.
+description: Domain-specific language for metaprogramming and language-oriented programming, which includes tasks like static code analysis, program transformation, program generation, and the implementation of domain-specific languages. It serves as a general meta language without bias towards any specific software language. Rascal incorporates elements from both relational calculus and term rewriting, while its syntax and semantics are a blend of procedural (imperative) and functional programming.
+created: "2009"
+keywords:
+  - dsl
+  - metaprogramming
+  - rascal
+extGithubPath: usethesource/rascal
+extHomeURL: https://www.rascal-mpl.org/
+extWikipediaPath: RascalMPL
+extensions:
+  - .rsc
+githubColor: "#fffaa0"
+githubLangId: "173616037"
+githubName: Rascal
+githubPopular: false
+githubStars: 411
+githubType: programming
+isTranspiler: false
+languishRanking: 207
+releases:
+  - version: 0.30.1
+    name: Rascal 0.30.1
+    date: 2023-07-05
+stackovTags:
+  - rascal
+rels:
+  licenses:
+    - lic/bsd
+    - lic/epl
+  paradigms:
+    - para/declarative
+    - para/functional
+    - para/imperative
+    - para/language-oriented
+    - para/scripting
+  platforms:
+    - plat/apple
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/analysis
+  typeSystems:
+    - tsys/inferred
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/java

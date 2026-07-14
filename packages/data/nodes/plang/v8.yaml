@@ -1,0 +1,63 @@
+name: V8
+shortDesc: V8 is a high-performance JavaScript engine used in Chrome and Node.js.
+description: V8 is Google's high-performance JavaScript and WebAssembly engine, primarily used in Chrome and Node.js, among others. It implements ECMAScript and WebAssembly and can be embedded in any C++ application. It runs on Windows, macOS, Linux, and various processors including x86-64 and ARM.
+created: "2008"
+keywords:
+  - chrome
+  - google
+  - javascript
+  - node.js
+  - webassembly
+extGithubPath: v8/v8
+extHomeURL: https://v8.dev
+extRedditPath: javascript
+extWikipediaPath: JavaScript
+extensions:
+  - .cjs
+  - .js
+  - .mjs
+githubColor: "#f1e05a"
+githubLangId: "183"
+githubName: JavaScript
+githubPopular: true
+githubStars: 23600
+githubType: programming
+isTranspiler: false
+releases:
+  - version: "11.4"
+    name: V8 11.4
+    date: 2023-05-24
+stackovTags:
+  - javascript
+rels:
+  implements:
+    - pl/javascript
+  licenses:
+    - lic/bsd
+  paradigms:
+    - para/event-driven
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/interpreted
+    - para/multi
+    - para/oop
+    - para/procedural
+  platforms:
+    - plat/arm
+    - plat/cross
+    - plat/linux
+    - plat/wasm
+    - plat/windows
+    - plat/x86-64
+  tags:
+    - tag/compiler
+    - tag/interpreters
+    - tag/scripting
+    - tag/server
+  typeSystems:
+    - tsys/duck
+    - tsys/dynamic
+    - tsys/weak
+  writtenWith:
+    - pl/c++

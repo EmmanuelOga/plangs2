@@ -1,0 +1,7 @@
+name: Flow-Based
+description: A programming paradigm where applications are defined as networks of black-box processes that exchange data across predefined connections.
+keywords:
+  - FBP
+  - data flow
+  - flow-based programming
+extHomeURL: https://en.wikipedia.org/wiki/Flow-based_programming

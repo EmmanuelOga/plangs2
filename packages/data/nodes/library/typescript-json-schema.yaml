@@ -1,0 +1,14 @@
+name: typescript-json-schema
+shortDesc: Generate json-schema from your Typescript sources.
+description: Generate json-schema from your Typescript sources.
+extGithubPath: YousefED/typescript-json-schema
+rels:
+  plangs:
+    - pl/javascript
+    - pl/javascriptcore
+    - pl/jsonschema
+    - pl/typescript
+  tags:
+    - tag/webdev
+  writtenWith:
+    - pl/typescript

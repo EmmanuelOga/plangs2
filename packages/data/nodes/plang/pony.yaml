@@ -1,0 +1,50 @@
+name: Pony
+shortDesc: Object-oriented, actor-model, secure programming language.
+description: Object-oriented, actor-model, capabilities-secure, high-performance programming language.
+created: "2015"
+keywords:
+  - actor-model
+  - capability-security
+  - pony
+extGithubPath: ponylang/ponyc
+extHomeURL: https://www.ponylang.io/
+extRedditPath: ponylang
+extWikipediaPath: Pony_(programming_language)
+extensions:
+  - .pony
+githubLangId: "290"
+githubName: Pony
+githubPopular: false
+githubStars: 5700
+githubType: programming
+isTranspiler: false
+languishRanking: 377
+releases:
+  - version: 0.58.7
+    name: Pony 0.41.0
+    date: 2024-09-30
+stackovTags:
+  - ponylang
+rels:
+  influencedBy:
+    - pl/erlang
+    - pl/scala
+  licenses:
+    - lic/bsd
+  paradigms:
+    - para/concurrent
+    - para/functional
+    - para/general-purpose
+    - para/message-passing
+    - para/oop
+  platforms:
+    - plat/apple
+    - plat/bsd
+    - plat/linux
+    - plat/windows
+  typeSystems:
+    - tsys/safe
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/c

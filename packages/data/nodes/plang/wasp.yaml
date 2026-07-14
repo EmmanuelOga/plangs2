@@ -1,0 +1,42 @@
+name: Wasp
+shortDesc: Simplifies full-stack web development with a declarative approach.
+description: Configuration-driven, declarative programming language for building full-stack web applications, focusing on reducing boilerplate and improving developer productivity by efficiently managing both server and client-side code.
+created: "2021"
+keywords:
+  - configuration-driven
+  - declarative language
+  - full-stack
+  - wasp
+  - web development
+extGithubPath: wasp-lang/wasp
+extHomeURL: https://wasp-lang.dev
+extensions:
+  - .wasp
+filenames:
+  - wasp
+githubStars: 14000
+isTranspiler: true
+releases:
+  - version: 0.2.0
+    name: Beta Release
+    date: 2023-08-15
+rels:
+  compilesTo:
+    - pl/javascript
+  influencedBy:
+    - pl/javascript
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/declarative
+    - para/low-code
+  platforms:
+    - plat/web
+  tags:
+    - tag/cli
+    - tag/low-code
+    - tag/webdev
+  typeSystems:
+    - tsys/static
+  writtenWith:
+    - pl/javascript

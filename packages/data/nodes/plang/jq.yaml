@@ -1,0 +1,49 @@
+name: jq
+shortDesc: Lightweight and flexible command-line JSON processor.
+description: Lightweight and flexible command-line JSON processor, allowing for easy manipulation and transformation of JSON data with a functional programming paradigm.
+created: "2012"
+keywords:
+  - jq
+extGithubPath: jqlang/jq
+extHomeURL: https://jqlang.github.io/jq/
+extWikipediaPath: Jq_(programming_language)
+extensions:
+  - .jq
+githubColor: "#c7254e"
+githubLangId: "905371884"
+githubName: jq
+githubPopular: false
+githubStars: 30700
+githubType: programming
+isTranspiler: false
+languishRanking: 101
+releases:
+  - version: 1.7.1
+    date: 2023-12-13
+stackovTags:
+  - jq
+rels:
+  influencedBy:
+    - pl/haskell
+  licenses:
+    - lic/mit
+    - lic/public-domain
+  paradigms:
+    - para/functional
+    - para/point-free
+    - para/query
+    - para/scripting
+  platforms:
+    - plat/bsd
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/cli
+    - tag/interpreters
+    - tag/shell
+    - tag/workflow
+  typeSystems:
+    - tsys/strong
+  writtenWith:
+    - pl/c

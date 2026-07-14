@@ -1,0 +1,65 @@
+name: MoonScript
+shortDesc: Dynamic scripting language compiling to Lua with CoffeeScript-inspired syntax.
+description: Dynamic, whitespace-sensitive language that compiles to Lua, offering a cleaner syntax inspired by CoffeeScript and compatibility with Lua environments, including LuaJIT.
+created: "2011"
+keywords:
+  - coffeescript
+  - dynamic
+  - lua
+  - moonscript
+  - scripting-language
+  - whitespace-sensitive
+extGithubPath: leafo/moonscript
+extHomeURL: https://moonscript.org/
+extRedditPath: moonscript
+extWikipediaPath: MoonScript
+extensions:
+  - .moon
+githubColor: "#ff4585"
+githubLangId: "238"
+githubName: MoonScript
+githubPopular: false
+githubStars: 3200
+githubType: programming
+isTranspiler: true
+languishRanking: 361
+stackovTags:
+  - moonscript
+rels:
+  compilesTo:
+    - pl/lua
+  influencedBy:
+    - pl/c++
+    - pl/coffeescript
+    - pl/lua
+    - pl/scheme
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/functional
+    - para/imperative
+    - para/metaprogramming
+    - para/multi
+    - para/oop
+    - para/procedural
+    - para/prototype
+    - para/reflective
+    - para/scripting
+  platforms:
+    - plat/cross
+  tags:
+    - tag/app
+    - tag/compiler
+    - tag/dbms
+    - tag/editor
+    - tag/games
+    - tag/industrial
+    - tag/interpreters
+    - tag/ray-tracer
+    - tag/scripting
+    - tag/viz
+  typeSystems:
+    - tsys/duck
+    - tsys/dynamic
+    - tsys/object
+    - tsys/strong

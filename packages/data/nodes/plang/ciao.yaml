@@ -1,0 +1,61 @@
+name: Ciao
+shortDesc: Modern Prolog implementation focused on portability, extensibility, and modularity.
+description: Modern Prolog implementation that builds up from a logic-based simple kernel designed to be portable, extensible, and modular. It supports logic, constraint, functional, higher-order, and object-oriented programming styles.
+created: "1984"
+keywords:
+  - ciao
+  - constraint
+  - logic
+  - programming
+  - prolog
+extHomeURL: http://www.ciao-lang.org/
+extWikipediaPath: Ciao_(programming_language)
+extensions:
+  - .ciao
+  - .pl
+githubStars: 278
+isTranspiler: false
+releases:
+  - version: v1.20
+    name: Ciao v1.20
+    date: 2022-06-01
+rels:
+  implements:
+    - pl/prolog
+  influencedBy:
+    - pl/prolog
+    - pl/scheme
+  licenses:
+    - lic/gnu-gpl
+    - lic/lgpl
+  paradigms:
+    - para/concurrent
+    - para/constraint
+    - para/distributed
+    - para/functional
+    - para/logic
+    - para/modular
+    - para/multi
+    - para/oop
+  platforms:
+    - plat/apple
+    - plat/bsd
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/3dg
+    - tag/cli
+    - tag/compiler
+    - tag/dbms
+    - tag/industrial
+    - tag/interpreters
+    - tag/proofs
+    - tag/scripting
+    - tag/server
+    - tag/shell
+    - tag/viz
+  typeSystems:
+    - tsys/dynamic
+    - tsys/inferred
+    - tsys/static

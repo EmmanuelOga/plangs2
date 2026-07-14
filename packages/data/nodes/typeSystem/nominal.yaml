@@ -1,0 +1,6 @@
+name: Nominal
+description: Compatibility between types is determined by explicit declarations or names, rather than structure.
+keywords:
+  - nominal
+  - nominative
+extHomeURL: https://en.wikipedia.org/wiki/Nominal_type_system

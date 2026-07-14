@@ -1,0 +1,68 @@
+name: TypeScript
+shortDesc: Strongly typed superset of JavaScript that compiles to plain JavaScript.
+description: Strongly typed superset of JavaScript that compiles to plain JavaScript and aims to improve the development of large-scale applications.
+created: "2012"
+keywords:
+  - javascript
+  - superset
+  - ts
+  - typed
+  - typescript
+extGithubPath: microsoft/TypeScript
+extHomeURL: https://www.typescriptlang.org/
+extRedditPath: typescript
+extWikipediaPath: TypeScript
+extensions:
+  - .cts
+  - .mts
+  - .ts
+  - .tsx
+githubColor: "#3178c6"
+githubLangId: "378"
+githubName: TypeScript
+githubPopular: true
+githubStars: 101000
+githubType: programming
+isTranspiler: true
+languishRanking: 2
+releases:
+  - version: 5.6.3
+    name: TypeScript 5.6.3
+    date: 2024-09-09
+stackovTags:
+  - typescript
+rels:
+  compilesTo:
+    - pl/javascript
+  influencedBy:
+    - pl/c-sharp
+    - pl/f-sharp
+    - pl/java
+    - pl/javascript
+  licenses:
+    - lic/apache
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/multi
+    - para/oop
+  platforms:
+    - plat/cross
+    - plat/nodejs
+  tags:
+    - tag/compiler
+    - tag/framework
+    - tag/scripting
+  typeSystems:
+    - tsys/duck
+    - tsys/flow
+    - tsys/generic
+    - tsys/gradual
+    - tsys/object
+    - tsys/optional
+    - tsys/static
+    - tsys/strong
+    - tsys/structural
+  writtenWith:
+    - pl/typescript

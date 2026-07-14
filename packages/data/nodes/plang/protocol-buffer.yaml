@@ -1,0 +1,46 @@
+name: Protocol Buffer
+shortDesc: Platform-neutral extensible mechanism for serializing structured data developed by Google.
+description: Language-neutral, platform-neutral extensible mechanism for serializing structured data, developed by Google. It is widely used for network communications and storing data efficiently and is known for its compact size and high performance compared to formats like XML.
+created: "2001"
+keywords:
+  - Google
+  - RPC
+  - cross-platform
+  - protobuf
+  - serialization
+  - structured data
+extGithubPath: protocolbuffers/protobuf
+extHomeURL: https://developers.google.com/protocol-buffers
+extWikipediaPath: Protocol_Buffers
+extensions:
+  - .proto
+githubLangId: "297"
+githubName: Protocol Buffer
+githubPopular: false
+githubStars: 66000
+githubType: data
+isTranspiler: true
+languishRanking: 89
+releases:
+  - version: "28.3"
+    name: Stable Release
+    date: 2024-10-22
+stackovTags:
+  - protocol-buffers
+rels:
+  compilesTo:
+    - pl/c++
+    - pl/c-sharp
+    - pl/dart
+    - pl/go
+    - pl/java
+    - pl/javascript
+    - pl/php
+    - pl/python
+    - pl/ruby
+  licenses:
+    - lic/bsd
+  paradigms:
+    - para/data-exchange
+  platforms:
+    - plat/cross

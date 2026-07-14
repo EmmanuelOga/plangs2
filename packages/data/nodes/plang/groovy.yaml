@@ -1,0 +1,59 @@
+name: Groovy
+shortDesc: Flexible and dynamic language for the Java platform with strong integration capabilities.
+description: Optionally typed and dynamic language for the Java platform, offering seamless integration with Java, concise syntax, and meta-programming features.
+created: "2003"
+keywords:
+  - groovy
+  - java
+  - language
+  - programming
+  - scripting
+extGithubPath: apache/groovy
+extHomeURL: http://groovy-lang.org/
+extRedditPath: groovy
+extWikipediaPath: Apache_Groovy
+extensions:
+  - .groovy
+  - .gsh
+  - .gvy
+  - .gy
+githubColor: "#4298b8"
+githubLangId: "142"
+githubName: Groovy
+githubPopular: true
+githubStars: 5200
+githubType: programming
+isTranspiler: false
+languishRanking: 60
+releases:
+  - version: 4.0.24
+    date: 2024-09-09
+stackovTags:
+  - groovy
+rels:
+  influencedBy:
+    - pl/perl
+    - pl/python
+    - pl/ruby
+  licenses:
+    - lic/apache
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/multi
+    - para/oop
+    - para/scripting
+  platforms:
+    - plat/java
+  tags:
+    - tag/compiler
+    - tag/framework
+    - tag/interpreters
+    - tag/scripting
+    - tag/testing
+  typeSystems:
+    - tsys/duck
+    - tsys/dynamic
+    - tsys/static
+    - tsys/strong

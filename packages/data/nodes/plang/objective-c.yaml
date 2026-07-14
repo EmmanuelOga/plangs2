@@ -1,0 +1,53 @@
+name: Objective-C
+shortDesc: Object-oriented language that extends C with Smalltalk-style message passing.
+description: High-level object-oriented language that extends C with Smalltalk-style message passing, originally developed in the early 1980s and widely associated with Apple's macOS and iOS platforms. It gained prominence through its use in conjunction with Apple's development ecosystem for macOS and iOS until the rise of Swift.
+created: "1984"
+keywords:
+  - apple
+  - ios
+  - macos
+  - message-passing
+  - objective-c
+  - programming
+extHomeURL: https://developer.apple.com/documentation/objectivec
+extRedditPath: ObjectiveC
+extWikipediaPath: Objective-C
+extensions:
+  - .M
+  - .h
+  - .m
+  - .mm
+githubColor: "#438eff"
+githubLangId: "257"
+githubName: Objective-C
+githubPopular: true
+githubStars: 0
+githubType: programming
+isTranspiler: false
+languishRanking: 31
+releases:
+  - version: "2.0"
+    name: Objective-C 2.0
+    date: 2007-10-01
+stackovTags:
+  - objective-c
+rels:
+  influencedBy:
+    - pl/c
+  licenses:
+    - lic/apsl
+  paradigms:
+    - para/general-purpose
+    - para/oop
+    - para/procedural
+    - para/reflective
+  platforms:
+    - plat/apple
+    - plat/cross
+  typeSystems:
+    - tsys/dynamic
+    - tsys/object
+    - tsys/static
+    - tsys/weak
+  writtenWith:
+    - pl/c

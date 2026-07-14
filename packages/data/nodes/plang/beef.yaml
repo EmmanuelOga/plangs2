@@ -1,0 +1,57 @@
+name: Beef
+shortDesc: High-performance language for real-time applications with manual memory management.
+description: Open source, performance oriented programming language designed for efficient real-time applications, such as games, providing manual memory management and custom allocators.
+created: "2020"
+keywords:
+  - beef
+  - manual memory management
+  - performance-oriented
+extGithubPath: beefytech/Beef
+extHomeURL: https://www.beeflang.org
+extRedditPath: beeflang
+extensions:
+  - .bf
+githubColor: "#a52f4e"
+githubLangId: "545626333"
+githubName: Beef
+githubPopular: false
+githubStars: 2500
+githubType: programming
+isTranspiler: false
+languishRanking: 344
+releases:
+  - version: 0.43.4
+    name: Beef 0.43.4
+    date: 2022-09-07
+stackovTags:
+  - beef
+rels:
+  influencedBy:
+    - pl/c
+    - pl/c++
+    - pl/delphi
+    - pl/rust
+  licenses:
+    - lic/zlib
+  paradigms:
+    - para/compiled
+    - para/multi
+    - para/oop
+    - para/procedural
+  platforms:
+    - plat/android
+    - plat/apple
+    - plat/cross
+    - plat/linux
+    - plat/wasm
+    - plat/windows
+  tags:
+    - tag/compiler
+    - tag/games
+  typeSystems:
+    - tsys/inferred
+    - tsys/nominal
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/c++

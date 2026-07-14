@@ -1,0 +1,8 @@
+name: zlib
+description: The zlib License is a permissive free software license used for the zlib compression library.
+keywords:
+  - zlib
+extHomeURL: https://en.wikipedia.org/wiki/Zlib_License
+isFSFLibre: true
+isOSIApproved: true
+spdx: Zlib

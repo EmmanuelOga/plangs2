@@ -1,0 +1,58 @@
+name: Forth
+shortDesc: Stack-oriented programming language known for its flexibility, efficiency, and use in embedded systems.
+description: Stack-oriented programming language and interactive integrated development environment designed by Charles H. Moore and first introduced in 1970. The language's unique feature is its ability to extend itself at runtime, making it quite flexible and powerful. Commonly used in embedded systems, spaceflight applications, and boot loaders, it is known for its efficiency and small memory footprint. Forth combines a compiler with an interactive command shell and relies on Reverse Polish Notation.
+created: "1970"
+keywords:
+  - concatenative
+  - forth
+  - procedural
+  - reflective
+  - stack-oriented
+extHomeURL: https://forth-standard.org/
+extRedditPath: Forth
+extWikipediaPath: Forth_(programming_language)
+extensions:
+  - .4th
+  - .f
+  - .forth
+  - .fs
+  - .fth
+githubColor: "#341708"
+githubLangId: "114"
+githubName: Forth
+githubPopular: false
+githubType: programming
+isTranspiler: false
+languishRanking: 196
+stackovTags:
+  - forth
+rels:
+  influencedBy:
+    - pl/lisp
+  licenses:
+    - lic/public-domain
+  paradigms:
+    - para/concatenative
+    - para/general-purpose
+    - para/procedural
+    - para/reflective
+    - para/stack-oriented
+  platforms:
+    - plat/cross
+    - plat/embedded
+  tags:
+    - tag/app
+    - tag/asm
+    - tag/compiler
+    - tag/dbms
+    - tag/dsp
+    - tag/editor
+    - tag/embedded
+    - tag/games
+    - tag/industrial
+    - tag/interpreters
+    - tag/ray-tracer
+    - tag/shell
+    - tag/testing
+  typeSystems:
+    - tsys/untyped

@@ -1,0 +1,63 @@
+name: PowerShell
+shortDesc: Shell and scripting language from Microsoft.
+description: Task automation and configuration management framework from Microsoft, providing a command-line shell and scripting language for automating administrative tasks.
+created: "2006"
+keywords:
+  - automation
+  - command-line
+  - microsoft
+  - powershell
+  - scripting
+extGithubPath: PowerShell/PowerShell
+extHomeURL: https://microsoft.com/PowerShell
+extRedditPath: PowerShell
+extWikipediaPath: PowerShell
+extensions:
+  - .cdxml
+  - .ps1
+  - .ps1xml
+  - .psc1
+  - .psd1
+  - .psm1
+  - .psrc
+  - .pssc
+githubColor: "#012456"
+githubLangId: "293"
+githubName: PowerShell
+githubPopular: true
+githubStars: 45800
+githubType: programming
+isTranspiler: false
+languishRanking: 25
+releases:
+  - version: "7.0"
+    name: PowerShell 7
+    date: 2020-03-04
+  - version: 7.4.6
+    name: PowerShell 7.4.6
+    date: 2024-10-22
+stackovTags:
+  - powershell
+rels:
+  influencedBy:
+    - pl/batchfile
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/functional
+    - para/imperative
+    - para/oop
+    - para/pipeline
+    - para/reflective
+  platforms:
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/automation
+    - tag/cli
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic
+    - tsys/safe
+    - tsys/strong

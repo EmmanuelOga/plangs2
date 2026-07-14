@@ -1,0 +1,5 @@
+name: Real-Time
+description: Involves tasks that must be completed within strict timing constraints.
+keywords:
+  - real-time
+extHomeURL: https://en.wikipedia.org/wiki/Real-time_computing

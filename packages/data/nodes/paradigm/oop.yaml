@@ -1,0 +1,7 @@
+name: Object-Oriented
+description: Objects can contain data (fields) and code (methods). Programs are made out of objects that interact with one another.
+keywords:
+  - class-based
+  - object
+  - oop
+extHomeURL: https://en.wikipedia.org/wiki/Object-orientation

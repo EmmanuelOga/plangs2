@@ -1,0 +1,21 @@
+name: Teyjus
+shortDesc: Implementation of Lambda Prolog for higher-order logic programming.
+description: An implementation of Lambda Prolog focused on supporting higher-order and logic programming features.
+created: "2002"
+keywords:
+  - higher-order
+  - lambda-prolog
+  - logic-programming
+extGithubPath: ""
+extHomeURL: https://teyjus.cs.umn.edu/
+extensions:
+  - .lp
+isTranspiler: false
+rels:
+  dialectOf:
+    - pl/prolog
+  influencedBy:
+    - pl/prolog
+  paradigms:
+    - para/functional
+    - para/logic

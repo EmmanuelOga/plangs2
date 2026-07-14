@@ -1,0 +1,44 @@
+name: Scheme
+shortDesc: Minimalistic Lisp dialect known for its functional programming capabilities.
+description: Minimalistic and flexible dialect of the Lisp programming language, prioritizing functional programming and metaprogramming. Developed in the 1970s by Guy L. Steele and Gerald Jay Sussman at MIT, it pioneered concepts like lexical scoping and first-class continuations.
+created: "1975"
+extHomeURL: https://www.scheme.org/
+extRedditPath: scheme
+extWikipediaPath: Scheme_(programming_language)
+extensions:
+  - .scm
+  - .ss
+githubColor: "#1e4aec"
+githubLangId: "343"
+githubName: Scheme
+githubPopular: false
+githubType: programming
+isTranspiler: false
+languishRanking: 106
+stackovTags:
+  - scheme
+rels:
+  dialectOf:
+    - pl/lisp
+  influencedBy:
+    - pl/lisp
+  licenses:
+    - lic/bsd
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/metaprogramming
+    - para/multi
+    - para/symbolic
+  platforms:
+    - plat/cross
+  tags:
+    - tag/compiler
+    - tag/interpreters
+    - tag/scripting
+    - tag/testing
+  typeSystems:
+    - tsys/dynamic
+    - tsys/latent
+    - tsys/strong

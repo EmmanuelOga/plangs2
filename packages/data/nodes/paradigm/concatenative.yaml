@@ -1,0 +1,5 @@
+name: Concatenative
+description: A point-free programming language in which all expressions denote functions, and the juxtaposition of expressions denotes function composition.
+keywords:
+  - concatenative
+extHomeURL: https://en.wikipedia.org/wiki/Concatenative_programming_language

@@ -1,0 +1,45 @@
+name: Modelica
+shortDesc: Non-proprietary, object-oriented language for modeling complex physical systems across multiple domains.
+description: Non-proprietary, object-oriented, declarative, multi-domain modeling language for component-oriented modeling of complex systems. It is primarily developed for modeling physical systems and supports acausal modeling with the use of mathematical equations rather than assignment statements. Developed by the Modelica Association, it allows the connection of reusable components to model systems across multiple domains such as electrical, mechanical, and thermal.
+created: "1997"
+keywords:
+  - cyber-physical
+  - declarative
+  - modelica
+  - multi-domain
+  - object-oriented
+extGithubPath: modelica/ModelicaStandardLibrary
+extHomeURL: https://www.modelica.org/
+extRedditPath: Modelica
+extWikipediaPath: Modelica
+extensions:
+  - .mo
+githubColor: "#de1d31"
+githubLangId: "233"
+githubName: Modelica
+githubPopular: false
+githubStars: 484
+githubType: programming
+isTranspiler: false
+languishRanking: 134
+releases:
+  - version: "3.6"
+    name: Modelica 3.6
+    date: 2023-03-09
+stackovTags:
+  - modelica
+rels:
+  licenses:
+    - lic/bsd
+  paradigms:
+    - para/declarative
+    - para/multi
+    - para/simulation
+  platforms:
+    - plat/cross
+  tags:
+    - tag/app
+    - tag/industrial
+    - tag/modeling
+    - tag/sci
+    - tag/viz

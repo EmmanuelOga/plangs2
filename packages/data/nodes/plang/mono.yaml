@@ -1,0 +1,60 @@
+name: Mono
+shortDesc: .NET compatible software framework.
+description: Free and open-source .NET Framework-compatible software framework. Originally by Ximian which was acquired by Novell, it was later developed by Xamarin which was acquired by Microsoft. In August 2024, Microsoft transferred ownership of Mono to WineHQ. Mono can be run on many software systems.
+created: "2004"
+keywords:
+  - .net
+  - cross-platform
+  - mono
+extGithubPath: mono/mono
+extHomeURL: https://www.mono-project.com/
+extWikipediaPath: Mono_(software)
+extensions:
+  - .cs
+  - .vb
+githubStars: 11200
+isTranspiler: false
+releases:
+  - version: 6.12.0.206
+    name: Mono 6.12.0.206
+    date: 2024-02-13
+rels:
+  implements:
+    - pl/c-sharp
+    - pl/visual-basic
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/compiled
+    - para/multi
+    - para/oop
+  platforms:
+    - plat/android
+    - plat/apple
+    - plat/arm
+    - plat/cross
+    - plat/linux
+    - plat/riscv
+    - plat/windows
+    - plat/x86-64
+  tags:
+    - tag/3dg
+    - tag/app
+    - tag/automation
+    - tag/cli
+    - tag/compiler
+    - tag/dataq
+    - tag/dbms
+    - tag/framework
+    - tag/games
+    - tag/gui
+    - tag/scripting
+    - tag/shell
+  typeSystems:
+    - tsys/nominal
+    - tsys/object
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/c
+    - pl/c-sharp

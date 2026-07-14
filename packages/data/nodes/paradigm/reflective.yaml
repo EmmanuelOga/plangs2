@@ -1,0 +1,5 @@
+name: Reflective
+description: Allows a program to inspect and modify its own structure and behavior at runtime.
+keywords:
+  - reflective
+extHomeURL: https://en.wikipedia.org/wiki/Reflective_programming

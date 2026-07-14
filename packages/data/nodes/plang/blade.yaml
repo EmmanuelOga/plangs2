@@ -1,0 +1,37 @@
+name: Blade
+shortDesc: Templating engine integrated with Laravel, enabling PHP logic in HTML.
+description: Simple yet powerful templating engine provided with Laravel, a PHP framework, which allows developers to seamlessly blend PHP logic with HTML. It offers template inheritance, conditional statements, and looping constructs, enhancing code readability and maintainability.
+created: "2011"
+keywords:
+  - blade
+  - laravel
+  - php
+  - template inheritance
+  - templating
+extGithubPath: laravel/laravel
+extHomeURL: https://laravel.com/docs/5.8/blade
+extRedditPath: laravel
+extWikipediaPath: Laravel
+extensions:
+  - .blade.php
+githubColor: "#f7523f"
+githubLangId: "33"
+githubName: Blade
+githubPopular: false
+githubStars: 79000
+githubType: markup
+isTranspiler: true
+languishRanking: 62
+stackovTags:
+  - laravel-blade
+rels:
+  compilesTo:
+    - pl/php
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/scripting
+  platforms:
+    - plat/cross
+  tags:
+    - tag/webdev

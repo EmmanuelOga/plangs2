@@ -1,0 +1,29 @@
+name: Eqlog
+shortDesc: A logic programming language for Datalog with equality support.
+description: A logic programming language blending Datalog with equality reasoning capabilities, primarily targeting integration with Rust projects.
+created: 2019-12
+keywords:
+  - datalog
+  - equality reasoning
+  - logic programming
+extGithubPath: eqlog/eqlog
+extensions:
+  - .eq
+isTranspiler: false
+rels:
+  implements:
+    - pl/datalog
+  influencedBy:
+    - pl/rust
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/declarative
+    - para/logic
+  platforms:
+    - plat/cross
+  tags:
+    - tag/languages
+    - tag/proofs
+  writtenWith:
+    - pl/rust

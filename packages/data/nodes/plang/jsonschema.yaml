@@ -1,0 +1,11 @@
+name: JSON Schema
+shortDesc: JSON Schema enables the confident and reliable use of the JSON data format.
+description: While JSON is probably the most popular format for exchanging data, JSON Schema is the vocabulary that enables JSON data consistency, validity, and interoperability at scale.
+extGithubPath: json-schema-org/json-schema-spec
+extHomeURL: https://json-schema.org/
+isTranspiler: false
+rels:
+  paradigms:
+    - para/validation
+  tags:
+    - tag/webdev

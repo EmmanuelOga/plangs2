@@ -1,0 +1,62 @@
+name: Tcl
+shortDesc: Dynamic, interpreted programming language known for its extensibility, embeddability, and support for multiple paradigms.
+description: High-level, general-purpose, interpreted, dynamic programming language. Designed for extensibility and embeddability, Tcl supports multiple programming paradigms including event-driven, functional, imperative, and object-oriented styles. It is often used together with the Tk toolkit for GUI development, and is widely used for web applications, testing, and script automation.
+created: "1988"
+keywords:
+  - tcl
+  - tk
+extGithubPath: tcltk/tcl
+extHomeURL: https://www.tcl-lang.org/
+extRedditPath: Tcl
+extWikipediaPath: Tcl
+extensions:
+  - .tbc
+  - .tcl
+githubColor: "#e4cc98"
+githubLangId: "367"
+githubName: Tcl
+githubPopular: false
+githubStars: 688
+githubType: programming
+isTranspiler: false
+languishRanking: 110
+releases:
+  - version: 9.0.0
+    date: 2024-09-26
+stackovTags:
+  - tcl
+rels:
+  influencedBy:
+    - pl/awk
+    - pl/lisp
+  licenses:
+    - lic/bsd
+  paradigms:
+    - para/event-driven
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/multi
+    - para/oop
+    - para/procedural
+  platforms:
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/app
+    - tag/automation
+    - tag/control
+    - tag/dbms
+    - tag/framework
+    - tag/gui
+    - tag/industrial
+    - tag/interpreters
+    - tag/ray-tracer
+    - tag/scripting
+    - tag/testing
+  typeSystems:
+    - tsys/dynamic
+    - tsys/string
+  writtenWith:
+    - pl/c

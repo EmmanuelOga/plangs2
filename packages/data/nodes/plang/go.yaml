@@ -1,0 +1,73 @@
+name: Go
+shortDesc: Statically typed, compiled language with memory safety and CSP-style concurrency, designed at Google.
+description: Statically typed, compiled high-level programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson. It is syntactically similar to C, but offers memory safety, garbage collection, structural typing, and CSP-style concurrency. Sometimes referred to as Golang due to its former domain name golang.org, its proper name is Go. It is suitable for building scalable, simple, and secure systems.
+created: "2009"
+keywords:
+  - go
+  - golang
+extGithubPath: golang/go
+extHomeURL: https://go.dev/
+extRedditPath: golang
+extWikipediaPath: Go_(programming_language)
+extensions:
+  - .go
+githubColor: "#00ADD8"
+githubLangId: "132"
+githubName: Go
+githubPopular: true
+githubStars: 124500
+githubType: programming
+isTranspiler: true
+languishRanking: 8
+releases:
+  - version: 1.23.3
+    name: ""
+    date: 2024-11-06
+  - version: 1.23.0
+    name: ""
+    date: 2024-01-01
+stackovTags:
+  - go
+rels:
+  compilesTo:
+    - pl/webassembly
+  influencedBy:
+    - pl/apl
+    - pl/c
+    - pl/d
+    - pl/erlang
+    - pl/pascal
+    - pl/python
+  licenses:
+    - lic/bsd
+  paradigms:
+    - para/concurrent
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/multi
+    - para/oop
+  platforms:
+    - plat/apple
+    - plat/bsd
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/app
+    - tag/better-c
+    - tag/cli
+    - tag/compiler
+    - tag/dbms
+    - tag/industrial
+    - tag/interpreters
+    - tag/testing
+    - tag/viz
+  typeSystems:
+    - tsys/inferred
+    - tsys/nominal
+    - tsys/static
+    - tsys/strong
+    - tsys/structural
+  writtenWith:
+    - pl/assembly
+    - pl/c++

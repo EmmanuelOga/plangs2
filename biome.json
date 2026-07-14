@@ -1,30 +1,33 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "css": {
-    "formatter": {
-      "enabled": true
-    },
-    "linter": {
-      "enabled": true
-    },
-    "parser": {
-      "cssModules": true
-    }
-  },
+  "$schema": "https://biomejs.dev/schemas/2.5.3/schema.json",
+  "vcs": { "clientKind": "git", "enabled": true, "useIgnoreFile": true },
   "files": {
-    "ignore": [
-      "packages/server/static"
-    ],
-    "ignoreUnknown": false
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/dist",
+      "!**/.astro",
+      "!packages/data/nodes",
+      "!output",
+      "!archived",
+      "!packages/ai",
+      "!packages/auxiliar",
+      "!packages/definitions",
+      "!packages/frontend",
+      "!packages/functions",
+      "!packages/graphgen",
+      "!packages/languist",
+      "!packages/plangs",
+      "!packages/server",
+      "!styles.css",
+      "!tailwind.config.js",
+      "!wrangler.toml",
+      "!scripts/.artifacts",
+      "!packages/graph/test/fixtures"
+    ]
   },
   "formatter": {
-    "ignore": [
-      "packages/languist/src/languish-data.json",
-      "packages/languist/src/linguist-data.json",
-      "packages/definitions/src/definitions"
-    ],
     "enabled": true,
-    "formatWithErrors": false,
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 150
@@ -39,38 +42,10 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "a11y": {
-        "noBlankTarget": "off"
-      },
-      "correctness": {
-        "noChildrenProp": "off"
-      },
-      "nursery": {
-        "useSortedClasses": {
-          "fix": "safe",
-          "level": "error",
-          "options": {}
-        }
-      },
       "recommended": true,
-      "performance": {
-        "noDelete": "off"
-      },
       "suspicious": {
-        "noAssignInExpressions": "off",
         "noExplicitAny": "info"
-      },
-      "style": {
-        "noNonNullAssertion": "info"
       }
     }
-  },
-  "organizeImports": {
-    "enabled": true
-  },
-  "vcs": {
-    "clientKind": "git",
-    "enabled": false,
-    "useIgnoreFile": true
   }
 }

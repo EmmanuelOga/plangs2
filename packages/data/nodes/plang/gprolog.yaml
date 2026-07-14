@@ -1,0 +1,31 @@
+name: GNU Prolog
+shortDesc: A Prolog implementation with an interpreter and native compiler.
+description: A Prolog implementation designed to be fast and resource-efficient, providing both an interactive interpreter and a native-code compiler.
+created: "1999"
+keywords:
+  - constraint
+  - interpreter
+  - native-code
+extGithubPath: didoudiaz/gprolog
+extHomeURL: http://www.gprolog.org/
+extWikipediaPath: GNU_Prolog
+extensions:
+  - .pro
+isTranspiler: false
+rels:
+  implements:
+    - pl/prolog
+  influencedBy:
+    - pl/swi-prolog
+  licenses:
+    - lic/gnu-gpl
+  paradigms:
+    - para/constraint
+    - para/logic
+  platforms:
+    - plat/cross
+  tags:
+    - tag/interpreters
+    - tag/scripting
+  typeSystems:
+    - tsys/untyped

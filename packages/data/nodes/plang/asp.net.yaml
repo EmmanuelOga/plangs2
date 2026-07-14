@@ -1,0 +1,57 @@
+name: ASP.NET
+shortDesc: Server-side web-application framework by Microsoft for building dynamic websites and services using the .NET runtime.
+description: Server-side web-application framework designed for web development to generate dynamic web pages. Developed by Microsoft, it allows building web applications and services using the Microsoft .NET runtime. ASP.NET supports multiple .NET languages for coding, leveraging the Common Language Runtime (CLR).
+created: "2002"
+keywords:
+  - asp.net
+  - dynamic web pages
+  - microsoft
+  - server-side
+  - web framework
+extGithubPath: dotnet/aspnetcore
+extHomeURL: https://dotnet.microsoft.com/apps/aspnet
+extRedditPath: ASPNET
+extWikipediaPath: ASP.NET
+extensions:
+  - .aspx
+  - .cshtml
+  - .vbhtml
+githubColor: "#9400ff"
+githubLangId: "564186416"
+githubName: ASP.NET
+githubPopular: false
+githubStars: 35600
+githubType: programming
+isTranspiler: true
+languishRanking: 23
+links:
+  - url: https://docs.microsoft.com/en-us/aspnet/core/
+    title: ASP.NET Core Documentation
+releases:
+  - version: v9.0.0
+    date: 2024-09-13
+stackovTags:
+  - asp.net
+  - asp.net-core
+rels:
+  compilesTo:
+    - pl/.net
+  implements:
+    - pl/.net
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/multi
+    - para/oop
+  platforms:
+    - plat/.net
+    - plat/apple
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/framework
+    - tag/server
+    - tag/webdev
+  typeSystems:
+    - tsys/nominal
+    - tsys/static

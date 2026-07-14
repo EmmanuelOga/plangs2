@@ -1,0 +1,44 @@
+name: Pascal
+shortDesc: An imperative and procedural language designed by Niklaus Wirth, known for encouraging structured programming and data structuring.
+description: An imperative and procedural language, designed by Niklaus Wirth as a small, efficient language intended to encourage good programming practices using structured programming and data structuring. It is named after the French mathematician and philosopher Blaise Pascal.
+created: "1970"
+keywords:
+  - pascal
+  - wirth
+extRedditPath: pascal
+extWikipediaPath: Pascal_(programming_language)
+extensions:
+  - .p
+  - .pas
+  - .pp
+githubColor: "#E3F171"
+githubLangId: "281"
+githubName: Pascal
+githubPopular: false
+githubType: programming
+isTranspiler: false
+languishRanking: 75
+stackovTags:
+  - pascal
+rels:
+  paradigms:
+    - para/general-purpose
+    - para/imperative
+    - para/procedural
+    - para/structured
+  platforms:
+    - plat/bsd
+    - plat/cross
+    - plat/dos
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/compiler
+    - tag/edu
+    - tag/framework
+    - tag/games
+    - tag/interpreters
+  typeSystems:
+    - tsys/safe
+    - tsys/static
+    - tsys/strong

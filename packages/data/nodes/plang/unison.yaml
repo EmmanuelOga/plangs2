@@ -1,0 +1,37 @@
+name: Unison
+shortDesc: Statically-typed, functional language treating code as data for efficient distributed programming.
+description: Modern, statically-typed, purely functional programming language that simplifies distributed programming by treating code as data. It eliminates encoders and decoders at network boundaries, refactoring complexities, and dependency conflicts by using a content-addressed approach where code is identified by its hash. Unison allows storing code directly in a database, making distributed systems and refactoring workflows more efficient and reliable.
+created: "2023"
+keywords:
+  - content-addressed
+  - distributed computing
+  - functional programming
+  - statically-typed
+  - unison
+extGithubPath: unisonweb/unison
+extHomeURL: https://www.unison-lang.org/
+extensions:
+  - .u
+githubStars: 5800
+isTranspiler: false
+releases:
+  - version: 1.0.0
+    name: Unison M1a
+    date: 2023-09-15
+rels:
+  licenses:
+    - lic/apache
+  paradigms:
+    - para/declarative
+    - para/distributed
+    - para/functional
+  platforms:
+    - plat/cross
+  tags:
+    - tag/cli
+  typeSystems:
+    - tsys/algebraic
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/haskell

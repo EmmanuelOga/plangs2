@@ -1,0 +1,6 @@
+name: Point-free
+description: Point-free, or tacit programming avoids specifying arguments in function definitions, focusing on composition rather than application.
+keywords:
+  - point-free
+  - tacit
+extHomeURL: https://en.wikipedia.org/wiki/Tacit_programming

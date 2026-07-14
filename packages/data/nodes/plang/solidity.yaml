@@ -1,0 +1,40 @@
+name: Solidity
+shortDesc: Statically typed language for smart contracts on the EVM.
+description: Statically typed programming language designed for developing smart contracts that run on the Ethereum Virtual Machine (EVM) or compatible virtual machines, influenced by languages such as JavaScript, C++, and Python.
+created: "2014"
+keywords:
+  - blockchain
+  - ethereum
+  - evm
+  - smart contracts
+  - solidity
+extGithubPath: ethereum/solidity
+extRedditPath: ethdev
+extWikipediaPath: Solidity
+extensions:
+  - .sol
+githubColor: "#AA6746"
+githubLangId: "237469032"
+githubName: Solidity
+githubPopular: false
+githubStars: 23500
+githubType: programming
+isTranspiler: false
+languishRanking: 56
+releases:
+  - version: 0.8.28
+    name: Stable release
+    date: 2024-10-09
+stackovTags:
+  - solidity
+rels:
+  influencedBy:
+    - pl/c++
+    - pl/javascript
+    - pl/python
+  licenses:
+    - lic/gnu-gpl
+  paradigms:
+    - para/imperative
+  typeSystems:
+    - tsys/static

@@ -1,0 +1,35 @@
+name: Frink
+shortDesc: Performs physical calculations while tracking units of measure.
+description: A computer programming language focused on performing physical calculations while tracking units of measure, ensuring that calculations have the right dimensions and that the answers are meaningful.
+created: "2001"
+keywords:
+  - calculation
+  - frink
+  - measurement
+  - units
+extHomeURL: https://frinklang.org/
+extWikipediaPath: Frink_(programming_language)
+extensions:
+  - .frink
+isTranspiler: false
+rels:
+  licenses:
+    - lic/artistic
+  paradigms:
+    - para/functional
+    - para/imperative
+    - para/oop
+  platforms:
+    - plat/android
+    - plat/cross
+    - plat/java
+  tags:
+    - tag/interpreters
+    - tag/numeric
+    - tag/sci
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic
+    - tsys/strong
+  writtenWith:
+    - pl/java

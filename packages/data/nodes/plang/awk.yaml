@@ -1,0 +1,49 @@
+name: AWK
+shortDesc: Text processing and data extraction, common on Unix-like systems.
+description: Domain-specific language designed for text processing and is typically used as a data extraction and reporting tool. It operates as a filter and is a standard feature of most Unix-like operating systems. AWK is recognized for its terseness and power in text processing, facilitating one-liner programs.
+created: "1977"
+keywords:
+  - awk
+  - text processing
+  - unix utilities
+extHomeURL: https://www.gnu.org/software/gawk/
+extRedditPath: awk
+extWikipediaPath: AWK
+extensions:
+  - .awk
+  - .gawk
+  - .mawk
+  - .nawk
+githubColor: "#c30e9b"
+githubLangId: "28"
+githubName: Awk
+githubPopular: false
+githubType: programming
+isTranspiler: false
+links:
+  - url: https://www.gnu.org/software/gawk/manual/gawk.html
+    title: Effective AWK Programming
+stackovTags:
+  - awk
+rels:
+  influencedBy:
+    - pl/c
+    - pl/sed
+  licenses:
+    - lic/bsd
+  paradigms:
+    - para/data-driven
+    - para/pattern-matching
+    - para/procedural
+    - para/scripting
+  platforms:
+    - plat/cross
+  tags:
+    - tag/dataflow
+    - tag/editor
+    - tag/interpreters
+    - tag/scripting
+    - tag/shell
+  typeSystems:
+    - tsys/dynamic
+    - tsys/untyped

@@ -1,0 +1,5 @@
+name: Sync
+description: Operates in a time-driven manner where operations occur sequentially and in sync with a clock.
+keywords:
+  - synchronous
+extHomeURL: https://en.wikipedia.org/wiki/Synchronous_programming_language

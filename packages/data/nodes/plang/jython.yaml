@@ -1,0 +1,43 @@
+name: Jython
+shortDesc: Python implementation for the Java platform, enabling Python code to run on the JVM.
+description: Implementation of the Python programming language designed to run on the Java platform. It allows Python code to run on the JVM, providing seamless integration with Java libraries and classes.
+created: "2001"
+keywords:
+  - jpython
+  - jvm
+  - jython
+extGithubPath: jython/jython
+extHomeURL: http://www.jython.org
+extWikipediaPath: Jython
+extensions:
+  - .py
+githubStars: 1300
+isTranspiler: false
+releases:
+  - version: 2.7.4
+    date: 2024-08-18
+rels:
+  implements:
+    - pl/python
+  influencedBy:
+    - pl/java
+    - pl/python
+  licenses:
+    - lic/apache
+    - lic/python
+  paradigms:
+    - para/general-purpose
+    - para/interpreted
+    - para/oop
+    - para/scripting
+  platforms:
+    - plat/cross
+    - plat/java
+  tags:
+    - tag/interpreters
+  typeSystems:
+    - tsys/duck
+    - tsys/dynamic
+    - tsys/object
+  writtenWith:
+    - pl/java

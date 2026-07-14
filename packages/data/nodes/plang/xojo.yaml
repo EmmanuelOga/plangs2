@@ -1,0 +1,67 @@
+name: Xojo
+shortDesc: Cross-platform development tool and proprietary object-oriented programming language for building native applications.
+description: Cross-platform development tool that allows users to develop applications for macOS, Windows, Linux, web, iOS, Android, and Raspberry Pi using a proprietary object-oriented language. Developed by Xojo, Inc., it provides an easy-to-use drag-and-drop interface for building native applications across multiple platforms.
+created: "1996"
+keywords:
+  - app development
+  - cross-platform
+  - freemium
+  - object-oriented
+  - xojo
+extHomeURL: https://www.xojo.com
+extRedditPath: xojo
+extWikipediaPath: Xojo
+extensions:
+  - .xojo_binary_project
+  - .xojo_code
+  - .xojo_xml_project
+githubColor: "#81bd41"
+githubLangId: "405"
+githubName: Xojo
+githubPopular: false
+githubType: programming
+isTranspiler: false
+releases:
+  - version: 2023R3.1
+    name: Xojo 2023 Release 3.1
+    date: 2023-10-25
+  - version: "3.1"
+    name: Xojo 3.1
+    date: 2023-01-01
+stackovTags:
+  - realbasic
+  - xojo
+rels:
+  implements:
+    - pl/basic
+  influencedBy:
+    - pl/basic
+    - pl/visual-basic
+  licenses:
+    - lic/proprietary
+  paradigms:
+    - para/general-purpose
+    - para/multi
+    - para/oop
+    - para/visual
+  platforms:
+    - plat/android
+    - plat/apple
+    - plat/cross
+    - plat/linux
+    - plat/raspberry
+    - plat/web
+    - plat/windows
+  tags:
+    - tag/app
+    - tag/dbms
+    - tag/editor
+    - tag/framework
+    - tag/gui
+    - tag/industrial
+    - tag/interpreters
+    - tag/rad
+  typeSystems:
+    - tsys/object
+    - tsys/static
+    - tsys/strong

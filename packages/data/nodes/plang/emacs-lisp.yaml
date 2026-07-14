@@ -1,0 +1,68 @@
+name: Emacs Lisp
+shortDesc: Lisp dialect for extending the Emacs editor.
+description: Dialect of Lisp used for extending the Emacs editor, providing a powerful scripting environment and enabling extensive customization.
+created: "1985"
+keywords:
+  - elisp
+  - emacs
+  - emacs-lisp
+extGithubPath: emacs-mirror/emacs
+extHomeURL: http://www.gnu.org/software/emacs
+extRedditPath: emacs
+extWikipediaPath: Emacs_Lisp
+extensions:
+  - .el
+  - .elc
+  - .eln
+filenames:
+  - init.el
+githubColor: "#c065db"
+githubLangId: "102"
+githubName: Emacs Lisp
+githubPopular: false
+githubStars: 4500
+githubType: programming
+isTranspiler: false
+languishRanking: 67
+links:
+  - url: https://www.emacswiki.org/
+    title: EmacsWiki
+releases:
+  - version: "29.4"
+    name: Emacs Lisp 29.4
+    date: 2024-06-22
+stackovTags:
+  - elisp
+rels:
+  dialectOf:
+    - pl/lisp
+  implements:
+    - pl/lisp
+  influencedBy:
+    - pl/common-lisp
+  licenses:
+    - lic/gnu-gpl
+  paradigms:
+    - para/extensible
+    - para/functional
+    - para/metaprogramming
+    - para/reflective
+    - para/scripting
+  platforms:
+    - plat/apple
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/app
+    - tag/compiler
+    - tag/editor
+    - tag/industrial
+    - tag/interpreters
+    - tag/scripting
+    - tag/shell
+  typeSystems:
+    - tsys/dynamic
+    - tsys/strong
+  writtenWith:
+    - pl/c

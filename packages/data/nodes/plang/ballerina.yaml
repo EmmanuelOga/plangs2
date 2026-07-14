@@ -1,0 +1,55 @@
+name: Ballerina
+shortDesc: Open source general-purpose programming language designed for cloud-native and concurrent applications.
+description: Open source general-purpose programming language designed by WSO2 for cloud-era application programmers. It is designed to simplify the creation of integration solutions with built-in features for concurrency, making it ideal for cloud-native development.
+created: "2017"
+keywords:
+  - ballerina
+  - cloud-native
+  - integration
+extGithubPath: ballerina-platform/ballerina-lang
+extHomeURL: https://ballerina.io
+extRedditPath: ballerinalang
+extWikipediaPath: Ballerina_(programming_language)
+extensions:
+  - .bal
+githubColor: "#FF5000"
+githubLangId: "720859680"
+githubName: Ballerina
+githubPopular: false
+githubStars: 3700
+githubType: programming
+isTranspiler: false
+languishRanking: 156
+releases:
+  - version: 2201.10.2
+    name: Swan Lake Update 10
+    date: 2024-09-05
+stackovTags:
+  - ballerina
+rels:
+  influencedBy:
+    - pl/c-sharp
+    - pl/go
+    - pl/javascript
+    - pl/rust
+  licenses:
+    - lic/apache
+  paradigms:
+    - para/compiled
+    - para/concurrent
+    - para/event-driven
+    - para/functional
+    - para/general-purpose
+    - para/multi
+  platforms:
+    - plat/cross
+  tags:
+    - tag/automation
+    - tag/interpreters
+    - tag/iot
+    - tag/workflow
+  typeSystems:
+    - tsys/inferred
+    - tsys/static
+    - tsys/strong
+    - tsys/structural

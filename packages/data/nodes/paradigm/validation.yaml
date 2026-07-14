@@ -1,0 +1,5 @@
+name: Validation
+description: Ensures that data conforms to predefined rules before it is processed.
+keywords:
+  - validation
+extHomeURL: https://en.wikipedia.org/wiki/Data_Validation

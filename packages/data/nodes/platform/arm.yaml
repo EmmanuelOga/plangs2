@@ -1,0 +1,10 @@
+name: ARM
+description: ARM architecture is widely used in mobile devices and embedded systems, supporting 32-bit and 64-bit instruction sets.
+keywords:
+  - aarch64
+  - arm32
+  - arm64
+  - armel
+  - armhf
+  - armv7
+extHomeURL: https://en.wikipedia.org/wiki/ARM_architecture

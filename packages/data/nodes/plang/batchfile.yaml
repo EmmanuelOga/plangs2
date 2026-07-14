@@ -1,0 +1,38 @@
+name: Batchfile
+shortDesc: Scripting language for automating tasks in DOS and Windows environments.
+description: Scripting language used for executing series of commands in DOS, OS/2, and Microsoft Windows environments. Batch files automate routine tasks through script execution in command-line interpreters like COMMAND.COM or cmd.exe.
+created: "1985"
+keywords:
+  - DOS script
+  - automation
+  - batch script
+  - batchfile
+  - command-line script
+extRedditPath: Batch
+extWikipediaPath: Batch_file
+extensions:
+  - .bat
+  - .btm
+  - .cmd
+githubColor: "#C1F12E"
+githubLangId: "29"
+githubName: Batchfile
+githubPopular: false
+githubType: programming
+isTranspiler: false
+languishRanking: 32
+stackovTags:
+  - batch-file
+rels:
+  paradigms:
+    - para/procedural
+    - para/scripting
+  platforms:
+    - plat/dos
+    - plat/windows
+  tags:
+    - tag/automation
+    - tag/scripting
+    - tag/shell
+  typeSystems:
+    - tsys/untyped

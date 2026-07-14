@@ -1,0 +1,62 @@
+name: Futhark
+shortDesc: Functional, parallel programming language optimized for high-performance GPU and CPU execution.
+description: Data-parallel programming language designed for high-performance computing, particularly on GPUs, utilizing a functional programming paradigm influenced by languages such as APL and Haskell. It supports automatic differentiation and emphasizes efficient data parallelism in array computations through a Hindley-Milner type system with uniqueness types.
+created: "2014"
+keywords:
+  - futhark
+extGithubPath: diku-dk/futhark
+extHomeURL: https://futhark-lang.org/
+extRedditPath: futhark
+extWikipediaPath: Futhark_(programming_language)
+extensions:
+  - .fut
+githubColor: "#5f021f"
+githubLangId: "97358117"
+githubName: Futhark
+githubPopular: false
+githubStars: 2400
+githubType: programming
+isTranspiler: true
+languishRanking: 392
+releases:
+  - version: 0.20.0
+    name: Futhark 0.20.0
+    date: 2021-12-01
+  - version: 0.21.0
+    name: Futhark 0.21.0
+    date: 2022-06-01
+stackovTags:
+  - futhark
+rels:
+  compilesTo:
+    - pl/cuda
+  influencedBy:
+    - pl/apl
+    - pl/haskell
+    - pl/standard-ml
+  licenses:
+    - lic/isc
+  paradigms:
+    - para/array
+    - para/compiled
+    - para/functional
+    - para/general-purpose
+    - para/multi
+    - para/parallel
+  platforms:
+    - plat/cross
+  tags:
+    - tag/app
+    - tag/compiler
+    - tag/interpreters
+    - tag/numeric
+    - tag/ray-tracer
+    - tag/sci
+  typeSystems:
+    - tsys/dependent
+    - tsys/inferred
+    - tsys/static
+    - tsys/strong
+    - tsys/uniqueness
+  writtenWith:
+    - pl/standard-ml

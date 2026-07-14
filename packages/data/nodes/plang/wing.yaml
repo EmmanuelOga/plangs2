@@ -1,0 +1,39 @@
+name: Wing
+shortDesc: Designed for managing cloud infrastructure and serverless applications.
+description: High-level programming language tailored for cloud infrastructure management, streamlining development for cloud-native and serverless applications with simplified syntax and robust features, enhancing productivity for cloud services like AWS.
+created: "2022"
+keywords:
+  - cloud
+  - infrastructure
+  - serverless
+extGithubPath: winglang/wing
+extHomeURL: https://www.winglang.io/
+extensions:
+  - .w
+  - .wing
+githubStars: 5100
+isTranspiler: false
+releases:
+  - version: 1.0.0
+    name: Wing Initial Release
+    date: 2022-09-01
+rels:
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/declarative
+    - para/event-driven
+    - para/multi
+    - para/reactive
+    - para/scripting
+  platforms:
+    - plat/cross
+  tags:
+    - tag/framework
+    - tag/scripting
+  typeSystems:
+    - tsys/inferred
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/typescript

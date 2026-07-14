@@ -1,0 +1,12 @@
+name: Flask
+description: Lightweight WSGI web application framework.
+keywords:
+  - framework
+  - web
+  - wsgi
+extGithubPath: pallets/flask
+extHomeURL: https://flask.palletsprojects.com/
+githubStars: 68500
+rels:
+  plangs:
+    - pl/python

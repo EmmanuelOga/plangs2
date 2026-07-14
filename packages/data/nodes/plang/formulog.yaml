@@ -1,0 +1,19 @@
+name: Formulog
+shortDesc: Datalog with support for SMT queries and first-order functional programming.
+description: A language combining Datalog with support for SMT queries and first-order functional programming features.
+created: 2019-04
+extGithubPath: HarvardPL/formulog
+extHomeURL: https://harvardpl.github.io/formulog/
+isTranspiler: false
+rels:
+  dialectOf:
+    - pl/datalog
+  influencedBy:
+    - pl/datalog
+  paradigms:
+    - para/declarative
+    - para/functional
+    - para/logic
+    - para/query
+  tags:
+    - tag/proofs

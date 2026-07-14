@@ -1,0 +1,39 @@
+name: YAML
+shortDesc: Human-readable data serialization language for configuration files and data exchange, featuring minimal syntax.
+description: Human-readable data serialization language commonly used for configuration files and data exchange, known for its minimal syntax and complex data structure representation. YAML is particularly popular for configuration files, allowing for nesting and structures similar to Python but using indentation-based syntax.
+created: "2001"
+keywords:
+  - YAML
+  - configuration files
+  - data serialization
+extHomeURL: https://yaml.org/
+extRedditPath: yaml
+extWikipediaPath: YAML
+extensions:
+  - .yaml
+  - .yml
+githubColor: "#cb171e"
+githubLangId: "407"
+githubName: YAML
+githubPopular: false
+githubType: data
+isTranspiler: false
+languishRanking: 59
+releases:
+  - version: 1.2.2
+    name: YAML 1.2.2
+    date: 2021-10-01
+stackovTags:
+  - yaml
+rels:
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/data-exchange
+    - para/declarative
+    - para/markup
+  platforms:
+    - plat/cross
+  tags:
+    - tag/dataflow
+    - tag/scripting

@@ -1,0 +1,20 @@
+name: GUPU
+shortDesc: An environment specialized for Prolog and constraint programming.
+description: An integrated teaching environment tailored for supporting the learning and debugging of Prolog and constraint logic programming methodologies.
+created: "1992"
+keywords:
+  - constraint learning
+  - prolog
+  - teaching environment
+extHomeURL: https://www.complang.tuwien.ac.at/ulrich/gupu/
+isTranspiler: false
+rels:
+  influencedBy:
+    - pl/prolog
+  paradigms:
+    - para/educational
+    - para/logic
+  platforms:
+    - plat/cross
+  tags:
+    - tag/edu

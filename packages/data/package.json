@@ -1,0 +1,15 @@
+{
+  "name": "@plangs/data",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "description": "The Plangs dataset: one YAML file per node plus per-node assets. No code.",
+  "exports": {
+    "./nodes/*": "./nodes/*",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "fmt": "node ../../scripts/data-fmt.mjs",
+    "test": "vitest run"
+  }
+}

@@ -1,0 +1,6 @@
+name: Strong
+description: Enforces strict type rules, ensuring that variables cannot be implicitly cast or used in an unintended way.
+keywords:
+  - strong
+  - strongly-typed
+extHomeURL: https://en.wikipedia.org/wiki/Strong_typing

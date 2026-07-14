@@ -1,0 +1,5 @@
+name: Pattern-Matching
+description: Allows for checking and decomposing data structures based on patterns.
+keywords:
+  - pattern-matching
+extHomeURL: https://en.wikipedia.org/wiki/Pattern-matching

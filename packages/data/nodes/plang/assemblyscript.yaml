@@ -1,0 +1,50 @@
+name: AssemblyScript
+shortDesc: AssemblyScript compiles a TypeScript variant to WebAssembly.
+description: AssemblyScript is designed to compile a variant of TypeScript to WebAssembly. By building upon TypeScript, it offers static typing with a syntax familiar to JavaScript developers, thus enabling efficient compilation to WebAssembly without the need for arcane languages or tools.
+created: "2017"
+keywords:
+  - assemblyscript
+  - statically-typed
+  - typescript
+  - webassembly
+extGithubPath: AssemblyScript/assemblyscript
+extHomeURL: https://www.assemblyscript.org
+extWikipediaPath: AssemblyScript
+extensions:
+  - .ts
+githubStars: 17000
+isTranspiler: true
+releases:
+  - version: 0.20.6
+    name: AssemblyScript 0.20.6
+    date: 2022-01-22
+  - version: 0.27.30
+    name: AssemblyScript 0.27.30
+    date: 2024-09-27
+rels:
+  compilesTo:
+    - pl/webassembly
+  dialectOf:
+    - pl/javascript
+    - pl/typescript
+  influencedBy:
+    - pl/javascript
+    - pl/typescript
+  licenses:
+    - lic/apache
+  paradigms:
+    - para/functional
+    - para/imperative
+    - para/multi
+    - para/oop
+  platforms:
+    - plat/nodejs
+    - plat/wasm
+    - plat/web
+  tags:
+    - tag/asm
+    - tag/compiler
+    - tag/scripting
+  typeSystems:
+    - tsys/static
+    - tsys/strong

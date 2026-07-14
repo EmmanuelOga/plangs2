@@ -1,0 +1,62 @@
+name: Processing
+shortDesc: Language for visual and multimedia programming.
+description: Free graphics library and integrated development environment (IDE) built for the electronic arts, new media art, and visual design communities with the purpose of teaching non-programmers the fundamentals of computer programming in a visual context.
+created: "2001"
+keywords:
+  - IDE
+  - art
+  - graphics library
+  - processing
+  - programming language
+  - visual design
+extGithubPath: processing/processing
+extHomeURL: https://processing.org/
+extRedditPath: processing
+extWikipediaPath: Processing_(programming_language)
+extensions:
+  - .pde
+githubColor: "#0096D8"
+githubLangId: "294"
+githubName: Processing
+githubPopular: false
+githubStars: 6500
+githubType: programming
+isTranspiler: false
+languishRanking: 166
+releases:
+  - version: "4.3"
+    name: Processing 4.3
+    date: 2023-07-26
+stackovTags:
+  - processing
+rels:
+  influencedBy:
+    - pl/c
+    - pl/java
+  licenses:
+    - lic/gnu-gpl
+    - lic/lgpl
+  paradigms:
+    - para/dsl
+    - para/educational
+    - para/multi
+    - para/oop
+    - para/visual
+  platforms:
+    - plat/cross
+    - plat/java
+  tags:
+    - tag/app
+    - tag/edu
+    - tag/framework
+    - tag/games
+    - tag/industrial
+    - tag/interpreters
+    - tag/multimedia
+    - tag/ray-tracer
+    - tag/viz
+  typeSystems:
+    - tsys/dynamic
+    - tsys/strong
+  writtenWith:
+    - pl/java

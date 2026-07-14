@@ -1,0 +1,47 @@
+name: Deno
+shortDesc: A secure JavaScript and TypeScript runtime focusing on simplicity.
+description: A secure JavaScript and TypeScript runtime built on V8, offering a modern alternative to Node.js with a focus on security and simplicity, featuring TypeScript support out of the box.
+created: "2018"
+keywords:
+  - runtime
+  - secure
+  - typescript
+extGithubPath: denoland/deno
+extHomeURL: https://deno.land/
+extensions:
+  - .js
+  - .ts
+isTranspiler: false
+links:
+  - url: https://deno.land/manual
+    title: Deno Manual
+rels:
+  implements:
+    - pl/javascript
+    - pl/typescript
+  influencedBy:
+    - pl/rust
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/concurrent
+    - para/event-driven
+    - para/general-purpose
+    - para/reactive
+  platforms:
+    - plat/apple
+    - plat/cross
+    - plat/linux
+    - plat/nodejs
+    - plat/web
+    - plat/windows
+  tags:
+    - tag/cli
+    - tag/scripting
+    - tag/webdev
+  typeSystems:
+    - tsys/dynamic
+    - tsys/static
+  writtenWith:
+    - pl/rust
+    - pl/typescript

@@ -1,0 +1,28 @@
+name: ScratchJr
+shortDesc: Beginner-friendly visual programming language for children aged 5 to 7.
+description: Visual programming language designed to introduce programming skills to children ages 5 to 7. The app is considered an introductory programming language. It is available as a free app for iOS, Android and Chromebook.
+created: "2014"
+keywords:
+  - children's programming language
+  - scratchjr
+  - visual programming
+extGithubPath: scratchfoundation/scratch-vm
+extWikipediaPath: ScratchJr
+githubStars: 1200
+isTranspiler: false
+rels:
+  influencedBy:
+    - pl/scratch
+  paradigms:
+    - para/educational
+    - para/event-driven
+    - para/visual
+  platforms:
+    - plat/android
+    - plat/apple
+  tags:
+    - tag/edu
+    - tag/interpreters
+    - tag/low-code
+  typeSystems:
+    - tsys/untyped

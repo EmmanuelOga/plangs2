@@ -1,0 +1,5 @@
+name: Safe
+description: Ensures that operations are performed on compatible types, preventing unintended behavior and runtime errors.
+keywords:
+  - safe
+extHomeURL: https://en.wikipedia.org/wiki/Type_safety

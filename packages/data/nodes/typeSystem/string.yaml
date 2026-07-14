@@ -1,0 +1,5 @@
+name: String
+description: Handling and validation of types through strings.
+keywords:
+  - string
+extHomeURL: https://en.wikipedia.org/wiki/String_(programming)

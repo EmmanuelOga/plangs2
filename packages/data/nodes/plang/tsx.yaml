@@ -1,0 +1,10 @@
+name: TSX
+shortDesc: A TypeScript extension that integrates JSX with TypeScript.
+description: A syntax extension of TypeScript that allows embedding of XML-like code directly in TypeScript files, typically used with React. It combines the static typing of TypeScript with the expressive syntax of JSX.
+extHomeURL: https://www.typescriptlang.org/docs/handbook/jsx.html
+extensions:
+  - .tsx
+isTranspiler: true
+rels:
+  tags:
+    - tag/webdev

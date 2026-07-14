@@ -1,0 +1,5 @@
+name: Dataflow
+description: Programs as a directed graph of the data flowing between operations.
+keywords:
+  - dataflow
+extHomeURL: https://en.wikipedia.org/wiki/Dataflow_programming

@@ -1,0 +1,7 @@
+name: Compiled
+description: Source code is translated to a form more suitable for execution, typically machine code or bytecode, before being run. This is in contrast to interpreted languages, which are run directly from source code.
+keywords:
+  - compilation
+  - compiled
+  - compiler
+extHomeURL: https://en.wikipedia.org/wiki/Compiled_language

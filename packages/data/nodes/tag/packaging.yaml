@@ -1,0 +1,7 @@
+name: Packaging
+description: Software tools for managing and distributing software packages and dependencies.
+keywords:
+  - dependency management
+  - package manager
+  - software distribution
+extHomeURL: https://en.wikipedia.org/wiki/Package_manager

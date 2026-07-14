@@ -1,0 +1,44 @@
+name: Whiley
+shortDesc: Functional and imperative language with contracts and formal specification features.
+description: Combines features from the functional and imperative paradigms, and supports formal specification through function preconditions, postconditions, and loop invariants.
+created: "2010"
+keywords:
+  - whiley
+extGithubPath: Whiley/WhileyCompiler
+extHomeURL: http://whiley.org
+extWikipediaPath: Whiley_(programming_language)
+extensions:
+  - .whiley
+githubColor: "#d5c397"
+githubLangId: "888779559"
+githubName: Whiley
+githubPopular: false
+githubStars: 220
+githubType: programming
+isTranspiler: false
+releases:
+  - version: 0.6.1
+    name: ""
+    date: 2022-06-27
+rels:
+  influencedBy:
+    - pl/c
+    - pl/python
+    - pl/rust
+  licenses:
+    - lic/bsd
+  paradigms:
+    - para/functional
+    - para/imperative
+  platforms:
+    - plat/cross
+    - plat/java
+  tags:
+    - tag/compiler
+    - tag/interpreters
+    - tag/sci
+  typeSystems:
+    - tsys/flow
+    - tsys/safe
+    - tsys/strong
+    - tsys/structural

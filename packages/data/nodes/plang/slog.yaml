@@ -1,0 +1,39 @@
+name: Slog
+shortDesc: A programming language for parallel logic programming with first-class facts handling.
+description: A programming language enabling parallel logic programming with a focus on handling first-class facts and data efficiently.
+created: "2022"
+keywords:
+  - facts
+  - logic
+  - parallel
+extGithubPath: harp-lab/slog-lang1
+extensions:
+  - .slg
+filenames:
+  - slogfile
+isTranspiler: false
+links:
+  - title: Higher-Order, Data-Parallel Structured Deduction
+    url: https://arxiv.org/abs/2211.11573
+rels:
+  influencedBy:
+    - pl/prolog
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/declarative
+    - para/logic
+    - para/parallel
+  platforms:
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/automation
+    - tag/control
+    - tag/server
+  typeSystems:
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/c
+    - pl/python

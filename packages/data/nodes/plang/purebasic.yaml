@@ -1,0 +1,48 @@
+name: PureBasic
+shortDesc: Modern BASIC programming language that compiles to native code across multiple platforms.
+description: Modern BASIC programming language designed for both beginners and experts. It compiles to native code for Windows, Linux, macOS, and Raspberry Pi OS, producing optimized 32-bit and 64-bit executables without external dependencies. Developed by Fantaisie Software, PureBasic offers a simple syntax with advanced features like pointers, structures, and inline assembly.
+created: "1998"
+keywords:
+  - purebasic
+extGithubPath: fantaisie-software/purebasic
+extHomeURL: http://www.purebasic.com/
+extRedditPath: purebasic
+extWikipediaPath: PureBasic
+extensions:
+  - .pb
+  - .pbf
+  - .pbi
+  - .pbp
+githubColor: "#5a6986"
+githubLangId: "301"
+githubName: PureBasic
+githubPopular: false
+githubStars: 125
+githubType: programming
+isTranspiler: false
+languishRanking: 262
+rels:
+  dialectOf:
+    - pl/basic
+  implements:
+    - pl/basic
+  licenses:
+    - lic/proprietary
+  paradigms:
+    - para/general-purpose
+    - para/imperative
+    - para/procedural
+    - para/structured
+  platforms:
+    - plat/apple
+    - plat/linux
+    - plat/raspberry
+    - plat/windows
+  tags:
+    - tag/app
+    - tag/asm
+    - tag/compiler
+    - tag/editor
+    - tag/games
+    - tag/gui
+    - tag/interpreters

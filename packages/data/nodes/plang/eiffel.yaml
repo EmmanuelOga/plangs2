@@ -1,0 +1,61 @@
+name: Eiffel
+shortDesc: Object-oriented programming language emphasizing design by contract.
+description: Object-oriented programming language designed by Bertrand Meyer, which emphasizes software reliability through design by contract. It supports multiple inheritance, genericity, polymorphism, and other advanced software engineering concepts.
+created: "1986"
+keywords:
+  - bertrand meyer
+  - design by contract
+  - eiffel
+  - object-oriented
+extHomeURL: http://eiffel.org/
+extWikipediaPath: Eiffel_(programming_language)
+extensions:
+  - .e
+githubColor: "#4d6977"
+githubLangId: "99"
+githubName: Eiffel
+githubPopular: false
+githubType: programming
+isTranspiler: false
+languishRanking: 306
+releases:
+  - version: "24.05"
+    name: EiffelStudio
+    date: 2024-06-14
+stackovTags:
+  - eiffel
+rels:
+  influencedBy:
+    - pl/ada
+  licenses:
+    - lic/dual
+    - lic/epl
+  paradigms:
+    - para/aspect
+    - para/compiled
+    - para/concurrent
+    - para/contracts
+    - para/general-purpose
+    - para/oop
+  platforms:
+    - plat/apple
+    - plat/bsd
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/3dg
+    - tag/analysis
+    - tag/app
+    - tag/compiler
+    - tag/framework
+    - tag/industrial
+    - tag/interpreters
+    - tag/modeling
+    - tag/testing
+    - tag/viz
+    - tag/wavelet
+  typeSystems:
+    - tsys/object
+    - tsys/static
+    - tsys/strong

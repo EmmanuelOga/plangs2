@@ -1,0 +1,6 @@
+name: Concurrent
+description: An overall computation is factored into subcomputations that may be executed concurrently. Several computations are executed during overlapping time periods, concurrently, instead of sequentially.
+keywords:
+  - concurrent
+  - parallel
+extHomeURL: https://en.wikipedia.org/wiki/Concurrent_computing

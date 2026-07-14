@@ -1,0 +1,16 @@
+name: Preact
+shortDesc: ⚛️ Fast 3kB React alternative with the same modern API. Components & Virtual DOM.
+description: Preact is a fast, lightweight JavaScript library that offers a thin Virtual DOM abstraction directly on top of the DOM, making it highly portable and performant. With its small size, browser compatibility, and seamless integration with the React ecosystem, Preact enables developers to build productive, efficient, and embeddable UI components without unnecessary complexity.
+extGithubPath: preactjs/preact
+extHomeURL: https://preactjs.com/
+githubStars: 37000
+rels:
+  plangs:
+    - pl/javascript
+    - pl/javascriptcore
+    - pl/typescript
+  tags:
+    - tag/webdev
+  writtenWith:
+    - pl/javascript
+    - pl/typescript

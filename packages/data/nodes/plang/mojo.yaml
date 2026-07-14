@@ -1,0 +1,62 @@
+name: Mojo
+shortDesc: Modular language blending Python's syntax with C-like performance.
+description: Modular programming language designed for high-performance and AI-specific applications. It builds on Python's ease of use, aiming to provide the expressiveness of Python with the efficiency of C, targeting diverse hardware environments.
+created: "2023"
+keywords:
+  - AI
+  - high-performance
+  - modular
+  - mojo
+  - python-based
+extGithubPath: modularml/mojo
+extHomeURL: https://www.modular.com/mojo
+extRedditPath: MojoLang
+extWikipediaPath: Mojo_(programming_language)
+extensions:
+  - .mojo
+  - .🔥
+githubColor: "#ff4c1f"
+githubLangId: "1045019587"
+githubName: Mojo
+githubPopular: false
+githubStars: 23400
+githubType: programming
+isTranspiler: false
+languishRanking: 261
+releases:
+  - version: "24.4"
+    name: Preview release
+    date: 2024-05-24
+stackovTags:
+  - mojolang
+rels:
+  influencedBy:
+    - pl/python
+    - pl/swift
+  licenses:
+    - lic/apache
+    - lic/mit
+  paradigms:
+    - para/compiled
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/multi
+    - para/scripting
+  platforms:
+    - plat/apple
+    - plat/cross
+    - plat/linux
+  tags:
+    - tag/automation
+    - tag/scripting
+  typeSystems:
+    - tsys/affine
+    - tsys/duck
+    - tsys/dynamic
+    - tsys/generic
+    - tsys/inferred
+    - tsys/nominal
+    - tsys/object
+    - tsys/static
+    - tsys/strong

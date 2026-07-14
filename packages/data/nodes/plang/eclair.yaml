@@ -1,0 +1,30 @@
+name: Eclair
+shortDesc: A logic programming language for specifying complex rules over large datasets efficiently.
+description: A logic programming language designed for specifying complex rules over large datasets efficiently, particularly used in the development of compilers and analyzing data dependencies.
+created: 2021-06
+keywords:
+  - data analysis
+  - dependency analysis
+  - logic programming
+extGithubPath: luc-tielen/eclair-lang
+extHomeURL: https://eclair-lang.org
+isTranspiler: true
+rels:
+  compilesTo:
+    - pl/webassembly
+  influencedBy:
+    - pl/souffle
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/declarative
+    - para/logic
+  platforms:
+    - plat/cross
+  tags:
+    - tag/analysis
+    - tag/compiler
+  typeSystems:
+    - tsys/static
+  writtenWith:
+    - pl/haskell

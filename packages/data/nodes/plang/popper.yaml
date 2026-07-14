@@ -1,0 +1,14 @@
+name: Popper
+shortDesc: An inductive logic programming system for solving machine learning tasks.
+description: An inductive logic programming system designed to solve machine learning tasks by inducing logic programs from data using a combination of search algorithms and background knowledge.
+created: "2021"
+keywords:
+  - inductive-logic-programming
+  - logic-programs
+  - machine-learning
+extGithubPath: logic-and-learning-lab/Popper
+isTranspiler: false
+rels:
+  paradigms:
+    - para/declarative
+    - para/logic

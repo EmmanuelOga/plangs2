@@ -1,0 +1,5 @@
+name: Manifest
+description: All variables are explicitly typed in the code, usually associated with static typing.
+keywords:
+  - manifest
+extHomeURL: https://en.wikipedia.org/wiki/Manifest_typing

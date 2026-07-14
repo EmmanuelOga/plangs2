@@ -1,0 +1,19 @@
+name: msgspec
+shortDesc: Fast serialization and validation library. Alternative to Pydantic.
+description: Fast serialization and validation library, with builtin support for JSON, MessagePack, YAML, and TOML. Alternative to Pydantic.
+keywords:
+  - json
+  - messagepack
+  - serialization
+  - toml
+  - validation
+  - yaml
+extGithubPath: jcrist/msgspec
+extHomeURL: https://jcristharif.com/msgspec/
+githubStars: 2500
+rels:
+  plangs:
+    - pl/python
+  writtenWith:
+    - pl/python
+    - pl/rust

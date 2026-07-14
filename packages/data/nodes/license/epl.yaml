@@ -1,0 +1,8 @@
+name: EPL
+description: The Eclipse Public License is a free software license used by the Eclipse Foundation for its open-source projects.
+keywords:
+  - epl
+extHomeURL: https://en.wikipedia.org/wiki/Eclipse_Public_License
+isFSFLibre: true
+isOSIApproved: true
+spdx: EPL-2.0

@@ -1,0 +1,56 @@
+name: NetLogo
+shortDesc: Multi-agent environment for modeling complex systems.
+description: Multi-agent programmable modeling environment, particularly suited for modeling complex systems over time. It is designed by Uri Wilensky and used extensively in educational contexts and research.
+created: "1999"
+keywords:
+  - modeling
+  - multi-agent
+  - netlogo
+extGithubPath: NetLogo/NetLogo
+extHomeURL: https://ccl.northwestern.edu/netlogo/
+extRedditPath: NetLogo
+extWikipediaPath: NetLogo
+extensions:
+  - .nlogo
+  - .nlogo3d
+  - .nls
+githubColor: "#ff6375"
+githubLangId: "246"
+githubName: NetLogo
+githubPopular: false
+githubStars: 1000
+githubType: programming
+isTranspiler: false
+languishRanking: 149
+releases:
+  - version: 6.4.0
+    name: NetLogo 6.4.0
+    date: 2023-11-17
+stackovTags:
+  - netlogo
+rels:
+  dialectOf:
+    - pl/lisp
+  licenses:
+    - lic/gnu-gpl
+  paradigms:
+    - para/agents
+    - para/educational
+    - para/multi
+    - para/procedural
+    - para/simulation
+  platforms:
+    - plat/cross
+    - plat/java
+  tags:
+    - tag/edu
+    - tag/interpreters
+    - tag/modeling
+    - tag/sci
+    - tag/uml
+  typeSystems:
+    - tsys/dynamic
+    - tsys/strong
+  writtenWith:
+    - pl/java
+    - pl/scala

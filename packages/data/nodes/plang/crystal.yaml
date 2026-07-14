@@ -1,0 +1,59 @@
+name: Crystal
+shortDesc: Compiled, statically-typed language with Ruby-like syntax and type inference.
+description: Statically-typed, object-oriented programming language with syntax inspired by Ruby, aimed at providing high performance through compilation to native code. It features type inference and compiles to fast executable binaries, primarily for system and web backend applications.
+created: "2014"
+keywords:
+  - crystal
+  - ruby-syntax
+extGithubPath: crystal-lang/crystal
+extHomeURL: https://crystal-lang.org/
+extRedditPath: crystal_programming
+extWikipediaPath: Crystal_(programming_language)
+extensions:
+  - .cr
+githubColor: "#000100"
+githubLangId: "72"
+githubName: Crystal
+githubPopular: false
+githubStars: 19500
+githubType: programming
+isTranspiler: false
+languishRanking: 155
+releases:
+  - version: 1.14.0
+    name: Crystal 1.14.0
+    date: 2024-10-09
+stackovTags:
+  - crystal-lang
+rels:
+  influencedBy:
+    - pl/ruby
+  licenses:
+    - lic/apache
+  paradigms:
+    - para/compiled
+    - para/concurrent
+    - para/general-purpose
+    - para/multi
+    - para/oop
+  platforms:
+    - plat/apple
+    - plat/arm
+    - plat/bsd
+    - plat/linux
+    - plat/windows
+    - plat/x86-64
+  tags:
+    - tag/better-c
+    - tag/compiler
+    - tag/interpreters
+    - tag/scripting
+  typeSystems:
+    - tsys/duck
+    - tsys/inferred
+    - tsys/nominal
+    - tsys/object
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/crystal

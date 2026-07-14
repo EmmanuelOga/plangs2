@@ -1,0 +1,5 @@
+name: Gradual
+description: Allows mixing statically and dynamically typed code, progressively introducing type annotations.
+keywords:
+  - gradual
+extHomeURL: https://en.wikipedia.org/wiki/Gradual_typing

@@ -1,0 +1,48 @@
+name: Imba
+shortDesc: Full-stack web language compiling to JavaScript.
+description: Friendly full-stack programming language for the web that compiles to performant JavaScript. It has language-level support for defining, extending, subclassing, instantiating and rendering DOM vertices.
+created: "2015"
+keywords:
+  - full-stack
+  - imba
+  - javascript
+  - web
+extGithubPath: imba/imba
+extHomeURL: https://imba.io/
+extensions:
+  - .imba
+githubColor: "#16cec6"
+githubLangId: "1057618448"
+githubName: Imba
+githubPopular: false
+githubStars: 6300
+githubType: programming
+isTranspiler: true
+languishRanking: 397
+releases:
+  - version: 2.0.0-alpha.238
+    date: 2022-11-26
+rels:
+  compilesTo:
+    - pl/javascript
+  influencedBy:
+    - pl/coffeescript
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/oop
+    - para/reactive
+  platforms:
+    - plat/nodejs
+    - plat/web
+  tags:
+    - tag/gui
+  typeSystems:
+    - tsys/dynamic
+    - tsys/inferred
+    - tsys/static
+  writtenWith:
+    - pl/javascript

@@ -1,0 +1,8 @@
+name: MPL
+description: The Mozilla Public License is a free software license used by Mozilla for its open-source projects.
+keywords:
+  - mpl
+extHomeURL: https://en.wikipedia.org/wiki/Mozilla_Public_License
+isFSFLibre: true
+isOSIApproved: true
+spdx: MPL-2.0

@@ -1,0 +1,76 @@
+name: Haxe
+shortDesc: High-level cross-platform language and compiler for multiple platforms.
+description: High-level cross-platform programming language and compiler that can produce applications and source code for many different computing platforms from one code-base. It is free and open-source software, released under an MIT License. The compiler is written in OCaml and is released under the GNU General Public License (GPL) version 2.
+created: "2005"
+keywords:
+  - haxe
+extGithubPath: HaxeFoundation/haxe
+extHomeURL: https://haxe.org/
+extRedditPath: haxe
+extWikipediaPath: Haxe
+extensions:
+  - .hx
+  - .hxml
+githubColor: "#df7900"
+githubLangId: "158"
+githubName: Haxe
+githubPopular: false
+githubStars: 6200
+githubType: programming
+isTranspiler: true
+languishRanking: 109
+releases:
+  - version: 4.3.6
+    name: Haxe 4.3.6
+    date: 2024-08-07
+stackovTags:
+  - haxe
+rels:
+  compilesTo:
+    - pl/c++
+    - pl/c-sharp
+    - pl/java
+    - pl/javascript
+    - pl/lua
+    - pl/ocaml
+    - pl/php
+    - pl/python
+  influencedBy:
+    - pl/c++
+    - pl/c-sharp
+    - pl/javascript
+    - pl/lua
+    - pl/ocaml
+    - pl/python
+  licenses:
+    - lic/gnu-gpl
+    - lic/mit
+  paradigms:
+    - para/functional
+    - para/general-purpose
+    - para/multi
+    - para/oop
+  platforms:
+    - plat/android
+    - plat/apple
+    - plat/arm
+    - plat/linux
+    - plat/riscv
+    - plat/windows
+    - plat/x86-64
+  tags:
+    - tag/app
+    - tag/compiler
+    - tag/control
+    - tag/industrial
+    - tag/interpreters
+    - tag/scripting
+    - tag/viz
+  typeSystems:
+    - tsys/algebraic
+    - tsys/dynamic
+    - tsys/nominal
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/ocaml

@@ -1,0 +1,51 @@
+name: Intel Fortran
+shortDesc: High-performance computing compiler suite from Intel, supporting multiple platforms.
+description: Suite of Fortran compilers from Intel, designed for high-performance computing on Windows, macOS, and Linux platforms. It is part of the Intel OneAPI HPC toolkit, supporting features like optimized CPU and GPU code generation.
+created: "2003"
+keywords:
+  - fortran
+extHomeURL: https://www.intel.com/content/www/us/en/developer/tools/oneapi/fortran-compiler.html
+extWikipediaPath: Intel_Fortran_Compiler
+extensions:
+  - .f
+  - .f90
+  - .f95
+  - .for
+isTranspiler: false
+releases:
+  - version: 2023.2.1
+    name: 2023.2.1
+    date: 2023-07-28
+  - version: 2024.0.0
+    name: 2024.0.0
+    date: 2023-11-20
+rels:
+  implements:
+    - pl/fortran
+  licenses:
+    - lic/bsd
+  paradigms:
+    - para/compiled
+    - para/general-purpose
+    - para/procedural
+    - para/scientific
+  platforms:
+    - plat/apple
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/3dg
+    - tag/analysis
+    - tag/app
+    - tag/cli
+    - tag/compiler
+    - tag/numeric
+    - tag/sci
+    - tag/shell
+    - tag/viz
+  typeSystems:
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/c

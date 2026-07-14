@@ -1,0 +1,5 @@
+name: Parallel
+description: Executes multiple tasks simultaneously to improve performance.
+keywords:
+  - parallel programming
+extHomeURL: https://en.wikipedia.org/wiki/Parallel_programming_model

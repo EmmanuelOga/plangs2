@@ -1,0 +1,44 @@
+name: Node.js
+shortDesc: A JavaScript runtime for server-side execution.
+description: A JavaScript runtime built on Chrome's V8 JavaScript engine, enabling server-side execution of JavaScript code.
+created: "2009"
+keywords:
+  - javascript
+  - runtime
+  - server-side
+extGithubPath: nodejs/node
+extHomeURL: https://nodejs.org/en
+extensions:
+  - .js
+isTranspiler: false
+links:
+  - url: https://nodejs.org/en/docs/
+    title: Node.js Documentation
+rels:
+  implements:
+    - pl/javascript
+  influencedBy:
+    - pl/javascript
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/event-driven
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/oop
+  platforms:
+    - plat/apple
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/scripting
+    - tag/server
+    - tag/webdev
+  typeSystems:
+    - tsys/duck
+    - tsys/dynamic
+  writtenWith:
+    - pl/c
+    - pl/c++

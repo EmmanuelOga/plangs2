@@ -1,0 +1,55 @@
+name: Odin
+shortDesc: A high-performance language, offers an alternative to C for systems programming with a focus on simplicity and data-oriented development.
+description: A high-performance, systems programming language designed for simplicity and data-oriented development, serving as a modern alternative to C with a focus on clarity and ease of use, particularly in gaming and multimedia applications.
+created: "2016"
+keywords:
+  - odin
+  - odin-lang
+  - programming
+extGithubPath: odin-lang/Odin
+extHomeURL: https://odin-lang.org
+extRedditPath: Odinlang
+extensions:
+  - .odin
+githubColor: "#60AFFE"
+githubLangId: "889244082"
+githubName: Odin
+githubPopular: false
+githubStars: 7100
+githubType: programming
+isTranspiler: true
+languishRanking: 171
+releases:
+  - version: 0.13.0
+    name: Odin 0.13.0
+    date: 2023-08-21
+rels:
+  compilesTo:
+    - pl/webassembly
+  influencedBy:
+    - pl/c
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/compiled
+    - para/concurrent
+    - para/functional
+    - para/general-purpose
+    - para/imperative
+    - para/procedural
+  platforms:
+    - plat/arm
+    - plat/cross
+    - plat/linux
+    - plat/wasm
+    - plat/web
+    - plat/windows
+    - plat/x86-64
+  tags:
+    - tag/compiler
+  typeSystems:
+    - tsys/inferred
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/odin

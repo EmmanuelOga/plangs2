@@ -1,0 +1,34 @@
+name: Smalltalk
+shortDesc: A pioneering object-oriented language known for its simplicity and metaprogramming.
+description: A pioneering language in object-oriented programming and development environments, known for its simple syntax and powerful metaprogramming capabilities.
+created: "1972"
+keywords:
+  - metaprogramming
+  - object-oriented
+  - oop
+extGithubPath: ""
+extHomeURL: https://www.smalltalk.org/
+extWikipediaPath: Smalltalk
+extensions:
+  - .st
+isTranspiler: false
+languishRanking: 138
+links:
+  - url: https://en.wikipedia.org/wiki/Smalltalk
+    title: Wikipedia - Smalltalk
+rels:
+  paradigms:
+    - para/agents
+    - para/data-hiding
+    - para/general-purpose
+    - para/interpreted
+    - para/message-passing
+    - para/oop
+    - para/reflective
+  platforms:
+    - plat/cross
+  tags:
+    - tag/edu
+  typeSystems:
+    - tsys/duck
+    - tsys/dynamic

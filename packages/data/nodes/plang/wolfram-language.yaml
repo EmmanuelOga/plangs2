@@ -1,0 +1,58 @@
+name: Wolfram Language
+shortDesc: High-level language used in Mathematica, known for symbolic computation and functional programming.
+description: Proprietary, general-purpose, high-level multi-paradigm programming language developed by Wolfram Research. It is known for its symbolic computation capabilities, and emphasizes functional programming and rule-based programming. It serves as the programming language of Mathematica.
+created: "1988"
+keywords:
+  - mathematica
+  - symbolic computation
+  - wolfram
+  - wolfram language
+extHomeURL: https://www.wolfram.com/language/
+extRedditPath: Mathematica
+extWikipediaPath: Wolfram_Mathematica
+extensions:
+  - .m
+  - .nb
+  - .wl
+githubColor: "#dd1100"
+githubLangId: "224"
+githubName: Mathematica
+githubPopular: false
+githubType: programming
+isTranspiler: false
+releases:
+  - version: 14.1.0
+    name: Wolfram Language 14.1.0
+    date: 2024-07-31
+stackovTags:
+  - wolfram-mathematica
+rels:
+  influencedBy:
+    - pl/apl
+    - pl/c
+    - pl/c++
+    - pl/fortran
+    - pl/lisp
+    - pl/pascal
+    - pl/prolog
+  licenses:
+    - lic/proprietary
+  paradigms:
+    - para/array
+    - para/functional
+    - para/multi
+    - para/procedural
+    - para/rewriting
+  platforms:
+    - plat/cross
+  tags:
+    - tag/audio-dev
+    - tag/cas
+    - tag/cli
+    - tag/games
+    - tag/interpreters
+    - tag/numeric
+    - tag/shell
+  typeSystems:
+    - tsys/dynamic
+    - tsys/strong

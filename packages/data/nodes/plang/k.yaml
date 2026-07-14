@@ -1,0 +1,33 @@
+name: K
+shortDesc: Proprietary array language, foundation of kdb+, developed by Kx Systems.
+description: Proprietary array processing programming language developed by Arthur Whitney and commercialized by Kx Systems. K serves as the basis for kdb+, an in-memory, column-based database for financial applications, and is influenced by APL and Scheme, renowned for its speed and concise syntax.
+created: "1993"
+keywords:
+  - kdb
+  - kdb+
+extHomeURL: https://code.kx.com/
+extWikipediaPath: K_(programming_language)
+extensions:
+  - .k
+isTranspiler: false
+rels:
+  influencedBy:
+    - pl/apl
+    - pl/scheme
+  licenses:
+    - lic/proprietary
+  paradigms:
+    - para/array
+    - para/functional
+  platforms:
+    - plat/cross
+    - plat/linux
+    - plat/windows
+  tags:
+    - tag/analysis
+    - tag/app
+    - tag/dbms
+    - tag/interpreters
+  typeSystems:
+    - tsys/dynamic
+    - tsys/strong
