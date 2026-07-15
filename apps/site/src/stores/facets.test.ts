@@ -1,5 +1,44 @@
-import { describe, expect, it } from "vitest";
-import { type FacetsContext, searchToSelection, selectionToSearch } from "./facets";
+import { beforeEach, describe, expect, it } from "vitest";
+import { type FacetsContext, facetsStore, searchToSelection, selectionToSearch } from "./facets";
+
+describe("store transitions preserve the whole context", () => {
+  beforeEach(() => facetsStore.trigger.restore({ selected: {}, mode: "any" }));
+
+  // Regression: @xstate/store v4 REPLACES context with the handler's return
+  // value. Handlers returned partials, so setMode wiped `selected` and the very
+  // next toggle threw "Cannot read properties of undefined". In the UI that
+  // meant: click "match all", click any facet, filtering dies.
+  it("keeps selected when the mode changes", () => {
+    facetsStore.trigger.toggle({ dim: "paradigms", value: "oop" });
+    facetsStore.trigger.setMode({ mode: "all" });
+    const ctx = facetsStore.getSnapshot().context;
+    expect(ctx.selected).toEqual({ paradigms: ["oop"] });
+    expect(ctx.mode).toBe("all");
+  });
+
+  it("keeps the mode when a facet is toggled", () => {
+    facetsStore.trigger.setMode({ mode: "all" });
+    facetsStore.trigger.toggle({ dim: "paradigms", value: "oop" });
+    const ctx = facetsStore.getSnapshot().context;
+    expect(ctx.mode, "mode must survive a toggle").toBe("all");
+    expect(ctx.selected).toEqual({ paradigms: ["oop"] });
+  });
+
+  it("keeps the mode when everything is cleared", () => {
+    facetsStore.trigger.setMode({ mode: "all" });
+    facetsStore.trigger.toggle({ dim: "tags", value: "cli" });
+    facetsStore.trigger.clearAll();
+    const ctx = facetsStore.getSnapshot().context;
+    expect(ctx.selected).toEqual({});
+    expect(ctx.mode).toBe("all");
+  });
+
+  it("toggles a value off and drops the empty dimension", () => {
+    facetsStore.trigger.toggle({ dim: "tags", value: "cli" });
+    facetsStore.trigger.toggle({ dim: "tags", value: "cli" });
+    expect(facetsStore.getSnapshot().context.selected).toEqual({});
+  });
+});
 
 const ctx = (selected: Record<string, string[]>, mode: FacetsContext["mode"] = "any"): FacetsContext => ({ selected, mode });
 

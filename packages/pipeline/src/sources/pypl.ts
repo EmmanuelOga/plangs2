@@ -95,13 +95,13 @@ export function ranksFor(data: PyplData, month: Month): Map<string, number> {
   return out;
 }
 
-export interface PyplTrend {
+interface PyplTrend {
   metric: "index-share";
   months: Month[];
   shares: number[];
 }
 
-export function trendFor(data: PyplData, language: string): PyplTrend | undefined {
+function trendFor(data: PyplData, language: string): PyplTrend | undefined {
   const out: PyplTrend = { metric: "index-share", months: [], shares: [] };
   for (const month of data.months) {
     const share = data.shares.get(month)?.get(language);

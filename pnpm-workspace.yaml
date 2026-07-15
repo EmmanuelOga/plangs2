@@ -13,7 +13,6 @@ catalog:
   # runtime / graph
   graphology: 0.26.0
   graphology-types: 0.24.8
-  tinyglobby: 0.2.15
   yaml: 2.9.0
   zod: 4.4.3
   # pipeline (importers + AI enrichment)
@@ -38,6 +37,9 @@ catalog:
   # styling
   tailwindcss: 4.3.2
   "@tailwindcss/vite": 4.3.2
+  # testing (browser mode drives real Chromium via Playwright)
+  playwright: 1.61.1
+  "@vitest/browser-playwright": 4.1.10
   # tooling
   "@biomejs/biome": 2.5.3
   typescript: 5.9.3

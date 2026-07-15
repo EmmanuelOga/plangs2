@@ -13,7 +13,7 @@ export interface PlangCard {
 }
 
 /** Kinds that act as facet dimensions on a grid, in display order. */
-export const FACET_KINDS: { kind: NodeKind; dim: string; label: string }[] = [
+const FACET_KINDS: { kind: NodeKind; dim: string; label: string }[] = [
   { kind: "paradigm", dim: "paradigms", label: "Paradigms" },
   { kind: "tag", dim: "tags", label: "Tags" },
   { kind: "platform", dim: "platforms", label: "Platforms" },
@@ -95,13 +95,13 @@ export function plangCards(graph: PlangsGraph): PlangCard[] {
   return nodeCards(graph, "plang");
 }
 
-export interface RelGroup {
+interface RelGroup {
   label: string;
   items: { key: string; name: string; href: string }[];
 }
 
 /** Grouped neighbor relations for a node's detail page. */
-export function relationsFor(graph: PlangsGraph, key: string): RelGroup[] {
+function relationsFor(graph: PlangsGraph, key: string): RelGroup[] {
   const p = parseKey(key);
   if (!p) return [];
   const groups: RelGroup[] = [];

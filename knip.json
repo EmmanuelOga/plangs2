@@ -1,0 +1,26 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "workspaces": {
+    ".": {
+      "entry": ["scripts/*.mjs"],
+      "project": ["scripts/**/*.mjs"]
+    },
+    "packages/schema": {
+      "entry": ["src/index.ts", "src/**/*.test.ts"],
+      "project": ["src/**/*.ts"]
+    },
+    "packages/graph": {
+      "entry": ["src/index.ts", "src/**/*.test.ts"],
+      "project": ["src/**/*.ts"]
+    },
+    "packages/pipeline": {
+      "entry": ["src/index.ts", "src/cli/pipeline.ts", "src/**/*.test.ts", "test/**/*.ts"],
+      "project": ["src/**/*.ts"]
+    },
+    "apps/site": {
+      "entry": ["src/pages/**/*.{astro,ts}", "src/content.config.ts", "scripts/*.mjs", "test/**/*.ts", "src/**/*.test.ts"],
+      "project": ["src/**/*.{ts,tsx,astro}"]
+    }
+  },
+  "ignoreDependencies": ["@tailwindcss/vite", "tailwindcss"]
+}

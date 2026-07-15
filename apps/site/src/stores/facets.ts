@@ -13,20 +13,27 @@ export interface FacetsContext {
  * the page read the same state). URL sync happens in the island via
  * history.replaceState; the store never runs during SSR (PLAN §6.2).
  */
+/**
+ * NOTE: @xstate/store v4 handlers REPLACE the context with whatever they
+ * return — they do not merge a partial. Returning `{ mode }` alone silently
+ * dropped `selected`, so "match all" followed by any facet click threw
+ * `Cannot read properties of undefined`. Always spread `ctx`.
+ */
 export const facetsStore = createStore({
   context: { selected: {}, mode: "any" } as FacetsContext,
   on: {
-    toggle: (ctx: FacetsContext, e: { dim: string; value: string }) => {
+    toggle: (ctx: FacetsContext, e: { dim: string; value: string }): FacetsContext => {
       const cur = ctx.selected[e.dim] ?? [];
       const next = cur.includes(e.value) ? cur.filter(v => v !== e.value) : [...cur, e.value];
       const selected = { ...ctx.selected };
       if (next.length) selected[e.dim] = next;
       else delete selected[e.dim];
-      return { selected };
+      return { ...ctx, selected };
     },
-    setMode: (_ctx: FacetsContext, e: { mode: FacetMode }) => ({ mode: e.mode }),
-    clearAll: () => ({ selected: {} as Record<string, string[]> }),
-    restore: (_ctx: FacetsContext, e: { selected: Record<string, string[]>; mode: FacetMode }) => ({
+    setMode: (ctx: FacetsContext, e: { mode: FacetMode }): FacetsContext => ({ ...ctx, mode: e.mode }),
+    clearAll: (ctx: FacetsContext): FacetsContext => ({ ...ctx, selected: {} }),
+    restore: (ctx: FacetsContext, e: { selected: Record<string, string[]>; mode: FacetMode }): FacetsContext => ({
+      ...ctx,
       selected: e.selected,
       mode: e.mode,
     }),

@@ -82,7 +82,7 @@ export function pagesFor(doc: NodeDoc): string[] {
   );
 }
 
-export function buildUserPrompt(doc: NodeDoc, pages: { url: string; title: string; markdown: string }[]): string {
+function buildUserPrompt(doc: NodeDoc, pages: { url: string; title: string; markdown: string }[]): string {
   const parts = [`Programming language: ${doc.data.name ?? doc.slug} (node key: ${doc.key}).`];
   for (const page of pages) {
     parts.push(`\n--- Source: ${page.url} (title: ${page.title}) ---\n${page.markdown}`);

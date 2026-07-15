@@ -10,16 +10,13 @@
   "types": "./src/index.ts",
   "scripts": {
     "build": "tsc --noEmit",
-    "export": "node --experimental-strip-types src/cli/export.ts",
     "test": "vitest run"
   },
   "dependencies": {
     "@plangs/schema": "workspace:*",
     "graphology": "catalog:",
     "graphology-types": "catalog:",
-    "tinyglobby": "catalog:",
-    "yaml": "catalog:",
-    "zod": "catalog:"
+    "yaml": "catalog:"
   },
   "devDependencies": {
     "typescript": "catalog:"

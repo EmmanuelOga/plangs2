@@ -3,7 +3,7 @@ import { useEffect, useId, useState } from "react";
 import { parseLegacyFragment } from "../lib/legacy-fragment";
 import { type FacetsContext, facetsStore, searchToSelection, selectionToSearch } from "../stores/facets";
 
-export interface FacetOption {
+interface FacetOption {
   value: string; // slug, e.g. "functional"
   label: string; // display name
   count: number;
@@ -65,6 +65,10 @@ export default function FacetsPanel({ dimensions, noun, total }: Props) {
   useEffect(() => {
     applyToGrid(ctx);
     window.history.replaceState(null, "", `${window.location.pathname}${selectionToSearch(ctx)}`);
+    // Deterministic "interactive" signal. `astro-island` drops its `ssr`
+    // attribute before React has attached handlers, so tests that click on
+    // that signal race the hydration and silently no-op.
+    document.documentElement.dataset.facetsReady = "1";
   }, [ctx]);
 
   // Close the mobile sheet on Escape.
@@ -134,15 +138,18 @@ export default function FacetsPanel({ dimensions, noun, total }: Props) {
               {d.options.map(o => {
                 const checked = (ctx.selected[d.dim] ?? []).includes(o.value);
                 return (
-                  <label key={o.value} className="flex min-h-11 cursor-pointer items-center gap-2 @3xl:min-h-0">
+                  // shrink-0 is load-bearing: inside a `max-h-* flex-col`
+                  // scroller, flex children shrink below their content height,
+                  // which collapsed every row into overlapping text.
+                  <label key={o.value} className="flex min-h-11 shrink-0 cursor-pointer items-center gap-2 @3xl:min-h-7">
                     <input
                       type="checkbox"
-                      className="size-4 accent-[var(--color-primary)]"
+                      className="size-4 shrink-0 accent-[var(--color-primary)]"
                       checked={checked}
                       onChange={() => facetsStore.trigger.toggle({ dim: d.dim, value: o.value })}
                     />
                     <span className="flex-1 truncate">{o.label}</span>
-                    <span className="opacity-60">{o.count}</span>
+                    <span className="shrink-0 opacity-60">{o.count}</span>
                   </label>
                 );
               })}

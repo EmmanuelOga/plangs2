@@ -21,7 +21,7 @@ import type { NodeDoc, RunContext, Source } from "../core/types.ts";
 const SOURCE_ID = "languish";
 
 /** Metric -> the file in `scripts/data/` that holds its quarterly counts. */
-export const METRIC_FILES = {
+const METRIC_FILES = {
   issues: "gh-issue-event.json",
   pulls: "gh-pull-request.json",
   stars: "gh-star-event.json",
@@ -43,7 +43,7 @@ export const DEFAULT_WEIGHTS: Weights = Object.freeze({ issues: 0, pulls: 0, sta
  * per-metric files predate several renames, so counts must be folded together
  * before ranking or e.g. Nim loses its pre-2015 "Nimrod" history.
  */
-export const CANONICAL_NAMES: Readonly<Record<string, string>> = Object.freeze({
+const CANONICAL_NAMES: Readonly<Record<string, string>> = Object.freeze({
   "AL Code": "AL",
   BlitzBasic: "BlitzMax",
   "Classic ASP": "ASP",
@@ -73,7 +73,7 @@ interface CountRow {
 /** `2025Q2` — a sortable quarter label. */
 export type Quarter = string;
 
-export function quarterOf(row: { year: number; quarter: number }): Quarter {
+function quarterOf(row: { year: number; quarter: number }): Quarter {
   return `${row.year}Q${row.quarter}`;
 }
 
@@ -94,7 +94,7 @@ export interface LanguishData {
   names: Set<string>;
 }
 
-export function parseMetricFile(json: string): CountRow[] {
+function parseMetricFile(json: string): CountRow[] {
   return JSON.parse(json) as CountRow[];
 }
 
@@ -185,7 +185,7 @@ function round(value: number): number {
  * The quarterly series for one language: `{quarters: [...], scores: [...], ranks: [...]}`.
  * Kept on the node so detail pages can draw a sparkline without re-deriving it.
  */
-export interface Trend {
+interface Trend {
   metric: "weighted-share";
   quarters: Quarter[];
   scores: number[];
@@ -231,7 +231,7 @@ export function buildQuarterTable(data: LanguishData, weights: Weights): Quarter
   return { quarters, ranks, scores: scoreMap };
 }
 
-export function trendFor(table: QuarterTable, name: string): Trend | undefined {
+function trendFor(table: QuarterTable, name: string): Trend | undefined {
   const out: Trend = { metric: "weighted-share", quarters: [], scores: [], ranks: [] };
   for (const q of table.quarters) {
     const rank = table.ranks.get(q)?.get(name);

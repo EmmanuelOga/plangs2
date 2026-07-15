@@ -49,12 +49,35 @@
   html {
     color: var(--color-foreground);
     background-color: var(--color-background);
-    /* Striped + radial-gradient backdrop (legacy identity). */
-    background-image:
-      radial-gradient(circle at 50% 0, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent 60%),
-      repeating-linear-gradient(135deg, var(--color-stripes) 0 1px, transparent 1px 22px);
-    background-attachment: fixed;
     font-family: var(--font-sans);
+  }
+
+  /*
+   * Striped + radial backdrop, ported verbatim from v2's `background()` helper
+   * (packages/frontend/src/auxiliar/styles.ts @ tag final-plangs-2):
+   *   gradRadial(): radial-gradient(transparent 0, --color-background 75%)
+   *   gradLinear(): repeating-linear-gradient(45deg, --color-stripes 0,
+   *                 --color-stripes 1px, --color-background 0,
+   *                 --color-background 50%) top left / 10px 10px
+   *   backdrop-filter: blur(1.25px)
+   *
+   * The two details that matter and are easy to get wrong: the stripe gaps are
+   * the BACKGROUND COLOR (not transparent), which keeps it a fine hatch rather
+   * than a wash; and the radial layer sits ON TOP, fading to solid background by
+   * 75% so the hatch only shows through the centre.
+   */
+  body {
+    background:
+      radial-gradient(transparent 0, var(--color-background) 75%) top left / 100% 100%,
+      repeating-linear-gradient(
+          45deg,
+          var(--color-stripes) 0,
+          var(--color-stripes) 1px,
+          var(--color-background) 0,
+          var(--color-background) 50%
+        )
+        top left / 10px 10px;
+    backdrop-filter: blur(1.25px);
   }
   h1 {
     font-family: var(--font-display);

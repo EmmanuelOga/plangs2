@@ -8,19 +8,25 @@
   },
   "scripts": {
     "build": "pnpm -r build",
-    "test": "vitest run",
+    "test": "vitest run --project=unit",
     "test:watch": "vitest",
-    "check": "biome check .",
+    "check": "biome check . && knip",
     "fmt": "biome check --write .",
     "url-parity": "node scripts/url-parity.mjs",
     "data:fmt": "pnpm -F @plangs/data fmt",
-    "pipeline": "pnpm -F @plangs/pipeline pipeline"
+    "pipeline": "pnpm -F @plangs/pipeline pipeline",
+    "test:browser": "vitest run --project=browser",
+    "test:all": "vitest run",
+    "knip": "knip"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
     "@types/node": "catalog:",
+    "@vitest/browser-playwright": "catalog:",
+    "knip": "^6.26.0",
+    "playwright": "catalog:",
+    "sirv": "^3.0.2",
     "typescript": "catalog:",
-    "vitest": "catalog:",
-    "yaml": "catalog:"
+    "vitest": "catalog:"
   }
 }

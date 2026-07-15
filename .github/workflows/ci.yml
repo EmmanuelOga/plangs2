@@ -24,15 +24,27 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - name: Lint & format check
+      - name: Lint, format & dead-code check
         run: pnpm check
 
-      - name: Typecheck & build
+      - name: Typecheck packages & build the site
         run: pnpm build
 
-      - name: Test
+      # .astro files are not linted by Biome (experimental parser, PLAN §11),
+      # so this is the only thing type-checking the templates.
+      - name: Typecheck .astro templates
+        run: pnpm -F @plangs/site check
+
+      - name: Unit tests
         run: pnpm test
 
       # Phase 3 gate: every URL the v2 site served must still be served.
       - name: URL parity
         run: pnpm url-parity
+
+      # Catches what a green build cannot: CSS that never applies, islands that
+      # don't hydrate, layout that collapses, runtime errors.
+      - name: Browser tests
+        run: |
+          pnpm exec playwright install --with-deps chromium
+          pnpm test:browser

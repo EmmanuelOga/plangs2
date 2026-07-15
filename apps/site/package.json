@@ -24,6 +24,7 @@
     "tailwindcss": "catalog:"
   },
   "devDependencies": {
+    "@astrojs/check": "0.9.9",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:"
   }
