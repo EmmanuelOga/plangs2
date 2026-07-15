@@ -76,10 +76,17 @@ pnpm pipeline run --source=linguist             # write
 
 > **Lesson worth keeping.** Build + URL-parity + unit tests were all green while
 > the site was visibly broken: they proved markup was *emitted*, never that it
-> *rendered*. Four real bugs (layout never applying, facet rows collapsing,
-> filtering dying after "match all", a mis-ported background) lived behind those
-> green gates. `pnpm test:browser` and `pnpm -F @plangs/site check` exist because
-> of that. **Look at the page.**
+> *rendered*. **Five** real bugs lived behind those green gates — the grid layout
+> never applying at any width, every facet row collapsing into overlapping text,
+> filtering dying after "match all", a mis-ported background, and the mobile
+> facets sheet rendering ~19,000px off-screen. `pnpm test:browser` and
+> `pnpm -F @plangs/site check` exist because of that.
+>
+> The 5th was found by **looking at a screenshot**, not by a test — and the test
+> that should have caught it asserted `position: fixed` (true!) while the element
+> was 19,000px away. Assert *outcomes* (is it on screen?), not properties. When
+> in doubt, screenshot the page:
+> `pnpm -F @plangs/site build`, then drive `apps/site/dist` with Playwright.
 
 - [ ] **Lighthouse mobile ≥ 95 and axe clean** (the Phase 5 gate) — still
       unmeasured. Playwright is now installed, so this is newly cheap: run
@@ -201,6 +208,17 @@ That integration is invisible from the repo. If it is still connected to `main`:
 - **Islands: wait for `data-facets-ready`, not `astro-island[ssr]`.** Astro drops
   `ssr` before React attaches handlers, so clicking on that signal races
   hydration and makes tests flaky.
+- **Never put `backdrop-filter` / `filter` / `transform` on `body` or any
+  ancestor of a `position: fixed` element.** It makes that ancestor the
+  containing block, so `fixed` anchors to the *document* instead of the
+  viewport. This put the mobile facets sheet ~19,000px off-screen while its
+  computed style still said `position: fixed`. The site backdrop therefore lives
+  on a fixed `body::before` layer — keep it that way. Guarded by a test.
+- **`sync-assets` races the dev server.** `pnpm -F @plangs/site build` re-copies
+  `packages/data/assets` over `apps/site/public/images/vertex` while a dev server
+  is serving it, causing transient image 404s. Harmless, but don't chase it as a
+  real bug; restart the dev server after a build. Worth making the copy atomic
+  (write to a temp dir + rename) if it becomes annoying.
 - **URL casing matters.** v2 served `/typesystem/static` (lower-cased kind).
   `urlKind()` in `apps/site/src/lib/view.ts` preserves that; changing it silently
   breaks parity for one kind. `pnpm url-parity` catches it.
