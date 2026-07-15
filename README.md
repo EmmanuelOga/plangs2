@@ -49,7 +49,9 @@ pnpm -F @plangs/site preview  # serves apps/site/dist
 * `pnpm data:fmt` — rewrite every node YAML in canonical order (minimal diffs).
 * `pnpm pipeline run --source=<id> [--dry-run]` — refresh data from an upstream source.
 
-See [NEXT-STEPS.md](NEXT-STEPS.md) for what's left.
+See [NEXT-STEPS.md](NEXT-STEPS.md) for what's left, and
+[REFACTOR.md](REFACTOR.md) before changing the code — it records which oddities
+are load-bearing (and why) and which are genuinely worth cleaning up.
 
 ## Editing data
 
