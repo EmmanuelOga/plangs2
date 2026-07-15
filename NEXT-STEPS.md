@@ -11,12 +11,17 @@ All six phases are done and every phase gate is green:
 
 | Gate | Command | Status |
 | --- | --- | --- |
-| Install + tests | `pnpm install && pnpm test` | 152 tests |
+| Unit tests | `pnpm test` | 156 tests |
+| **Browser tests** | `pnpm test:browser` | 41 tests (needs a build first) |
 | **Migration fidelity** | `pnpm vitest run packages/graph/src/round-trip.test.ts` | YAML deep-equals the v2 graph |
-| Lint / format | `pnpm check` | clean |
+| Lint / format / dead code | `pnpm check` | biome + knip, clean |
+| Typecheck `.astro` | `pnpm -F @plangs/site check` | 0 errors |
 | Typecheck + site build | `pnpm build` | 515 pages |
 | **URL parity** | `pnpm url-parity` | 514/514 v2 URLs served |
 | Data canonical form | `pnpm data:fmt` | 0 of 495 changed |
+
+`pnpm test:all` runs unit + browser. Browser tests run against the **built**
+site, so `pnpm -F @plangs/site build` must come first (CI does this).
 
 Nothing is deployed, and **no importer has been run for real** — `packages/data`
 still holds exactly the data migrated from v2.
@@ -69,10 +74,24 @@ pnpm pipeline run --source=linguist             # write
 
 ## 2. Verification we could not do here
 
-- [ ] **Lighthouse mobile ≥ 95 and axe clean** (the Phase 5 gate) — needs a
-      headless browser. The a11y work is done (real buttons with
+> **Lesson worth keeping.** Build + URL-parity + unit tests were all green while
+> the site was visibly broken: they proved markup was *emitted*, never that it
+> *rendered*. Four real bugs (layout never applying, facet rows collapsing,
+> filtering dying after "match all", a mis-ported background) lived behind those
+> green gates. `pnpm test:browser` and `pnpm -F @plangs/site check` exist because
+> of that. **Look at the page.**
+
+- [ ] **Lighthouse mobile ≥ 95 and axe clean** (the Phase 5 gate) — still
+      unmeasured. Playwright is now installed, so this is newly cheap: run
+      Lighthouse/axe against `apps/site/dist` and wire it into the browser
+      project. The a11y work is done (real buttons with
       `aria-pressed`/`aria-expanded`, 44px targets, `aria-live` counts, labelled
-      facet regions) but is **unmeasured**.
+      facet regions) but nothing has scored it.
+- [ ] **Browser coverage is thin.** 41 tests cover the grid, facets, theme and a
+      detail page. Nothing covers the prompt menu, the theme toggle's
+      persistence, the blog, or dark mode visually.
+- [ ] **Visual regression** would have caught the background mis-port instantly.
+      Consider snapshotting a few pages now that Playwright is here.
 - [ ] **Verify the Claude/ChatGPT prefill URL formats** used by the prompt menu
       (`apps/site/src/islands/PromptMenu.tsx`): `https://claude.ai/new?q=…` and
       `https://chatgpt.com/?q=…`. PLAN §7.5 said to confirm these at
@@ -170,8 +189,18 @@ That integration is invisible from the repo. If it is still connected to `main`:
   why it's a direct dependency of `apps/site`.
 - **Biome does not lint `.astro`.** Its `.astro` support is experimental and
   reports frontmatter imports as unused (PLAN §11 predicted this). `.astro`
-  files and the Tailwind stylesheet are excluded in `biome.json`; both are
-  validated by the Astro build instead. Revisit when Biome's parser matures.
+  files and the Tailwind stylesheet are excluded in `biome.json`. **`pnpm -F
+  @plangs/site check` (astro check) is therefore the only thing type-checking
+  the templates — keep it in CI.** It was broken for a while (`@astrojs/check`
+  was never installed) and hid a real store bug.
+- **@xstate/store v4 REPLACES context**; handlers must return the whole thing,
+  not a partial. Returning `{ mode }` silently drops `selected`. There are tests
+  for this in `apps/site/src/stores/facets.test.ts`.
+- **Container queries need an ancestor container.** `@container` and `@3xl:*` on
+  the same element silently does nothing — a container cannot query itself.
+- **Islands: wait for `data-facets-ready`, not `astro-island[ssr]`.** Astro drops
+  `ssr` before React attaches handlers, so clicking on that signal races
+  hydration and makes tests flaky.
 - **URL casing matters.** v2 served `/typesystem/static` (lower-cased kind).
   `urlKind()` in `apps/site/src/lib/view.ts` preserves that; changing it silently
   breaks parity for one kind. `pnpm url-parity` catches it.
