@@ -23,15 +23,33 @@ That's it — no Bun, no Ruby/Docker, no Overmind/entr.
 | `packages/pipeline` | Importers (Linguist, Languish, Wikidata, …) and AI enrichment. |
 | `apps/site` | The Astro 7 site: routes, layouts, React islands. |
 
+## Run it locally
+
+```sh
+pnpm install
+pnpm -F @plangs/site dev     # http://localhost:4321, hot reload
+```
+
+Astro 7's dev server runs detached: `pnpm exec astro dev stop|status|logs`
+(from `apps/site`).
+
+To build everything and serve the real static output instead:
+
+```sh
+pnpm build                    # typecheck every package + build the site
+pnpm -F @plangs/site preview  # serves apps/site/dist
+```
+
 ## Command Line
 
-* `pnpm install` — install everything.
-* `pnpm -F @plangs/site dev` — run the site locally.
 * `pnpm build` — typecheck the packages and build the static site into `apps/site/dist`.
 * `pnpm test` — run the test suite (includes the migration round-trip gate).
 * `pnpm check` / `pnpm fmt` — lint/format with Biome.
+* `pnpm url-parity` — assert every v2 URL is still served (needs a build first).
 * `pnpm data:fmt` — rewrite every node YAML in canonical order (minimal diffs).
-* `pnpm pipeline run --source=<id>` — refresh data from an upstream source.
+* `pnpm pipeline run --source=<id> [--dry-run]` — refresh data from an upstream source.
+
+See [NEXT-STEPS.md](NEXT-STEPS.md) for what's left.
 
 ## Editing data
 

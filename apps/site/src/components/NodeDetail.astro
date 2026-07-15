@@ -19,8 +19,11 @@ const github = typeof d.extGithubPath === "string" ? d.extGithubPath : undefined
 const wikipedia = typeof d.extWikipediaPath === "string" ? d.extWikipediaPath : undefined;
 const created = typeof d.created === "string" ? d.created : undefined;
 
-// GitHub edit deep-link for the node's YAML (PLAN Decision D3).
-const editHref = `https://github.com/janAkali/plangs2/edit/main/packages/data/nodes/${detail.kind}/${detail.slug}.yaml`;
+// GitHub edit deep-link for the node's YAML — this replaces the v2 /edit editor
+// and its PR worker (PLAN Decision D3). Note the path uses the real node kind
+// (`typeSystem`), not the lower-cased URL segment.
+const REPO = "https://github.com/EmmanuelOga/plangs2";
+const editHref = `${REPO}/edit/main/packages/data/nodes/${detail.kind}/${detail.slug}.yaml`;
 ---
 
 {/* schema.org microdata — plangs are ComputerLanguage, everything else SoftwareApplication-ish (PLAN §8). */}
