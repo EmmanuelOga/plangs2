@@ -1,5 +1,0 @@
-# Allow everything.
-User-agent: *
-Disallow:
-
-Sitemap: https://plangs.page/sitemap.xml

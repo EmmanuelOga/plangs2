@@ -13,7 +13,6 @@
     "check": "biome check .",
     "fmt": "biome check --write .",
     "url-parity": "node scripts/url-parity.mjs",
-    "data:migrate": "node scripts/migrate-definitions.mjs",
     "data:fmt": "pnpm -F @plangs/data fmt",
     "pipeline": "pnpm -F @plangs/pipeline pipeline"
   },
