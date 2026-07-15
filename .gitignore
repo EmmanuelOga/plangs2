@@ -39,6 +39,9 @@ web_modules/
 # v3 migration artifacts
 scripts/.artifacts/
 
+# Per-run pipeline provenance reports
+packages/pipeline/reports/
+
 # Astro site build + synced assets
 apps/site/dist/
 apps/site/.astro/

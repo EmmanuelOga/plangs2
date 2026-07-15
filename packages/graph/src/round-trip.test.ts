@@ -2,9 +2,9 @@ import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
-import { loadGraph } from "./load";
-import { NODES_DIR } from "./paths";
-import { type SerializedGraph, toSerializedGraph } from "./serialize";
+import { loadGraph } from "./load.ts";
+import { NODES_DIR } from "./paths.ts";
+import { type SerializedGraph, toSerializedGraph } from "./serialize.ts";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REFERENCE = join(HERE, "../test/fixtures/plangs.legacy.json");

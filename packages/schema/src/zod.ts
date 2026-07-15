@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { ALL_KINDS } from "./kinds";
-import type { NodeKind } from "./types";
+import { ALL_KINDS } from "./kinds.ts";
+import type { NodeKind } from "./types.ts";
 
 /** Date string: `YYYY`, `YYYY-MM`, or `YYYY-MM-DD` (also legacy `YYYY-MMM`). */
 export const zStrDate = z.string();
@@ -26,6 +26,20 @@ export const zImage = z.object({
 
 export const zLearningKind = z.enum(["book", "course", "tutorial", "video", "other"]);
 
+/**
+ * A quarterly (or monthly) series kept by a ranking source, e.g. Languish.
+ * The legacy pipeline threw these away; v3 keeps them so detail pages can show
+ * trends. `quarters`/`scores`/`ranks` are parallel arrays.
+ */
+export const zTrend = z.object({
+  /** How the score was computed, e.g. "weighted-share". */
+  metric: z.string(),
+  /** Period labels, e.g. ["2024Q4", "2025Q1"] or ["2026-06"]. */
+  quarters: z.array(z.string()),
+  scores: z.array(z.number()),
+  ranks: z.array(z.number()),
+});
+
 /** Fields shared (loosely) across all vertices. All optional except `name`. */
 const baseShape = {
   // Optional: a few legacy nodes (e.g. bundles/tools) were authored without one.
@@ -42,8 +56,12 @@ const baseShape = {
   stackovTags: z.array(z.string()).optional(),
   /** v3 additions (optional, not present in legacy data). */
   updated: zStrDate.optional(),
+  /** Per-source provenance ids, e.g. `{ wikidata: "Q567134", pldb: "nim" }`. */
   sources: z.record(z.string(), z.unknown()).optional(),
+  /** Ranking signals kept side by side, never merged: `{ languish: 119 }`. */
   rankings: z.record(z.string(), z.number()).optional(),
+  /** Historical series per ranking source: `{ languish: {…} }`. */
+  trends: z.record(z.string(), zTrend).optional(),
 };
 
 /** GitHub-backed repo fields. */

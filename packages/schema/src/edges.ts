@@ -1,7 +1,7 @@
 // AUTHORING NOTE: This file was seeded once from the legacy PLANGS_GRAPH_SPEC
 // (52 edges) during the v3 migration and is now hand-maintained. It is the
 // canonical edge catalog for the graph — no build-time codegen depends on it.
-import type { EdgeDef } from "./types";
+import type { EdgeDef } from "./types.ts";
 
 /** The 52 canonical edges of the Plangs graph. */
 export const EDGES: readonly EdgeDef[] = [

@@ -1,5 +1,5 @@
-import { kindOfPrefix, prefixOfKind } from "./kinds";
-import type { NodeKind } from "./types";
+import { kindOfPrefix, prefixOfKind } from "./kinds.ts";
+import type { NodeKind } from "./types.ts";
 
 /** A v3 node key, e.g. `pl/nim`, `para/functional`, `lic/mit`. */
 export type NodeKey = `${string}/${string}`;

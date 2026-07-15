@@ -1,0 +1,406 @@
+{
+  "entities": {
+    "Q20080327": {
+      "type": "item",
+      "id": "Q20080327",
+      "labels": {
+        "en": {
+          "language": "en",
+          "value": "Nim"
+        }
+      },
+      "descriptions": {
+        "en": {
+          "language": "en",
+          "value": "programming language"
+        }
+      },
+      "claims": {
+        "P571": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P571",
+              "hash": "6afd6245d6095de5a8c5e77e1b612bbd4de83345",
+              "datavalue": {
+                "value": {
+                  "time": "+2008-01-01T00:00:00Z",
+                  "timezone": 0,
+                  "before": 0,
+                  "after": 0,
+                  "precision": 9,
+                  "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+                },
+                "type": "time"
+              },
+              "datatype": "time"
+            },
+            "type": "statement",
+            "id": "Q20080327$0179977C-8078-4915-83FA-9F069AF605A0",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "fa278ebfc458360e5aed63d5058cca83c46134f1",
+                "snaks": {
+                  "P143": [
+                    {
+                      "snaktype": "value",
+                      "property": "P143",
+                      "hash": "e4f6d9441d0600513c4533c672b5ab472dc73694",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 328,
+                          "id": "Q328"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ]
+                },
+                "snaks-order": ["P143"]
+              }
+            ]
+          }
+        ],
+        "P856": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P856",
+              "hash": "7ab5c4724840b62b55c4943ca03cb2eee08ea9eb",
+              "datavalue": {
+                "value": "https://nim-lang.org/",
+                "type": "string"
+              },
+              "datatype": "url"
+            },
+            "type": "statement",
+            "qualifiers": {
+              "P407": [
+                {
+                  "snaktype": "value",
+                  "property": "P407",
+                  "hash": "daf1c4fcb58181b02dff9cc89deb084004ddae4b",
+                  "datavalue": {
+                    "value": {
+                      "entity-type": "item",
+                      "numeric-id": 1860,
+                      "id": "Q1860"
+                    },
+                    "type": "wikibase-entityid"
+                  },
+                  "datatype": "wikibase-item"
+                }
+              ]
+            },
+            "qualifiers-order": ["P407"],
+            "id": "Q20080327$ce5fb767-4bbf-af11-46d9-a18b0a29984e",
+            "rank": "preferred"
+          }
+        ],
+        "P287": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P287",
+              "hash": "382504aefc48d86c16e0fef1ea1b2f8700ba1a80",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 60678874,
+                  "id": "Q60678874"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q20080327$D093D0F7-DF47-447B-BCA9-836559C670A0",
+            "rank": "preferred",
+            "references": [
+              {
+                "hash": "637caaca0545747b39e985b583d873a71a55d151",
+                "snaks": {
+                  "P854": [
+                    {
+                      "snaktype": "value",
+                      "property": "P854",
+                      "hash": "9270c7ef7aa1949a9a39453eb1f410ba4a63635d",
+                      "datavalue": {
+                        "value": "https://github.com/nim-lang/nim",
+                        "type": "string"
+                      },
+                      "datatype": "url"
+                    }
+                  ],
+                  "P813": [
+                    {
+                      "snaktype": "value",
+                      "property": "P813",
+                      "hash": "c5138419f5385e25ff30c05e4d727b2cdbe7ea9f",
+                      "datavalue": {
+                        "value": {
+                          "time": "+2019-01-18T00:00:00Z",
+                          "timezone": 0,
+                          "before": 0,
+                          "after": 0,
+                          "precision": 11,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+                        },
+                        "type": "time"
+                      },
+                      "datatype": "time"
+                    }
+                  ]
+                },
+                "snaks-order": ["P854", "P813"]
+              }
+            ]
+          }
+        ],
+        "P3966": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P3966",
+              "hash": "35509a3bd7e91c801ab03ba6edf46e022df70f9e",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 275596,
+                  "id": "Q275596"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q20080327$EA47AA2B-5739-442B-ADD9-250C33117E51",
+            "rank": "normal"
+          },
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P3966",
+              "hash": "633f5fbd7bbda80b226f200ea2ca443fedd897e7",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 1418502,
+                  "id": "Q1418502"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q20080327$6D508C59-E5C6-4FB1-A4F3-26FF772862DB",
+            "rank": "normal"
+          },
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P3966",
+              "hash": "3dcdf6092dc52b9a2a860053d0f2e016dfe3aa14",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 128392,
+                  "id": "Q128392"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q20080327$14b8eacb-4e72-9efb-7e08-dbda469fa4e1",
+            "rank": "normal"
+          },
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P3966",
+              "hash": "017ef492ed457b6d7734a44a77ff339754046db7",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 193076,
+                  "id": "Q193076"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q20080327$75e8778e-48b1-3b64-aa93-f3148d73c2c4",
+            "rank": "normal"
+          },
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P3966",
+              "hash": "211e56aecd4e57dce5a670f247be440250308202",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 79872,
+                  "id": "Q79872"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q20080327$d70ea8f9-4e38-0ef0-d58d-6892a9882858",
+            "rank": "normal"
+          },
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P3966",
+              "hash": "8da77bef98d6e2b8f04a3be5787ce1f6d2eb5a8a",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 28916664,
+                  "id": "Q28916664"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q20080327$83ae7bcb-452d-dd37-ddd3-614b3fd97acc",
+            "rank": "normal"
+          },
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P3966",
+              "hash": "08cb74906b9782d71c581bc6f872af508c4cb92b",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 661075,
+                  "id": "Q661075"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q20080327$c11231ce-45cf-6ce6-4faf-b45d28567685",
+            "rank": "normal"
+          }
+        ],
+        "P275": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P275",
+              "hash": "0447296e0e56d461ed7491de8ee2da7367b75861",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 334661,
+                  "id": "Q334661"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q20080327$65D62C46-0944-4AB8-AF8B-02AA85B065A5",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "2c4faa04ba9ab7f7c7e7132058c318982dc51916",
+                "snaks": {
+                  "P248": [
+                    {
+                      "snaktype": "value",
+                      "property": "P248",
+                      "hash": "964e5ae464f6acde88cf5f29639f7131d2a3c671",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 364,
+                          "id": "Q364"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ],
+                  "P854": [
+                    {
+                      "snaktype": "value",
+                      "property": "P854",
+                      "hash": "3a329f387338255273dfb0cfaa364d13fca769be",
+                      "datavalue": {
+                        "value": "https://github.com/nim-lang/Nim/blob/devel/copying.txt",
+                        "type": "string"
+                      },
+                      "datatype": "url"
+                    }
+                  ],
+                  "P1476": [
+                    {
+                      "snaktype": "value",
+                      "property": "P1476",
+                      "hash": "9d23fff95366e0b8492e0e85e6c98c0d211c7f3c",
+                      "datavalue": {
+                        "value": {
+                          "text": "copying.txt",
+                          "language": "en"
+                        },
+                        "type": "monolingualtext"
+                      },
+                      "datatype": "monolingualtext"
+                    }
+                  ]
+                },
+                "snaks-order": ["P248", "P854", "P1476"]
+              },
+              {
+                "hash": "f0af664a39c10c2ba1758cb93aa90d26ad015d74",
+                "snaks": {
+                  "P854": [
+                    {
+                      "snaktype": "value",
+                      "property": "P854",
+                      "hash": "e3937d4a19335b43f405d7cdbf07664c423d7e7a",
+                      "datavalue": {
+                        "value": "https://nim-lang.org/faq.html",
+                        "type": "string"
+                      },
+                      "datatype": "url"
+                    }
+                  ],
+                  "P1476": [
+                    {
+                      "snaktype": "value",
+                      "property": "P1476",
+                      "hash": "8c2dff9abe0cf842209cc6709b832418a3d89acd",
+                      "datavalue": {
+                        "value": {
+                          "text": "Frequently Asked Questions",
+                          "language": "en"
+                        },
+                        "type": "monolingualtext"
+                      },
+                      "datatype": "monolingualtext"
+                    }
+                  ]
+                },
+                "snaks-order": ["P854", "P1476"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

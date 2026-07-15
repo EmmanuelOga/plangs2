@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { checkIntegrity, pruneDangling } from "./integrity";
-import { loadGraph } from "./load";
-import { NODES_DIR } from "./paths";
+import { checkIntegrity, pruneDangling } from "./integrity.ts";
+import { loadGraph } from "./load.ts";
+import { NODES_DIR } from "./paths.ts";
 
 describe("integrity pass over the real dataset", () => {
   const { graph } = loadGraph(NODES_DIR);

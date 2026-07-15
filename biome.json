@@ -25,6 +25,8 @@
       "!wrangler.toml",
       "!scripts/.artifacts",
       "!packages/graph/test/fixtures",
+      "!packages/pipeline/test/fixtures",
+      "!packages/pipeline/reports",
       "!apps/site/public",
       "!apps/*/dist",
       "!apps/*/.astro",

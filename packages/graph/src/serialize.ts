@@ -1,5 +1,5 @@
 import { ALL_KINDS, EDGES, type NodeKind, newToLegacy } from "@plangs/schema";
-import type { PlangsGraph } from "./load";
+import type { PlangsGraph } from "./load.ts";
 
 export interface SerializedGraph {
   vertices: Record<string, Record<string, unknown>>;

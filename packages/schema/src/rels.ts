@@ -1,5 +1,5 @@
-import { EDGES } from "./edges";
-import type { EdgeDef, NodeKind, RelResolution } from "./types";
+import { EDGES } from "./edges.ts";
+import type { EdgeDef, NodeKind, RelResolution } from "./types.ts";
 
 /** Edge lookup by canonical name. */
 export const EDGE_BY_NAME: ReadonlyMap<string, EdgeDef> = new Map(EDGES.map(e => [e.name, e]));

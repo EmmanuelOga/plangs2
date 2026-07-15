@@ -1,5 +1,5 @@
 import { EDGE_BY_NAME, type NodeKind } from "@plangs/schema";
-import type { NodeAttrs, PlangsGraph } from "./load";
+import type { NodeAttrs, PlangsGraph } from "./load.ts";
 
 /** All node keys of a given kind (defined nodes only). */
 export function nodesByKind(graph: PlangsGraph, kind: NodeKind): string[] {

@@ -1,5 +1,5 @@
 import { INFERENCE_RULES, type InferenceRule } from "@plangs/schema";
-import type { PlangsGraph } from "./load";
+import type { PlangsGraph } from "./load.ts";
 
 /** Add an inferred directed edge if absent. Returns true if it was added. */
 function addInferred(graph: PlangsGraph, name: string, src: string, dst: string): boolean {

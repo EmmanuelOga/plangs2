@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { NODE_SCHEMAS, parseKey } from "@plangs/schema";
-import type { LoadIssue, PlangsGraph } from "./load";
+import type { LoadIssue, PlangsGraph } from "./load.ts";
 
 export interface IntegrityOptions {
   /** If set, verify that referenced logo assets exist under this dir. */

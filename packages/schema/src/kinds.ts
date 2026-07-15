@@ -1,4 +1,4 @@
-import type { NodeKind } from "./types";
+import type { NodeKind } from "./types.ts";
 
 /** Metadata per node kind. `prefix` is the short key segment (e.g. `pl/nim`). */
 export interface KindDef {

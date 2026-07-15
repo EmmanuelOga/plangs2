@@ -1,0 +1,34 @@
+{
+  "name": "@plangs/pipeline",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Idempotent per-source importers + AI enrichment for the Plangs dataset. Replaces the legacy languist + ai packages.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "bin": {
+    "pipeline": "./src/cli/pipeline.sh"
+  },
+  "scripts": {
+    "build": "tsc --noEmit",
+    "pipeline": "node src/cli/pipeline.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "catalog:",
+    "@mozilla/readability": "catalog:",
+    "@plangs/schema": "workspace:*",
+    "jsdom": "catalog:",
+    "turndown": "catalog:",
+    "yaml": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@types/jsdom": "catalog:",
+    "@types/node": "catalog:",
+    "@types/turndown": "catalog:",
+    "typescript": "catalog:"
+  }
+}

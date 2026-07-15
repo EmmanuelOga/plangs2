@@ -1,8 +1,8 @@
 import { kindOfPrefix } from "@plangs/schema";
 import { MultiDirectedGraph } from "graphology";
 import { describe, expect, it } from "vitest";
-import type { NodeAttrs, PlangsGraph } from "./load";
-import { materialize } from "./materialize";
+import type { NodeAttrs, PlangsGraph } from "./load.ts";
+import { materialize } from "./materialize.ts";
 
 function node(g: PlangsGraph, key: string, extra: Partial<NodeAttrs> = {}): void {
   const kind = extra.kind ?? kindOfPrefix(key.slice(0, key.indexOf("/")));

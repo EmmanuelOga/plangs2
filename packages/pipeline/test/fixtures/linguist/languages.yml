@@ -1,0 +1,387 @@
+# Recorded fixture: a verbatim slice of github-linguist/linguist lib/linguist/languages.yml (MIT).
+# Trimmed to a representative sample; entry bodies are unmodified upstream data.
+---
+Nim:
+  type: programming
+  color: "#ffc200"
+  extensions:
+    - .nim
+    - .nim.cfg
+    - .nimble
+    - .nimrod
+    - .nims
+  filenames:
+    - nim.cfg
+  ace_mode: nim
+  tm_scope: source.nim
+  language_id: 249
+Python:
+  type: programming
+  tm_scope: source.python
+  ace_mode: python
+  codemirror_mode: python
+  codemirror_mime_type: text/x-python
+  color: "#3572A5"
+  extensions:
+    - .py
+    - .cgi
+    - .fcgi
+    - .gyp
+    - .gypi
+    - .lmi
+    - .py3
+    - .pyde
+    - .pyi
+    - .pyp
+    - .pyt
+    - .pyw
+    - .rpy
+    - .spec
+    - .tac
+    - .wsgi
+    - .xpy
+  filenames:
+    - .gclient
+    - DEPS
+    - SConscript
+    - SConstruct
+    - wscript
+  interpreters:
+    - python
+    - python2
+    - python3
+    - py
+    - pypy
+    - pypy3
+    - uv
+  aliases:
+    - py
+    - py3
+    - python3
+    - rusthon
+  language_id: 303
+C:
+  type: programming
+  color: "#555555"
+  extensions:
+    - .c
+    - .cats
+    - .h
+    - .h.in
+    - .idc
+  interpreters:
+    - tcc
+  tm_scope: source.c
+  ace_mode: c_cpp
+  codemirror_mode: clike
+  codemirror_mime_type: text/x-csrc
+  language_id: 41
+C++:
+  type: programming
+  tm_scope: source.c++
+  ace_mode: c_cpp
+  codemirror_mode: clike
+  codemirror_mime_type: text/x-c++src
+  color: "#f34b7d"
+  aliases:
+    - cpp
+  extensions:
+    - .cpp
+    - .c++
+    - .cc
+    - .cp
+    - .cppm
+    - .cxx
+    - .h
+    - .h++
+    - .hh
+    - .hpp
+    - .hxx
+    - .inc
+    - .inl
+    - .ino
+    - .ipp
+    - .ixx
+    - .re
+    - .tcc
+    - .tpp
+    - .txx
+  language_id: 43
+JavaScript:
+  type: programming
+  tm_scope: source.js
+  ace_mode: javascript
+  codemirror_mode: javascript
+  codemirror_mime_type: text/javascript
+  color: "#f1e05a"
+  aliases:
+    - js
+    - node
+  extensions:
+    - .js
+    - ._js
+    - .bones
+    - .cjs
+    - .es
+    - .es6
+    - .frag
+    - .gs
+    - .jake
+    - .javascript
+    - .jsb
+    - .jscad
+    - .jsfl
+    - .jslib
+    - .jsm
+    - .jspre
+    - .jss
+    - .jsx
+    - .mjs
+    - .njs
+    - .pac
+    - .sjs
+    - .ssjs
+    - .xsjs
+    - .xsjslib
+  filenames:
+    - Jakefile
+  interpreters:
+    - bun
+    - chakra
+    - d8
+    - deno
+    - gjs
+    - js
+    - node
+    - nodejs
+    - qjs
+    - rhino
+    - v8
+    - v8-shell
+  language_id: 183
+TypeScript:
+  type: programming
+  color: "#3178c6"
+  aliases:
+    - ts
+  interpreters:
+    - bun
+    - deno
+    - ts-node
+    - tsx
+  extensions:
+    - .ts
+    - .cts
+    - .mts
+  tm_scope: source.ts
+  ace_mode: typescript
+  codemirror_mode: javascript
+  codemirror_mime_type: application/typescript
+  language_id: 378
+Shell:
+  type: programming
+  color: "#89e051"
+  aliases:
+    - sh
+    - shell-script
+    - bash
+    - zsh
+    - envrc
+  extensions:
+    - .sh
+    - .bash
+    - .bats
+    - .cgi
+    - .command
+    - .fcgi
+    - .ksh
+    - .sbatch
+    - .sh.in
+    - .slurm
+    - .tmux
+    - .tool
+    - .trigger
+    - .zsh
+    - .zsh-theme
+  filenames:
+    - .bash_aliases
+    - .bash_functions
+    - .bash_history
+    - .bash_logout
+    - .bash_profile
+    - .bashrc
+    - .cshrc
+    - .envrc
+    - .flaskenv
+    - .kshrc
+    - .login
+    - .profile
+    - .tmux.conf
+    - .xinitrc
+    - .xsession
+    - .zlogin
+    - .zlogout
+    - .zprofile
+    - .zshenv
+    - .zshrc
+    - 9fs
+    - PKGBUILD
+    - bash_aliases
+    - bash_logout
+    - bash_profile
+    - bashrc
+    - cshrc
+    - gradlew
+    - kshrc
+    - login
+    - man
+    - mvnw
+    - profile
+    - tmux.conf
+    - xinitrc
+    - xsession
+    - zlogin
+    - zlogout
+    - zprofile
+    - zshenv
+    - zshrc
+  interpreters:
+    - ash
+    - bash
+    - dash
+    - ksh
+    - mksh
+    - pdksh
+    - rc
+    - sh
+    - zsh
+  tm_scope: source.shell
+  ace_mode: sh
+  codemirror_mode: shell
+  codemirror_mime_type: text/x-sh
+  language_id: 346
+Raku:
+  type: programming
+  color: "#0000fb"
+  extensions:
+    - .6pl
+    - .6pm
+    - .nqp
+    - .p6
+    - .p6l
+    - .p6m
+    - .pl
+    - .pl6
+    - .pm
+    - .pm6
+    - .raku
+    - .rakumod
+    - .t
+  interpreters:
+    - perl6
+    - raku
+    - rakudo
+  aliases:
+    - perl6
+    - perl-6
+  tm_scope: source.raku
+  ace_mode: raku
+  codemirror_mode: perl
+  codemirror_mime_type: text/x-perl
+  language_id: 283
+Objective-C:
+  type: programming
+  tm_scope: source.objc
+  color: "#438eff"
+  aliases:
+    - obj-c
+    - objc
+    - objectivec
+  extensions:
+    - .m
+    - .h
+  ace_mode: objectivec
+  codemirror_mode: clike
+  codemirror_mime_type: text/x-objectivec
+  language_id: 257
+HTML:
+  type: markup
+  tm_scope: text.html.basic
+  ace_mode: html
+  codemirror_mode: htmlmixed
+  codemirror_mime_type: text/html
+  color: "#e34c26"
+  aliases:
+    - xhtml
+  extensions:
+    - .html
+    - .hta
+    - .htm
+    - .html.hl
+    - .inc
+    - .xht
+    - .xhtml
+  language_id: 146
+Vim Script:
+  type: programming
+  color: "#199f4b"
+  tm_scope: source.viml
+  aliases:
+    - vim
+    - viml
+    - nvim
+    - vimscript
+  extensions:
+    - .vim
+    - .vba
+    - .vimrc
+    - .vmb
+  filenames:
+    - .exrc
+    - .gvimrc
+    - .nvimrc
+    - .vimrc
+    - _vimrc
+    - gvimrc
+    - nvimrc
+    - vimrc
+  ace_mode: text
+  language_id: 388
+F*:
+  fs_name: Fstar
+  type: programming
+  color: "#572e30"
+  aliases:
+    - fstar
+  extensions:
+    - .fst
+    - .fsti
+  tm_scope: source.fstar
+  ace_mode: text
+  language_id: 336943375
+Jupyter Notebook:
+  type: markup
+  ace_mode: json
+  codemirror_mode: javascript
+  codemirror_mime_type: application/json
+  tm_scope: source.json
+  color: "#DA5B0B"
+  extensions:
+    - .ipynb
+  filenames:
+    - Notebook
+  aliases:
+    - IPython Notebook
+  language_id: 185
+BibTeX:
+  type: markup
+  color: "#778899"
+  group: TeX
+  extensions:
+    - .bib
+    - .bibtex
+  tm_scope: text.bibtex
+  ace_mode: bibtex
+  codemirror_mode: stex
+  codemirror_mime_type: text/x-stex
+  language_id: 982188347

@@ -1,0 +1,542 @@
+[
+  {
+    "year": 2023,
+    "quarter": 1,
+    "name": "TypeScript",
+    "count": 3676850
+  },
+  {
+    "year": 2023,
+    "quarter": 1,
+    "name": "JavaScript",
+    "count": 3498726
+  },
+  {
+    "year": 2023,
+    "quarter": 1,
+    "name": "Python",
+    "count": 2040061
+  },
+  {
+    "year": 2023,
+    "quarter": 1,
+    "name": "C++",
+    "count": 560197
+  },
+  {
+    "year": 2023,
+    "quarter": 1,
+    "name": "Rust",
+    "count": 481817
+  },
+  {
+    "year": 2023,
+    "quarter": 1,
+    "name": "Shell",
+    "count": 405298
+  },
+  {
+    "year": 2023,
+    "quarter": 1,
+    "name": "C",
+    "count": 288163
+  },
+  {
+    "year": 2023,
+    "quarter": 1,
+    "name": "Nim",
+    "count": 3483
+  },
+  {
+    "year": 2023,
+    "quarter": 1,
+    "name": "Raku",
+    "count": 375
+  },
+  {
+    "year": 2023,
+    "quarter": 2,
+    "name": "TypeScript",
+    "count": 3313375
+  },
+  {
+    "year": 2023,
+    "quarter": 2,
+    "name": "JavaScript",
+    "count": 2901899
+  },
+  {
+    "year": 2023,
+    "quarter": 2,
+    "name": "Python",
+    "count": 1902886
+  },
+  {
+    "year": 2023,
+    "quarter": 2,
+    "name": "C++",
+    "count": 530834
+  },
+  {
+    "year": 2023,
+    "quarter": 2,
+    "name": "Rust",
+    "count": 436931
+  },
+  {
+    "year": 2023,
+    "quarter": 2,
+    "name": "Shell",
+    "count": 383538
+  },
+  {
+    "year": 2023,
+    "quarter": 2,
+    "name": "C",
+    "count": 274022
+  },
+  {
+    "year": 2023,
+    "quarter": 2,
+    "name": "Nim",
+    "count": 3786
+  },
+  {
+    "year": 2023,
+    "quarter": 2,
+    "name": "Raku",
+    "count": 325
+  },
+  {
+    "year": 2023,
+    "quarter": 3,
+    "name": "TypeScript",
+    "count": 3598491
+  },
+  {
+    "year": 2023,
+    "quarter": 3,
+    "name": "JavaScript",
+    "count": 2887289
+  },
+  {
+    "year": 2023,
+    "quarter": 3,
+    "name": "Python",
+    "count": 1981572
+  },
+  {
+    "year": 2023,
+    "quarter": 3,
+    "name": "C++",
+    "count": 531524
+  },
+  {
+    "year": 2023,
+    "quarter": 3,
+    "name": "Rust",
+    "count": 514152
+  },
+  {
+    "year": 2023,
+    "quarter": 3,
+    "name": "Shell",
+    "count": 425300
+  },
+  {
+    "year": 2023,
+    "quarter": 3,
+    "name": "C",
+    "count": 277814
+  },
+  {
+    "year": 2023,
+    "quarter": 3,
+    "name": "Nim",
+    "count": 4368
+  },
+  {
+    "year": 2023,
+    "quarter": 3,
+    "name": "Raku",
+    "count": 353
+  },
+  {
+    "year": 2023,
+    "quarter": 4,
+    "name": "TypeScript",
+    "count": 3721703
+  },
+  {
+    "year": 2023,
+    "quarter": 4,
+    "name": "JavaScript",
+    "count": 2923702
+  },
+  {
+    "year": 2023,
+    "quarter": 4,
+    "name": "Python",
+    "count": 2141666
+  },
+  {
+    "year": 2023,
+    "quarter": 4,
+    "name": "C++",
+    "count": 587410
+  },
+  {
+    "year": 2023,
+    "quarter": 4,
+    "name": "Rust",
+    "count": 494852
+  },
+  {
+    "year": 2023,
+    "quarter": 4,
+    "name": "Shell",
+    "count": 410030
+  },
+  {
+    "year": 2023,
+    "quarter": 4,
+    "name": "C",
+    "count": 304020
+  },
+  {
+    "year": 2023,
+    "quarter": 4,
+    "name": "Nim",
+    "count": 3386
+  },
+  {
+    "year": 2023,
+    "quarter": 4,
+    "name": "Raku",
+    "count": 266
+  },
+  {
+    "year": 2024,
+    "quarter": 1,
+    "name": "TypeScript",
+    "count": 3906566
+  },
+  {
+    "year": 2024,
+    "quarter": 1,
+    "name": "JavaScript",
+    "count": 2944525
+  },
+  {
+    "year": 2024,
+    "quarter": 1,
+    "name": "Python",
+    "count": 2265171
+  },
+  {
+    "year": 2024,
+    "quarter": 1,
+    "name": "C++",
+    "count": 605493
+  },
+  {
+    "year": 2024,
+    "quarter": 1,
+    "name": "Rust",
+    "count": 588261
+  },
+  {
+    "year": 2024,
+    "quarter": 1,
+    "name": "Shell",
+    "count": 459353
+  },
+  {
+    "year": 2024,
+    "quarter": 1,
+    "name": "C",
+    "count": 308380
+  },
+  {
+    "year": 2024,
+    "quarter": 1,
+    "name": "Nim",
+    "count": 4420
+  },
+  {
+    "year": 2024,
+    "quarter": 1,
+    "name": "Raku",
+    "count": 195
+  },
+  {
+    "year": 2024,
+    "quarter": 2,
+    "name": "TypeScript",
+    "count": 3935820
+  },
+  {
+    "year": 2024,
+    "quarter": 2,
+    "name": "JavaScript",
+    "count": 2935717
+  },
+  {
+    "year": 2024,
+    "quarter": 2,
+    "name": "Python",
+    "count": 2424452
+  },
+  {
+    "year": 2024,
+    "quarter": 2,
+    "name": "C++",
+    "count": 614358
+  },
+  {
+    "year": 2024,
+    "quarter": 2,
+    "name": "Rust",
+    "count": 572884
+  },
+  {
+    "year": 2024,
+    "quarter": 2,
+    "name": "Shell",
+    "count": 461746
+  },
+  {
+    "year": 2024,
+    "quarter": 2,
+    "name": "C",
+    "count": 305200
+  },
+  {
+    "year": 2024,
+    "quarter": 2,
+    "name": "Nim",
+    "count": 3337
+  },
+  {
+    "year": 2024,
+    "quarter": 2,
+    "name": "Raku",
+    "count": 252
+  },
+  {
+    "year": 2024,
+    "quarter": 3,
+    "name": "TypeScript",
+    "count": 4105597
+  },
+  {
+    "year": 2024,
+    "quarter": 3,
+    "name": "JavaScript",
+    "count": 2738697
+  },
+  {
+    "year": 2024,
+    "quarter": 3,
+    "name": "Python",
+    "count": 2378268
+  },
+  {
+    "year": 2024,
+    "quarter": 3,
+    "name": "Rust",
+    "count": 604471
+  },
+  {
+    "year": 2024,
+    "quarter": 3,
+    "name": "C++",
+    "count": 575362
+  },
+  {
+    "year": 2024,
+    "quarter": 3,
+    "name": "Shell",
+    "count": 469495
+  },
+  {
+    "year": 2024,
+    "quarter": 3,
+    "name": "C",
+    "count": 284404
+  },
+  {
+    "year": 2024,
+    "quarter": 3,
+    "name": "Nim",
+    "count": 3833
+  },
+  {
+    "year": 2024,
+    "quarter": 3,
+    "name": "Raku",
+    "count": 187
+  },
+  {
+    "year": 2024,
+    "quarter": 4,
+    "name": "TypeScript",
+    "count": 4161808
+  },
+  {
+    "year": 2024,
+    "quarter": 4,
+    "name": "JavaScript",
+    "count": 2776554
+  },
+  {
+    "year": 2024,
+    "quarter": 4,
+    "name": "Python",
+    "count": 2460756
+  },
+  {
+    "year": 2024,
+    "quarter": 4,
+    "name": "C++",
+    "count": 619852
+  },
+  {
+    "year": 2024,
+    "quarter": 4,
+    "name": "Rust",
+    "count": 604788
+  },
+  {
+    "year": 2024,
+    "quarter": 4,
+    "name": "Shell",
+    "count": 481722
+  },
+  {
+    "year": 2024,
+    "quarter": 4,
+    "name": "C",
+    "count": 329051
+  },
+  {
+    "year": 2024,
+    "quarter": 4,
+    "name": "Nim",
+    "count": 3361
+  },
+  {
+    "year": 2024,
+    "quarter": 4,
+    "name": "Raku",
+    "count": 236
+  },
+  {
+    "year": 2025,
+    "quarter": 1,
+    "name": "TypeScript",
+    "count": 4472568
+  },
+  {
+    "year": 2025,
+    "quarter": 1,
+    "name": "JavaScript",
+    "count": 2696119
+  },
+  {
+    "year": 2025,
+    "quarter": 1,
+    "name": "Python",
+    "count": 2687476
+  },
+  {
+    "year": 2025,
+    "quarter": 1,
+    "name": "C++",
+    "count": 693884
+  },
+  {
+    "year": 2025,
+    "quarter": 1,
+    "name": "Rust",
+    "count": 690239
+  },
+  {
+    "year": 2025,
+    "quarter": 1,
+    "name": "Shell",
+    "count": 568040
+  },
+  {
+    "year": 2025,
+    "quarter": 1,
+    "name": "C",
+    "count": 389395
+  },
+  {
+    "year": 2025,
+    "quarter": 1,
+    "name": "Nim",
+    "count": 3806
+  },
+  {
+    "year": 2025,
+    "quarter": 1,
+    "name": "Raku",
+    "count": 170
+  },
+  {
+    "year": 2025,
+    "quarter": 2,
+    "name": "TypeScript",
+    "count": 4148191
+  },
+  {
+    "year": 2025,
+    "quarter": 2,
+    "name": "Python",
+    "count": 2576174
+  },
+  {
+    "year": 2025,
+    "quarter": 2,
+    "name": "JavaScript",
+    "count": 2494195
+  },
+  {
+    "year": 2025,
+    "quarter": 2,
+    "name": "C++",
+    "count": 656084
+  },
+  {
+    "year": 2025,
+    "quarter": 2,
+    "name": "Rust",
+    "count": 587488
+  },
+  {
+    "year": 2025,
+    "quarter": 2,
+    "name": "Shell",
+    "count": 468931
+  },
+  {
+    "year": 2025,
+    "quarter": 2,
+    "name": "C",
+    "count": 348187
+  },
+  {
+    "year": 2025,
+    "quarter": 2,
+    "name": "Nim",
+    "count": 2840
+  },
+  {
+    "year": 2025,
+    "quarter": 2,
+    "name": "Raku",
+    "count": 113
+  }
+]
