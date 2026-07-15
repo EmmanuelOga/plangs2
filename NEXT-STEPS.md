@@ -44,6 +44,13 @@ Two things to hold onto:
 
 ## 1. Data pipeline — finish what's wired
 
+> 🔴 **Blocked: do REFACTOR.md §3.0 first.** The migration gate asserts deep
+> equality against the v2 fixture, so **writing any real data reddens CI** —
+> verified: adding one `name:` field to one node fails it. The first importer run
+> touches hundreds of nodes. Fix the gate (narrow it from "nothing changed" to
+> "nothing was lost") before running anything, or the tempting workaround is to
+> regenerate the oracle and lose the safety net.
+
 The framework, four importers (`linguist`, `languish`, `wikidata`, `pypl`),
 enrichment and CLI all exist and are tested against recorded fixtures. What's
 left is real-world operation.
@@ -154,12 +161,13 @@ That integration is invisible from the repo. If it is still connected to `main`:
 
 ## 4. Deferred by decision (not oversights)
 
-- [ ] **D2 taxonomy folding.** All 15 kinds were kept. Folding `bundle` (2 nodes)
-      into `tool` and `author` (1) into blog frontmatter would have changed the
-      dataset while the round-trip gate was being established, weakening the one
-      check that proves the migration is lossless. Now that the gate is locked
-      in, folding is a safe, separately-testable change. `post` is already moot —
-      posts are Astro content, not graph nodes.
+- [ ] **D2 taxonomy folding** — analysed in **REFACTOR.md §3.4**; recommendation
+      is **not yet**. `post` is already folded (0 nodes). `bundle` (2) and
+      `author` (1) remain, and D2's own precondition ("decide after the imports
+      run") is unmet because no importer has run. Folding also costs URL parity
+      (514→511) and touches an inference rule. Do the cheap honest parts first:
+      drop the `deprecated` flag that nothing enforces, fix the stale
+      `bun/plangs`, name the 4 nameless nodes.
 - [ ] **D5 trend sparklines** (last priority). The plumbing is done: `languish`
       keeps the quarterly series and `trends` is schema-validated
       (`packages/schema/src/zod.ts`). Nothing renders it yet. Needs a real

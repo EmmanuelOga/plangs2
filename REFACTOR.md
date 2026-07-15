@@ -107,6 +107,51 @@ pointless, read the comment above it before deleting.
 
 ## 3. What I'd actually refactor, highest value first
 
+### 3.0 🔴 The migration gate forbids all data evolution — fix this FIRST
+
+**This blocks the #1 item in NEXT-STEPS and I would do it before anything else.**
+
+`packages/graph/src/round-trip.test.ts` asserts **deep equality** between the
+current dataset and `plangs.legacy.json`. That was right at migration time: it
+proved the migration was lossless. But it means **any data change reddens CI**.
+Verified empirically — adding a single `name:` field to one node fails 2 of its
+5 assertions:
+
+```
+AssertionError: expected { kind: 'bundle', v: {…} } to deeply equal { kind: 'bundle', v: {…} }
+```
+
+That's not hypothetical. It breaks:
+
+- **The pipeline's first real run** — languish/linguist/pypl write `rankings`,
+  `trends`, `githubColor`… to hundreds of nodes. NEXT-STEPS §1 ("seed Wikidata
+  QIDs, then run a refresh") **cannot land while this gate stands.**
+- Any human PR editing a YAML node — i.e. the entire contribution model this
+  dataset exists to enable.
+- Any of the small data fixes in §3.4/§3.5 below.
+
+**The trap:** the obvious way to make it pass is to regenerate the fixture or
+delete the test. Both destroy the only proof the migration was lossless (§1 —
+the fixture cannot be regenerated; its generator is gone).
+
+**Recommended fix.** Narrow the permanent contract from "nothing changed" to
+**"nothing was lost"**:
+
+- **Hard gate, forever:** every v2 vertex key still exists; every v2 edge still
+  exists; the 15 kinds / 52 edge names still exist (the public dataset shape is
+  a documented v2 drop-in). Catches the real ongoing risk — silent loss during
+  refactors, key renames and pipeline runs.
+- **Retire strict equality.** Its job is done and the proof is in the git log: it
+  passed at commit `dd7c0f0c`, the migration itself. Optionally keep a *drift
+  report* (changed/added field counts, printed not asserted) so a reviewer can
+  see a diff touches what it claims to.
+- **Keep the fixture regardless** — the structural gate and `pnpm url-parity`
+  both read it.
+
+I drafted this and reverted it — it's a deliberate loosening of a safety net and
+deserves a considered decision rather than being slipped in. But do it before
+running any importer.
+
 ### 3.1 The graph throws away the types the schema already has ⭐
 
 `packages/schema` defines Zod schemas per kind. `packages/graph` then stores
@@ -168,15 +213,65 @@ Also `edgeBetween()` linear-scans all 52 edges per (kind, dim) pair. Irrelevant
 at this size — **don't "optimise" it**, but if you're touching it anyway, an
 index built once is simpler to read than the scan.
 
-### 3.4 Deprecated kinds are still fully present
+### 3.4 D2 — the deprecated kinds (analysed; my recommendation is "not yet")
 
-`KINDS` marks `author`, `bundle`, `post` as `deprecated: true` and nothing acts
-on it. That's Decision D2 (see NEXT-STEPS §4): I kept all 15 kinds because
-folding them would have changed the dataset while the round-trip gate was being
-established. **The gate is locked in now**, so folding is safe to do properly:
-`bundle` (2 nodes) → `tool`, `author` (1) → blog frontmatter. `post` is already
-moot — posts are Astro content, not graph nodes. Either do it or drop the flag;
-a `deprecated` marker nothing enforces is just a lie.
+PLAN §9's **Decision D2** says: fold `bundle` + `author` + `post`, and "grow or
+fold" the underpopulated `subsystem` (1) / `app` (4) **after the data-source
+imports run**. `KINDS` marks the first three `deprecated: true` and *nothing
+enforces it* — a marker that lies.
+
+I deferred D2 during the migration because folding changes the dataset while the
+round-trip gate was being established. Here's the state, checked against real
+data rather than the plan:
+
+| Kind | Nodes | Reality |
+| --- | --- | --- |
+| `post` | **0** | ✅ **already folded.** No `nodes/post/` dir; the blog is Astro content. D2 is one-third done. |
+| `bundle` | 2 | `bun/plangs`, `bun/py-one` |
+| `author` | 1 | `author/geo` — the repo owner |
+
+Two findings that aren't in the plan:
+
+- **`bun/plangs` is stale content.** Its tools are `biomejs, entr, esbuild,
+  overmind` — the *v2* stack, which this migration deleted. It documents a
+  bundle that no longer exists.
+- **The `name`-optional hack traces here.** Both bundles (plus `tool/pip`,
+  `tool/vscode`) have no `name`, which is why `packages/schema/src/zod.ts`
+  weakens `name: z.string()` to `.optional()` for all 495 nodes. Naming those 4
+  would let it be required again — **but that is a data change, so §3.0 blocks
+  it.**
+
+**Costs of folding, measured:**
+
+- **URL parity drops 514 → 511.** v2 served `/bundle/plangs`, `/bundle/py-one`,
+  `/author/geo`; all three are live pages today. Needs redirects or an explicit
+  decision to 404 them.
+- **It touches an inference rule**, not just data:
+  `{ kind: "hoist", path: ["bundleRelTools", "plangRelTools"], as: "bundleRelPlangs" }`
+  in `packages/schema/src/inference.ts` — the Bundle→Tool→Plang rule from the
+  README. Folding `bundle` means reworking it, plus 4 edge definitions.
+- `author/geo` carries rels to 4 communities and a bio page; blog frontmatter
+  can't hold those.
+
+**My recommendation: don't fold yet — D2's own precondition is unmet.** The plan
+says to decide "after the data-source imports run"; **no importer has run**
+(NEXT-STEPS §1). You'd be pruning a taxonomy on data that hasn't arrived — PLDB
+and Wikidata could plausibly populate `app`/`subsystem`. Nothing but a human will
+ever populate `bundle`.
+
+In order, once §3.0 unblocks data changes:
+
+1. **Drop the `deprecated` flag** (or make it mean something). It costs nothing
+   and removes a lie. Safe today — it's code, not data.
+2. **Fix `bun/plangs`** to describe the v3 stack, and **name the 4 nameless
+   nodes**, then tighten `name` back to required. Adds value instead of removing
+   it. Blocked by §3.0.
+3. **Revisit folding after the first real pipeline run**, with real counts.
+
+The genuinely open question is a **product** one, not technical: *is "a curated
+bundle of tools" a concept plangs wants?* It's a nice idea that never grew past
+2 entries, one of them stale. If yes, invest in it; if no, fold it. Ask the owner
+— don't infer it from the node count.
 
 ### 3.5 Smaller, genuinely safe cleanups
 
