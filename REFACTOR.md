@@ -33,7 +33,7 @@ Verify with the loop below rather than trusting prose.
 pnpm check                    # biome + knip (dead code is a CI failure)
 pnpm build                    # tsc every package + build the site
 pnpm -F @plangs/site check    # astro check — the ONLY thing type-checking .astro
-pnpm test                     # 156 unit
+pnpm test                     # 158 unit
 pnpm -F @plangs/site build && pnpm test:browser   # 42 real-Chromium tests
 pnpm url-parity               # 514/514 v2 URLs still served
 node scripts/data-fmt.mjs     # must report "0 of 495" — data is canonical
@@ -63,8 +63,13 @@ deleted. **It is the only surviving proof that the YAML dataset is faithful.**
 The script that generated it is gone (its inputs were the v2 packages, now only
 at tag `final-plangs-2`). It powers two gates:
 
-- `packages/graph/src/round-trip.test.ts` — YAML → graphology → export must be
-  **deep-equal** to it.
+- `packages/graph/src/round-trip.test.ts` — asserts **nothing from v2 was
+  lost**: every v2 vertex kind, edge name, vertex key and edge (src → dst)
+  must still exist. New nodes, new edges and changed/added fields are allowed
+  and show up in a printed drift report (`[drift vs v2] …` in the test
+  output). It was strict deep-equality until 2026-07-15 (§3.0); the proof of
+  losslessness is in the git log — the strict form passed at `dd7c0f0c`, the
+  migration itself.
 - `scripts/url-parity.mjs` — reconstructs every v2 URL from it.
 
 It looks like a big generated blob you could regenerate or drop. **You cannot.**
@@ -107,50 +112,25 @@ pointless, read the comment above it before deleting.
 
 ## 3. What I'd actually refactor, highest value first
 
-### 3.0 🔴 The migration gate forbids all data evolution — fix this FIRST
+### 3.0 ✅ The migration gate now permits data evolution (done 2026-07-15)
 
-**This blocks the #1 item in NEXT-STEPS and I would do it before anything else.**
+`packages/graph/src/round-trip.test.ts` used to assert **deep equality**
+against `plangs.legacy.json`, which meant any data change reddened CI — the
+first pipeline run, every human YAML PR, the small data fixes in §3.4/§3.5.
+With the owner's sign-off it was narrowed from "nothing changed" to
+**"nothing was lost"** — the contract is described in §1 (fixture section).
 
-`packages/graph/src/round-trip.test.ts` asserts **deep equality** between the
-current dataset and `plangs.legacy.json`. That was right at migration time: it
-proved the migration was lossless. But it means **any data change reddens CI**.
-Verified empirically — adding a single `name:` field to one node fails 2 of its
-5 assertions:
+Verified in both directions before landing: adding a `name:` to `tool/pip`
+(the exact case that used to fail) now passes and shows `~1 changed` in the
+drift report; deleting a node or a single edge fails with the missing
+keys/edges named in the assertion diff.
 
-```
-AssertionError: expected { kind: 'bundle', v: {…} } to deeply equal { kind: 'bundle', v: {…} }
-```
+What must stay true (the durable part):
 
-That's not hypothetical. It breaks:
-
-- **The pipeline's first real run** — languish/linguist/pypl write `rankings`,
-  `trends`, `githubColor`… to hundreds of nodes. NEXT-STEPS §1 ("seed Wikidata
-  QIDs, then run a refresh") **cannot land while this gate stands.**
-- Any human PR editing a YAML node — i.e. the entire contribution model this
-  dataset exists to enable.
-- Any of the small data fixes in §3.4/§3.5 below.
-
-**The trap:** the obvious way to make it pass is to regenerate the fixture or
-delete the test. Both destroy the only proof the migration was lossless (§1 —
-the fixture cannot be regenerated; its generator is gone).
-
-**Recommended fix.** Narrow the permanent contract from "nothing changed" to
-**"nothing was lost"**:
-
-- **Hard gate, forever:** every v2 vertex key still exists; every v2 edge still
-  exists; the 15 kinds / 52 edge names still exist (the public dataset shape is
-  a documented v2 drop-in). Catches the real ongoing risk — silent loss during
-  refactors, key renames and pipeline runs.
-- **Retire strict equality.** Its job is done and the proof is in the git log: it
-  passed at commit `dd7c0f0c`, the migration itself. Optionally keep a *drift
-  report* (changed/added field counts, printed not asserted) so a reviewer can
-  see a diff touches what it claims to.
-- **Keep the fixture regardless** — the structural gate and `pnpm url-parity`
-  both read it.
-
-I drafted this and reverted it — it's a deliberate loosening of a safety net and
-deserves a considered decision rather than being slipped in. But do it before
-running any importer.
+- **Never regenerate the fixture** to make the gate pass — §1 explains why.
+- The drift report is **printed, not asserted** (`process.stdout.write`,
+  because vitest's default reporter swallows `console.*` from passing tests).
+  If it ever becomes an assertion again, you've rebuilt the old problem.
 
 ### 3.1 The graph throws away the types the schema already has ⭐
 
@@ -238,8 +218,7 @@ Two findings that aren't in the plan:
 - **The `name`-optional hack traces here.** Both bundles (plus `tool/pip`,
   `tool/vscode`) have no `name`, which is why `packages/schema/src/zod.ts`
   weakens `name: z.string()` to `.optional()` for all 495 nodes. Naming those 4
-  would let it be required again — **but that is a data change, so §3.0 blocks
-  it.**
+  would let it be required again — a data change, allowed now that §3.0 is done.
 
 **Costs of folding, measured:**
 
@@ -259,13 +238,13 @@ says to decide "after the data-source imports run"; **no importer has run**
 and Wikidata could plausibly populate `app`/`subsystem`. Nothing but a human will
 ever populate `bundle`.
 
-In order, once §3.0 unblocks data changes:
+In order (data changes are unblocked since §3.0):
 
 1. **Drop the `deprecated` flag** (or make it mean something). It costs nothing
    and removes a lie. Safe today — it's code, not data.
 2. **Fix `bun/plangs`** to describe the v3 stack, and **name the 4 nameless
    nodes**, then tighten `name` back to required. Adds value instead of removing
-   it. Blocked by §3.0.
+   it. Unblocked now that §3.0 is done.
 3. **Revisit folding after the first real pipeline run**, with real counts.
 
 The genuinely open question is a **product** one, not technical: *is "a curated

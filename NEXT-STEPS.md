@@ -44,12 +44,11 @@ Two things to hold onto:
 
 ## 1. Data pipeline — finish what's wired
 
-> 🔴 **Blocked: do REFACTOR.md §3.0 first.** The migration gate asserts deep
-> equality against the v2 fixture, so **writing any real data reddens CI** —
-> verified: adding one `name:` field to one node fails it. The first importer run
-> touches hundreds of nodes. Fix the gate (narrow it from "nothing changed" to
-> "nothing was lost") before running anything, or the tempting workaround is to
-> regenerate the oracle and lose the safety net.
+> ✅ **Unblocked 2026-07-15.** The migration gate (REFACTOR.md §3.0) was
+> narrowed from "nothing changed" to "nothing was lost": data changes now pass
+> CI, and the test prints a `[drift vs v2]` summary of added/changed nodes and
+> edges. Deleting any v2 node or edge still fails. When reviewing the first
+> importer diff, read that drift line — it should match what the run claims.
 
 The framework, four importers (`linguist`, `languish`, `wikidata`, `pypl`),
 enrichment and CLI all exist and are tested against recorded fixtures. What's
