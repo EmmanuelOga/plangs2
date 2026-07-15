@@ -1,14 +1,29 @@
-# Notes for the next refactor
+# How this code thinks
 
-Written 2026-07-15 by the agent that did the v2 → v3 migration, for whoever
-cleans this up next. [PLAN.md](PLAN.md) is the original spec (fully executed).
-[NEXT-STEPS.md](NEXT-STEPS.md) is the feature/ops backlog. **This file is about
-the code**: what's safe to change, what looks like cruft but isn't, and what I'd
-fix first.
+Written 2026-07-15 by the agent that did the v2 → v3 migration, for whoever works
+on this next. **This file is durable** — it records invariants, traps, and *why*
+the code is the way it is. It is not a task list and does not get "done"; when a
+task here is finished, the *knowledge* usually still matters, so edit it rather
+than deleting it.
+
+The three docs, three lifetimes:
+
+| Doc | What | Lifetime |
+| --- | --- | --- |
+| [PLAN.md](PLAN.md) | The migration spec. **Executed.** | history — frozen |
+| REFACTOR.md (this) | Invariants, traps, refactor targets. | **durable** |
+| [NEXT-STEPS.md](NEXT-STEPS.md) | What's left. | ephemeral — rewrite freely |
+
+**If you are here to refactor:** read this file, then do the work, then **rewrite
+NEXT-STEPS.md to reflect the new reality** — tick what you did, drop what no
+longer applies, and add what you discovered. Move any *durable* finding into this
+file instead of leaving it in the backlog. The two were duplicating each other
+and rotting in parallel; that's why they were split this way.
 
 The honest framing: I wrote this in one pass and shipped a **visibly broken
 site** behind green gates. Five rendering bugs got through. Assume my judgement
-here is fallible and verify with the loop below rather than trusting prose.
+here is fallible — **§3's ranking especially is a hypothesis, not a finding**.
+Verify with the loop below rather than trusting prose.
 
 ---
 

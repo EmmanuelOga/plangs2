@@ -1,5 +1,23 @@
 # Plangs 2026 Modernization Plan
 
+> ## ✅ EXECUTED — 2026-07-15. This document is now HISTORY, not a todo list.
+>
+> All six phases shipped and every phase gate is green. `main` is v3; the v2
+> implementation it describes is frozen at tag **`final-plangs-2`** (`3a4a2353`).
+> Most of the code referenced below (`packages/server`, `packages/frontend`,
+> `packages/definitions`, `packages/plangs`, …) **no longer exists**.
+>
+> Keep it for the *why*: the audit, the research, and the decisions (D1–D5) that
+> explain the current shape. But for anything actionable, go to:
+>
+> - **[REFACTOR.md](REFACTOR.md)** — how the code thinks; read before changing it.
+> - **[NEXT-STEPS.md](NEXT-STEPS.md)** — what's actually left.
+>
+> Where this plan and reality disagree, **reality wins** — several §1 assumptions
+> turned out wrong in practice (pnpm 11 is unobtainable here, Astro 7 swapped its
+> markdown processor, no redirects were needed). Deviations are recorded in the
+> two docs above and in the git log.
+
 This plan turns plangs.page from a hand-built Bun/Preact/esbuild experiment into a
 modern, agent-friendly Astro + React site with a real data layer. It was produced
 after a full audit of this repo, the local `~/dev/languish` clone, and web research

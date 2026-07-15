@@ -1,39 +1,44 @@
 # Next steps
 
-State as of **2026-07-15**, after executing [PLAN.md](PLAN.md).
+**This is the backlog — a working list, meant to be rewritten as work lands.**
 
-`main` is plangs v3. The v2 implementation is frozen at tag **`final-plangs-2`**
-(`3a4a2353`) — everything deleted during the migration is recoverable there.
+Three docs, three lifetimes — keep them separate:
+
+| Doc | What it is | Lifetime |
+| --- | --- | --- |
+| [PLAN.md](PLAN.md) | The v2 → v3 migration spec. **Fully executed.** | history — frozen |
+| [REFACTOR.md](REFACTOR.md) | How this code thinks: invariants, load-bearing traps, why things are the way they are. | **durable** — outlives any one task |
+| NEXT-STEPS.md (this) | What's left to do. | ephemeral — consume and rewrite |
+
+**Read REFACTOR.md before changing code.** It owns the durable knowledge
+(the safety nets, the six traps that each cost a real bug, the environment
+facts). This file deliberately does not repeat it — if you find yourself
+explaining *why the code is like that* here, it belongs in REFACTOR.md.
 
 ## Where things stand
 
-All six phases are done and every phase gate is green:
+`main` is plangs v3; all six PLAN.md phases are done. The v2 implementation is
+frozen at tag **`final-plangs-2`** (`3a4a2353`) — everything deleted during the
+migration is recoverable there.
 
-| Gate | Command | Status |
-| --- | --- | --- |
-| Unit tests | `pnpm test` | 156 tests |
-| **Browser tests** | `pnpm test:browser` | 41 tests (needs a build first) |
-| **Migration fidelity** | `pnpm vitest run packages/graph/src/round-trip.test.ts` | YAML deep-equals the v2 graph |
-| Lint / format / dead code | `pnpm check` | biome + knip, clean |
-| Typecheck `.astro` | `pnpm -F @plangs/site check` | 0 errors |
-| Typecheck + site build | `pnpm build` | 515 pages |
-| **URL parity** | `pnpm url-parity` | 514/514 v2 URLs served |
-| Data canonical form | `pnpm data:fmt` | 0 of 495 changed |
+Every gate is green. Run them rather than trusting this list (counts in prose go
+stale — this file claimed 41 browser tests when there were 42):
 
-`pnpm test:all` runs unit + browser. Browser tests run against the **built**
-site, so `pnpm -F @plangs/site build` must come first (CI does this).
+```sh
+pnpm check                                        # biome + knip
+pnpm build                                        # tsc + build the site
+pnpm -F @plangs/site check                        # astro check (.astro types)
+pnpm test                                         # unit
+pnpm -F @plangs/site build && pnpm test:browser   # real Chromium
+pnpm url-parity                                   # every v2 URL still served
+node scripts/data-fmt.mjs                         # must say "0 of 495"
+```
 
-Nothing is deployed, and **no importer has been run for real** — `packages/data`
-still holds exactly the data migrated from v2.
+Two things to hold onto:
 
-### The two oracles (don't delete these)
-
-- `packages/graph/test/fixtures/plangs.legacy.json` — the v2 graph, reconstructed
-  from the v2 definitions. It is what makes the round-trip and URL-parity gates
-  meaningful. The one-time migration script that produced it is gone (its inputs
-  were the v2 packages), so this fixture is the permanent record.
-- `pnpm url-parity` reconstructs the v2 URL set from that fixture + the v2 `href`
-  rules. Keep it in CI.
+- **Nothing is deployed** and nothing deploys on push (see §3).
+- **No importer has been run for real** — `packages/data` still holds exactly the
+  data migrated from v2, byte-for-byte.
 
 ---
 
@@ -74,19 +79,8 @@ pnpm pipeline run --source=linguist             # write
 
 ## 2. Verification we could not do here
 
-> **Lesson worth keeping.** Build + URL-parity + unit tests were all green while
-> the site was visibly broken: they proved markup was *emitted*, never that it
-> *rendered*. **Five** real bugs lived behind those green gates — the grid layout
-> never applying at any width, every facet row collapsing into overlapping text,
-> filtering dying after "match all", a mis-ported background, and the mobile
-> facets sheet rendering ~19,000px off-screen. `pnpm test:browser` and
-> `pnpm -F @plangs/site check` exist because of that.
->
-> The 5th was found by **looking at a screenshot**, not by a test — and the test
-> that should have caught it asserted `position: fixed` (true!) while the element
-> was 19,000px away. Assert *outcomes* (is it on screen?), not properties. When
-> in doubt, screenshot the page:
-> `pnpm -F @plangs/site build`, then drive `apps/site/dist` with Playwright.
+> Why this section exists: five rendering bugs shipped behind green gates.
+> REFACTOR.md §0 has the full lesson and the loop — read it there.
 
 - [ ] **Lighthouse mobile ≥ 95 and axe clean** (the Phase 5 gate) — still
       unmeasured. Playwright is now installed, so this is newly cheap: run
@@ -94,7 +88,7 @@ pnpm pipeline run --source=linguist             # write
       project. The a11y work is done (real buttons with
       `aria-pressed`/`aria-expanded`, 44px targets, `aria-live` counts, labelled
       facet regions) but nothing has scored it.
-- [ ] **Browser coverage is thin.** 41 tests cover the grid, facets, theme and a
+- [ ] **Browser coverage is thin.** It covers the grid, facets, theme and a
       detail page. Nothing covers the prompt menu, the theme toggle's
       persistence, the blog, or dark mode visually.
 - [ ] **Visual regression** would have caught the background mis-port instantly.
@@ -183,44 +177,13 @@ That integration is invisible from the repo. If it is still connected to `main`:
 
 ## 5. Known quirks
 
-- **`pl/.net` is a dotfile.** Its slug starts with `.`, so the node lives at
-  `packages/data/nodes/plang/.net.yaml` and is invisible to a bare `ls`. Slugs
-  were preserved verbatim to keep URL parity; renaming means a redirect.
-- **pnpm 10.34.5, not 11** (PLAN §1 asked for 11). Corepack can't fetch 11 in
-  this environment and pnpm here is provisioned by `mise`. 10.34.5 has catalogs
-  and everything the plan needs. `.npmrc` sets
-  `manage-package-manager-versions=false` so pnpm doesn't try to self-switch —
-  don't "fix" that without checking `pnpm -v` first.
-- **Astro 7 changed its Markdown processor.** Sätteri is the default; remark
-  plugins require `@astrojs/markdown-remark` to be installed explicitly. That's
-  why it's a direct dependency of `apps/site`.
-- **Biome does not lint `.astro`.** Its `.astro` support is experimental and
-  reports frontmatter imports as unused (PLAN §11 predicted this). `.astro`
-  files and the Tailwind stylesheet are excluded in `biome.json`. **`pnpm -F
-  @plangs/site check` (astro check) is therefore the only thing type-checking
-  the templates — keep it in CI.** It was broken for a while (`@astrojs/check`
-  was never installed) and hid a real store bug.
-- **@xstate/store v4 REPLACES context**; handlers must return the whole thing,
-  not a partial. Returning `{ mode }` silently drops `selected`. There are tests
-  for this in `apps/site/src/stores/facets.test.ts`.
-- **Container queries need an ancestor container.** `@container` and `@3xl:*` on
-  the same element silently does nothing — a container cannot query itself.
-- **Islands: wait for `data-facets-ready`, not `astro-island[ssr]`.** Astro drops
-  `ssr` before React attaches handlers, so clicking on that signal races
-  hydration and makes tests flaky.
-- **Never put `backdrop-filter` / `filter` / `transform` on `body` or any
-  ancestor of a `position: fixed` element.** It makes that ancestor the
-  containing block, so `fixed` anchors to the *document* instead of the
-  viewport. This put the mobile facets sheet ~19,000px off-screen while its
-  computed style still said `position: fixed`. The site backdrop therefore lives
-  on a fixed `body::before` layer — keep it that way. Guarded by a test.
-- **`sync-assets` races the dev server.** `pnpm -F @plangs/site build` re-copies
-  `packages/data/assets` over `apps/site/public/images/vertex` while a dev server
-  is serving it, causing transient image 404s. Harmless, but don't chase it as a
-  real bug; restart the dev server after a build. Worth making the copy atomic
-  (write to a temp dir + rename) if it becomes annoying.
-- **URL casing matters.** v2 served `/typesystem/static` (lower-cased kind).
-  `urlKind()` in `apps/site/src/lib/view.ts` preserves that; changing it silently
-  breaks parity for one kind. `pnpm url-parity` catches it.
-- **Edge names are v2-shaped** (`plangRelParadigms`). Kept deliberately so
-  `/data/plangs.json` stays a drop-in for anything consuming the v2 dataset.
+Moved to [REFACTOR.md](REFACTOR.md) — they are durable properties of the code,
+not tasks, and they were rotting in two places at once. See:
+
+- **§1 Do not break these** — the legacy fixture, the v2-shaped edge names/keys,
+  the lower-cased `/typesystem/` URL segment.
+- **§2 Load-bearing subtleties** — the six things that each cost a real bug and
+  look deletable (container wrapper, `shrink-0`, `body::before`, `...ctx` in
+  store handlers, `data-facets-ready`, `.ts` import extensions).
+- **§5 Facts worth knowing** — pnpm 10 via mise, no Bun, Astro 7 markdown,
+  Vitest 4 provider factory, `pl/.net` is a dotfile, nothing deployed.
