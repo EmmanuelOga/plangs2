@@ -55,10 +55,38 @@ describe("facets panel", () => {
     expect(pg.win.getComputedStyle(trigger as Element).display).not.toBe("none");
 
     (trigger as HTMLElement).click();
-    await new Promise(r => setTimeout(r, 150));
+    await new Promise(r => setTimeout(r, 200));
     const aside = pg.styleOf("aside[aria-label^='Filter']");
     expect(aside.display, "sheet should open on tap").not.toBe("none");
-    expect(aside.position, "sheet should be fixed to the bottom").toBe("fixed");
+    expect(aside.position, "sheet should be fixed").toBe("fixed");
+
+    // `position: fixed` is NOT enough. An ancestor with backdrop-filter/filter/
+    // transform makes itself the containing block, and the sheet then anchors to
+    // the bottom of the *document*. That is exactly what happened: the computed
+    // position said "fixed" while the sheet rendered ~19,000px down the page and
+    // was invisible. Assert it is actually ON SCREEN.
+    const el = pg.$("aside[aria-label^='Filter']") as HTMLElement;
+    const r = el.getBoundingClientRect();
+    const vh = pg.win.innerHeight;
+    expect(r.top, `sheet is off-screen (top=${Math.round(r.top)}, viewport=${vh})`).toBeLessThan(vh);
+    expect(r.bottom, "sheet should reach the bottom edge").toBeGreaterThan(vh - 2);
+    expect(r.height, "sheet should have real height").toBeGreaterThan(50);
+  });
+
+  it("keeps the facets sheet anchored to the viewport, not the document", async () => {
+    pg = await loadPage("/plangs/index.html", 390, 844);
+    await waitForHydration(pg);
+    // Guard the root cause directly: no ancestor of the sheet may create a
+    // containing block for fixed positioning.
+    const el = pg.$("aside[aria-label^='Filter']") as HTMLElement;
+    const offenders: string[] = [];
+    for (let p = el.parentElement; p; p = p.parentElement) {
+      const cs = pg.win.getComputedStyle(p);
+      if (cs.transform !== "none" || cs.filter !== "none" || cs.backdropFilter !== "none" || cs.perspective !== "none") {
+        offenders.push(`${p.tagName}{transform:${cs.transform};filter:${cs.filter};backdrop-filter:${cs.backdropFilter}}`);
+      }
+    }
+    expect(offenders, "an ancestor creates a containing block for position:fixed").toEqual([]);
   });
 });
 

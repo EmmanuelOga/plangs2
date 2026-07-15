@@ -53,20 +53,33 @@
   }
 
   /*
-   * Striped + radial backdrop, ported verbatim from v2's `background()` helper
+   * Striped + radial backdrop, ported from v2's `background()` helper
    * (packages/frontend/src/auxiliar/styles.ts @ tag final-plangs-2):
    *   gradRadial(): radial-gradient(transparent 0, --color-background 75%)
    *   gradLinear(): repeating-linear-gradient(45deg, --color-stripes 0,
    *                 --color-stripes 1px, --color-background 0,
    *                 --color-background 50%) top left / 10px 10px
-   *   backdrop-filter: blur(1.25px)
    *
-   * The two details that matter and are easy to get wrong: the stripe gaps are
-   * the BACKGROUND COLOR (not transparent), which keeps it a fine hatch rather
-   * than a wash; and the radial layer sits ON TOP, fading to solid background by
-   * 75% so the hatch only shows through the centre.
+   * Two details that are easy to get wrong: the stripe gaps are the BACKGROUND
+   * COLOR (not transparent), which keeps it a fine hatch rather than a wash; and
+   * the radial layer sits ON TOP, fading to solid background by 75% so the hatch
+   * only shows through the centre.
+   *
+   * It lives on a FIXED pseudo-element rather than on `body`, for two reasons:
+   *   1. v2's body was `h-dvh overflow-hidden`, so its radial vignette was
+   *      viewport-sized. v3 scrolls the body (PLAN §8), so painting it on `body`
+   *      stretches the vignette over the whole ~19,000px document.
+   *   2. v2 also set `backdrop-filter: blur(1.25px)` here. That is a visual
+   *      no-op (the backdrop is a solid colour) but it makes `body` a
+   *      CONTAINING BLOCK for fixed descendants — which pushed the mobile facets
+   *      sheet ~19,000px down the page, out of the viewport. Dropped.
    */
-  body {
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
     background:
       radial-gradient(transparent 0, var(--color-background) 75%) top left / 100% 100%,
       repeating-linear-gradient(
@@ -77,7 +90,6 @@
           var(--color-background) 50%
         )
         top left / 10px 10px;
-    backdrop-filter: blur(1.25px);
   }
   h1 {
     font-family: var(--font-display);
