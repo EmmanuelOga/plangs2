@@ -81,9 +81,52 @@ pnpm pipeline run --source=linguist             # write
 
 ## 3. Deploy / cutover
 
-- [ ] Deploy: `pnpm -F @plangs/site build && npx wrangler deploy`
-      (`wrangler.toml` is already Workers static assets, not Pages).
-- [ ] Point DNS / confirm the Workers route, then smoke-test prod.
+**Nothing here is deployed, and nothing deploys on push.** CI only runs
+check/build/test/url-parity — there is no deploy workflow.
+
+Observed on 2026-07-15 (verified by HTTP, not assumed):
+
+- `plangs.page` → **200, still serving v2** (v2-only markers `grid-wrapper` /
+  `id-mainContent`; no `astro-island` / `/_astro/`).
+- `plangs2.pages.dev` → **200. The legacy Cloudflare Pages project still exists
+  and is live.**
+- The live v2 site returns **200 + HTML for every unknown path** (a catch-all),
+  so "is the new site up?" cannot be answered by status code alone — check for
+  an `astro-island` / `/_astro/` marker instead.
+
+### Before pushing — check this first
+
+The v2 setup was **Cloudflare Pages with a git integration configured in the CF
+dashboard** (the old `wrangler.toml` had `pages_build_output_dir = "output"`).
+That integration is invisible from the repo. If it is still connected to `main`:
+
+- a push triggers a Pages build running the **old** build command against a repo
+  where `output/`, `packages/server` and the Bun `build` script no longer exist;
+- most likely it **fails** (safe: the last good deploy stays live, but noisy);
+- if the command was changed to something that succeeds, it could publish the
+  **wrong directory**.
+
+→ **Check the Pages project's Build settings and disconnect the git integration
+(or repoint it) before pushing.** This cannot be verified from here.
+
+### Cutover steps
+
+- [ ] `pnpm -F @plangs/site build` → the artifact is `apps/site/dist`
+      (1800 files, ~15 MB). `npx wrangler deploy --dry-run` validates the config
+      and uploads nothing.
+- [ ] **`name` mismatch is deliberate but consequential.** `wrangler.toml` says
+      `name = "plangs"`; the existing project is `plangs2`. `wrangler deploy`
+      therefore creates a **new Worker** — it does not update the Pages project
+      and does not touch the domain. Either accept the new name or set it to
+      match what you want to replace.
+- [ ] Deploy, verify on `*.workers.dev` first, and only then move the domain:
+      `plangs.page` is currently attached to the **Pages** project, so the real
+      cutover is removing the custom domain there and adding it to the Worker
+      (dashboard, or `routes` in `wrangler.toml`). Expect brief downtime.
+- [ ] Smoke-test prod after cutover: spot-check `/`, `/nim`, `/typesystem/static`,
+      `/llms.txt`, `/nim.md`, and a bogus path (must be a **real** 404 now).
+- [ ] Consider a deploy GitHub Action once the cutover is done, so `main` →
+      production is reproducible instead of a laptop command.
 - [ ] The `/edit` editor and its PR worker are **gone** (Decision D3). Each node
       page now deep-links to its YAML on GitHub
       (`EmmanuelOga/plangs2`, hardcoded as `REPO` in
