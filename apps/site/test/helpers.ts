@@ -11,7 +11,13 @@
 const DIST_BASE = "/__dist__";
 
 export interface LoadedPage {
-  win: Window;
+  /**
+   * `Window & typeof globalThis`, not bare `Window`: tests construct events
+   * against the IFRAME's realm (`new pg.win.KeyboardEvent(...)`), and an event
+   * built in the runner's realm is a different class — handlers inside the page
+   * may not see it. The constructors only exist on the globalThis-flavoured type.
+   */
+  win: Window & typeof globalThis;
   doc: Document;
   /** The iframe itself — the element a pixel snapshot is taken of. */
   frame: HTMLIFrameElement;
@@ -48,7 +54,7 @@ export async function loadPage(path: string, width = 1440, height = 900): Promis
     setTimeout(() => reject(new Error(`iframe timed out: ${url}`)), 15_000);
   });
 
-  const win = iframe.contentWindow;
+  const win = iframe.contentWindow as (Window & typeof globalThis) | null;
   const doc = iframe.contentDocument;
   if (!win || !doc) throw new Error(`No iframe document for ${url}`);
 

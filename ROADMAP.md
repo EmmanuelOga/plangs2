@@ -120,11 +120,26 @@ pnpm pipeline run --source=linguist             # write
   (real buttons, `aria-pressed`/`aria-expanded`, 44px targets, `aria-live`
   counts) but nothing has scored it. *Done when:* scores are recorded here;
   fix what falls short.
-- ⬜ **2b. Broaden browser coverage** — currently grid, facets, theme, one
-  detail page. Missing: the prompt menu, theme persistence across
-  navigation, the blog, dark mode rendered visually. When adding a
-  regression test, re-introduce the bug and confirm the test fails
-  (CLAUDE.md).
+- ✅ **2b. Broaden browser coverage** (2026-07-17) — browser suite went
+  37 → 63 tests. Added `theme.browser.test.ts` (toggle, persistence across a
+  real navigation, pre-paint inline script, repaint), `prompt-menu.browser.test.ts`
+  (open/close, Escape, outside click, prompt contents, live filter state
+  reaching the prompt) and `blog.browser.test.ts` (index ordering, markdown
+  rendering, vertex refs). Dark mode rendered visually is covered by 2c's
+  `grid-dark` baseline. Every test verified faithful by re-introducing the bug
+  it guards (deferred theme script, dropped localStorage write, dropped filter
+  plumbing, wrong markdown-twin URL, unregistered dismiss handlers, unwired
+  remark plugin) — each failed as intended.
+  - 🧑 **Found: vertex refs are not linked inside raw HTML blocks.**
+    `2025_01_01_python.md` hand-writes a `<table>`, and
+    `remark-vertex-refs` walks mdast text nodes — raw HTML arrives as one
+    opaque `html` node, so readers see a literal `(pl+python)` in the MyPy
+    table cell. **Pre-existing, not a migration regression**: the live v2 site
+    renders the same literal string (verified over HTTP 2026-07-17). Needs the
+    owner: fix the authored content (restructure the table so the refs sit in
+    markdown text) or teach the plugin to walk raw HTML (regex over raw HTML —
+    riskier). The blog test is scoped to `p`/`li` prose meanwhile; tighten it
+    to the whole `<article>` once fixed.
 - ✅ **2c. Visual regression snapshots** (2026-07-17) —
   `apps/site/test/pixels.browser.test.ts` pixel-compares 5 views (home, wide
   grid, detail, dark grid, mobile facets sheet) at **exact** tolerance;
