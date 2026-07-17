@@ -26,6 +26,8 @@ releases:
     date: 2024-09-05
 stackovTags:
   - ballerina
+sources:
+  wikidata: Q51160183
 rels:
   influencedBy:
     - pl/c-sharp

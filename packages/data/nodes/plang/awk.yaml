@@ -25,6 +25,8 @@ links:
     title: Effective AWK Programming
 stackovTags:
   - awk
+sources:
+  wikidata: Q213970
 rels:
   influencedBy:
     - pl/c

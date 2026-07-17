@@ -36,6 +36,8 @@ releases:
     date: 2024-10-30
 stackovTags:
   - common-lisp
+sources:
+  wikidata: Q849146
 rels:
   dialectOf:
     - pl/common-lisp

@@ -28,6 +28,8 @@ releases:
     date: 2023-11-17
 stackovTags:
   - netlogo
+sources:
+  wikidata: Q672307
 rels:
   dialectOf:
     - pl/lisp

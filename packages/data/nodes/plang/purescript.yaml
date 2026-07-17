@@ -26,6 +26,8 @@ releases:
     date: 2024-02-07
 stackovTags:
   - purescript
+sources:
+  wikidata: Q65082796
 rels:
   compilesTo:
     - pl/javascript

@@ -29,6 +29,8 @@ releases:
     date: 2024-12-11
 stackovTags:
   - erlang
+sources:
+  wikidata: Q334879
 rels:
   influencedBy:
     - pl/lisp

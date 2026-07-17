@@ -16,6 +16,8 @@ releases:
   - version: "1.0"
     name: CodeMonkey 1.0
     date: 2014-05-01
+sources:
+  wikidata: Q108551418
 rels:
   licenses:
     - lic/proprietary

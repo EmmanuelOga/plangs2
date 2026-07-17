@@ -18,6 +18,8 @@ releases:
   - version: 9.1.4
     name: CircuitPython 9.1.4
     date: 2024-09-17
+sources:
+  wikidata: Q55607667
 rels:
   implements:
     - pl/python

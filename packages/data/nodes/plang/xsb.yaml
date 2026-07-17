@@ -16,6 +16,8 @@ releases:
   - version: "5.0"
     name: ""
     date: 2022-05-12
+sources:
+  wikidata: Q8042469
 rels:
   dialectOf:
     - pl/prolog

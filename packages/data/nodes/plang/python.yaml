@@ -40,6 +40,8 @@ releases:
     date: 2024-10-07
 stackovTags:
   - python
+sources:
+  wikidata: Q28865
 rels:
   influencedBy:
     - pl/ada

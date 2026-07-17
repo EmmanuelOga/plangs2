@@ -19,6 +19,8 @@ releases:
   - version: 2024.0.0
     name: 2024.0.0
     date: 2023-11-20
+sources:
+  wikidata: Q1665600
 rels:
   implements:
     - pl/fortran

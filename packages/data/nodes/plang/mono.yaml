@@ -18,6 +18,8 @@ releases:
   - version: 6.12.0.206
     name: Mono 6.12.0.206
     date: 2024-02-13
+sources:
+  wikidata: Q722656
 rels:
   implements:
     - pl/c-sharp

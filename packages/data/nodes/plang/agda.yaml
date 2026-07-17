@@ -34,6 +34,8 @@ releases:
     date: 2024-08-16
 stackovTags:
   - agda
+sources:
+  wikidata: Q20479
 rels:
   influencedBy:
     - pl/coq

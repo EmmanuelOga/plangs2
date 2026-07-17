@@ -17,6 +17,8 @@ releases:
   - version: beta40
     name: beta40
     date: 2020-12-01
+sources:
+  wikidata: Q2535515
 rels:
   influencedBy:
     - pl/apl

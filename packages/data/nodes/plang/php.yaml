@@ -41,6 +41,8 @@ releases:
     date: 2024-09-26
 stackovTags:
   - php
+sources:
+  wikidata: Q59
 rels:
   influencedBy:
     - pl/c

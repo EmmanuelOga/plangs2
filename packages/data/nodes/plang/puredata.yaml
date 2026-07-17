@@ -24,6 +24,8 @@ releases:
     date: 2023-09-17
 stackovTags:
   - puredata
+sources:
+  wikidata: Q1401466
 rels:
   licenses:
     - lic/bsd

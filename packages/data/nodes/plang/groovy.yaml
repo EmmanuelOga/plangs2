@@ -30,6 +30,8 @@ releases:
     date: 2024-09-09
 stackovTags:
   - groovy
+sources:
+  wikidata: Q504453
 rels:
   influencedBy:
     - pl/perl

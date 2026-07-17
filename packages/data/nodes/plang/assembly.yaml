@@ -26,6 +26,8 @@ isTranspiler: false
 languishRanking: 33
 stackovTags:
   - assembly
+sources:
+  wikidata: Q165436
 rels:
   paradigms:
     - para/imperative

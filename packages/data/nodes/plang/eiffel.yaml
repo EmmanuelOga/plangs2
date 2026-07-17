@@ -24,6 +24,8 @@ releases:
     date: 2024-06-14
 stackovTags:
   - eiffel
+sources:
+  wikidata: Q732089
 rels:
   influencedBy:
     - pl/ada

@@ -32,6 +32,8 @@ releases:
     date: 2024-01-01
 stackovTags:
   - raku
+sources:
+  wikidata: Q2052676
 rels:
   implements:
     - pl/raku

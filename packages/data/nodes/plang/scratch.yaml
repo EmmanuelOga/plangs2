@@ -26,6 +26,8 @@ releases:
   - version: "2.0"
     name: Scratch 2.0
     date: 2013-05-09
+sources:
+  wikidata: Q275131
 rels:
   influencedBy:
     - pl/squeak

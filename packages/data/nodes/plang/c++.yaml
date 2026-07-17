@@ -69,6 +69,8 @@ releases:
     date: 2020-12-15
 stackovTags:
   - c++
+sources:
+  wikidata: Q2407
 rels:
   compilesTo:
     - pl/webassembly

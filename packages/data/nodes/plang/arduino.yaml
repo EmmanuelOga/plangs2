@@ -23,6 +23,8 @@ releases:
     date: 2024-09-25
 stackovTags:
   - arduino
+sources:
+  wikidata: Q175957
 rels:
   licenses:
     - lic/cc-by

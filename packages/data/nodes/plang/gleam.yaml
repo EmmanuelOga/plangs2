@@ -28,6 +28,8 @@ releases:
     date: 2024-12-03
 stackovTags:
   - gleam
+sources:
+  wikidata: Q66370905
 rels:
   compilesTo:
     - pl/erlang

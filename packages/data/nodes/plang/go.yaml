@@ -28,6 +28,8 @@ releases:
     date: 2024-01-01
 stackovTags:
   - go
+sources:
+  wikidata: Q37227
 rels:
   compilesTo:
     - pl/webassembly

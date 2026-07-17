@@ -37,6 +37,8 @@ releases:
     date: 2024-07-26
 stackovTags:
   - ruby
+sources:
+  wikidata: Q161053
 rels:
   influencedBy:
     - pl/basic

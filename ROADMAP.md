@@ -78,13 +78,32 @@ pnpm pipeline run --source=linguist --dry-run   # inspect
 pnpm pipeline run --source=linguist             # write
 ```
 
-- ⬜ **1a. Seed Wikidata QIDs** — the highest-value source matches **0 of
-  267** languages because no node carries `sources.wikidata` and the importer
-  refuses to guess. Do the one-time SPARQL batch-resolve (PLAN §5.3) landing
-  `sources.wikidata: Q…` per plang node; where the match is ambiguous, leave
-  the node unset and list it for the owner rather than guessing.
-  *Done when:* `pnpm pipeline run --source=wikidata --dry-run` matches most
-  of the 267 and the unmatched remainder is explicitly listed.
+- ✅ **1a. Seed Wikidata QIDs** (2026-07-17) — **0 → 185 of 267 matched**
+  (`pnpm pipeline run --source=wikidata --dry-run`: `matched: 185`,
+  175 changes across 137 nodes, 247 review items). Seeder:
+  `scripts/seed-wikidata-qids.mjs` (`--dry-run` to re-inspect).
+  - The match is an **identity, not a guess**: 204 nodes already assert an
+    `extWikipediaPath`, and Wikidata maintains article → item. No name
+    matching. The 63 nodes with no Wikipedia link are left unset and listed —
+    "Astro", "Bun" and "Amber" are each a language *and* an unrelated project.
+  - **Resolves via the MediaWiki API, not a SPARQL sitelink join** (PLAN §5.3
+    assumed SPARQL). ~30 of our paths are redirect titles and Wikidata stores
+    only canonical ones, so a verbatim join claimed Haskell, Kotlin, Lua and
+    CSS had no item. SPARQL is still used for the labels/types in the report.
+  - **10 rejected rather than written**, each a genuine trap:
+    - *merged into another topic* (4): `moonscript`→Lua, `r5rs`→Scheme,
+      `javascriptcore`→WebKit, `roff`→Groff. A redirect is a rename (fine:
+      `Lua (programming language)`→`Lua`) or a **merge** (fatal: MoonScript
+      would carry Lua's QID and the importer would then overwrite MoonScript's
+      `created`/homepage with Lua's). Accepted only when the destination topic
+      still matches the node.
+    - *disambiguation pages* (3): `tcl`→TCL, `hy`, `coq`. Not entities; no
+      facts to import.
+    - *no Wikidata item* (3): `nickel`, `pkl`, `shen`.
+  - The report also flags every followed redirect and every QID Wikidata does
+    not class as language-ish (e.g. `gdscript`→Godot the game engine,
+    `arduino`→a company, `jupyter-notebook`→a nonprofit) for owner review.
+  - `[drift vs v2]`: `+0 vertices, ~189 changed, +0 edges` — nothing lost.
 - ⬜ **1b. First real refresh** — run each importer (dry-run first, then
   write), review the diff and the printed `[drift vs v2]` report, commit per
   source with the report summary in the message. Last dry-runs: linguist 175

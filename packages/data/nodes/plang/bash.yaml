@@ -30,6 +30,8 @@ releases:
     date: 2024-09-23
 stackovTags:
   - bash
+sources:
+  wikidata: Q189248
 rels:
   licenses:
     - lic/gnu-gpl

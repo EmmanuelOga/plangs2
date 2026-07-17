@@ -27,6 +27,8 @@ releases:
     date: 2024-09-28
 stackovTags:
   - vlang
+sources:
+  wikidata: Q61632937
 rels:
   compilesTo:
     - pl/c

@@ -38,6 +38,8 @@ releases:
     date: 2024-08-29
 stackovTags:
   - perl
+sources:
+  wikidata: Q42478
 rels:
   influencedBy:
     - pl/awk

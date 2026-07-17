@@ -12,6 +12,8 @@ extWikipediaPath: Frink_(programming_language)
 extensions:
   - .frink
 isTranspiler: false
+sources:
+  wikidata: Q3087863
 rels:
   licenses:
     - lic/artistic

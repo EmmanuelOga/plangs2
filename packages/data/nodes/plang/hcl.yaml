@@ -30,6 +30,8 @@ releases:
     date: 2014-07-28
 stackovTags:
   - Terraform
+sources:
+  wikidata: Q28957072
 rels:
   compilesTo:
     - pl/go

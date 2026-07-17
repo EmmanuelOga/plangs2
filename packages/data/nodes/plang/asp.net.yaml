@@ -33,6 +33,8 @@ releases:
 stackovTags:
   - asp.net
   - asp.net-core
+sources:
+  wikidata: Q178817
 rels:
   compilesTo:
     - pl/.net

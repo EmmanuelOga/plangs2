@@ -20,6 +20,8 @@ releases:
   - version: GNAT Pro 24
     name: GNAT Pro 24
     date: "2024"
+sources:
+  wikidata: Q180760
 rels:
   implements:
     - pl/ada

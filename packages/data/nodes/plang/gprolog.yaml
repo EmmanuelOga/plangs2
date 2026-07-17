@@ -12,6 +12,8 @@ extWikipediaPath: GNU_Prolog
 extensions:
   - .pro
 isTranspiler: false
+sources:
+  wikidata: Q2351180
 rels:
   implements:
     - pl/prolog

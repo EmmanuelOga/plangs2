@@ -31,6 +31,8 @@ releases:
     date: 2023-04-30
 stackovTags:
   - ampl
+sources:
+  wikidata: Q295250
 rels:
   paradigms:
     - para/declarative

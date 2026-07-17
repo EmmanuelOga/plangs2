@@ -33,6 +33,8 @@ releases:
     date: 2024-06-22
 stackovTags:
   - elisp
+sources:
+  wikidata: Q1334586
 rels:
   dialectOf:
     - pl/lisp

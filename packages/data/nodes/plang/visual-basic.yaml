@@ -25,6 +25,8 @@ releases:
     date: 2024-03-02
 stackovTags:
   - vb.net
+sources:
+  wikidata: Q50077
 rels:
   implements:
     - pl/basic

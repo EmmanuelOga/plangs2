@@ -24,6 +24,8 @@ releases:
     date: "2013"
 stackovTags:
   - json
+sources:
+  wikidata: Q2063
 rels:
   paradigms:
     - para/data-exchange

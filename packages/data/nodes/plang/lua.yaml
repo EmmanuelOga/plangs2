@@ -24,6 +24,8 @@ releases:
     date: 2024-06-25
 stackovTags:
   - lua
+sources:
+  wikidata: Q207316
 rels:
   influencedBy:
     - pl/awk

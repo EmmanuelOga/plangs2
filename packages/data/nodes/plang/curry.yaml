@@ -22,6 +22,8 @@ releases:
   - version: 3.6.0
     name: Curry 3.6.0
     date: 2023-11-10
+sources:
+  wikidata: Q2368856
 rels:
   influencedBy:
     - pl/haskell

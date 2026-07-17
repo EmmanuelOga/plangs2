@@ -30,6 +30,8 @@ releases:
     date: 2014-10-28
 stackovTags:
   - html
+sources:
+  wikidata: Q8811
 rels:
   paradigms:
     - para/declarative

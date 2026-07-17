@@ -29,6 +29,8 @@ releases:
     date: 2023-05-24
 stackovTags:
   - javascript
+sources:
+  wikidata: Q2005
 rels:
   implements:
     - pl/javascript

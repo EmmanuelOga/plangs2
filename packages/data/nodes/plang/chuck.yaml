@@ -28,6 +28,8 @@ releases:
     date: 2024-01-01
 stackovTags:
   - chuck
+sources:
+  wikidata: Q850484
 rels:
   influencedBy:
     - pl/supercollider

@@ -24,6 +24,8 @@ releases:
     date: 2024-10-11
 stackovTags:
   - vue.js
+sources:
+  wikidata: Q24589705
 rels:
   compilesTo:
     - pl/javascript

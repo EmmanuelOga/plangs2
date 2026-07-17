@@ -28,6 +28,8 @@ releases:
     name: LibSass 3.6.6
 stackovTags:
   - sass
+sources:
+  wikidata: Q1572865
 rels:
   compilesTo:
     - pl/css

@@ -30,6 +30,8 @@ releases:
     date: 2024-02-19
 stackovTags:
   - red
+sources:
+  wikidata: Q3217187
 rels:
   influencedBy:
     - pl/lisp

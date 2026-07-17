@@ -21,6 +21,8 @@ githubStars: 125
 githubType: programming
 isTranspiler: false
 languishRanking: 262
+sources:
+  wikidata: Q2118858
 rels:
   dialectOf:
     - pl/basic

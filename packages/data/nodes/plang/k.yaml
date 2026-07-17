@@ -10,6 +10,8 @@ extWikipediaPath: K_(programming_language)
 extensions:
   - .k
 isTranspiler: false
+sources:
+  wikidata: Q4042031
 rels:
   influencedBy:
     - pl/apl

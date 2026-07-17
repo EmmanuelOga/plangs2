@@ -16,6 +16,8 @@ isTranspiler: false
 releases:
   - version: "2.1"
     date: 2024-01-13
+sources:
+  wikidata: Q2569373
 rels:
   dialectOf:
     - pl/c

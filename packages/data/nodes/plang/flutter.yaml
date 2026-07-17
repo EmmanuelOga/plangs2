@@ -14,6 +14,8 @@ isTranspiler: true
 releases:
   - version: 3.27.0
     date: 2024-12-11
+sources:
+  wikidata: Q39072787
 rels:
   compilesTo:
     - pl/javascript

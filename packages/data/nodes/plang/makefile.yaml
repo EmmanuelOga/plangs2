@@ -22,6 +22,8 @@ isTranspiler: true
 languishRanking: 40
 stackovTags:
   - makefile
+sources:
+  wikidata: Q300867
 rels:
   paradigms:
     - para/declarative

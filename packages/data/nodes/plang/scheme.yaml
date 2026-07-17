@@ -17,6 +17,8 @@ isTranspiler: false
 languishRanking: 106
 stackovTags:
   - scheme
+sources:
+  wikidata: Q187560
 rels:
   dialectOf:
     - pl/lisp

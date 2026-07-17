@@ -18,6 +18,8 @@ releases:
   - version: 0.7.9
     name: Gforth 0.7.9
     date: 2020-01-01
+sources:
+  wikidata: Q5555121
 rels:
   implements:
     - pl/forth

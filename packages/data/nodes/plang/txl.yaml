@@ -21,6 +21,8 @@ releases:
   - version: 10.8b
     name: FreeTxl
     date: 2022-07
+sources:
+  wikidata: Q7590386
 rels:
   paradigms:
     - para/dsl

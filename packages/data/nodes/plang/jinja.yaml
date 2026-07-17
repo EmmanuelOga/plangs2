@@ -25,6 +25,8 @@ releases:
     date: 2024-05-05
 stackovTags:
   - jinja2
+sources:
+  wikidata: Q4041851
 rels:
   compilesTo:
     - pl/python

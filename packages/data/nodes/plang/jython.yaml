@@ -16,6 +16,8 @@ isTranspiler: false
 releases:
   - version: 2.7.4
     date: 2024-08-18
+sources:
+  wikidata: Q1053999
 rels:
   implements:
     - pl/python

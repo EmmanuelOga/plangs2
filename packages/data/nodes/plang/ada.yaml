@@ -29,6 +29,8 @@ releases:
     date: 2023-05-01
 stackovTags:
   - ada
+sources:
+  wikidata: Q154755
 rels:
   dialectOf:
     - pl/pascal

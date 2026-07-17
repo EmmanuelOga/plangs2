@@ -16,6 +16,8 @@ releases:
   - version: 3.7.0
     name: Gremlin 3.7.0
     date: 2023-07-31
+sources:
+  wikidata: Q5607337
 rels:
   influencedBy:
     - pl/sql

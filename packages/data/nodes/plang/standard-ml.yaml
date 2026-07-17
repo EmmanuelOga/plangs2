@@ -23,6 +23,8 @@ releases:
     date: "1997"
 stackovTags:
   - sml
+sources:
+  wikidata: Q597330
 rels:
   influencedBy:
     - pl/pascal

@@ -26,6 +26,8 @@ releases:
     date: 2000-06
 stackovTags:
   - prolog
+sources:
+  wikidata: Q163468
 rels:
   paradigms:
     - para/declarative

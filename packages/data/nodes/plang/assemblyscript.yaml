@@ -21,6 +21,8 @@ releases:
   - version: 0.27.30
     name: AssemblyScript 0.27.30
     date: 2024-09-27
+sources:
+  wikidata: Q105690185
 rels:
   compilesTo:
     - pl/webassembly

@@ -28,6 +28,8 @@ releases:
     date: 2023-12-22
 stackovTags:
   - idris
+sources:
+  wikidata: Q15408477
 rels:
   influencedBy:
     - pl/agda

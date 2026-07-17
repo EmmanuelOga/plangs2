@@ -22,6 +22,8 @@ releases:
     date: 2023-12-13
 stackovTags:
   - jq
+sources:
+  wikidata: Q115959735
 rels:
   influencedBy:
     - pl/haskell

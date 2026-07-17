@@ -24,6 +24,8 @@ isTranspiler: true
 languishRanking: 62
 stackovTags:
   - laravel-blade
+sources:
+  wikidata: Q13634357
 rels:
   compilesTo:
     - pl/php

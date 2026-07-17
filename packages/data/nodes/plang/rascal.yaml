@@ -25,6 +25,8 @@ releases:
     date: 2023-07-05
 stackovTags:
   - rascal
+sources:
+  wikidata: Q7294734
 rels:
   licenses:
     - lic/bsd

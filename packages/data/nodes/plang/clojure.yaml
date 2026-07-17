@@ -28,6 +28,8 @@ releases:
     date: 2024-09-05
 stackovTags:
   - clojure
+sources:
+  wikidata: Q51798
 rels:
   dialectOf:
     - pl/lisp

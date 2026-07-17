@@ -20,6 +20,8 @@ isTranspiler: false
 releases:
   - version: JDK23
     date: 2024-09-17
+sources:
+  wikidata: Q16928072
 rels:
   implements:
     - pl/ruby

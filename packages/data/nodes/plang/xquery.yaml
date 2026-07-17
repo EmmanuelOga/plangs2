@@ -30,6 +30,8 @@ releases:
     date: 2017-03-21
 stackovTags:
   - xquery
+sources:
+  wikidata: Q850661
 rels:
   influencedBy:
     - pl/sql

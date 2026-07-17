@@ -28,6 +28,8 @@ releases:
     date: 2024-04-19
 stackovTags:
   - vala
+sources:
+  wikidata: Q1138939
 rels:
   compilesTo:
     - pl/c

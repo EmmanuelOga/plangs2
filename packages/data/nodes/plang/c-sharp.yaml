@@ -28,6 +28,8 @@ releases:
     date: 2023-11-14
 stackovTags:
   - c#
+sources:
+  wikidata: Q2370
 rels:
   compilesTo:
     - pl/webassembly

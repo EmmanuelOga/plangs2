@@ -26,6 +26,8 @@ releases:
     date: 2023-07-17
 stackovTags:
   - fantom
+sources:
+  wikidata: Q2699404
 rels:
   compilesTo:
     - pl/c-sharp

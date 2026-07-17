@@ -18,6 +18,8 @@ releases:
   - version: 2.1.ROLLING
     name: LuaJIT 2.1 Rolling Release
     date: 2023-08-21
+sources:
+  wikidata: Q41584446
 rels:
   dialectOf:
     - pl/lua

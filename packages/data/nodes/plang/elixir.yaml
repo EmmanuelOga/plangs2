@@ -32,6 +32,8 @@ releases:
     date: 2024-01-01
 stackovTags:
   - elixir
+sources:
+  wikidata: Q5362035
 rels:
   influencedBy:
     - pl/clojure

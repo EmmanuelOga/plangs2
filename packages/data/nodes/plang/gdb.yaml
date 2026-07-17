@@ -25,6 +25,8 @@ releases:
     date: 2024-07-07
 stackovTags:
   - gdb
+sources:
+  wikidata: Q464113
 rels:
   licenses:
     - lic/gnu-gpl

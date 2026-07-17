@@ -26,6 +26,8 @@ releases:
     date: 2024-07-01
 stackovTags:
   - d
+sources:
+  wikidata: Q319268
 rels:
   implements:
     - pl/c

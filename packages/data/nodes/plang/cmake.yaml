@@ -31,6 +31,8 @@ releases:
     date: 2024-10-29
 stackovTags:
   - cmake
+sources:
+  wikidata: Q1023904
 rels:
   compilesTo:
     - pl/makefile

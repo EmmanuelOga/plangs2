@@ -30,6 +30,8 @@ releases:
     date: 2024-01-02
 stackovTags:
   - vim
+sources:
+  wikidata: Q131382
 rels:
   licenses:
     - lic/gnu-gpl

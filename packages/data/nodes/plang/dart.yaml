@@ -39,6 +39,8 @@ releases:
     date: 2024-01-01
 stackovTags:
   - dart
+sources:
+  wikidata: Q406009
 rels:
   compilesTo:
     - pl/javascript

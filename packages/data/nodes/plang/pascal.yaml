@@ -20,6 +20,8 @@ isTranspiler: false
 languishRanking: 75
 stackovTags:
   - pascal
+sources:
+  wikidata: Q81571
 rels:
   paradigms:
     - para/general-purpose

@@ -30,6 +30,8 @@ releases:
     date: 2023-11
 stackovTags:
   - f#
+sources:
+  wikidata: Q648619
 rels:
   dialectOf:
     - pl/ocaml

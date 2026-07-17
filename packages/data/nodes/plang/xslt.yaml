@@ -28,6 +28,8 @@ releases:
     date: 2017-06-08
 stackovTags:
   - xslt
+sources:
+  wikidata: Q32110
 rels:
   influencedBy:
     - pl/boomerang

@@ -36,6 +36,8 @@ releases:
     date: 2024-01-01
 stackovTags:
   - julia
+sources:
+  wikidata: Q2613697
 rels:
   influencedBy:
     - pl/c

@@ -29,6 +29,8 @@ releases:
 stackovTags:
   - llvm
   - llvm-ir
+sources:
+  wikidata: Q223490
 rels:
   licenses:
     - lic/apache

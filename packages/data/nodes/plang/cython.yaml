@@ -30,6 +30,8 @@ releases:
     date: 2024-03-30
 stackovTags:
   - cython
+sources:
+  wikidata: Q975594
 rels:
   compilesTo:
     - pl/c

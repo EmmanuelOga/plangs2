@@ -29,6 +29,8 @@ releases:
     date: 2024-05-10
 stackovTags:
   - nix
+sources:
+  wikidata: Q7041957
 rels:
   licenses:
     - lic/lgpl

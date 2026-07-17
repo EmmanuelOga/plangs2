@@ -24,6 +24,8 @@ releases:
   - version: 2.60.3
     name: Stable Release
     date: 2023-06-14
+sources:
+  wikidata: Q1398550
 rels:
   influencedBy:
     - pl/c

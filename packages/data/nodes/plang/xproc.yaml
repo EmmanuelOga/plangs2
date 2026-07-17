@@ -27,6 +27,8 @@ releases:
     date: 2020-08-18
 stackovTags:
   - xproc
+sources:
+  wikidata: Q1571494
 rels:
   influencedBy:
     - pl/xml

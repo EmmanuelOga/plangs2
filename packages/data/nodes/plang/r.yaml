@@ -42,6 +42,8 @@ releases:
     date: 2024-01-01
 stackovTags:
   - r
+sources:
+  wikidata: Q206904
 rels:
   influencedBy:
     - pl/common-lisp

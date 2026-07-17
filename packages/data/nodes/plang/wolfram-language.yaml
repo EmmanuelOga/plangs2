@@ -26,6 +26,8 @@ releases:
     date: 2024-07-31
 stackovTags:
   - wolfram-mathematica
+sources:
+  wikidata: Q81294
 rels:
   influencedBy:
     - pl/apl

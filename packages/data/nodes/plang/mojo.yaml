@@ -29,6 +29,8 @@ releases:
     date: 2024-05-24
 stackovTags:
   - mojolang
+sources:
+  wikidata: Q118152673
 rels:
   influencedBy:
     - pl/python

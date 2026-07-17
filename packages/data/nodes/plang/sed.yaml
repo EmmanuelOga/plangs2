@@ -21,6 +21,8 @@ releases:
     date: 1974-01-01
 stackovTags:
   - sed
+sources:
+  wikidata: Q305876
 rels:
   licenses:
     - lic/public-domain

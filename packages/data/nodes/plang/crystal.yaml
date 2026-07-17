@@ -25,6 +25,8 @@ releases:
     date: 2024-10-09
 stackovTags:
   - crystal-lang
+sources:
+  wikidata: Q21921428
 rels:
   influencedBy:
     - pl/ruby

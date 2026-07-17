@@ -26,6 +26,8 @@ releases:
   - version: "9.0"
     name: .NET 9
     date: 2024-09-12
+sources:
+  wikidata: Q21622213
 rels:
   compilesTo:
     - pl/webassembly

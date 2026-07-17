@@ -38,6 +38,8 @@ releases:
     date: 2024-10-22
 stackovTags:
   - powershell
+sources:
+  wikidata: Q840410
 rels:
   influencedBy:
     - pl/batchfile

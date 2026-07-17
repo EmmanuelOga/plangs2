@@ -32,6 +32,8 @@ releases:
     date: 2024-08
 stackovTags:
   - cuda
+sources:
+  wikidata: Q477690
 rels:
   paradigms:
     - para/compiled

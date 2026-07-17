@@ -17,6 +17,8 @@ releases:
   - version: 3.4.1
     name: 3.4.1
     date: 2023-07-12
+sources:
+  wikidata: Q657498
 rels:
   implements:
     - pl/python

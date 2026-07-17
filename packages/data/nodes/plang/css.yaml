@@ -31,6 +31,8 @@ releases:
     date: 2023-12-07
 stackovTags:
   - css
+sources:
+  wikidata: Q46441
 rels:
   paradigms:
     - para/declarative

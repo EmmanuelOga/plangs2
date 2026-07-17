@@ -18,6 +18,8 @@ releases:
   - version: "1.0"
     name: Hackety Hack 1.0
     date: 2011-11-04
+sources:
+  wikidata: Q5637294
 rels:
   influencedBy:
     - pl/ruby

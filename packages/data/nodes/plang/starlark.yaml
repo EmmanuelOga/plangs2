@@ -29,6 +29,8 @@ releases:
     date: 2019-10-01
 stackovTags:
   - bazel
+sources:
+  wikidata: Q25345982
 rels:
   influencedBy:
     - pl/python

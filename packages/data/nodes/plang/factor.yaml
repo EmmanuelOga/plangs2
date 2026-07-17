@@ -28,6 +28,8 @@ releases:
     date: 2024-11-05
 stackovTags:
   - factor-lang
+sources:
+  wikidata: Q1391724
 rels:
   influencedBy:
     - pl/forth

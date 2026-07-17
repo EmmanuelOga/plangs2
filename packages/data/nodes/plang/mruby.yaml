@@ -13,6 +13,8 @@ extensions:
   - .rb
 githubStars: 5300
 isTranspiler: false
+sources:
+  wikidata: Q17070082
 rels:
   implements:
     - pl/ruby

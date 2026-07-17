@@ -29,6 +29,8 @@ releases:
     date: 2023-07-26
 stackovTags:
   - processing
+sources:
+  wikidata: Q1053535
 rels:
   influencedBy:
     - pl/c

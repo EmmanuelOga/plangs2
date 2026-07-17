@@ -31,6 +31,8 @@ releases:
 stackovTags:
   - hive
   - hiveql
+sources:
+  wikidata: Q4778914
 rels:
   influencedBy:
     - pl/sql

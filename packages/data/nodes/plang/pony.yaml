@@ -25,6 +25,8 @@ releases:
     date: 2024-09-30
 stackovTags:
   - ponylang
+sources:
+  wikidata: Q51160093
 rels:
   influencedBy:
     - pl/erlang

@@ -13,6 +13,8 @@ releases:
   - version: "1.0"
     name: SHACL 1.0
     date: 2017-07-20
+sources:
+  wikidata: Q29377821
 rels:
   influencedBy:
     - pl/shex

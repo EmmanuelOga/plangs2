@@ -32,6 +32,8 @@ releases:
     date: 2024-01-01
 stackovTags:
   - rust
+sources:
+  wikidata: Q575650
 rels:
   compilesTo:
     - pl/webassembly

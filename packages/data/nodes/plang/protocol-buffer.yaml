@@ -27,6 +27,8 @@ releases:
     date: 2024-10-22
 stackovTags:
   - protocol-buffers
+sources:
+  wikidata: Q1645574
 rels:
   compilesTo:
     - pl/c++

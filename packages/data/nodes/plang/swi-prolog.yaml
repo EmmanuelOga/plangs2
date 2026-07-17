@@ -23,6 +23,8 @@ releases:
   - version: 9.3.2
     name: SWI-Prolog 9.3.2
     date: 2024-02-29
+sources:
+  wikidata: Q2665141
 rels:
   implements:
     - pl/prolog

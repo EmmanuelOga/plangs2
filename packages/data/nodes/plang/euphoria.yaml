@@ -26,6 +26,8 @@ releases:
   - version: 4.1.0
     name: openEuphoria 4.1.0
     date: 2021-03-01
+sources:
+  wikidata: Q1374139
 rels:
   influencedBy:
     - pl/basic

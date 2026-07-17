@@ -20,6 +20,8 @@ releases:
   - version: 0.6.1
     name: ""
     date: 2022-06-27
+sources:
+  wikidata: Q23653623
 rels:
   influencedBy:
     - pl/c

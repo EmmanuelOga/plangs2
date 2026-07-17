@@ -20,6 +20,8 @@ isTranspiler: false
 releases:
   - version: 3.2.2
     date: 2021-05-20
+sources:
+  wikidata: Q210295
 rels:
   dialectOf:
     - pl/pascal

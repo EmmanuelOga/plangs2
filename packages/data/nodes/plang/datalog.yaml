@@ -13,6 +13,8 @@ extWikipediaPath: Datalog
 extensions:
   - .dl
 isTranspiler: false
+sources:
+  wikidata: Q1172264
 rels:
   dialectOf:
     - pl/prolog

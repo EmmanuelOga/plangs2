@@ -26,6 +26,8 @@ isTranspiler: true
 languishRanking: 16
 stackovTags:
   - jupyter
+sources:
+  wikidata: Q55630549
 rels:
   compilesTo:
     - pl/julia

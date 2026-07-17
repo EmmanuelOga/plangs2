@@ -32,6 +32,8 @@ releases:
     date: 2023-09-19
 stackovTags:
   - java
+sources:
+  wikidata: Q251
 rels:
   influencedBy:
     - pl/c++

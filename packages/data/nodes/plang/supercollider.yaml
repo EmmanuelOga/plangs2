@@ -28,6 +28,8 @@ releases:
     date: 2023-02-19
 stackovTags:
   - supercollider
+sources:
+  wikidata: Q2299598
 rels:
   influencedBy:
     - pl/csound

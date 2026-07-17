@@ -25,6 +25,8 @@ releases:
     date: 2024-08-07
 stackovTags:
   - haxe
+sources:
+  wikidata: Q285886
 rels:
   compilesTo:
     - pl/c++

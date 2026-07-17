@@ -40,6 +40,8 @@ releases:
     date: 1989-12-01
 stackovTags:
   - c
+sources:
+  wikidata: Q15777
 rels:
   compilesTo:
     - pl/assembly

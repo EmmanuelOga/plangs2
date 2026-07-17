@@ -25,6 +25,8 @@ releases:
     date: 1964-05-01
 stackovTags:
   - basic
+sources:
+  wikidata: Q42979
 rels:
   influencedBy:
     - pl/fortran

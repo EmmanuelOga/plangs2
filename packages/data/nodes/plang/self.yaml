@@ -26,6 +26,8 @@ releases:
     date: 2024-08-28
 stackovTags:
   - self
+sources:
+  wikidata: Q1864529
 rels:
   influencedBy:
     - pl/apl

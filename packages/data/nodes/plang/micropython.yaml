@@ -21,6 +21,8 @@ links:
 releases:
   - version: 1.24.1
     date: 2024-09-29
+sources:
+  wikidata: Q25313489
 rels:
   implements:
     - pl/python

@@ -26,6 +26,8 @@ isTranspiler: false
 languishRanking: 196
 stackovTags:
   - forth
+sources:
+  wikidata: Q275472
 rels:
   influencedBy:
     - pl/lisp

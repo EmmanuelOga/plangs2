@@ -23,6 +23,8 @@ releases:
     date: 2023-06
 stackovTags:
   - sql
+sources:
+  wikidata: Q47607
 rels:
   influencedBy:
     - pl/datalog

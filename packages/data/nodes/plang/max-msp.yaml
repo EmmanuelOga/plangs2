@@ -30,6 +30,8 @@ releases:
     date: 2024-10-29
 stackovTags:
   - max-msp-jitter
+sources:
+  wikidata: Q1707206
 rels:
   licenses:
     - lic/proprietary

@@ -26,6 +26,8 @@ releases:
     date: 2024-08-15
 stackovTags:
   - godot
+sources:
+  wikidata: Q16972633
 rels:
   influencedBy:
     - pl/python

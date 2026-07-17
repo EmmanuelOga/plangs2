@@ -25,6 +25,8 @@ links:
     title: Fortran Language GitHub Org
 stackovTags:
   - fortran
+sources:
+  wikidata: Q83303
 rels:
   paradigms:
     - para/compiled

@@ -26,6 +26,8 @@ releases:
     date: 1980-01-01
 stackovTags:
   - apl
+sources:
+  wikidata: Q296187
 rels:
   paradigms:
     - para/array

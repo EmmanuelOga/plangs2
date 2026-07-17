@@ -23,6 +23,8 @@ isTranspiler: false
 languishRanking: 32
 stackovTags:
   - batch-file
+sources:
+  wikidata: Q479833
 rels:
   paradigms:
     - para/procedural

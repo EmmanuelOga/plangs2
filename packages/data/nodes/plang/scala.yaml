@@ -28,6 +28,8 @@ releases:
     date: 2024-01-01
 stackovTags:
   - scala
+sources:
+  wikidata: Q460584
 rels:
   influencedBy:
     - pl/common-lisp

@@ -19,6 +19,8 @@ releases:
   - version: "2.1"
     name: ShEx 2.1
     date: 2018-11-21
+sources:
+  wikidata: Q29377880
 rels:
   licenses:
     - lic/cc-by

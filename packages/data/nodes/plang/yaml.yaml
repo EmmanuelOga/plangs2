@@ -25,6 +25,8 @@ releases:
     date: 2021-10-01
 stackovTags:
   - yaml
+sources:
+  wikidata: Q281876
 rels:
   licenses:
     - lic/mit

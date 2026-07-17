@@ -33,6 +33,8 @@ releases:
     date: 2010-07
 stackovTags:
   - haskell
+sources:
+  wikidata: Q34010
 rels:
   implements:
     - pl/curry

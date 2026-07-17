@@ -25,6 +25,8 @@ releases:
     date: 2023-12-25
 stackovTags:
   - freebasic
+sources:
+  wikidata: Q195929
 rels:
   dialectOf:
     - pl/basic

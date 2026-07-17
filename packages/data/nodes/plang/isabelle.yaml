@@ -27,6 +27,8 @@ releases:
     date: 2023-06-15
 stackovTags:
   - isabelle
+sources:
+  wikidata: Q460340
 rels:
   influencedBy:
     - pl/haskell

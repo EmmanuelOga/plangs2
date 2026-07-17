@@ -28,6 +28,8 @@ releases:
     date: 2006-08-16
 stackovTags:
   - xml
+sources:
+  wikidata: Q2115
 rels:
   paradigms:
     - para/data-exchange

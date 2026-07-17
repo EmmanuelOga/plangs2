@@ -21,6 +21,8 @@ releases:
   - version: "0.68"
     name: Pure 0.68
     date: 2018-01-01
+sources:
+  wikidata: Q7261054
 rels:
   influencedBy:
     - pl/haskell

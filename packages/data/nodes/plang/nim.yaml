@@ -27,6 +27,8 @@ releases:
     date: 2024-11-01
 stackovTags:
   - nim-lang
+sources:
+  wikidata: Q20080327
 rels:
   compilesTo:
     - pl/c

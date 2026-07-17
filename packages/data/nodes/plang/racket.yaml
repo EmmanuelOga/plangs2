@@ -31,6 +31,8 @@ releases:
     date: 2024-01-01
 stackovTags:
   - racket
+sources:
+  wikidata: Q1254148
 rels:
   dialectOf:
     - pl/lisp

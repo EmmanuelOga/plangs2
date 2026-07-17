@@ -28,6 +28,8 @@ releases:
     date: 2023-05-30
 stackovTags:
   - logtalk
+sources:
+  wikidata: Q3258085
 rels:
   compilesTo:
     - pl/prolog

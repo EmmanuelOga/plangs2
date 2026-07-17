@@ -20,6 +20,8 @@ releases:
   - version: 0.8.9
     name: ""
     date: 2021-05-06
+sources:
+  wikidata: Q19865096
 rels:
   implements:
     - pl/scheme

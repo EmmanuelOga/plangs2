@@ -26,6 +26,8 @@ releases:
     date: 2021-03-28
 stackovTags:
   - mustache
+sources:
+  wikidata: Q17070290
 rels:
   compilesTo:
     - pl/javascript

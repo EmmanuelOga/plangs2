@@ -33,6 +33,8 @@ releases:
     date: 2024-06-06
 stackovTags:
   - autohotkey
+sources:
+  wikidata: Q784816
 rels:
   licenses:
     - lic/gnu-gpl

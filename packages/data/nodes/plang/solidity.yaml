@@ -27,6 +27,8 @@ releases:
     date: 2024-10-09
 stackovTags:
   - solidity
+sources:
+  wikidata: Q24909565
 rels:
   influencedBy:
     - pl/c++

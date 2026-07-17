@@ -16,6 +16,8 @@ filenames:
   - ksh
 githubStars: 561
 isTranspiler: false
+sources:
+  wikidata: Q204222
 rels:
   dialectOf:
     - pl/bash

@@ -10,6 +10,8 @@ extGithubPath: scratchfoundation/scratch-vm
 extWikipediaPath: ScratchJr
 githubStars: 1200
 isTranspiler: false
+sources:
+  wikidata: Q18215985
 rels:
   influencedBy:
     - pl/scratch

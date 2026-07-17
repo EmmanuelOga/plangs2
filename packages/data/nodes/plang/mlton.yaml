@@ -19,6 +19,8 @@ releases:
   - version: "20210107"
     name: Stable Release
     date: 2021-01-07
+sources:
+  wikidata: Q17125754
 rels:
   dialectOf:
     - pl/standard-ml

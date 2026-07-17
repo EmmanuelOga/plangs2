@@ -28,6 +28,8 @@ releases:
     date: 2021-01-01
 stackovTags:
   - latex
+sources:
+  wikidata: Q5310
 rels:
   licenses:
     - lic/public-domain
