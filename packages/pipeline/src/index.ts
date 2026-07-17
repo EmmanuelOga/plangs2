@@ -17,6 +17,7 @@ export {
   innovationGraphSource,
   languishSource,
   linguistSource,
+  pldbSource,
   pyplSource,
   SOURCES,
   sourceById,

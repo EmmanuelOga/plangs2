@@ -3,6 +3,7 @@ import { homebrewSource } from "./homebrew.ts";
 import { innovationGraphSource } from "./innovation-graph.ts";
 import { languishSource } from "./languish.ts";
 import { linguistSource } from "./linguist.ts";
+import { pldbSource } from "./pldb.ts";
 import { pyplSource } from "./pypl.ts";
 import { stackexchangeSource } from "./stackexchange.ts";
 import { tiobeSource } from "./tiobe.ts";
@@ -16,9 +17,11 @@ import { wikidataSource } from "./wikidata.ts";
  * correctness (the patcher guarantees that) — it matters for readability of the
  * combined report.
  *
- * Not yet implemented: pldb (whitelist-gated — a product/notability decision,
- * PLAN §5.4). DBpedia / IEEE / Reddit / GH-Archive are skipped by the plan and
- * will not be added.
+ * `pldb` runs in fill-only mode: it backfills a missing `created` (appeared
+ * year) for well-attested concepts and nothing else. The broader whitelist —
+ * using PLDB's notability filter to ADD new nodes — remains a product decision
+ * and is not done here. DBpedia / IEEE / Reddit / GH-Archive are skipped by the
+ * plan and will not be added.
  */
 export const SOURCES: readonly Source[] = [
   linguistSource,
@@ -29,10 +32,21 @@ export const SOURCES: readonly Source[] = [
   homebrewSource,
   innovationGraphSource,
   tiobeSource,
+  pldbSource,
 ];
 
 export function sourceById(id: string): Source | undefined {
   return SOURCES.find(s => s.id === id);
 }
 
-export { homebrewSource, innovationGraphSource, languishSource, linguistSource, pyplSource, stackexchangeSource, tiobeSource, wikidataSource };
+export {
+  homebrewSource,
+  innovationGraphSource,
+  languishSource,
+  linguistSource,
+  pldbSource,
+  pyplSource,
+  stackexchangeSource,
+  tiobeSource,
+  wikidataSource,
+};

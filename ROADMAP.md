@@ -42,8 +42,10 @@ file's numbers.
   on push (see track 3 — and hard rule 1).
 - ✅ **All four importers have run for real** (2026-07-17, item 1b): linguist,
   wikidata, languish, pypl. `packages/data` reflects a real refresh; the
-  `[drift vs v2]` gate confirms nothing from v2 was lost. Remaining data work:
-  1c (five more sources) and 1d (AI enrichment, needs a key).
+  `[drift vs v2]` gate confirms nothing from v2 was lost. 1c is now complete
+  (all five sources registered; `pldb` fill-only, 2026-07-17). Remaining data
+  work: 1d (AI enrichment, needs a key) and the owner-gated PLDB node-addition
+  policy.
 
 ## Suggested execution order
 
@@ -148,10 +150,11 @@ pnpm pipeline run --source=linguist             # write
     `pl/tsx`), `pl/sass` loses `.scss` (**no `pl/scss` node exists, so `.scss`
     left the dataset**), `pl/agda` loses `.lagda*`. 53 gained, 41 both. Working
     as designed; reversing it means changing who owns the field.
-- 🔶 **1c. Register remaining sources** (adoption order, PLAN §5): `pldb`
-  (whitelist-gated), `innovation-graph`, `tiobe`, `homebrew`,
-  `stackexchange`. One source per commit, matching the existing four:
-  fixture-tested, idempotent, disjoint `owns`.
+- ✅ **1c. Register remaining sources** (adoption order, PLAN §5): `pldb`,
+  `innovation-graph`, `tiobe`, `homebrew`, `stackexchange` — all five
+  registered, each fixture-tested, idempotent, disjoint `owns`. `pldb` landed
+  in **fill-only** mode (below); using its notability filter to *add* new nodes
+  stays an owner decision.
   Skipped by decision: DBpedia, IEEE, Reddit, GH-Archive.
   - ✅ **stackexchange** (2026-07-17) — Stack Overflow tag question counts as a
     third popularity lens (`rankings.stackexchange` + `sources.stackexchange`,
@@ -202,11 +205,29 @@ pnpm pipeline run --source=linguist             # write
       `top20` table, month header, or row shape changes (three explicit
       guards), rather than writing garbage. A markup change is a hard failure
       the monthly Action will surface, not a silent corruption.
-  - 🧑 **Remaining: `pldb`** — whitelist-gated by design (PLAN §5.4: import
-    only concepts passing a notability filter, e.g. has `appeared` + a Wikipedia
-    link). The *filter* is a product/notability decision, so this one needs the
-    owner: decide the whitelist policy, then it's a mechanical import. The other
-    four 1c sources are done.
+  - ✅ **pldb** (2026-07-17, fill-only) — PLDB (pldb.io, Public Domain). Does
+    exactly one thing: backfills a **missing** `created` (PLDB's `appeared`
+    year) and nothing else. Deliberately fill-only — a node that already
+    declares `created` is curated truth and is never touched, so PLDB cannot
+    clobber a hand-set year (contrast wikidata, whose P571 *inception* is sent
+    to review). May own `created` because no other source does (disjoint);
+    `extWikipediaPath` stays AI-owned and is only *read* as a notability gate,
+    never written. **Notability gate** (PLAN §5.4): trusts `appeared` only for a
+    well-attested concept — one with both an appeared year AND a Wikipedia link;
+    a match failing the gate goes to review. Matches by node NAME only (the
+    linguist slug-collision lesson). Reads the bulk `pldb.io/pldb.json`. 13
+    fixture tests; the fill-only guarantee regression-verified by dropping the
+    guard (Python's curated "1994" → "1991", test fails as intended).
+    - ⚠️ **Live dry-run NOT run — `pldb.io` was unreachable from this
+      environment** (fetch failed via curl, WebFetch, and the pipeline CLI). The
+      importer errors cleanly (0 matched, 0 changes, error reported — no
+      corruption) rather than crashing. Only ~6 of 267 plang nodes currently
+      lack `created`, so the real-world footprint is small; the monthly Action
+      (1e) will exercise it against live data once the owner pushes.
+    - 🧑 **Deferred (owner's call): using the notability filter to ADD new
+      nodes.** This importer only enriches nodes that already exist, like every
+      other importer. Growing the dataset from PLDB is a product decision —
+      decide the whitelist policy, then it's a mechanical extension.
 - 🧑 **1d. First AI enrichment run** — **skipped: `ANTHROPIC_API_KEY` is not
   set** in this environment (checked 2026-07-17), and this item says to skip and
   note when it's absent. Still typechecked and unit-tested with a mocked client

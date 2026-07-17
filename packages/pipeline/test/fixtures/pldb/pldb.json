@@ -1,0 +1,32 @@
+[
+  {
+    "id": "python",
+    "name": "Python",
+    "appeared": 1991,
+    "type": "pl",
+    "rank": 1,
+    "wikipedia": "https://en.wikipedia.org/wiki/Python_(programming_language)"
+  },
+  {
+    "id": "strand",
+    "name": "Strand",
+    "appeared": 1988,
+    "type": "pl",
+    "rank": 2100,
+    "wikipedia": "https://en.wikipedia.org/wiki/Strand_(programming_language)"
+  },
+  {
+    "id": "somestub",
+    "name": "SomeStub",
+    "appeared": 2020,
+    "type": "pl",
+    "rank": 4000
+  },
+  {
+    "id": "nowiki",
+    "name": "NoWiki",
+    "type": "pl",
+    "rank": 4001,
+    "wikipedia": "https://en.wikipedia.org/wiki/NoWiki_(language)"
+  }
+]
