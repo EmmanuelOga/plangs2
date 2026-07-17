@@ -9,6 +9,7 @@ extRedditPath: xslt
 extWikipediaPath: XSLT
 extensions:
   - .xslt
+  - .xsl
 githubColor: "#EB8CEB"
 githubLangId: "404"
 githubName: XSLT
@@ -29,6 +30,7 @@ releases:
 stackovTags:
   - xslt
 sources:
+  linguist: XSLT
   wikidata: Q32110
 rels:
   influencedBy:

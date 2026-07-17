@@ -10,9 +10,7 @@ extRedditPath: Zig
 extWikipediaPath: Zig_(programming_language)
 extensions:
   - .zig
-  - .zigr
-  - .zir
-  - .zon
+  - .zig.zon
 githubColor: "#ec915c"
 githubLangId: "646424281"
 githubName: Zig
@@ -28,6 +26,7 @@ releases:
 stackovTags:
   - zig
 sources:
+  linguist: Zig
   wikidata: Q51885456
 rels:
   compilesTo:

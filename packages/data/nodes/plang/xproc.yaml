@@ -12,6 +12,7 @@ extHomeURL: https://xproc.org/
 extWikipediaPath: XProc
 extensions:
   - .xpl
+  - .xproc
 githubLangId: "401"
 githubName: XProc
 githubPopular: false
@@ -28,6 +29,7 @@ releases:
 stackovTags:
   - xproc
 sources:
+  linguist: XProc
   wikidata: Q1571494
 rels:
   influencedBy:

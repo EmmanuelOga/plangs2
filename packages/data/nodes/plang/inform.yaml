@@ -11,10 +11,8 @@ extHomeURL: https://inform7.com/
 extRedditPath: Inform7
 extWikipediaPath: Inform
 extensions:
-  - .inform
   - .ni
-  - .z5
-  - .z8
+  - .i7x
 githubLangId: "166"
 githubName: Inform 7
 githubPopular: false
@@ -31,6 +29,7 @@ releases:
 stackovTags:
   - inform7
 sources:
+  linguist: Inform 7
   wikidata: Q539268
 rels:
   licenses:

@@ -14,7 +14,10 @@ extRedditPath: C_Programming
 extWikipediaPath: C_(programming_language)
 extensions:
   - .c
+  - .cats
   - .h
+  - .h.in
+  - .idc
 githubColor: "#555555"
 githubLangId: "41"
 githubName: C
@@ -41,6 +44,7 @@ releases:
 stackovTags:
   - c
 sources:
+  linguist: C
   wikidata: Q15777
 rels:
   compilesTo:

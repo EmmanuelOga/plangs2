@@ -24,6 +24,8 @@ releases:
   - version: "1.0"
     name: Luau 1.0
     date: 2021-02-18
+sources:
+  linguist: Luau
 rels:
   compilesTo:
     - pl/lua

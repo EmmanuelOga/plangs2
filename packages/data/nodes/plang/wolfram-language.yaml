@@ -11,12 +11,19 @@ extHomeURL: https://www.wolfram.com/language/
 extRedditPath: Mathematica
 extWikipediaPath: Wolfram_Mathematica
 extensions:
+  - .mathematica
+  - .cdf
   - .m
+  - .ma
+  - .mt
   - .nb
+  - .nbp
   - .wl
+  - .wls
+  - .wlt
 githubColor: "#dd1100"
 githubLangId: "224"
-githubName: Mathematica
+githubName: Wolfram Language
 githubPopular: false
 githubType: programming
 isTranspiler: false
@@ -27,6 +34,7 @@ releases:
 stackovTags:
   - wolfram-mathematica
 sources:
+  linguist: Wolfram Language
   wikidata: Q81294
 rels:
   influencedBy:

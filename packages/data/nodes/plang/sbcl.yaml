@@ -12,11 +12,14 @@ extHomeURL: http://www.sbcl.org/
 extRedditPath: Common_Lisp
 extWikipediaPath: Common_Lisp
 extensions:
+  - .lisp
+  - .asd
   - .cl
   - .l
-  - .lisp
   - .lsp
   - .ny
+  - .podsl
+  - .sexp
 githubColor: "#3fb68b"
 githubLangId: "66"
 githubName: Common Lisp
@@ -37,6 +40,7 @@ releases:
 stackovTags:
   - common-lisp
 sources:
+  linguist: Common Lisp
   wikidata: Q849146
 rels:
   dialectOf:

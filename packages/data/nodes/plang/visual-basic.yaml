@@ -12,6 +12,7 @@ extRedditPath: visualbasic
 extWikipediaPath: Visual_Basic_.NET
 extensions:
   - .vb
+  - .vbhtml
 githubColor: "#945db7"
 githubLangId: "389"
 githubName: Visual Basic .NET
@@ -26,6 +27,7 @@ releases:
 stackovTags:
   - vb.net
 sources:
+  linguist: Visual Basic .NET
   wikidata: Q50077
 rels:
   implements:

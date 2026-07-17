@@ -22,6 +22,7 @@ releases:
 stackovTags:
   - sed
 sources:
+  linguist: sed
   wikidata: Q305876
 rels:
   licenses:

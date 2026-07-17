@@ -26,6 +26,7 @@ releases:
 stackovTags:
   - rascal
 sources:
+  linguist: Rascal
   wikidata: Q7294734
 rels:
   licenses:

@@ -29,6 +29,7 @@ releases:
 stackovTags:
   - factor-lang
 sources:
+  linguist: Factor
   wikidata: Q1391724
 rels:
   influencedBy:

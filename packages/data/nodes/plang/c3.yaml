@@ -11,7 +11,12 @@ extGithubPath: c3lang/c3c
 extHomeURL: https://c3-lang.org
 extensions:
   - .c3
+githubColor: "#2563eb"
+githubLangId: "769248603"
+githubName: C3
+githubPopular: false
 githubStars: 3100
+githubType: programming
 isTranspiler: true
 releases:
   - version: 0.6.4
@@ -20,6 +25,8 @@ releases:
   - version: 0.1.0
     name: C3 Initial Release
     date: 2020-05-01
+sources:
+  linguist: C3
 rels:
   influencedBy:
     - pl/c

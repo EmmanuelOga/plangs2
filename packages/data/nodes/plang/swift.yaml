@@ -28,6 +28,7 @@ releases:
 stackovTags:
   - swift
 sources:
+  linguist: Swift
   wikidata: Q17118377
 rels:
   influencedBy:

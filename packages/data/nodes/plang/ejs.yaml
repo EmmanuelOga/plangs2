@@ -9,6 +9,9 @@ extGithubPath: mde/ejs
 extHomeURL: https://ejs.co/
 extensions:
   - .ejs
+  - .ect
+  - .ejs.t
+  - .jst
 githubColor: "#a91e50"
 githubLangId: "95"
 githubName: EJS
@@ -19,6 +22,8 @@ isTranspiler: true
 languishRanking: 85
 stackovTags:
   - ejs
+sources:
+  linguist: EJS
 rels:
   compilesTo:
     - pl/javascript

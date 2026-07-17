@@ -23,6 +23,7 @@ releases:
     name: Curry 3.6.0
     date: 2023-11-10
 sources:
+  linguist: Curry
   wikidata: Q2368856
 rels:
   influencedBy:

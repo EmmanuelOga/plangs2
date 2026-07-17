@@ -10,6 +10,7 @@ extRedditPath: apljk
 extWikipediaPath: APL_(programming_language)
 extensions:
   - .apl
+  - .dyalog
 githubColor: "#5A8164"
 githubLangId: "6"
 githubName: APL
@@ -27,6 +28,7 @@ releases:
 stackovTags:
   - apl
 sources:
+  linguist: APL
   wikidata: Q296187
 rels:
   paradigms:

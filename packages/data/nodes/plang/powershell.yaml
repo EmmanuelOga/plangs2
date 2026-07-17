@@ -13,14 +13,9 @@ extHomeURL: https://microsoft.com/PowerShell
 extRedditPath: PowerShell
 extWikipediaPath: PowerShell
 extensions:
-  - .cdxml
   - .ps1
-  - .ps1xml
-  - .psc1
   - .psd1
   - .psm1
-  - .psrc
-  - .pssc
 githubColor: "#012456"
 githubLangId: "293"
 githubName: PowerShell
@@ -39,6 +34,7 @@ releases:
 stackovTags:
   - powershell
 sources:
+  linguist: PowerShell
   wikidata: Q840410
 rels:
   influencedBy:

@@ -11,6 +11,7 @@ extHomeURL: https://logtalk.org/
 extWikipediaPath: Logtalk
 extensions:
   - .lgt
+  - .logtalk
 githubColor: "#295b9a"
 githubLangId: "210"
 githubName: Logtalk
@@ -29,6 +30,7 @@ releases:
 stackovTags:
   - logtalk
 sources:
+  linguist: Logtalk
   wikidata: Q3258085
 rels:
   compilesTo:

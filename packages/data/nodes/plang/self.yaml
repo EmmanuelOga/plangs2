@@ -27,6 +27,7 @@ releases:
 stackovTags:
   - self
 sources:
+  linguist: Self
   wikidata: Q1864529
 rels:
   influencedBy:

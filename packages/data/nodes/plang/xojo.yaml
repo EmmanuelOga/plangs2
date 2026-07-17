@@ -12,9 +12,12 @@ extHomeURL: https://www.xojo.com
 extRedditPath: xojo
 extWikipediaPath: Xojo
 extensions:
-  - .xojo_binary_project
   - .xojo_code
-  - .xojo_xml_project
+  - .xojo_menu
+  - .xojo_report
+  - .xojo_script
+  - .xojo_toolbar
+  - .xojo_window
 githubColor: "#81bd41"
 githubLangId: "405"
 githubName: Xojo
@@ -32,6 +35,7 @@ stackovTags:
   - realbasic
   - xojo
 sources:
+  linguist: Xojo
   wikidata: Q14378091
 rels:
   implements:

@@ -12,6 +12,7 @@ extRedditPath: d_language
 extWikipediaPath: D_(programming_language)
 extensions:
   - .d
+  - .di
 githubColor: "#ba595e"
 githubLangId: "80"
 githubName: D
@@ -27,6 +28,7 @@ releases:
 stackovTags:
   - d
 sources:
+  linguist: D
   wikidata: Q319268
 rels:
   implements:

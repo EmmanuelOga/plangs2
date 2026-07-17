@@ -8,6 +8,8 @@ extGithubPath: llvm/llvm-project
 extHomeURL: https://llvm.org/
 extRedditPath: LLVM
 extWikipediaPath: LLVM
+extensions:
+  - .ll
 githubColor: "#185619"
 githubLangId: "191"
 githubName: LLVM
@@ -30,6 +32,7 @@ stackovTags:
   - llvm
   - llvm-ir
 sources:
+  linguist: LLVM
   wikidata: Q223490
 rels:
   licenses:

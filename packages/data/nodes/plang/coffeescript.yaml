@@ -10,7 +10,10 @@ extRedditPath: coffeescript
 extWikipediaPath: CoffeeScript
 extensions:
   - .coffee
-  - .litcoffee
+  - ._coffee
+  - .cake
+  - .cjsx
+  - .iced
 githubColor: "#244776"
 githubLangId: "63"
 githubName: CoffeeScript
@@ -26,6 +29,7 @@ releases:
 stackovTags:
   - coffeescript
 sources:
+  linguist: CoffeeScript
   wikidata: Q1106819
 rels:
   compilesTo:

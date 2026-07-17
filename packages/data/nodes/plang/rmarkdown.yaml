@@ -11,7 +11,8 @@ keywords:
 extGithubPath: rstudio/rmarkdown
 extHomeURL: https://rmarkdown.rstudio.com/
 extensions:
-  - .Rmd
+  - .qmd
+  - .rmd
 githubColor: "#198ce7"
 githubLangId: "313"
 githubName: RMarkdown
@@ -26,6 +27,8 @@ releases:
     date: 2014-01-21
 stackovTags:
   - r-markdown
+sources:
+  linguist: RMarkdown
 rels:
   compilesTo:
     - pl/html

@@ -13,8 +13,9 @@ extRedditPath: hacklang
 extWikipediaPath: Hack_(programming_language)
 extensions:
   - .hack
-  - .hck
   - .hh
+  - .hhi
+  - .php
 githubColor: "#878787"
 githubLangId: "153"
 githubName: Hack
@@ -30,6 +31,7 @@ releases:
 stackovTags:
   - hacklang
 sources:
+  linguist: Hack
   wikidata: Q15971618
 rels:
   dialectOf:

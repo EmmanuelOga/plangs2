@@ -16,6 +16,7 @@ extRedditPath: CUDA
 extWikipediaPath: CUDA
 extensions:
   - .cu
+  - .cuh
 githubColor: "#3A4E3A"
 githubLangId: "77"
 githubName: Cuda
@@ -33,6 +34,7 @@ releases:
 stackovTags:
   - cuda
 sources:
+  linguist: Cuda
   wikidata: Q477690
 rels:
   paradigms:

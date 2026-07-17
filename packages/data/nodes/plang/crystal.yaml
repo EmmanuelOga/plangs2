@@ -26,6 +26,7 @@ releases:
 stackovTags:
   - crystal-lang
 sources:
+  linguist: Crystal
   wikidata: Q21921428
 rels:
   influencedBy:

@@ -8,7 +8,7 @@
  */
 
 import { parse as parseYaml } from "yaml";
-import { indexRemote, resolveNode, reviewFor } from "../core/match.ts";
+import { indexRemote, normalize, resolveNode, reviewFor } from "../core/match.ts";
 import type { NodeDoc, RunContext, Source } from "../core/types.ts";
 
 const SOURCE_ID = "linguist";
@@ -108,16 +108,53 @@ export const linguistSource: Source = {
 
     const langs = parseLinguist(await ctx.fetch(languagesUrl), await ctx.fetch(popularUrl));
 
-    const index = indexRemote(langs, lang => ({
-      id: lang.name,
-      // Order matters: more specific identifiers first (see indexRemote).
-      exact: [
-        ...(lang.fs_name ? [lang.fs_name] : []),
-        ...(lang.aliases ?? []),
-        ...(lang.interpreters ?? []),
-        ...(lang.language_id === undefined ? [] : [String(lang.language_id)]),
-      ],
-    }));
+    /*
+     * Every identity our own dataset already tracks.
+     *
+     * Needed because Linguist's alias/interpreter tables answer a DIFFERENT
+     * question than ours: they exist to label a *file*, not to identify a
+     * *project*. So JavaScript lists `node` among its aliases and
+     * `bun`/`deno`/`v8` among its interpreters; Ruby lists `jruby`; Python
+     * lists `pypy`; Lua lists `luajit`. Each of those is a language or runtime
+     * we model as its own node, and taking them as identities matched pl/bun to
+     * JavaScript — which would have written githubName "JavaScript",
+     * githubLangId 183 and all 25 JS extensions onto the Bun runtime. Silently,
+     * and the same for node, deno, v8, jruby, pypy, luajit, sbcl, rakudo, tsx.
+     */
+    const ourIdentities = new Set<string>();
+    for (const doc of ctx.nodesOfKind("plang")) {
+      ourIdentities.add(normalize(doc.slug));
+      const name = doc.data.name;
+      if (typeof name === "string") ourIdentities.add(normalize(name));
+    }
+
+    const index = indexRemote(langs, lang => {
+      const self = normalize(lang.name);
+      // `fs_name` is this same language spelled for a filesystem; `language_id`
+      // is GitHub's numeric id. Both are unambiguously ITS own identifiers.
+      const exact = [...(lang.fs_name ? [lang.fs_name] : []), ...(lang.language_id === undefined ? [] : [String(lang.language_id)])];
+      const fuzzy: string[] = [];
+
+      /*
+       * An upstream alias is an identity only if it does not name a DIFFERENT
+       * thing we track.
+       *
+       *   "objectivec" for Objective-C -> same topic, nothing else claims it,
+       *                                   so it is a real spelling. Exact.
+       *   "node" for JavaScript        -> pl/node is its own node. Ambiguous,
+       *                                   so it becomes a review candidate.
+       *
+       * The check is against OUR dataset, which is the only place the conflict
+       * is visible: upstream sees no problem, because upstream is not trying to
+       * tell Bun and JavaScript apart.
+       */
+      for (const alias of [...(lang.aliases ?? []), ...(lang.interpreters ?? [])]) {
+        const n = normalize(alias);
+        if (n !== self && ourIdentities.has(n)) fuzzy.push(alias);
+        else exact.push(alias);
+      }
+      return { id: lang.name, exact, fuzzy };
+    });
 
     for (const doc of ctx.nodesOfKind("plang")) {
       const res = resolveNode(index, doc, SOURCE_ID, exactNamesOf(doc), l => l.name);

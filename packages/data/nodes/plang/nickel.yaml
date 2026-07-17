@@ -13,12 +13,19 @@ extHomeURL: https://nickel-lang.org
 extWikipediaPath: Nickel_(programming_language)
 extensions:
   - .ncl
+githubColor: "#E0C3FC"
+githubLangId: "1067292664"
+githubName: Nickel
+githubPopular: false
 githubStars: 2400
+githubType: programming
 isTranspiler: true
 releases:
   - version: 1.0.0
     name: Nickel 1.0.0
     date: 2023-05-01
+sources:
+  linguist: Nickel
 rels:
   compilesTo:
     - pl/json

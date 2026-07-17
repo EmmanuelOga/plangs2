@@ -9,9 +9,31 @@ extHomeURL: https://ecma-international.org/publications-and-standards/standards/
 extRedditPath: javascript
 extWikipediaPath: JavaScript
 extensions:
-  - .cjs
   - .js
+  - ._js
+  - .bones
+  - .cjs
+  - .es
+  - .es6
+  - .frag
+  - .gs
+  - .jake
+  - .javascript
+  - .jsb
+  - .jscad
+  - .jsfl
+  - .jslib
+  - .jsm
+  - .jspre
+  - .jss
+  - .jsx
   - .mjs
+  - .njs
+  - .pac
+  - .sjs
+  - .ssjs
+  - .xsjs
+  - .xsjslib
 githubColor: "#f1e05a"
 githubLangId: "183"
 githubName: JavaScript
@@ -24,6 +46,8 @@ links:
     title: MDN JavaScript
 stackovTags:
   - javascript
+sources:
+  linguist: JavaScript
 rels:
   influencedBy:
     - pl/awk

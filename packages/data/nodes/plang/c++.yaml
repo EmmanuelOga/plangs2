@@ -10,11 +10,10 @@ extHomeURL: https://isocpp.org/
 extRedditPath: cpp
 extWikipediaPath: C++
 extensions:
-  - .C
-  - .H
+  - .cpp
   - .c++
   - .cc
-  - .cpp
+  - .cp
   - .cppm
   - .cxx
   - .h
@@ -22,7 +21,15 @@ extensions:
   - .hh
   - .hpp
   - .hxx
+  - .inc
+  - .inl
+  - .ino
+  - .ipp
   - .ixx
+  - .re
+  - .tcc
+  - .tpp
+  - .txx
 githubColor: "#f34b7d"
 githubLangId: "43"
 githubName: C++
@@ -70,6 +77,7 @@ releases:
 stackovTags:
   - c++
 sources:
+  linguist: C++
   wikidata: Q2407
 rels:
   compilesTo:

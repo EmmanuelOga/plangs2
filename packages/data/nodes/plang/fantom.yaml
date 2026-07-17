@@ -10,8 +10,6 @@ extRedditPath: Fantom
 extWikipediaPath: Fantom_(programming_language)
 extensions:
   - .fan
-  - .fwt
-  - .pod
 githubColor: "#14253c"
 githubLangId: "110"
 githubName: Fantom
@@ -27,6 +25,7 @@ releases:
 stackovTags:
   - fantom
 sources:
+  linguist: Fantom
   wikidata: Q2699404
 rels:
   compilesTo:

@@ -25,6 +25,8 @@ releases:
     date: 2022-09-07
 stackovTags:
   - beef
+sources:
+  linguist: Beef
 rels:
   influencedBy:
     - pl/c

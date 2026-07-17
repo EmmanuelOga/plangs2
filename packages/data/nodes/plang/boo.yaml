@@ -23,6 +23,7 @@ releases:
 stackovTags:
   - boo
 sources:
+  linguist: Boo
   wikidata: Q892948
 rels:
   influencedBy:

@@ -11,8 +11,17 @@ extHomeURL: https://daringfireball.net/projects/markdown/
 extRedditPath: Markdown
 extWikipediaPath: Markdown
 extensions:
-  - .markdown
   - .md
+  - .livemd
+  - .markdown
+  - .mdown
+  - .mdwn
+  - .mkd
+  - .mkdn
+  - .mkdown
+  - .ronn
+  - .scd
+  - .workbook
 githubColor: "#083fa1"
 githubLangId: "222"
 githubName: Markdown
@@ -30,6 +39,7 @@ releases:
 stackovTags:
   - markdown
 sources:
+  linguist: Markdown
   wikidata: Q1193600
 rels:
   compilesTo:

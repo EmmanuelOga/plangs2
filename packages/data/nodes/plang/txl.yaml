@@ -22,6 +22,7 @@ releases:
     name: FreeTxl
     date: 2022-07
 sources:
+  linguist: TXL
   wikidata: Q7590386
 rels:
   paradigms:

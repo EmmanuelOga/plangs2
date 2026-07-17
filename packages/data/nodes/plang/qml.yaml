@@ -14,6 +14,7 @@ extRedditPath: QtFramework
 extWikipediaPath: QML
 extensions:
   - .qml
+  - .qbs
 githubColor: "#44a51c"
 githubLangId: "305"
 githubName: QML
@@ -29,6 +30,7 @@ releases:
 stackovTags:
   - qml
 sources:
+  linguist: QML
   wikidata: Q961543
 rels:
   compilesTo:

@@ -13,8 +13,28 @@ extHomeURL: https://www.jruby.org/
 extRedditPath: ruby
 extWikipediaPath: Ruby_(programming_language)
 extensions:
-  - .jruby
   - .rb
+  - .builder
+  - .eye
+  - .fcgi
+  - .gemspec
+  - .god
+  - .jbuilder
+  - .mspec
+  - .pluginspec
+  - .podspec
+  - .prawn
+  - .rabl
+  - .rake
+  - .rbi
+  - .rbuild
+  - .rbw
+  - .rbx
+  - .ru
+  - .ruby
+  - .spec
+  - .thor
+  - .watchr
 githubColor: "#701516"
 githubLangId: "326"
 githubName: Ruby
@@ -27,6 +47,8 @@ releases:
     date: 2024-09-04
 stackovTags:
   - ruby
+sources:
+  linguist: Ruby
 rels:
   implements:
     - pl/ruby

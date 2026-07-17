@@ -11,8 +11,16 @@ extGithubPath: Mercury-Language/mercury
 extHomeURL: https://mercurylang.org/
 extensions:
   - .m
+  - .moo
+githubColor: "#ff2b2b"
+githubLangId: "229"
+githubName: Mercury
+githubPopular: false
+githubType: programming
 isTranspiler: false
 languishRanking: 332
+sources:
+  linguist: Mercury
 rels:
   dialectOf:
     - pl/prolog

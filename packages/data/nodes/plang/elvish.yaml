@@ -22,6 +22,8 @@ releases:
   - version: 0.18.0
     name: Elvish 0.18.0
     date: 2023-09-15
+sources:
+  linguist: Elvish
 rels:
   licenses:
     - lic/bsd

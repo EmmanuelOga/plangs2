@@ -9,8 +9,13 @@ extHomeURL: https://www.embarcadero.com/products/delphi
 extRedditPath: pascal
 extWikipediaPath: Pascal_(programming_language)
 extensions:
-  - .dpr
   - .pas
+  - .dfm
+  - .dpr
+  - .inc
+  - .lpr
+  - .pascal
+  - .pp
 githubColor: "#E3F171"
 githubLangId: "281"
 githubName: Pascal
@@ -31,6 +36,8 @@ releases:
 stackovTags:
   - delphi
   - pascal
+sources:
+  linguist: Pascal
 rels:
   dialectOf:
     - pl/pascal

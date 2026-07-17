@@ -15,16 +15,8 @@ keywords:
 extRedditPath: matlab
 extWikipediaPath: MATLAB
 extensions:
-  - .fig
+  - .matlab
   - .m
-  - .mat
-  - .mex
-  - .mlapp
-  - .mlappinstall
-  - .mlpkginstall
-  - .mltbx
-  - .mlx
-  - .p
 githubColor: "#e16737"
 githubLangId: "225"
 githubName: MATLAB
@@ -42,6 +34,7 @@ releases:
 stackovTags:
   - matlab
 sources:
+  linguist: MATLAB
   wikidata: Q169478
 rels:
   paradigms:

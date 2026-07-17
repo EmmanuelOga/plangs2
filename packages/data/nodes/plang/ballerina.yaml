@@ -27,6 +27,7 @@ releases:
 stackovTags:
   - ballerina
 sources:
+  linguist: Ballerina
   wikidata: Q51160183
 rels:
   influencedBy:

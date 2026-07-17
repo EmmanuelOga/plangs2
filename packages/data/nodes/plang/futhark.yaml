@@ -28,6 +28,7 @@ releases:
 stackovTags:
   - futhark
 sources:
+  linguist: Futhark
   wikidata: Q51159967
 rels:
   compilesTo:

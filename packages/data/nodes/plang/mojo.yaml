@@ -14,7 +14,6 @@ extRedditPath: MojoLang
 extWikipediaPath: Mojo_(programming_language)
 extensions:
   - .mojo
-  - .🔥
 githubColor: "#ff4c1f"
 githubLangId: "1045019587"
 githubName: Mojo
@@ -30,6 +29,7 @@ releases:
 stackovTags:
   - mojolang
 sources:
+  linguist: Mojo
   wikidata: Q118152673
 rels:
   influencedBy:

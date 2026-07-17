@@ -13,10 +13,9 @@ extHomeURL: https://www.typescriptlang.org/
 extRedditPath: typescript
 extWikipediaPath: TypeScript
 extensions:
+  - .ts
   - .cts
   - .mts
-  - .ts
-  - .tsx
 githubColor: "#3178c6"
 githubLangId: "378"
 githubName: TypeScript
@@ -32,6 +31,7 @@ releases:
 stackovTags:
   - typescript
 sources:
+  linguist: TypeScript
   wikidata: Q978185
 rels:
   compilesTo:

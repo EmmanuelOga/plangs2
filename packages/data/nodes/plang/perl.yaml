@@ -9,15 +9,16 @@ extHomeURL: https://www.perl.org/
 extRedditPath: perl
 extWikipediaPath: Perl
 extensions:
-  - .cgi
   - .pl
-  - .pls
+  - .al
+  - .cgi
+  - .fcgi
+  - .perl
+  - .ph
   - .plx
   - .pm
-  - .pod
   - .psgi
   - .t
-  - .xs
 githubColor: "#0298c3"
 githubLangId: "282"
 githubName: Perl
@@ -39,6 +40,7 @@ releases:
 stackovTags:
   - perl
 sources:
+  linguist: Perl
   wikidata: Q42478
 rels:
   influencedBy:

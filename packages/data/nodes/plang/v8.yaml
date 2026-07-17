@@ -13,9 +13,31 @@ extHomeURL: https://v8.dev
 extRedditPath: javascript
 extWikipediaPath: JavaScript
 extensions:
-  - .cjs
   - .js
+  - ._js
+  - .bones
+  - .cjs
+  - .es
+  - .es6
+  - .frag
+  - .gs
+  - .jake
+  - .javascript
+  - .jsb
+  - .jscad
+  - .jsfl
+  - .jslib
+  - .jsm
+  - .jspre
+  - .jss
+  - .jsx
   - .mjs
+  - .njs
+  - .pac
+  - .sjs
+  - .ssjs
+  - .xsjs
+  - .xsjslib
 githubColor: "#f1e05a"
 githubLangId: "183"
 githubName: JavaScript
@@ -30,6 +52,7 @@ releases:
 stackovTags:
   - javascript
 sources:
+  linguist: JavaScript
   wikidata: Q2005
 rels:
   implements:

@@ -27,6 +27,7 @@ releases:
 stackovTags:
   - godot
 sources:
+  linguist: GDScript
   wikidata: Q16972633
 rels:
   influencedBy:

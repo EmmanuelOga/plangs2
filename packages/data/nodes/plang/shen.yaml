@@ -28,6 +28,8 @@ releases:
     date: 2023-08-01
 stackovTags:
   - shen
+sources:
+  linguist: Shen
 rels:
   influencedBy:
     - pl/prolog

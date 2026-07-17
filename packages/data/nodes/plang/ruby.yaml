@@ -10,7 +10,27 @@ extRedditPath: ruby
 extWikipediaPath: Ruby_(programming_language)
 extensions:
   - .rb
+  - .builder
+  - .eye
+  - .fcgi
+  - .gemspec
+  - .god
+  - .jbuilder
+  - .mspec
+  - .pluginspec
+  - .podspec
+  - .prawn
+  - .rabl
+  - .rake
+  - .rbi
+  - .rbuild
+  - .rbw
+  - .rbx
   - .ru
+  - .ruby
+  - .spec
+  - .thor
+  - .watchr
 githubColor: "#701516"
 githubLangId: "326"
 githubName: Ruby
@@ -38,6 +58,7 @@ releases:
 stackovTags:
   - ruby
 sources:
+  linguist: Ruby
   wikidata: Q161053
 rels:
   influencedBy:

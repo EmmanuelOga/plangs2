@@ -8,10 +8,6 @@ extRedditPath: Basic
 extWikipediaPath: BASIC
 extensions:
   - .bas
-  - .bb
-  - .bi
-  - .fb
-  - .pb
 githubColor: "#ff0000"
 githubLangId: "28923963"
 githubName: BASIC
@@ -26,6 +22,7 @@ releases:
 stackovTags:
   - basic
 sources:
+  linguist: BASIC
   wikidata: Q42979
 rels:
   influencedBy:

@@ -33,6 +33,7 @@ releases:
 stackovTags:
   - elixir
 sources:
+  linguist: Elixir
   wikidata: Q5362035
 rels:
   influencedBy:

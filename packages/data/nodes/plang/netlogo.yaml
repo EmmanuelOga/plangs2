@@ -12,8 +12,6 @@ extRedditPath: NetLogo
 extWikipediaPath: NetLogo
 extensions:
   - .nlogo
-  - .nlogo3d
-  - .nls
 githubColor: "#ff6375"
 githubLangId: "246"
 githubName: NetLogo
@@ -29,6 +27,7 @@ releases:
 stackovTags:
   - netlogo
 sources:
+  linguist: NetLogo
   wikidata: Q672307
 rels:
   dialectOf:

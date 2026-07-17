@@ -12,6 +12,19 @@ extRedditPath: LaTeX
 extWikipediaPath: LaTeX
 extensions:
   - .tex
+  - .aux
+  - .bbx
+  - .cbx
+  - .cls
+  - .dtx
+  - .ins
+  - .lbx
+  - .ltx
+  - .mkii
+  - .mkiv
+  - .mkvi
+  - .sty
+  - .toc
 githubColor: "#3D6117"
 githubLangId: "369"
 githubName: TeX
@@ -29,6 +42,7 @@ releases:
 stackovTags:
   - latex
 sources:
+  linguist: TeX
   wikidata: Q5310
 rels:
   licenses:

@@ -26,6 +26,7 @@ releases:
 stackovTags:
   - reason
 sources:
+  linguist: Reason
   wikidata: Q63565848
 rels:
   compilesTo:

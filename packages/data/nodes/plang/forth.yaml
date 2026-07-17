@@ -12,11 +12,14 @@ extHomeURL: https://forth-standard.org/
 extRedditPath: Forth
 extWikipediaPath: Forth_(programming_language)
 extensions:
+  - .fth
   - .4th
   - .f
+  - .for
   - .forth
+  - .fr
+  - .frt
   - .fs
-  - .fth
 githubColor: "#341708"
 githubLangId: "114"
 githubName: Forth
@@ -27,6 +30,7 @@ languishRanking: 196
 stackovTags:
   - forth
 sources:
+  linguist: Forth
   wikidata: Q275472
 rels:
   influencedBy:

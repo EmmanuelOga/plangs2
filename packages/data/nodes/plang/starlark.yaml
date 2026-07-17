@@ -30,6 +30,7 @@ releases:
 stackovTags:
   - bazel
 sources:
+  linguist: Starlark
   wikidata: Q25345982
 rels:
   influencedBy:

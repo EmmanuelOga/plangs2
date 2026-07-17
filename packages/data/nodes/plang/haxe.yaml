@@ -10,7 +10,7 @@ extRedditPath: haxe
 extWikipediaPath: Haxe
 extensions:
   - .hx
-  - .hxml
+  - .hxsl
 githubColor: "#df7900"
 githubLangId: "158"
 githubName: Haxe
@@ -26,6 +26,7 @@ releases:
 stackovTags:
   - haxe
 sources:
+  linguist: Haxe
   wikidata: Q285886
 rels:
   compilesTo:

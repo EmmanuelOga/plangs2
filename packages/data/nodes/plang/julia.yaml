@@ -37,6 +37,7 @@ releases:
 stackovTags:
   - julia
 sources:
+  linguist: Julia
   wikidata: Q2613697
 rels:
   influencedBy:

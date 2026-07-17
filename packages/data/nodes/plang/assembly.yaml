@@ -9,14 +9,13 @@ keywords:
 extRedditPath: asm
 extWikipediaPath: Assembly_language
 extensions:
-  - .S
-  - .SRC
-  - .a51
   - .asm
+  - .a51
+  - .i
   - .inc
+  - .nas
+  - .nasm
   - .s
-  - .src
-  - .wla
 githubColor: "#6E4C13"
 githubLangId: "24"
 githubName: Assembly
@@ -27,6 +26,7 @@ languishRanking: 33
 stackovTags:
   - assembly
 sources:
+  linguist: Assembly
   wikidata: Q165436
 rels:
   paradigms:

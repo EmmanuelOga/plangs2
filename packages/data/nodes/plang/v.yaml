@@ -12,7 +12,6 @@ extRedditPath: vlang
 extWikipediaPath: V_(programming_language)
 extensions:
   - .v
-  - .vsh
 githubColor: "#4f87c4"
 githubLangId: "603371597"
 githubName: V
@@ -28,6 +27,7 @@ releases:
 stackovTags:
   - vlang
 sources:
+  linguist: V
   wikidata: Q61632937
 rels:
   compilesTo:

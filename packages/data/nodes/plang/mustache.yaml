@@ -27,6 +27,7 @@ releases:
 stackovTags:
   - mustache
 sources:
+  linguist: Mustache
   wikidata: Q17070290
 rels:
   compilesTo:

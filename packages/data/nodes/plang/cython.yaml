@@ -14,9 +14,9 @@ extHomeURL: https://cython.org
 extRedditPath: Cython
 extWikipediaPath: Cython
 extensions:
+  - .pyx
   - .pxd
   - .pxi
-  - .pyx
 githubColor: "#fedf5b"
 githubLangId: "79"
 githubName: Cython
@@ -31,6 +31,7 @@ releases:
 stackovTags:
   - cython
 sources:
+  linguist: Cython
   wikidata: Q975594
 rels:
   compilesTo:

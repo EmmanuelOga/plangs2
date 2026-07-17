@@ -11,8 +11,9 @@ extRedditPath: fortran
 extWikipediaPath: Fortran
 extensions:
   - .f
-  - .f90
+  - .f77
   - .for
+  - .fpp
 githubColor: "#4d41b1"
 githubLangId: "107"
 githubName: Fortran
@@ -26,6 +27,7 @@ links:
 stackovTags:
   - fortran
 sources:
+  linguist: Fortran
   wikidata: Q83303
 rels:
   paradigms:

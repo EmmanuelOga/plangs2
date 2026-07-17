@@ -15,10 +15,8 @@ extRedditPath: Rlanguage
 extWikipediaPath: R_(programming_language)
 extensions:
   - .r
-  - .rda
-  - .rdata
-  - .rds
-  - .rhistory
+  - .rd
+  - .rsx
 githubColor: "#198CE7"
 githubLangId: "307"
 githubName: R
@@ -43,6 +41,7 @@ releases:
 stackovTags:
   - r
 sources:
+  linguist: R
   wikidata: Q206904
 rels:
   influencedBy:

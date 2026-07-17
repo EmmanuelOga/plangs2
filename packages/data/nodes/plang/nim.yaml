@@ -10,7 +10,9 @@ extRedditPath: nim
 extWikipediaPath: Nim_(programming_language)
 extensions:
   - .nim
+  - .nim.cfg
   - .nimble
+  - .nimrod
   - .nims
 githubColor: "#ffc200"
 githubLangId: "249"
@@ -28,6 +30,7 @@ releases:
 stackovTags:
   - nim-lang
 sources:
+  linguist: Nim
   wikidata: Q20080327
 rels:
   compilesTo:

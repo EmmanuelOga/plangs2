@@ -10,9 +10,7 @@ extRedditPath: purebasic
 extWikipediaPath: PureBasic
 extensions:
   - .pb
-  - .pbf
   - .pbi
-  - .pbp
 githubColor: "#5a6986"
 githubLangId: "301"
 githubName: PureBasic
@@ -22,6 +20,7 @@ githubType: programming
 isTranspiler: false
 languishRanking: 262
 sources:
+  linguist: PureBasic
   wikidata: Q2118858
 rels:
   dialectOf:

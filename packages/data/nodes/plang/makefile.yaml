@@ -9,7 +9,12 @@ keywords:
   - unix
 extWikipediaPath: Make_(software)
 extensions:
+  - .mak
+  - .d
+  - .make
+  - .makefile
   - .mk
+  - .mkfile
 filenames:
   - Makefile
   - makefile
@@ -23,6 +28,7 @@ languishRanking: 40
 stackovTags:
   - makefile
 sources:
+  linguist: Makefile
   wikidata: Q300867
 rels:
   paradigms:

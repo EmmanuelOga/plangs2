@@ -10,7 +10,6 @@ extRedditPath: Sass
 extWikipediaPath: Sass_(style_sheet_language)
 extensions:
   - .sass
-  - .scss
 githubColor: "#a53b70"
 githubLangId: "340"
 githubName: Sass
@@ -29,6 +28,7 @@ releases:
 stackovTags:
   - sass
 sources:
+  linguist: Sass
   wikidata: Q1572865
 rels:
   compilesTo:

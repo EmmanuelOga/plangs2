@@ -12,7 +12,7 @@ extRedditPath: CSS
 extWikipediaPath: Cascading_Style_Sheets
 extensions:
   - .css
-githubColor: "#563d7c"
+githubColor: "#663399"
 githubLangId: "50"
 githubName: CSS
 githubPopular: true
@@ -32,6 +32,7 @@ releases:
 stackovTags:
   - css
 sources:
+  linguist: CSS
   wikidata: Q46441
 rels:
   paradigms:

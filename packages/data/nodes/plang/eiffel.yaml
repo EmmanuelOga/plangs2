@@ -25,6 +25,7 @@ releases:
 stackovTags:
   - eiffel
 sources:
+  linguist: Eiffel
   wikidata: Q732089
 rels:
   influencedBy:

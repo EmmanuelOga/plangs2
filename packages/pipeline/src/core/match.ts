@@ -27,8 +27,27 @@ export function normalize(name: string): string {
 export interface RemoteKeys {
   /** Canonical id — what gets written to `sources.<sourceId>`. */
   id: string;
-  /** Exact, deterministic aliases (names, alias lists, interpreters, …). */
+  /**
+   * Exact, deterministic identifiers: other spellings of THIS record's own
+   * identity (a filesystem name, a numeric id).
+   *
+   * Not "any string upstream associates with the record". An alias table is
+   * usually built for a different question than ours — Linguist's exists to
+   * label a *file*, so JavaScript lists `node` as an alias and `bun`/`deno` as
+   * interpreters. Those name real, separate projects that we model as their own
+   * nodes. Putting them here silently stamps Bun with JavaScript's identity.
+   * Such strings belong in `fuzzy`.
+   */
   exact: string[];
+  /**
+   * Suggestions: strings that *associate* a record with a node without being its
+   * identity (alias tables, interpreter lists).
+   *
+   * These reach the normalized index only, so they can surface as review
+   * candidates and never get written. A human promotes a real one by pinning
+   * `sources.<id>` on the node, which the ladder then treats as authoritative.
+   */
+  fuzzy?: string[];
 }
 
 export interface RemoteIndex<T> {
@@ -66,8 +85,10 @@ export function indexRemote<T>(records: readonly T[], keys: (record: T) => Remot
     }
   }
 
+  // The normalized index carries `fuzzy` keys too: they are exactly the
+  // associations a human should be shown and asked about.
   for (const { record, keys: k } of all) {
-    for (const alias of [k.id, ...k.exact]) {
+    for (const alias of [k.id, ...k.exact, ...(k.fuzzy ?? [])]) {
       const norm = normalize(alias);
       if (!norm) continue;
       const bucket = byNormalized.get(norm);

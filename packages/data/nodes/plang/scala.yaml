@@ -9,8 +9,10 @@ extHomeURL: http://www.scala-lang.org/
 extRedditPath: scala
 extWikipediaPath: Scala_(programming_language)
 extensions:
-  - .sc
   - .scala
+  - .kojo
+  - .sbt
+  - .sc
 githubColor: "#c22d40"
 githubLangId: "341"
 githubName: Scala
@@ -29,6 +31,7 @@ releases:
 stackovTags:
   - scala
 sources:
+  linguist: Scala
   wikidata: Q460584
 rels:
   influencedBy:

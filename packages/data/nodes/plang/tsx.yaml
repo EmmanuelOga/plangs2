@@ -4,7 +4,14 @@ description: A syntax extension of TypeScript that allows embedding of XML-like 
 extHomeURL: https://www.typescriptlang.org/docs/handbook/jsx.html
 extensions:
   - .tsx
+githubColor: "#3178c6"
+githubLangId: "94901924"
+githubName: TSX
+githubPopular: false
+githubType: programming
 isTranspiler: true
+sources:
+  linguist: TSX
 rels:
   tags:
     - tag/webdev

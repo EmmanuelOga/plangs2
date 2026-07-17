@@ -9,8 +9,21 @@ extHomeURL: https://www.gnu.org/software/bash/
 extRedditPath: bash
 extWikipediaPath: Bash_(Unix_shell)
 extensions:
-  - .bash
   - .sh
+  - .bash
+  - .bats
+  - .cgi
+  - .command
+  - .fcgi
+  - .ksh
+  - .sbatch
+  - .sh.in
+  - .slurm
+  - .tmux
+  - .tool
+  - .trigger
+  - .zsh
+  - .zsh-theme
 filenames:
   - .bash_profile
   - .bashrc
@@ -31,6 +44,7 @@ releases:
 stackovTags:
   - bash
 sources:
+  linguist: Shell
   wikidata: Q189248
 rels:
   licenses:

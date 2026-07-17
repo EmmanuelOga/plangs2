@@ -12,7 +12,8 @@ extRedditPath: haskell
 extWikipediaPath: Haskell_(programming_language)
 extensions:
   - .hs
-  - .lhs
+  - .hs-boot
+  - .hsc
 githubColor: "#5e5086"
 githubLangId: "157"
 githubName: Haskell
@@ -34,6 +35,7 @@ releases:
 stackovTags:
   - haskell
 sources:
+  linguist: Haskell
   wikidata: Q34010
 rels:
   implements:

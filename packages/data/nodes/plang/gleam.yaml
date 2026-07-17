@@ -29,6 +29,7 @@ releases:
 stackovTags:
   - gleam
 sources:
+  linguist: Gleam
   wikidata: Q66370905
 rels:
   compilesTo:

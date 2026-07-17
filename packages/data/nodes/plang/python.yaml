@@ -8,12 +8,22 @@ extRedditPath: Python
 extWikipediaPath: Python_(programming_language)
 extensions:
   - .py
-  - .pyc
-  - .pyd
+  - .cgi
+  - .fcgi
+  - .gyp
+  - .gypi
+  - .lmi
+  - .py3
+  - .pyde
   - .pyi
-  - .pyo
+  - .pyp
+  - .pyt
   - .pyw
-  - .pyz
+  - .rpy
+  - .spec
+  - .tac
+  - .wsgi
+  - .xpy
 githubColor: "#3572A5"
 githubLangId: "303"
 githubName: Python
@@ -41,6 +51,7 @@ releases:
 stackovTags:
   - python
 sources:
+  linguist: Python
   wikidata: Q28865
 rels:
   influencedBy:

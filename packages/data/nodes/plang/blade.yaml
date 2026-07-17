@@ -13,6 +13,7 @@ extHomeURL: https://laravel.com/docs/5.8/blade
 extRedditPath: laravel
 extWikipediaPath: Laravel
 extensions:
+  - .blade
   - .blade.php
 githubColor: "#f7523f"
 githubLangId: "33"
@@ -25,6 +26,7 @@ languishRanking: 62
 stackovTags:
   - laravel-blade
 sources:
+  linguist: Blade
   wikidata: Q13634357
 rels:
   compilesTo:

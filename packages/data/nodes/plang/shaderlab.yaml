@@ -22,6 +22,8 @@ links:
     title: Unity Learn
 stackovTags:
   - shaderlab
+sources:
+  linguist: ShaderLab
 rels:
   paradigms:
     - para/dsl

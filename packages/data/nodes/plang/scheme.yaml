@@ -7,6 +7,10 @@ extRedditPath: scheme
 extWikipediaPath: Scheme_(programming_language)
 extensions:
   - .scm
+  - .sch
+  - .sld
+  - .sls
+  - .sps
   - .ss
 githubColor: "#1e4aec"
 githubLangId: "343"
@@ -18,6 +22,7 @@ languishRanking: 106
 stackovTags:
   - scheme
 sources:
+  linguist: Scheme
   wikidata: Q187560
 rels:
   dialectOf:

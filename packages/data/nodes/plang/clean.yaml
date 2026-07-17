@@ -9,9 +9,8 @@ keywords:
 extHomeURL: http://clean.cs.ru.nl/
 extWikipediaPath: Clean_(programming_language)
 extensions:
-  - .abc
-  - .dcl
   - .icl
+  - .dcl
 githubColor: "#3F85AF"
 githubLangId: "60"
 githubName: Clean
@@ -26,6 +25,7 @@ releases:
 stackovTags:
   - clean-language
 sources:
+  linguist: Clean
   wikidata: Q377986
 rels:
   influencedBy:

@@ -11,6 +11,7 @@ extHomeURL: https://www.gnu.org/software/gdb
 extWikipediaPath: GNU_Debugger
 extensions:
   - .gdb
+  - .gdbinit
 filenames:
   - gdbinit
 githubLangId: "122"
@@ -26,6 +27,7 @@ releases:
 stackovTags:
   - gdb
 sources:
+  linguist: GDB
   wikidata: Q464113
 rels:
   licenses:

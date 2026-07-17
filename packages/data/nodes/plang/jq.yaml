@@ -23,6 +23,7 @@ releases:
 stackovTags:
   - jq
 sources:
+  linguist: jq
   wikidata: Q115959735
 rels:
   influencedBy:

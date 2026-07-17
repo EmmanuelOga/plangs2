@@ -16,10 +16,8 @@ extHomeURL: https://squeak.org/
 extRedditPath: smalltalk
 extWikipediaPath: Smalltalk
 extensions:
-  - .changes
-  - .image
-  - .sources
   - .st
+  - .cs
 githubColor: "#596706"
 githubLangId: "352"
 githubName: Smalltalk
@@ -34,6 +32,7 @@ releases:
 stackovTags:
   - smalltalk
 sources:
+  linguist: Smalltalk
   wikidata: Q235086
 rels:
   implements:

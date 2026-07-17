@@ -10,8 +10,16 @@ extHomeURL: https://yaml.org/
 extRedditPath: yaml
 extWikipediaPath: YAML
 extensions:
-  - .yaml
   - .yml
+  - .mir
+  - .reek
+  - .rviz
+  - .sublime-syntax
+  - .syntax
+  - .yaml
+  - .yaml-tmlanguage
+  - .yaml.sed
+  - .yml.mysql
 githubColor: "#cb171e"
 githubLangId: "407"
 githubName: YAML
@@ -26,6 +34,7 @@ releases:
 stackovTags:
   - yaml
 sources:
+  linguist: YAML
   wikidata: Q281876
 rels:
   licenses:

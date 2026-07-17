@@ -11,6 +11,27 @@ extHomeURL: https://json.org
 extWikipediaPath: JSON
 extensions:
   - .json
+  - .4DForm
+  - .4DProject
+  - .avsc
+  - .geojson
+  - .gltf
+  - .har
+  - .ice
+  - .JSON-tmLanguage
+  - .json.example
+  - .jsonl
+  - .mcmeta
+  - .sarif
+  - .slnlaunch
+  - .tact
+  - .tfstate
+  - .tfstate.backup
+  - .topojson
+  - .webapp
+  - .webmanifest
+  - .yy
+  - .yyp
 githubColor: "#292929"
 githubLangId: "174"
 githubName: JSON
@@ -25,6 +46,7 @@ releases:
 stackovTags:
   - json
 sources:
+  linguist: JSON
   wikidata: Q2063
 rels:
   paradigms:

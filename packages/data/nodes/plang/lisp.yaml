@@ -7,10 +7,14 @@ keywords:
 extRedditPath: Common_Lisp
 extWikipediaPath: Common_Lisp
 extensions:
-  - .cl
-  - .fasl
   - .lisp
+  - .asd
+  - .cl
+  - .l
   - .lsp
+  - .ny
+  - .podsl
+  - .sexp
 githubColor: "#3fb68b"
 githubLangId: "66"
 githubName: Common Lisp
@@ -19,6 +23,8 @@ githubType: programming
 isTranspiler: false
 stackovTags:
   - common-lisp
+sources:
+  linguist: Common Lisp
 rels:
   licenses:
     - lic/gnu-gpl

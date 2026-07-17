@@ -13,9 +13,12 @@ extHomeURL: https://dotnet.microsoft.com/apps/aspnet
 extRedditPath: ASPNET
 extWikipediaPath: ASP.NET
 extensions:
+  - .asax
+  - .ascx
+  - .ashx
+  - .asmx
   - .aspx
-  - .cshtml
-  - .vbhtml
+  - .axd
 githubColor: "#9400ff"
 githubLangId: "564186416"
 githubName: ASP.NET
@@ -34,6 +37,7 @@ stackovTags:
   - asp.net
   - asp.net-core
 sources:
+  linguist: ASP.NET
   wikidata: Q178817
 rels:
   compilesTo:

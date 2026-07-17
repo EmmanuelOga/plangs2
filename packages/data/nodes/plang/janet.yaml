@@ -24,6 +24,8 @@ languishRanking: 369
 releases:
   - version: 1.37.1
     date: 2024-12-05
+sources:
+  linguist: Janet
 rels:
   influencedBy:
     - pl/scheme

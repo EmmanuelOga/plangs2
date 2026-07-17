@@ -12,8 +12,10 @@ extRedditPath: MaxMSP
 extWikipediaPath: Max_(software)
 extensions:
   - .maxpat
-  - .mxb
+  - .maxhelp
+  - .maxproj
   - .mxt
+  - .pat
 githubColor: "#c4a79c"
 githubLangId: "227"
 githubName: Max
@@ -31,6 +33,7 @@ releases:
 stackovTags:
   - max-msp-jitter
 sources:
+  linguist: Max
   wikidata: Q1707206
 rels:
   licenses:

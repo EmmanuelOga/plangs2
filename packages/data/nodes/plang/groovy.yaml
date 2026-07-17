@@ -14,9 +14,9 @@ extRedditPath: groovy
 extWikipediaPath: Apache_Groovy
 extensions:
   - .groovy
-  - .gsh
+  - .grt
+  - .gtpl
   - .gvy
-  - .gy
 githubColor: "#4298b8"
 githubLangId: "142"
 githubName: Groovy
@@ -31,6 +31,7 @@ releases:
 stackovTags:
   - groovy
 sources:
+  linguist: Groovy
   wikidata: Q504453
 rels:
   influencedBy:

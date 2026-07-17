@@ -9,8 +9,11 @@ extHomeURL: https://www.rebol.com
 extRedditPath: rebol
 extWikipediaPath: Rebol
 extensions:
-  - .r
   - .reb
+  - .r
+  - .r2
+  - .r3
+  - .rebol
 githubColor: "#358a5b"
 githubLangId: "319"
 githubName: Rebol
@@ -28,6 +31,7 @@ releases:
 stackovTags:
   - rebol
 sources:
+  linguist: Rebol
   wikidata: Q1359171
 rels:
   influencedBy:

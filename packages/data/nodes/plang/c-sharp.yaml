@@ -13,8 +13,11 @@ extRedditPath: csharp
 extWikipediaPath: C_Sharp_(programming_language)
 extensions:
   - .cs
+  - .cake
+  - .cs.pp
   - .csx
-githubColor: "#178600"
+  - .linq
+githubColor: "#7355dd"
 githubLangId: "42"
 githubName: C#
 githubPopular: true
@@ -29,6 +32,7 @@ releases:
 stackovTags:
   - c#
 sources:
+  linguist: C#
   wikidata: Q2370
 rels:
   compilesTo:

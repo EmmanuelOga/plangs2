@@ -29,6 +29,7 @@ releases:
 stackovTags:
   - vala
 sources:
+  linguist: Vala
   wikidata: Q1138939
 rels:
   compilesTo:

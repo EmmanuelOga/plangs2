@@ -11,9 +11,8 @@ extHomeURL: https://kotlinlang.org/
 extRedditPath: Kotlin
 extWikipediaPath: Kotlin_(programming_language)
 extensions:
-  - .kexe
-  - .klib
   - .kt
+  - .ktm
   - .kts
 githubColor: "#A97BFF"
 githubLangId: "189"
@@ -29,6 +28,7 @@ releases:
 stackovTags:
   - kotlin
 sources:
+  linguist: Kotlin
   wikidata: Q3816639
 rels:
   compilesTo:

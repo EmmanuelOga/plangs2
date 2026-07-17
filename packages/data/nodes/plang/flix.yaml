@@ -9,12 +9,18 @@ extHomeURL: https://flix.dev/
 extWikipediaPath: Flix_(programming_language)
 extensions:
   - .flix
+githubColor: "#d44a45"
+githubLangId: "800935960"
+githubName: Flix
+githubPopular: false
 githubStars: 2200
+githubType: programming
 isTranspiler: false
 releases:
   - version: 0.54.0
     date: 2024-09-30
 sources:
+  linguist: Flix
   wikidata: Q104901822
 rels:
   influencedBy:

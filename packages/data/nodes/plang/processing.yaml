@@ -30,6 +30,7 @@ releases:
 stackovTags:
   - processing
 sources:
+  linguist: Processing
   wikidata: Q1053535
 rels:
   influencedBy:

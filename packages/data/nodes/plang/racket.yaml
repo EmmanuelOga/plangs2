@@ -12,6 +12,9 @@ extRedditPath: Racket
 extWikipediaPath: Racket_(programming_language)
 extensions:
   - .rkt
+  - .rktd
+  - .rktl
+  - .scrbl
 filenames:
   - Racket
 githubColor: "#3c5caa"
@@ -32,6 +35,7 @@ releases:
 stackovTags:
   - racket
 sources:
+  linguist: Racket
   wikidata: Q1254148
 rels:
   dialectOf:

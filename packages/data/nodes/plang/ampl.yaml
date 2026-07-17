@@ -14,9 +14,8 @@ extGithubPath: ampl/amplpy
 extHomeURL: https://ampl.com
 extWikipediaPath: AMPL
 extensions:
-  - .dat
+  - .ampl
   - .mod
-  - .run
 githubColor: "#E6EFBB"
 githubLangId: "3"
 githubName: AMPL
@@ -32,6 +31,7 @@ releases:
 stackovTags:
   - ampl
 sources:
+  linguist: AMPL
   wikidata: Q295250
 rels:
   paradigms:

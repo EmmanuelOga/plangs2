@@ -29,6 +29,7 @@ releases:
 stackovTags:
   - go
 sources:
+  linguist: Go
   wikidata: Q37227
 rels:
   compilesTo:

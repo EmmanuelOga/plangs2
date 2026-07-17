@@ -25,6 +25,7 @@ releases:
     name: Stable Release
     date: 2023-06-14
 sources:
+  linguist: Faust
   wikidata: Q1398550
 rels:
   influencedBy:

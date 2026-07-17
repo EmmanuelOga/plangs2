@@ -12,6 +12,7 @@ extGithubPath: apache/hive
 extHomeURL: https://hive.apache.org
 extWikipediaPath: Apache_Hive
 extensions:
+  - .q
   - .hql
 githubColor: "#dce200"
 githubLangId: "931814087"
@@ -32,6 +33,7 @@ stackovTags:
   - hive
   - hiveql
 sources:
+  linguist: HiveQL
   wikidata: Q4778914
 rels:
   influencedBy:

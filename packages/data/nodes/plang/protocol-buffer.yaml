@@ -28,6 +28,7 @@ releases:
 stackovTags:
   - protocol-buffers
 sources:
+  linguist: Protocol Buffer
   wikidata: Q1645574
 rels:
   compilesTo:

@@ -12,8 +12,13 @@ keywords:
 extRedditPath: HTML
 extWikipediaPath: HTML
 extensions:
-  - .htm
   - .html
+  - .hta
+  - .htm
+  - .html.hl
+  - .inc
+  - .xht
+  - .xhtml
 githubColor: "#e34c26"
 githubLangId: "146"
 githubName: HTML
@@ -31,6 +36,7 @@ releases:
 stackovTags:
   - html
 sources:
+  linguist: HTML
   wikidata: Q8811
 rels:
   paradigms:

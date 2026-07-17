@@ -20,6 +20,8 @@ githubStars: 17800
 githubType: markup
 isTranspiler: true
 languishRanking: 65
+sources:
+  linguist: MDX
 rels:
   compilesTo:
     - pl/html

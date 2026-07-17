@@ -28,6 +28,7 @@ releases:
 stackovTags:
   - isabelle
 sources:
+  linguist: Isabelle
   wikidata: Q460340
 rels:
   influencedBy:

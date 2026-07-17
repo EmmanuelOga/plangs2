@@ -25,6 +25,7 @@ releases:
 stackovTags:
   - vue.js
 sources:
+  linguist: Vue
   wikidata: Q24589705
 rels:
   compilesTo:

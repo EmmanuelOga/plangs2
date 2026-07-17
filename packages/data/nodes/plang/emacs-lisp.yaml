@@ -12,8 +12,8 @@ extRedditPath: emacs
 extWikipediaPath: Emacs_Lisp
 extensions:
   - .el
-  - .elc
-  - .eln
+  - .emacs
+  - .emacs.desktop
 filenames:
   - init.el
 githubColor: "#c065db"
@@ -34,6 +34,7 @@ releases:
 stackovTags:
   - elisp
 sources:
+  linguist: Emacs Lisp
   wikidata: Q1334586
 rels:
   dialectOf:

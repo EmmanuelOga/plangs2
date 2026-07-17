@@ -8,6 +8,8 @@ keywords:
 extRedditPath: sml
 extWikipediaPath: Standard_ML
 extensions:
+  - .ml
+  - .fun
   - .sig
   - .sml
 githubColor: "#dc566d"
@@ -24,6 +26,7 @@ releases:
 stackovTags:
   - sml
 sources:
+  linguist: Standard ML
   wikidata: Q597330
 rels:
   influencedBy:

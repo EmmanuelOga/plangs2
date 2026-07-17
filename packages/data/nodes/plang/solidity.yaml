@@ -28,6 +28,7 @@ releases:
 stackovTags:
   - solidity
 sources:
+  linguist: Solidity
   wikidata: Q24909565
 rels:
   influencedBy:

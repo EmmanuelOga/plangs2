@@ -12,6 +12,7 @@ extRedditPath: cmake
 extWikipediaPath: CMake
 extensions:
   - .cmake
+  - .cmake.in
 filenames:
   - CMakeLists.txt
 githubColor: "#DA3434"
@@ -32,6 +33,7 @@ releases:
 stackovTags:
   - cmake
 sources:
+  linguist: CMake
   wikidata: Q1023904
 rels:
   compilesTo:

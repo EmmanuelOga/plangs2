@@ -10,6 +10,7 @@ extHomeURL: http://jinja.pocoo.org/
 extWikipediaPath: Jinja_(template_engine)
 extensions:
   - .jinja
+  - .j2
   - .jinja2
 githubColor: "#a52a22"
 githubLangId: "147"
@@ -26,6 +27,7 @@ releases:
 stackovTags:
   - jinja2
 sources:
+  linguist: Jinja
   wikidata: Q4041851
 rels:
   compilesTo:

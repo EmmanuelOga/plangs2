@@ -30,6 +30,7 @@ releases:
 stackovTags:
   - nix
 sources:
+  linguist: Nix
   wikidata: Q7041957
 rels:
   licenses:

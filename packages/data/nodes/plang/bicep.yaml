@@ -12,6 +12,7 @@ extHomeURL: https://github.com/Azure/bicep
 extRedditPath: AzureBicep
 extensions:
   - .bicep
+  - .bicepparam
 githubColor: "#519aba"
 githubLangId: "321200902"
 githubName: Bicep
@@ -25,6 +26,8 @@ links:
     title: Bicep Language
 stackovTags:
   - azure-bicep
+sources:
+  linguist: Bicep
 rels:
   compilesTo:
     - pl/json

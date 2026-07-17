@@ -27,6 +27,7 @@ releases:
 stackovTags:
   - purescript
 sources:
+  linguist: PureScript
   wikidata: Q65082796
 rels:
   compilesTo:

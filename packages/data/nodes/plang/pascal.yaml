@@ -8,8 +8,12 @@ keywords:
 extRedditPath: pascal
 extWikipediaPath: Pascal_(programming_language)
 extensions:
-  - .p
   - .pas
+  - .dfm
+  - .dpr
+  - .inc
+  - .lpr
+  - .pascal
   - .pp
 githubColor: "#E3F171"
 githubLangId: "281"
@@ -21,6 +25,7 @@ languishRanking: 75
 stackovTags:
   - pascal
 sources:
+  linguist: Pascal
   wikidata: Q81571
 rels:
   paradigms:

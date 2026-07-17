@@ -29,6 +29,7 @@ releases:
 stackovTags:
   - smarty
 sources:
+  linguist: Smarty
   wikidata: Q726196
 rels:
   compilesTo:

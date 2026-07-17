@@ -7,9 +7,11 @@ keywords:
 extRedditPath: prolog
 extWikipediaPath: Prolog
 extensions:
-  - .P
   - .pl
+  - .plt
   - .pro
+  - .prolog
+  - .yap
 githubColor: "#74283c"
 githubLangId: "295"
 githubName: Prolog
@@ -27,6 +29,7 @@ releases:
 stackovTags:
   - prolog
 sources:
+  linguist: Prolog
   wikidata: Q163468
 rels:
   paradigms:

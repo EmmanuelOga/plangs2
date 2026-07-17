@@ -13,6 +13,7 @@ extHomeURL: http://supercollider.github.io/
 extRedditPath: supercollider
 extWikipediaPath: SuperCollider
 extensions:
+  - .sc
   - .scd
 githubColor: "#46390b"
 githubLangId: "361"
@@ -29,6 +30,7 @@ releases:
 stackovTags:
   - supercollider
 sources:
+  linguist: SuperCollider
   wikidata: Q2299598
 rels:
   influencedBy:

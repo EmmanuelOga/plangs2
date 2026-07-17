@@ -21,6 +21,7 @@ releases:
     name: ""
     date: 2022-06-27
 sources:
+  linguist: Whiley
   wikidata: Q23653623
 rels:
   influencedBy:

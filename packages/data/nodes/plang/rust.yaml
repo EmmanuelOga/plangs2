@@ -13,8 +13,8 @@ extHomeURL: https://rust-lang.org
 extRedditPath: rust
 extWikipediaPath: Rust_(programming_language)
 extensions:
-  - .rlib
   - .rs
+  - .rs.in
 githubColor: "#dea584"
 githubLangId: "327"
 githubName: Rust
@@ -33,6 +33,7 @@ releases:
 stackovTags:
   - rust
 sources:
+  linguist: Rust
   wikidata: Q575650
 rels:
   compilesTo:

@@ -29,6 +29,7 @@ releases:
 stackovTags:
   - chuck
 sources:
+  linguist: ChucK
   wikidata: Q850484
 rels:
   influencedBy:

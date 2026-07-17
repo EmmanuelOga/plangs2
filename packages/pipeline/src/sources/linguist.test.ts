@@ -127,6 +127,37 @@ describe("linguistSource", () => {
     }
   });
 
+  it("does not take another project's name as an alias for a language", async () => {
+    /*
+     * REGRESSION. Linguist lists `node` among JavaScript's aliases and
+     * `bun`/`deno`/`v8` among its interpreters, because its tables answer "what
+     * language is this file?" — not "what project is this?". Taking them as
+     * identities matched pl/bun to JavaScript, and a real run would have
+     * written githubName "JavaScript", githubLangId 183 and all 25 JS
+     * extensions onto the Bun runtime. Silently: it was reported as a confident
+     * `exact` match.
+     *
+     * Bun is its own node here, exactly as in the real dataset, which is the
+     * only place the conflict is visible.
+     */
+    const dir = makeNodesDir({
+      "pl/bun": { name: "Bun", rels: {} },
+      "pl/javascript": { name: "JavaScript", rels: {} },
+    });
+    try {
+      const report = await runSource(linguistSource, { nodesDir: dir, fetch, noReport: true });
+      expect(
+        report.changes.some(c => c.key === "pl/bun"),
+        "Bun must not be patched with JavaScript's facts",
+      ).toBe(false);
+      expect(report.matches.some(m => m.key === "pl/bun")).toBe(false);
+      // JavaScript itself still matches by its own name.
+      expect(report.matches).toContainEqual({ key: "pl/javascript", method: "exact", remoteId: "JavaScript" });
+    } finally {
+      removeDir(dir);
+    }
+  });
+
   it("sends a fuzzy-only match to review and writes nothing", async () => {
     // "Type-Script" is neither an upstream name nor an alias; it only matches
     // once punctuation is normalized away, i.e. it is a guess, so it must be

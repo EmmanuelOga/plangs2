@@ -11,6 +11,7 @@ extRedditPath: awk
 extWikipediaPath: AWK
 extensions:
   - .awk
+  - .auk
   - .gawk
   - .mawk
   - .nawk
@@ -26,6 +27,7 @@ links:
 stackovTags:
   - awk
 sources:
+  linguist: Awk
   wikidata: Q213970
 rels:
   influencedBy:

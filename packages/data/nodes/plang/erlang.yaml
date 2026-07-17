@@ -14,7 +14,13 @@ extRedditPath: erlang
 extWikipediaPath: Erlang_(programming_language)
 extensions:
   - .erl
+  - .app
+  - .app.src
+  - .es
+  - .escript
   - .hrl
+  - .xrl
+  - .yrl
 githubColor: "#B83998"
 githubLangId: "104"
 githubName: Erlang
@@ -30,6 +36,7 @@ releases:
 stackovTags:
   - erlang
 sources:
+  linguist: Erlang
   wikidata: Q334879
 rels:
   influencedBy:

@@ -12,7 +12,6 @@ extWikipediaPath: F_Sharp_(programming_language)
 extensions:
   - .fs
   - .fsi
-  - .fsscript
   - .fsx
 githubColor: "#b845fc"
 githubLangId: "105"
@@ -31,6 +30,7 @@ releases:
 stackovTags:
   - f#
 sources:
+  linguist: F#
   wikidata: Q648619
 rels:
   dialectOf:

@@ -13,10 +13,8 @@ extHomeURL: https://developer.apple.com/documentation/objectivec
 extRedditPath: ObjectiveC
 extWikipediaPath: Objective-C
 extensions:
-  - .M
-  - .h
   - .m
-  - .mm
+  - .h
 githubColor: "#438eff"
 githubLangId: "257"
 githubName: Objective-C
@@ -32,6 +30,7 @@ releases:
 stackovTags:
   - objective-c
 sources:
+  linguist: Objective-C
   wikidata: Q188531
 rels:
   influencedBy:

@@ -14,7 +14,12 @@ extRedditPath: ocaml
 extWikipediaPath: OCaml
 extensions:
   - .ml
+  - .eliom
+  - .eliomi
+  - .ml4
   - .mli
+  - .mll
+  - .mly
 githubColor: "#ef7a08"
 githubLangId: "255"
 githubName: OCaml
@@ -32,6 +37,7 @@ releases:
 stackovTags:
   - ocaml
 sources:
+  linguist: OCaml
   wikidata: Q212587
 rels:
   influencedBy:

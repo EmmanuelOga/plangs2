@@ -11,11 +11,14 @@ extHomeURL: http://common-lisp.net/
 extRedditPath: Common_Lisp
 extWikipediaPath: Common_Lisp
 extensions:
-  - .cl
-  - .fasl
-  - .l
   - .lisp
+  - .asd
+  - .cl
+  - .l
   - .lsp
+  - .ny
+  - .podsl
+  - .sexp
 githubColor: "#3fb68b"
 githubLangId: "66"
 githubName: Common Lisp
@@ -25,6 +28,8 @@ isTranspiler: false
 languishRanking: 95
 stackovTags:
   - common-lisp
+sources:
+  linguist: Common Lisp
 rels:
   dialectOf:
     - pl/lisp

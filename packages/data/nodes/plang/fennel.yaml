@@ -26,6 +26,8 @@ releases:
   - version: 0.8.0
     name: Fennel 0.8.0
     date: 2022-12-15
+sources:
+  linguist: Fennel
 rels:
   compilesTo:
     - pl/lua

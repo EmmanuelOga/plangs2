@@ -8,11 +8,9 @@ extHomeURL: https://openjdk.java.net/
 extRedditPath: java
 extWikipediaPath: Java_(programming_language)
 extensions:
-  - .class
-  - .jar
   - .java
-  - .jmod
-  - .war
+  - .jav
+  - .jsh
 githubColor: "#b07219"
 githubLangId: "181"
 githubName: Java
@@ -33,6 +31,7 @@ releases:
 stackovTags:
   - java
 sources:
+  linguist: Java
   wikidata: Q251
 rels:
   influencedBy:

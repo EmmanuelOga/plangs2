@@ -27,6 +27,7 @@ languishRanking: 16
 stackovTags:
   - jupyter
 sources:
+  linguist: Jupyter Notebook
   wikidata: Q55630549
 rels:
   compilesTo:

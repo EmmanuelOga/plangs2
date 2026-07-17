@@ -10,8 +10,12 @@ extHomeURL: https://www.tcl-lang.org/
 extRedditPath: Tcl
 extWikipediaPath: Tcl
 extensions:
-  - .tbc
   - .tcl
+  - .adp
+  - .sdc
+  - .tcl.in
+  - .tm
+  - .xdc
 githubColor: "#e4cc98"
 githubLangId: "367"
 githubName: Tcl
@@ -25,6 +29,8 @@ releases:
     date: 2024-09-26
 stackovTags:
   - tcl
+sources:
+  linguist: Tcl
 rels:
   influencedBy:
     - pl/awk

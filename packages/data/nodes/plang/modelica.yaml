@@ -29,6 +29,7 @@ releases:
 stackovTags:
   - modelica
 sources:
+  linguist: Modelica
   wikidata: Q385325
 rels:
   licenses:

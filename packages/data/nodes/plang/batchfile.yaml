@@ -12,7 +12,6 @@ extRedditPath: Batch
 extWikipediaPath: Batch_file
 extensions:
   - .bat
-  - .btm
   - .cmd
 githubColor: "#C1F12E"
 githubLangId: "29"
@@ -24,6 +23,7 @@ languishRanking: 32
 stackovTags:
   - batch-file
 sources:
+  linguist: Batchfile
   wikidata: Q479833
 rels:
   paradigms:

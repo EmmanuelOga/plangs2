@@ -10,11 +10,15 @@ extRedditPath: Clojure
 extWikipediaPath: Clojure
 extensions:
   - .clj
+  - .bb
+  - .boot
+  - .cl2
   - .cljc
-  - .cljd
-  - .cljr
   - .cljs
-  - .edn
+  - .cljs.hl
+  - .cljscm
+  - .cljx
+  - .hic
 githubColor: "#db5855"
 githubLangId: "62"
 githubName: Clojure
@@ -29,6 +33,7 @@ releases:
 stackovTags:
   - clojure
 sources:
+  linguist: Clojure
   wikidata: Q51798
 rels:
   dialectOf:

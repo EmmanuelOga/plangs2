@@ -25,6 +25,7 @@ releases:
 stackovTags:
   - iolanguage
 sources:
+  linguist: Io
   wikidata: Q756175
 rels:
   influencedBy:

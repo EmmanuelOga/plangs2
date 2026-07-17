@@ -19,6 +19,8 @@ releases:
   - version: 1.0.0
     name: PKL 1.0.0
     date: 2021-06-01
+sources:
+  linguist: Pkl
 rels:
   compilesTo:
     - pl/json

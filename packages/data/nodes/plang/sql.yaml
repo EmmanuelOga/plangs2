@@ -10,6 +10,13 @@ extRedditPath: SQL
 extWikipediaPath: SQL
 extensions:
   - .sql
+  - .ddl
+  - .inc
+  - .mysql
+  - .prc
+  - .tab
+  - .udf
+  - .viw
 githubColor: "#e38c00"
 githubLangId: "333"
 githubName: SQL
@@ -24,6 +31,7 @@ releases:
 stackovTags:
   - sql
 sources:
+  linguist: SQL
   wikidata: Q47607
 rels:
   influencedBy:

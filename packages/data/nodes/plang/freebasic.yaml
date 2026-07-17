@@ -9,11 +9,11 @@ extGithubPath: freebasic/fbc
 extHomeURL: https://www.freebasic.net/
 extWikipediaPath: FreeBASIC
 extensions:
-  - .bas
   - .bi
+  - .bas
 githubColor: "#141AC9"
 githubLangId: "472896659"
-githubName: FreeBasic
+githubName: FreeBASIC
 githubPopular: false
 githubStars: 914
 githubType: programming
@@ -26,6 +26,7 @@ releases:
 stackovTags:
   - freebasic
 sources:
+  linguist: FreeBASIC
   wikidata: Q195929
 rels:
   dialectOf:

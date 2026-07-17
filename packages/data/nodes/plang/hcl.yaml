@@ -13,6 +13,11 @@ extRedditPath: Terraform
 extWikipediaPath: Terraform_(software)
 extensions:
   - .hcl
+  - .nomad
+  - .tf
+  - .tfvars
+  - .tofu
+  - .workflow
 githubColor: "#844FBA"
 githubLangId: "144"
 githubName: HCL
@@ -31,6 +36,7 @@ releases:
 stackovTags:
   - Terraform
 sources:
+  linguist: HCL
   wikidata: Q28957072
 rels:
   compilesTo:

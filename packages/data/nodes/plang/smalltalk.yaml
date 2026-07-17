@@ -11,11 +11,19 @@ extHomeURL: https://www.smalltalk.org/
 extWikipediaPath: Smalltalk
 extensions:
   - .st
+  - .cs
+githubColor: "#596706"
+githubLangId: "352"
+githubName: Smalltalk
+githubPopular: false
+githubType: programming
 isTranspiler: false
 languishRanking: 138
 links:
   - url: https://en.wikipedia.org/wiki/Smalltalk
     title: Wikipedia - Smalltalk
+sources:
+  linguist: Smalltalk
 rels:
   paradigms:
     - para/agents

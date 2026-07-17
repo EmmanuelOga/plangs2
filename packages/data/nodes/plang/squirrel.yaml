@@ -24,6 +24,7 @@ releases:
 stackovTags:
   - squirrel
 sources:
+  linguist: Squirrel
   wikidata: Q1200182
 rels:
   influencedBy:

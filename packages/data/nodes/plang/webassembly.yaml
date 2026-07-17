@@ -15,7 +15,7 @@ extHomeURL: https://webassembly.org
 extRedditPath: WebAssembly
 extWikipediaPath: WebAssembly
 extensions:
-  - .wasm
+  - .wast
   - .wat
 githubColor: "#04133b"
 githubLangId: "956556503"
@@ -37,6 +37,7 @@ releases:
 stackovTags:
   - webassembly
 sources:
+  linguist: WebAssembly
   wikidata: Q20155677
 rels:
   implements:

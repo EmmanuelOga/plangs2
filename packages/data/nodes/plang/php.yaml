@@ -13,14 +13,16 @@ extHomeURL: https://www.php.net/
 extRedditPath: PHP
 extWikipediaPath: PHP
 extensions:
-  - .phar
   - .php
+  - .aw
+  - .ctp
+  - .fcgi
+  - .inc
   - .php3
   - .php4
   - .php5
   - .phps
-  - .pht
-  - .phtml
+  - .phpt
 githubColor: "#4F5D95"
 githubLangId: "272"
 githubName: PHP
@@ -42,6 +44,7 @@ releases:
 stackovTags:
   - php
 sources:
+  linguist: PHP
   wikidata: Q59
 rels:
   influencedBy:

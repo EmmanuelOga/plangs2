@@ -25,6 +25,7 @@ releases:
 stackovTags:
   - puredata
 sources:
+  linguist: Pure Data
   wikidata: Q1401466
 rels:
   licenses:

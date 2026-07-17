@@ -29,6 +29,7 @@ releases:
 stackovTags:
   - idris
 sources:
+  linguist: Idris
   wikidata: Q15408477
 rels:
   influencedBy:

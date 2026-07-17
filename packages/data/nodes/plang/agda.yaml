@@ -13,10 +13,6 @@ extRedditPath: agda
 extWikipediaPath: Agda_(programming_language)
 extensions:
   - .agda
-  - .lagda
-  - .lagda.md
-  - .lagda.rst
-  - .lagda.tex
 githubColor: "#315665"
 githubLangId: "12"
 githubName: Agda
@@ -35,6 +31,7 @@ releases:
 stackovTags:
   - agda
 sources:
+  linguist: Agda
   wikidata: Q20479
 rels:
   influencedBy:

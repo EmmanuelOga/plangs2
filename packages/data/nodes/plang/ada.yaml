@@ -14,6 +14,7 @@ extRedditPath: ada
 extWikipediaPath: Ada_(programming_language)
 extensions:
   - .adb
+  - .ada
   - .ads
 githubColor: "#02f88c"
 githubLangId: "11"
@@ -30,6 +31,7 @@ releases:
 stackovTags:
   - ada
 sources:
+  linguist: Ada
   wikidata: Q154755
 rels:
   dialectOf:

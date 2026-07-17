@@ -11,9 +11,8 @@ extHomeURL: https://csound.com
 extRedditPath: csound
 extWikipediaPath: Csound
 extensions:
-  - .csd
   - .orc
-  - .sco
+  - .udo
 githubColor: "#1a1a1a"
 githubLangId: "73"
 githubName: Csound
@@ -28,6 +27,7 @@ releases:
 stackovTags:
   - csound
 sources:
+  linguist: Csound
   wikidata: Q259347
 rels:
   licenses:

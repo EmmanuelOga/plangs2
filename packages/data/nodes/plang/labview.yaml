@@ -7,7 +7,8 @@ extRedditPath: LabVIEW
 extWikipediaPath: LabVIEW
 extensions:
   - .lvproj
-  - .vi
+  - .lvclass
+  - .lvlib
 githubColor: "#fede06"
 githubLangId: "194"
 githubName: LabVIEW
@@ -21,6 +22,7 @@ releases:
 stackovTags:
   - labview
 sources:
+  linguist: LabVIEW
   wikidata: Q746261
 rels:
   licenses:

@@ -30,6 +30,8 @@ releases:
     date: 2024-09-13
 stackovTags:
   - astro
+sources:
+  linguist: Astro
 rels:
   compilesTo:
     - pl/javascript
