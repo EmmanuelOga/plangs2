@@ -24,6 +24,7 @@ links:
     title: Wikipedia - Smalltalk
 sources:
   linguist: Smalltalk
+  wikidata: Q235086
 rels:
   paradigms:
     - para/agents

@@ -30,6 +30,7 @@ stackovTags:
   - common-lisp
 sources:
   linguist: Common Lisp
+  wikidata: Q849146
 rels:
   dialectOf:
     - pl/lisp

@@ -37,6 +37,7 @@ stackovTags:
   - raku
 sources:
   linguist: Raku
+  wikidata: Q2052676
 rels:
   dialectOf:
     - pl/perl

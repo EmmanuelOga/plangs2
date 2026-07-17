@@ -33,7 +33,6 @@ stackovTags:
   - smalltalk
 sources:
   linguist: Smalltalk
-  wikidata: Q235086
 rels:
   implements:
     - pl/smalltalk

@@ -178,7 +178,12 @@ function topicOf(title) {
  * our dataset asserts. The name is used solely to REJECT, never to propose.
  */
 function redirectKeepsTopic(node, finalTitle) {
-  const dest = topicOf(finalTitle);
+  return isAbout(node, finalTitle);
+}
+
+/** Is `title` about this node itself, rather than some broader topic? */
+function isAbout(node, title) {
+  const dest = topicOf(title);
   return dest === topicOf(node.doc.name ?? "") || dest === topicOf(node.slug);
 }
 
@@ -193,13 +198,39 @@ function withQid(text, qid) {
   return formatNodeYaml(doc);
 }
 
+/** Drop `sources.wikidata` (and `sources` itself, if it becomes empty). */
+function withoutQid(text) {
+  const doc = parseNodeYaml(text);
+  const { wikidata: _drop, ...rest } = doc.sources ?? {};
+  if (Object.keys(rest).length) doc.sources = rest;
+  else delete doc.sources;
+  return formatNodeYaml(doc);
+}
+
 async function main() {
   const nodes = readNodes();
   const linked = nodes.filter(n => typeof n.doc.extWikipediaPath === "string" && n.doc.extWikipediaPath.trim());
   const unlinked = nodes.filter(n => !linked.includes(n));
 
+  /*
+   * title -> node[], NOT title -> node.
+   *
+   * Several of our nodes deliberately link to the SAME article: pl/v8 and
+   * pl/javascript both cite "JavaScript"; pl/sbcl, pl/lisp and pl/common-lisp
+   * all cite "Common Lisp"; likewise squeak/smalltalk, rakudo/raku,
+   * jruby/ruby, pypy/python, delphi/pascal, clang/supercollider.
+   *
+   * A Map keyed by title silently kept only the LAST one, so readdir order
+   * decided which node got the QID — and it picked the runtime over the
+   * language for v8, sbcl, rakudo and squeak. An article cited by two nodes is
+   * an identity for at most one of them, and that has to be decided, not left
+   * to directory order.
+   */
   const byTitle = new Map();
-  for (const n of linked) byTitle.set(toTitle(n.doc.extWikipediaPath), n);
+  for (const n of linked) {
+    const t = toTitle(n.doc.extWikipediaPath);
+    byTitle.set(t, [...(byTitle.get(t) ?? []), n]);
+  }
   const titles = [...byTitle.keys()];
 
   const resolved = new Map();
@@ -212,21 +243,35 @@ async function main() {
   const hits = [];
   const misses = [];
   const merged = []; // redirects that landed on a DIFFERENT topic
-  for (const [title, node] of byTitle) {
+  const shared = []; // an article several nodes cite, which is not their identity
+  for (const [title, nodesHere] of byTitle) {
     const hit = resolved.get(title);
     if (!hit) {
-      misses.push({ node, title });
+      for (const node of nodesHere) misses.push({ node, title });
       continue;
     }
-    if (hit.redirected && !redirectKeepsTopic(node, hit.finalTitle)) {
-      merged.push({ node, title, ...hit });
-      continue;
+
+    // An article cited by several nodes belongs to the one it is ABOUT; the
+    // others merely reference it (pl/v8 -> "JavaScript"). If that is not
+    // exactly one node, nobody gets it.
+    let claimants = nodesHere;
+    if (nodesHere.length > 1) {
+      const owners = nodesHere.filter(n => isAbout(n, hit.finalTitle));
+      claimants = owners.length === 1 ? owners : [];
+      for (const n of nodesHere) if (!claimants.includes(n)) shared.push({ node: n, title, ...hit, owner: owners[0]?.slug });
     }
-    hits.push({ node, title, ...hit });
+
+    for (const node of claimants) {
+      if (hit.redirected && !redirectKeepsTopic(node, hit.finalTitle)) {
+        merged.push({ node, title, ...hit });
+        continue;
+      }
+      hits.push({ node, title, ...hit });
+    }
   }
 
-  const info = await describe([...new Set([...hits, ...merged].map(h => h.qid))]);
-  for (const h of [...hits, ...merged]) Object.assign(h, info.get(h.qid) ?? { label: "", types: "" });
+  const info = await describe([...new Set([...hits, ...merged, ...shared].map(h => h.qid))]);
+  for (const h of [...hits, ...merged, ...shared]) Object.assign(h, info.get(h.qid) ?? { label: "", types: "" });
 
   /*
    * Reject disambiguation pages outright.
@@ -253,8 +298,18 @@ async function main() {
   console.log(`  resolved to a QID:     ${hits.length}`);
   console.log(`  link but no QID:       ${misses.length}`);
   console.log(`  redirect -> other topic: ${merged.length}  (rejected)`);
+  console.log(`  article shared w/ another node: ${shared.length}  (rejected)`);
   console.log(`  disambiguation page:   ${disambig.length}  (rejected)`);
   console.log(`  no wikipedia link:     ${unlinked.length}  (left unset - for the owner)`);
+
+  if (shared.length) {
+    console.log(`\nREJECTED - cites an article that is ABOUT another node, so the QID`);
+    console.log(`is that node's identity, not this one's. Left unset for the owner:`);
+    for (const h of shared)
+      console.log(
+        `  ${h.node.slug.padEnd(16)} cites "${h.finalTitle}" (${h.qid} ${h.label}) -> belongs to ${h.owner ?? "nobody: no node is about it"}`,
+      );
+  }
 
   if (disambig.length) {
     console.log(`\nREJECTED - resolves to a disambiguation page, not an entity. There`);
@@ -293,11 +348,14 @@ async function main() {
     for (const h of odd) console.log(`  ${h.node.slug.padEnd(16)} ${h.qid.padEnd(10)} ${h.label} - ${h.types}`);
   }
 
-  console.log(`\nUNRESOLVED (${unlinked.length + misses.length + merged.length + disambig.length}) - no QID written, owner to triage:`);
+  console.log(
+    `\nUNRESOLVED (${unlinked.length + misses.length + merged.length + disambig.length + shared.length}) - no QID written, owner to triage:`,
+  );
   for (const n of unlinked) console.log(`  ${n.slug.padEnd(16)} (no extWikipediaPath)`);
   for (const m of misses) console.log(`  ${m.node.slug.padEnd(16)} (no Wikidata item for: ${m.title})`);
   for (const h of merged) console.log(`  ${h.node.slug.padEnd(16)} (article merged into "${h.finalTitle}")`);
   for (const h of disambig) console.log(`  ${h.node.slug.padEnd(16)} ("${h.finalTitle}" is a disambiguation page)`);
+  for (const h of shared) console.log(`  ${h.node.slug.padEnd(16)} (cites ${h.owner ?? "another node"}'s article)`);
 
   if (dryRun) {
     console.log(`\n[dry-run] would write sources.wikidata to ${hits.length} file(s).`);
@@ -310,7 +368,26 @@ async function main() {
     writeFileSync(h.node.path, withQid(h.node.text, h.qid));
     written++;
   }
-  console.log(`\nwrote sources.wikidata to ${written} file(s).`);
+
+  /*
+   * Retract QIDs an earlier run wrote that this one rejects.
+   *
+   * Needed because the first version of this script had the title-collision bug
+   * and stamped v8 with JavaScript's QID, sbcl with Common Lisp's, and so on.
+   * Without this the script is not convergent: re-running would fix nothing and
+   * the wrong pins would sit there feeding the importer another project's facts.
+   *
+   * Only ever removes the exact QID this run resolved-and-rejected, so a QID a
+   * human pinned by hand is never touched.
+   */
+  let retracted = 0;
+  for (const h of [...merged, ...disambig, ...shared]) {
+    if (h.node.doc.sources?.wikidata !== h.qid) continue;
+    writeFileSync(h.node.path, withoutQid(h.node.text));
+    console.log(`  retracted ${h.node.slug}: ${h.qid} (${h.label}) is not its identity`);
+    retracted++;
+  }
+  console.log(`\nwrote sources.wikidata to ${written} file(s); retracted ${retracted}.`);
 }
 
 await main();

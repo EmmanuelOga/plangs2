@@ -53,7 +53,6 @@ stackovTags:
   - javascript
 sources:
   linguist: JavaScript
-  wikidata: Q2005
 rels:
   implements:
     - pl/javascript
