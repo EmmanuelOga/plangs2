@@ -40,8 +40,10 @@ file's numbers.
   printed `[drift vs v2]` report; deleting any v2 node/edge still fails.
 - ⬜ **Nothing is deployed.** `plangs.page` still serves v2; nothing deploys
   on push (see track 3 — and hard rule 1).
-- ⬜ **No importer has run for real.** `packages/data` is still byte-for-byte
-  the v2 migration output.
+- ✅ **All four importers have run for real** (2026-07-17, item 1b): linguist,
+  wikidata, languish, pypl. `packages/data` reflects a real refresh; the
+  `[drift vs v2]` gate confirms nothing from v2 was lost. Remaining data work:
+  1c (five more sources) and 1d (AI enrichment, needs a key).
 
 ## Suggested execution order
 
@@ -152,15 +154,22 @@ pnpm pipeline run --source=linguist             # write
   `packages/pipeline/src/sources/index.ts`). One source per commit, matching
   the existing four: fixture-tested, idempotent, disjoint `owns`.
   Skipped by decision: DBpedia, IEEE, Reddit, GH-Archive.
-- ⬜ **1d. First AI enrichment run** — never run; requires
-  `ANTHROPIC_API_KEY` in the environment (if absent, skip and note).
-  Typechecked and unit-tested with a mocked client (`claude-sonnet-5`, tool
-  schema derived from the Zod node schema). Treat the output as untrusted:
-  land it as its own clearly-marked commit for the owner to review, never
-  mixed with other work.
-- ⬜ **1e. Monthly data-refresh GitHub Action** that opens a PR. Author and
-  commit `.github/workflows/…`; it cannot run until the owner pushes, so mark
-  it untested in the commit message.
+- 🧑 **1d. First AI enrichment run** — **skipped: `ANTHROPIC_API_KEY` is not
+  set** in this environment (checked 2026-07-17), and this item says to skip and
+  note when it's absent. Still typechecked and unit-tested with a mocked client
+  (`claude-sonnet-5`, tool schema derived from the Zod node schema). When run:
+  land it as its own clearly-marked commit for the owner to review, never mixed
+  with other work.
+- ✅ **1e. Monthly data-refresh GitHub Action** (2026-07-17) —
+  `.github/workflows/data-refresh.yml`. Cron on the 1st of each month (plus
+  manual `workflow_dispatch`), clones `tjpalmer/languish` for languish's data,
+  runs `pnpm pipeline run --all`, formats, runs the **full verification loop**,
+  and opens a PR only if green (`peter-evans/create-pull-request`). Never
+  commits to main, never deploys.
+  - **UNTESTED — cannot run until the owner pushes** (hard rule 1). Validated
+    what is checkable here: the YAML parses, all six verify-step commands
+    resolve and pass locally, and all four sources are registered. Marked
+    untested in the workflow header and the commit.
 
 > Before touching source ownership, read CLAUDE.md "Leave alone" — the
 > disjoint-`owns` assertion is deliberate and load-bearing.
