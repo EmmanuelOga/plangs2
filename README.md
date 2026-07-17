@@ -1,15 +1,18 @@
 ![Plangs!](apps/site/public/images/plangs-dark.svg)
 
-Plangs ambition is to become a community oriented programming languages page where people can find trends, tools and blog posts related to programming languages and the ecosystem of tools, documentation, learning resources, etc.
+Plangs aims to become a community-oriented programming languages site: trends,
+tools, blog posts, and learning resources for programming languages and their
+ecosystems.
 
 > **v3 note.** The site was rebuilt in 2026 on Astro + React + a YAML/graphology
 > data layer. The previous Bun/Preact/esbuild implementation is preserved at the
-> `final-plangs-2` tag. See [PLAN.md](PLAN.md) for the migration plan.
+> `final-plangs-2` tag; the migration plan it followed is in git history
+> (`git show 008e073c:PLAN.md`).
 
 ## Requirements
 
 * [Node](https://nodejs.org/) 22.12+
-* [pnpm](https://pnpm.io/) 10+ (`corepack enable`, or install via mise/asdf)
+* [pnpm](https://pnpm.io/) 10+ (install via mise/asdf, or `corepack enable`)
 
 That's it — no Bun, no Ruby/Docker, no Overmind/entr.
 
@@ -49,9 +52,9 @@ pnpm -F @plangs/site preview  # serves apps/site/dist
 * `pnpm data:fmt` — rewrite every node YAML in canonical order (minimal diffs).
 * `pnpm pipeline run --source=<id> [--dry-run]` — refresh data from an upstream source.
 
-See [NEXT-STEPS.md](NEXT-STEPS.md) for what's left, and
-[REFACTOR.md](REFACTOR.md) before changing the code — it records which oddities
-are load-bearing (and why) and which are genuinely worth cleaning up.
+See [ROADMAP.md](ROADMAP.md) for what's done and what's left, and
+[CLAUDE.md](CLAUDE.md) before changing the code — it records which oddities are
+load-bearing (and why), the verification loop, and the environment facts.
 
 ## Editing data
 
@@ -85,11 +88,11 @@ Keys are `prefix/slug` (e.g. `pl/nim`). The v2 form was `pl+nim`.
 | `bun/`    | Bundle of tools.                                  |
 | `comm/`   | Community.                                        |
 | `learn/`  | Learning Resource (book, video, course, etc).     |
-| `lib/`    | Sofware Library.                                  |
+| `lib/`    | Software Library.                                 |
 | `lic/`    | Software License.                                 |
 | `para/`   | Language paradigm.                                |
 | `pl/`     | Programming Language.                             |
-| `plat/`   | Platform (Operating Sytem, WASM, CPU, etc).       |
+| `plat/`   | Platform (Operating System, WASM, CPU, etc).      |
 | `sys/`    | Subsystem: databases, queues, and other services. |
 | `tag/`    | Generic Tag.                                      |
 | `tool/`   | Software Tool.                                    |
@@ -111,11 +114,17 @@ The site is pure static output deployed to Cloudflare Workers static assets:
 pnpm -F @plangs/site build && npx wrangler deploy
 ```
 
+> **The v3 cutover has not happened yet** — `plangs.page` still serves v2.
+> Read ROADMAP.md "Deploy / cutover" before the first deploy (or any push):
+> the legacy Cloudflare Pages project may still have a git integration.
+
 ## Acknowledgements
 
-Sometimes a source may only be found on the git history for, say, a bulk script that was used only once. To help credit these sources too, we add them here.
+Some sources only appear in git history — for example, a bulk script used just
+once. To credit those sources too, we list them here.
 
-* @llaisdy's list of logic programming languages: [llaisdy/PrologInfo].
+* @llaisdy's list of logic programming languages:
+  [llaisdy/PrologInfo](https://github.com/llaisdy/PrologInfo).
 
 ## Graph inference notes
 
@@ -128,7 +137,7 @@ notes: they are encoded as declarative rules in
 
 The example B/T/P demonstrates a transitive relationship. There are other relationships that are possible but should not be used for inference.
 
-> In `Plang -> App -> License`, inferring `Plang -> License` would be wrong, since an App built with Plang doesn't necesarily share the License.
+> In `Plang -> App -> License`, inferring `Plang -> License` would be wrong, since an App built with Plang doesn't necessarily share the License.
 
 There are some relationships that are simpler to infer.
 

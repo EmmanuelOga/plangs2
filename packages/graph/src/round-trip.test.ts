@@ -10,7 +10,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const REFERENCE = join(HERE, "../test/fixtures/plangs.legacy.json");
 
 /**
- * MIGRATION GATE, narrowed per REFACTOR.md §3.0.
+ * MIGRATION GATE, narrowed 2026-07-15 (see CLAUDE.md "Do not break").
  *
  * The permanent contract is "nothing from v2 was lost", not "nothing changed".
  * Strict deep equality against the fixture proved the migration lossless — it
@@ -29,7 +29,7 @@ const REFERENCE = join(HERE, "../test/fixtures/plangs.legacy.json");
  *
  * Do NOT regenerate the fixture from the current dataset to make this pass:
  * it is the only surviving record of v2's content (its generator is gone) and
- * scripts/url-parity.mjs reads it too. See REFACTOR.md §1.
+ * scripts/url-parity.mjs reads it too. See CLAUDE.md "Do not break".
  */
 
 /** Key-order-independent deep equality (fixture JSON vs YAML load order). */
