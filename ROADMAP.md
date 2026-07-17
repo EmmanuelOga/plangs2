@@ -187,8 +187,26 @@ pnpm pipeline run --source=linguist             # write
     need. Dry-run: 130 matched (HTML #1, JavaScript #2, Python #4), 0 reviews,
     idempotent, 10 fixture tests (cross-economy summation regression verified;
     columns located by header name so an upstream reorder can't shift data).
-  - ⬜ Remaining: `pldb` (whitelist-gated — needs the owner's whitelist),
-    `tiobe` (HTML scrape — see note below).
+  - ✅ **tiobe** (2026-07-17) — TIOBE community index, scraped from the public
+    top-20 table (FAQ permits reuse with attribution, PLAN §5.6;
+    `rankings.tiobe` + `trends.tiobe` + `sources.tiobe`). TIOBE publishes no
+    history, so — as the plan specifies — we **build our own going forward**:
+    each monthly run reads the node's existing `trends.tiobe` and appends the
+    current month (`appendTrend`, keyed by month so a same-month re-run replaces
+    rather than duplicates). Parses the `top20` HTML table and the month header
+    (`Jul 2026` → `2026-07`); matched by name. Dry-run: 18 of 20 matched (Python
+    #1; "Assembly language"/"Scratch" don't map by name → skipped). 12 fixture
+    tests; the accumulate-history behaviour regression-verified by dropping
+    existing points. Fixture is a trimmed table slice, not their 130 KB page.
+    - ⚠️ **HTML scrape — inherently fragile.** The parser throws loudly if the
+      `top20` table, month header, or row shape changes (three explicit
+      guards), rather than writing garbage. A markup change is a hard failure
+      the monthly Action will surface, not a silent corruption.
+  - 🧑 **Remaining: `pldb`** — whitelist-gated by design (PLAN §5.4: import
+    only concepts passing a notability filter, e.g. has `appeared` + a Wikipedia
+    link). The *filter* is a product/notability decision, so this one needs the
+    owner: decide the whitelist policy, then it's a mechanical import. The other
+    four 1c sources are done.
 - 🧑 **1d. First AI enrichment run** — **skipped: `ANTHROPIC_API_KEY` is not
   set** in this environment (checked 2026-07-17), and this item says to skip and
   note when it's absent. Still typechecked and unit-tested with a mocked client

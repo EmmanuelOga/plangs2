@@ -21,5 +21,6 @@ export {
   SOURCES,
   sourceById,
   stackexchangeSource,
+  tiobeSource,
   wikidataSource,
 } from "./sources/index.ts";
