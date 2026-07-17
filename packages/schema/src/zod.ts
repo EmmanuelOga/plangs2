@@ -42,8 +42,10 @@ export const zTrend = z.object({
 
 /** Fields shared (loosely) across all vertices. All optional except `name`. */
 const baseShape = {
-  // Optional: a few legacy nodes (e.g. bundles/tools) were authored without one.
-  name: z.string().optional(),
+  // Required. Four legacy nodes were authored without one; they were named in
+  // PLAN §4e, so nothing in the dataset relies on it being absent, and
+  // integrity.test.ts parses every node against these schemas in CI.
+  name: z.string(),
   description: z.string().optional(),
   shortDesc: z.string().optional(),
   created: zStrDate.optional(),

@@ -41,8 +41,12 @@ describe("node schemas", () => {
     expect(plang.safeParse({ name: "Nim" }).success).toBe(true);
   });
 
-  it("accepts nodes without a name (a few legacy nodes have none)", () => {
-    expect(plang.safeParse({}).success).toBe(true);
+  it("requires a name", () => {
+    // Was optional purely because four legacy nodes were authored without one.
+    // They were named in PLAN §4e, so the schema now says what was always
+    // intended — and integrity.test.ts enforces it across the whole dataset.
+    expect(plang.safeParse({}).success).toBe(false);
+    expect(plang.safeParse({ name: "" }).success, "an empty name is still a name").toBe(true);
   });
 
   it("validates the v3 pipeline fields: sources, rankings, trends", () => {

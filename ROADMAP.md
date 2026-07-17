@@ -258,13 +258,29 @@ One commit per item; full verification loop between items.
     new). The real defects it fixes are that `cpSync` never prunes, so an asset
     deleted from the dataset was served forever (planted a file: old copy kept
     it, new one removes it), and that in-place overwrites can be read partially.
-- ⬜ **4e. Cheap honest D2 parts** (data changes — unblocked): drop the
-  `deprecated` flag in `KINDS` (`packages/schema/src/kinds.ts`) that nothing
-  enforces; fix `bun/plangs` (its tools are the deleted v2 stack); name the
-  4 nameless nodes (`bun/plangs`, `bun/py-one`, `tool/pip`, `tool/vscode`)
-  and tighten `name` back from `.optional()` to required in
-  `packages/schema/src/zod.ts`. Expect the `[drift vs v2]` report to print —
-  that's the design, not a failure.
+- 🔶 **4e. Cheap honest D2 parts** (2026-07-17) — three of four done. The
+  `[drift vs v2]` report now prints `+0 vertices, ~4 changed, +0 edges` on
+  every run; that is the design working, not a failure.
+  - ✅ Dropped the `deprecated` flag in `KINDS` — nothing enforced it.
+  - ✅ Named the 4 nameless nodes: `bun/plangs` → "Plangs! Website",
+    `bun/py-one` → "Python One", `tool/pip` → "pip", `tool/vscode` →
+    "Visual Studio Code". Verified rendered: their pages now show real `h1`s
+    and their grid cards show names instead of slugs.
+  - ✅ `name` tightened from `.optional()` to required. Confirmed first that
+    those 4 were the *only* nameless nodes in all 495, so the schema now says
+    what was always intended; `integrity.test.ts` enforces it dataset-wide.
+  - 🧑 **`bun/plangs` tools NOT fixed — the migration gate forbids it.** Its
+    tools (`entr`, `esbuild`, `overmind`) are the deleted v2 Bun-era stack, but
+    removing them deletes 3 v2 edges and `round-trip.test.ts` → "still has
+    every v2 edge" fails. Measured, not assumed. Regenerating the fixture is
+    forbidden (hard rule 3), so this needs the owner: either accept a
+    deliberate, documented gate exception for these 3 edges, or leave the
+    bundle describing a stack that no longer exists. It is entangled with D2
+    anyway ("is a curated bundle of tools a concept plangs wants?").
+    Note the v3 stack is mostly *unrepresentable* today regardless: only
+    `tool/biomejs` and `tool/tailwindcss` exist as tool nodes — there are no
+    tool nodes for Astro, React, Vitest, Playwright or pnpm, and
+    `bundleRelTools` only accepts `tool/*`.
 
 ## 5. Deferred by decision — ⛔ do not implement without the owner
 

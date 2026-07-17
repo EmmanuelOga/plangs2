@@ -7,17 +7,12 @@ export interface KindDef {
   prefix: string;
   /** Human-readable singular label. */
   label: string;
-  /**
-   * Kinds slated for folding in v3 (Decision D2). Kept in the schema so the
-   * migration round-trip stays lossless; the site treats them per the plan.
-   */
-  deprecated?: boolean;
 }
 
 export const KINDS: Record<NodeKind, KindDef> = {
   app: { kind: "app", prefix: "app", label: "Application" },
-  author: { kind: "author", prefix: "author", label: "Author", deprecated: true },
-  bundle: { kind: "bundle", prefix: "bun", label: "Bundle of Tools", deprecated: true },
+  author: { kind: "author", prefix: "author", label: "Author" },
+  bundle: { kind: "bundle", prefix: "bun", label: "Bundle of Tools" },
   community: { kind: "community", prefix: "comm", label: "Community" },
   learning: { kind: "learning", prefix: "learn", label: "Learning Resource" },
   library: { kind: "library", prefix: "lib", label: "Software Library" },
@@ -25,7 +20,7 @@ export const KINDS: Record<NodeKind, KindDef> = {
   paradigm: { kind: "paradigm", prefix: "para", label: "Paradigm" },
   plang: { kind: "plang", prefix: "pl", label: "Programming Language" },
   platform: { kind: "platform", prefix: "plat", label: "Platform" },
-  post: { kind: "post", prefix: "post", label: "Blog Post", deprecated: true },
+  post: { kind: "post", prefix: "post", label: "Blog Post" },
   subsystem: { kind: "subsystem", prefix: "sys", label: "Subsystem" },
   tag: { kind: "tag", prefix: "tag", label: "Tag" },
   tool: { kind: "tool", prefix: "tool", label: "Programming Tool" },
