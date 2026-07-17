@@ -178,8 +178,17 @@ pnpm pipeline run --source=linguist             # write
     matched (Python #1, …), 7 fuzzy candidates review-only (e.g. `c-sharp`/`c++`
     → `c`, correctly never written), idempotent, 10 fixture tests
     (aggregation regression verified by re-introducing the bug).
+  - ✅ **innovation-graph** (2026-07-17) — GitHub Innovation Graph quarterly
+    `num_pushers` per language, **summed across economies** into one global
+    series (`rankings.innovation-graph` + `trends.innovation-graph` +
+    `sources.innovation-graph`, CC0). Matched by node name (Linguist naming).
+    Unlike the other ranking sources this publishes real history: the dry-run
+    wrote **25-quarter trends** (2020Q1–2026Q1), which is what D5 sparklines
+    need. Dry-run: 130 matched (HTML #1, JavaScript #2, Python #4), 0 reviews,
+    idempotent, 10 fixture tests (cross-economy summation regression verified;
+    columns located by header name so an upstream reorder can't shift data).
   - ⬜ Remaining: `pldb` (whitelist-gated — needs the owner's whitelist),
-    `innovation-graph`, `tiobe`.
+    `tiobe` (HTML scrape — see note below).
 - 🧑 **1d. First AI enrichment run** — **skipped: `ANTHROPIC_API_KEY` is not
   set** in this environment (checked 2026-07-17), and this item says to skip and
   note when it's absent. Still typechecked and unit-tested with a mocked client

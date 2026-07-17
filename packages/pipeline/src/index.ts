@@ -14,6 +14,7 @@ export type { AnthropicLike, EnrichOptions } from "./enrich/enrich.ts";
 export { AI_OWNED_FIELDS, aiPlangSchema, createEnrichSource, enrichSource, MODEL, SYSTEM_PROMPT } from "./enrich/enrich.ts";
 export {
   homebrewSource,
+  innovationGraphSource,
   languishSource,
   linguistSource,
   pyplSource,
