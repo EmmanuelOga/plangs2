@@ -170,12 +170,40 @@ pnpm pipeline run --source=linguist             # write
 > Five rendering bugs once shipped behind green gates — hence this track.
 > CLAUDE.md "Verification loop" has the lesson.
 
-- ⬜ **2a. Lighthouse mobile ≥ 95 + axe clean** — the Phase 5 gate, still
-  unmeasured. Build, serve `apps/site/dist` with sirv, score with Lighthouse
-  (mobile) and axe (Playwright is installed). The a11y work itself is done
-  (real buttons, `aria-pressed`/`aria-expanded`, 44px targets, `aria-live`
-  counts) but nothing has scored it. *Done when:* scores are recorded here;
-  fix what falls short.
+- 🔶 **2a. Lighthouse mobile + axe** — measured 2026-07-17. **axe is clean**
+  and **a11y/best-practices/SEO are 100 everywhere**; the ≥95 gate is met on
+  every category except **Performance on the two grid pages**.
+
+  | page | Perf | A11y | Best Prac. | SEO | FCP | LCP |
+  |---|---|---|---|---|---|---|
+  | `/` | **78** | 100 | 100 | 100 | 3.2s | 4.5s |
+  | `/plangs` | **78** | 100 | 100 | 100 | 3.2s | 4.5s |
+  | `/nim` | 94 | 100 | 100 | 100 | 2.0s | 2.9s |
+  | `/blog/…python` | 95 | 100 | 100 | 100 | 1.9s | 2.7s |
+
+  Reproduce: `pnpm -F @plangs/site build`, `node scripts/serve-dist.mjs &`,
+  then `node scripts/axe-audit.mjs`, and Lighthouse with
+  `CHROME_PATH=<playwright chrome-headless-shell>` (plain Chrome isn't
+  installed; Chrome-for-Testing headless gives NO_FCP — the shell works).
+  - ✅ **Two real a11y bugs found and fixed** (a11y 95 → 100, axe clean):
+    - `color-contrast`: the `#N` ranking label inherited the link colour, so it
+      was primary at 60% opacity = **4.0** contrast (needs 4.5). Now
+      `text-foreground`. This also fixed dark mode, where it was **3.61**.
+    - `link-in-text-block`: inline prose links were primary-coloured with no
+      underline and normal weight — **colour-only**, so invisible as links to a
+      colourblind reader. Classless (i.e. markdown) links now underline.
+      **Lighthouse never reported this**; only the full axe run did.
+  - ⛔ **Perf 78 on grid pages is structural, not a defect to chase.** TBT is
+    0ms and CLS is 0 — nothing is janky. FCP/LCP are what they are because the
+    page ships all 267 cards server-rendered. That is the SSR-everything
+    decision, and the fix is the **deferred** client-render + virtualization
+    path (track 5). Raising it means reopening that decision, not tuning.
+  - **axe's dark-mode `color-contrast` is not trustworthy here** and is
+    suppressed with a measured justification in `scripts/axe-audit.mjs`: cards
+    are semi-transparent over a backdrop painted by a fixed `body::before`,
+    which axe cannot resolve, so it invents `#d9d9db` and calls
+    white-on-dark-purple 1.38. Hand-computed truth: 11.83. Its **light**-mode
+    numbers are exact (4.0 vs a computed 4.01) and stay enforced.
 - ✅ **2b. Broaden browser coverage** (2026-07-17) — browser suite went
   37 → 63 tests. Added `theme.browser.test.ts` (toggle, persistence across a
   real navigation, pre-paint inline script, repaint), `prompt-menu.browser.test.ts`

@@ -72,7 +72,15 @@ const cardFacetAttrs = (card: (typeof cards)[number]) =>
                   </span>
                 )}
                 <span class="text-sm font-medium text-foreground">{card.name}</span>
-                {card.ranking ? <span class="text-xs opacity-60">#{card.ranking}</span> : null}
+                {/*
+                  `text-foreground`, not the inherited link colour: this sits
+                  inside an <a>, so it was primary (#609) at 60% opacity, which
+                  composites to #a366c1 on the card and fails WCAG AA at 12px
+                  (contrast 4.0, needs 4.5). It is muted metadata, so the
+                  foreground token is what it should have been anyway — and it
+                  stays legible in dark mode, where primary is chartreuse.
+                */}
+                {card.ranking ? <span class="text-xs text-foreground opacity-60">#{card.ranking}</span> : null}
               </a>
             </li>
           ))

@@ -26,6 +26,7 @@
     "@types/node": "catalog:",
     "@vitest/browser": "catalog:",
     "@vitest/browser-playwright": "catalog:",
+    "axe-core": "4.11.1",
     "knip": "^6.26.0",
     "playwright": "catalog:",
     "sirv": "^3.0.2",
