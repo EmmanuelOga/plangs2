@@ -236,11 +236,25 @@ pnpm pipeline run --source=linguist             # write
     suite **skips loudly** rather than failing CI or fabricating a reference.
     To close: run `pnpm test:visual --update` on Linux (or in the CI image),
     **look at** the 5 PNGs, and commit them.
-- ⬜ **2d. Verify the Claude/ChatGPT prefill URLs** used by
-  `apps/site/src/islands/PromptMenu.tsx` (`https://claude.ai/new?q=…`,
-  `https://chatgpt.com/?q=…`) — written from documented behaviour, never
-  tested against the live services. Needs live web access; best-effort — if
-  unverifiable from this environment, note that here rather than guessing.
+- 🔶 **2d. Verify the Claude/ChatGPT prefill URLs** — attempted 2026-07-17,
+  **not conclusively verifiable without an authenticated session**. Recorded
+  rather than guessed, as this item asks.
+
+  | probe | result |
+  |---|---|
+  | `curl https://claude.ai/new?q=…` | **403** (bot protection) |
+  | `curl https://chatgpt.com/?q=…` | **403** (bot protection) |
+  | headless Chrome → `claude.ai/new?q=…` | 200 but redirects to `/login?from=logout`, then a security check. Composer never reached. |
+  | headless Chrome → `chatgpt.com/?q=…` | 200, stays on the app. The probe string **is echoed into the page's script payload** (so the server does receive `q`) but does **not** reach the composer while logged out. |
+
+  So: ChatGPT demonstrably *receives* the param; neither service demonstrably
+  *prefills* without a login. Both URLs remain unverified end-to-end, and our
+  own side is covered — `prompt-menu.browser.test.ts` asserts the links carry a
+  well-formed, encoded `q` (2b).
+  - **To close it**, in a browser already signed in to both, open a node page,
+    Ask → "Open in Claude" / "Open in ChatGPT", and confirm the composer is
+    prefilled. Not done here: it needs a logged-in session, and driving the
+    owner's accounts was out of scope for an autonomous run.
 
 ## 3. Deploy / cutover — 🧑 human-led beyond 3b
 
@@ -255,12 +269,19 @@ answered by an `astro-island` / `/_astro/` marker, never by status code.
   **old** build command against a repo where `output/` and the Bun build no
   longer exist — likely a noisy failure, possibly a wrong-directory publish.
   Disconnect or repoint it **before any push**. (Hence hard rule 1.)
-- ⬜ **3b. Build + dry-run** (safe to run): `pnpm -F @plangs/site build` →
-  `apps/site/dist` (~1800 files, ~15 MB); `npx wrangler deploy --dry-run`
-  validates config. Note: `wrangler.toml` says `name = "plangs"` but the
-  existing project is `plangs2` — a real deploy would create a **new Worker**
-  and touch neither the Pages project nor the domain. Deliberate, but the
-  owner decides before deploying.
+- ✅ **3b. Build + dry-run** (2026-07-17) — `pnpm -F @plangs/site build` →
+  `apps/site/dist`, **1800 files / 16 MB**. `npx wrangler deploy --dry-run`
+  (wrangler 4.112.0) passes: *"Read 2354 files from the assets directory …
+  Total Upload: 0.34 KiB … No bindings found. --dry-run: exiting now."* The
+  config is valid and deployable. **Nothing was deployed.**
+  - Still true, and still the owner's call: `wrangler.toml` says
+    `name = "plangs"` while the live project is `plangs2`, so a real deploy
+    creates a **new Worker** and touches neither the Pages project nor the
+    domain.
+  - **For 3d's smoke test:** also check `/c++` and its logo
+    (`/images/vertex/plang/c++.webp`). A static host that decodes `+` in a path
+    loses that file — sirv with `dev:false` does exactly that (see
+    `scripts/serve-dist.mjs`). Untested against Cloudflare.
 - 🧑 **3c. Deploy, verify on `*.workers.dev`, then move the domain** —
   `plangs.page` is attached to the Pages project; the real cutover is
   removing the custom domain there and adding it to the Worker. Expect brief
