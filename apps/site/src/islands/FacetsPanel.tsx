@@ -1,5 +1,6 @@
 import { useSelector } from "@xstate/store-react";
 import { useEffect, useId, useState } from "react";
+import { type Dim, matches } from "../lib/facets-contract";
 import { parseLegacyFragment } from "../lib/legacy-fragment";
 import { type FacetsContext, facetsStore, searchToSelection, selectionToSearch } from "../stores/facets";
 
@@ -9,26 +10,23 @@ interface FacetOption {
   count: number;
 }
 export interface FacetDimension {
-  dim: string; // e.g. "paradigms" (matches data-<dim> on grid items)
+  /** A known dimension — the attribute it reads is derived, never spelled out. */
+  dim: Dim;
   label: string;
   options: FacetOption[];
 }
 
-/** Apply the current selection to the pre-rendered grid by toggling visibility. */
+/**
+ * Apply the current selection to the pre-rendered grid by toggling visibility.
+ *
+ * The match itself lives in the shared contract, so this side cannot drift from
+ * what NodeGrid.astro emitted.
+ */
 function applyToGrid(ctx: FacetsContext): void {
   const items = document.querySelectorAll<HTMLElement>("[data-grid-item]");
   let visible = 0;
   for (const item of items) {
-    let show = true;
-    for (const [dim, values] of Object.entries(ctx.selected)) {
-      if (!values.length) continue;
-      const have = (item.dataset[dim.toLowerCase()] ?? "").split(" ").filter(Boolean);
-      const has = ctx.mode === "all" ? values.every(v => have.includes(v)) : values.some(v => have.includes(v));
-      if (!has) {
-        show = false;
-        break;
-      }
-    }
+    const show = matches(item, ctx.selected, ctx.mode);
     item.hidden = !show;
     if (show) visible++;
   }

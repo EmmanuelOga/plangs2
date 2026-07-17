@@ -1,6 +1,7 @@
 ---
 import { type NodeKind, parseKey } from "@plangs/schema";
 import FacetsPanel, { type FacetDimension } from "../islands/FacetsPanel.tsx";
+import { DIMS, facetAttrs } from "../lib/facets-contract";
 import { getGraph } from "../lib/graph";
 import { facetKindsFor, hrefForKey, nodeCards, nodeName } from "../lib/view";
 
@@ -33,7 +34,11 @@ const dimensions: FacetDimension[] = facetKindsFor(kind)
   })
   .filter(d => d.options.length > 1);
 
-const dataAttr = (keys: string[] = []) => keys.map(slug).join(" ");
+// Facet attributes come from the shared contract, so the names the grid writes
+// and the names the island reads are the same function call, not two strings
+// that happen to line up. See lib/facets-contract.ts.
+const cardFacetAttrs = (card: (typeof cards)[number]) =>
+  facetAttrs(Object.fromEntries(DIMS.map(dim => [dim, (card.facets[dim] ?? []).map(slug)])));
 ---
 
 {/*
@@ -53,14 +58,7 @@ const dataAttr = (keys: string[] = []) => keys.map(slug).join(" ");
       <ul class="grid grid-cols-[repeat(auto-fill,minmax(9rem,1fr))] gap-3">
         {
           cards.map(card => (
-            <li
-              data-grid-item
-              data-key={card.key}
-              data-paradigms={dataAttr(card.facets.paradigms)}
-              data-tags={dataAttr(card.facets.tags)}
-              data-platforms={dataAttr(card.facets.platforms)}
-              data-typesystems={dataAttr(card.facets.typeSystems)}
-              data-licenses={dataAttr(card.facets.licenses)}>
+            <li data-grid-item data-key={card.key} {...cardFacetAttrs(card)}>
               <a
                 href={hrefForKey(card.key)}
                 class="flex h-full flex-col items-center gap-2 rounded-lg border border-primary/20 bg-thumbnails p-3 text-center no-underline transition hover:border-primary focus-visible:outline-2 focus-visible:outline-primary">

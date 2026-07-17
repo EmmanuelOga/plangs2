@@ -213,13 +213,21 @@ One commit per item; full verification loop between items.
     `packages/*/src/index.ts` are entries that `export *` — every export reads
     as public API. Not type-specific (an unused `export const` is also
     unreported). Moved to CLAUDE.md.
-- ⬜ **4b. Give the facets island a typed contract.** `FacetsPanel.tsx`
-  queries `[data-grid-item]` and toggles `.hidden`; the coupling to
-  `NodeGrid.astro` is stringly-typed and case-fragile
-  (`item.dataset[dim.toLowerCase()]` vs `data-typesystems` — a wrong-case
-  attribute silently never filters). Fix: keep SSR cards, add a shared
-  `DIMS` const + emit/read helper both sides import, so a case mismatch
-  can't compile. (The client-render alternative is ⛔, track 5.)
+- ✅ **4b. Give the facets island a typed contract.** (2026-07-17)
+  New `apps/site/src/lib/facets-contract.ts`: `DIMS` + `Dim`, `facetAttrs()`
+  (emit) and `matches()` (read), both deriving the attribute name from one
+  `facetAttr()`. SSR cards kept, as specified. A wrong-case or unknown
+  dimension is now a **compile error suggesting the right spelling** —
+  verified with both `"typesystems"` and `"type-systems"`.
+  - Reads via `getAttribute`, not `dataset`, which silently transforms names
+    (`data-type-systems` ⇄ `dataset.typeSystems`) — the very mismatch class
+    being removed. Cards now carry `data-facet-*`.
+  - The store's `selected` is keyed by `Dim`; `searchToSelection` drops
+    unknown query params instead of seeding keys no card can carry.
+  - `matches()` takes a narrow `FacetCard` (just `getAttribute`), so the
+    contract unit-tests under plain Node — no jsdom dependency added. 8 unit
+    tests exercise emit and read *together*, since asserting the literal
+    attribute string would pass even if the two sides drifted.
 - ⬜ **4c. Split `apps/site/src/lib/view.ts`** — it holds URL policy, graph
   queries, and view models. Move graph queries to `packages/graph`
   (`query.ts` exists). `edgeBetween()` linear-scans 52 edges per (kind, dim)

@@ -1,5 +1,6 @@
 import { getNode, getPlang, inByEdge, nodesByKind, outByEdge, type PlangsGraph } from "@plangs/graph";
 import { EDGES, KINDS, type NodeData, type NodeKind, parseKey } from "@plangs/schema";
+import type { Dim } from "./facets-contract";
 import { thumbUrl } from "./graph";
 
 export interface PlangCard {
@@ -9,11 +10,16 @@ export interface PlangCard {
   thumb?: string;
   ranking?: number;
   isTranspiler: boolean;
-  facets: Record<string, string[]>;
+  facets: Partial<Record<Dim, string[]>>;
 }
 
-/** Kinds that act as facet dimensions on a grid, in display order. */
-const FACET_KINDS: { kind: NodeKind; dim: string; label: string }[] = [
+/**
+ * Kinds that act as facet dimensions on a grid, in display order.
+ *
+ * `dim` is a `Dim`, so this list and the attributes the grid stamps onto cards
+ * cannot drift apart: a dimension with no entry in DIMS does not compile.
+ */
+const FACET_KINDS: { kind: NodeKind; dim: Dim; label: string }[] = [
   { kind: "paradigm", dim: "paradigms", label: "Paradigms" },
   { kind: "tag", dim: "tags", label: "Tags" },
   { kind: "platform", dim: "platforms", label: "Platforms" },
@@ -31,7 +37,7 @@ function edgeBetween(a: NodeKind, b: NodeKind): { name: string; dir: "out" | "in
 }
 
 /** Facet dimensions actually available for a given node kind. */
-export function facetKindsFor(kind: NodeKind): { kind: NodeKind; dim: string; label: string }[] {
+export function facetKindsFor(kind: NodeKind): { kind: NodeKind; dim: Dim; label: string }[] {
   return FACET_KINDS.filter(f => f.kind !== kind && edgeBetween(kind, f.kind));
 }
 
@@ -73,7 +79,7 @@ export function nodeCards(graph: PlangsGraph, kind: NodeKind): PlangCard[] {
     // returns undefined for every other kind, which says that in the types
     // rather than leaving a `typeof` probe that silently reads nothing.
     const plang = getPlang(graph, key);
-    const facets: Record<string, string[]> = {};
+    const facets: Partial<Record<Dim, string[]>> = {};
     for (const d of dims) facets[d.dim] = facetNeighbors(graph, key, kind, d.kind);
     cards.push({
       key,

@@ -1,10 +1,11 @@
 import { createStore } from "@xstate/store";
+import { asDim, type Dim, type Selection } from "../lib/facets-contract";
 
 export type FacetMode = "any" | "all";
 
 export interface FacetsContext {
   /** dimension → selected facet slugs (e.g. `paradigms → ["functional","oop"]`). */
-  selected: Record<string, string[]>;
+  selected: Selection;
   mode: FacetMode;
 }
 
@@ -22,7 +23,7 @@ export interface FacetsContext {
 export const facetsStore = createStore({
   context: { selected: {}, mode: "any" } as FacetsContext,
   on: {
-    toggle: (ctx: FacetsContext, e: { dim: string; value: string }): FacetsContext => {
+    toggle: (ctx: FacetsContext, e: { dim: Dim; value: string }): FacetsContext => {
       const cur = ctx.selected[e.dim] ?? [];
       const next = cur.includes(e.value) ? cur.filter(v => v !== e.value) : [...cur, e.value];
       const selected = { ...ctx.selected };
@@ -32,7 +33,7 @@ export const facetsStore = createStore({
     },
     setMode: (ctx: FacetsContext, e: { mode: FacetMode }): FacetsContext => ({ ...ctx, mode: e.mode }),
     clearAll: (ctx: FacetsContext): FacetsContext => ({ ...ctx, selected: {} }),
-    restore: (ctx: FacetsContext, e: { selected: Record<string, string[]>; mode: FacetMode }): FacetsContext => ({
+    restore: (ctx: FacetsContext, e: { selected: Selection; mode: FacetMode }): FacetsContext => ({
       ...ctx,
       selected: e.selected,
       mode: e.mode,
@@ -52,13 +53,19 @@ export function selectionToSearch(ctx: FacetsContext): string {
 }
 
 /** Parse query params back into a selection. */
-export function searchToSelection(search: string): { selected: Record<string, string[]>; mode: FacetMode } {
+export function searchToSelection(search: string): { selected: Selection; mode: FacetMode } {
   const params = new URLSearchParams(search);
-  const selected: Record<string, string[]> = {};
+  const selected: Selection = {};
   let mode: FacetMode = "any";
   for (const [key, value] of params) {
-    if (key === "mode") mode = value === "all" ? "all" : "any";
-    else if (value) selected[key] = value.split(",").filter(Boolean);
+    if (key === "mode") {
+      mode = value === "all" ? "all" : "any";
+      continue;
+    }
+    // A URL is user input: ignore params that aren't real dimensions rather
+    // than seeding the selection with a key no card can ever carry.
+    const dim = asDim(key);
+    if (dim && value) selected[dim] = value.split(",").filter(Boolean);
   }
   return { selected, mode };
 }
