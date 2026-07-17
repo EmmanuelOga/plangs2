@@ -240,12 +240,24 @@ One commit per item; full verification loop between items.
   `edgeBetween` kept its linear scan, as instructed — no index.
   Guarded by url-parity 514/514 and the `detail-nim` pixel baseline (rendering
   unchanged).
-- ⬜ **4d. Small, genuinely safe cleanups**: `PlangCard.isTranspiler`
-  computed but never rendered; `checkIntegrity()`'s `assetsDir` option is an
-  empty `if`; `scripts/data-fmt.mjs` imports `formatText` from
-  `packages/pipeline` internals — give it a public export;
-  `apps/site/scripts/sync-assets.mjs` `cp -R`s over a live `public/`
-  (transient 404s — make it atomic: copy to temp, rename).
+- ✅ **4d. Small, genuinely safe cleanups** (2026-07-17):
+  - `PlangCard.isTranspiler` dropped — computed, never rendered, and absent
+    from every public output (checked the built JSON/markdown, not just the
+    templates). The `isTranspiler` *data* field and its derive rule stay.
+  - `checkIntegrity()`'s `assetsDir` removed: an option with **no callers**
+    whose body was an empty `if`.
+  - `scripts/data-fmt.mjs` now imports `@plangs/pipeline/fields`, a new public
+    subpath, instead of a deep relative path into `src/core/`. Subpath rather
+    than the package root on purpose: `core/fields.ts` is deliberately
+    dependency-free apart from `yaml`, and importing the index would drag the
+    Anthropic SDK, jsdom and turndown into a YAML formatter.
+  - `sync-assets.mjs` stages to a temp dir and swaps with `rename`.
+    **The stated symptom did not reproduce**: `cp -R` overwrites in place and
+    never unlinks, so an existing logo is readable throughout — no transient
+    404s (measured by polling a logo during a sync: 0 misses for both old and
+    new). The real defects it fixes are that `cpSync` never prunes, so an asset
+    deleted from the dataset was served forever (planted a file: old copy kept
+    it, new one removes it), and that in-place overwrites can be read partially.
 - ⬜ **4e. Cheap honest D2 parts** (data changes — unblocked): drop the
   `deprecated` flag in `KINDS` (`packages/schema/src/kinds.ts`) that nothing
   enforces; fix `bun/plangs` (its tools are the deleted v2 stack); name the

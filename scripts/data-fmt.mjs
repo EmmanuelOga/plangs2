@@ -17,7 +17,7 @@ import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { formatText } from "../packages/pipeline/src/core/fields.ts";
+import { formatText } from "@plangs/pipeline/fields";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const NODES_DIR = join(HERE, "../packages/data/nodes");

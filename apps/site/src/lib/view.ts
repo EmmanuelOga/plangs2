@@ -19,7 +19,6 @@ export interface PlangCard {
   name: string;
   thumb?: string;
   ranking?: number;
-  isTranspiler: boolean;
   facets: Partial<Record<Dim, string[]>>;
 }
 
@@ -50,9 +49,9 @@ export function nodeCards(graph: PlangsGraph, kind: NodeKind): PlangCard[] {
     const p = parseKey(key);
     if (!p) continue;
     const data = getNode(graph, key)?.data;
-    // `languishRanking` and `isTranspiler` exist only on plang. `getPlang`
-    // returns undefined for every other kind, which says that in the types
-    // rather than leaving a `typeof` probe that silently reads nothing.
+    // `languishRanking` exists only on plang. `getPlang` returns undefined for
+    // every other kind, which says that in the types rather than leaving a
+    // `typeof` probe that silently reads nothing.
     const plang = getPlang(graph, key);
     const facets: Partial<Record<Dim, string[]>> = {};
     for (const d of dims) facets[d.dim] = neighborsByKind(graph, key, kind, d.kind);
@@ -62,7 +61,6 @@ export function nodeCards(graph: PlangsGraph, kind: NodeKind): PlangCard[] {
       name: data?.name ?? p.slug,
       thumb: thumbUrl(kind, p.slug),
       ranking: plang?.data.languishRanking,
-      isTranspiler: plang?.data.isTranspiler === true,
       facets,
     });
   }

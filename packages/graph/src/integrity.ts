@@ -1,11 +1,7 @@
-import { existsSync } from "node:fs";
-import { join } from "node:path";
 import { NODE_SCHEMAS, parseKey } from "@plangs/schema";
 import type { LoadIssue, PlangsGraph } from "./load.ts";
 
 export interface IntegrityOptions {
-  /** If set, verify that referenced logo assets exist under this dir. */
-  assetsDir?: string;
   /** Run Zod validation of node data (slower). Default true. */
   validate?: boolean;
 }
@@ -13,11 +9,11 @@ export interface IntegrityOptions {
 /**
  * Integrity pass (replaces the legacy `bun run cleanup`): every edge target
  * exists and is defined; keys are well-formed; node data validates against its
- * Zod schema; referenced assets exist. Returns a precise list of issues.
+ * Zod schema. Returns a precise list of issues.
  */
 export function checkIntegrity(graph: PlangsGraph, opts: IntegrityOptions = {}): LoadIssue[] {
   const issues: LoadIssue[] = [];
-  const { validate = true, assetsDir } = opts;
+  const { validate = true } = opts;
 
   graph.forEachNode((key, attrs) => {
     if (!attrs.defined) {
@@ -33,16 +29,6 @@ export function checkIntegrity(graph: PlangsGraph, opts: IntegrityOptions = {}):
       if (!res.success) {
         for (const iss of res.error.issues) {
           issues.push({ level: "error", message: `${key}: ${iss.path.join(".")} ${iss.message}`, key });
-        }
-      }
-    }
-    if (assetsDir) {
-      const slug = parseKey(key)?.slug;
-      if (slug) {
-        const asset = join(assetsDir, attrs.kind, `${slug}.webp`);
-        // Only warn — many nodes legitimately have no logo.
-        if (attrs.data && !existsSync(asset)) {
-          // no-op: absence of a logo is not an error; hook left for future use.
         }
       }
     }

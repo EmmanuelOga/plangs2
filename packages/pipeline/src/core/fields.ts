@@ -2,9 +2,10 @@
  * THE canonical shape of a node YAML file.
  *
  * This module is the single source of truth for field order + serialization,
- * shared by the pipeline patcher and by `scripts/data-fmt.mjs` (which imports
- * it directly — Node strips the types). Keep it dependency-free apart from
- * `yaml` so the formatter script stays runnable on its own.
+ * shared by the pipeline patcher and by `scripts/data-fmt.mjs`, which imports it
+ * as `@plangs/pipeline/fields` (a public subpath; Node strips the types). Keep
+ * it dependency-free apart from `yaml`: that is what lets the formatter script
+ * run without dragging in the pipeline's Anthropic/jsdom/turndown deps.
  *
  * The ordering is the one established by `scripts/migrate-definitions.mjs`
  * (`FIELD_ORDER` + `orderData`), extended with the v3 provenance/ranking

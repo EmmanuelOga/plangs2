@@ -98,6 +98,9 @@ importers:
       '@biomejs/biome':
         specifier: 'catalog:'
         version: 2.5.3
+      '@plangs/pipeline':
+        specifier: workspace:*
+        version: link:packages/pipeline
       '@types/node':
         specifier: 'catalog:'
         version: 24.10.1

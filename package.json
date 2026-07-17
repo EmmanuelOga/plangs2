@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
+    "@plangs/pipeline": "workspace:*",
     "@types/node": "catalog:",
     "@vitest/browser": "catalog:",
     "@vitest/browser-playwright": "catalog:",
