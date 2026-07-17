@@ -1,0 +1,81 @@
+{
+  "category": "formula_install",
+  "total_items": 12,
+  "start_date": "2025-07-17",
+  "end_date": "2026-07-17",
+  "total_count": 277436079,
+  "items": [
+    {
+      "number": 88,
+      "formula": "python@3.12",
+      "count": "739,895",
+      "percent": "0.27"
+    },
+    {
+      "number": 17,
+      "formula": "python@3.13",
+      "count": "1,938,232",
+      "percent": "0.70"
+    },
+    {
+      "number": 5,
+      "formula": "node",
+      "count": "3,129,197",
+      "percent": "1.13"
+    },
+    {
+      "number": 30,
+      "formula": "go",
+      "count": "1,592,711",
+      "percent": "0.57"
+    },
+    {
+      "number": 166,
+      "formula": "rust",
+      "count": "449,100",
+      "percent": "0.16"
+    },
+    {
+      "number": 1146,
+      "formula": "nim",
+      "count": "17,356",
+      "percent": "0.01"
+    },
+    {
+      "number": 100,
+      "formula": "ruby",
+      "count": "692,361",
+      "percent": "0.25"
+    },
+    {
+      "number": 1499,
+      "formula": "crystal",
+      "count": "8,924",
+      "percent": "0"
+    },
+    {
+      "number": 794,
+      "formula": "elixir",
+      "count": "38,564",
+      "percent": "0.01"
+    },
+    {
+      "number": 1,
+      "formula": "openssl@3",
+      "count": "5,640,227",
+      "percent": "2.03"
+    },
+    {
+      "number": 3,
+      "formula": "sqlite",
+      "count": "3,704,915",
+      "percent": "1.34"
+    },
+    {
+      "number": 2,
+      "formula": "ca-certificates",
+      "count": "5,092,279",
+      "percent": "1.84"
+    }
+  ]
+}

@@ -169,8 +169,17 @@ pnpm pipeline run --source=linguist             # write
       only 3 true duplicates surfaced (v8→javascript, jruby→ruby, pypy→python),
       each correctly owned by the language node. Regression-tested by
       re-introducing the bug (rank all claimants) — 3 tests fail as intended.
+  - ✅ **homebrew** (2026-07-17) — Homebrew formula install counts as a fourth
+    popularity lens (`rankings.homebrew` + `sources.homebrew`). Matches by node
+    NAME only (never slug — `c`/`d`/`r` collide, the linguist lesson), so no
+    owner-resolution is needed (node names are unique, unlike shared SO tags).
+    **Aggregates versioned formulae** (`python@3.12` + `python@3.13` → `python`),
+    without which Python is split across versions and undercounted. Dry-run: 91
+    matched (Python #1, …), 7 fuzzy candidates review-only (e.g. `c-sharp`/`c++`
+    → `c`, correctly never written), idempotent, 10 fixture tests
+    (aggregation regression verified by re-introducing the bug).
   - ⬜ Remaining: `pldb` (whitelist-gated — needs the owner's whitelist),
-    `innovation-graph`, `tiobe`, `homebrew`.
+    `innovation-graph`, `tiobe`.
 - 🧑 **1d. First AI enrichment run** — **skipped: `ANTHROPIC_API_KEY` is not
   set** in this environment (checked 2026-07-17), and this item says to skip and
   note when it's absent. Still typechecked and unit-tested with a mocked client
