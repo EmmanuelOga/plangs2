@@ -21,11 +21,40 @@ pnpm url-parity               # 514/514 v2 URLs still served
 node scripts/data-fmt.mjs     # must report "0 of 495" — data is canonical
 ```
 
+```sh
+pnpm test:visual              # pixel baselines (see below); --update to re-record
+```
+
 **A green build means nothing rendered.** Five rendering bugs once shipped
 behind fully green gates (grid layout never applied, all facet rows collapsed).
 For any visual change, screenshot it and look (Playwright is installed; serve
 `apps/site/dist` with sirv). When adding a regression test, re-introduce the
 bug and confirm the test fails — a non-faithful repro makes a vacuous test.
+
+### Pixel baselines (`apps/site/test/pixels.browser.test.ts`)
+
+The only tests asserting on **rendered pixels**; everything else asserts on
+computed style, which only checks properties someone thought to name. Baselines
+live in `apps/site/test/__baselines__/` and are **committed and reviewed**;
+`__screenshots__/` is failure/diff debris and is gitignored. Four traps, each
+of which produced a *passing* suite that tested nothing:
+
+- **`expect` goes under `browser`, not `test`.** `test.expect.toMatchScreenshot`
+  type-checks and is silently ignored; screenshots then land in the default
+  location and everything still passes.
+- **`resolveScreenshotPath` must return an ABSOLUTE path.** A relative one is
+  never written and the assertion retries until the test times out.
+- **The browser viewport must exceed the largest iframe** a test loads. Element
+  screenshots clip to the viewport, and a baseline recorded from a clipped
+  capture matches the next clipped capture perfectly — green, and worthless.
+- **Use `expect(el)`, not `expect.element(el)`.** The latter retries, so a real
+  mismatch is reported as "Test timed out" instead of "N pixels differ".
+
+Tolerance is **exact (0)** — measured, not assumed. With `stabilize()` applied
+(fonts, images, animation, scroll) repeated runs are pixel-identical. At a
+"reasonable" 1% the re-introduced backdrop bug failed only 1 of 5 pages; at 0 it
+failed all 5. The grid pages are mostly cards, so a missing background moves far
+less than 1% of their pixels. Don't loosen it without re-measuring.
 
 ## Do not break (the safety nets)
 

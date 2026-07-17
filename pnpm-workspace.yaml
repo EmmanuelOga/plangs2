@@ -40,6 +40,10 @@ catalog:
   # testing (browser mode drives real Chromium via Playwright)
   playwright: 1.61.1
   "@vitest/browser-playwright": 4.1.10
+  # Already pulled in transitively by browser-playwright; declared directly so
+  # `@vitest/browser/matchers` resolves for `astro check` (which type-checks
+  # apps/site/test) — without it `toMatchScreenshot` is an unknown property.
+  "@vitest/browser": 4.1.10
   # tooling
   "@biomejs/biome": 2.5.3
   typescript: 5.9.3

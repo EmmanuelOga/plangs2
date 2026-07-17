@@ -13,6 +13,8 @@ const DIST_BASE = "/__dist__";
 export interface LoadedPage {
   win: Window;
   doc: Document;
+  /** The iframe itself — the element a pixel snapshot is taken of. */
+  frame: HTMLIFrameElement;
   /** Resize the layout viewport and let queries settle. */
   resize(width: number, height: number): Promise<void>;
   /** Computed style of the first match, from inside the iframe. */
@@ -56,6 +58,7 @@ export async function loadPage(path: string, width = 1440, height = 900): Promis
   const api: LoadedPage = {
     win,
     doc,
+    frame: iframe,
     async resize(w, h) {
       iframe.style.width = `${w}px`;
       iframe.style.height = `${h}px`;
@@ -101,6 +104,55 @@ function settle(win: Window): Promise<void> {
   return new Promise(resolve => {
     win.requestAnimationFrame(() => win.requestAnimationFrame(() => resolve()));
   });
+}
+
+/**
+ * Make a page byte-stable so a pixel snapshot means something.
+ *
+ * A screenshot taken before fonts swap in, before logos decode, or mid-
+ * transition differs run to run, and a flaky baseline gets deleted rather than
+ * trusted. Each step below removes one source of non-determinism:
+ *
+ *  - **Fonts.** Text rasterized in the fallback face and re-rasterized in
+ *    Nunito are different pixels. `document.fonts.ready` is per-document, so it
+ *    must be awaited on the IFRAME's document, not the runner's.
+ *  - **Images.** Node logos decode asynchronously; a card with a missing logo
+ *    lays out differently from one with it.
+ *  - **Animation.** Transitions and the caret are time-dependent by definition.
+ *  - **Scroll.** An element screenshot of the iframe captures whatever is
+ *    scrolled into view.
+ */
+export async function stabilize(pageObj: LoadedPage): Promise<void> {
+  const { doc, win } = pageObj;
+
+  const style = doc.createElement("style");
+  style.textContent = `*, *::before, *::after {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+    caret-color: transparent !important;
+    scroll-behavior: auto !important;
+  }`;
+  doc.head.appendChild(style);
+
+  await (doc as Document & { fonts?: FontFaceSet }).fonts?.ready;
+
+  await Promise.all(
+    [...doc.querySelectorAll("img")].map(img =>
+      img.complete
+        ? Promise.resolve()
+        : new Promise<void>(r => {
+            img.addEventListener("load", () => r(), { once: true });
+            img.addEventListener("error", () => r(), { once: true });
+            setTimeout(r, 3000);
+          }),
+    ),
+  );
+
+  win.scrollTo(0, 0);
+  await settle(win);
+  await settle(win);
 }
 
 /**

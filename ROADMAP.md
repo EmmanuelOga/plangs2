@@ -125,10 +125,18 @@ pnpm pipeline run --source=linguist             # write
   navigation, the blog, dark mode rendered visually. When adding a
   regression test, re-introduce the bug and confirm the test fails
   (CLAUDE.md).
-- ⬜ **2c. Visual regression snapshots** — screenshot-compare key pages
-  (home grid, a detail page, dark mode, mobile facets sheet) in the browser
-  test suite. Must assert on rendered pixels, not DOM — this is the class of
-  net that would have caught the background mis-port instantly.
+- ✅ **2c. Visual regression snapshots** (2026-07-17) —
+  `apps/site/test/pixels.browser.test.ts` pixel-compares 5 views (home, wide
+  grid, detail, dark grid, mobile facets sheet) at **exact** tolerance;
+  baselines committed in `test/__baselines__/`. Proven faithful: with the real
+  backdrop bug re-introduced, all 37 DOM-based browser tests still passed and
+  all 5 pixel tests failed. See CLAUDE.md "Pixel baselines" for the traps.
+  - 🔶 **CI does not enforce it yet.** Baselines are per-(browser, platform);
+    only `-chromium-darwin` exists, CI is `ubuntu-latest`, and Linux baselines
+    can't be produced here (no Docker). On a platform with no baselines the
+    suite **skips loudly** rather than failing CI or fabricating a reference.
+    To close: run `pnpm test:visual --update` on Linux (or in the CI image),
+    **look at** the 5 PNGs, and commit them.
 - ⬜ **2d. Verify the Claude/ChatGPT prefill URLs** used by
   `apps/site/src/islands/PromptMenu.tsx` (`https://claude.ai/new?q=…`,
   `https://chatgpt.com/?q=…`) — written from documented behaviour, never

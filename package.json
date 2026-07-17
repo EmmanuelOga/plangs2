@@ -16,12 +16,14 @@
     "data:fmt": "pnpm -F @plangs/data fmt",
     "pipeline": "pnpm -F @plangs/pipeline pipeline",
     "test:browser": "vitest run --project=browser",
+    "test:visual": "vitest run --project=browser apps/site/test/pixels.browser.test.ts",
     "test:all": "vitest run",
     "knip": "knip"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
     "@types/node": "catalog:",
+    "@vitest/browser": "catalog:",
     "@vitest/browser-playwright": "catalog:",
     "knip": "^6.26.0",
     "playwright": "catalog:",

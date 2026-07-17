@@ -42,6 +42,12 @@ scripts/.artifacts/
 # Per-run pipeline provenance reports
 packages/pipeline/reports/
 
+# Vitest screenshot artifacts (failure captures + visual diffs) and its
+# attachment store. The reviewed pixel baselines live in
+# apps/site/test/__baselines__/ and ARE committed.
+apps/site/test/__screenshots__/
+.vitest-attachments/
+
 # Astro site build + synced assets
 apps/site/dist/
 apps/site/.astro/

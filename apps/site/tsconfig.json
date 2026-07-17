@@ -3,7 +3,10 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "types": ["astro/client"]
+    // `@vitest/browser/matchers` augments vitest's Assertion with the browser
+    // matchers (toMatchScreenshot). `test/` is in `include`, so without this
+    // astro check fails on the pixel suite.
+    "types": ["astro/client", "@vitest/browser/matchers"]
   },
   "include": [".astro/types.d.ts", "src", "test", "astro.config.ts"],
   "exclude": ["dist"]
