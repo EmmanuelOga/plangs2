@@ -1,5 +1,5 @@
-import { getNode, inByEdge, nodesByKind, outByEdge, type PlangsGraph } from "@plangs/graph";
-import { EDGES, KINDS, type NodeKind, parseKey } from "@plangs/schema";
+import { getNode, getPlang, inByEdge, nodesByKind, outByEdge, type PlangsGraph } from "@plangs/graph";
+import { EDGES, KINDS, type NodeData, type NodeKind, parseKey } from "@plangs/schema";
 import { thumbUrl } from "./graph";
 
 export interface PlangCard {
@@ -42,9 +42,8 @@ function facetNeighbors(graph: PlangsGraph, key: string, kind: NodeKind, facetKi
 }
 
 export function nodeName(graph: PlangsGraph, key: string): string {
-  const n = getNode(graph, key);
-  const name = n?.data?.name;
-  return typeof name === "string" ? name : (parseKey(key)?.slug ?? key);
+  // `name` is on every kind's schema, so it reads straight off the union.
+  return getNode(graph, key)?.data.name ?? parseKey(key)?.slug ?? key;
 }
 
 /**
@@ -69,16 +68,20 @@ export function nodeCards(graph: PlangsGraph, kind: NodeKind): PlangCard[] {
   for (const key of nodesByKind(graph, kind)) {
     const p = parseKey(key);
     if (!p) continue;
-    const data = getNode(graph, key)?.data ?? {};
+    const data = getNode(graph, key)?.data;
+    // `languishRanking` and `isTranspiler` exist only on plang. `getPlang`
+    // returns undefined for every other kind, which says that in the types
+    // rather than leaving a `typeof` probe that silently reads nothing.
+    const plang = getPlang(graph, key);
     const facets: Record<string, string[]> = {};
     for (const d of dims) facets[d.dim] = facetNeighbors(graph, key, kind, d.kind);
     cards.push({
       key,
       slug: p.slug,
-      name: typeof data.name === "string" ? data.name : p.slug,
+      name: data?.name ?? p.slug,
       thumb: thumbUrl(kind, p.slug),
-      ranking: typeof data.languishRanking === "number" ? data.languishRanking : undefined,
-      isTranspiler: data.isTranspiler === true,
+      ranking: plang?.data.languishRanking,
+      isTranspiler: plang?.data.isTranspiler === true,
       facets,
     });
   }
@@ -124,7 +127,7 @@ export interface NodeDetail {
   kindLabel: string;
   slug: string;
   name: string;
-  data: Record<string, unknown>;
+  data: NodeData;
   thumb?: string;
   relations: RelGroup[];
 }
@@ -138,7 +141,7 @@ export function nodeDetail(graph: PlangsGraph, key: string): NodeDetail | undefi
     kind: p.kind,
     kindLabel: KINDS[p.kind].label,
     slug: p.slug,
-    name: typeof attrs.data.name === "string" ? attrs.data.name : p.slug,
+    name: attrs.data.name ?? p.slug,
     data: attrs.data,
     thumb: thumbUrl(p.kind, p.slug),
     relations: relationsFor(graph, key),

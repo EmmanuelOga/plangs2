@@ -101,6 +101,17 @@ deleting it.
 - **Biome's `.astro` exclusion** — its parser is experimental and flags
   frontmatter imports as unused; `astro check` covers those files.
 
+## Knip does not see dead code inside the packages
+
+`pnpm check` fails on dead code, but **not** for anything exported from
+`packages/*/src/index.ts`. Those index files are knip *entry* points and
+`export *` everything, so every export counts as public API of the workspace
+and is never reported — this is **not** a type-only blind spot, as an unused
+`export const` proves (measured 2026-07-17 with a probe export; knip stayed
+silent for both a type and a value). That is why `PlangData` sat exported and
+unused. Treat "knip is green" as "no unused *files* or *dependencies*", not
+"no dead exports" — inside these packages, check by hand.
+
 ## Environment facts
 
 - **pnpm is 10.34.5 via `mise`; corepack is absent; pnpm 11 cannot be fetched

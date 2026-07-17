@@ -12,12 +12,15 @@ const itemType =
     : detail.kind === "app" || detail.kind === "tool" || detail.kind === "library"
       ? "https://schema.org/SoftwareApplication"
       : "https://schema.org/Thing";
+// `data` is typed per kind (PLAN §4a), so shared fields read straight off it.
+// `extGithubPath` exists only on the GitHub-backed kinds, so it needs an `in`
+// check — which narrows the union rather than re-probing an untyped bag.
 const d = detail.data;
-const desc = typeof d.description === "string" ? d.description : undefined;
-const home = typeof d.extHomeURL === "string" ? d.extHomeURL : undefined;
-const github = typeof d.extGithubPath === "string" ? d.extGithubPath : undefined;
-const wikipedia = typeof d.extWikipediaPath === "string" ? d.extWikipediaPath : undefined;
-const created = typeof d.created === "string" ? d.created : undefined;
+const desc = d.description;
+const home = d.extHomeURL;
+const github = "extGithubPath" in d ? d.extGithubPath : undefined;
+const wikipedia = d.extWikipediaPath;
+const created = d.created;
 
 // GitHub edit deep-link for the node's YAML — this replaces the v2 /edit editor
 // and its PR worker (PLAN Decision D3). Note the path uses the real node kind

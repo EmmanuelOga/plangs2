@@ -63,8 +63,14 @@ function applyDerive(graph: PlangsGraph, rule: Extract<InferenceRule, { kind: "d
   for (const node of graph.nodes()) {
     const attrs = graph.getNodeAttributes(node);
     if (attrs.kind !== rule.on) continue;
-    if (outByName(graph, node, rule.whenEdge).length > 0 && attrs.data[rule.prop] !== true) {
-      attrs.data[rule.prop] = true;
+    // The rule's `prop` is checked against `on`'s schema where the rule is
+    // DECLARED (DeriveRule correlates the two). Here both are runtime unions, so
+    // TS can't re-derive that pairing for a dynamic write; this widening is the
+    // one place it is taken on trust, and the declaration site is what makes it
+    // safe.
+    const data = attrs.data as Record<string, unknown>;
+    if (outByName(graph, node, rule.whenEdge).length > 0 && data[rule.prop] !== true) {
+      data[rule.prop] = true;
       changed++;
     }
   }

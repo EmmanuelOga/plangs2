@@ -1,5 +1,5 @@
 import { EDGE_BY_NAME, type NodeKind } from "@plangs/schema";
-import type { NodeAttrs, PlangsGraph } from "./load.ts";
+import type { AnyNodeAttrs, NodeAttrs, PlangsGraph } from "./load.ts";
 
 /** All node keys of a given kind (defined nodes only). */
 export function nodesByKind(graph: PlangsGraph, kind: NodeKind): string[] {
@@ -10,8 +10,26 @@ export function nodesByKind(graph: PlangsGraph, kind: NodeKind): string[] {
   return out;
 }
 
-export function getNode(graph: PlangsGraph, key: string): NodeAttrs | undefined {
+export function getNode(graph: PlangsGraph, key: string): AnyNodeAttrs | undefined {
   return graph.hasNode(key) ? graph.getNodeAttributes(key) : undefined;
+}
+
+/**
+ * Get a node only if it is of `kind`, narrowed to that kind's data shape.
+ *
+ * The point of the whole exercise: callers that know which kind they want get
+ * `data` typed, instead of probing an untyped bag with `typeof` checks. Returns
+ * undefined for a missing node OR a node of a different kind, so the kind check
+ * and the lookup can't drift apart.
+ */
+export function getNodeOfKind<K extends NodeKind>(graph: PlangsGraph, key: string, kind: K): NodeAttrs<K> | undefined {
+  const attrs = getNode(graph, key);
+  return attrs?.kind === kind ? (attrs as NodeAttrs<K>) : undefined;
+}
+
+/** `getNodeOfKind(graph, key, "plang")` — by far the most common lookup. */
+export function getPlang(graph: PlangsGraph, key: string): NodeAttrs<"plang"> | undefined {
+  return getNodeOfKind(graph, key, "plang");
 }
 
 /** Outgoing targets along a named edge. */

@@ -104,8 +104,16 @@ const postShape = {
 
 const withGithub = { ...baseShape, ...githubShape };
 
-/** Zod schema per node kind. Validation-only — the graph stores raw data. */
-export const NODE_SCHEMAS: Record<NodeKind, z.ZodObject> = {
+/**
+ * Zod schema per node kind — and the source of the per-kind DATA TYPES.
+ *
+ * `satisfies`, not a `Record<NodeKind, z.ZodObject>` annotation: the annotation
+ * widens every entry to `z.ZodObject`, which erases the per-kind shape and makes
+ * `z.infer<(typeof NODE_SCHEMAS)[K]>` degenerate to `{}`. That erasure is why
+ * call sites used to hand-narrow `data` with `typeof` checks. `satisfies` keeps
+ * the exhaustiveness check (every kind has a schema) AND the inferred shapes.
+ */
+export const NODE_SCHEMAS = {
   app: z.object(withGithub),
   author: z.object(baseShape),
   bundle: z.object(baseShape),
@@ -121,12 +129,17 @@ export const NODE_SCHEMAS: Record<NodeKind, z.ZodObject> = {
   tag: z.object(baseShape),
   tool: z.object(withGithub),
   typeSystem: z.object(baseShape),
-};
+} satisfies Record<NodeKind, z.ZodObject>;
 
-export type NodeData = Record<string, unknown>;
-export type PlangData = z.infer<(typeof NODE_SCHEMAS)["plang"]>;
+/** The validated shape of a node's `data` for a given kind. */
+export type NodeDataOf<K extends NodeKind> = z.infer<(typeof NODE_SCHEMAS)[K]>;
 
-export function schemaForKind(kind: NodeKind): z.ZodObject {
+/** `data` for any kind — a union, so narrow by `kind` before reaching in. */
+export type NodeData = { [K in NodeKind]: NodeDataOf<K> }[NodeKind];
+
+export type PlangData = NodeDataOf<"plang">;
+
+export function schemaForKind<K extends NodeKind>(kind: K): (typeof NODE_SCHEMAS)[K] {
   return NODE_SCHEMAS[kind];
 }
 

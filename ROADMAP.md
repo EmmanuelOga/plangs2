@@ -195,16 +195,24 @@ YAML on GitHub — `REPO` is hardcoded in
 
 One commit per item; full verification loop between items.
 
-- ⬜ **4a. ⭐ Type the graph with the schemas it already has.**
-  `packages/graph` stores `data: Record<string, unknown>`, so 17 call sites
-  hand-narrow with `typeof` checks. Causes: `NodeAttrs.data` is untyped, and
-  `NODE_SCHEMAS`' `Record<NodeKind, z.ZodObject>` annotation erases per-kind
-  shapes — drop the annotation, let TS infer, and
-  `z.infer<(typeof NODE_SCHEMAS)[K]>` becomes usable. Target: `NodeAttrs<K>`
-  + kind-narrowing helpers (`getPlang(graph, key)`). `PlangData` in `zod.ts`
-  is the exported, unused vestige of this idea — knip didn't flag it; check
-  why before trusting knip on type-only exports. *Done when:* the ad-hoc
-  `typeof` narrowing at those call sites is gone.
+- ✅ **4a. ⭐ Type the graph with the schemas it already has.** (2026-07-17)
+  `NODE_SCHEMAS` now uses `satisfies Record<NodeKind, z.ZodObject>` instead of
+  the annotation (which erased every per-kind shape and made `z.infer` yield
+  `{}`), so `NodeDataOf<K>` is real. `NodeAttrs<K>` carries `data: NodeDataOf<K>`
+  and `PlangsGraph` is keyed by `AnyNodeAttrs` — a union discriminated on
+  `kind`, so `attrs.kind === "plang"` narrows `data`. Added `getNodeOfKind` /
+  `getPlang`. **Every `typeof`-on-`data` probe is gone** (verified by grep);
+  shared fields read straight off the union, kind-specific ones narrow with
+  `in`. `PlangData` is now `NodeDataOf<"plang">` and used.
+  - Also typed the `derive` inference rule: `prop` is now correlated with `on`
+    (`BooleanPropsOf<K>`), so a typo or a wrong-kind field is a compile error —
+    it was a bare `string`. Verified both.
+  - Locked in by TYPE-level tests in `zod.test.ts`: re-adding the annotation
+    fails the build via an unused `@ts-expect-error`. Verified.
+  - *Answering the knip question:* knip is silent because
+    `packages/*/src/index.ts` are entries that `export *` — every export reads
+    as public API. Not type-specific (an unused `export const` is also
+    unreported). Moved to CLAUDE.md.
 - ⬜ **4b. Give the facets island a typed contract.** `FacetsPanel.tsx`
   queries `[data-grid-item]` and toggles `.hidden`; the coupling to
   `NodeGrid.astro` is stringly-typed and case-fragile

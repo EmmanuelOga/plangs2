@@ -14,14 +14,16 @@ export function nodeToMarkdown(detail: NodeDetail): string {
   lines.push(`url: ${canonical}`);
   lines.push("---", "");
   lines.push(`# ${detail.name}`, "");
-  if (typeof d.shortDesc === "string") lines.push(`> ${d.shortDesc}`, "");
-  if (typeof d.description === "string") lines.push(d.description, "");
+  if (d.shortDesc) lines.push(`> ${d.shortDesc}`, "");
+  if (d.description) lines.push(d.description, "");
 
   const facts: string[] = [];
-  if (typeof d.created === "string") facts.push(`- Appeared: ${d.created}`);
-  if (typeof d.extHomeURL === "string") facts.push(`- Homepage: ${d.extHomeURL}`);
-  if (typeof d.extGithubPath === "string") facts.push(`- GitHub: https://github.com/${d.extGithubPath}`);
-  if (typeof d.languishRanking === "number") facts.push(`- Languish ranking: #${d.languishRanking}`);
+  if (d.created) facts.push(`- Appeared: ${d.created}`);
+  if (d.extHomeURL) facts.push(`- Homepage: ${d.extHomeURL}`);
+  // `extGithubPath` is only on the GitHub-backed kinds and `languishRanking`
+  // only on plang, so these narrow the union with `in` instead of `typeof`.
+  if ("extGithubPath" in d && d.extGithubPath) facts.push(`- GitHub: https://github.com/${d.extGithubPath}`);
+  if ("languishRanking" in d && d.languishRanking !== undefined) facts.push(`- Languish ranking: #${d.languishRanking}`);
   if (facts.length) lines.push("## Facts", "", ...facts, "");
 
   if (detail.relations.length) {

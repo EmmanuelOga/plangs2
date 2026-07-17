@@ -1,7 +1,40 @@
 import { describe, expect, it } from "vitest";
+import type { NodeDataOf } from "./zod.ts";
 import { NODE_SCHEMAS } from "./zod.ts";
 
 const plang = NODE_SCHEMAS.plang;
+
+/**
+ * TYPE-LEVEL tests: these assert at compile time, so a regression here is a
+ * `pnpm build` failure, not a red test.
+ *
+ * They exist because the failure mode is invisible at runtime. Annotating
+ * NODE_SCHEMAS as `Record<NodeKind, z.ZodObject>` widens every entry, and
+ * `z.infer` then yields `{}` for every kind — every call site still compiles,
+ * every test still passes, and `data.languishRanking` silently becomes an
+ * error-or-`any` that people work around with `typeof` checks. That is exactly
+ * the state 4a undid; these keep it undone.
+ */
+describe("per-kind data types are inferred from the schemas", () => {
+  it("gives plang its own fields", () => {
+    const d: NodeDataOf<"plang"> = { name: "Nim", languishRanking: 9, isTranspiler: false };
+    expect(d.languishRanking).toBe(9);
+  });
+
+  it("gives license its own fields", () => {
+    const d: NodeDataOf<"license"> = { name: "MIT", spdx: "MIT", isOSIApproved: true };
+    expect(d.spdx).toBe("MIT");
+  });
+
+  it("does not merge shapes across kinds", () => {
+    // @ts-expect-error `spdx` belongs to license, not plang. If NODE_SCHEMAS is
+    // ever re-annotated to `Record<NodeKind, z.ZodObject>`, inference collapses
+    // to `{}`, this error disappears, and the build fails on the unused
+    // directive — which is the point.
+    const d: NodeDataOf<"plang"> = { name: "Nim", spdx: "MIT" };
+    expect(d.name).toBe("Nim");
+  });
+});
 
 describe("node schemas", () => {
   it("accepts a minimal node", () => {

@@ -1,15 +1,33 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join, sep } from "node:path";
-import { directedEdge, type NodeKind, parseKey, prefixOfKind, resolveRel } from "@plangs/schema";
+import { directedEdge, type NodeDataOf, type NodeKind, parseKey, prefixOfKind, resolveRel } from "@plangs/schema";
 import { MultiDirectedGraph } from "graphology";
 import { parse as parseYaml } from "yaml";
 
-export interface NodeAttrs {
-  kind: NodeKind;
-  data: Record<string, unknown>;
+/**
+ * A node, carrying the data shape its own kind's schema describes.
+ *
+ * `data` used to be `Record<string, unknown>`, which pushed every reader into
+ * hand-rolled `typeof` checks to get at a field the schema already describes
+ * (PLAN §4a). The types come from NODE_SCHEMAS, and `integrity.test.ts` parses
+ * the real dataset against those same schemas on every CI run — so this is a
+ * claim with a gate behind it, not a cast we hope holds.
+ */
+export interface NodeAttrs<K extends NodeKind = NodeKind> {
+  kind: K;
+  data: NodeDataOf<K>;
   /** True when loaded from a real YAML file; false for dangling edge targets. */
   defined: boolean;
 }
+
+/**
+ * Any node, as a union discriminated on `kind`.
+ *
+ * This is what makes `if (attrs.kind === "plang")` narrow `attrs.data` to the
+ * plang shape. `NodeAttrs<NodeKind>` would NOT: it pairs a `kind` of any kind
+ * with a `data` of any shape, so the two never correlate.
+ */
+export type AnyNodeAttrs = { [K in NodeKind]: NodeAttrs<K> }[NodeKind];
 export interface EdgeAttrs {
   name: string;
   /** True for edges produced by the materialization pass (never written to YAML). */
@@ -18,7 +36,7 @@ export interface EdgeAttrs {
   props?: Record<string, unknown>;
 }
 
-export type PlangsGraph = MultiDirectedGraph<NodeAttrs, EdgeAttrs>;
+export type PlangsGraph = MultiDirectedGraph<AnyNodeAttrs, EdgeAttrs>;
 
 export interface LoadIssue {
   level: "error" | "warn";
@@ -46,7 +64,7 @@ function listNodeFiles(nodesDir: string): { kind: string; slug: string; path: st
 }
 
 function ensureNode(graph: PlangsGraph, key: string, kind: NodeKind): void {
-  if (!graph.hasNode(key)) graph.addNode(key, { kind, data: {}, defined: false });
+  if (!graph.hasNode(key)) graph.addNode(key, { kind, data: {}, defined: false } as AnyNodeAttrs);
 }
 
 /**
@@ -68,8 +86,14 @@ export function loadGraph(nodesDir: string): LoadResult {
     if (graph.hasNode(key) && graph.getNodeAttribute(key, "defined")) {
       issues.push({ level: "error", message: `Duplicate node key ${key}`, key });
     }
-    if (graph.hasNode(key)) graph.mergeNode(key, { kind, data, defined: true });
-    else graph.addNode(key, { kind, data, defined: true });
+    // The only unchecked step: YAML is parsed, not validated, so `data` is
+    // asserted into its kind's shape here. `checkIntegrity(graph)` is what makes
+    // the assertion true, and integrity.test.ts runs it over the whole real
+    // dataset in CI. Loading stays fast and reports ALL problems at once instead
+    // of throwing on the first bad file.
+    const attrs = { kind, data, defined: true } as AnyNodeAttrs;
+    if (graph.hasNode(key)) graph.mergeNode(key, attrs);
+    else graph.addNode(key, attrs);
     parsed.push({ key, kind, rels: rels ?? {} });
   }
 

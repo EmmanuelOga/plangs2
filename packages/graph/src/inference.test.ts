@@ -1,13 +1,14 @@
 import { kindOfPrefix } from "@plangs/schema";
 import { MultiDirectedGraph } from "graphology";
 import { describe, expect, it } from "vitest";
-import type { NodeAttrs, PlangsGraph } from "./load.ts";
+import type { AnyNodeAttrs, PlangsGraph } from "./load.ts";
 import { materialize } from "./materialize.ts";
+import { getPlang } from "./query.ts";
 
-function node(g: PlangsGraph, key: string, extra: Partial<NodeAttrs> = {}): void {
+function node(g: PlangsGraph, key: string, extra: Partial<AnyNodeAttrs> = {}): void {
   const kind = extra.kind ?? kindOfPrefix(key.slice(0, key.indexOf("/")));
   if (!kind) throw new Error(`bad test key ${key}`);
-  g.addNode(key, { kind, data: extra.data ?? {}, defined: true });
+  g.addNode(key, { kind, data: extra.data ?? {}, defined: true } as AnyNodeAttrs);
 }
 function edge(g: PlangsGraph, name: string, src: string, dst: string): void {
   g.addDirectedEdgeWithKey(`${name}:${src}->${dst}`, src, dst, { name });
@@ -54,8 +55,10 @@ describe("materialization / inference rules (PLAN §4.4)", () => {
   it("derives isTranspiler when a language compiles to another", () => {
     const g = build();
     materialize(g);
-    expect(g.getNodeAttribute("pl/a", "data").isTranspiler).toBe(true);
-    expect(g.getNodeAttribute("pl/b", "data").isTranspiler).toBeUndefined();
+    // `getPlang` narrows to the plang shape, so `isTranspiler` is a typed field
+    // here rather than a probe into an untyped bag.
+    expect(getPlang(g, "pl/a")?.data.isTranspiler).toBe(true);
+    expect(getPlang(g, "pl/b")?.data.isTranspiler).toBeUndefined();
   });
 
   it("hoists Bundle → Tool → Plang into Bundle → Plang", () => {

@@ -34,7 +34,7 @@ const entries = nodesByKind(graph, kind)
         <span class="ml-2 text-xs opacity-60">
           {e.degree} {countLabel}
         </span>
-        {typeof e.data.shortDesc === "string" && <p class="mt-1 text-sm opacity-80">{e.data.shortDesc}</p>}
+        {e.data.shortDesc && <p class="mt-1 text-sm opacity-80">{e.data.shortDesc}</p>}
       </li>
     ))
   }

@@ -22,7 +22,7 @@ export function getStaticPaths() {
 const { key } = Astro.props;
 const detail = nodeDetail(getGraph(), key as string);
 if (!detail) return Astro.rewrite("/404");
-const description = typeof detail.data.shortDesc === "string" ? detail.data.shortDesc : undefined;
+const description = detail.data.shortDesc;
 ---
 
 <Base title={`${detail.name} — plangs!`} description={description} markdownHref={`/${urlKind(detail.kind)}/${detail.slug}.md`}>
