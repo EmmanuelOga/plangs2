@@ -228,12 +228,21 @@ pnpm pipeline run --source=linguist             # write
       nodes.** This importer only enriches nodes that already exist, like every
       other importer. Growing the dataset from PLDB is a product decision —
       decide the whitelist policy, then it's a mechanical extension.
-- 🧑 **1d. First AI enrichment run** — **skipped: `ANTHROPIC_API_KEY` is not
-  set** in this environment (checked 2026-07-17), and this item says to skip and
-  note when it's absent. Still typechecked and unit-tested with a mocked client
-  (`claude-sonnet-5`, tool schema derived from the Zod node schema). When run:
-  land it as its own clearly-marked commit for the owner to review, never mixed
-  with other work.
+- 🔶 **1d. First AI enrichment run** — not run here, but **no longer blocked on a
+  missing `ANTHROPIC_API_KEY`**: the enrich client is a zero-arg
+  `new Anthropic()`, which also accepts an **`ant auth login` OAuth profile**
+  (SDK credential chain: `ANTHROPIC_API_KEY` → `ANTHROPIC_AUTH_TOKEN` → on-disk
+  OAuth profile). An active profile is present in this environment
+  (2026-07-17), so enrichment can run via OAuth with no static key.
+  - **Local-dev path:** `scripts/pipeline-auth.sh run --source=ai
+    --opt.keys=pl/nim --dry-run` — the wrapper injects the OAuth token
+    (`ant auth print-credentials --env`) when no key is set. CI/production
+    keeps using an `ANTHROPIC_API_KEY` secret.
+  - **Still owner-run by design, not autonomously**: enrichment makes real,
+    billed API calls and writes human-reviewed prose/link fields
+    (`AI_OWNED_FIELDS`). When run, land it as its own clearly-marked commit for
+    the owner to review, never mixed with other work. Typechecked + unit-tested
+    with a mocked client (`claude-sonnet-5`, tool schema from the Zod node schema).
 - ✅ **1e. Monthly data-refresh GitHub Action** (2026-07-17) —
   `.github/workflows/data-refresh.yml`. Cron on the 1st of each month (plus
   manual `workflow_dispatch`), clones `tjpalmer/languish` for languish's data,

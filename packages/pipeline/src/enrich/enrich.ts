@@ -91,13 +91,22 @@ function buildUserPrompt(doc: NodeDoc, pages: { url: string; title: string; mark
 }
 
 export interface EnrichOptions {
-  /** Injected in tests. Defaults to a real client built from ANTHROPIC_API_KEY. */
+  /**
+   * Injected in tests. In production, defaults to a zero-arg SDK client that
+   * resolves credentials from the environment (see `defaultClient`).
+   */
   client?: AnthropicLike;
   /** Injected in tests. Defaults to the real jsdom crawler. */
   crawler?: Crawler;
 }
 
-/** Lazily construct the real SDK client — importing must never require a key. */
+/**
+ * Lazily construct the real SDK client — importing must never require a key.
+ * The zero-arg `new Anthropic()` resolves credentials via the SDK's standard
+ * chain: `ANTHROPIC_API_KEY`, then `ANTHROPIC_AUTH_TOKEN`, then an `ant auth
+ * login` OAuth profile on disk. So a static API key is one option, not the only
+ * one — for local dev, `ant auth login` (no key) works too.
+ */
 async function defaultClient(): Promise<AnthropicLike> {
   const { default: Anthropic } = await import("@anthropic-ai/sdk");
   return new Anthropic() as unknown as AnthropicLike;
@@ -111,7 +120,7 @@ async function defaultClient(): Promise<AnthropicLike> {
 export function createEnrichSource(opts: EnrichOptions = {}): Source {
   return {
     id: SOURCE_ID,
-    description: `AI enrichment via Anthropic ${MODEL} — prose + link fields only. Requires ANTHROPIC_API_KEY.`,
+    description: `AI enrichment via Anthropic ${MODEL} — prose + link fields only. Needs credentials: ANTHROPIC_API_KEY, or an \`ant auth login\` OAuth profile.`,
     owns: [...AI_OWNED_FIELDS],
 
     async run(ctx: RunContext): Promise<void> {
