@@ -400,7 +400,8 @@ One commit per item; full verification loop between items.
   `kind`, so `attrs.kind === "plang"` narrows `data`. Added `getNodeOfKind` /
   `getPlang`. **Every `typeof`-on-`data` probe is gone** (verified by grep);
   shared fields read straight off the union, kind-specific ones narrow with
-  `in`. `PlangData` is now `NodeDataOf<"plang">` and used.
+  `in`. (`PlangData` was aliased to `NodeDataOf<"plang">` here but never
+  actually consumed — a later hand-audit found it dead and removed it; see 4f.)
   - Also typed the `derive` inference rule: `prop` is now correlated with `on`
     (`BooleanPropsOf<K>`), so a typo or a wrong-kind field is a compile error —
     it was a bare `string`. Verified both.
@@ -478,6 +479,32 @@ One commit per item; full verification loop between items.
     `tool/biomejs` and `tool/tailwindcss` exist as tool nodes — there are no
     tool nodes for Astro, React, Vitest, Playwright or pnpm, and
     `bundleRelTools` only accepts `tool/*`.
+- 🔶 **4f. Dead-export audit** (2026-07-17) — a by-hand sweep of the
+  `packages/*/src` barrels for exports knip structurally cannot flag (every
+  `index.ts` `export *`s, so all exports read as public API — CLAUDE.md "knip
+  does not see dead code inside the packages"). Method: grep each exported
+  symbol across `apps/`, `packages/`, `scripts/` and tests; a symbol used only
+  at its own declaration is dead.
+  - ✅ **Removed 5** superseded exports with zero consumers anywhere:
+    `PlangData` + `schemaForKind` (zod.ts), `kindOfKey` + `makeKey` (keys.ts),
+    `relKeysForKind` (rels.ts). Full loop green; each superseded by an existing
+    API (`NodeDataOf<"plang">`, `NODE_SCHEMAS[kind]`, `parseKey`). `PlangData`
+    is the exact symbol CLAUDE.md names as the exemplar of this blind spot.
+  - 🧑 **Held for the owner — dead by grep, but NOT cruft:**
+    - `influencedByTransitive`, `plangsByParadigm`, `familyTree` (graph
+      `query.ts`) — a half-wired influence/family **view** feature.
+      `influencedByTransitive` is the *only reader* of the
+      `plangRelInfluencedByTransitive` edge that `INFERENCE_RULES` deliberately
+      materializes (`inference.ts:59`); that edge is likely migration-gate
+      protected, so the reader and its materialization are coupled. Deleting is
+      a "is this planned view still wanted?" product call, not a safe cleanup.
+    - `FORBIDDEN_INFERENCES` (`inference.ts`) — its own comment ties it to
+      "negative tests staying honest"; it is design documentation of inferences
+      that must *not* be materialized. No test consumes it today (so it is
+      technically dead), but removing it loses the documented invariant. Better
+      resolution: wire it into a real negative test, or demote to a comment.
+  - The audit also confirmed **no orphan modules** and **no actionable
+    TODO/FIXME** in non-test source.
 
 ## 5. Deferred by decision — ⛔ do not implement without the owner
 
@@ -514,6 +541,14 @@ One commit per item; full verification loop between items.
 
 ## Log
 
+- **2026-07-17** — Autonomous hygiene pass (no owner-gated items touched, no
+  push). Confirmed the full verification loop green as a baseline, then:
+  cleared all self-reported Biome + knip config hints (4f-adjacent config
+  churn, zero behaviour change); ran a by-hand dead-export audit and removed 5
+  truly-dead schema exports (4f), holding 4 more for owner review. Re-confirmed
+  every gate green after each change. Items that stayed untouched because they
+  need the owner, a push, spend, or a Linux baseline: 1d, 2c CI enforcement,
+  2d, 3a–3e, 4e's bun/plangs tools, all of track 5.
 - **2026-07-17** — Roadmap restructured for autonomous execution (hard
   rules, phase order, done-criteria). Docs consolidated: PLAN.md,
   NEXT-STEPS.md, REFACTOR.md replaced by this file + CLAUDE.md (all three
