@@ -3,7 +3,9 @@ import { type NodeKind, parseKey } from "@plangs/schema";
 import FacetsPanel, { type FacetDimension } from "../islands/FacetsPanel.tsx";
 import { DIMS, facetAttrs } from "../lib/facets-contract";
 import { getGraph } from "../lib/graph";
-import { facetKindsFor, hrefForKey, nodeCards, nodeName } from "../lib/view";
+import { nodeName } from "@plangs/graph";
+import { hrefForKey } from "../lib/url";
+import { facetKindsFor, nodeCards } from "../lib/view";
 
 interface Props {
   kind: NodeKind;

@@ -1,11 +1,11 @@
 import react from "@astrojs/react";
-import { getNode } from "@plangs/graph";
+import { getNode, nodeName } from "@plangs/graph";
 import { legacyToNew } from "@plangs/schema";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
 import { getGraph } from "./src/lib/graph";
 import { remarkVertexRefs } from "./src/lib/remark-vertex-refs.mjs";
-import { hrefForKey, nodeName } from "./src/lib/view";
+import { hrefForKey } from "./src/lib/url";
 
 /** Resolve a legacy `(pl+typescript)` content ref to a real node link. */
 function lookup(legacyKey: string): { name: string; href: string } | undefined {

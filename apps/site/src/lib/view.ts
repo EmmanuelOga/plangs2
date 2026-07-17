@@ -1,7 +1,17 @@
-import { getNode, getPlang, inByEdge, nodesByKind, outByEdge, type PlangsGraph } from "@plangs/graph";
-import { EDGES, KINDS, type NodeData, type NodeKind, parseKey } from "@plangs/schema";
+import { edgeBetween, getNode, getPlang, neighborsByKind, nodeName, nodesByKind, type PlangsGraph, relatedGroups } from "@plangs/graph";
+import { KINDS, type NodeData, type NodeKind, parseKey } from "@plangs/schema";
 import type { Dim } from "./facets-contract";
 import { thumbUrl } from "./graph";
+import { hrefForKey } from "./url";
+
+/**
+ * VIEW MODELS: plain data shaped for templates.
+ *
+ * This file used to also hold URL policy and graph queries (PLAN §4c). Those
+ * moved out — URL policy to `./url.ts`, graph traversal to `@plangs/graph`'s
+ * `query.ts` — leaving only the layer that turns graph nodes into things a
+ * template renders. Nothing here should traverse edges or know a URL's shape.
+ */
 
 export interface PlangCard {
   key: string;
@@ -27,44 +37,9 @@ const FACET_KINDS: { kind: NodeKind; dim: Dim; label: string }[] = [
   { kind: "license", dim: "licenses", label: "Licenses" },
 ];
 
-/** First edge connecting two kinds, plus the direction to traverse from `a`. */
-function edgeBetween(a: NodeKind, b: NodeKind): { name: string; dir: "out" | "in" } | undefined {
-  for (const e of EDGES) {
-    if (e.from === a && e.to === b) return { name: e.name, dir: "out" };
-    if (e.from === b && e.to === a) return { name: e.name, dir: "in" };
-  }
-  return undefined;
-}
-
 /** Facet dimensions actually available for a given node kind. */
 export function facetKindsFor(kind: NodeKind): { kind: NodeKind; dim: Dim; label: string }[] {
   return FACET_KINDS.filter(f => f.kind !== kind && edgeBetween(kind, f.kind));
-}
-
-function facetNeighbors(graph: PlangsGraph, key: string, kind: NodeKind, facetKind: NodeKind): string[] {
-  const e = edgeBetween(kind, facetKind);
-  if (!e) return [];
-  return e.dir === "out" ? outByEdge(graph, key, e.name) : inByEdge(graph, key, e.name);
-}
-
-export function nodeName(graph: PlangsGraph, key: string): string {
-  // `name` is on every kind's schema, so it reads straight off the union.
-  return getNode(graph, key)?.data.name ?? parseKey(key)?.slug ?? key;
-}
-
-/**
- * URL segment for a kind. Lower-cased to preserve the legacy scheme exactly
- * (`typeSystem` → `/typesystem/...`); every other kind is already lowercase.
- */
-export function urlKind(kind: NodeKind): string {
-  return kind.toLowerCase();
-}
-
-/** Legacy-compatible: `/{slug}` for plangs, `/{kind}/{slug}` for everything else. */
-export function hrefForKey(key: string): string {
-  const p = parseKey(key);
-  if (!p) return "#";
-  return p.kind === "plang" ? `/${p.slug}` : `/${urlKind(p.kind)}/${p.slug}`;
 }
 
 /** All nodes of a kind as grid cards, sorted by ranking (ranked first) then name. */
@@ -80,7 +55,7 @@ export function nodeCards(graph: PlangsGraph, kind: NodeKind): PlangCard[] {
     // rather than leaving a `typeof` probe that silently reads nothing.
     const plang = getPlang(graph, key);
     const facets: Partial<Record<Dim, string[]>> = {};
-    for (const d of dims) facets[d.dim] = facetNeighbors(graph, key, kind, d.kind);
+    for (const d of dims) facets[d.dim] = neighborsByKind(graph, key, kind, d.kind);
     cards.push({
       key,
       slug: p.slug,
@@ -109,22 +84,15 @@ interface RelGroup {
   items: { key: string; name: string; href: string }[];
 }
 
-/** Grouped neighbor relations for a node's detail page. */
+/**
+ * A node's relations, resolved for rendering: the graph decides what is related
+ * and under which label, this decides what it looks like (name, link, order).
+ */
 function relationsFor(graph: PlangsGraph, key: string): RelGroup[] {
-  const p = parseKey(key);
-  if (!p) return [];
-  const groups: RelGroup[] = [];
-  const push = (label: string, keys: string[]) => {
-    const items = [...new Set(keys)]
-      .map(k => ({ key: k, name: nodeName(graph, k), href: hrefForKey(k) }))
-      .sort((a, b) => a.name.localeCompare(b.name));
-    if (items.length) groups.push({ label, items });
-  };
-  for (const e of EDGES) {
-    if (e.from === p.kind) push(e.fromLabel, outByEdge(graph, key, e.name));
-    if (e.to === p.kind) push(e.toLabel, inByEdge(graph, key, e.name));
-  }
-  return groups;
+  return relatedGroups(graph, key).map(g => ({
+    label: g.label,
+    items: g.keys.map(k => ({ key: k, name: nodeName(graph, k), href: hrefForKey(k) })).sort((a, b) => a.name.localeCompare(b.name)),
+  }));
 }
 
 export interface NodeDetail {

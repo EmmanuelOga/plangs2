@@ -3,7 +3,8 @@ import { ALL_KINDS, parseKey } from "@plangs/schema";
 import type { APIRoute } from "astro";
 import { getGraph } from "../../lib/graph";
 import { nodeToMarkdown } from "../../lib/markdown";
-import { nodeDetail, urlKind } from "../../lib/view";
+import { urlKind } from "../../lib/url";
+import { nodeDetail } from "../../lib/view";
 
 export function getStaticPaths() {
   const graph = getGraph();

@@ -1,11 +1,11 @@
 ---
-import { getNode } from "@plangs/graph";
+import { getNode, nodeName } from "@plangs/graph";
 import { legacyToNew } from "@plangs/schema";
 import { getCollection, render } from "astro:content";
 import Base from "../../layouts/Base.astro";
 import { getGraph } from "../../lib/graph";
 import { dateFromId, formatDate } from "../../lib/posts";
-import { hrefForKey, nodeName } from "../../lib/view";
+import { hrefForKey } from "../../lib/url";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");

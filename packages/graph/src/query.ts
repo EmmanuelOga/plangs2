@@ -1,4 +1,4 @@
-import { EDGE_BY_NAME, type NodeKind } from "@plangs/schema";
+import { EDGE_BY_NAME, EDGES, type NodeKind, parseKey } from "@plangs/schema";
 import type { AnyNodeAttrs, NodeAttrs, PlangsGraph } from "./load.ts";
 
 /** All node keys of a given kind (defined nodes only). */
@@ -70,6 +70,68 @@ export function influencedByTransitive(graph: PlangsGraph, key: string): string[
 /** Plangs that declare the given paradigm. */
 export function plangsByParadigm(graph: PlangsGraph, paradigmKey: string): string[] {
   return inByEdge(graph, paradigmKey, "plangRelParadigms");
+}
+
+/** A node's display name, falling back to its slug then its key. */
+export function nodeName(graph: PlangsGraph, key: string): string {
+  // `name` is on every kind's schema, so it reads straight off the union.
+  return getNode(graph, key)?.data.name ?? parseKey(key)?.slug ?? key;
+}
+
+/**
+ * First edge connecting two kinds, plus the direction to traverse from `a`.
+ *
+ * A linear scan of ~52 edges per lookup. Deliberately left alone: an index
+ * would be strictly more code for no measurable gain at this size (PLAN §4c).
+ */
+export function edgeBetween(a: NodeKind, b: NodeKind): { name: string; dir: "out" | "in" } | undefined {
+  for (const e of EDGES) {
+    if (e.from === a && e.to === b) return { name: e.name, dir: "out" };
+    if (e.from === b && e.to === a) return { name: e.name, dir: "in" };
+  }
+  return undefined;
+}
+
+/**
+ * Neighbours of `key` that are of `otherKind`, whichever way the edge runs.
+ *
+ * The direction is a property of the schema, not of the caller, so callers ask
+ * "what licenses does this plang have" without knowing that licenses point at
+ * plangs rather than the other way round.
+ */
+export function neighborsByKind(graph: PlangsGraph, key: string, kind: NodeKind, otherKind: NodeKind): string[] {
+  const e = edgeBetween(kind, otherKind);
+  if (!e) return [];
+  return e.dir === "out" ? outByEdge(graph, key, e.name) : inByEdge(graph, key, e.name);
+}
+
+/** A node's neighbours along one edge, under that edge's label for this direction. */
+export interface RelatedGroup {
+  label: string;
+  keys: string[];
+}
+
+/**
+ * Every edge touching `key`, grouped under the label for the direction
+ * travelled — "Influenced By" one way, "Influenced" the other.
+ *
+ * The traversal lives here rather than in the site because it is a question
+ * about the graph. Callers decide how to render it (names, links, ordering).
+ * Empty groups are dropped: an edge kind with no neighbours is not a section.
+ */
+export function relatedGroups(graph: PlangsGraph, key: string): RelatedGroup[] {
+  const p = parseKey(key);
+  if (!p) return [];
+  const groups: RelatedGroup[] = [];
+  const add = (label: string, keys: string[]) => {
+    const uniq = [...new Set(keys)];
+    if (uniq.length) groups.push({ label, keys: uniq });
+  };
+  for (const e of EDGES) {
+    if (e.from === p.kind) add(e.fromLabel, outByEdge(graph, key, e.name));
+    if (e.to === p.kind) add(e.toLabel, inByEdge(graph, key, e.name));
+  }
+  return groups;
 }
 
 /** Immediate family of a plang: compilesTo ∪ dialectOf ∪ implements. */

@@ -1,4 +1,5 @@
-import { type NodeDetail, urlKind } from "./view";
+import { urlKind } from "./url";
+import type { NodeDetail } from "./view";
 
 const SITE = "https://plangs.page";
 

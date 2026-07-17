@@ -1,7 +1,8 @@
 import { ALL_KINDS, parseKey } from "@plangs/schema";
 import type { APIRoute } from "astro";
 import { getGraph } from "../../../lib/graph";
-import { facetKindsFor, nodeCards, urlKind } from "../../../lib/view";
+import { urlKind } from "../../../lib/url";
+import { facetKindsFor, nodeCards } from "../../../lib/view";
 
 /** Grid kinds that get a compact facet index (PLAN §4.3 / §7.4). */
 const GRID_KINDS = ALL_KINDS.filter(k => facetKindsFor(k).length > 0 && k !== "post");

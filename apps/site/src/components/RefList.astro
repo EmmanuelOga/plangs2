@@ -2,7 +2,8 @@
 import { nodesByKind } from "@plangs/graph";
 import { type NodeKind, parseKey } from "@plangs/schema";
 import { getGraph } from "../lib/graph";
-import { hrefForKey, nodeName } from "../lib/view";
+import { nodeName } from "@plangs/graph";
+import { hrefForKey } from "../lib/url";
 
 interface Props {
   kind: NodeKind;

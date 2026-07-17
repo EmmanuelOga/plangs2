@@ -2,7 +2,8 @@ import { nodesByKind } from "@plangs/graph";
 import { ALL_KINDS, parseKey } from "@plangs/schema";
 import type { APIRoute } from "astro";
 import { getGraph } from "../../../../lib/graph";
-import { nodeDetail, urlKind } from "../../../../lib/view";
+import { urlKind } from "../../../../lib/url";
+import { nodeDetail } from "../../../../lib/view";
 
 /** Per-vertex JSON (PLAN §7.4): `/data/nodes/{kind}/{slug}.json`. */
 export function getStaticPaths() {

@@ -228,11 +228,18 @@ One commit per item; full verification loop between items.
     contract unit-tests under plain Node — no jsdom dependency added. 8 unit
     tests exercise emit and read *together*, since asserting the literal
     attribute string would pass even if the two sides drifted.
-- ⬜ **4c. Split `apps/site/src/lib/view.ts`** — it holds URL policy, graph
-  queries, and view models. Move graph queries to `packages/graph`
-  (`query.ts` exists). `edgeBetween()` linear-scans 52 edges per (kind, dim)
-  — irrelevant at this size, **don't optimise it**, but an index reads
-  simpler if you're touching it anyway.
+- ✅ **4c. Split `apps/site/src/lib/view.ts`** (2026-07-17) — three files
+  along the three concerns it had mixed:
+  - `@plangs/graph` `query.ts` ← the graph queries: `nodeName`,
+    `edgeBetween`, `neighborsByKind`, `relatedGroups` (relation traversal,
+    grouped by edge label; the site now only resolves names/links/order).
+  - `apps/site/src/lib/url.ts` ← URL policy (`urlKind`, `hrefForKey`). A site
+    concern: these encode v2 compatibility, which the graph shouldn't know.
+  - `view.ts` keeps view models only — it no longer traverses edges or builds
+    URLs.
+  `edgeBetween` kept its linear scan, as instructed — no index.
+  Guarded by url-parity 514/514 and the `detail-nim` pixel baseline (rendering
+  unchanged).
 - ⬜ **4d. Small, genuinely safe cleanups**: `PlangCard.isTranspiler`
   computed but never rendered; `checkIntegrity()`'s `assetsDir` option is an
   empty `if`; `scripts/data-fmt.mjs` imports `formatText` from
