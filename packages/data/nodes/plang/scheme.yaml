@@ -2,7 +2,7 @@ name: Scheme
 shortDesc: Minimalistic Lisp dialect known for its functional programming capabilities.
 description: Minimalistic and flexible dialect of the Lisp programming language, prioritizing functional programming and metaprogramming. Developed in the 1970s by Guy L. Steele and Gerald Jay Sussman at MIT, it pioneered concepts like lexical scoping and first-class continuations.
 created: "1975"
-extHomeURL: https://www.scheme.org/
+extHomeURL: http://www.scheme-reports.org/
 extRedditPath: scheme
 extWikipediaPath: Scheme_(programming_language)
 extensions:
@@ -18,10 +18,223 @@ githubName: Scheme
 githubPopular: false
 githubType: programming
 isTranspiler: false
-languishRanking: 106
+languishRanking: 104
 stackovTags:
   - scheme
+rankings:
+  languish: 104
+trends:
+  languish:
+    metric: weighted-share
+    quarters:
+      - 2008Q3
+      - 2008Q4
+      - 2009Q1
+      - 2009Q2
+      - 2009Q3
+      - 2009Q4
+      - 2010Q1
+      - 2010Q2
+      - 2010Q3
+      - 2010Q4
+      - 2011Q1
+      - 2011Q2
+      - 2011Q3
+      - 2011Q4
+      - 2012Q1
+      - 2012Q2
+      - 2012Q3
+      - 2012Q4
+      - 2013Q1
+      - 2013Q2
+      - 2013Q3
+      - 2013Q4
+      - 2014Q1
+      - 2014Q2
+      - 2014Q3
+      - 2014Q4
+      - 2015Q1
+      - 2015Q2
+      - 2015Q3
+      - 2015Q4
+      - 2016Q1
+      - 2016Q2
+      - 2016Q3
+      - 2016Q4
+      - 2017Q1
+      - 2017Q2
+      - 2017Q3
+      - 2017Q4
+      - 2018Q1
+      - 2018Q2
+      - 2018Q3
+      - 2018Q4
+      - 2019Q1
+      - 2019Q2
+      - 2019Q3
+      - 2019Q4
+      - 2020Q1
+      - 2020Q2
+      - 2020Q3
+      - 2020Q4
+      - 2021Q1
+      - 2021Q2
+      - 2021Q3
+      - 2021Q4
+      - 2022Q1
+      - 2022Q2
+      - 2022Q3
+      - 2022Q4
+      - 2023Q1
+      - 2023Q2
+      - 2023Q3
+      - 2023Q4
+      - 2024Q1
+      - 2024Q2
+      - 2024Q3
+      - 2024Q4
+      - 2025Q1
+      - 2025Q2
+    scores:
+      - 0.00068493
+      - 0.00070701
+      - 0.00033863
+      - 0.00047951
+      - 0.00038469
+      - 0.00057376
+      - 0.00042874
+      - 0.00035784
+      - 0.00033063
+      - 0.00049437
+      - 0.00050728
+      - 0.00036679
+      - 0.0001962
+      - 0.00030044
+      - 0.00049838
+      - 0.00031267
+      - 0.00029636
+      - 0.00051754
+      - 0.00049449
+      - 0.00057299
+      - 0.00078277
+      - 0.00056225
+      - 0.00038593
+      - 0.00043898
+      - 0.00032477
+      - 0.00047838
+      - 0.00037095
+      - 0.0003049
+      - 0.00029798
+      - 0.00040196
+      - 0.00039075
+      - 0.00072606
+      - 0.00038007
+      - 0.00038404
+      - 0.00031623
+      - 0.00029159
+      - 0.00024646
+      - 0.00034993
+      - 0.00032147
+      - 0.00026356
+      - 0.00018802
+      - 0.00031641
+      - 0.0002522
+      - 0.00026938
+      - 0.00025409
+      - 0.00025668
+      - 0.00025722
+      - 0.00021859
+      - 0.0002198
+      - 0.00029418
+      - 0.00025637
+      - 0.00027533
+      - 0.00022143
+      - 0.00026154
+      - 0.00020183
+      - 0.00020641
+      - 0.00019672
+      - 0.00021098
+      - 0.00017875
+      - 0.0001729
+      - 0.00016975
+      - 0.00016046
+      - 0.0001594
+      - 0.00015364
+      - 0.00021516
+      - 0.00025113
+      - 0.00018929
+      - 0.00023473
+    ranks:
+      - 42
+      - 41
+      - 52
+      - 46
+      - 51
+      - 47
+      - 49
+      - 52
+      - 56
+      - 51
+      - 50
+      - 53
+      - 66
+      - 60
+      - 59
+      - 76
+      - 74
+      - 60
+      - 62
+      - 62
+      - 52
+      - 56
+      - 71
+      - 65
+      - 76
+      - 70
+      - 76
+      - 78
+      - 76
+      - 69
+      - 70
+      - 58
+      - 70
+      - 74
+      - 77
+      - 79
+      - 92
+      - 76
+      - 80
+      - 88
+      - 107
+      - 80
+      - 96
+      - 90
+      - 89
+      - 95
+      - 93
+      - 100
+      - 96
+      - 86
+      - 93
+      - 89
+      - 100
+      - 94
+      - 105
+      - 101
+      - 102
+      - 101
+      - 111
+      - 112
+      - 111
+      - 118
+      - 118
+      - 118
+      - 105
+      - 102
+      - 111
+      - 104
 sources:
+  languish: Scheme
   linguist: Scheme
   wikidata: Q187560
 rels:

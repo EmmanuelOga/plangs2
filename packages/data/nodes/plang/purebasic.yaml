@@ -5,7 +5,7 @@ created: "1998"
 keywords:
   - purebasic
 extGithubPath: fantaisie-software/purebasic
-extHomeURL: http://www.purebasic.com/
+extHomeURL: https://www.purebasic.com/
 extRedditPath: purebasic
 extWikipediaPath: PureBasic
 extensions:
@@ -18,8 +18,125 @@ githubPopular: false
 githubStars: 125
 githubType: programming
 isTranspiler: false
-languishRanking: 262
+languishRanking: 323
+rankings:
+  languish: 323
+trends:
+  languish:
+    metric: weighted-share
+    quarters:
+      - 2015Q2
+      - 2015Q3
+      - 2015Q4
+      - 2016Q1
+      - 2016Q4
+      - 2017Q1
+      - 2017Q3
+      - 2017Q4
+      - 2018Q3
+      - 2018Q4
+      - 2019Q1
+      - 2019Q2
+      - 2019Q3
+      - 2019Q4
+      - 2020Q1
+      - 2020Q2
+      - 2020Q3
+      - 2020Q4
+      - 2021Q1
+      - 2021Q2
+      - 2021Q3
+      - 2021Q4
+      - 2022Q1
+      - 2022Q2
+      - 2022Q3
+      - 2022Q4
+      - 2023Q1
+      - 2023Q2
+      - 2023Q3
+      - 2023Q4
+      - 2024Q1
+      - 2024Q2
+      - 2024Q3
+      - 2024Q4
+      - 2025Q1
+      - 2025Q2
+    scores:
+      - 0.00000305
+      - 0.00000373
+      - 0.00000228
+      - 0.00000171
+      - 0.0000013
+      - 0.00000156
+      - 0.00001173
+      - 0.00000834
+      - 0.00000736
+      - 0.00014972
+      - 0.00003771
+      - 0.00002384
+      - 0.00002893
+      - 0.00003574
+      - 0.00001533
+      - 0.00001773
+      - 0.00001454
+      - 0.00000943
+      - 0.00001019
+      - 0.00001329
+      - 0.00001297
+      - 0.00001254
+      - 0.00001029
+      - 0.00002089
+      - 0.00001149
+      - 0.00001408
+      - 0.00001226
+      - 0.00000934
+      - 0.00000781
+      - 0.00000886
+      - 0.00001871
+      - 0.00000965
+      - 0.00000896
+      - 0.00000722
+      - 0.00000591
+      - 0.00000275
+    ranks:
+      - 286
+      - 279
+      - 287
+      - 307
+      - 312
+      - 312
+      - 226
+      - 255
+      - 258
+      - 123
+      - 185
+      - 206
+      - 201
+      - 192
+      - 226
+      - 224
+      - 231
+      - 263
+      - 254
+      - 240
+      - 238
+      - 246
+      - 260
+      - 220
+      - 250
+      - 245
+      - 251
+      - 266
+      - 271
+      - 271
+      - 236
+      - 268
+      - 273
+      - 287
+      - 287
+      - 323
 sources:
+  languish: PureBasic
   linguist: PureBasic
   wikidata: Q2118858
 rels:

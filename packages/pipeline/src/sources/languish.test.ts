@@ -137,6 +137,33 @@ describe("languishSource", () => {
   };
   const opts = { options: { clone: CLONE }, fetch: offlineFetcher, noReport: true };
 
+  it("does not rank an implementation as the language it implements", async () => {
+    /*
+     * REGRESSION. `githubName` is LINGUIST's identifier — what GitHub calls the
+     * node's *files* — so every implementation carries the name of what it
+     * implements: pl/pypy has githubName "Python", pl/v8 "JavaScript", pl/jruby
+     * "Ruby". languish matched on it, so PyPy inherited Python's popularity and
+     * the real grid rendered "PyPy #1" beside "Python #1" and "V8 #2" beside
+     * "JavaScript #2". Caught by a pixel baseline, not by a unit test — hence
+     * this one.
+     */
+    const dir = makeNodesDir({
+      "pl/pypy": { name: "PyPy", githubName: "Python", rels: {} },
+      "pl/python": { name: "Python", rels: {} },
+    });
+    try {
+      const report = await runSource(languishSource, { nodesDir: dir, ...opts });
+      expect(
+        report.changes.some(c => c.key === "pl/pypy"),
+        "PyPy must not inherit Python's ranking",
+      ).toBe(false);
+      // Python itself still ranks, by its own name.
+      expect(report.changes.some(c => c.key === "pl/python" && c.field === "languishRanking")).toBe(true);
+    } finally {
+      removeDir(dir);
+    }
+  });
+
   it("writes a ranking, a rankings entry, a trend series and the source id", async () => {
     const dir = makeNodesDir(NODES);
     try {

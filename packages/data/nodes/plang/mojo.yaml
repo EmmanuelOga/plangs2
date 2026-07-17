@@ -21,14 +21,50 @@ githubPopular: false
 githubStars: 23400
 githubType: programming
 isTranspiler: false
-languishRanking: 261
+languishRanking: 183
 releases:
   - version: "24.4"
     name: Preview release
     date: 2024-05-24
 stackovTags:
   - mojolang
+rankings:
+  languish: 183
+trends:
+  languish:
+    metric: weighted-share
+    quarters:
+      - 2023Q2
+      - 2023Q3
+      - 2023Q4
+      - 2024Q1
+      - 2024Q2
+      - 2024Q3
+      - 2024Q4
+      - 2025Q1
+      - 2025Q2
+    scores:
+      - 0.00000507
+      - 0.00004074
+      - 0.00002792
+      - 0.00002374
+      - 0.0000486
+      - 0.00005564
+      - 0.00001743
+      - 0.00002007
+      - 0.00005655
+    ranks:
+      - 294
+      - 190
+      - 215
+      - 224
+      - 188
+      - 181
+      - 242
+      - 232
+      - 183
 sources:
+  languish: Mojo
   linguist: Mojo
   wikidata: Q118152673
 rels:

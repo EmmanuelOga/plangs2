@@ -5,7 +5,7 @@ created: "1992"
 keywords:
   - forth
   - gforth
-extHomeURL: http://gnu.org/s/gforth/
+extHomeURL: https://www.gnu.org/software/gforth/
 extWikipediaPath: Gforth
 isTranspiler: false
 releases:

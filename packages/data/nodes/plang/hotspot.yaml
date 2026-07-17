@@ -8,6 +8,7 @@ keywords:
   - java vm
   - just-in-time compilation
   - jvm
+extHomeURL: http://openjdk.java.net/groups/hotspot/
 extWikipediaPath: HotSpot_(virtual_machine)
 isTranspiler: false
 releases:

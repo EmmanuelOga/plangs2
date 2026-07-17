@@ -78,17 +78,60 @@ export function extractEntity(data: EntityData, qid: string): Entity | undefined
   return data.entities?.[qid];
 }
 
-/** The owned facts: inception year and official website. */
+/** The facts we read: inception (suggested only) and the official website. */
 export function factsOf(entity: Entity): { created?: string; extHomeURL?: string } {
   const created = parseTimeValue(firstValue(entity, PROPS.inception) as { time?: string; precision?: number } | undefined);
   const site = firstValue(entity, PROPS.officialWebsite);
   return { created, extHomeURL: typeof site === "string" ? site : undefined };
 }
 
+/** `https://www.X.org/path/` -> `x.org/path` — same page, different punctuation. */
+function samePage(a: string, b: string): boolean {
+  const strip = (u: string) =>
+    u
+      .trim()
+      .toLowerCase()
+      .replace(/^https?:\/\//, "")
+      .replace(/^www\./, "")
+      .replace(/\/+$/, "");
+  return strip(a) === strip(b);
+}
+
+/**
+ * Would replacing `ours` with `theirs` be a pure downgrade?
+ *
+ * True when they are the SAME page and ours is no worse: identical but for a
+ * trailing slash or `www.` (65 of 110 real changes — churn with no reader
+ * benefit), or ours is https and theirs is http (15 more, which would have the
+ * site hand readers an insecure link to a page we already have securely).
+ *
+ * Nothing editorial here: a genuinely different URL still wins, because
+ * wikidata owns this field.
+ */
+function isNoBetter(ours: unknown, theirs: string): boolean {
+  if (typeof ours !== "string" || !ours) return false;
+  if (!samePage(ours, theirs)) return false;
+  return ours === theirs || !(ours.startsWith("http://") && theirs.startsWith("https://"));
+}
+
 export const wikidataSource: Source = {
   id: SOURCE_ID,
-  description: "Wikidata per-entity facts — inception year + official website (CC0). Paradigms/designers go to review.",
-  owns: ["created", "extHomeURL", `sources.${SOURCE_ID}`],
+  description: "Wikidata per-entity facts — official website (CC0). Inception, paradigms and designers go to review.",
+  /*
+   * `created` is deliberately NOT owned (owner's call, 2026-07-17).
+   *
+   * Wikidata's P571 is *inception* — when the project began. Our `created`
+   * renders as "Appeared", i.e. first release. They are different facts and
+   * they disagree for 26 of our languages: C++ 1985 vs 1983, Rust 2015 vs
+   * 2006, Julia 2012 vs 2009, HTML 1993 vs 1989. Importing P571 into `created`
+   * would relabel a project-start date as a release date and quietly make those
+   * pages wrong.
+   *
+   * The inception value still reaches the review report, so the information is
+   * not lost — it just needs a human, or a separate field, before it is a fact
+   * this site asserts.
+   */
+  owns: ["extHomeURL", `sources.${SOURCE_ID}`],
 
   async run(ctx: RunContext): Promise<void> {
     const entityUrl = ctx.options.entityUrl ? (qid: string) => `${ctx.options.entityUrl}${qid}.json` : ENTITY_URL;
@@ -127,9 +170,19 @@ export const wikidataSource: Source = {
       const patch: Record<string, unknown> = { sources: { [SOURCE_ID]: qid } };
       // Only write a fact we actually have: `undefined` in a patch means
       // "delete", and wikidata being silent is not a reason to drop our data.
-      if (facts.created !== undefined) patch.created = facts.created;
-      if (facts.extHomeURL !== undefined) patch.extHomeURL = facts.extHomeURL;
+      if (facts.extHomeURL !== undefined && !isNoBetter(doc.data.extHomeURL, facts.extHomeURL)) patch.extHomeURL = facts.extHomeURL;
       ctx.patch(doc.key, patch);
+
+      // Inception is a SUGGESTION, not an owned fact — see `owns` above. Only
+      // worth a human's attention when it actually disagrees with what we hold.
+      if (facts.created !== undefined && facts.created !== doc.data.created) {
+        ctx.review({
+          key: doc.key,
+          kind: "inception-suggestion",
+          message: `${qid} gives inception ${facts.created}; we hold created ("Appeared") ${doc.data.created ?? "nothing"}. P571 is when the project BEGAN, not when it was released — confirm before changing.`,
+          data: { inception: facts.created, created: doc.data.created },
+        });
+      }
 
       // Suggestions — reviewed by a human, never written (PLAN §5.3).
       const paradigms = itemIds(entity, PROPS.programmingParadigm);

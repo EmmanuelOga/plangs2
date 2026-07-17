@@ -6,7 +6,7 @@ keywords:
   - rdf
   - shex
   - validation
-extHomeURL: http://shex.io
+extHomeURL: https://www.w3.org/community/shex/
 extWikipediaPath: ShEx
 extensions:
   - .shex

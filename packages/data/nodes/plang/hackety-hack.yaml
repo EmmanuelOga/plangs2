@@ -9,6 +9,7 @@ keywords:
   - ruby programming
   - shoes toolkit
 extGithubPath: hacketyhack/hacketyhack
+extHomeURL: http://hackety.com/
 extWikipediaPath: Hackety_Hack
 extensions:
   - .rb

@@ -6,7 +6,7 @@ keywords:
   - .net
   - dotnet
 extGithubPath: microsoft/dotnet
-extHomeURL: http://dotnet.microsoft.com/
+extHomeURL: https://dotnet.microsoft.com/
 extWikipediaPath: .NET
 extensions:
   - .csproj

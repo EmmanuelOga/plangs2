@@ -7,7 +7,7 @@ keywords:
   - cilk plus
   - opencilk
 extGithubPath: OpenCilk/opencilk-project
-extHomeURL: https://www.opencilk.org/
+extHomeURL: https://www.cilkplus.org/
 extWikipediaPath: Cilk
 extensions:
   - .cilk

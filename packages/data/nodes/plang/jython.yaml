@@ -7,7 +7,7 @@ keywords:
   - jvm
   - jython
 extGithubPath: jython/jython
-extHomeURL: http://www.jython.org
+extHomeURL: https://www.jython.org/
 extWikipediaPath: Jython
 extensions:
   - .py

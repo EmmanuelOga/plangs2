@@ -11,7 +11,7 @@ keywords:
   - symbolic computation
   - term rewriting
 extGithubPath: agraef/pure-lang
-extHomeURL: http://agraef.github.io/pure-lang
+extHomeURL: http://purelang.bitbucket.org/
 extWikipediaPath: Pure_(programming_language)
 extensions:
   - .pure

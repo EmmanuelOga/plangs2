@@ -19,12 +19,36 @@ githubPopular: false
 githubStars: 4100
 githubType: programming
 isTranspiler: true
-languishRanking: 219
+languishRanking: 233
 releases:
   - version: "1.0"
     name: Luau 1.0
     date: 2021-02-18
+rankings:
+  languish: 233
+trends:
+  languish:
+    metric: weighted-share
+    quarters:
+      - 2024Q2
+      - 2024Q3
+      - 2024Q4
+      - 2025Q1
+      - 2025Q2
+    scores:
+      - 0.00000549
+      - 0.00004524
+      - 0.00002775
+      - 0.00002064
+      - 0.00002133
+    ranks:
+      - 297
+      - 192
+      - 220
+      - 230
+      - 233
 sources:
+  languish: Luau
   linguist: Luau
 rels:
   compilesTo:

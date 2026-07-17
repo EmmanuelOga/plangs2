@@ -7,6 +7,7 @@ keywords:
   - scratchjr
   - visual programming
 extGithubPath: scratchfoundation/scratch-vm
+extHomeURL: http://scratchjr.org/
 extWikipediaPath: ScratchJr
 githubStars: 1200
 isTranspiler: false

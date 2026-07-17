@@ -8,7 +8,7 @@ keywords:
   - gremlin
   - tinkerpop
 extGithubPath: apache/tinkerpop
-extHomeURL: https://tinkerpop.apache.org/gremlin.html
+extHomeURL: https://tinkerpop.apache.org/
 extWikipediaPath: Gremlin_(programming_language)
 githubStars: 2000
 isTranspiler: false

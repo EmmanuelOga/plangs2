@@ -4,6 +4,7 @@ description: XML Path Language is an expression language designed to support the
 created: "1998"
 keywords:
   - xpath
+extHomeURL: https://www.w3.org/TR/xpath/
 extWikipediaPath: XPath
 isTranspiler: false
 releases:

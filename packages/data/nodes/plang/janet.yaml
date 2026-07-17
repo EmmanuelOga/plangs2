@@ -20,11 +20,71 @@ githubPopular: false
 githubStars: 3600
 githubType: programming
 isTranspiler: false
-languishRanking: 369
+languishRanking: 259
 releases:
   - version: 1.37.1
     date: 2024-12-05
+rankings:
+  languish: 259
+trends:
+  languish:
+    metric: weighted-share
+    quarters:
+      - 2020Q2
+      - 2021Q1
+      - 2021Q2
+      - 2021Q3
+      - 2021Q4
+      - 2022Q1
+      - 2022Q3
+      - 2022Q4
+      - 2023Q1
+      - 2023Q2
+      - 2023Q3
+      - 2023Q4
+      - 2024Q1
+      - 2024Q3
+      - 2024Q4
+      - 2025Q1
+      - 2025Q2
+    scores:
+      - 0.00000101
+      - 0.00000148
+      - 0.00000104
+      - 0.00000244
+      - 7.7e-7
+      - 0.00000279
+      - 0.00001196
+      - 0.00000159
+      - 0.00000198
+      - 0.00000559
+      - 9.3e-7
+      - 0.00000108
+      - 5.1e-7
+      - 0.00000175
+      - 0.00000238
+      - 0.00000419
+      - 0.00001307
+    ranks:
+      - 359
+      - 340
+      - 359
+      - 335
+      - 372
+      - 325
+      - 248
+      - 346
+      - 342
+      - 290
+      - 371
+      - 364
+      - 388
+      - 347
+      - 339
+      - 318
+      - 259
 sources:
+  languish: Janet
   linguist: Janet
 rels:
   influencedBy:

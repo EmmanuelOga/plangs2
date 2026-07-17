@@ -104,11 +104,48 @@ pnpm pipeline run --source=linguist             # write
     not class as language-ish (e.g. `gdscript`→Godot the game engine,
     `arduino`→a company, `jupyter-notebook`→a nonprofit) for owner review.
   - `[drift vs v2]`: `+0 vertices, ~189 changed, +0 edges` — nothing lost.
-- ⬜ **1b. First real refresh** — run each importer (dry-run first, then
-  write), review the diff and the printed `[drift vs v2]` report, commit per
-  source with the report summary in the message. Last dry-runs: linguist 175
-  matched / 343 changes, languish 148 / 584 @2025Q2, pypl 28 / 84 @2026-07.
-  *Done when:* data reflects a real refresh and every gate is green.
+- ✅ **1b. First real refresh** (2026-07-17) — all four importers run for
+  real; each is idempotent on re-run (`changes: 0`). `[drift vs v2]`:
+  `+0 vertices, ~221 changed, +0 edges`.
+
+  | source | matched | changes | note |
+  |---|---|---|---|
+  | linguist | 171 | 319 | was 175/343 before the alias fix |
+  | wikidata | 185 | 55 | website only — `created` is not owned (below) |
+  | languish | 138 | 544 | was 147 before the `githubName` fix |
+  | pypl | 25 | 75 | was 28 before the same fix |
+
+  **Reviewing the diffs first paid for itself — three real bugs, none of which
+  any gate would have caught, because none of these importers had ever run:**
+  - *linguist* fed upstream `aliases`/`interpreters` into the **exact** tier.
+    Those tables label a *file*, so JavaScript lists `node`/`bun`/`deno`, Ruby
+    lists `jruby`. pl/bun matched JavaScript and would have taken githubName
+    "JavaScript", githubLangId 183 and all 25 JS extensions. Now an alias is an
+    identity only if it doesn't name a different node we track; the rest become
+    review candidates (`RemoteKeys.fuzzy`).
+  - *languish + pypl* matched on **`githubName`** — which is *linguist's* id
+    ("what GitHub calls this node's files"), so every implementation carries
+    the name of what it implements. PyPy inherited Python's popularity: the
+    grid rendered **"PyPy #1" beside "Python #1"** and "V8 #2" beside
+    "JavaScript #2". **Caught by a 2c pixel baseline**, not by any test.
+  - *pypl* emitted `{metric, months, shares}` while `zTrend` specifies
+    `{metric, quarters, scores, ranks}` — no schema ever accepted it. The first
+    real run wrote 28 nodes that then failed integrity validation.
+
+  Each fix has a regression test verified by re-introducing the bug.
+  - 🧑 **`created` is no longer owned by wikidata** (owner's call, 2026-07-17):
+    P571 is *inception*, our `created` renders as *"Appeared"*. They disagree
+    for 26 languages (C++ 1985 vs 1983, Rust 2015 vs 2006). Inception now goes
+    to review (63 items) instead of being written. Revisit if a separate
+    `inception` field is ever wanted.
+  - Also: wikidata no longer swaps a URL for the same page spelled worse — 65
+    of 110 changes differed only by a trailing slash or `www.`, and 15 were
+    https→http downgrades of the same host.
+  - 🧑 **linguist owns `extensions`, so 54 nodes lost curated ones** —
+    `pl/typescript` loses `.tsx` (TSX is its own upstream language, and we have
+    `pl/tsx`), `pl/sass` loses `.scss` (**no `pl/scss` node exists, so `.scss`
+    left the dataset**), `pl/agda` loses `.lagda*`. 53 gained, 41 both. Working
+    as designed; reversing it means changing who owns the field.
 - ⬜ **1c. Register remaining sources** (adoption order, PLAN §5): `pldb`
   (whitelist-gated), `innovation-graph`, `tiobe`, `homebrew`,
   `stackexchange`. Not stubbed — just unwritten (note in

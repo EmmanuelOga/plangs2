@@ -7,7 +7,7 @@ keywords:
   - open source
   - programming language
 extGithubPath: OpenEuphoria/euphoria
-extHomeURL: http://openeuphoria.org/
+extHomeURL: https://openeuphoria.org/index.wc
 extWikipediaPath: Euphoria_(programming_language)
 extensions:
   - .e
@@ -19,12 +19,54 @@ githubPopular: false
 githubStars: 96
 githubType: programming
 isTranspiler: false
-languishRanking: 410
+languishRanking: 328
 releases:
   - version: 4.1.0
     name: openEuphoria 4.1.0
     date: 2021-03-01
+rankings:
+  languish: 328
+trends:
+  languish:
+    metric: weighted-share
+    quarters:
+      - 2021Q1
+      - 2022Q4
+      - 2023Q1
+      - 2023Q2
+      - 2023Q4
+      - 2024Q1
+      - 2024Q2
+      - 2024Q3
+      - 2024Q4
+      - 2025Q1
+      - 2025Q2
+    scores:
+      - 6.5e-7
+      - 6.7e-7
+      - 5.6e-7
+      - 9.6e-7
+      - 7.2e-7
+      - 5.1e-7
+      - 0.00000123
+      - 4.7e-7
+      - 6.7e-7
+      - 0.00000419
+      - 0.00000212
+    ranks:
+      - 377
+      - 381
+      - 386
+      - 365
+      - 374
+      - 387
+      - 369
+      - 387
+      - 375
+      - 317
+      - 328
 sources:
+  languish: Euphoria
   linguist: Euphoria
   wikidata: Q1374139
 rels:

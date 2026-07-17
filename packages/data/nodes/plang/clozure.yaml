@@ -7,7 +7,7 @@ keywords:
   - clozure
   - common lisp
 extGithubPath: Clozure/ccl
-extHomeURL: http://ccl.clozure.com/
+extHomeURL: http://clozure.com/clozurecl.html
 extWikipediaPath: Clozure_CL
 extensions:
   - .cl

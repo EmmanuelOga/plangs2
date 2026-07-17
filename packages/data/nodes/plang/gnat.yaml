@@ -7,7 +7,7 @@ keywords:
   - compiler
   - gcc
   - gnat
-extHomeURL: http://www.getadanow.com/
+extHomeURL: https://www.gnu.org/software/gnat/
 extWikipediaPath: GNAT
 extensions:
   - .adb

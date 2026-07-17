@@ -22,13 +22,88 @@ githubPopular: false
 githubStars: 18200
 githubType: programming
 isTranspiler: true
-languishRanking: 157
+languishRanking: 207
 releases:
   - version: 1.6.3
     date: 2024-12-03
 stackovTags:
   - gleam
+rankings:
+  languish: 207
+trends:
+  languish:
+    metric: weighted-share
+    quarters:
+      - 2019Q4
+      - 2020Q2
+      - 2020Q3
+      - 2020Q4
+      - 2021Q1
+      - 2021Q2
+      - 2021Q3
+      - 2021Q4
+      - 2022Q1
+      - 2022Q2
+      - 2022Q3
+      - 2022Q4
+      - 2023Q1
+      - 2023Q2
+      - 2023Q3
+      - 2023Q4
+      - 2024Q1
+      - 2024Q2
+      - 2024Q3
+      - 2024Q4
+      - 2025Q1
+      - 2025Q2
+    scores:
+      - 9.8e-7
+      - 0.00000801
+      - 0.00000716
+      - 0.00000554
+      - 0.00000732
+      - 0.00000187
+      - 0.00000394
+      - 0.00000224
+      - 0.00000172
+      - 0.00000482
+      - 0.00000492
+      - 0.00000698
+      - 0.0000071
+      - 0.00000815
+      - 0.00001013
+      - 0.00000933
+      - 0.0000847
+      - 0.00012608
+      - 0.00010142
+      - 0.00008167
+      - 0.00005439
+      - 0.00003412
+    ranks:
+      - 350
+      - 267
+      - 265
+      - 288
+      - 271
+      - 333
+      - 304
+      - 333
+      - 339
+      - 298
+      - 303
+      - 284
+      - 277
+      - 270
+      - 263
+      - 268
+      - 155
+      - 129
+      - 146
+      - 155
+      - 181
+      - 207
 sources:
+  languish: Gleam
   linguist: Gleam
   wikidata: Q66370905
 rels:

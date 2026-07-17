@@ -8,7 +8,7 @@ keywords:
   - hcl
   - terraform
 extGithubPath: hashicorp/hcl
-extHomeURL: https://github.com/hashicorp/hcl
+extHomeURL: https://www.terraform.io/
 extRedditPath: Terraform
 extWikipediaPath: Terraform_(software)
 extensions:
@@ -25,7 +25,7 @@ githubPopular: false
 githubStars: 5300
 githubType: programming
 isTranspiler: true
-languishRanking: 55
+languishRanking: 75
 releases:
   - version: 1.9.1
     name: Stable release
@@ -35,7 +35,142 @@ releases:
     date: 2014-07-28
 stackovTags:
   - Terraform
+rankings:
+  languish: 75
+trends:
+  languish:
+    metric: weighted-share
+    quarters:
+      - 2015Q1
+      - 2015Q2
+      - 2015Q3
+      - 2015Q4
+      - 2016Q1
+      - 2016Q2
+      - 2016Q3
+      - 2016Q4
+      - 2017Q1
+      - 2017Q2
+      - 2017Q3
+      - 2017Q4
+      - 2018Q1
+      - 2018Q2
+      - 2018Q3
+      - 2018Q4
+      - 2019Q1
+      - 2019Q2
+      - 2019Q3
+      - 2019Q4
+      - 2020Q1
+      - 2020Q2
+      - 2020Q3
+      - 2020Q4
+      - 2021Q1
+      - 2021Q2
+      - 2021Q3
+      - 2021Q4
+      - 2022Q1
+      - 2022Q2
+      - 2022Q3
+      - 2022Q4
+      - 2023Q1
+      - 2023Q2
+      - 2023Q3
+      - 2023Q4
+      - 2024Q1
+      - 2024Q2
+      - 2024Q3
+      - 2024Q4
+      - 2025Q1
+      - 2025Q2
+    scores:
+      - 0.000018
+      - 0.00002336
+      - 0.00003223
+      - 0.00005398
+      - 0.00006143
+      - 0.00012982
+      - 0.00009459
+      - 0.00013144
+      - 0.000158
+      - 0.0001514
+      - 0.00014854
+      - 0.00015935
+      - 0.00021674
+      - 0.00025364
+      - 0.00023531
+      - 0.00024254
+      - 0.00032835
+      - 0.00027376
+      - 0.00028341
+      - 0.00031061
+      - 0.00033802
+      - 0.00039582
+      - 0.00038552
+      - 0.00033808
+      - 0.00046598
+      - 0.00043879
+      - 0.00045884
+      - 0.00041963
+      - 0.00098258
+      - 0.00049541
+      - 0.00056949
+      - 0.00053827
+      - 0.00051441
+      - 0.00042207
+      - 0.00045463
+      - 0.00043037
+      - 0.00056204
+      - 0.00040571
+      - 0.00053634
+      - 0.00040757
+      - 0.00039438
+      - 0.00044374
+    ranks:
+      - 200
+      - 194
+      - 171
+      - 156
+      - 155
+      - 117
+      - 126
+      - 118
+      - 105
+      - 113
+      - 115
+      - 115
+      - 101
+      - 93
+      - 94
+      - 96
+      - 82
+      - 89
+      - 84
+      - 85
+      - 80
+      - 70
+      - 70
+      - 81
+      - 69
+      - 71
+      - 69
+      - 71
+      - 53
+      - 68
+      - 63
+      - 67
+      - 66
+      - 73
+      - 75
+      - 76
+      - 62
+      - 77
+      - 64
+      - 82
+      - 82
+      - 75
 sources:
+  languish: HCL
   linguist: HCL
   wikidata: Q28957072
 rels:

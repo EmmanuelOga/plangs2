@@ -95,27 +95,49 @@ export function ranksFor(data: PyplData, month: Month): Map<string, number> {
   return out;
 }
 
+/**
+ * A trend series, in the shape `zTrend` actually specifies.
+ *
+ * `quarters` holds PERIOD LABELS, not literally quarters — the schema says so
+ * ("e.g. [\"2024Q4\"] or [\"2026-06\"]"), and PYPL's periods are months. This
+ * used to be `{ metric, months, shares }`, which no schema accepted: the field
+ * names were pypl's own and `ranks` was missing entirely. Nothing caught it
+ * because pypl had never run for real — the first run wrote 28 nodes that
+ * failed integrity validation.
+ */
 interface PyplTrend {
   metric: "index-share";
-  months: Month[];
-  shares: number[];
+  quarters: Month[];
+  scores: number[];
+  ranks: number[];
 }
 
-function trendFor(data: PyplData, language: string): PyplTrend | undefined {
-  const out: PyplTrend = { metric: "index-share", months: [], shares: [] };
+function trendFor(data: PyplData, language: string, ranksByMonth: Map<Month, Map<string, number>>): PyplTrend | undefined {
+  const out: PyplTrend = { metric: "index-share", quarters: [], scores: [], ranks: [] };
   for (const month of data.months) {
     const share = data.shares.get(month)?.get(language);
-    if (share === undefined) continue;
-    out.months.push(month);
-    out.shares.push(Number(share.toFixed(6)));
+    const rank = ranksByMonth.get(month)?.get(language);
+    // The three arrays are parallel, so a period only counts when it has BOTH.
+    // A month present in one array and missing from another would silently
+    // shift every later point against the wrong label.
+    if (share === undefined || rank === undefined) continue;
+    out.quarters.push(month);
+    out.scores.push(Number(share.toFixed(6)));
+    out.ranks.push(rank);
   }
-  return out.months.length ? out : undefined;
+  return out.quarters.length ? out : undefined;
 }
 
-/** `doc.slug` is excluded — see the note in the linguist importer. */
+/**
+ * `doc.slug` is excluded — see the note in the linguist importer. So is
+ * `githubName`: that is LINGUIST's id for the node's files, so every
+ * implementation carries the name of what it implements (pl/pypy -> "Python").
+ * Ranking PyPy as Python is exactly the confident-wrong match the ladder exists
+ * to prevent; a node that really is PYPL's entry can pin `sources.pypl`.
+ */
 function exactNamesOf(doc: NodeDoc): (string | undefined)[] {
   const s = (v: unknown) => (typeof v === "string" ? v : undefined);
-  return [s(doc.data.name), s(doc.data.githubName)];
+  return [s(doc.data.name)];
 }
 
 export const pyplSource: Source = {
@@ -137,6 +159,10 @@ export const pyplSource: Source = {
     ctx.origin(`month=${month}`);
 
     const ranks = ranksFor(data, month);
+    // Rank every month once: trendFor needs the whole history per language, and
+    // recomputing it per (language, month) would re-sort the same rows ~5,600
+    // times.
+    const ranksByMonth = new Map(data.months.map(m => [m, ranksFor(data, m)]));
     // PYPL names like `C/C++` and `Delphi/Pascal` cover two of our nodes; only
     // an exact name match (or a recorded sources.pypl) is trusted.
     const index = indexRemote(data.languages, name => ({ id: name, exact: [] }));
@@ -157,7 +183,7 @@ export const pyplSource: Source = {
       ctx.match({ key: doc.key, method: res.method, remoteId: res.record });
       ctx.patch(doc.key, {
         rankings: { [SOURCE_ID]: rank },
-        trends: { [SOURCE_ID]: trendFor(data, res.record) },
+        trends: { [SOURCE_ID]: trendFor(data, res.record, ranksByMonth) },
         sources: { [SOURCE_ID]: res.record },
       });
     }

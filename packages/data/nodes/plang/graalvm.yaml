@@ -13,7 +13,7 @@ keywords:
   - runtime
   - vee
 extGithubPath: oracle/graal
-extHomeURL: https://www.graalvm.org/
+extHomeURL: http://openjdk.java.net/projects/graal/
 extWikipediaPath: GraalVM
 githubStars: 20500
 isTranspiler: false

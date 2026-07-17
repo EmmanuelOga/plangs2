@@ -8,7 +8,7 @@ keywords:
   - live-coding
   - real-time
 extGithubPath: digego/extempore
-extHomeURL: https://extemporelang.github.io/
+extHomeURL: https://github.com/digego/extempore
 extWikipediaPath: Extempore_(software)
 extensions:
   - .xtm

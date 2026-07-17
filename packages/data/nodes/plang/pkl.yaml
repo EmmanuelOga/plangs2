@@ -15,11 +15,24 @@ githubPopular: false
 githubStars: 10400
 githubType: programming
 isTranspiler: true
+languishRanking: 381
 releases:
   - version: 1.0.0
     name: PKL 1.0.0
     date: 2021-06-01
+rankings:
+  languish: 381
+trends:
+  languish:
+    metric: weighted-share
+    quarters:
+      - 2025Q2
+    scores:
+      - 5.7e-7
+    ranks:
+      - 381
 sources:
+  languish: Pkl
   linguist: Pkl
 rels:
   compilesTo:

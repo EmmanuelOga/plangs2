@@ -47,16 +47,80 @@ describe("wikidataSource", () => {
     "pl/nowd": { name: "NoQid", rels: {} },
   };
 
-  it("writes only inception + website", async () => {
+  it("writes only the website", async () => {
     const dir = makeNodesDir(NODES);
     try {
       const report = await runSource(wikidataSource, { nodesDir: dir, fetch, noReport: true });
       expect(report.errors).toEqual([]);
-      expect(report.changes.map(c => c.field).sort()).toEqual(["created", "extHomeURL"]);
+      expect(report.changes.map(c => c.field).sort()).toEqual(["extHomeURL"]);
+      expect(snapshotDir(dir)["plang/nim.yaml"] ?? "").toContain("extHomeURL: https://nim-lang.org/");
+    } finally {
+      removeDir(dir);
+    }
+  });
 
-      const nim = snapshotDir(dir)["plang/nim.yaml"] ?? "";
-      expect(nim).toContain('created: "2008"');
-      expect(nim).toContain("extHomeURL: https://nim-lang.org/");
+  it("suggests inception rather than writing it over `created`", async () => {
+    /*
+     * P571 is *inception* — when the project began — while `created` renders as
+     * "Appeared", the first release. They disagree for 26 real languages (C++
+     * 1985 vs 1983, Rust 2015 vs 2006), so importing P571 would relabel a
+     * project-start date as a release date. Owner's call, 2026-07-17: suggest,
+     * never write.
+     */
+    const dir = makeNodesDir({ "pl/nim": { name: "Nim", created: "1999", sources: { wikidata: "Q20080327" }, rels: {} } });
+    try {
+      const report = await runSource(wikidataSource, { nodesDir: dir, fetch, noReport: true });
+      expect(
+        report.changes.some(c => c.field === "created"),
+        "created must never be written",
+      ).toBe(false);
+      expect(snapshotDir(dir)["plang/nim.yaml"] ?? "", "the curated value stands").toContain('created: "1999"');
+
+      const suggestion = report.review.find(r => r.key === "pl/nim" && r.kind === "inception-suggestion");
+      expect(suggestion, "the disagreement must still reach a human").toBeTruthy();
+      expect(suggestion?.data).toMatchObject({ inception: "2008", created: "1999" });
+    } finally {
+      removeDir(dir);
+    }
+  });
+
+  it("does not swap a URL for the same page spelled worse", async () => {
+    /*
+     * Upstream P856 is often the same page, punctuated differently or served
+     * over http: 65 of 110 real changes differed only by a trailing slash or
+     * `www.`, and 15 would have replaced an https URL with http for the SAME
+     * host — handing readers an insecure link to a page we already had
+     * securely. A genuinely different URL still wins; wikidata owns the field.
+     */
+    const dir = makeNodesDir({ "pl/nim": { name: "Nim", extHomeURL: "https://nim-lang.org", sources: { wikidata: "Q20080327" }, rels: {} } });
+    try {
+      const report = await runSource(wikidataSource, { nodesDir: dir, fetch, noReport: true });
+      // The fixture gives "https://nim-lang.org/" — same page, trailing slash.
+      expect(
+        report.changes.some(c => c.field === "extHomeURL"),
+        "no churn for the same page",
+      ).toBe(false);
+      expect(snapshotDir(dir)["plang/nim.yaml"] ?? "").toContain("extHomeURL: https://nim-lang.org");
+    } finally {
+      removeDir(dir);
+    }
+  });
+
+  it("still upgrades http to https for the same page", async () => {
+    const dir = makeNodesDir({ "pl/nim": { name: "Nim", extHomeURL: "http://nim-lang.org/", sources: { wikidata: "Q20080327" }, rels: {} } });
+    try {
+      const report = await runSource(wikidataSource, { nodesDir: dir, fetch, noReport: true });
+      expect(report.changes.find(c => c.field === "extHomeURL")).toMatchObject({ to: "https://nim-lang.org/" });
+    } finally {
+      removeDir(dir);
+    }
+  });
+
+  it("does not nag when inception already agrees with `created`", async () => {
+    const dir = makeNodesDir({ "pl/nim": { name: "Nim", created: "2008", sources: { wikidata: "Q20080327" }, rels: {} } });
+    try {
+      const report = await runSource(wikidataSource, { nodesDir: dir, fetch, noReport: true });
+      expect(report.review.some(r => r.kind === "inception-suggestion")).toBe(false);
     } finally {
       removeDir(dir);
     }

@@ -1,5 +1,6 @@
 /** PYPL importer, against a recorded slice of `pypl.github.io/PYPL/All.js`. */
 
+import { zTrend } from "@plangs/schema";
 import { describe, expect, it } from "vitest";
 import { fixture, fixtureFetcher, makeNodesDir, removeDir, snapshotDir } from "../../test/helpers.ts";
 import { parseNodeYaml } from "../core/fields.ts";
@@ -83,10 +84,41 @@ describe("pyplSource", () => {
       const python = parseNodeYaml(snapshotDir(dir)["plang/python.yaml"] ?? "");
       expect((python.rankings as Record<string, number>).pypl).toBe(1);
       expect((python.sources as Record<string, string>).pypl).toBe("Python");
-      const trend = (python.trends as Record<string, { months: string[]; shares: number[] } | undefined>).pypl;
+      const trend = (python.trends as Record<string, unknown>).pypl;
       if (!trend) throw new Error("expected a pypl trend series on pl/python");
-      expect(trend.months).toContain("2026-07");
-      expect(trend.shares).toHaveLength(trend.months.length);
+      expect((trend as { quarters: string[] }).quarters).toContain("2026-07");
+    } finally {
+      removeDir(dir);
+    }
+  });
+
+  it("writes a trend the SCHEMA accepts", async () => {
+    /*
+     * REGRESSION. pypl emitted `{ metric, months, shares }` — field names of its
+     * own invention, with `ranks` missing entirely — while zTrend specifies
+     * `{ metric, quarters, scores, ranks }`. (`quarters` means period LABELS;
+     * the schema's own comment allows "2026-06".) It went unnoticed because pypl
+     * had never run for real: the first run wrote 28 nodes that then failed
+     * integrity validation.
+     *
+     * Asserting against the real schema rather than a hand-copied shape is the
+     * point — a hand-copied shape is what drifted.
+     */
+    const dir = makeNodesDir(NODES);
+    try {
+      await runSource(pyplSource, { nodesDir: dir, fetch, noReport: true });
+      const python = parseNodeYaml(snapshotDir(dir)["plang/python.yaml"] ?? "");
+      const trend = (python.trends as Record<string, unknown>).pypl;
+      const parsed = zTrend.safeParse(trend);
+      expect(parsed.success ? [] : parsed.error.issues.map(i => `${i.path.join(".")}: ${i.message}`)).toEqual([]);
+
+      const t = parsed.success ? parsed.data : undefined;
+      if (!t) throw new Error("unreachable");
+      // Parallel arrays: a length mismatch silently plots a point against the
+      // wrong period.
+      expect(t.scores).toHaveLength(t.quarters.length);
+      expect(t.ranks).toHaveLength(t.quarters.length);
+      expect(t.ranks[t.quarters.indexOf("2026-07")], "Python is #1 in the fixture's latest month").toBe(1);
     } finally {
       removeDir(dir);
     }

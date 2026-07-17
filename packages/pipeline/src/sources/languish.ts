@@ -279,8 +279,21 @@ function resolveCloneDir(raw: string): string {
  * wrong matches.
  */
 function exactNamesOf(doc: NodeDoc): (string | undefined)[] {
+  /*
+   * `githubName` is deliberately NOT used here — it is LINGUIST's identifier,
+   * not languish's.
+   *
+   * It records what GitHub calls this node's *files*, so every implementation
+   * carries the name of the language it implements: pl/pypy has githubName
+   * "Python", pl/v8 has "JavaScript", pl/jruby has "Ruby". Looking a languish
+   * record up by it made PyPy inherit Python's popularity, and the grid
+   * rendered "PyPy #1" next to "Python #1", "V8 #2" next to "JavaScript #2".
+   *
+   * A node that really is the same thing languish means can say so by pinning
+   * `sources.languish`, which the ladder already treats as authoritative.
+   */
   const s = (v: unknown) => (typeof v === "string" ? v : undefined);
-  return [s(doc.data.githubName), s(doc.data.name)];
+  return [s(doc.data.name)];
 }
 
 export const languishSource: Source = {

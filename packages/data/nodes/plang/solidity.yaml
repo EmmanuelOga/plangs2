@@ -9,6 +9,7 @@ keywords:
   - smart contracts
   - solidity
 extGithubPath: ethereum/solidity
+extHomeURL: https://soliditylang.org/
 extRedditPath: ethdev
 extWikipediaPath: Solidity
 extensions:
@@ -20,14 +21,143 @@ githubPopular: false
 githubStars: 23500
 githubType: programming
 isTranspiler: false
-languishRanking: 56
+languishRanking: 65
 releases:
   - version: 0.8.28
     name: Stable release
     date: 2024-10-09
 stackovTags:
   - solidity
+rankings:
+  languish: 65
+trends:
+  languish:
+    metric: weighted-share
+    quarters:
+      - 2015Q3
+      - 2015Q4
+      - 2016Q1
+      - 2016Q2
+      - 2016Q3
+      - 2016Q4
+      - 2017Q1
+      - 2017Q2
+      - 2017Q3
+      - 2017Q4
+      - 2018Q1
+      - 2018Q2
+      - 2018Q3
+      - 2018Q4
+      - 2019Q1
+      - 2019Q2
+      - 2019Q3
+      - 2019Q4
+      - 2020Q1
+      - 2020Q2
+      - 2020Q3
+      - 2020Q4
+      - 2021Q1
+      - 2021Q2
+      - 2021Q3
+      - 2021Q4
+      - 2022Q1
+      - 2022Q2
+      - 2022Q3
+      - 2022Q4
+      - 2023Q1
+      - 2023Q2
+      - 2023Q3
+      - 2023Q4
+      - 2024Q1
+      - 2024Q2
+      - 2024Q3
+      - 2024Q4
+      - 2025Q1
+      - 2025Q2
+    scores:
+      - 0.00000318
+      - 0.0000075
+      - 0.00000961
+      - 0.00002234
+      - 0.00002546
+      - 0.00003221
+      - 0.00004561
+      - 0.00008898
+      - 0.00012812
+      - 0.00019958
+      - 0.00040071
+      - 0.00040606
+      - 0.00036832
+      - 0.00029444
+      - 0.00027192
+      - 0.00018794
+      - 0.00021091
+      - 0.00017042
+      - 0.00014566
+      - 0.00017786
+      - 0.0002986
+      - 0.00035854
+      - 0.00053722
+      - 0.00106054
+      - 0.00162279
+      - 0.00158031
+      - 0.00258955
+      - 0.00269424
+      - 0.00240356
+      - 0.00252289
+      - 0.00268969
+      - 0.00165446
+      - 0.00140691
+      - 0.00154878
+      - 0.00145625
+      - 0.00124821
+      - 0.00096968
+      - 0.00084455
+      - 0.00082354
+      - 0.00066932
+    ranks:
+      - 284
+      - 247
+      - 232
+      - 201
+      - 195
+      - 186
+      - 164
+      - 136
+      - 121
+      - 103
+      - 70
+      - 72
+      - 73
+      - 85
+      - 93
+      - 113
+      - 100
+      - 117
+      - 121
+      - 112
+      - 86
+      - 75
+      - 65
+      - 51
+      - 40
+      - 44
+      - 34
+      - 33
+      - 33
+      - 32
+      - 31
+      - 41
+      - 45
+      - 44
+      - 45
+      - 50
+      - 55
+      - 55
+      - 56
+      - 65
 sources:
+  languish: Solidity
   linguist: Solidity
   wikidata: Q24909565
 rels:

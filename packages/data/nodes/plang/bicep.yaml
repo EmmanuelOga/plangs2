@@ -20,13 +20,88 @@ githubPopular: false
 githubStars: 3300
 githubType: programming
 isTranspiler: true
-languishRanking: 80
+languishRanking: 88
 links:
   - url: https://learn.microsoft.com/azure/azure-resource-manager/bicep/
     title: Bicep Language
 stackovTags:
   - azure-bicep
+rankings:
+  languish: 88
+trends:
+  languish:
+    metric: weighted-share
+    quarters:
+      - 2019Q3
+      - 2020Q2
+      - 2020Q3
+      - 2020Q4
+      - 2021Q1
+      - 2021Q2
+      - 2021Q3
+      - 2021Q4
+      - 2022Q1
+      - 2022Q2
+      - 2022Q3
+      - 2022Q4
+      - 2023Q1
+      - 2023Q2
+      - 2023Q3
+      - 2023Q4
+      - 2024Q1
+      - 2024Q2
+      - 2024Q3
+      - 2024Q4
+      - 2025Q1
+      - 2025Q2
+    scores:
+      - 0.00000197
+      - 0.0000041
+      - 0.00004215
+      - 0.0000317
+      - 0.00004142
+      - 0.00007999
+      - 0.00010807
+      - 0.00010942
+      - 0.00013484
+      - 0.00013704
+      - 0.00015647
+      - 0.00024131
+      - 0.00021271
+      - 0.00030591
+      - 0.00020459
+      - 0.00026934
+      - 0.00028092
+      - 0.00030751
+      - 0.00031911
+      - 0.00034918
+      - 0.0002855
+      - 0.0003467
+    ranks:
+      - 319
+      - 298
+      - 179
+      - 201
+      - 187
+      - 150
+      - 135
+      - 136
+      - 125
+      - 129
+      - 114
+      - 96
+      - 104
+      - 90
+      - 104
+      - 96
+      - 92
+      - 91
+      - 90
+      - 87
+      - 93
+      - 88
 sources:
+  languish: Bicep
   linguist: Bicep
 rels:
   compilesTo:
