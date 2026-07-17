@@ -139,11 +139,5 @@ export type NodeDataOf<K extends NodeKind> = z.infer<(typeof NODE_SCHEMAS)[K]>;
 /** `data` for any kind — a union, so narrow by `kind` before reaching in. */
 export type NodeData = { [K in NodeKind]: NodeDataOf<K> }[NodeKind];
 
-export type PlangData = NodeDataOf<"plang">;
-
-export function schemaForKind<K extends NodeKind>(kind: K): (typeof NODE_SCHEMAS)[K] {
-  return NODE_SCHEMAS[kind];
-}
-
 // Compile-time guard: a schema exists for every kind.
 void ALL_KINDS;

@@ -21,16 +21,6 @@ export function resolveRel(kind: NodeKind, relKey: string): RelResolution | unde
   return REL_INDEX.get(`${kind}.${relKey}`);
 }
 
-/** All valid YAML `rels` keys for a given node kind. */
-export function relKeysForKind(kind: NodeKind): string[] {
-  const keys: string[] = [];
-  for (const edge of EDGES) {
-    if (edge.from === kind) keys.push(edge.fromRel);
-    if (edge.to === kind) keys.push(edge.toRel);
-  }
-  return [...new Set(keys)].sort();
-}
-
 /**
  * Given an authored rel on `fromKey` (a node of `kind`), return the stored
  * directed edge as `{ name, src, dst }` where src → dst is the canonical

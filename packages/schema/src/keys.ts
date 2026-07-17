@@ -1,4 +1,4 @@
-import { kindOfPrefix, prefixOfKind } from "./kinds.ts";
+import { kindOfPrefix } from "./kinds.ts";
 import type { NodeKind } from "./types.ts";
 
 /** A v3 node key, e.g. `pl/nim`, `para/functional`, `lic/mit`. */
@@ -24,10 +24,6 @@ export function parseKey(key: string): ParsedKey | undefined {
   return { kind, prefix, slug, key: key as NodeKey };
 }
 
-export function kindOfKey(key: string): NodeKind | undefined {
-  return parseKey(key)?.kind;
-}
-
 /** `pl/nim` → `pl+nim` (legacy). Only the kind separator changes. */
 export function newToLegacy(key: string): string {
   const i = key.indexOf("/");
@@ -38,8 +34,4 @@ export function newToLegacy(key: string): string {
 export function legacyToNew(key: string): string {
   const i = key.indexOf("+");
   return i < 0 ? key : `${key.slice(0, i)}/${key.slice(i + 1)}`;
-}
-
-export function makeKey(kind: NodeKind, slug: string): NodeKey {
-  return `${prefixOfKind(kind)}/${slug}` as NodeKey;
 }
