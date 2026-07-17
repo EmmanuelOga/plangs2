@@ -148,12 +148,29 @@ pnpm pipeline run --source=linguist             # write
     `pl/tsx`), `pl/sass` loses `.scss` (**no `pl/scss` node exists, so `.scss`
     left the dataset**), `pl/agda` loses `.lagda*`. 53 gained, 41 both. Working
     as designed; reversing it means changing who owns the field.
-- ⬜ **1c. Register remaining sources** (adoption order, PLAN §5): `pldb`
+- 🔶 **1c. Register remaining sources** (adoption order, PLAN §5): `pldb`
   (whitelist-gated), `innovation-graph`, `tiobe`, `homebrew`,
-  `stackexchange`. Not stubbed — just unwritten (note in
-  `packages/pipeline/src/sources/index.ts`). One source per commit, matching
-  the existing four: fixture-tested, idempotent, disjoint `owns`.
+  `stackexchange`. One source per commit, matching the existing four:
+  fixture-tested, idempotent, disjoint `owns`.
   Skipped by decision: DBpedia, IEEE, Reddit, GH-Archive.
+  - ✅ **stackexchange** (2026-07-17) — Stack Overflow tag question counts as a
+    third popularity lens (`rankings.stackexchange` + `sources.stackexchange`,
+    CC BY-SA). No name-matching heuristic: nodes already carry `stackovTags`, so
+    the tag IS the identity. Dry-run: 59 ranked (JavaScript #1, Python #2, …),
+    idempotent, 20 fixture tests.
+    - **Caught the same confident-wrong-match class as 1b/2c, this time
+      up front.** A tag is routinely shared: an implementation inherits its host
+      language's tag (`javascript` is claimed by **10** nodes — v8, node, bun,
+      typescript, …). Ranking every claimant would put "V8 #2 beside
+      JavaScript #1" — the PyPy-beside-Python bug. `resolveOwner` collapses each
+      tag to one owner: a `sources.stackexchange` pin (authoritative), else the
+      claimant whose own normalized name/slug IS the tag (deterministic, not a
+      remote guess); anything else ranks nobody and goes to review. On real data
+      only 3 true duplicates surfaced (v8→javascript, jruby→ruby, pypy→python),
+      each correctly owned by the language node. Regression-tested by
+      re-introducing the bug (rank all claimants) — 3 tests fail as intended.
+  - ⬜ Remaining: `pldb` (whitelist-gated — needs the owner's whitelist),
+    `innovation-graph`, `tiobe`, `homebrew`.
 - 🧑 **1d. First AI enrichment run** — **skipped: `ANTHROPIC_API_KEY` is not
   set** in this environment (checked 2026-07-17), and this item says to skip and
   note when it's absent. Still typechecked and unit-tested with a mocked client

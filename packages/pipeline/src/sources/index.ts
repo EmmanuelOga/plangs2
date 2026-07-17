@@ -2,6 +2,7 @@ import type { Source } from "../core/types.ts";
 import { languishSource } from "./languish.ts";
 import { linguistSource } from "./linguist.ts";
 import { pyplSource } from "./pypl.ts";
+import { stackexchangeSource } from "./stackexchange.ts";
 import { wikidataSource } from "./wikidata.ts";
 
 /**
@@ -13,13 +14,13 @@ import { wikidataSource } from "./wikidata.ts";
  * combined report.
  *
  * Not yet implemented: pldb (whitelist-gated), innovation-graph, tiobe,
- * homebrew, stackexchange. DBpedia / IEEE / Reddit / GH-Archive are skipped by
- * the plan and will not be added.
+ * homebrew. DBpedia / IEEE / Reddit / GH-Archive are skipped by the plan and
+ * will not be added.
  */
-export const SOURCES: readonly Source[] = [linguistSource, languishSource, wikidataSource, pyplSource];
+export const SOURCES: readonly Source[] = [linguistSource, languishSource, wikidataSource, pyplSource, stackexchangeSource];
 
 export function sourceById(id: string): Source | undefined {
   return SOURCES.find(s => s.id === id);
 }
 
-export { languishSource, linguistSource, pyplSource, wikidataSource };
+export { languishSource, linguistSource, pyplSource, stackexchangeSource, wikidataSource };

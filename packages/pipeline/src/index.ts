@@ -12,4 +12,4 @@ export type { AnthropicLike, EnrichOptions } from "./enrich/enrich.ts";
 // Note: `./sources/*` are exported by name, not star-exported: several sources
 // legitimately define same-named helpers (e.g. `trendFor`).
 export { AI_OWNED_FIELDS, aiPlangSchema, createEnrichSource, enrichSource, MODEL, SYSTEM_PROMPT } from "./enrich/enrich.ts";
-export { languishSource, linguistSource, pyplSource, SOURCES, sourceById, wikidataSource } from "./sources/index.ts";
+export { languishSource, linguistSource, pyplSource, SOURCES, sourceById, stackexchangeSource, wikidataSource } from "./sources/index.ts";
