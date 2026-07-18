@@ -120,6 +120,58 @@ YAML → a Ladybug DB file as an *additional* artifact; queries move to its
 Cypher/GQL dialect — which sits on the ISO GQL standardization path, unlike
 graphology's imperative API or Cozo's Datalog.
 
+## Data model / RDF — D7 PROPOSED (2026-07-17, Fable session): two-core plan, 🧑 awaiting owner answers (O7)
+
+Three adversarially-verified deep-research runs (312 agents total, primary
+sources fetched 2026-07-17: W3C spec statuses, repo/release dates, registry
+stats) on (1) the RDF ecosystem, (2) a Python "semantic core" architecture,
+(3) PGQL and property-graph query languages. Full reports live in the
+2026-07-17 session; condensed verdicts:
+
+- **Full RDF pivot rejected** (canonical Turtle + SHACL CI): standards in
+  flux (RDF 1.2 at CR since 2026-04-07, named-graph semantics still
+  unstandardized; SHACL 1.2 incl. Rules all Working Drafts), best validators
+  are Java/Python only, Turtle authoring is worse for PR contributions, and
+  the "emit JSON-LD for AI/SEO" payoff is empirically debunked (Ahrefs
+  diff-in-diff, 1,885 pages: no AI-citation lift; live AI fetchers read
+  visible text, skip JSON-LD). schema.org/ComputerLanguage is bare (zero own
+  properties, <1K domains).
+- **Two-core plan proposed instead** (owner's direction): TS core stays
+  canonical + presentation; a Python core owns the RDF side as a **derived
+  view**. Discipline rules that keep it safe: YAML remains the only source
+  of truth (Python writes nothing back, or only through the pipeline's
+  `owns` gate); the Python core is **non-gating and removable in one
+  commit**; glue is **files (N-Quads/TriG), not HTTP**, until a real server
+  exists. TS inference stays canonical; Python re-expresses the 3 rules in
+  SHACL-AF as a printed **parity report** (same philosophy as the drift
+  reports). Phases: P0 scaffold (committed `mise.toml` — repo has none
+  today — + uv workspace + poe, copy the `~/dev/unrelated` house pattern);
+  P1 YAML→quads twin (pyoxigraph, named graph per source mirroring `owns`,
+  emits `.nq`/`.trig`/JSON-LD artifacts — absorbs the "hybrid emit" option —
+  + hand-written SHACL shapes + cross-core parity report); P2 SHACL-AF
+  spike (can it express bounded-depth transitive closure? open question —
+  `--iterate-rules` is unbounded fixpoint); P3 LinkML schema artifacts
+  (its gen-typescript is static-only — the TS boundary contract is
+  OpenAPI/JSON Schema, not LinkML); P4 server (FastAPI/Litestar → OpenAPI
+  3.1 → hey-api typed client; owner-led, post-deploy-decision; natural MCP
+  host). Verified enablers: uv workspaces (Airflow: 120+ distributions, one
+  lockfile), pySHACL 0.40.0 (2026-07-08) validates directly against a
+  pyoxigraph Store, oxigraph 0.5.9 npm+PyPI same Rust core same-day release,
+  named-graph round-trips empirically verified (footgun: JS options are
+  `to_graph_name`/`from_graph_name`; the README's `to_named_graph` spelling
+  is a silent no-op). Risks: SHACL-AF being reworked into WD-stage SHACL 1.2
+  Rules; Oxigraph 0.x single-maintainer; pySHACL 0.40 breaking (rdflib≥7.3).
+- **PGQL: no future outside Oracle** — spec 2.1 (2025-04) maintained-but-
+  legacy, parser dormant (single Oracle maintainer, Java/Spoofax), Oracle
+  itself calls it a "proprietary precursor" and ships one-way
+  `migrate_pgql_to_sql`. The converged **ISO GQL / SQL:2023 SQL-PGQ
+  `GRAPH_TABLE`/`MATCH` family** is the real horizon (openCypher frozen at
+  v9 as the migration road to GQL). Proposed framing: watch-list entry, no
+  compatibility layer; plangs' job is staying cleanly *exportable* (quads +
+  typed edges) so the owner's `~/dev/unrelated` query surfaces can target it
+  as a backend. Unverified this round: LadybugDB's exact dialect, DuckPGQ
+  health, embeddable JS/TS/Python GQL engines.
+
 ## Hard rules when executing this roadmap
 
 1. **Pushing is allowed** (since 2026-07-17: the owner checked the Cloudflare
@@ -157,12 +209,15 @@ graphology's imperative API or Cozo's Datalog.
 Ordered; one commit per item; full loop between items.
 
 - ⬜ **E1. D5 trend sparklines** — approved by decision, previously blocked
-  on data, **now unblocked**: innovation-graph wrote real 25-quarter
-  `trends.innovation-graph` series (2020Q1–2026Q1); tiobe accumulates
-  monthly; languish keeps quarterly series. Implement the node-page
-  sparkline. It is a *visual* feature: pixel-baseline it (a new baseline or
-  an updated `detail-nim` one), verify by re-introducing a breakage, and
-  eyeball the PNGs.
+  on data, **now unblocked** — but note (audit 2026-07-17): the committed
+  dataset has **languish series only** (414 plang nodes). The
+  innovation-graph importer's "25-quarter series" was a **dry-run**
+  (`f9508f13`'s own message); no `trends.innovation-graph` or tiobe data is
+  committed — those series appear once a real pipeline run lands (sibling of
+  O4). Implement the node-page sparkline against the languish series. It is
+  a *visual* feature: pixel-baseline it (a new baseline or an updated
+  `detail-nim` one), verify by re-introducing a breakage, and eyeball the
+  PNGs.
 - ⬜ **E2. Modernize the serialized dataset keys** (`pl+nim` → `pl/nim`) —
   now sanctioned as its own tracked effort. The public `/data/plangs.json`
   drops the v2 key shape; **keep `toSerializedGraph()`'s legacy form for the
@@ -217,6 +272,20 @@ cutover, see O5).
 - **O6. Inception field**: stayed review-only by decision; reopen only if a
   separate `inception` (vs "appeared") field earns its place in the model
   rework.
+- **O7. D7 two-core / RDF questions** (research section above has full
+  context; answers unblock the D7 rewrite):
+  1. Adopt the phased two-core plan (derived, non-gating, files-as-glue,
+     TS inference canonical with SHACL parity-shadow)? Cut/reorder phases?
+  2. Python core in this repo (`cores/semantic/` + committed `mise.toml`,
+     recommended) or a separate repo?
+  3. Accept the PGQL framing: track the GQL/SQL-PGQ family, plangs stays an
+     exportable backend for `unrelated`'s query surfaces — no PGQL layer?
+  4. Green-light the roadmap rewrite (D7 row final, new P0–P4 track, fold
+     old "hybrid emit" into P1, PGQL watch-list; Opus's E1–E4 continues
+     unchanged in parallel)?
+  5. schema.org page markup (`ComputerLanguage` + `sameAs` in page heads):
+     near-free, honest-but-modest payoff (rich results, NOT AI citations) —
+     include or skip?
 
 ## Deferred / stretch — ⛔ do not implement without the owner
 
@@ -240,9 +309,18 @@ cutover, see O5).
 | D4 | Filter-state encoding | Readable query params (`?paradigms=functional&mode=all`), replacing v2's `#rison`. |
 | D5 | Trend charts | Approved; **unblocked** — real trend data exists since the importer runs. Queued as E1. |
 | D6 | v2 compatibility | **Dropped 2026-07-17** (owner). Gates → two-way drift reports; Linguist stays hard; fixture frozen as historical record. Executed same day. |
+| D7 | RDF / data model | **Proposed 2026-07-17, awaiting owner (O7)**: full RDF pivot rejected after deep research; two-core plan (TS canonical + derived Python semantic core, P0–P4) proposed; PGQL declared Oracle-legacy — track GQL/SQL-PGQ instead. |
 
 ## Log
 
+- **2026-07-17 (Fable session, later)** — **RDF/PGQL research; D7 proposed.**
+  Three verified deep-research runs (RDF ecosystem, Python-core
+  architecture, PGQL/GQL landscape) recorded above as the D7 proposal +
+  O7 question set. Roadmap audit: E1's data claim corrected (committed
+  trends are languish-only; innovation-graph "25-quarter series" was a
+  dry-run). Owner context noted: `~/dev/unrelated` is the owner's long-term
+  graph-QL/RDF program and the house TS+Python (mise+uv+poe) template.
+  Docs-only session — no code, nothing deployed.
 - **2026-07-17 (Fable session)** — **Pivot executed; D1 closed.** Gates
   converted to two-way drift reports (removals itemized, never asserted);
   CLAUDE.md invariants rewritten; `pl/scss` added (`.scss` restored via
