@@ -3,10 +3,11 @@ import { type NodeKind, parseKey } from "@plangs/schema";
 /**
  * URL policy: the mapping from graph keys to the paths this site serves.
  *
- * Deliberately a site concern, not a graph one. The rules here are v2
- * compatibility constraints (`pnpm url-parity` asserts all 514 of them), so they
- * answer "what did the old site serve?" rather than "what is this node?" — the
- * graph should not have to know.
+ * Deliberately a site concern, not a graph one. The rules here still follow
+ * the v2 scheme; since the 2026-07-17 pivot that is inertia rather than a
+ * contract (`pnpm url-parity` only *reports* legacy-URL drift now). Changing
+ * the scheme is legitimate as a deliberate effort with redirects — see
+ * ROADMAP "modernization".
  */
 
 /**

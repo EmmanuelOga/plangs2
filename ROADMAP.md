@@ -6,554 +6,259 @@ results, move durable discoveries to [CLAUDE.md](CLAUDE.md). Read CLAUDE.md
 **before changing code** — it has the verification loop, the invariants, and
 the traps. History: the executed migration spec is frozen at
 `git show 008e073c:PLAN.md` (code comments citing `PLAN §n` point into it);
-the v2 implementation is at tag `final-plangs-2`.
+the v2 implementation is at tag `final-plangs-2`; the pre-pivot roadmap (full
+migration/importer history) is retrievable at `git log -- ROADMAP.md`.
 
 Legend: ✅ done · 🔶 partial · ⬜ pending · 🧑 needs the owner (skip, don't attempt) · ⛔ deferred by decision
 
 Counts in prose go stale — trust the gates (CLAUDE.md has the list), not this
 file's numbers.
 
+## Premise (post-pivot, 2026-07-17)
+
+v2 never gained traction, so v3 no longer stays a structural drop-in for it.
+The bet: **evolve the data model as aggressively as it deserves**, make v3
+good enough to earn its own audience, and only then let a stable public data
+model become a consideration. What binds:
+
+- **Linguist compatibility is the one hard external contract** (the linguist
+  importer's identity fields + the disjoint-`owns` model).
+- **Data loss is VISIBLE, not LOCKED**: the v2 structural gates are now
+  printed two-way drift reports (`[drift vs v2]`, `[drift vs v2 urls]`);
+  removals are listed item by item but never redden CI.
+- **Sacred:** the YAML dataset (canonical), the rendering/verification lessons
+  (a green build proves nothing rendered), hard rules 1–2 below.
+
+## ⚡ Pivot execution — ✅ DONE (2026-07-17, Fable session)
+
+All four mission items landed; full verification loop green after each
+(biome+knip, tsc, astro check, 234 unit + 63 browser tests, URL check,
+data-fmt canonical, pixel baselines re-recorded and eyeballed).
+
+- ✅ **Gates → drift reports** (`c3637717`). `round-trip.test.ts` asserts only
+  "loads clean" + "fixture exists"; everything vs v2 prints as a two-way
+  report with removals itemized. `url-parity.mjs` asserts only v3's own
+  surface (static routes, grids, blog-from-content) and reports legacy-URL
+  drift. CLAUDE.md invariants rewritten to match.
+- ✅ **`pl/scss` node** (`237a4e16`, owner decision): `.scss` is back in the
+  dataset where Linguist expects it. Authored minimal; linguist importer
+  filled its owned fields (dry-run verified: exactly 6 changes, all scss).
+  Grid baselines re-recorded (267 → 268 languages) and visually verified.
+- ✅ **Python post table → markdown** (`cf3f46fd`, owner decision): vertex
+  refs in the old raw-HTML table now render as real links (verified in built
+  HTML). Blog test tightened to whole-`<article>` scope.
+- ✅ **`bun/plangs` bundle describes the v3 stack** (`82950bf4`, owner
+  decision "stop caring about Bun"): dropped `entr`/`esbuild`/`overmind`,
+  added `tool/tailwindcss`. First live exercise of the removal report — it
+  printed all 3 dropped edges while CI stayed green. (The three tool *nodes*
+  still exist; their fate is D2's bundle/author product call.)
+- Also landed with the answered decisions: PLDB stays fill-only (was already
+  built that way); inception stays review-only (no-op).
+
+## Graph technology — D1 CLOSED (2026-07-17): keep graphology; LadybugDB is the watch-list successor
+
+Deep research ran against the measured workload, not vibes. The workload:
+496 nodes / ~9,000 edges (5,076 authored + 3,857 from one bounded-BFS
+transitive rule), compiled from YAML once per build in ~295 ms + 10 ms
+materialization, queried by ~10 small typed functions (key lookup, labeled
+in/out-edge iteration, kind scans), **zero graph code or data on the client**
+(facets are SSR'd data-attributes + an 8.7 KB island), and a pipeline that
+writes YAML directly, bypassing the graph. 25 externally verified claims,
+none refuted; sources include cozodb.org, stateofthegraph.com, maxdemarzi.com,
+thedataquarry.com, npm/GitHub registry data fetched 2026-07-17.
+
+**Verdict: no database earns its complexity at this scale. Keep graphology as
+the build-time container.** Specifics, ranked:
+
+1. **graphology 0.26.0 (keep).** Maintenance mode, not abandoned: last
+   release Jan 2025, but that release added native ESM (which is what our
+   plain-Node pipeline needs) and ~18-month gaps are its historical cadence.
+   Risk is bus factor (one maintainer); the mitigation is that we use it
+   *only* as a typed container, so the fallback — **replace with plain typed
+   Maps in-repo, ~a day of work** — is always available and makes dormancy
+   moot. Don't do the Maps rewrite preemptively; it buys nothing today.
+2. **LadybugDB — the re-litigated Kuzu verdict.** "Kuzu is dead" was half
+   right: Kùzu Inc. is gone (Apple acqui-hire agreed 2025-10-09, confirmed by
+   an EU DMA filing; repo archived 2025-10-10), but the lineage is alive as
+   **LadybugDB** (MIT, `github.com/LadybugDB/ladybug`, fork created *before*
+   the archiving): Kuzu's Cypher dialect + columnar storage, multi-label
+   nodes, an Arrow/DuckDB "graph lakehouse" direction, releases every 1–2
+   weeks (v0.18.2 on 2026-07-15), npm `@ladybugdb/core` (Node) and
+   `@ladybugdb/wasm-core` (WASM). Analysts (State of the Graph / Year of the
+   Graph) and practitioners (Max De Marzi) treat it as the legitimate heir.
+   Caveats: ~4 months old as a package, single npm maintainer, OPFS/WASM path
+   visibly young, WASM gzip size unmeasured. **Re-evaluate only on a concrete
+   trigger** — see below.
+3. **Killed candidates.** *CozoDB*: best query-language fit on paper
+   (embedded Datalog, native transitive closure) but effectively dormant —
+   npm frozen at 0.7.6 (Dec 2023), no commit since Dec 2024, a 2026-07-13
+   silent-data-corruption issue with zero maintainer response. Disqualifying.
+   *DuckDB + DuckPGQ*: DuckPGQ is a self-described CWI research project,
+   bus factor 1, lags DuckDB core, no WASM story; duckdb-wasm itself is
+   healthy but ~1.8–3.2 MB compressed — several times our entire dataset.
+   *oxigraph*: actively maintained but the wrong data model (RDF/SPARQL —
+   we'd remodel typed property data as quads for zero payoff), ~1.43 MB
+   gzipped WASM, README self-declares unoptimized query evaluation.
+   *SQLite recursive CTEs*: no benefit over in-memory at 9K edges.
+4. **The durability heuristic** (State of the Graph's consolidation read,
+   validated twice now by Cozo's fade and Kuzu's acquisition): single-vendor
+   embedded engines are structurally acquisition/abandonment-prone. The
+   survivable forms are a community fork with distributed ownership
+   (Ladybug), graph capability inside an already-durable host (SQLite/
+   DuckDB), or **code in your own repo** — which is what graphology-as-a-
+   container effectively is, given the Maps fallback.
+
+**Re-evaluation triggers for LadybugDB** (any one, and only then):
+a client-rendered facet grid that needs real queries in the browser; an MCP
+server whose query surface outgrows the ~10 typed functions; dataset growth
+that makes in-memory compile actually slow (~100× today's size). At decision
+time: measure `@ladybugdb/wasm-core` gzipped, check whether its in-memory
+mode needs COOP/COEP headers (a constraint on static Cloudflare), and
+re-check governance (still one npm maintainer?). Migration shape if
+triggered: pipeline keeps writing YAML (canonical, unchanged); build compiles
+YAML → a Ladybug DB file as an *additional* artifact; queries move to its
+Cypher/GQL dialect — which sits on the ISO GQL standardization path, unlike
+graphology's imperative API or Cozo's Datalog.
+
 ## Hard rules when executing this roadmap
 
 1. **Never `git push`.** The legacy Cloudflare Pages project may still have a
-   git integration on `main` (item 3a — dashboard-only, human check). A push
-   could trigger the old v2 build against a repo where it no longer exists.
-   Commit locally, one item per commit; the owner pushes after clearing 3a.
+   git integration on `main` (item 3a — dashboard-only, human check). Commit
+   locally, one item per commit; the owner pushes after clearing 3a.
 2. **Never deploy.** `wrangler deploy --dry-run` is fine; anything that
    touches Cloudflare for real is not.
-3. **Never regenerate `packages/graph/test/fixtures/plangs.legacy.json`** to
-   make a gate pass — it is the only surviving proof of v2 fidelity
-   (CLAUDE.md "Do not break").
+3. **Never regenerate `packages/graph/test/fixtures/plangs.legacy.json`.**
+   It gates nothing anymore — there is nothing to "make pass" — but it is
+   the only surviving record of v2's content and the drift reports read it.
 4. **Run the full verification loop after each item** (CLAUDE.md has the
    commands). For anything visual, screenshot and look — five rendering bugs
-   once shipped behind fully green gates.
-5. Items marked 🧑 or ⛔ are not yours: skip them and note why in the commit
-   or summary. When an item needs a product decision, ask — don't decide.
-6. As each item lands, update this file: flip its status, replace estimates
-   with measured results, prune what no longer applies.
+   once shipped behind fully green gates. Grid-visible data changes require
+   re-recording pixel baselines and *looking at them*.
+5. Items marked 🧑 or ⛔ are not yours: skip them and note why. When an item
+   needs a product decision, ask — don't decide.
+6. As each item lands, update this file: flip status, replace estimates with
+   measured results, prune what no longer applies.
+7. **Removals in a drift report must match the commit's stated intent.** The
+   reports never redden CI, so the reviewer discipline replaces the gate:
+   a `[drift vs v2]` removal the commit message doesn't claim is a bug.
 
 ## Snapshot
 
-- ✅ **v2 → v3 migration complete** (all six phases of the 2026 plan; every
-  gate green). `main` is Astro 7 + React islands + YAML/graphology data.
-- ✅ **Migration gate narrowed** (2026-07-15): data changes pass CI with a
-  printed `[drift vs v2]` report; deleting any v2 node/edge still fails.
-- ⬜ **Nothing is deployed.** `plangs.page` still serves v2; nothing deploys
-  on push (see track 3 — and hard rule 1).
-- ✅ **All four importers have run for real** (2026-07-17, item 1b): linguist,
-  wikidata, languish, pypl. `packages/data` reflects a real refresh; the
-  `[drift vs v2]` gate confirms nothing from v2 was lost. 1c is now complete
-  (all five sources registered; `pldb` fill-only, 2026-07-17). Remaining data
-  work: 1d (AI enrichment, needs a key) and the owner-gated PLDB node-addition
-  policy.
+- ✅ v2 → v3 migration complete; all importers registered and run for real;
+  monthly refresh Action authored (untested until first push).
+- ✅ **Pivot executed and D1 closed** (2026-07-17, above).
+- ⬜ **Nothing is deployed.** `plangs.page` still serves v2. Deploy is
+  owner-led (track 3).
+- The remaining work splits into: an execution queue for Opus (below), and
+  an owner-decision queue (below that).
 
-## Suggested execution order
+## Execution queue (Opus resumes here)
 
-Safety nets before refactors; refactors before data churn; scoring last so it
-measures the final state.
+Ordered; one commit per item; full loop between items.
 
-| Phase | Items | Why this order |
-|---|---|---|
-| A. Widen the nets | 2c, 2b | Visual snapshots + broader browser tests make every later change safer. |
-| B. Refactors | 4a → 4e (ranked) | Land under the Phase A nets; each is an independent commit. |
-| C. Data | 1a, 1b, then 1c one source at a time | 1b unblocks the deferred D2/D5 decisions (owner's call, not yours). |
-| D. Measure | 2a, 2d, 3b | Score the finished state; 3b is validation only, no deploy. |
-| E. Automation | 1e, (1d if key present) | Authored + committed; untestable until the owner pushes. |
+- ⬜ **E1. D5 trend sparklines** — approved by decision, previously blocked
+  on data, **now unblocked**: innovation-graph wrote real 25-quarter
+  `trends.innovation-graph` series (2020Q1–2026Q1); tiobe accumulates
+  monthly; languish keeps quarterly series. Implement the node-page
+  sparkline. It is a *visual* feature: pixel-baseline it (a new baseline or
+  an updated `detail-nim` one), verify by re-introducing a breakage, and
+  eyeball the PNGs.
+- ⬜ **E2. Modernize the serialized dataset keys** (`pl+nim` → `pl/nim`) —
+  now sanctioned as its own tracked effort. The public `/data/plangs.json`
+  drops the v2 key shape; **keep `toSerializedGraph()`'s legacy form for the
+  drift report** (the fixture is in `pl+nim` form — translate inside the
+  report instead if simpler). Bump/annotate `llms.txt` so LLM consumers see
+  the new shape. The v2-shaped public dataset was a drop-in for consumers
+  that never materialized; do it before first deploy so no external contract
+  ever forms around the legacy shape.
+- ⬜ **E3. `FORBIDDEN_INFERENCES` → negative test** — resolve the "dead by
+  grep but load-bearing as documentation" tension by wiring it into a real
+  test asserting the forbidden inference is NOT materialized (the
+  plang→app→license case). Cheap, and it closes one held 4f item without an
+  owner call (the alternative was demoting to a comment; a test is strictly
+  better).
+- 🔶 **E4. 2c CI enforcement of pixel baselines** — blocked on a Linux
+  baseline set (`-chromium-linux`): needs `pnpm test:visual --update` run on
+  Linux/CI image, then LOOK at the 5 PNGs, commit. Attempt only if a Linux
+  runner/Docker is actually available; otherwise leave the loud-skip in
+  place.
 
-Track 3 beyond 3b is 🧑 human-only. Track 5 is ⛔ by decision.
+Held out of the queue deliberately: the plain-Maps graphology replacement
+(buys nothing today — do it only if graphology goes fully dormant), and the
+URL-scheme change (v2's URLs are indexed by search engines; changing the
+path scheme is a redirects+SEO decision the owner should time against the
+cutover, see O5).
 
-## Dependencies at a glance
+## Owner decision queue — 🧑 not yours, ask; listed so nothing is lost
 
-```
-1a QID seeding ──────────► 1c wikidata import becomes useful
-1b first real import run ─► 5-D2 folding decision, 5-D5 sparklines
-3a CF dashboard check 🧑 ─► any push / all of track 3
-migration gate narrowed ──► 4e data fixes (done — unblocked)
-```
+- **O1. 4f held exports**: `influencedByTransitive` / `plangsByParadigm` /
+  `familyTree` are dead by grep but are a half-wired influence/family view
+  (`influencedByTransitive` is the only reader of the transitive edge the
+  inference engine materializes). Keep-and-wire, or delete view+rule
+  together? (Deleting the rule removes 3,857 inferred edges → they'd print
+  as drift-report removals; that's the report working.)
+- **O2. D2 taxonomy**: do `bundle` (2 nodes) and `author` (1 node) survive
+  as concepts? Pure product call, fully unblocked now (removals print, they
+  don't fail). If dropped: `/bundle/*`, `/author/geo` pages disappear
+  (drift-reported), the Bundle→Tool→Plang hoist rule goes, and `author/geo`'s
+  rels need a home in blog frontmatter.
+- **O3. PLDB node-addition policy**: importers only enrich existing nodes;
+  growing the dataset from PLDB's notability filter is a whitelist-policy
+  decision.
+- **O4. 1d first AI enrichment run**: runnable via OAuth
+  (`scripts/pipeline-auth.sh run --source=ai --opt.keys=pl/nim --dry-run`)
+  but billed + writes human-reviewed prose; owner runs it, lands as its own
+  clearly-marked commit.
+- **O5. URL scheme / cutover sequencing**: v2's URLs are search-indexed.
+  Decide whether the deployed v3 keeps them (current state; zero SEO risk)
+  or modernizes with redirects at cutover. Then track 3 (3a dashboard check
+  → deploy → smoke test → 3e deploy Action) — all owner-led; 2d (verify the
+  Claude/ChatGPT prefill URLs) needs a logged-in browser session.
+- **O6. Inception field**: stayed review-only by decision; reopen only if a
+  separate `inception` (vs "appeared") field earns its place in the model
+  rework.
 
-## 1. Data pipeline
+## Deferred / stretch — ⛔ do not implement without the owner
 
-✅ Framework, four importers (`linguist`, `languish`, `wikidata`, `pypl`),
-AI enrichment and CLI all exist, fixture-tested and idempotent.
-What's left is real-world operation:
-
-```sh
-pnpm pipeline run --source=linguist --dry-run   # inspect
-pnpm pipeline run --source=linguist             # write
-```
-
-- ✅ **1a. Seed Wikidata QIDs** (2026-07-17) — **0 → 185 of 267 matched**
-  (`pnpm pipeline run --source=wikidata --dry-run`: `matched: 185`,
-  175 changes across 137 nodes, 247 review items). Seeder:
-  `scripts/seed-wikidata-qids.mjs` (`--dry-run` to re-inspect).
-  - The match is an **identity, not a guess**: 204 nodes already assert an
-    `extWikipediaPath`, and Wikidata maintains article → item. No name
-    matching. The 63 nodes with no Wikipedia link are left unset and listed —
-    "Astro", "Bun" and "Amber" are each a language *and* an unrelated project.
-  - **Resolves via the MediaWiki API, not a SPARQL sitelink join** (PLAN §5.3
-    assumed SPARQL). ~30 of our paths are redirect titles and Wikidata stores
-    only canonical ones, so a verbatim join claimed Haskell, Kotlin, Lua and
-    CSS had no item. SPARQL is still used for the labels/types in the report.
-  - **10 rejected rather than written**, each a genuine trap:
-    - *merged into another topic* (4): `moonscript`→Lua, `r5rs`→Scheme,
-      `javascriptcore`→WebKit, `roff`→Groff. A redirect is a rename (fine:
-      `Lua (programming language)`→`Lua`) or a **merge** (fatal: MoonScript
-      would carry Lua's QID and the importer would then overwrite MoonScript's
-      `created`/homepage with Lua's). Accepted only when the destination topic
-      still matches the node.
-    - *disambiguation pages* (3): `tcl`→TCL, `hy`, `coq`. Not entities; no
-      facts to import.
-    - *no Wikidata item* (3): `nickel`, `pkl`, `shen`.
-  - The report also flags every followed redirect and every QID Wikidata does
-    not class as language-ish (e.g. `gdscript`→Godot the game engine,
-    `arduino`→a company, `jupyter-notebook`→a nonprofit) for owner review.
-  - `[drift vs v2]`: `+0 vertices, ~189 changed, +0 edges` — nothing lost.
-- ✅ **1b. First real refresh** (2026-07-17) — all four importers run for
-  real; each is idempotent on re-run (`changes: 0`). `[drift vs v2]`:
-  `+0 vertices, ~221 changed, +0 edges`.
-
-  | source | matched | changes | note |
-  |---|---|---|---|
-  | linguist | 171 | 319 | was 175/343 before the alias fix |
-  | wikidata | 185 | 55 | website only — `created` is not owned (below) |
-  | languish | 138 | 544 | was 147 before the `githubName` fix |
-  | pypl | 25 | 75 | was 28 before the same fix |
-
-  **Reviewing the diffs first paid for itself — three real bugs, none of which
-  any gate would have caught, because none of these importers had ever run:**
-  - *linguist* fed upstream `aliases`/`interpreters` into the **exact** tier.
-    Those tables label a *file*, so JavaScript lists `node`/`bun`/`deno`, Ruby
-    lists `jruby`. pl/bun matched JavaScript and would have taken githubName
-    "JavaScript", githubLangId 183 and all 25 JS extensions. Now an alias is an
-    identity only if it doesn't name a different node we track; the rest become
-    review candidates (`RemoteKeys.fuzzy`).
-  - *languish + pypl* matched on **`githubName`** — which is *linguist's* id
-    ("what GitHub calls this node's files"), so every implementation carries
-    the name of what it implements. PyPy inherited Python's popularity: the
-    grid rendered **"PyPy #1" beside "Python #1"** and "V8 #2" beside
-    "JavaScript #2". **Caught by a 2c pixel baseline**, not by any test.
-  - *pypl* emitted `{metric, months, shares}` while `zTrend` specifies
-    `{metric, quarters, scores, ranks}` — no schema ever accepted it. The first
-    real run wrote 28 nodes that then failed integrity validation.
-
-  Each fix has a regression test verified by re-introducing the bug.
-  - 🧑 **`created` is no longer owned by wikidata** (owner's call, 2026-07-17):
-    P571 is *inception*, our `created` renders as *"Appeared"*. They disagree
-    for 26 languages (C++ 1985 vs 1983, Rust 2015 vs 2006). Inception now goes
-    to review (63 items) instead of being written. Revisit if a separate
-    `inception` field is ever wanted.
-  - Also: wikidata no longer swaps a URL for the same page spelled worse — 65
-    of 110 changes differed only by a trailing slash or `www.`, and 15 were
-    https→http downgrades of the same host.
-  - 🧑 **linguist owns `extensions`, so 54 nodes lost curated ones** —
-    `pl/typescript` loses `.tsx` (TSX is its own upstream language, and we have
-    `pl/tsx`), `pl/sass` loses `.scss` (**no `pl/scss` node exists, so `.scss`
-    left the dataset**), `pl/agda` loses `.lagda*`. 53 gained, 41 both. Working
-    as designed; reversing it means changing who owns the field.
-- ✅ **1c. Register remaining sources** (adoption order, PLAN §5): `pldb`,
-  `innovation-graph`, `tiobe`, `homebrew`, `stackexchange` — all five
-  registered, each fixture-tested, idempotent, disjoint `owns`. `pldb` landed
-  in **fill-only** mode (below); using its notability filter to *add* new nodes
-  stays an owner decision.
-  Skipped by decision: DBpedia, IEEE, Reddit, GH-Archive.
-  - ✅ **stackexchange** (2026-07-17) — Stack Overflow tag question counts as a
-    third popularity lens (`rankings.stackexchange` + `sources.stackexchange`,
-    CC BY-SA). No name-matching heuristic: nodes already carry `stackovTags`, so
-    the tag IS the identity. Dry-run: 59 ranked (JavaScript #1, Python #2, …),
-    idempotent, 20 fixture tests.
-    - **Caught the same confident-wrong-match class as 1b/2c, this time
-      up front.** A tag is routinely shared: an implementation inherits its host
-      language's tag (`javascript` is claimed by **10** nodes — v8, node, bun,
-      typescript, …). Ranking every claimant would put "V8 #2 beside
-      JavaScript #1" — the PyPy-beside-Python bug. `resolveOwner` collapses each
-      tag to one owner: a `sources.stackexchange` pin (authoritative), else the
-      claimant whose own normalized name/slug IS the tag (deterministic, not a
-      remote guess); anything else ranks nobody and goes to review. On real data
-      only 3 true duplicates surfaced (v8→javascript, jruby→ruby, pypy→python),
-      each correctly owned by the language node. Regression-tested by
-      re-introducing the bug (rank all claimants) — 3 tests fail as intended.
-  - ✅ **homebrew** (2026-07-17) — Homebrew formula install counts as a fourth
-    popularity lens (`rankings.homebrew` + `sources.homebrew`). Matches by node
-    NAME only (never slug — `c`/`d`/`r` collide, the linguist lesson), so no
-    owner-resolution is needed (node names are unique, unlike shared SO tags).
-    **Aggregates versioned formulae** (`python@3.12` + `python@3.13` → `python`),
-    without which Python is split across versions and undercounted. Dry-run: 91
-    matched (Python #1, …), 7 fuzzy candidates review-only (e.g. `c-sharp`/`c++`
-    → `c`, correctly never written), idempotent, 10 fixture tests
-    (aggregation regression verified by re-introducing the bug).
-  - ✅ **innovation-graph** (2026-07-17) — GitHub Innovation Graph quarterly
-    `num_pushers` per language, **summed across economies** into one global
-    series (`rankings.innovation-graph` + `trends.innovation-graph` +
-    `sources.innovation-graph`, CC0). Matched by node name (Linguist naming).
-    Unlike the other ranking sources this publishes real history: the dry-run
-    wrote **25-quarter trends** (2020Q1–2026Q1), which is what D5 sparklines
-    need. Dry-run: 130 matched (HTML #1, JavaScript #2, Python #4), 0 reviews,
-    idempotent, 10 fixture tests (cross-economy summation regression verified;
-    columns located by header name so an upstream reorder can't shift data).
-  - ✅ **tiobe** (2026-07-17) — TIOBE community index, scraped from the public
-    top-20 table (FAQ permits reuse with attribution, PLAN §5.6;
-    `rankings.tiobe` + `trends.tiobe` + `sources.tiobe`). TIOBE publishes no
-    history, so — as the plan specifies — we **build our own going forward**:
-    each monthly run reads the node's existing `trends.tiobe` and appends the
-    current month (`appendTrend`, keyed by month so a same-month re-run replaces
-    rather than duplicates). Parses the `top20` HTML table and the month header
-    (`Jul 2026` → `2026-07`); matched by name. Dry-run: 18 of 20 matched (Python
-    #1; "Assembly language"/"Scratch" don't map by name → skipped). 12 fixture
-    tests; the accumulate-history behaviour regression-verified by dropping
-    existing points. Fixture is a trimmed table slice, not their 130 KB page.
-    - ⚠️ **HTML scrape — inherently fragile.** The parser throws loudly if the
-      `top20` table, month header, or row shape changes (three explicit
-      guards), rather than writing garbage. A markup change is a hard failure
-      the monthly Action will surface, not a silent corruption.
-  - ✅ **pldb** (2026-07-17, fill-only) — PLDB (pldb.io, Public Domain). Does
-    exactly one thing: backfills a **missing** `created` (PLDB's `appeared`
-    year) and nothing else. Deliberately fill-only — a node that already
-    declares `created` is curated truth and is never touched, so PLDB cannot
-    clobber a hand-set year (contrast wikidata, whose P571 *inception* is sent
-    to review). May own `created` because no other source does (disjoint);
-    `extWikipediaPath` stays AI-owned and is only *read* as a notability gate,
-    never written. **Notability gate** (PLAN §5.4): trusts `appeared` only for a
-    well-attested concept — one with both an appeared year AND a Wikipedia link;
-    a match failing the gate goes to review. Matches by node NAME only (the
-    linguist slug-collision lesson). Reads the bulk `pldb.io/pldb.json`. 13
-    fixture tests; the fill-only guarantee regression-verified by dropping the
-    guard (Python's curated "1994" → "1991", test fails as intended).
-    - ⚠️ **Live dry-run NOT run — `pldb.io` was unreachable from this
-      environment** (fetch failed via curl, WebFetch, and the pipeline CLI). The
-      importer errors cleanly (0 matched, 0 changes, error reported — no
-      corruption) rather than crashing. Only ~6 of 267 plang nodes currently
-      lack `created`, so the real-world footprint is small; the monthly Action
-      (1e) will exercise it against live data once the owner pushes.
-    - 🧑 **Deferred (owner's call): using the notability filter to ADD new
-      nodes.** This importer only enriches nodes that already exist, like every
-      other importer. Growing the dataset from PLDB is a product decision —
-      decide the whitelist policy, then it's a mechanical extension.
-- 🔶 **1d. First AI enrichment run** — not run here, but **no longer blocked on a
-  missing `ANTHROPIC_API_KEY`**: the enrich client is a zero-arg
-  `new Anthropic()`, which also accepts an **`ant auth login` OAuth profile**
-  (SDK credential chain: `ANTHROPIC_API_KEY` → `ANTHROPIC_AUTH_TOKEN` → on-disk
-  OAuth profile). An active profile is present in this environment
-  (2026-07-17), so enrichment can run via OAuth with no static key.
-  - **Local-dev path:** `scripts/pipeline-auth.sh run --source=ai
-    --opt.keys=pl/nim --dry-run` — the wrapper injects the OAuth token
-    (`ant auth print-credentials --env`) when no key is set. CI/production
-    keeps using an `ANTHROPIC_API_KEY` secret.
-  - **Still owner-run by design, not autonomously**: enrichment makes real,
-    billed API calls and writes human-reviewed prose/link fields
-    (`AI_OWNED_FIELDS`). When run, land it as its own clearly-marked commit for
-    the owner to review, never mixed with other work. Typechecked + unit-tested
-    with a mocked client (`claude-sonnet-5`, tool schema from the Zod node schema).
-- ✅ **1e. Monthly data-refresh GitHub Action** (2026-07-17) —
-  `.github/workflows/data-refresh.yml`. Cron on the 1st of each month (plus
-  manual `workflow_dispatch`), clones `tjpalmer/languish` for languish's data,
-  runs `pnpm pipeline run --all`, formats, runs the **full verification loop**,
-  and opens a PR only if green (`peter-evans/create-pull-request`). Never
-  commits to main, never deploys.
-  - **UNTESTED — cannot run until the owner pushes** (hard rule 1). Validated
-    what is checkable here: the YAML parses, all six verify-step commands
-    resolve and pass locally, and all four sources are registered. Marked
-    untested in the workflow header and the commit.
-
-> Before touching source ownership, read CLAUDE.md "Leave alone" — the
-> disjoint-`owns` assertion is deliberate and load-bearing.
-
-## 2. Verification debt
-
-> Five rendering bugs once shipped behind green gates — hence this track.
-> CLAUDE.md "Verification loop" has the lesson.
-
-- 🔶 **2a. Lighthouse mobile + axe** — measured 2026-07-17. **axe is clean**
-  and **a11y/best-practices/SEO are 100 everywhere**; the ≥95 gate is met on
-  every category except **Performance on the two grid pages**.
-
-  | page | Perf | A11y | Best Prac. | SEO | FCP | LCP |
-  |---|---|---|---|---|---|---|
-  | `/` | **78** | 100 | 100 | 100 | 3.2s | 4.5s |
-  | `/plangs` | **78** | 100 | 100 | 100 | 3.2s | 4.5s |
-  | `/nim` | 94 | 100 | 100 | 100 | 2.0s | 2.9s |
-  | `/blog/…python` | 95 | 100 | 100 | 100 | 1.9s | 2.7s |
-
-  Reproduce: `pnpm -F @plangs/site build`, `node scripts/serve-dist.mjs &`,
-  then `node scripts/axe-audit.mjs`, and Lighthouse with
-  `CHROME_PATH=<playwright chrome-headless-shell>` (plain Chrome isn't
-  installed; Chrome-for-Testing headless gives NO_FCP — the shell works).
-  - ✅ **Two real a11y bugs found and fixed** (a11y 95 → 100, axe clean):
-    - `color-contrast`: the `#N` ranking label inherited the link colour, so it
-      was primary at 60% opacity = **4.0** contrast (needs 4.5). Now
-      `text-foreground`. This also fixed dark mode, where it was **3.61**.
-    - `link-in-text-block`: inline prose links were primary-coloured with no
-      underline and normal weight — **colour-only**, so invisible as links to a
-      colourblind reader. Classless (i.e. markdown) links now underline.
-      **Lighthouse never reported this**; only the full axe run did.
-  - ⛔ **Perf 78 on grid pages is structural, not a defect to chase.** TBT is
-    0ms and CLS is 0 — nothing is janky. FCP/LCP are what they are because the
-    page ships all 267 cards server-rendered. That is the SSR-everything
-    decision, and the fix is the **deferred** client-render + virtualization
-    path (track 5). Raising it means reopening that decision, not tuning.
-  - **axe's dark-mode `color-contrast` is not trustworthy here** and is
-    suppressed with a measured justification in `scripts/axe-audit.mjs`: cards
-    are semi-transparent over a backdrop painted by a fixed `body::before`,
-    which axe cannot resolve, so it invents `#d9d9db` and calls
-    white-on-dark-purple 1.38. Hand-computed truth: 11.83. Its **light**-mode
-    numbers are exact (4.0 vs a computed 4.01) and stay enforced.
-- ✅ **2b. Broaden browser coverage** (2026-07-17) — browser suite went
-  37 → 63 tests. Added `theme.browser.test.ts` (toggle, persistence across a
-  real navigation, pre-paint inline script, repaint), `prompt-menu.browser.test.ts`
-  (open/close, Escape, outside click, prompt contents, live filter state
-  reaching the prompt) and `blog.browser.test.ts` (index ordering, markdown
-  rendering, vertex refs). Dark mode rendered visually is covered by 2c's
-  `grid-dark` baseline. Every test verified faithful by re-introducing the bug
-  it guards (deferred theme script, dropped localStorage write, dropped filter
-  plumbing, wrong markdown-twin URL, unregistered dismiss handlers, unwired
-  remark plugin) — each failed as intended.
-  - 🧑 **Found: vertex refs are not linked inside raw HTML blocks.**
-    `2025_01_01_python.md` hand-writes a `<table>`, and
-    `remark-vertex-refs` walks mdast text nodes — raw HTML arrives as one
-    opaque `html` node, so readers see a literal `(pl+python)` in the MyPy
-    table cell. **Pre-existing, not a migration regression**: the live v2 site
-    renders the same literal string (verified over HTTP 2026-07-17). Needs the
-    owner: fix the authored content (restructure the table so the refs sit in
-    markdown text) or teach the plugin to walk raw HTML (regex over raw HTML —
-    riskier). The blog test is scoped to `p`/`li` prose meanwhile; tighten it
-    to the whole `<article>` once fixed.
-- ✅ **2c. Visual regression snapshots** (2026-07-17) —
-  `apps/site/test/pixels.browser.test.ts` pixel-compares 5 views (home, wide
-  grid, detail, dark grid, mobile facets sheet) at **exact** tolerance;
-  baselines committed in `test/__baselines__/`. Proven faithful: with the real
-  backdrop bug re-introduced, all 37 DOM-based browser tests still passed and
-  all 5 pixel tests failed. See CLAUDE.md "Pixel baselines" for the traps.
-  - 🔶 **CI does not enforce it yet.** Baselines are per-(browser, platform);
-    only `-chromium-darwin` exists, CI is `ubuntu-latest`, and Linux baselines
-    can't be produced here (no Docker). On a platform with no baselines the
-    suite **skips loudly** rather than failing CI or fabricating a reference.
-    To close: run `pnpm test:visual --update` on Linux (or in the CI image),
-    **look at** the 5 PNGs, and commit them.
-- 🔶 **2d. Verify the Claude/ChatGPT prefill URLs** — attempted 2026-07-17,
-  **not conclusively verifiable without an authenticated session**. Recorded
-  rather than guessed, as this item asks.
-
-  | probe | result |
-  |---|---|
-  | `curl https://claude.ai/new?q=…` | **403** (bot protection) |
-  | `curl https://chatgpt.com/?q=…` | **403** (bot protection) |
-  | headless Chrome → `claude.ai/new?q=…` | 200 but redirects to `/login?from=logout`, then a security check. Composer never reached. |
-  | headless Chrome → `chatgpt.com/?q=…` | 200, stays on the app. The probe string **is echoed into the page's script payload** (so the server does receive `q`) but does **not** reach the composer while logged out. |
-
-  So: ChatGPT demonstrably *receives* the param; neither service demonstrably
-  *prefills* without a login. Both URLs remain unverified end-to-end, and our
-  own side is covered — `prompt-menu.browser.test.ts` asserts the links carry a
-  well-formed, encoded `q` (2b).
-  - **To close it**, in a browser already signed in to both, open a node page,
-    Ask → "Open in Claude" / "Open in ChatGPT", and confirm the composer is
-    prefilled. Not done here: it needs a logged-in session, and driving the
-    owner's accounts was out of scope for an autonomous run.
-
-## 3. Deploy / cutover — 🧑 human-led beyond 3b
-
-Observed 2026-07-15 (verified by HTTP): `plangs.page` → 200, still v2;
-`plangs2.pages.dev` → 200, the legacy Cloudflare **Pages** project is live.
-The v2 site 200s **every** path (catch-all), so "is the new site up?" must be
-answered by an `astro-island` / `/_astro/` marker, never by status code.
-
-- 🧑 **3a. Check the CF Pages git integration FIRST** (dashboard-only, cannot
-  be verified from the repo). v2 deployed via a git integration configured in
-  the CF dashboard; if it's still connected to `main`, a push triggers the
-  **old** build command against a repo where `output/` and the Bun build no
-  longer exist — likely a noisy failure, possibly a wrong-directory publish.
-  Disconnect or repoint it **before any push**. (Hence hard rule 1.)
-- ✅ **3b. Build + dry-run** (2026-07-17) — `pnpm -F @plangs/site build` →
-  `apps/site/dist`, **1800 files / 16 MB**. `npx wrangler deploy --dry-run`
-  (wrangler 4.112.0) passes: *"Read 2354 files from the assets directory …
-  Total Upload: 0.34 KiB … No bindings found. --dry-run: exiting now."* The
-  config is valid and deployable. **Nothing was deployed.**
-  - Still true, and still the owner's call: `wrangler.toml` says
-    `name = "plangs"` while the live project is `plangs2`, so a real deploy
-    creates a **new Worker** and touches neither the Pages project nor the
-    domain.
-  - **For 3d's smoke test:** also check `/c++` and its logo
-    (`/images/vertex/plang/c++.webp`). A static host that decodes `+` in a path
-    loses that file — sirv with `dev:false` does exactly that (see
-    `scripts/serve-dist.mjs`). Untested against Cloudflare.
-- 🧑 **3c. Deploy, verify on `*.workers.dev`, then move the domain** —
-  `plangs.page` is attached to the Pages project; the real cutover is
-  removing the custom domain there and adding it to the Worker. Expect brief
-  downtime.
-- 🧑 **3d. Prod smoke test**: `/`, `/nim`, `/typesystem/static`, `/llms.txt`,
-  `/nim.md`, and a bogus path (must now be a **real** 404).
-- ⬜ **3e. Deploy GitHub Action** once cutover is done, so `main` →
-  production is reproducible. May be authored earlier, but must not be
-  enabled/pushed before 3a–3d.
-
-The `/edit` editor + PR worker are gone (D3). Node pages deep-link to their
-YAML on GitHub — `REPO` is hardcoded in
-`apps/site/src/components/NodeDetail.astro`; update it if the repo moves.
-
-## 4. Refactor targets (ranked; ranking is a hypothesis, not a finding)
-
-One commit per item; full verification loop between items.
-
-- ✅ **4a. ⭐ Type the graph with the schemas it already has.** (2026-07-17)
-  `NODE_SCHEMAS` now uses `satisfies Record<NodeKind, z.ZodObject>` instead of
-  the annotation (which erased every per-kind shape and made `z.infer` yield
-  `{}`), so `NodeDataOf<K>` is real. `NodeAttrs<K>` carries `data: NodeDataOf<K>`
-  and `PlangsGraph` is keyed by `AnyNodeAttrs` — a union discriminated on
-  `kind`, so `attrs.kind === "plang"` narrows `data`. Added `getNodeOfKind` /
-  `getPlang`. **Every `typeof`-on-`data` probe is gone** (verified by grep);
-  shared fields read straight off the union, kind-specific ones narrow with
-  `in`. (`PlangData` was aliased to `NodeDataOf<"plang">` here but never
-  actually consumed — a later hand-audit found it dead and removed it; see 4f.)
-  - Also typed the `derive` inference rule: `prop` is now correlated with `on`
-    (`BooleanPropsOf<K>`), so a typo or a wrong-kind field is a compile error —
-    it was a bare `string`. Verified both.
-  - Locked in by TYPE-level tests in `zod.test.ts`: re-adding the annotation
-    fails the build via an unused `@ts-expect-error`. Verified.
-  - *Answering the knip question:* knip is silent because
-    `packages/*/src/index.ts` are entries that `export *` — every export reads
-    as public API. Not type-specific (an unused `export const` is also
-    unreported). Moved to CLAUDE.md.
-- ✅ **4b. Give the facets island a typed contract.** (2026-07-17)
-  New `apps/site/src/lib/facets-contract.ts`: `DIMS` + `Dim`, `facetAttrs()`
-  (emit) and `matches()` (read), both deriving the attribute name from one
-  `facetAttr()`. SSR cards kept, as specified. A wrong-case or unknown
-  dimension is now a **compile error suggesting the right spelling** —
-  verified with both `"typesystems"` and `"type-systems"`.
-  - Reads via `getAttribute`, not `dataset`, which silently transforms names
-    (`data-type-systems` ⇄ `dataset.typeSystems`) — the very mismatch class
-    being removed. Cards now carry `data-facet-*`.
-  - The store's `selected` is keyed by `Dim`; `searchToSelection` drops
-    unknown query params instead of seeding keys no card can carry.
-  - `matches()` takes a narrow `FacetCard` (just `getAttribute`), so the
-    contract unit-tests under plain Node — no jsdom dependency added. 8 unit
-    tests exercise emit and read *together*, since asserting the literal
-    attribute string would pass even if the two sides drifted.
-- ✅ **4c. Split `apps/site/src/lib/view.ts`** (2026-07-17) — three files
-  along the three concerns it had mixed:
-  - `@plangs/graph` `query.ts` ← the graph queries: `nodeName`,
-    `edgeBetween`, `neighborsByKind`, `relatedGroups` (relation traversal,
-    grouped by edge label; the site now only resolves names/links/order).
-  - `apps/site/src/lib/url.ts` ← URL policy (`urlKind`, `hrefForKey`). A site
-    concern: these encode v2 compatibility, which the graph shouldn't know.
-  - `view.ts` keeps view models only — it no longer traverses edges or builds
-    URLs.
-  `edgeBetween` kept its linear scan, as instructed — no index.
-  Guarded by url-parity 514/514 and the `detail-nim` pixel baseline (rendering
-  unchanged).
-- ✅ **4d. Small, genuinely safe cleanups** (2026-07-17):
-  - `PlangCard.isTranspiler` dropped — computed, never rendered, and absent
-    from every public output (checked the built JSON/markdown, not just the
-    templates). The `isTranspiler` *data* field and its derive rule stay.
-  - `checkIntegrity()`'s `assetsDir` removed: an option with **no callers**
-    whose body was an empty `if`.
-  - `scripts/data-fmt.mjs` now imports `@plangs/pipeline/fields`, a new public
-    subpath, instead of a deep relative path into `src/core/`. Subpath rather
-    than the package root on purpose: `core/fields.ts` is deliberately
-    dependency-free apart from `yaml`, and importing the index would drag the
-    Anthropic SDK, jsdom and turndown into a YAML formatter.
-  - `sync-assets.mjs` stages to a temp dir and swaps with `rename`.
-    **The stated symptom did not reproduce**: `cp -R` overwrites in place and
-    never unlinks, so an existing logo is readable throughout — no transient
-    404s (measured by polling a logo during a sync: 0 misses for both old and
-    new). The real defects it fixes are that `cpSync` never prunes, so an asset
-    deleted from the dataset was served forever (planted a file: old copy kept
-    it, new one removes it), and that in-place overwrites can be read partially.
-- 🔶 **4e. Cheap honest D2 parts** (2026-07-17) — three of four done. The
-  `[drift vs v2]` report now prints `+0 vertices, ~4 changed, +0 edges` on
-  every run; that is the design working, not a failure.
-  - ✅ Dropped the `deprecated` flag in `KINDS` — nothing enforced it.
-  - ✅ Named the 4 nameless nodes: `bun/plangs` → "Plangs! Website",
-    `bun/py-one` → "Python One", `tool/pip` → "pip", `tool/vscode` →
-    "Visual Studio Code". Verified rendered: their pages now show real `h1`s
-    and their grid cards show names instead of slugs.
-  - ✅ `name` tightened from `.optional()` to required. Confirmed first that
-    those 4 were the *only* nameless nodes in all 495, so the schema now says
-    what was always intended; `integrity.test.ts` enforces it dataset-wide.
-  - 🧑 **`bun/plangs` tools NOT fixed — the migration gate forbids it.** Its
-    tools (`entr`, `esbuild`, `overmind`) are the deleted v2 Bun-era stack, but
-    removing them deletes 3 v2 edges and `round-trip.test.ts` → "still has
-    every v2 edge" fails. Measured, not assumed. Regenerating the fixture is
-    forbidden (hard rule 3), so this needs the owner: either accept a
-    deliberate, documented gate exception for these 3 edges, or leave the
-    bundle describing a stack that no longer exists. It is entangled with D2
-    anyway ("is a curated bundle of tools a concept plangs wants?").
-    Note the v3 stack is mostly *unrepresentable* today regardless: only
-    `tool/biomejs` and `tool/tailwindcss` exist as tool nodes — there are no
-    tool nodes for Astro, React, Vitest, Playwright or pnpm, and
-    `bundleRelTools` only accepts `tool/*`.
-- 🔶 **4f. Dead-export audit** (2026-07-17) — a by-hand sweep of the
-  `packages/*/src` barrels for exports knip structurally cannot flag (every
-  `index.ts` `export *`s, so all exports read as public API — CLAUDE.md "knip
-  does not see dead code inside the packages"). Method: grep each exported
-  symbol across `apps/`, `packages/`, `scripts/` and tests; a symbol used only
-  at its own declaration is dead.
-  - ✅ **Removed 5** superseded exports with zero consumers anywhere:
-    `PlangData` + `schemaForKind` (zod.ts), `kindOfKey` + `makeKey` (keys.ts),
-    `relKeysForKind` (rels.ts). Full loop green; each superseded by an existing
-    API (`NodeDataOf<"plang">`, `NODE_SCHEMAS[kind]`, `parseKey`). `PlangData`
-    is the exact symbol CLAUDE.md names as the exemplar of this blind spot.
-  - 🧑 **Held for the owner — dead by grep, but NOT cruft:**
-    - `influencedByTransitive`, `plangsByParadigm`, `familyTree` (graph
-      `query.ts`) — a half-wired influence/family **view** feature.
-      `influencedByTransitive` is the *only reader* of the
-      `plangRelInfluencedByTransitive` edge that `INFERENCE_RULES` deliberately
-      materializes (`inference.ts:59`); that edge is likely migration-gate
-      protected, so the reader and its materialization are coupled. Deleting is
-      a "is this planned view still wanted?" product call, not a safe cleanup.
-    - `FORBIDDEN_INFERENCES` (`inference.ts`) — its own comment ties it to
-      "negative tests staying honest"; it is design documentation of inferences
-      that must *not* be materialized. No test consumes it today (so it is
-      technically dead), but removing it loses the documented invariant. Better
-      resolution: wire it into a real negative test, or demote to a comment.
-  - The audit also confirmed **no orphan modules** and **no actionable
-    TODO/FIXME** in non-test source.
-
-## 5. Deferred by decision — ⛔ do not implement without the owner
-
-- ⛔ **D2 taxonomy folding** — *wait for 1b.* `post` is already folded
-  (0 nodes); `bundle` (2) and `author` (1) remain. D2's own precondition
-  ("decide after the imports run") is unmet. Measured costs: URL parity
-  514→511 (`/bundle/plangs`, `/bundle/py-one`, `/author/geo` are live pages —
-  redirects or a deliberate 404), reworking the Bundle→Tool→Plang hoist rule
-  in `packages/schema/src/inference.ts`, and `author/geo`'s rels don't fit
-  blog frontmatter. The real question is product, not technical: *is "a
-  curated bundle of tools" a concept plangs wants?* Ask the owner.
-- ⛔ **D5 trend sparklines** (last priority) — plumbing done (`languish`
-  keeps the quarterly series; `trends` is schema-validated) but no node has
-  data until a real pipeline run (1b).
-- ⛔ **D1 LadybugDB / Cypher** — only if graphology's typed helpers stop
-  being enough. Kuzu is dead; don't go there.
-- ⛔ **MCP server** (PLAN §7.6, explicitly a stretch) — expose
-  search/get/facet-query so agents can attach plangs as a tool.
-- ⛔ **Facets client-render path** — PLAN §6.2 wanted the grid rendered from
-  `/data/facets/{kind}.json` (exists, 11.5 KB gzipped) with a static top-N
-  for SEO. The shipped approach (SSR all cards, island toggles visibility)
-  is simpler and SEO-complete. Revisit only with virtualization (`virtua`),
-  and only if DOM size actually measures badly.
+- ⛔ **MCP server** (PLAN §7.6): expose search/get/facet-query. Note: if its
+  query surface ever outgrows the typed helpers, that is a LadybugDB
+  re-evaluation trigger (above).
+- ⛔ **Facets client-render path** (+ virtualization): revisit only if DOM
+  size measures badly; the research adds a datum — any wasm-DB-in-browser
+  approach starts at ~1.4–3.2 MB compressed, so if this path ever opens, the
+  8.7 KB attribute-matching island remains the right shape at current scale.
+- ⛔ Perf 78 on grid pages: structural (SSR-everything ships 268 cards);
+  reopening it means reopening the client-render decision, not tuning.
 
 ## Decision log
 
 | # | Decision | Outcome |
 |---|---|---|
-| D1 | Graph engine | graphology over YAML at build time; LadybugDB deferred (above). |
-| D2 | Taxonomy pruning | `post` folded; `bundle`/`author` deferred until imports run (above). |
+| D1 | Graph engine | **Closed 2026-07-17 after deep research**: keep graphology as build-time container; plain-Maps is the dormancy fallback; LadybugDB (the live Kuzu lineage — Apple acqui-hired the company, MIT fork continues) is the sole re-evaluation candidate, on concrete triggers only. CozoDB / DuckPGQ / oxigraph ruled out (dormant / research-grade / wrong model). |
+| D2 | Taxonomy pruning | `post` folded. `bundle`/`author`: open product call (O2), unblocked by the pivot. |
 | D3 | `/edit` editor + PR worker | **Dropped.** Edit = GitHub deep link to the node's YAML; CI validates. |
 | D4 | Filter-state encoding | Readable query params (`?paradigms=functional&mode=all`), replacing v2's `#rison`. |
-| D5 | Trend charts | Approved, last priority; blocked on real pipeline data (above). |
+| D5 | Trend charts | Approved; **unblocked** — real trend data exists since the importer runs. Queued as E1. |
+| D6 | v2 compatibility | **Dropped 2026-07-17** (owner). Gates → two-way drift reports; Linguist stays hard; fixture frozen as historical record. Executed same day. |
 
 ## Log
 
-- **2026-07-17** — Autonomous hygiene pass (no owner-gated items touched, no
-  push). Confirmed the full verification loop green as a baseline, then:
-  cleared all self-reported Biome + knip config hints (4f-adjacent config
-  churn, zero behaviour change); ran a by-hand dead-export audit and removed 5
-  truly-dead schema exports (4f), holding 4 more for owner review. Re-confirmed
-  every gate green after each change. Items that stayed untouched because they
-  need the owner, a push, spend, or a Linux baseline: 1d, 2c CI enforcement,
-  2d, 3a–3e, 4e's bun/plangs tools, all of track 5.
-- **2026-07-17** — Roadmap restructured for autonomous execution (hard
-  rules, phase order, done-criteria). Docs consolidated: PLAN.md,
-  NEXT-STEPS.md, REFACTOR.md replaced by this file + CLAUDE.md (all three
-  retrievable at `008e073c`).
-- **2026-07-15** — Migration gate narrowed to "nothing was lost"; verified
-  in both directions. Deploy reality checked over HTTP. D2 analysed.
-- **2026-07-14..15** — v3 migration executed end-to-end; five rendering bugs
-  found and fixed post-gates; browser tests added.
+- **2026-07-17 (Fable session)** — **Pivot executed; D1 closed.** Gates
+  converted to two-way drift reports (removals itemized, never asserted);
+  CLAUDE.md invariants rewritten; `pl/scss` added (`.scss` restored via
+  linguist importer); python post table → markdown (refs now link); bun-era
+  bundle tools replaced with the v3 stack (first live removal report). Deep
+  research (102-agent verified run + supplemental sources incl. CozoDB,
+  State of the Graph, Max De Marzi): keep graphology; Kuzu lineage lives as
+  LadybugDB — watch-list with concrete triggers; CozoDB dormant-disqualified.
+  Roadmap rewritten around an Opus execution queue (E1–E4) and an owner
+  queue (O1–O6). Full verification loop green at every step. Nothing pushed,
+  nothing deployed.
+- **2026-07-17** — Direction change decided (owner): drop v2 compat, evolve
+  the data model; 5 data decisions answered; D1 reopened → punted to Fable.
+- **2026-07-17** — Autonomous hygiene pass: config hints cleared, dead-export
+  audit (5 removed, 4 held → O1), all gates green.
+- **2026-07-15..17** — v3 migration completed end-to-end; importers run for
+  real (3 real bugs caught by diff review + pixel baseline); a11y fixes
+  (axe clean, 100s except structural grid perf); browser suite 37 → 63;
+  pixel baselines at exact tolerance. Full history: `git log -- ROADMAP.md`.
