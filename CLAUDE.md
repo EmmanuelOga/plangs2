@@ -132,9 +132,9 @@ unused. Treat "knip is green" as "no unused *files* or *dependencies*", not
   the explicit `@astrojs/markdown-remark` dep.
 - **Vitest 4** takes a provider *factory* (`playwright()` from
   `@vitest/browser-playwright`), not the string `"playwright"`.
-- **Nothing is deployed and nothing deploys on push** — but the legacy
-  Cloudflare Pages project may still have an invisible git integration on
-  `main`. Read ROADMAP.md "Deploy / cutover" **before pushing**.
+- **Nothing is deployed and nothing deploys on push.** The legacy Cloudflare
+  Pages git integration was disconnected by the owner 2026-07-17, so pushing
+  is safe; deploying for real remains owner-led (ROADMAP track 3).
 - `pl/.net` is a **dotfile** (`packages/data/nodes/plang/.net.yaml`) —
   invisible to a bare `ls`; don't conclude it's missing.
 

@@ -122,9 +122,9 @@ graphology's imperative API or Cozo's Datalog.
 
 ## Hard rules when executing this roadmap
 
-1. **Never `git push`.** The legacy Cloudflare Pages project may still have a
-   git integration on `main` (item 3a — dashboard-only, human check). Commit
-   locally, one item per commit; the owner pushes after clearing 3a.
+1. **Pushing is allowed** (since 2026-07-17: the owner checked the Cloudflare
+   dashboard and disconnected the legacy Pages git integration — 3a cleared).
+   Keep the discipline: one item per commit, loop green before each push.
 2. **Never deploy.** `wrangler deploy --dry-run` is fine; anything that
    touches Cloudflare for real is not.
 3. **Never regenerate `packages/graph/test/fixtures/plangs.legacy.json`.**
@@ -211,8 +211,8 @@ cutover, see O5).
   clearly-marked commit.
 - **O5. URL scheme / cutover sequencing**: v2's URLs are search-indexed.
   Decide whether the deployed v3 keeps them (current state; zero SEO risk)
-  or modernizes with redirects at cutover. Then track 3 (3a dashboard check
-  → deploy → smoke test → 3e deploy Action) — all owner-led; 2d (verify the
+  or modernizes with redirects at cutover. Then track 3 (3a ✅ cleared
+  2026-07-17 → deploy → smoke test → 3e deploy Action) — owner-led; 2d (verify the
   Claude/ChatGPT prefill URLs) needs a logged-in browser session.
 - **O6. Inception field**: stayed review-only by decision; reopen only if a
   separate `inception` (vs "appeared") field earns its place in the model
