@@ -65,19 +65,14 @@ describe("blog post", () => {
   it("links vertex refs and leaves no (kind+key) source in the prose", async () => {
     pg = await loadPage(POST, 1280, 900);
 
-    // Scoped to markdown-derived prose (paragraphs and list items), which is
-    // exactly what remark-vertex-refs contracts to rewrite. Refs inside RAW
-    // HTML blocks are NOT rewritten — the plugin walks mdast text nodes and raw
-    // HTML arrives as one opaque `html` node. This post's hand-written <table>
-    // hits that gap and ships a literal "(pl+python)" to readers.
-    //
-    // That is a real defect, but a PRE-EXISTING one: the live v2 site renders
-    // the same literal string, so it is inherited, not a migration regression.
-    // Recorded in ROADMAP 2b for the owner — fixing it means either editing
-    // authored content or teaching the plugin to walk raw HTML, and that is
-    // their call. Tighten this to `postText(pg)` once it is fixed.
-    const prose = [...article(pg).querySelectorAll("p, li")].map(el => el.textContent ?? "").join("\n");
-    expect(prose, "unprocessed (kind+key) ref left in the rendered prose").not.toMatch(/\([a-z]+\+[a-zA-Z0-9_+-]+\)/);
+    // The whole article, not just p/li: the plugin walks mdast text nodes, so
+    // refs inside RAW HTML blocks are never rewritten (raw HTML is one opaque
+    // `html` node). This post used to hit that gap with a hand-written <table>
+    // shipping a literal "(pl+python)"; the owner chose to fix the authored
+    // content (2026-07-17: table restructured to markdown) rather than teach
+    // the plugin to regex raw HTML. Whole-article scope keeps the gap from
+    // silently reopening in any post.
+    expect(postText(pg), "unprocessed (kind+key) ref left in the rendered post").not.toMatch(/\([a-z]+\+[a-zA-Z0-9_+-]+\)/);
 
     const python = postLinks(pg).find(a => a.getAttribute("href") === "/python");
     expect(python, "(pl+python) did not become a link to /python").toBeTruthy();
