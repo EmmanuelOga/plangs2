@@ -1,13 +1,16 @@
-// PHASE 3 GATE (PLAN §10): URL-parity crawl.
+// URL check: v3's own pages are ASSERTED; v2 URL parity is REPORTED.
 //
-// The legacy site is gone (it needed Bun), so instead of crawling an old build
-// we reconstruct the exact legacy URL set from two legacy-derived sources:
-//   1. the committed legacy reference fixture (every v2 vertex, v2 keys), and
-//   2. the legacy `href` rules from packages/plangs/src/graph/vertex_base.ts:
-//        plang → /{plainKey}
-//        post  → /blog/{plainKey}
-//        other → /{vertexName.toLowerCase()}/{plainKey}
-// …then assert every one of those URLs exists in the new static build.
+// Was the Phase 3 migration gate (PLAN §10). The 2026-07-17 pivot dropped v2
+// compatibility, so a legacy URL disappearing no longer fails — it is printed
+// as [drift vs v2 urls] so a deliberate removal is visible in the run (pair a
+// removal with redirects when it matters). What still FAILS the script is v3's
+// own surface being broken: static routes, grid/reference pages, and a blog
+// page for every content file — those derive from the current site, and a
+// miss means the build is wrong, not that v2 differed.
+//
+// The legacy URL set is reconstructed from the frozen fixture (every v2
+// vertex) plus the legacy `href` rules from packages/plangs/src/graph/vertex_base.ts:
+//   plang → /{plainKey};  post → /blog/{plainKey};  other → /{kind}/{plainKey}
 //
 // Usage: pnpm -F @plangs/site build && node scripts/url-parity.mjs
 
@@ -75,16 +78,17 @@ function isServed(url) {
   return existsSync(join(DIST, rel, "index.html")) || existsSync(join(DIST, `${rel}.html`)) || existsSync(join(DIST, rel));
 }
 
-const groups = [
-  ["legacy vertex pages", legacyVertexUrls()],
-  ["legacy blog posts", blogUrls()],
-  ["legacy static pages", STATIC_URLS],
-  ["new v3 pages", NEW_URLS],
+// Asserted: v3's own surface. Blog pages derive from the content dir, so a
+// miss there is a broken build, not v2 drift.
+const ASSERTED = [
+  ["blog posts (from content files)", blogUrls()],
+  ["static pages", STATIC_URLS],
+  ["grid/reference pages", NEW_URLS],
 ];
 
 let failed = 0;
 let total = 0;
-for (const [label, urls] of groups) {
+for (const [label, urls] of ASSERTED) {
   const missing = urls.filter(u => !isServed(u));
   total += urls.length;
   failed += missing.length;
@@ -94,9 +98,20 @@ for (const [label, urls] of groups) {
   if (missing.length > 15) console.log(`        … and ${missing.length - 15} more`);
 }
 
-console.log(`\n${total - failed}/${total} URLs served.`);
+// Reported: v2 URL parity. Removals print, item by item, and never fail.
+const legacy = legacyVertexUrls();
+const legacyMissing = legacy.filter(u => !isServed(u));
+if (legacyMissing.length) {
+  console.log(`\n[drift vs v2 urls] ${legacyMissing.length} of ${legacy.length} legacy URLs no longer served:`);
+  for (const m of legacyMissing.slice(0, 25)) console.log(`[drift vs v2 urls]   - ${m}`);
+  if (legacyMissing.length > 25) console.log(`[drift vs v2 urls]   … and ${legacyMissing.length - 25} more`);
+} else {
+  console.log(`\n[drift vs v2 urls] none — all ${legacy.length} legacy vertex URLs still served.`);
+}
+
+console.log(`\n${total - failed}/${total} required URLs served.`);
 if (failed) {
-  console.error(`URL parity FAILED: ${failed} missing.`);
+  console.error(`URL check FAILED: ${failed} required v3 pages missing.`);
   process.exit(1);
 }
-console.log("URL parity OK — every v2 URL is served by the v3 build.");
+console.log("URL check OK — every required v3 page is served.");

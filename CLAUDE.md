@@ -17,7 +17,7 @@ pnpm build                    # tsc every package + build the site
 pnpm -F @plangs/site check    # astro check — the ONLY thing type-checking .astro
 pnpm test                     # unit tests
 pnpm -F @plangs/site build && pnpm test:browser   # real Chromium
-pnpm url-parity               # 514/514 v2 URLs still served
+pnpm url-parity               # v3 pages asserted; v2 URL drift printed, never fails
 node scripts/data-fmt.mjs     # must report "0 of 495" — data is canonical
 ```
 
@@ -58,22 +58,31 @@ less than 1% of their pixels. Don't loosen it without re-measuring.
 
 ## Do not break (the safety nets)
 
+- **The one hard external contract is Linguist compatibility** (pivot
+  2026-07-17: v2 compatibility was dropped; Linguist was kept). Concretely:
+  the linguist importer's identity fields (`githubName`, `githubLangId`,
+  `extensions`, `sources.linguist`) and the disjoint-`owns` model that
+  protects them. Every Linguist language we track must keep mapping to its
+  Linguist record.
 - **`packages/graph/test/fixtures/plangs.legacy.json`** (486 KB, committed) —
-  the v2 graph, reconstructed before the v2 code was deleted. **The only
-  surviving proof the YAML dataset is faithful**; its generator is gone.
-  Powers `round-trip.test.ts` ("nothing from v2 was lost": every v2 kind, edge
-  name, key and edge must still exist; additions/changes are allowed and print
-  a `[drift vs v2]` report) and `scripts/url-parity.mjs`. **Never regenerate
-  it** to make a gate pass — if the dataset shape changes, change the
-  *serializer* so the export still matches. And the drift report must stay
-  *printed, not asserted* (`process.stdout.write`; vitest swallows `console.*`
-  from passing tests) — asserting it rebuilds the old "any data change reddens
-  CI" problem.
-- **Legacy-shaped output is deliberate v2 compatibility**, not sloppiness:
-  `toSerializedGraph()` emits `pl+nim`-style keys (public dataset stays a v2
-  drop-in; internally it's `pl/nim`), and `urlKind()` lower-cases
-  `/typesystem/...` because v2 served it that way. Modernizing these is
-  legitimate only as a deliberate break with redirects.
+  the v2 graph, reconstructed before the v2 code was deleted; its generator
+  is gone. It is the **frozen historical record** of the migration — **never
+  regenerate it**, there is nothing to "make pass" anymore and regenerating
+  destroys the record. Since the pivot it gates nothing: `round-trip.test.ts`
+  prints a **two-way** `[drift vs v2]` report (additions, changes, and
+  removals — removals listed item by item so data loss stays *visible, not
+  locked*), and `url-parity.mjs` prints `[drift vs v2 urls]` the same way.
+  Both reports stay *printed, not asserted* (`process.stdout.write`; vitest
+  swallows `console.*` from passing tests) — asserting them in either
+  direction rebuilds the old "any data change reddens CI" problem. What still
+  blocks: the dataset must load with no structural errors, and v3's own pages
+  (static routes, grids, blog-from-content) must exist in the build.
+- **Legacy-shaped output survives only until deliberately modernized**:
+  `toSerializedGraph()` still emits `pl+nim`-style keys and `urlKind()` still
+  lower-cases `/typesystem/...`. Since the pivot these are free to change as
+  their own tracked effort (ship redirects if the public URLs move); until
+  then don't churn them casually — the drift reports and the fixture reader
+  parse the `pl+nim` form.
 
 ## Load-bearing subtleties (look like cruft, are not)
 

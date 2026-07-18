@@ -10,26 +10,27 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const REFERENCE = join(HERE, "../test/fixtures/plangs.legacy.json");
 
 /**
- * MIGRATION GATE, narrowed 2026-07-15 (see CLAUDE.md "Do not break").
+ * V2 DRIFT REPORT — informational, never fails (pivot 2026-07-17).
  *
- * The permanent contract is "nothing from v2 was lost", not "nothing changed".
- * Strict deep equality against the fixture proved the migration lossless — it
- * passed at commit dd7c0f0c and that proof lives in the git log — but keeping
- * it would redden CI on every legitimate data change (pipeline runs, human
- * PRs editing YAML). What must hold forever:
+ * History: this was the migration gate. Strict deep equality against the
+ * fixture proved the migration lossless (passed at dd7c0f0c; the proof lives
+ * in the git log); it was then narrowed (2026-07-15) to "nothing from v2 was
+ * lost". The 2026-07-17 pivot dropped v2 compatibility entirely: the dataset
+ * is free to remove v2 kinds, keys and edges when the change is deliberate.
  *
- *   - every v2 vertex kind and edge name still exists (the public dataset is
- *     a documented v2 drop-in);
- *   - every v2 vertex key still exists;
- *   - every v2 edge (src → dst) still exists.
+ * What remains, permanently:
  *
- * New vertices, new edges, and changed/added fields are ALLOWED; they are
- * summarized in a printed drift report (not asserted) so a reviewer can see
- * that a diff touches what it claims to.
+ *   - the dataset must LOAD with no structural errors (asserted — that is
+ *     current integrity, not v2 compat);
+ *   - the fixture must EXIST (asserted — it is the frozen historical record
+ *     of the migration and its generator is gone; never regenerate it);
+ *   - every difference vs v2 — additions AND removals — is PRINTED, with
+ *     removals listed item by item. Data loss stays visible, not locked:
+ *     a reviewer must be able to see exactly what a diff dropped.
  *
- * Do NOT regenerate the fixture from the current dataset to make this pass:
- * it is the only surviving record of v2's content (its generator is gone) and
- * scripts/url-parity.mjs reads it too. See CLAUDE.md "Do not break".
+ * The report stays printed, not asserted (process.stdout.write; vitest
+ * swallows console.* from passing tests). Asserting it would rebuild the old
+ * "any data change reddens CI" problem in either direction.
  */
 
 /** Key-order-independent deep equality (fixture JSON vs YAML load order). */
@@ -47,7 +48,17 @@ function deepEqual(a: unknown, b: unknown): boolean {
   return false;
 }
 
-describe("dataset preserves everything the v2 graph had", () => {
+/** Cap per-item listings so a large deliberate removal doesn't flood the run. */
+const LIST_CAP = 25;
+
+function printList(label: string, items: string[]) {
+  if (!items.length) return;
+  process.stdout.write(`[drift vs v2]   ${label}:\n`);
+  for (const item of items.slice(0, LIST_CAP)) process.stdout.write(`[drift vs v2]     - ${item}\n`);
+  if (items.length > LIST_CAP) process.stdout.write(`[drift vs v2]     … and ${items.length - LIST_CAP} more\n`);
+}
+
+describe("dataset vs the frozen v2 record", () => {
   const reference: SerializedGraph = JSON.parse(readFileSync(REFERENCE, "utf8"));
   const { graph, issues } = loadGraph(NODES_DIR);
   const errors = issues.filter(i => i.level === "error");
@@ -61,38 +72,10 @@ describe("dataset preserves everything the v2 graph had", () => {
     expect(existsSync(REFERENCE)).toBe(true);
   });
 
-  it("still has every v2 vertex kind", () => {
-    expect(Object.keys(exported.vertices).sort()).toEqual(expect.arrayContaining(Object.keys(reference.vertices).sort()));
-  });
+  it("prints a two-way drift report (informational, never fails)", () => {
+    const removedKinds = Object.keys(reference.vertices).filter(k => !(k in exported.vertices));
+    const removedEdgeNames = Object.keys(reference.edges).filter(n => !(n in exported.edges));
 
-  it("still has every v2 edge name", () => {
-    expect(Object.keys(exported.edges).sort()).toEqual(expect.arrayContaining(Object.keys(reference.edges).sort()));
-  });
-
-  it("still has every v2 vertex", () => {
-    const missing: string[] = [];
-    for (const [kind, bucket] of Object.entries(reference.vertices)) {
-      for (const key of Object.keys(bucket)) {
-        if (!exported.vertices[kind]?.[key]) missing.push(`${kind}: ${key}`);
-      }
-    }
-    expect(missing).toEqual([]);
-  });
-
-  it("still has every v2 edge", () => {
-    const missing: string[] = [];
-    for (const [name, bySrc] of Object.entries(reference.edges)) {
-      for (const [src, dsts] of Object.entries(bySrc)) {
-        const current = new Set(exported.edges[name]?.[src] ?? []);
-        for (const dst of dsts) {
-          if (!current.has(dst)) missing.push(`${name}: ${src} → ${dst}`);
-        }
-      }
-    }
-    expect(missing).toEqual([]);
-  });
-
-  it("prints a drift report (informational, never fails)", () => {
     let addedVertices = 0;
     let changedVertices = 0;
     for (const [kind, bucket] of Object.entries(exported.vertices)) {
@@ -100,6 +83,12 @@ describe("dataset preserves everything the v2 graph had", () => {
       for (const [key, data] of Object.entries(bucket)) {
         if (!(key in refBucket)) addedVertices++;
         else if (!deepEqual(data, refBucket[key])) changedVertices++;
+      }
+    }
+    const removedVertices: string[] = [];
+    for (const [kind, bucket] of Object.entries(reference.vertices)) {
+      for (const key of Object.keys(bucket)) {
+        if (!exported.vertices[kind]?.[key]) removedVertices.push(`${kind}: ${key}`);
       }
     }
 
@@ -111,14 +100,38 @@ describe("dataset preserves everything the v2 graph had", () => {
         addedEdges += dsts.filter(dst => !refDsts.has(dst)).length;
       }
     }
+    const removedEdges: string[] = [];
+    for (const [name, bySrc] of Object.entries(reference.edges)) {
+      for (const [src, dsts] of Object.entries(bySrc)) {
+        const current = new Set(exported.edges[name]?.[src] ?? []);
+        for (const dst of dsts) {
+          if (!current.has(dst)) removedEdges.push(`${name}: ${src} → ${dst}`);
+        }
+      }
+    }
 
-    const drifted = addedVertices || changedVertices || addedEdges;
+    const drifted =
+      addedVertices ||
+      changedVertices ||
+      addedEdges ||
+      removedVertices.length ||
+      removedEdges.length ||
+      removedKinds.length ||
+      removedEdgeNames.length;
     // Raw stdout: vitest's default reporter swallows console.* from passing tests.
-    process.stdout.write(
-      drifted
-        ? `[drift vs v2] +${addedVertices} vertices, ~${changedVertices} changed, +${addedEdges} edges\n`
-        : "[drift vs v2] none — dataset is still byte-identical to the migration\n",
-    );
+    if (!drifted) {
+      process.stdout.write("[drift vs v2] none — dataset is still byte-identical to the migration\n");
+    } else {
+      process.stdout.write(
+        `[drift vs v2] +${addedVertices} vertices, ~${changedVertices} changed, -${removedVertices.length} removed; ` +
+          `+${addedEdges} edges, -${removedEdges.length} removed\n`,
+      );
+      // Removals are the data-loss signal — always listed, never asserted.
+      printList("removed kinds", removedKinds);
+      printList("removed edge names", removedEdgeNames);
+      printList("removed vertices", removedVertices);
+      printList("removed edges", removedEdges);
+    }
     expect(true).toBe(true);
   });
 });
