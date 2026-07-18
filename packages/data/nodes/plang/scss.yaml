@@ -1,0 +1,34 @@
+name: SCSS
+shortDesc: Sassy CSS — the CSS-compatible syntax of Sass.
+description: SCSS (Sassy CSS) is the newer, CSS-superset syntax of Sass, introduced with Sass 3. Every valid CSS stylesheet is valid SCSS; it adds variables, nesting, mixins and functions, and compiles to plain CSS. GitHub Linguist classifies .scss files as their own language, distinct from the indented .sass syntax.
+created: "2010"
+keywords:
+  - scss
+  - sassy css
+extHomeURL: https://sass-lang.com/
+extensions:
+  - .scss
+githubColor: "#c6538c"
+githubLangId: "329"
+githubName: SCSS
+githubPopular: false
+githubType: markup
+sources:
+  linguist: SCSS
+rels:
+  compilesTo:
+    - pl/css
+  influencedBy:
+    - pl/css
+    - pl/sass
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/dsl
+  platforms:
+    - plat/cross
+  tags:
+    - tag/automation
+    - tag/scripting
+  typeSystems:
+    - tsys/dynamic
