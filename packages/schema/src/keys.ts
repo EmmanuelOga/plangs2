@@ -24,13 +24,14 @@ export function parseKey(key: string): ParsedKey | undefined {
   return { kind, prefix, slug, key: key as NodeKey };
 }
 
-/** `pl/nim` → `pl+nim` (legacy). Only the kind separator changes. */
-export function newToLegacy(key: string): string {
-  const i = key.indexOf("/");
-  return i < 0 ? key : `${key.slice(0, i)}+${key.slice(i + 1)}`;
-}
-
-/** `pl+nim` → `pl/nim` (v3). Only the first `+` (the kind separator) changes. */
+/**
+ * `pl+nim` → `pl/nim` (v3). Only the first `+` (the kind separator) changes.
+ *
+ * One-way on purpose. The inverse (`newToLegacy`) existed only to make
+ * `toSerializedGraph()` emit v2 keys; E2 dropped that, so nothing in v3 has a
+ * reason to WRITE a legacy key. This direction still has readers: legacy refs
+ * in blog frontmatter, and the frozen v2 fixture the drift reports read.
+ */
 export function legacyToNew(key: string): string {
   const i = key.indexOf("+");
   return i < 0 ? key : `${key.slice(0, i)}/${key.slice(i + 1)}`;

@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { legacyToNew } from "@plangs/schema";
 import { describe, expect, it } from "vitest";
 import { loadGraph } from "./load.ts";
 import { NODES_DIR } from "./paths.ts";
@@ -58,8 +59,30 @@ function printList(label: string, items: string[]) {
   if (items.length > LIST_CAP) process.stdout.write(`[drift vs v2]     … and ${items.length - LIST_CAP} more\n`);
 }
 
+/**
+ * The fixture is frozen in v2's `pl+nim` key form and must never be
+ * regenerated, so the CONVERSION happens here, at read time, in memory.
+ *
+ * Until E2 the serializer emitted `pl+nim` too, and this comparison was
+ * key-for-key by accident. Now `toSerializedGraph()` speaks v3 keys (that is
+ * the public artifact's shape), so without this the report would call every
+ * vertex and every edge both added and removed — a "drift report" that reports
+ * nothing but its own key rename.
+ */
+function toV3Keys(ref: SerializedGraph): SerializedGraph {
+  const vertices: SerializedGraph["vertices"] = {};
+  for (const [kind, bucket] of Object.entries(ref.vertices)) {
+    vertices[kind] = Object.fromEntries(Object.entries(bucket).map(([k, v]) => [legacyToNew(k), v]));
+  }
+  const edges: SerializedGraph["edges"] = {};
+  for (const [name, bySrc] of Object.entries(ref.edges)) {
+    edges[name] = Object.fromEntries(Object.entries(bySrc).map(([src, dsts]) => [legacyToNew(src), dsts.map(legacyToNew)]));
+  }
+  return { vertices, edges };
+}
+
 describe("dataset vs the frozen v2 record", () => {
-  const reference: SerializedGraph = JSON.parse(readFileSync(REFERENCE, "utf8"));
+  const reference: SerializedGraph = toV3Keys(JSON.parse(readFileSync(REFERENCE, "utf8")));
   const { graph, issues } = loadGraph(NODES_DIR);
   const errors = issues.filter(i => i.level === "error");
   const exported = toSerializedGraph(graph);

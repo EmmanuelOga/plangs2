@@ -104,7 +104,9 @@ Keys are `prefix/slug` (e.g. `pl/nim`). The v2 form was `pl+nim`.
 * [`/llms.txt`](https://plangs.page/llms.txt) describes the dataset and the
   filter-URL grammar, so an agent can construct queries like
   `/plangs?paradigms=functional&platforms=web&mode=all`.
-* [`/data/plangs.json`](https://plangs.page/data/plangs.json) is the full graph.
+* [`/data/plangs.json`](https://plangs.page/data/plangs.json) is the full graph:
+  `{vertices: {kind: {key: data}}, edges: {edgeName: {fromKey: [toKey]}}}`,
+  keyed by `prefix/slug` (`pl/nim`, `para/oop`) like every other data route.
 
 ## Deploying
 

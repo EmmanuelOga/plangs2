@@ -1,4 +1,4 @@
-import { ALL_KINDS, EDGES, type NodeKind, newToLegacy } from "@plangs/schema";
+import { ALL_KINDS, EDGES, type NodeKind } from "@plangs/schema";
 import type { PlangsGraph } from "./load.ts";
 
 export interface SerializedGraph {
@@ -7,13 +7,18 @@ export interface SerializedGraph {
 }
 
 /**
- * Serialize the graph to the legacy-compatible `SerializedGraph` shape:
- * `{ vertices: {kind: {key: data}}, edges: {edgeName: {fromKey: toKey[]}} }`.
+ * Serialize the graph: `{ vertices: {kind: {key: data}}, edges: {edgeName:
+ * {fromKey: toKey[]}} }`.
  *
- * Keys are emitted in LEGACY form (`pl+nim`) and edge target arrays are sorted,
- * so the output is directly comparable to the migration reference oracle
- * ("modulo key renames", PLAN §4.6). All 15 kinds and 52 edges are always
- * present (empty as `{}`), matching the legacy `toJSON`.
+ * Keys are V3 KEYS (`pl/nim`) as of E2. They used to be emitted in v2's
+ * `pl+nim` form so the output was directly comparable to the migration oracle;
+ * the drift report now converts the frozen fixture instead, which keeps one
+ * key shape in the codebase rather than two. This is the shape the public
+ * `/data/plangs.json` ships, and it matches every other data route
+ * (`/data/nodes/...`, `/data/facets/...`) and `llms.txt`.
+ *
+ * Edge target arrays are sorted, and all kinds and edges are always present
+ * (empty as `{}`), so the artifact's shape does not depend on the data.
  */
 export function toSerializedGraph(graph: PlangsGraph): SerializedGraph {
   const vertices: SerializedGraph["vertices"] = {};
@@ -22,7 +27,7 @@ export function toSerializedGraph(graph: PlangsGraph): SerializedGraph {
   graph.forEachNode((key, attrs) => {
     if (!attrs.defined) return; // dangling targets live only in edges
     const bucket = vertices[attrs.kind];
-    if (bucket) bucket[newToLegacy(key)] = attrs.data;
+    if (bucket) bucket[key] = attrs.data;
   });
 
   const edges: SerializedGraph["edges"] = {};
@@ -36,13 +41,12 @@ export function toSerializedGraph(graph: PlangsGraph): SerializedGraph {
       byName = new Map();
       acc.set(attrs.name, byName);
     }
-    const s = newToLegacy(src);
-    let set = byName.get(s);
+    let set = byName.get(src);
     if (!set) {
       set = new Set();
-      byName.set(s, set);
+      byName.set(src, set);
     }
-    set.add(newToLegacy(dst));
+    set.add(dst);
   });
 
   for (const [name, byName] of acc) {

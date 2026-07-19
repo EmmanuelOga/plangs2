@@ -18,12 +18,15 @@ export const GET: APIRoute = () => {
 ## Dataset
 
 - Full graph JSON: ${SITE}/data/plangs.json
+  Shape: {vertices: {kind: {key: data}}, edges: {edgeName: {fromKey: [toKey]}}}
 - Per-node JSON: ${SITE}/data/nodes/{kind}/{slug}.json (e.g. /data/nodes/plang/nim.json)
 - Compact facet index per grid: ${SITE}/data/facets/{kind}.json
 - Every page has a clean markdown twin at the same path + ".md"
   (e.g. ${SITE}/nim.md).
 
-Node keys are "prefix/slug" (pl/nim, para/oop, lic/mit). Pages live at
+Node keys are "prefix/slug" (pl/nim, para/oop, lic/mit) EVERYWHERE, including
+the full graph JSON. Older copies of that one file keyed vertices and edges as
+"pl+nim"; that form is gone and was never announced as stable. Pages live at
 ${SITE}/{slug} for languages and ${SITE}/{kind}/{slug} for everything else.
 
 ## URL grammar (constructable filters)
