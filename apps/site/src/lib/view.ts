@@ -2,6 +2,7 @@ import { edgeBetween, getNode, getPlang, neighborsByKind, nodeName, nodesByKind,
 import { KINDS, type NodeData, type NodeKind, parseKey } from "@plangs/schema";
 import type { Dim } from "./facets-contract";
 import { thumbUrl } from "./graph";
+import { type SparkSeries, sparkSeriesOf } from "./sparkline";
 import { hrefForKey } from "./url";
 
 /**
@@ -102,6 +103,8 @@ export interface NodeDetail {
   data: NodeData;
   thumb?: string;
   relations: RelGroup[];
+  /** Drawable trend series (D5). Empty for every node with no usable trend. */
+  trends: SparkSeries[];
 }
 
 export function nodeDetail(graph: PlangsGraph, key: string): NodeDetail | undefined {
@@ -117,5 +120,6 @@ export function nodeDetail(graph: PlangsGraph, key: string): NodeDetail | undefi
     data: attrs.data,
     thumb: thumbUrl(p.kind, p.slug),
     relations: relationsFor(graph, key),
+    trends: sparkSeriesOf(attrs.data),
   };
 }

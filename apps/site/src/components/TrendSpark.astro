@@ -1,0 +1,41 @@
+---
+import { SPARK_HEIGHT, SPARK_WIDTH, type SparkSeries } from "../lib/sparkline";
+
+interface Props {
+  series: SparkSeries;
+}
+const { series } = Astro.props;
+
+// `currentColor` everywhere: the chart inherits `text-primary`, so it swaps with
+// the light/dark theme for free instead of hard-coding two palettes.
+const title = `${series.source} — ${series.count} periods, ${series.firstLabel} to ${series.lastLabel}`;
+---
+
+<figure class="min-w-0">
+  <figcaption class="mb-1 flex items-baseline justify-between gap-2 text-xs">
+    <span class="uppercase tracking-wide opacity-70">{series.source}</span>
+    {series.lastRank !== undefined && <span class="opacity-70">rank #{series.lastRank}</span>}
+  </figcaption>
+  {/*
+    viewBox + `w-full h-auto` makes this responsive with no client JS: the SVG
+    scales to the column, and `preserveAspectRatio: none` is deliberately NOT
+    used, so the line never shears.
+  */}
+  <svg
+    viewBox={`0 0 ${SPARK_WIDTH} ${SPARK_HEIGHT}`}
+    width={SPARK_WIDTH}
+    height={SPARK_HEIGHT}
+    role="img"
+    aria-label={`${series.metric} trend for ${series.source}, ${series.firstLabel} to ${series.lastLabel}`}
+    class="h-auto w-full text-primary"
+  >
+    <title>{title}</title>
+    <path d={series.area} fill="currentColor" opacity="0.12" />
+    <polyline points={series.polyline} fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx={series.lastX} cy={series.lastY} r="2.5" fill="currentColor" />
+  </svg>
+  <p class="mt-1 flex justify-between text-xs opacity-60">
+    <span>{series.firstLabel}</span>
+    <span>{series.lastLabel}</span>
+  </p>
+</figure>

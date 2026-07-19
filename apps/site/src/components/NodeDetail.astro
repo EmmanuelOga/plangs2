@@ -1,6 +1,7 @@
 ---
 import { urlKind } from "../lib/url";
 import type { NodeDetail } from "../lib/view";
+import TrendSpark from "./TrendSpark.astro";
 
 interface Props {
   detail: NodeDetail;
@@ -50,6 +51,20 @@ const editHref = `${REPO}/edit/main/packages/data/nodes/${detail.kind}/${detail.
     <a href={mdHref} class="underline">Markdown</a>
     <a href={editHref} class="underline opacity-70">Edit</a>
   </div>
+
+  {/* Trend sparklines (Decision D5). Nodes with no usable series render nothing. */}
+  {
+    detail.trends.length > 0 && (
+      <section class="mb-6" data-trends>
+        <h2 class="mb-2 text-lg">Trends</h2>
+        <div class="grid max-w-2xl gap-6 sm:grid-cols-2">
+          {detail.trends.map(series => (
+            <TrendSpark series={series} />
+          ))}
+        </div>
+      </section>
+    )
+  }
 
   <div class="grid gap-6 md:grid-cols-2">
     {
