@@ -201,42 +201,46 @@ stats) on (1) the RDF ecosystem, (2) a Python "semantic core" architecture,
 - ✅ **Pivot executed and D1 closed** (2026-07-17, above).
 - ⬜ **Nothing is deployed.** `plangs.page` still serves v2. Deploy is
   owner-led (track 3).
-- The remaining work splits into: an execution queue for Opus (below), and
-  an owner-decision queue (below that).
+- ✅ **E1–E3 landed** (2026-07-19): trend sparklines, v3 keys in the public
+  dataset, forbidden-inference negative tests. E4 blocked on a Linux runner.
+- The remaining work is almost entirely the owner-decision queue (below);
+  the execution queue is down to E4.
 
-## Execution queue (Opus resumes here)
+## Execution queue
 
-Ordered; one commit per item; full loop between items.
+Ordered; one commit per item; full loop between items. **E1–E3 landed
+2026-07-19** (Opus session); E4 remains blocked on a Linux runner.
 
-- ⬜ **E1. D5 trend sparklines** — approved by decision, previously blocked
-  on data, **now unblocked** — but note (audit 2026-07-17): the committed
-  dataset has **languish series only** (414 plang nodes). The
-  innovation-graph importer's "25-quarter series" was a **dry-run**
-  (`f9508f13`'s own message); no `trends.innovation-graph` or tiobe data is
-  committed — those series appear once a real pipeline run lands (sibling of
-  O4). Implement the node-page sparkline against the languish series. It is
-  a *visual* feature: pixel-baseline it (a new baseline or an updated
-  `detail-nim` one), verify by re-introducing a breakage, and eyeball the
-  PNGs.
-- ⬜ **E2. Modernize the serialized dataset keys** (`pl+nim` → `pl/nim`) —
-  now sanctioned as its own tracked effort. The public `/data/plangs.json`
-  drops the v2 key shape; **keep `toSerializedGraph()`'s legacy form for the
-  drift report** (the fixture is in `pl+nim` form — translate inside the
-  report instead if simpler). Bump/annotate `llms.txt` so LLM consumers see
-  the new shape. The v2-shaped public dataset was a drop-in for consumers
-  that never materialized; do it before first deploy so no external contract
-  ever forms around the legacy shape.
-- ⬜ **E3. `FORBIDDEN_INFERENCES` → negative test** — resolve the "dead by
-  grep but load-bearing as documentation" tension by wiring it into a real
-  test asserting the forbidden inference is NOT materialized (the
-  plang→app→license case). Cheap, and it closes one held 4f item without an
-  owner call (the alternative was demoting to a comment; a test is strictly
-  better).
-- 🔶 **E4. 2c CI enforcement of pixel baselines** — blocked on a Linux
-  baseline set (`-chromium-linux`): needs `pnpm test:visual --update` run on
-  Linux/CI image, then LOOK at the 5 PNGs, commit. Attempt only if a Linux
-  runner/Docker is actually available; otherwise leave the loud-skip in
-  place.
+- ✅ **E1. D5 trend sparklines** (`9d689694`). Inline SVG per trend series on
+  node detail pages, geometry as pure unit-tested functions in
+  `apps/site/src/lib/sparkline.ts` (the `.astro` component is neither
+  tsc-checked nor test-reachable, so no logic lives there). Confirmed: the
+  committed data is **languish-only** — `innovation-graph`/`tiobe` series will
+  draw for free once a real pipeline run lands them (O4's sibling). Series
+  with <2 points or ragged parallel arrays are not drawn. `detail-nim` pixel
+  baseline re-recorded and eyeballed, plus a dark-mode screenshot; the new
+  `trends.browser.test.ts` was verified faithful by removing the `viewBox`
+  (see the CLAUDE.md corollary — the naive height/width assertions did **not**
+  catch it).
+- ✅ **E2. Serialized dataset keys modernized** (`9dad7aec`, `pl+nim` →
+  `pl/nim`). `/data/plangs.json` was the last surface speaking v2 keys while
+  `llms.txt` and the README already promised `prefix/slug` everywhere. The
+  drift report converts the **frozen fixture** to v3 keys at read time
+  instead (fixture untouched); verified as a pure rename — the report prints
+  identical numbers before and after. `newToLegacy()` deleted by hand (knip
+  cannot see dead exports here); `legacyToNew` stays for the fixture and blog
+  frontmatter. New `serialize.test.ts` asserts the artifact's shape.
+- ✅ **E3. `FORBIDDEN_INFERENCES` → negative test** (`cfd51ca8`). The prose
+  array is now declarative (`from`/`to` kinds + `why`) and the graph's
+  inference test iterates it, against both a purpose-built graph and the real
+  dataset. Writing it declaratively **caught that the prose had the direction
+  backwards** ("a plang has a license" is stored `license → plang`), i.e. the
+  old wording described a pair no rule could ever produce.
+- 🔶 **E4. 2c CI enforcement of pixel baselines** — still blocked. Checked
+  2026-07-19: no `docker`/`podman`/`colima` on this machine, so the
+  `-chromium-linux` baseline set cannot be recorded here. The loud-skip stays.
+  Unblocks the moment CI (or any Linux runner) can run
+  `pnpm test:visual --update` — then LOOK at the 5 PNGs and commit them.
 
 Held out of the queue deliberately: the plain-Maps graphology replacement
 (buys nothing today — do it only if graphology goes fully dormant), and the
@@ -307,12 +311,22 @@ cutover, see O5).
 | D2 | Taxonomy pruning | `post` folded. `bundle`/`author`: open product call (O2), unblocked by the pivot. |
 | D3 | `/edit` editor + PR worker | **Dropped.** Edit = GitHub deep link to the node's YAML; CI validates. |
 | D4 | Filter-state encoding | Readable query params (`?paradigms=functional&mode=all`), replacing v2's `#rison`. |
-| D5 | Trend charts | Approved; **unblocked** — real trend data exists since the importer runs. Queued as E1. |
+| D5 | Trend charts | **Shipped 2026-07-19** as node-page sparklines (E1). Draws the languish series; other sources draw automatically once a real pipeline run commits them. |
 | D6 | v2 compatibility | **Dropped 2026-07-17** (owner). Gates → two-way drift reports; Linguist stays hard; fixture frozen as historical record. Executed same day. |
 | D7 | RDF / data model | **Proposed 2026-07-17, awaiting owner (O7)**: full RDF pivot rejected after deep research; two-core plan (TS canonical + derived Python semantic core, P0–P4) proposed; PGQL declared Oracle-legacy — track GQL/SQL-PGQ instead. |
 
 ## Log
 
+- **2026-07-19 (Opus session)** — **E1, E2, E3 landed**; full verification
+  loop green before each commit (biome+knip, tsc, astro check, 247 unit + 67
+  browser tests, URL check, data-fmt canonical, pixel baselines). Trend
+  sparklines shipped and eyeballed in both themes; the public dataset dropped
+  v2's `pl+nim` keys before any deploy, so no external contract can form
+  around them; `FORBIDDEN_INFERENCES` became an enforced declaration (and the
+  rewrite caught its direction was backwards). Every new test was confirmed
+  faithful by re-introducing the bug. E4 skipped — no Linux runtime on this
+  machine, verified. Nothing deployed. Durable discoveries moved to CLAUDE.md
+  (the SVG-viewBox verification corollary; the serializer's key shape).
 - **2026-07-17 (Fable session, later)** — **RDF/PGQL research; D7 proposed.**
   Three verified deep-research runs (RDF ecosystem, Python-core
   architecture, PGQL/GQL landscape) recorded above as the D7 proposal +

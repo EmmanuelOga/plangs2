@@ -31,6 +31,14 @@ For any visual change, screenshot it and look (Playwright is installed; serve
 `apps/site/dist` with sirv). When adding a regression test, re-introduce the
 bug and confirm the test fails — a non-faithful repro makes a vacuous test.
 
+*Corollary, measured on the sparklines (E1):* "the element has a plausible
+width and height" is not evidence it drew correctly. An `<svg>` whose `viewBox`
+is removed still lays out at the right size — the `width`/`height` attributes
+supply the intrinsic ratio — while the drawing paints unscaled into a corner.
+What detects it is comparing the PAINTED extent to the box
+(`polyline.getBoundingClientRect().width / svg.width`), plus the pixel
+baseline. Pick the assertion by re-introducing the bug, not by intuition.
+
 ### Pixel baselines (`apps/site/test/pixels.browser.test.ts`)
 
 The only tests asserting on **rendered pixels**; everything else asserts on
@@ -77,12 +85,14 @@ less than 1% of their pixels. Don't loosen it without re-measuring.
   direction rebuilds the old "any data change reddens CI" problem. What still
   blocks: the dataset must load with no structural errors, and v3's own pages
   (static routes, grids, blog-from-content) must exist in the build.
-- **Legacy-shaped output survives only until deliberately modernized**:
-  `toSerializedGraph()` still emits `pl+nim`-style keys and `urlKind()` still
-  lower-cases `/typesystem/...`. Since the pivot these are free to change as
-  their own tracked effort (ship redirects if the public URLs move); until
-  then don't churn them casually — the drift reports and the fixture reader
-  parse the `pl+nim` form.
+- **Legacy-shaped output survives only until deliberately modernized.**
+  `toSerializedGraph()` was modernized (E2, 2026-07-19): it emits v3 `pl/nim`
+  keys, and `round-trip.test.ts` converts the frozen fixture to v3 keys at
+  READ time instead — the fixture on disk stays `pl+nim` forever. `urlKind()`
+  still lower-cases `/typesystem/...`; that one is free to change as its own
+  tracked effort (ship redirects if the public URLs move), but don't churn it
+  casually. Anything that parses the fixture or blog frontmatter still needs
+  `legacyToNew`; nothing in v3 should ever WRITE a legacy key.
 
 ## Load-bearing subtleties (look like cruft, are not)
 
