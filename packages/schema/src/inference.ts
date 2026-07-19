@@ -6,9 +6,9 @@ import type { NodeDataOf } from "./zod.ts";
  *
  * The materialization pass in `@plangs/graph` runs these after loading and
  * before export. Materialized edges are marked `inferred: true` and are NEVER
- * written back to YAML. Some inferences are explicitly FORBIDDEN and encoded as
- * negative tests (see `packages/graph`): e.g. Plang → App → License must NOT
- * propagate a license to the plang.
+ * written back to YAML. Some inferences are explicitly FORBIDDEN: they are
+ * declared in `FORBIDDEN_INFERENCES` below and enforced by negative tests in
+ * `packages/graph/src/inference.test.ts`, which iterate that list.
  */
 /** The boolean-valued fields of a kind's schema — the only ones `derive` may set. */
 type BooleanPropsOf<K extends NodeKind> = {
@@ -64,7 +64,36 @@ export const INFERENCE_RULES: InferenceRule[] = [
 ];
 
 /**
- * Forbidden inferences — documented so the negative tests stay honest.
- * Format: human-readable path that must NOT be materialized.
+ * Inferences that must NEVER be materialized.
+ *
+ * This used to be an array of prose strings — dead by grep, load-bearing only
+ * as documentation, which is exactly the state where a rule quietly stops being
+ * true. It is now DECLARATIVE: `from`/`to` name the two kinds an inferred edge
+ * must never connect, and `packages/graph`'s negative test iterates this list,
+ * against both a purpose-built graph and the real dataset. Adding an entry adds
+ * a test; the prose survives as `why`, next to what enforces it.
  */
-export const FORBIDDEN_INFERENCES: string[] = ["plang → app → license (license does not propagate to the plang)"];
+export interface ForbiddenInference {
+  /** Human-readable path, e.g. `plang → app → license`. */
+  path: string;
+  /** Kind an inferred edge must not start from … */
+  from: NodeKind;
+  /** … when it would land on this kind. */
+  to: NodeKind;
+  /** Why the propagation would be wrong. */
+  why: string;
+}
+
+export const FORBIDDEN_INFERENCES: ForbiddenInference[] = [
+  {
+    // Edge DIRECTION matters here, and it is the opposite of how the rule
+    // reads in prose: "a plang has a license" is stored as `licenseRelPlangs`,
+    // license → plang. Declaring this the prose way round (from plang, to
+    // license) would name a pair no rule could ever produce — a negative test
+    // that can never fail, which is worse than no test.
+    path: "license → app → plang (an app's license must not reach the language it is written in)",
+    from: "license",
+    to: "plang",
+    why: "An app's license is the app's, not the language's. Propagating it would relicense every language that happens to have a permissively-licensed app written in it.",
+  },
+];

@@ -1,9 +1,22 @@
-import { kindOfPrefix } from "@plangs/schema";
+import { FORBIDDEN_INFERENCES, kindOfPrefix } from "@plangs/schema";
 import { MultiDirectedGraph } from "graphology";
 import { describe, expect, it } from "vitest";
-import type { AnyNodeAttrs, PlangsGraph } from "./load.ts";
+import { type AnyNodeAttrs, loadGraph, type PlangsGraph } from "./load.ts";
 import { materialize } from "./materialize.ts";
+import { NODES_DIR } from "./paths.ts";
 import { getPlang } from "./query.ts";
+
+/**
+ * The real dataset, materialized once. `loadGraph` does NOT materialize — the
+ * site's `getGraph()` calls `materialize()` right after loading — so the
+ * inference pass is applied here too, or the negative tests below would be
+ * asserting about a graph that never ran the rules they are guarding.
+ */
+const REAL = (() => {
+  const result = loadGraph(NODES_DIR);
+  materialize(result.graph);
+  return result;
+})();
 
 function node(g: PlangsGraph, key: string, extra: Partial<AnyNodeAttrs> = {}): void {
   const kind = extra.kind ?? kindOfPrefix(key.slice(0, key.indexOf("/")));
@@ -69,15 +82,39 @@ describe("materialization / inference rules (PLAN §4.4)", () => {
     expect(outNames(g, "bun/z", "plangRelTools").length).toBeGreaterThanOrEqual(0);
   });
 
-  it("NEVER infers Plang → License via Plang → App → License (forbidden)", () => {
-    const g = build();
-    materialize(g);
-    // No inferred license edge should reach pl/a from its app's license.
-    const licEdgesFromPlang: string[] = [];
-    g.forEachOutEdge("pl/a", (_e, a, _s, d) => {
-      if (a.name.toLowerCase().includes("license") || d.startsWith("lic/")) licEdgesFromPlang.push(d);
+  /**
+   * NEGATIVE TESTS, driven by the declaration (E3).
+   *
+   * `FORBIDDEN_INFERENCES` was prose in an unread array. Iterating it here is
+   * what makes it load-bearing: a new entry is a new assertion, and an entry
+   * whose rule stops holding reddens CI instead of aging into a comment.
+   *
+   * `build()` deliberately contains the plang → app → license chain, so the
+   * forbidden edge is one careless inference rule away from existing.
+   */
+  describe.each(FORBIDDEN_INFERENCES)("forbidden: $path", forbidden => {
+    function inferredCrossings(g: PlangsGraph): string[] {
+      const bad: string[] = [];
+      g.forEachDirectedEdge((_e, attrs, src, dst) => {
+        if (!attrs.inferred) return;
+        if (g.getNodeAttributes(src).kind !== forbidden.from) return;
+        if (g.getNodeAttributes(dst).kind !== forbidden.to) return;
+        bad.push(`${attrs.name}: ${src} → ${dst}`);
+      });
+      return bad;
+    }
+
+    it(`is not materialized on a graph that sets it up (${forbidden.why.slice(0, 40)}…)`, () => {
+      const g = build();
+      materialize(g);
+      expect(inferredCrossings(g)).toEqual([]);
     });
-    expect(licEdgesFromPlang).toEqual([]);
+
+    it("is not materialized on the real dataset either", () => {
+      // The synthetic graph proves the rules don't create it from a minimal
+      // setup; this proves no combination of 496 real nodes does either.
+      expect(inferredCrossings(REAL.graph)).toEqual([]);
+    });
   });
 
   it("is idempotent — a second pass materializes nothing new", () => {
