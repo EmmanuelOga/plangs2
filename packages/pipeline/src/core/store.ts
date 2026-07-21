@@ -2,7 +2,7 @@
 
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, sep } from "node:path";
-import { type NodeKind, prefixOfKind } from "@plangs/schema";
+import { type NodeKind, prefixOfKind, type RelTarget } from "@plangs/schema";
 import { formatNodeYaml, parseNodeYaml } from "./fields.ts";
 import type { NodeDoc } from "./types.ts";
 
@@ -26,7 +26,7 @@ export function loadNodes(nodesDir: string): NodeDoc[] {
   for (const { kind: kindDir, slug, path } of listNodeFiles(nodesDir)) {
     const kind = kindDir as NodeKind;
     const doc = parseNodeYaml(readFileSync(path, "utf8"));
-    const { rels, ...data } = doc as { rels?: Record<string, string[]> } & Record<string, unknown>;
+    const { rels, ...data } = doc as { rels?: Record<string, RelTarget[]> } & Record<string, unknown>;
     docs.push({ key: `${prefixOfKind(kind)}/${slug}`, kind, slug, path, data, rels: rels ?? {} });
   }
   return docs.sort((a, b) => a.key.localeCompare(b.key));

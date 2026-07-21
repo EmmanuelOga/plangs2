@@ -1,3 +1,4 @@
+import { refKey, zAnnotatedRef } from "@plangs/schema";
 import { describe, expect, it } from "vitest";
 import { loadGraph } from "./load.ts";
 import { NODES_DIR } from "./paths.ts";
@@ -26,10 +27,21 @@ describe("serialized graph (the public dataset artifact)", () => {
   });
 
   it("keys both ends of every edge the same way", () => {
-    const ends = Object.values(out.edges).flatMap(bySrc => Object.entries(bySrc).flatMap(([src, dsts]) => [src, ...dsts]));
+    const ends = Object.values(out.edges).flatMap(bySrc => Object.entries(bySrc).flatMap(([src, dsts]) => [src, ...dsts.map(refKey)]));
     expect(ends.length).toBeGreaterThan(1000);
     expect(ends.filter(k => !k.includes("/"))).toEqual([]);
     expect(ends.filter(k => k.slice(0, k.indexOf("/")).includes("+"))).toEqual([]);
+  });
+
+  it("emits qualified edges as annotated refs, matching the YAML convention (D8)", () => {
+    const annotated = Object.values(out.edges)
+      .flatMap(bySrc => Object.values(bySrc).flat())
+      .filter(t => typeof t !== "string");
+    // The dataset carries at least one authored qualifier (pl/swift's Apache
+    // license, since Swift's 2015 open-sourcing) — the machinery is exercised
+    // by real data, not only by unit fixtures.
+    expect(annotated.length).toBeGreaterThanOrEqual(1);
+    for (const t of annotated) expect(zAnnotatedRef.safeParse(t).success).toBe(true);
   });
 
   it("declares every kind and edge name even when empty, so the shape is data-independent", () => {
@@ -39,10 +51,11 @@ describe("serialized graph (the public dataset artifact)", () => {
     expect(Object.keys(out.edges).length).toBeGreaterThan(40);
   });
 
-  it("sorts edge targets, so the artifact does not churn between builds", () => {
+  it("sorts edge targets by key, so the artifact does not churn between builds", () => {
     for (const bySrc of Object.values(out.edges)) {
       for (const dsts of Object.values(bySrc)) {
-        expect(dsts).toEqual([...dsts].sort());
+        const keys = dsts.map(refKey);
+        expect(keys).toEqual([...keys].sort());
       }
     }
   });

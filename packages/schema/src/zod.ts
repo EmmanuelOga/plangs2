@@ -78,6 +78,13 @@ const plangShape = {
   ...githubShape,
   extensions: z.array(z.string()).optional(),
   filenames: z.array(z.string()).optional(),
+  /**
+   * When the project BEGAN (Wikidata's P571 sense) — distinct from `created`,
+   * which renders as "Appeared" and means first public release. Ex-O6, the
+   * first valid-time field under the D8 convention; the wikidata source keeps
+   * routing its P571 value to review (it suggests, never writes).
+   */
+  inception: zStrDate.optional(),
   isTranspiler: z.boolean().optional(),
   languishRanking: z.number().optional(),
   githubName: z.string().optional(),

@@ -46,12 +46,73 @@ export function orderData<T extends Record<string, unknown>>(data: T): T {
   return out as T;
 }
 
+/** Qualifier key order inside an annotated ref (D8): `ref` first, then valid time. */
+const ANNOTATED_REF_ORDER: readonly string[] = ["ref", "since", "until"];
+
+/**
+ * Canonical inner form of one rel target (D8 annotated refs). An object with
+ * only `ref` collapses to the bare key — one canonical spelling per fact.
+ * Anything that isn't a `{ref: string, ...}` object passes through untouched;
+ * the graph loader is what reports it, the formatter never destroys data.
+ */
+function canonicalTarget(target: unknown): unknown {
+  if (typeof target !== "object" || target === null || Array.isArray(target)) return target;
+  const t = target as Record<string, unknown>;
+  if (typeof t.ref !== "string") return target;
+  const keys = Object.keys(t);
+  if (keys.length === 1) return t.ref;
+  const out: Record<string, unknown> = {};
+  for (const q of ANNOTATED_REF_ORDER) if (q in t) out[q] = t[q];
+  for (const k of keys.filter(k => !ANNOTATED_REF_ORDER.includes(k)).sort()) out[k] = t[k];
+  return out;
+}
+
+/** The target's node key (bare string or annotated `ref`) for sorting/dedup. */
+function targetKey(target: unknown): string {
+  if (target && typeof target === "object" && !Array.isArray(target)) {
+    const ref = (target as Record<string, unknown>).ref;
+    if (typeof ref === "string") return ref;
+  }
+  return String(target);
+}
+
+/**
+ * Canonicalize one rel's target list: normalize each entry, dedup, sort by
+ * target key. Dedup drops exact duplicates and a bare key subsumed by an
+ * annotated form of the same ref; two annotated entries with the SAME ref but
+ * different qualifiers are both kept (that conflict is the author's to
+ * resolve — the loader warns, the formatter never picks a winner).
+ */
+function orderRelTargets(targets: unknown[]): unknown[] {
+  const normalized = targets.map(canonicalTarget);
+  const annotatedKeys = new Set(
+    normalized.filter(t => t !== null && typeof t === "object" && typeof (t as Record<string, unknown>).ref === "string").map(targetKey),
+  );
+  const seen = new Set<string>();
+  const out: unknown[] = [];
+  for (const t of normalized) {
+    if (typeof t === "string" && annotatedKeys.has(t)) continue;
+    const id = typeof t === "string" ? t : JSON.stringify(t);
+    if (seen.has(id)) continue;
+    seen.add(id);
+    out.push(t);
+  }
+  return out.sort((a, b) => {
+    const ka = targetKey(a);
+    const kb = targetKey(b);
+    if (ka !== kb) return ka < kb ? -1 : 1;
+    const ia = typeof a === "string" ? a : JSON.stringify(a);
+    const ib = typeof b === "string" ? b : JSON.stringify(b);
+    return ia < ib ? -1 : ia > ib ? 1 : 0;
+  });
+}
+
 /** Sort the keys of the `rels` map and each rel's target list (stable diffs). */
 function orderRels(rels: Record<string, unknown>): Record<string, unknown> {
   const out: Record<string, unknown> = {};
   for (const relKey of Object.keys(rels).sort()) {
     const targets = rels[relKey];
-    out[relKey] = Array.isArray(targets) ? [...new Set(targets as string[])].sort() : targets;
+    out[relKey] = Array.isArray(targets) ? orderRelTargets(targets) : targets;
   }
   return out;
 }

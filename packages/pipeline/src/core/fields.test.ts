@@ -67,6 +67,42 @@ describe("canonicalize", () => {
   });
 });
 
+describe("annotated rel targets (D8)", () => {
+  it("collapses an unqualified {ref} object to the bare key", () => {
+    const doc = canonicalize({ rels: { licenses: [{ ref: "lic/mit" }] } });
+    expect(doc.rels).toEqual({ licenses: ["lic/mit"] });
+  });
+
+  it("orders qualifier keys ref/since/until and sorts targets by key", () => {
+    const doc = canonicalize({ rels: { licenses: [{ until: "2010", ref: "lic/mit" }, "lic/apache"] } });
+    const targets = (doc.rels as Record<string, unknown[]>).licenses ?? [];
+    expect(targets).toEqual(["lic/apache", { ref: "lic/mit", until: "2010" }]);
+    expect(Object.keys(targets[1] as object)).toEqual(["ref", "until"]);
+  });
+
+  it("drops a bare key subsumed by an annotated form of the same ref", () => {
+    const doc = canonicalize({ rels: { licenses: ["lic/mit", { ref: "lic/mit", since: "2015" }] } });
+    expect(doc.rels).toEqual({ licenses: [{ ref: "lic/mit", since: "2015" }] });
+  });
+
+  it("keeps two annotated entries with the same ref but different intervals (never picks a winner)", () => {
+    const doc = canonicalize({
+      rels: {
+        licenses: [
+          { ref: "lic/mit", since: "2010" },
+          { ref: "lic/mit", until: "2005" },
+        ],
+      },
+    });
+    expect((doc.rels as Record<string, unknown[]>).licenses).toHaveLength(2);
+  });
+
+  it("is idempotent through formatText with annotated refs", () => {
+    const once = formatNodeYaml({ name: "X", rels: { licenses: [{ ref: "lic/apache", since: "2015-12-03" }, "lic/mit"] } });
+    expect(formatText(once)).toBe(once);
+  });
+});
+
 describe("formatNodeYaml", () => {
   it("is idempotent", () => {
     const once = formatNodeYaml({ name: "Nim", githubColor: "#ffc200", rels: { licenses: ["lic/mit"] } });

@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { legacyToNew } from "@plangs/schema";
+import { legacyToNew, refKey } from "@plangs/schema";
 import { describe, expect, it } from "vitest";
 import { loadGraph } from "./load.ts";
 import { NODES_DIR } from "./paths.ts";
@@ -76,7 +76,9 @@ function toV3Keys(ref: SerializedGraph): SerializedGraph {
   }
   const edges: SerializedGraph["edges"] = {};
   for (const [name, bySrc] of Object.entries(ref.edges)) {
-    edges[name] = Object.fromEntries(Object.entries(bySrc).map(([src, dsts]) => [legacyToNew(src), dsts.map(legacyToNew)]));
+    // The frozen fixture predates D8 so its targets are always bare strings,
+    // but going through refKey keeps this total if that ever changes.
+    edges[name] = Object.fromEntries(Object.entries(bySrc).map(([src, dsts]) => [legacyToNew(src), dsts.map(d => legacyToNew(refKey(d)))]));
   }
   return { vertices, edges };
 }
@@ -115,20 +117,23 @@ describe("dataset vs the frozen v2 record", () => {
       }
     }
 
+    // Edges compare by TARGET KEY on both sides: D8 qualifiers are v3-only
+    // enrichment, invisible to v2, so annotating a ref is neither an added nor
+    // a removed edge here.
     let addedEdges = 0;
     for (const [name, bySrc] of Object.entries(exported.edges)) {
       const refBySrc = reference.edges[name] ?? {};
       for (const [src, dsts] of Object.entries(bySrc)) {
-        const refDsts = new Set(refBySrc[src] ?? []);
-        addedEdges += dsts.filter(dst => !refDsts.has(dst)).length;
+        const refDsts = new Set((refBySrc[src] ?? []).map(refKey));
+        addedEdges += dsts.filter(dst => !refDsts.has(refKey(dst))).length;
       }
     }
     const removedEdges: string[] = [];
     for (const [name, bySrc] of Object.entries(reference.edges)) {
       for (const [src, dsts] of Object.entries(bySrc)) {
-        const current = new Set(exported.edges[name]?.[src] ?? []);
+        const current = new Set((exported.edges[name]?.[src] ?? []).map(refKey));
         for (const dst of dsts) {
-          if (!current.has(dst)) removedEdges.push(`${name}: ${src} → ${dst}`);
+          if (!current.has(refKey(dst))) removedEdges.push(`${name}: ${src} → ${refKey(dst)}`);
         }
       }
     }

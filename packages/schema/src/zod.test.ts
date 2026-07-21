@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { zAnnotatedRef, zRelTarget } from "./refs.ts";
 import type { NodeDataOf } from "./zod.ts";
 import { NODE_SCHEMAS } from "./zod.ts";
 
@@ -77,5 +78,27 @@ describe("node schemas", () => {
     expect(NODE_SCHEMAS.license.safeParse({ name: "MIT", spdx: "MIT", isOSIApproved: true }).success).toBe(true);
     expect(NODE_SCHEMAS.learning.safeParse({ name: "Book", kinds: ["book"] }).success).toBe(true);
     expect(NODE_SCHEMAS.learning.safeParse({ name: "Book", kinds: ["nope"] }).success).toBe(false);
+  });
+
+  it("validates inception (ex-O6) — the first valid-time field", () => {
+    expect(plang.safeParse({ name: "Python", inception: "1989-12" }).success).toBe(true);
+    expect(plang.safeParse({ name: "Python", inception: 1989 }).success, "YAML needs the quotes").toBe(false);
+  });
+});
+
+describe("annotated refs (D8)", () => {
+  it("accepts a bare key and a qualified ref alike", () => {
+    expect(zRelTarget.safeParse("lic/mit").success).toBe(true);
+    expect(zRelTarget.safeParse({ ref: "lic/apache", since: "2015-12-03" }).success).toBe(true);
+    expect(zRelTarget.safeParse({ ref: "lic/mit", since: "1.0", until: "3.0" }).success).toBe(true);
+  });
+
+  it("rejects a typo'd qualifier key — strictness is the typo net", () => {
+    expect(zAnnotatedRef.safeParse({ ref: "lic/mit", sinse: "2010" }).success).toBe(false);
+  });
+
+  it("rejects unquoted (numeric) qualifiers instead of silently mangling them", () => {
+    expect(zAnnotatedRef.safeParse({ ref: "lic/mit", since: 2010 }).success).toBe(false);
+    expect(zAnnotatedRef.safeParse({ since: "2010" }).success, "ref is required").toBe(false);
   });
 });

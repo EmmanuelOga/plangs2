@@ -1,4 +1,4 @@
-import type { NodeKind } from "@plangs/schema";
+import type { NodeKind, RelTarget } from "@plangs/schema";
 
 /** A node YAML file loaded off disk. `data` excludes `rels` (which sources never touch). */
 export interface NodeDoc {
@@ -10,8 +10,8 @@ export interface NodeDoc {
   path: string;
   /** Flat node data (everything except `rels`). */
   data: Record<string, unknown>;
-  /** The authored relation map — read-only for importers. */
-  rels: Record<string, string[]>;
+  /** The authored relation map — read-only for importers. Targets may be D8 annotated refs. */
+  rels: Record<string, RelTarget[]>;
 }
 
 /** Fetches a remote resource as text. Injected so tests never hit the network. */

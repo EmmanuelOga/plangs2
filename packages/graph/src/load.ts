@@ -1,6 +1,17 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join, sep } from "node:path";
-import { directedEdge, type NodeDataOf, type NodeKind, parseKey, prefixOfKind, resolveRel } from "@plangs/schema";
+import {
+  directedEdge,
+  type NodeDataOf,
+  type NodeKind,
+  parseKey,
+  prefixOfKind,
+  type RelTarget,
+  refKey,
+  refQualifiers,
+  resolveRel,
+  zAnnotatedRef,
+} from "@plangs/schema";
 import { MultiDirectedGraph } from "graphology";
 import { parse as parseYaml } from "yaml";
 
@@ -32,7 +43,7 @@ export interface EdgeAttrs {
   name: string;
   /** True for edges produced by the materialization pass (never written to YAML). */
   inferred?: boolean;
-  /** Optional edge properties (e.g. `influencedBy` citation source). */
+  /** Optional edge properties — today the D8 valid-time qualifiers (`since`/`until`) of an annotated ref. */
   props?: Record<string, unknown>;
 }
 
@@ -77,12 +88,12 @@ export function loadGraph(nodesDir: string): LoadResult {
 
   // Pass 1: create all defined nodes so edge targets can resolve.
   const files = listNodeFiles(nodesDir);
-  const parsed: { key: string; kind: NodeKind; rels: Record<string, string[]> }[] = [];
+  const parsed: { key: string; kind: NodeKind; rels: Record<string, RelTarget[]> }[] = [];
   for (const { kind: kindDir, slug, path } of files) {
     const doc = parseYaml(readFileSync(path, "utf8")) ?? {};
     const kind = kindDir as NodeKind;
     const key = `${prefixOfKind(kind)}/${slug}`;
-    const { rels, ...data } = doc as { rels?: Record<string, string[]> } & Record<string, unknown>;
+    const { rels, ...data } = doc as { rels?: Record<string, RelTarget[]> } & Record<string, unknown>;
     if (graph.hasNode(key) && graph.getNodeAttribute(key, "defined")) {
       issues.push({ level: "error", message: `Duplicate node key ${key}`, key });
     }
@@ -106,12 +117,25 @@ export function loadGraph(nodesDir: string): LoadResult {
         continue;
       }
       for (const target of targets) {
-        const de = directedEdge(kind, relKey, key, target);
+        // D8: a target may be an annotated ref `{ref, since?, until?}`. Zod
+        // (strict) is what turns a typo'd qualifier key into a load error
+        // instead of silently dropped data.
+        if (typeof target !== "string") {
+          const res = zAnnotatedRef.safeParse(target);
+          if (!res.success) {
+            const detail = res.error.issues.map(i => `${i.path.join(".") || "(ref)"}: ${i.message}`).join("; ");
+            issues.push({ level: "error", message: `Invalid annotated ref in ${key}.${relKey} — ${detail}`, key });
+            continue;
+          }
+        }
+        const targetKey = refKey(target);
+        const props = refQualifiers(target);
+        const de = directedEdge(kind, relKey, key, targetKey);
         if (!de) continue;
         const srcParsed = parseKey(de.src);
         const dstParsed = parseKey(de.dst);
         if (!srcParsed || !dstParsed) {
-          issues.push({ level: "error", message: `Malformed target key '${target}' in ${key}.${relKey}`, key });
+          issues.push({ level: "error", message: `Malformed target key '${targetKey}' in ${key}.${relKey}`, key });
           continue;
         }
         // Ensure both endpoints exist (dangling targets become undefined nodes).
@@ -119,7 +143,15 @@ export function loadGraph(nodesDir: string): LoadResult {
         ensureNode(graph, de.dst, dstParsed.kind);
         const edgeKey = `${de.name}:${de.src}->${de.dst}`;
         if (!graph.hasEdge(edgeKey)) {
-          graph.addDirectedEdgeWithKey(edgeKey, de.src, de.dst, { name: de.name });
+          graph.addDirectedEdgeWithKey(edgeKey, de.src, de.dst, props ? { name: de.name, props } : { name: de.name });
+        } else if (props) {
+          // The same edge can be authored from both endpoints (fromRel/toRel).
+          // First author wins; losing qualifiers must at least be visible.
+          issues.push({
+            level: "warn",
+            message: `Duplicate rel target ${targetKey} in ${key}.${relKey}: qualifiers ignored (edge already authored)`,
+            key,
+          });
         }
       }
     }

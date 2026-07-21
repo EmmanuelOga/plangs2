@@ -1055,7 +1055,8 @@ rels:
     - pl/rust
     - pl/scala
   licenses:
-    - lic/apache
+    - ref: lic/apache
+      since: 2015-12-03
   paradigms:
     - para/concurrent
     - para/dataflow
