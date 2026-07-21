@@ -270,22 +270,16 @@ Ordered; one commit per item; full loop between items. **E1–E3 landed
 2026-07-19** (Opus session); E4 remains blocked on a Linux runner; **E5–E10
 queued 2026-07-21** from the settled data model (D7/D8, O1/O2/O6 answers).
 
-**⚠ Environment blocker (2026-07-21): the headless loop cannot execute
-anything.** Under `claude -p --permission-mode acceptEdits`
-(roadmap-loop.sh's default) every Bash command outside the allowlist
-auto-denies with nobody to prompt: `node scripts/*.mjs`, all `pnpm`
-commands, and `git commit` were all denied this iteration, and
-`.claude/settings.local.json` is write-protected from inside a session, so
-the loop cannot allowlist them itself. Until this is fixed **no queue item
-can be verified or committed** — E6's changes sit dirty in the working tree
-on purpose (only that item's edits; see 🔶 above). Fix, either way: run
-`ROADMAP_LOOP_PERMISSIONS=bypassPermissions scripts/roadmap-loop.sh`
-(trusted-repo mode the script already documents), or interactively
-pre-approve the verification commands (`pnpm check|build|test*|url-parity`,
-`pnpm -F …`, `node scripts/data-fmt.mjs`, `node scripts/url-parity.mjs`,
-`git add|commit|diff|status|log|show`). Verified fixed when
-`node scripts/data-fmt.mjs --check` runs from a loop iteration without an
-approval error.
+**Environment blocker RESOLVED (2026-07-21): roadmap-loop.sh now passes a
+scoped `--allowedTools` list** (verification loop + git plumbing) to
+`claude -p`, so headless `acceptEdits` iterations can execute and commit.
+The list lives in the script itself (reviewable in git) because permission
+settings files cannot be edited from inside a session. Not covered by the
+allowlist (still needs `ROADMAP_LOOP_PERMISSIONS=bypassPermissions` or an
+interactive session): anything beyond the loop — `pnpm add`, `wrangler`,
+network fetches, file ops via shell. **Not yet re-verified end-to-end**: the
+next headless loop run should confirm an iteration gets past
+`node scripts/data-fmt.mjs` without an approval error.
 
 - ✅ **E1. D5 trend sparklines** (`9d689694`). Inline SVG per trend series on
   node detail pages, geometry as pure unit-tested functions in
@@ -433,10 +427,19 @@ Still open:
     `McpAgent`/DO only for a stateful collaborative tier; OAuth via
     `workers-oauth-provider`; Streamable HTTP, SSE deprecated). Lead
     verified candidate for the hosted MCP tier.
-  - **Zero 1.0** (stable June 2026, Apache-2, self-hostable) **hard-requires
-    Postgres as its upstream source of truth** — so role (a) is structural:
-    Postgres could only ever be a derived materialization of YAML+git, with
-    writes intercepted at Zero's Custom Mutators to land in git.
+  - **Zero 1.x** (1.0 stable June 2026, at 1.8 as of July 2026; Apache-2,
+    self-hostable) **hard-requires Postgres as its upstream source of
+    truth** — so role (a) is structural: Postgres could only ever be a
+    derived materialization of YAML+git, with writes intercepted at Zero's
+    Custom Mutators to land in git. **"Zero supports SQLite" re-checked
+    2026-07-21 (owner question) and REFUTED**: the SQLite that appears
+    throughout Zero's docs/repos (`zero-sqlite3` fork, litestream backup) is
+    zero-cache's *internal read replica* of the Postgres upstream, not a
+    supported source of truth. Current docs: "Today only Postgres is
+    supported" (Postgres ≥15 + logical replication); no SQLite/MySQL/BYO
+    upstream on the published roadmap or in 1.5–1.8 release notes; Custom
+    Mutators don't change this (the read/sync path is built on Postgres
+    logical replication).
   - **Convex** is very active and self-hostable but **FSL-licensed (not OSI
     open source; per-release Apache-2 conversion after 2 years)**, and
     self-host parity covers free-tier features only. Fine for non-competing

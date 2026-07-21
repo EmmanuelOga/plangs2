@@ -20,11 +20,25 @@ PERM="${ROADMAP_LOOP_PERMISSIONS:-acceptEdits}"
 LOG_DIR="${ROADMAP_LOOP_LOGDIR:-.claude/roadmap-loop-logs}"
 mkdir -p "$LOG_DIR"
 
+# In headless acceptEdits mode every non-allowlisted Bash command auto-denies
+# (nobody to prompt), which starved iteration 1 on 2026-07-21: E6 was written
+# but data-fmt/pnpm/git were all denied. Pre-approve exactly the verification
+# loop + git plumbing here, scoped to this script rather than settings.json.
+ALLOWED_TOOLS=(
+  "Bash(pnpm check)" "Bash(pnpm build)" "Bash(pnpm test)"
+  "Bash(pnpm test:*)" "Bash(pnpm url-parity)" "Bash(pnpm -F:*)"
+  "Bash(node scripts/data-fmt.mjs:*)" "Bash(node scripts/url-parity.mjs:*)"
+  "Bash(git add:*)" "Bash(git commit:*)" "Bash(git diff:*)"
+  "Bash(git status:*)" "Bash(git log:*)" "Bash(git show:*)"
+  "Bash(git restore:*)" "Bash(git stash:*)"
+)
+
 for i in $(seq 1 "$MAX_ITER"); do
   log="$LOG_DIR/$(date +%Y%m%d-%H%M%S)-iter$i.log"
   echo "──────── roadmap-loop: iteration $i/$MAX_ITER (fresh context) → $log"
 
-  claude -p "/roadmap-continue" --permission-mode "$PERM" 2>&1 | tee "$log"
+  claude -p "/roadmap-continue" --permission-mode "$PERM" \
+    --allowedTools "${ALLOWED_TOOLS[@]}" 2>&1 | tee "$log"
 
   sentinel="$(grep -Eo 'ROADMAP-LOOP: (CONTINUE|BLOCKED|DONE)' "$log" | tail -1)"
   case "$sentinel" in

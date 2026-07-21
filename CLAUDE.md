@@ -147,6 +147,16 @@ unused. Treat "knip is green" as "no unused *files* or *dependencies*", not
   is safe; deploying for real remains owner-led (ROADMAP track 3).
 - `pl/.net` is a **dotfile** (`packages/data/nodes/plang/.net.yaml`) —
   invisible to a bare `ls`; don't conclude it's missing.
+- **Headless `claude -p` under `acceptEdits` auto-denies every
+  non-allowlisted Bash command** (nobody to prompt), and a session cannot
+  edit `.claude/settings.local.json` itself (write-protected).
+  `roadmap-loop.sh` therefore passes a scoped `--allowedTools` list
+  (verification loop + git plumbing — kept in the script, reviewable in
+  git). Anything beyond that list still needs
+  `ROADMAP_LOOP_PERMISSIONS=bypassPermissions` or an interactive session.
+- **Comments in data YAML never survive**: `data-fmt` round-trips node files
+  through parse+stringify, so a YAML comment is deleted on the next format.
+  Facts that need prose belong in the schema docs or the node's fields.
 
 ## Sibling project: `~/dev/unrelated`
 
