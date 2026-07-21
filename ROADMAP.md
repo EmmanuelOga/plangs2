@@ -393,6 +393,30 @@ Still open:
   surface (P4 already targets it; one core can emit both). DSPy/BAML are a
   different layer (LLM programming / typed extraction — relevant to O4's AI
   enrichment, not to tool exposure).
+  **Verified facts for this decision (adversarial deep research, 2026-07-21;
+  full catalog: `~/dev/unrelated/doc/catalog.md`):**
+  - **MCP goes stateless 2026-07-28** (final spec, breaking: session header /
+    handshake removed). Any plangs MCP server targets the stateless spec
+    from day one; in-progress-edit state travels as explicit handles in tool
+    arguments. Recheck SDK status after publication.
+  - **Cloudflare's remote-MCP stack is shipped and tracks the new spec**
+    (`createMcpHandler` for stateless servers — no Durable Objects needed;
+    `McpAgent`/DO only for a stateful collaborative tier; OAuth via
+    `workers-oauth-provider`; Streamable HTTP, SSE deprecated). Lead
+    verified candidate for the hosted MCP tier.
+  - **Zero 1.0** (stable June 2026, Apache-2, self-hostable) **hard-requires
+    Postgres as its upstream source of truth** — so role (a) is structural:
+    Postgres could only ever be a derived materialization of YAML+git, with
+    writes intercepted at Zero's Custom Mutators to land in git.
+  - **Convex** is very active and self-hostable but **FSL-licensed (not OSI
+    open source; per-release Apache-2 conversion after 2 years)**, and
+    self-host parity covers free-tier features only. Fine for non-competing
+    use; not MIT/Apache today.
+  - **DSPy as the agent-loop substrate was REFUTED** in verification (alive,
+    but fit-for-purpose unconfirmed); **BAML repositioned as "the
+    programming language for agents"** and is the candidate to evaluate for
+    the agent surface instead. Open question: BAML vs hand-rolled loop vs
+    plain MCP tools.
 
 ## Deferred / stretch — ⛔ do not implement without the owner
 
