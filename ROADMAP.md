@@ -374,12 +374,33 @@ Still open:
   engines ≈ incremental view maintenance ≈ semi-naive Datalog — the same
   delta-propagation math as `unrelated`'s strategy seam; see
   `~/dev/unrelated/doc/lineage.md`.
+  **MCP folded in (2026-07-21)**: agent access splits into two tiers with
+  different dependencies. (1) **Read tier — backend-independent**: a local
+  stdio MCP server exposing the ~10 typed graph functions (search / get /
+  facet-query / neighbors) plus a `schema` tool serving `z.toJSONSchema`
+  output, so agents query the data model without parsing source. Could
+  unblock as its own execution item once the owner green-lights (supersedes
+  the blanket ⛔ below; the LadybugDB re-eval trigger still applies if its
+  query surface outgrows the typed helpers). (2) **Write tier — rides this
+  decision**: CRUD tools must go through the same canonical-write core as
+  the GUI (Standard Schema validation → `data-fmt` canonical YAML → commit/
+  PR; "MCP writes, git reviews" — never a direct DB write). Consequence:
+  E10's editor should be built as a reusable editing core with three thin
+  frontends (IDE-human, GUI, MCP-agent). Remote/hosted MCP (OAuth,
+  multi-user) is exactly the hosted-tier question — Cloudflare has
+  first-class remote-MCP hosting; evaluate alongside Convex/Zero. Note: MCP
+  is the de-facto agent-tool interop standard; OpenAPI is the adjacent
+  surface (P4 already targets it; one core can emit both). DSPy/BAML are a
+  different layer (LLM programming / typed extraction — relevant to O4's AI
+  enrichment, not to tool exposure).
 
 ## Deferred / stretch — ⛔ do not implement without the owner
 
-- ⛔ **MCP server** (PLAN §7.6): expose search/get/facet-query. Note: if its
-  query surface ever outgrows the typed helpers, that is a LadybugDB
-  re-evaluation trigger (above).
+- ⛔ **MCP server** (PLAN §7.6): expose search/get/facet-query. **Partially
+  superseded 2026-07-21**: design now lives in O8 (read tier
+  backend-independent and unblockable on owner say-so; write tier through
+  the canonical editing core). The LadybugDB re-evaluation trigger (query
+  surface outgrowing the typed helpers) still applies.
 - ⛔ **Facets client-render path** (+ virtualization): revisit only if DOM
   size measures badly; the research adds a datum — any wasm-DB-in-browser
   approach starts at ~1.4–3.2 MB compressed, so if this path ever opens, the
