@@ -148,6 +148,18 @@ unused. Treat "knip is green" as "no unused *files* or *dependencies*", not
 - `pl/.net` is a **dotfile** (`packages/data/nodes/plang/.net.yaml`) —
   invisible to a bare `ls`; don't conclude it's missing.
 
+## Sibling project: `~/dev/unrelated`
+
+The owner's relational-language platform (tiny term/goal/rule IR behind
+frontend/strategy/backend seams) — plangs and it orbit the same concepts and
+should read as **one program**. The shared history and division of labor is
+written up in `~/dev/unrelated/doc/lineage.md` (rainbowfish → plangs →
+unrelated): plangs is the live graph+nested-records *testbed and future
+backend*; unrelated is where the query surfaces / dream language get built.
+It is also the house TS+Python template (committed `mise.toml`, uv workspace,
+poe) to copy for any Python core here (D7/O7). Data-model decisions in either
+repo should check the other's context first.
+
 ## Doc convention
 
 Exactly two documents: this file (durable how-and-why, edit rather than

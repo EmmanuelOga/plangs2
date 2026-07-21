@@ -120,7 +120,63 @@ YAML → a Ladybug DB file as an *additional* artifact; queries move to its
 Cypher/GQL dialect — which sits on the ISO GQL standardization path, unlike
 graphology's imperative API or Cozo's Datalog.
 
-## Data model / RDF — D7 PROPOSED (2026-07-17, Fable session): two-core plan, 🧑 awaiting owner answers (O7)
+## Data model — D7 SETTLED (2026-07-21, owner session): TS/YAML canonical; RDF derived; dual validation; qualified edges
+
+Decided interactively with the owner (all five O7 questions answered, plus
+O1/O2/O6 and a D3 reopening in the same pass). Cross-project reasoning and
+history live in `~/dev/unrelated/doc/lineage.md`. **The settled model:**
+
+1. **Conceptual**: a property graph of curated nodes with ordered, nested
+   interiors, plus per-source provenance — the pipeline's disjoint-`owns`
+   model is named-graphs-in-TS-clothing.
+2. **Canonical serialization / SoT**: nested YAML documents; **TS + a
+   Standard Schema-conforming validator are the schema authority** (Zod
+   4.4.3 today, which implements `StandardSchemaV1`). Consumers type against
+   `StandardSchemaV1`, keeping validators plug-and-play (Valibot/ArkType
+   could drop in); the concrete library is load-bearing only where the spec
+   ends — **introspection** (GUI form rendering) and **JSON Schema export**
+   (`z.toJSONSchema`, the P3/P4 boundary artifact). Format stays YAML — TOML
+   (bad at nesting) and PKL/CUE/Dhall (second schema authority; JVM/Haskell
+   runtimes vs the plain-Node pipeline) were evaluated and rejected.
+3. **RDF is a derived view, never authored, never SoT**: quad export with a
+   named graph per source. Invariant: **no authored fact lives only in RDF**
+   — wanting to author something RDF-only is the signal to extend the
+   canonical schema instead. Derived enrichment (inference output,
+   provenance) may exist RDF-only; it's regenerable.
+4. **Validation, two layers**: Zod validates document shape (per-file); SHACL
+   validates assembled-graph semantics (referential integrity, forbidden
+   inferences — E3's declaration is its natural citizen). SHACL starts as a
+   printed **parity report** (non-gating, removable in one commit) and may
+   graduate to a gate **only after converging to zero divergence** vs TS
+   inference, which stays canonical.
+5. **Query surfaces are derived and plural**: graphology now; **DuckPGQ
+   (pin DuckDB 1.4.4) is the named SQL/PGQ reference target** (verified
+   2026-07-20: community extension, CWI research project, not in DuckDB
+   1.5.x); no PGQL layer — watch ISO GQL / SQL:2023 SQL-PGQ.
+6. **Qualified assertions (valid time) — minimal convention** (D8): any
+   relationship ref MAY be an annotated ref `{ref, since?, until?, ...}`
+   (version-or-date), opt-in, bare keys stay valid forever. **Git is
+   transaction time**; full bitemporality rejected (in-file tombstones would
+   ruin the hand-edited interior). O6's inception question becomes the first
+   instance. Authoring policy: humans hand-write only simple qualifiers;
+   GUI/pipeline write the rest.
+7. **Editing surface (D3 reopened)**: raw-YAML-in-IDE won't survive
+   contributors who aren't the owner. Replacement: a **schema-driven GUI
+   that writes canonical YAML** ("GUI writes, git reviews") — forms from the
+   Zod schema, ref-pickers from the dataset, output through `data-fmt`,
+   local-first (dev-only route). Agent editing (llms.txt, prefill URLs) is
+   the near-term assisted surface. Hosted dbdb-style CRUD rejected (forfeits
+   git-as-provenance and PR-as-moderation). Hosted/sync backend (Cloudflare
+   / Convex / Zero) deliberately open → O8.
+
+**Two-core track green-lit** (O7.1/O7.4 yes, as amended above): P0 scaffold
+(`cores/semantic/`, committed `mise.toml`, uv + poe, `~/dev/unrelated` house
+pattern) → P1 YAML→quads twin (pyoxigraph, named graph per source, `.nq`/
+`.trig`/JSON-LD artifacts + SHACL shapes + parity report) → P2 SHACL-AF
+spike → P3 LinkML schema artifacts → P4 server (🧑 owner-led,
+post-deploy). Now execution items E8/E9 below; P2–P4 queue behind them.
+
+### Background: the research that got here (2026-07-17)
 
 Three adversarially-verified deep-research runs (312 agents total, primary
 sources fetched 2026-07-17: W3C spec statuses, repo/release dates, registry
@@ -203,13 +259,16 @@ stats) on (1) the RDF ecosystem, (2) a Python "semantic core" architecture,
   owner-led (track 3).
 - ✅ **E1–E3 landed** (2026-07-19): trend sparklines, v3 keys in the public
   dataset, forbidden-inference negative tests. E4 blocked on a Linux runner.
-- The remaining work is almost entirely the owner-decision queue (below);
-  the execution queue is down to E4.
+- ✅ **Data model SETTLED** (2026-07-21, owner session): D7 final (TS/YAML
+  canonical, RDF derived, dual validation), D8 added (qualified edges,
+  valid time), D3 reopened → schema-driven GUI, O1/O2/O6/O7 all answered.
+  Execution queue refilled: E5–E10. Open owner items: O3, O4, O5, O8.
 
 ## Execution queue
 
 Ordered; one commit per item; full loop between items. **E1–E3 landed
-2026-07-19** (Opus session); E4 remains blocked on a Linux runner.
+2026-07-19** (Opus session); E4 remains blocked on a Linux runner; **E5–E10
+queued 2026-07-21** from the settled data model (D7/D8, O1/O2/O6 answers).
 
 - ✅ **E1. D5 trend sparklines** (`9d689694`). Inline SVG per trend series on
   node detail pages, geometry as pure unit-tested functions in
@@ -241,6 +300,36 @@ Ordered; one commit per item; full loop between items. **E1–E3 landed
   `-chromium-linux` baseline set cannot be recorded here. The loud-skip stays.
   Unblocks the moment CI (or any Linux runner) can run
   `pnpm test:visual --update` — then LOOK at the 5 PNGs and commit them.
+- ⬜ **E6. Annotated refs + valid-time qualifiers (D8)**. Schema: every
+  relationship list accepts bare key OR `{ref, since?, until?}`
+  (version-or-date); Zod discriminates; `data-fmt` canonicalizes; graph
+  compile maps object refs to edges-with-properties; serializer +
+  `/data/plangs.json` shape extended; `inception` (ex-O6) lands as the first
+  qualified field. First — E5/E7 sit downstream of the edge model.
+- ⬜ **E7. Drop `bundle` + `author` kinds (ex-O2)**. Nodes, `/bundle/*` and
+  `/author/geo` pages, facets, and the Bundle→Tool→Plang hoist rule go;
+  `author/geo` rels move to blog frontmatter. All removals print in the
+  drift reports and MUST be claimed in the commit message (hard rule 7).
+  Grid-visible → re-record pixel baselines and look.
+- ⬜ **E5. Wire the influence/family view (ex-O1)**. Keep the transitive
+  rule; `influencedByTransitive` / `plangsByParadigm` / `familyTree` get a
+  real site view (the user-facing proof the inference engine earns its
+  place). Small: exports exist, half-wired.
+- ⬜ **E8. Two-core P0: scaffold `cores/semantic/`**. Committed `mise.toml`
+  (repo has none — tools currently come from user-global config), uv
+  workspace, poe tasks, copying the `~/dev/unrelated` house pattern.
+  Non-gating from day one.
+- ⬜ **E9. Two-core P1: YAML→quads twin + parity report**. pyoxigraph, named
+  graph per source mirroring `owns`, emits `.nq`/`.trig`/JSON-LD artifacts;
+  hand-written SHACL shapes; cross-core parity report (printed, non-gating —
+  graduation to a gate only on measured convergence, per D7). P2 (SHACL-AF
+  spike) and P3 (LinkML) queue behind it; P4 (server) is 🧑 owner-led.
+- ⬜ **E10. Local schema-driven editor (D3 reopened)**. Dev-only route in the
+  Astro site (localhost, behind `pnpm dev`): forms rendered from the Zod
+  schema (introspection — the one place the concrete library is
+  load-bearing, per D7 §2), ref-pickers listing the dataset (the
+  "inspired by" checkbox experience), writes canonical YAML through
+  `data-fmt` → normal commit → PR. No backend; hosted/sync tier is O8.
 
 Held out of the queue deliberately: the plain-Maps graphology replacement
 (buys nothing today — do it only if graphology goes fully dormant), and the
@@ -250,17 +339,17 @@ cutover, see O5).
 
 ## Owner decision queue — 🧑 not yours, ask; listed so nothing is lost
 
-- **O1. 4f held exports**: `influencedByTransitive` / `plangsByParadigm` /
-  `familyTree` are dead by grep but are a half-wired influence/family view
-  (`influencedByTransitive` is the only reader of the transitive edge the
-  inference engine materializes). Keep-and-wire, or delete view+rule
-  together? (Deleting the rule removes 3,857 inferred edges → they'd print
-  as drift-report removals; that's the report working.)
-- **O2. D2 taxonomy**: do `bundle` (2 nodes) and `author` (1 node) survive
-  as concepts? Pure product call, fully unblocked now (removals print, they
-  don't fail). If dropped: `/bundle/*`, `/author/geo` pages disappear
-  (drift-reported), the Bundle→Tool→Plang hoist rule goes, and `author/geo`'s
-  rels need a home in blog frontmatter.
+Answered 2026-07-21 (owner session) and converted to execution items:
+**O1** → keep the transitive rule, wire the influence/family view (E5).
+**O2** → drop both `bundle` and `author` kinds (E7). **O6** → subsumed by
+the qualified-assertions convention (D8): `inception` becomes the first
+valid-time instance (part of E6). **O7** → all five answered; see the D7
+settled section (two-core green-lit as amended; `cores/semantic/` in-repo;
+PGQL framing accepted with DuckPGQ as reference target; schema.org markup
+deferred to cutover, revisit with O5).
+
+Still open:
+
 - **O3. PLDB node-addition policy**: importers only enrich existing nodes;
   growing the dataset from PLDB's notability filter is a whitelist-policy
   decision.
@@ -272,24 +361,19 @@ cutover, see O5).
   Decide whether the deployed v3 keeps them (current state; zero SEO risk)
   or modernizes with redirects at cutover. Then track 3 (3a ✅ cleared
   2026-07-17 → deploy → smoke test → 3e deploy Action) — owner-led; 2d (verify the
-  Claude/ChatGPT prefill URLs) needs a logged-in browser session.
-- **O6. Inception field**: stayed review-only by decision; reopen only if a
-  separate `inception` (vs "appeared") field earns its place in the model
-  rework.
-- **O7. D7 two-core / RDF questions** (research section above has full
-  context; answers unblock the D7 rewrite):
-  1. Adopt the phased two-core plan (derived, non-gating, files-as-glue,
-     TS inference canonical with SHACL parity-shadow)? Cut/reorder phases?
-  2. Python core in this repo (`cores/semantic/` + committed `mise.toml`,
-     recommended) or a separate repo?
-  3. Accept the PGQL framing: track the GQL/SQL-PGQ family, plangs stays an
-     exportable backend for `unrelated`'s query surfaces — no PGQL layer?
-  4. Green-light the roadmap rewrite (D7 row final, new P0–P4 track, fold
-     old "hybrid emit" into P1, PGQL watch-list; Opus's E1–E4 continues
-     unchanged in parallel)?
-  5. schema.org page markup (`ComputerLanguage` + `sameAs` in page heads):
-     near-free, honest-but-modest payoff (rich results, NOT AI citations) —
-     include or skip?
+  Claude/ChatGPT prefill URLs) needs a logged-in browser session. schema.org
+  markup (O7.5) rides along with this decision.
+- **O8. GUI hosted/sync backend** (opened 2026-07-21, discussion explicitly
+  unfinished): the local schema-driven editor (E10) needs no backend; the
+  question is whether/how it grows a hosted or collaborative tier —
+  Cloudflare primitives (Workers/D1/DO), Convex, or a sync engine
+  (Zero/rocicorp). Frame for the discussion: the sync layer must be role
+  **(a)** — an ephemeral collaboration/cache tier that materializes edits as
+  canonical YAML commits/PRs (git stays SoT) — never role (b), synced-DB-as-
+  SoT, which would reverse D7. Research thread attached: incremental sync
+  engines ≈ incremental view maintenance ≈ semi-naive Datalog — the same
+  delta-propagation math as `unrelated`'s strategy seam; see
+  `~/dev/unrelated/doc/lineage.md`.
 
 ## Deferred / stretch — ⛔ do not implement without the owner
 
@@ -308,15 +392,28 @@ cutover, see O5).
 | # | Decision | Outcome |
 |---|---|---|
 | D1 | Graph engine | **Closed 2026-07-17 after deep research**: keep graphology as build-time container; plain-Maps is the dormancy fallback; LadybugDB (the live Kuzu lineage — Apple acqui-hired the company, MIT fork continues) is the sole re-evaluation candidate, on concrete triggers only. CozoDB / DuckPGQ / oxigraph ruled out (dormant / research-grade / wrong model). |
-| D2 | Taxonomy pruning | `post` folded. `bundle`/`author`: open product call (O2), unblocked by the pivot. |
-| D3 | `/edit` editor + PR worker | **Dropped.** Edit = GitHub deep link to the node's YAML; CI validates. |
+| D2 | Taxonomy pruning | `post` folded. **Resolved 2026-07-21** (owner): drop `bundle` + `author` too (E7). |
+| D3 | `/edit` editor + PR worker | Dropped 2026-07; **reopened 2026-07-21** (owner): deep-link-only won't survive non-owner contributors. Now: local schema-driven GUI writing canonical YAML (E10) + agent path; hosted CRUD stays rejected; hosted/sync tier open (O8). |
 | D4 | Filter-state encoding | Readable query params (`?paradigms=functional&mode=all`), replacing v2's `#rison`. |
 | D5 | Trend charts | **Shipped 2026-07-19** as node-page sparklines (E1). Draws the languish series; other sources draw automatically once a real pipeline run commits them. |
 | D6 | v2 compatibility | **Dropped 2026-07-17** (owner). Gates → two-way drift reports; Linguist stays hard; fixture frozen as historical record. Executed same day. |
-| D7 | RDF / data model | **Proposed 2026-07-17, awaiting owner (O7)**: full RDF pivot rejected after deep research; two-core plan (TS canonical + derived Python semantic core, P0–P4) proposed; PGQL declared Oracle-legacy — track GQL/SQL-PGQ instead. |
+| D7 | RDF / data model | **SETTLED 2026-07-21** (owner): TS/YAML canonical (Standard Schema validators, Zod 4 concrete); RDF derived-only ("no authored fact lives only in RDF"); dual validation (Zod shape + SHACL graph semantics, parity report graduating on convergence); two-core green-lit (E8/E9); DuckPGQ = SQL/PGQ reference target. Full model: settled section above; history: `~/dev/unrelated/doc/lineage.md`. |
+| D8 | Temporal / edge model | **Settled 2026-07-21** (owner): opt-in annotated refs `{ref, since?, until?}` — valid time only, git IS transaction time; full bitemporality rejected (append-only tombstones vs hand-edited files). Authoring policy: humans write simple qualifiers; GUI/pipeline write the rest (E6). |
 
 ## Log
 
+- **2026-07-21 (owner session, interactive)** — **Data model settled.** All
+  five O7 questions + O1/O2/O6 answered with the owner; D7 finalized (TS/YAML
+  canonical with Standard Schema validators, RDF derived-only, dual
+  validation with graduation-on-convergence, DuckPGQ as SQL/PGQ target,
+  format stays YAML); D8 added (opt-in annotated refs, valid time only, git
+  as transaction time — full bitemporality explicitly rejected); D3 reopened
+  (raw-YAML editing judged owner-only; schema-driven GUI + agent path,
+  hosted/sync tier parked as O8 with the sync-engine ≈ incremental-Datalog
+  research thread noted). Execution queue refilled E5–E10. Cross-project
+  lineage doc written at `~/dev/unrelated/doc/lineage.md` (rainbowfish →
+  plangs → unrelated) and both repos' CLAUDE.md now cross-reference each
+  other. Docs-only session — no code, nothing deployed.
 - **2026-07-19 (Opus session)** — **E1, E2, E3 landed**; full verification
   loop green before each commit (biome+knip, tsc, astro check, 247 unit + 67
   browser tests, URL check, data-fmt canonical, pixel baselines). Trend
