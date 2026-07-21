@@ -7,6 +7,7 @@
     "node": ">=22.12"
   },
   "scripts": {
+    "dev": "pnpm -F @plangs/site dev",
     "build": "pnpm -r build",
     "test": "vitest run --project=unit",
     "test:watch": "vitest",
