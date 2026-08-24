@@ -1,0 +1,50 @@
+name: SEMAPRAX
+shortDesc: Experimental agent-native systems language with stable semantic identity and native/Wasm targets.
+description: SEMAPRAX is an Apache-2.0 pre-alpha systems programming language designed so coding agents can operate on a versioned semantic graph instead of reconstructing meaning from text. Its Rust compiler provides stable declaration identities, bounded semantic impact and review, evidence-gated patches, ownership checking, and deterministic native C11 and WebAssembly Core output.
+created: "2026"
+keywords:
+  - agent-native
+  - coding agents
+  - compiler
+  - semantic graph
+  - semantic identity
+  - systems programming
+extGithubPath: wavect/semaprax
+extHomeURL: https://wavect.io/semaprax/
+extensions:
+  - .spx
+githubStars: 5
+isTranspiler: false
+links:
+  - title: Language specification
+    url: https://github.com/wavect/semaprax/blob/main/docs/RFC-0001.md
+updated: 2026-08-24
+rels:
+  compilesTo:
+    - pl/c
+    - pl/webassembly
+  licenses:
+    - lic/apache
+  paradigms:
+    - para/compiled
+    - para/contracts
+    - para/general-purpose
+    - para/imperative
+    - para/modular
+    - para/pattern-matching
+    - para/structured
+  platforms:
+    - plat/wasm
+  tags:
+    - tag/analysis
+    - tag/cli
+    - tag/compiler
+    - tag/graph
+  typeSystems:
+    - tsys/algebraic
+    - tsys/generic
+    - tsys/nominal
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/rust
