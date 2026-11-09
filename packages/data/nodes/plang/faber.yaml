@@ -1,0 +1,55 @@
+name: Faber
+shortDesc: Experimental statically typed language for coding agents and human authors; multi-target emit.
+description: >
+  Faber Romanus is an experimental statically typed language designed so coding agents can write
+  programs and people can read them. It has a mechanical grammar, explicit static and generic types,
+  math-oriented operators, and sealed reader locales so the same program reads in eight human
+  languages. It compiles to Rust, TypeScript, Go, Swift, Python, WebAssembly and more. The front end,
+  runner, standard library and grammar are MIT OR Apache-2.0; code generators in the official release
+  binary are closed-source. Experimental through version 1 (current release 1.19.1).
+created: "2026"
+keywords:
+  - agents
+  - faber
+  - multi-target
+  - programming
+  - transpile
+extGithubPath: faberlang/faber
+extHomeURL: https://faberlang.dev
+extensions:
+  - .fab
+githubStars: 1
+isTranspiler: true
+releases:
+  - version: 1.19.1
+    name: Faber 1.19.1
+    date: 2026-11-09
+rels:
+  compilesTo:
+    - pl/go
+    - pl/python
+    - pl/rust
+    - pl/swift
+    - pl/typescript
+    - pl/webassembly
+  licenses:
+    - lic/apache
+    - lic/mit
+  paradigms:
+    - para/agents
+    - para/compiled
+    - para/general-purpose
+    - para/multi
+  platforms:
+    - plat/apple
+    - plat/linux
+  tags:
+    - tag/cli
+    - tag/compiler
+    - tag/languages
+  typeSystems:
+    - tsys/generic
+    - tsys/static
+    - tsys/strong
+  writtenWith:
+    - pl/rust
