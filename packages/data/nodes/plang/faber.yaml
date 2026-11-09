@@ -23,7 +23,7 @@ isTranspiler: true
 releases:
   - version: 1.19.1
     name: Faber 1.19.1
-    date: 2026-10-31
+    date: 2026-11-09
 rels:
   compilesTo:
     - pl/go
