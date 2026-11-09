@@ -6,7 +6,7 @@ description: >
   math-oriented operators, and sealed reader locales so the same program reads in eight human
   languages. It compiles to Rust, TypeScript, Go, Swift, Python, WebAssembly and more. The front end,
   runner, standard library and grammar are MIT OR Apache-2.0; code generators in the official release
-  binary are closed-source. Experimental through version 1 (current release 1.18.1).
+  binary are closed-source. Experimental through version 1 (current release 1.19.1).
 created: "2026"
 keywords:
   - agents
@@ -21,8 +21,8 @@ extensions:
 githubStars: 1
 isTranspiler: true
 releases:
-  - version: 1.18.1
-    name: Faber 1.18.1
+  - version: 1.19.1
+    name: Faber 1.19.1
     date: 2026-10-31
 rels:
   compilesTo:
