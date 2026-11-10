@@ -1,0 +1,35 @@
+name: SlowLang
+shortDesc: Esoteric Python-like language that punishes typing above 30 WPM with turtle rage and haiku errors.
+description: SlowLang (aka TortoiseLang) is a joke language whose IDE enforces slow typing. Crossing the 30 WPM cap shows an angry ASCII turtle and locks the editor, and programs must call the please() builtin within every politeness window or the run is refused. Winner of TinkerHub "Useless Projects 2.0" hackathon (August 2025).
+created: "2025"
+keywords:
+  - esoteric
+  - joke language
+  - typing speed
+  - sarcastic errors
+extHomeURL: https://sebin-gg.github.io/slowlang/
+extensions:
+  - .slow
+isTranspiler: false
+releases:
+  - version: "1.0"
+    name: Hackathon release
+    date: 2025-08-01
+rels:
+  influencedBy:
+    - pl/python
+  licenses:
+    - lic/mit
+  paradigms:
+    - para/esoteric
+    - para/interpreted
+  platforms:
+    - plat/cross
+    - plat/web
+  tags:
+    - tag/interpreters
+    - tag/languages
+  websites:
+    - title: Esolangs wiki
+      href: https://esolangs.org/wiki/SlowLang
+      kind: other
